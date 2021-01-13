@@ -15,45 +15,22 @@ npm test
 This brings up a test menu, for instance:
 
 ```
-? Which week? (Use arrow keys)
-> Week3
-  Week4
-```
-
-(`Week3` selected)
-
-```
+? Which module? 1-JavaScript
 ? Which week? Week3
-? Which exercise? (Use arrow keys)
-> creditNumberValidator
-```
-
-(`creditNumberValidator` selected)
-
-```
-? Which exercise? creditNumberValidator
-This exercise has not been touched yet.
+? Which exercise? ex1-giveCompliment
+You have not yet worked on this exercise.
 
 *** Unit Test Error Report ***
 
-- validateCreditCardNumber should accept 9999777788880000
-- validateCreditCardNumber should accept 6666666666661666
-- validateCreditCardNumber should reject a92332119c011112
-- validateCreditCardNumber should reject 4444444444444444
-- validateCreditCardNumber should reject 1111111111111110
-- validateCreditCardNumber should reject 6666666666666661
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+- giveCompliment should contain a `const` array named `compliments` with 10 strings
 
-*** ESLint Report ***
-
-C:\Users\jimcr\dev\hackyourfuture\WIP-Javascript\Week3\homework\creditNumberValidator.js
-  24:35  error  'number' is defined but never used  no-unused-vars
-
-✖ 1 problem (1 error, 0 warnings)
+No linting errors detected.
 ```
 
 Analysis:
 
-- The starter code of the exercise has not yet been modified by the student as indicated by the message _This exercise has not been touched yet_.
+- The starter code of the exercise has not yet been modified by the student as indicated by the message _You have not yet worked on this exercise_.
 
 - The **Unit Test Error Report** lists the failing unit tests.
 
@@ -80,41 +57,37 @@ The report folders are tracked by Git and are part of the pull requests submitte
 
 ## Configuration
 
-All the code for the test facility is stored in the subfolder `test-automation`. The available tests are defined in the `config.json` in that folder. This file contains a JSON object in a format as illustrated in the example below:
+The directory names for the curriculum modules in should be defined in `test-automation/modules.json`. For example:
 
 ```json
-{
-  "Week3": ["creditNumberValidator"],
-  "Week4": ["doubleEvenNumbers"]
-}
+["1-JavaScript", "2-Browsers", "3-UsingAPIs"]
 ```
 
-The `Week3` and `Week4` keys in this example represent the names of the `Week` folders containing the exercises (subfolder `homework`) and the corresponding unit tests (subfolder `homework-tests`). Each week is represented by array listing the names of the exercises. The exercise names must be unique across the entire repository.
-
-The following naming convention must be adhere to:
+The test facility relies on adherence to a specific naming convention and directory structure as illustrated in the table below.
 
 <!-- prettier-ignore -->
 Folder | Description |
 ------ | ----------- |
-`Week𝑛/homework` | The JavaScript file representing the exercise name must named `<exercise-name>.js`. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then exercise name must be used to name the _folder_ containing the relevant files.
-`Week𝑛/homework-tests` | The JavaScript file containing the unit test(s) for the exercise must named `<exercise-name>.test.js`.
+`<module-name>/Week𝑛/homework` | The JavaScript file representing the exercise name must named `<exercise-name>.js`. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then exercise name must be used to name the _folder_ containing the relevant files.
+`<module-name>/Week𝑛/unit-tests` | The JavaScript file containing the unit test(s) for the exercise must named `<exercise-name>.test.js`.
 
-ESLint rules are configured as usual in the file `.eslintrc.js`.
+ESLint rules are configured as usual in the file `.eslintrc.js`. It is possible to define a hierarchy of `.eslintrc.js` files if certain exercise require custom ESLint rules. See [ESLint: Configuration Cascading and Hierarchy](https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy).
 
-## Initialization
+## Preparation
 
 A number of folders and files are automatically created by means of a `postinstall` script in `package.json`. This script is run automatically after `npm install` has completed installing the dependencies defined in `package.json`. The process is steered by the same `config.json` file mentioned earlier.
 
 In each `Week` folder listed in `config.json` a subfolder `homework-reports` is created. Inside each `homework-reports` folder one or more `.todo.txt` report files are created, one for each test of the corresponding week. The resulting structure thus looks like this:
 
 ```
-Week3/
-  homework/
-    creditNumberValidator.js
-  homework-reports/
-    creditNumberValidator.todo.txt
-  homework-tests/
-    creditNumberValidator.test.js
+1-JavaScript/
+  Week3/
+    homework/
+      creditNumberValidator.js
+    test-reports/
+      creditNumberValidator.todo.txt
+    unit-tests/
+      creditNumberValidator.test.js
 ```
 
 Furthermore, a file `.hashes.json` is created in the `test-automation` folder that contains a JSON object with the computed hashes of the `.js` file contents of the exercises. This information is used to determine whether an exercise file (or files) is modified. Note that this file is not tracked by Git (it is listed in `.gitignore`).
