@@ -1,4 +1,4 @@
-# Test Automation Architecture
+# Test Automation
 
 ## Introduction
 
