@@ -200,7 +200,7 @@ async function main() {
     console.log(chalk.green("No spelling errors detected."));
   }
 
-  if (untouched) {
+  if (!untouched) {
     await writeReport(module, week, exercise, report);
   }
 }
