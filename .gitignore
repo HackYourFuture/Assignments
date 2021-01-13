@@ -119,7 +119,7 @@ dist
 # test-automation
 .hashes.json
 .recent.json
-*.done.js
+.homework
 
 # Remove before making operational
 test-reports
