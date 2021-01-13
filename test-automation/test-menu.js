@@ -147,9 +147,9 @@ async function main() {
   }
 
   if (!useRecent) {
-    ({ module } = await selectModule(Object.keys(menuData))), module;
-    ({ week } = await selectWeek(Object.keys(menuData[module]))), week;
-    ({ exercise } = await selectExercise(menuData[module][week])), exercise;
+    ({ module } = await selectModule(Object.keys(menuData)));
+    ({ week } = await selectWeek(Object.keys(menuData[module])));
+    ({ exercise } = await selectExercise(menuData[module][week]));
     saveMostRecentSelection(module, week, exercise);
   }
 
