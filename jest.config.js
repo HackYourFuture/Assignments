@@ -2,6 +2,6 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
-  preset: 'jest-puppeteer',
+  preset: "jest-puppeteer",
   maxConcurrency: 1,
 };
