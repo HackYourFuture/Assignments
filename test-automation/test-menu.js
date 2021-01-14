@@ -182,7 +182,7 @@ async function main() {
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(jestOutput));
     report += `${title}\n\n${jestOutput}`;
-    logger.error(jestOutput.trim());
+    logger.error("Unit Tests:\n" + jestOutput.trim());
   } else {
     console.log(chalk.green("All unit tests passed."));
   }
@@ -197,7 +197,7 @@ async function main() {
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(esLintOutput));
     report += `\n${title}\n${esLintOutput}`;
-    logger.error(esLintOutput.trim());
+    logger.error("ESLint:\n" + esLintOutput.trim());
   } else {
     console.log(chalk.green("No linting errors detected."));
   }
@@ -211,7 +211,7 @@ async function main() {
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(cspellOutput));
     report += `\n${title}\n\n${cspellOutput}`;
-    logger.error(cspellOutput.trim());
+    logger.error("Spelling:\n" + cspellOutput.trim());
   } else {
     console.log(chalk.green("No spelling errors detected."));
   }
@@ -237,6 +237,8 @@ async function main() {
         await fs.writeFile(disclaimerPath, "Disclaimer turned off", "utf8");
       }
     }
+  } else {
+    logger.info("All steps were completed successfully");
   }
 }
 
