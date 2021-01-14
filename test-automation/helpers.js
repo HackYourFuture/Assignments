@@ -39,7 +39,7 @@ function compileMenuData() {
 function computeHash(exercisePath) {
   const md5sum = crypto.createHash("md5");
   const fileSpec = fs.existsSync(exercisePath) ? "/**/*.js" : ".js";
-  const globSpec = exercisePath + fileSpec;
+  const globSpec = (exercisePath + fileSpec).replace(/\\/g, "/");
   const filePaths = fg.sync(globSpec);
   for (const filePath of filePaths) {
     const content = fs.readFileSync(filePath, "utf8");
