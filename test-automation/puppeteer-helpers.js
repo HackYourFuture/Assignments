@@ -15,7 +15,6 @@ const config = {
 };
 
 async function copyFiles(exercisesDir) {
-  console.log("__dirname :>> ", __dirname);
   try {
     await fs.mkdir("./temp");
   } catch (err) {
@@ -47,7 +46,7 @@ async function prepare(page) {
   const { testPath } = expect.getState();
   const exercisePath = testPath
     .replace("unit-tests", "homework")
-    .replace(/\..*$/, "");
+    .replace(/\.test\.js$/, "");
   await copyFiles(exercisePath);
   return setUp(page);
 }
