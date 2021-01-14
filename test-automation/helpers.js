@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
-const glob = require("glob");
+const fg = require("fast-glob");
 
 function makePath(module, week, folder, exercise) {
   let relPath = `../${module}/${week}/${folder}`;
@@ -11,22 +11,27 @@ function makePath(module, week, folder, exercise) {
   return path.join(__dirname, relPath);
 }
 
-function compileMenuData(dirNames) {
+function compileMenuData() {
   const menuData = {};
-  dirNames.forEach((dirName) => {
-    menuData[dirName] = {};
-    const fileSpec = path.join(__dirname, "..", dirName, "**/*.test.js");
-    const filePaths = glob.sync(fileSpec);
-    filePaths.forEach((filePath) => {
-      const matches = filePath.match(/(Week\d).*\/(.+).test.js$/i);
-      if (matches) {
-        const [, week, testName] = matches;
-        if (!menuData[dirName][week]) {
-          menuData[dirName][week] = [];
-        }
-        menuData[dirName][week].push(testName);
+  const fileSpec = path
+    .join(__dirname, "..", "**/unit-tests/**/*.test.js")
+    .replace(/\\/g, "/");
+  const filePaths = fg.sync([fileSpec, "!**/node_modules"]);
+
+  filePaths.forEach((filePath) => {
+    const matches = filePath.match(
+      /homework\/(.+)\/(Week\d).*\/(.+).test.js$/i
+    );
+    if (matches) {
+      const [, module, week, testName] = matches;
+      if (!menuData[module]) {
+        menuData[module] = {};
       }
-    });
+      if (!menuData[module][week]) {
+        menuData[module][week] = [];
+      }
+      menuData[module][week].push(testName);
+    }
   });
   return menuData;
 }
@@ -35,7 +40,7 @@ function computeHash(exercisePath) {
   const md5sum = crypto.createHash("md5");
   const fileSpec = fs.existsSync(exercisePath) ? "/**/*.js" : ".js";
   const globSpec = exercisePath + fileSpec;
-  const filePaths = glob.sync(globSpec);
+  const filePaths = fg.sync(globSpec);
   for (const filePath of filePaths) {
     const content = fs.readFileSync(filePath, "utf8");
     md5sum.update(content);

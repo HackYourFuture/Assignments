@@ -5,7 +5,6 @@ const util = require("util");
 const _rimraf = require("rimraf");
 const chalk = require("chalk");
 const { makePath, compileMenuData, computeHash } = require("./helpers");
-const moduleNames = require("./modules.json");
 
 const rimraf = util.promisify(_rimraf);
 
@@ -17,7 +16,11 @@ async function prepareReportFolders(menuData) {
       const dirPath = makePath(moduleName, week, "test-reports");
       if (!existsSync(dirPath)) {
         await fs.mkdir(dirPath);
+        console.log(
+          `Created \`test-reports\` folder for ${moduleName}/${week}`
+        );
       } else {
+        console.log(`Cleaned up test reports for ${moduleName}/${week}`);
         await rimraf(path.normalize(`${dirPath}/*`));
       }
       const exercises = menuData[moduleName][week];
@@ -53,7 +56,7 @@ async function prepareHashes(menuData) {
 (async () => {
   try {
     console.log("Scanning for unit tests...");
-    const menuData = compileMenuData(moduleNames);
+    const menuData = compileMenuData();
 
     console.log("Preparing report folders...");
     await prepareReportFolders(menuData);

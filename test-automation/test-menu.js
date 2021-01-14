@@ -6,7 +6,6 @@ const inquirer = require("inquirer");
 const chalk = require("chalk");
 const { makePath, compileMenuData, computeHash } = require("./helpers");
 const hashes = require("./.hashes.json");
-const moduleNames = require("./modules.json");
 
 async function unlink(filePath) {
   try {
@@ -136,7 +135,7 @@ function saveMostRecentSelection(module, week, exercise) {
 }
 
 async function main() {
-  const menuData = compileMenuData(moduleNames);
+  const menuData = compileMenuData();
   let module, week, exercise;
   let useRecent = false;
 
