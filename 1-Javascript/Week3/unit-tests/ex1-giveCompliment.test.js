@@ -17,7 +17,7 @@ describe("giveCompliment", () => {
   it("should give a random compliment: You are `compliment`, `name`!", () => {
     const mathRandomSpy = jest.spyOn(Math, "random");
     expect(giveCompliment("Nancy")).toEqual(
-      expect.stringMatching(/^You are [a-z]+, Nancy!$/)
+      expect.stringMatching(/^You are [a-z]+, Nancy[.!]?$/)
     );
     expect(mathRandomSpy).toHaveBeenCalled();
     mathRandomSpy.mockRestore();
