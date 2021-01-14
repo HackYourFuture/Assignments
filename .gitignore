@@ -120,4 +120,4 @@ dist
 .hashes.json
 .recent.json
 .homework
-
+!test.log

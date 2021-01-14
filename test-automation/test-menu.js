@@ -5,6 +5,7 @@ const { execSync } = require("child_process");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const { makePath, compileMenuData, computeHash } = require("./helpers");
+const logger = require("./logger");
 const hashes = require("./.hashes.json");
 
 async function unlink(filePath) {
@@ -152,6 +153,8 @@ async function main() {
     saveMostRecentSelection(module, week, exercise);
   }
 
+  logger.info(`>>> Running Unit Test \`${exercise}\` <<<`);
+
   const exercisePath = makePath(module, week, "homework", exercise);
   const hash = await computeHash(exercisePath);
 
@@ -168,6 +171,7 @@ async function main() {
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(jestOutput));
     report += `${title}\n\n${jestOutput}`;
+    logger.error(jestOutput.trim());
   } else {
     console.log(chalk.green("All unit tests passed."));
   }
@@ -182,6 +186,7 @@ async function main() {
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(esLintOutput));
     report += `\n${title}\n${esLintOutput}`;
+    logger.error(esLintOutput.trim());
   } else {
     console.log(chalk.green("No linting errors detected."));
   }
@@ -195,6 +200,7 @@ async function main() {
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(cspellOutput));
     report += `\n${title}\n\n${cspellOutput}`;
+    logger.error(cspellOutput.trim());
   } else {
     console.log(chalk.green("No spelling errors detected."));
   }

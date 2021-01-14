@@ -3,6 +3,7 @@
     "words": [
         "autofix",
         "camelcase",
-        "eqeqeq"
+        "eqeqeq",
+        "printf"
     ]
 }
