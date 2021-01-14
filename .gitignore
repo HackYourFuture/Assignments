@@ -121,6 +121,3 @@ dist
 .recent.json
 .homework
 
-# Remove before making operational
-test-reports
-

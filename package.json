@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./test-automation/test-menu",
-    "postinstall": "node ./test-automation/test-prepare"
+    "postinstall": "node ./test-automation/test-prepare",
+    "clean": "node ./test-automation/clean"
   },
   "repository": {
     "type": "git",
