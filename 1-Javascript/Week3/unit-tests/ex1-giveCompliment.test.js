@@ -14,15 +14,6 @@ describe("giveCompliment", () => {
     rootNode = acorn.parse(source, { ecmaVersion: 2020 });
   });
 
-  it("should give a random compliment: You are `compliment`, `name`!", () => {
-    const mathRandomSpy = jest.spyOn(Math, "random");
-    expect(giveCompliment("Nancy")).toEqual(
-      expect.stringMatching(/^You are [a-z]+, Nancy[.!]?$/)
-    );
-    expect(mathRandomSpy).toHaveBeenCalled();
-    mathRandomSpy.mockRestore();
-  });
-
   it("should contain a `const` array named `compliments` with 10 strings", () => {
     const found = walk.findNodeAfter(rootNode, 0, (type, node) => {
       return type === "VariableDeclarator" && node.id.name === "compliments";
@@ -34,5 +25,30 @@ describe("giveCompliment", () => {
     expect(
       found.node.init.elements.every((elem) => typeof elem.value === "string")
     ).toBe(true);
+  });
+
+  it("should give a random compliment: You are `compliment`, `name`!", () => {
+    const found = walk.findNodeAfter(rootNode, 0, (type, node) => {
+      return type === "VariableDeclarator" && node.id.name === "compliments";
+    });
+
+    let message;
+
+    if (found) {
+      const compliments = found.node.init.elements.map((elem) => elem.value);
+      const compliment = compliments[compliments.length - 1];
+
+      const mathRandomSpy = jest.spyOn(Math, "random").mockReturnValue(0.9999);
+      const received = giveCompliment("Nancy");
+
+      expect(mathRandomSpy).toHaveBeenCalled();
+      mathRandomSpy.mockRestore();
+
+      const expected = `You are ${compliment}, Nancy!`;
+      if (received !== expected) {
+        message = `\n  Expected: ${expected}\n  Received: ${received}`;
+      }
+    }
+    expect(message).toBe("");
   });
 });
