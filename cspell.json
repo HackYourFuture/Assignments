@@ -4,6 +4,7 @@
         "autofix",
         "camelcase",
         "eqeqeq",
+        "networkidle",
         "printf"
     ]
 }

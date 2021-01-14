@@ -105,7 +105,7 @@ function execJest(name) {
     console.log(chalk.green("All unit tests passed."));
     return "";
   } catch (err) {
-    const output = err.stdout.trim();
+    const output = err.stdout;
     const title = "*** Unit Test Error Report ***";
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
@@ -119,7 +119,13 @@ function execESLint(exercisePath) {
   const lintSpec = existsSync(exercisePath)
     ? exercisePath
     : `${exercisePath}.js`;
-  const output = execSync(`npx eslint ${lintSpec}`, { encoding: "utf8" });
+  // Note: ESLint warnings do not throw an error
+  let output;
+  try {
+    output = execSync(`npx eslint ${lintSpec}`, { encoding: "utf8" });
+  } catch (err) {
+    output = err.stdout;
+  }
   if (output) {
     const title = "*** ESLint Report ***";
     console.log(chalk.yellow(`\n${title}`));
@@ -145,7 +151,7 @@ function execSpellChecker(exercisePath) {
     console.log(chalk.green("No spelling errors detected."));
     return "";
   } catch (err) {
-    const output = err.stdout.trim();
+    const output = err.stdout;
     const title = "*** Spell Checker Report ***";
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
@@ -210,7 +216,11 @@ async function main() {
       saveMostRecentSelection(module, week, exercise);
     }
 
-    logger.info(`>>> Running Unit Test \`${exercise}\` <<<`);
+    const title = `>>> Running Unit Test \`${exercise}\` <<<`;
+    const separator = "-".repeat(title.length);
+    logger.info(separator);
+    logger.info(title);
+    logger.info(separator);
 
     const exercisePath = makePath(module, week, "homework", exercise);
     const hash = await computeHash(exercisePath);
@@ -220,6 +230,7 @@ async function main() {
       console.log(chalk.blue("You have not yet worked on this exercise."));
     }
 
+    console.log("Running test, please wait...");
     let report = "";
     report += execJest(exercise);
     report += execESLint(exercisePath);

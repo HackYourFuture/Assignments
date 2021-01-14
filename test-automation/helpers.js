@@ -59,12 +59,11 @@ async function prepareReportFolders(menuData) {
     for (const week of weeks) {
       const dirPath = makePath(moduleName, week, "test-reports");
       if (!fs.existsSync(dirPath)) {
-        await fs.mkdir(dirPath);
+        fs.mkdirSync(dirPath);
         console.log(
           `Created \`test-reports\` folder for ${moduleName}/${week}`
         );
       } else {
-        console.log(`Initialized test reports for ${moduleName}/${week}`);
         await rimraf(path.normalize(`${dirPath}/*`));
       }
       const exercises = menuData[moduleName][week];
@@ -72,6 +71,7 @@ async function prepareReportFolders(menuData) {
         const reportPath = path.join(dirPath, `${exercise}.todo.txt`);
         fs.writeFileSync(reportPath, "This test has not been run.", "utf8");
       }
+      console.log(`Initialized test reports for ${moduleName}/${week}`);
     }
   }
 }
