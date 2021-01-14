@@ -1,7 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const util = require("util");
+const _rimraf = require("rimraf");
 const fg = require("fast-glob");
+
+const rimraf = util.promisify(_rimraf);
 
 function makePath(module, week, folder, exercise) {
   let relPath = `../${module}/${week}/${folder}`;
@@ -48,8 +52,33 @@ function computeHash(exercisePath) {
   return md5sum.digest("hex");
 }
 
+async function prepareReportFolders(menuData) {
+  for (const moduleName of Object.keys(menuData)) {
+    const weeks = Object.keys(menuData[moduleName]);
+
+    for (const week of weeks) {
+      const dirPath = makePath(moduleName, week, "test-reports");
+      if (!fs.existsSync(dirPath)) {
+        await fs.mkdir(dirPath);
+        console.log(
+          `Created \`test-reports\` folder for ${moduleName}/${week}`
+        );
+      } else {
+        console.log(`Initialized test reports for ${moduleName}/${week}`);
+        await rimraf(path.normalize(`${dirPath}/*`));
+      }
+      const exercises = menuData[moduleName][week];
+      for (const exercise of exercises) {
+        const reportPath = path.join(dirPath, `${exercise}.todo.txt`);
+        fs.writeFileSync(reportPath, "This test has not been run.", "utf8");
+      }
+    }
+  }
+}
+
 module.exports = {
   compileMenuData,
   computeHash,
+  prepareReportFolders,
   makePath,
 };
