@@ -4,9 +4,20 @@ const path = require("path");
 const { execSync } = require("child_process");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
+const prompts = require("prompts");
 const { makePath, compileMenuData, computeHash } = require("./helpers");
 const logger = require("./logger");
 const hashes = require("./.hashes.json");
+
+const disclaimer = `
+*** Disclaimer **
+
+The test checker is an automated runner that follows 
+a very strict set of rules defined by us, which means
+it is possible that it gives you incorrect feedback 
+if you solved the problem in a way we did not foresee.
+See the results here as suggestions, not the truth!
+`;
 
 async function unlink(filePath) {
   try {
@@ -207,6 +218,25 @@ async function main() {
 
   if (!untouched) {
     await writeReport(module, week, exercise, report);
+  }
+
+  if (report) {
+    const disclaimerPath = path.join(__dirname, ".disclaimer");
+    const hideDisclaimer = existsSync(disclaimerPath);
+    if (!hideDisclaimer) {
+      console.log(chalk.magenta(disclaimer));
+      const { answer } = await prompts({
+        type: "confirm",
+        name: "answer",
+        message: "Display this disclaimer in the future?",
+        initial: true,
+      });
+      if (!answer) {
+        console.log("Disclaimer turned off");
+        logger.info("Disclaimer turned off");
+        await fs.writeFile(disclaimerPath, "Disclaimer turned off", "utf8");
+      }
+    }
   }
 }
 

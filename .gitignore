@@ -119,5 +119,6 @@ dist
 # test-automation
 .hashes.json
 .recent.json
+.disclaimer
 .homework
 !test.log
