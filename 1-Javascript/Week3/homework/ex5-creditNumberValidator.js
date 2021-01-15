@@ -22,10 +22,11 @@
  * - 6666666666666661 (odd final number)
  */
 
-function validateCreditCardNumber(number) {
+function validateCreditCardNumber(/* argument(s) go here*/) {
   // add your code here
 }
 
+// Do not modify or delete anything below this line
 module.exports = {
   validateCreditCardNumber,
 };
