@@ -63,7 +63,7 @@ The report folders are tracked by Git and are part of the pull requests submitte
 
 ### Test log file
 
-Test results along with other events are also logged in a `test.log` file in the root of the project folder. This log file is tracked in Git and can be used by students and mentor to review the testing history.
+Test results along with other events are also logged in a `<email>.log` file in the root of the project folder, where `<email>` is the user's Git email address. This log file is tracked in Git and can be used by students and mentor to review the testing history.
 
 ## Directory Structure
 
