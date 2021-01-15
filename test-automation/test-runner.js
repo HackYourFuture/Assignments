@@ -190,9 +190,10 @@ async function showDisclaimer() {
       initial: true,
     });
     if (!answer) {
-      console.log("Disclaimer turned off");
-      logger.info("Disclaimer turned off");
-      await fs.writeFile(disclaimerPath, "Disclaimer turned off", "utf8");
+      const message = "Disclaimer turned off";
+      console.log(message);
+      logger.info(message);
+      await fs.writeFile(disclaimerPath, "off", "utf8");
     }
   }
 }
@@ -227,6 +228,7 @@ async function main() {
 
     const untouched = hash === hashes[exercise];
     if (untouched) {
+      logger.info("Exercise has not yet been modified");
       console.log(chalk.blue("You have not yet worked on this exercise."));
     }
 
@@ -246,7 +248,9 @@ async function main() {
       logger.info("All steps were completed successfully");
     }
   } catch (err) {
-    console.error(chalk.red(`Something went wrong: ${err.message}`));
+    const message = `Something went wrong: ${err.message}`;
+    logger.error(message);
+    console.error(chalk.red(message));
   }
 }
 
