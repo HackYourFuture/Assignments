@@ -16,7 +16,12 @@ describe("giveCompliment", () => {
 
   it("should contain a `const` array named `compliments` with 10 strings", () => {
     const found = walk.findNodeAfter(rootNode, 0, (type, node) => {
-      return type === "VariableDeclarator" && node.id.name === "compliments";
+      return (
+        type === "VariableDeclarator" &&
+        node.id.name === "compliments" &&
+        node.init &&
+        node.init.type === "ArrayExpression"
+      );
     });
 
     expect(found).toBeDefined();
@@ -29,26 +34,30 @@ describe("giveCompliment", () => {
 
   it("should give a random compliment: You are `compliment`, `name`!", () => {
     const found = walk.findNodeAfter(rootNode, 0, (type, node) => {
-      return type === "VariableDeclarator" && node.id.name === "compliments";
+      return (
+        type === "VariableDeclarator" &&
+        node.id.name === "compliments" &&
+        node.init &&
+        node.init.type === "ArrayExpression"
+      );
     });
 
-    let message;
+    expect(found).toBeDefined();
 
-    if (found) {
-      const compliments = found.node.init.elements.map((elem) => elem.value);
-      const compliment = compliments[compliments.length - 1];
+    const compliments = found.node.init.elements.map((elem) => elem.value);
+    const compliment = compliments[0];
 
-      const mathRandomSpy = jest.spyOn(Math, "random").mockReturnValue(0.9999);
-      const received = giveCompliment("Nancy");
+    const mathRandomSpy = jest.spyOn(Math, "random").mockReturnValue(0);
+    const received = giveCompliment("Nancy");
 
-      expect(mathRandomSpy).toHaveBeenCalled();
-      mathRandomSpy.mockRestore();
+    expect(mathRandomSpy).toHaveBeenCalled();
+    mathRandomSpy.mockRestore();
 
-      const expected = `You are ${compliment}, Nancy!`;
-      if (received !== expected) {
-        message = `\n  Expected: ${expected}\n  Received: ${received}`;
-      }
-    }
+    const expected = `You are ${compliment}, Nancy!`;
+    const message =
+      received === expected
+        ? ""
+        : `\n  Expected: ${expected}\n  Received: ${received}`;
     expect(message).toBe("");
   });
 });
