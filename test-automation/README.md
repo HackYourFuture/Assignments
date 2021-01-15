@@ -100,7 +100,11 @@ Furthermore, a file `.hashes.json` is created in the `test-automation` folder th
 
 ## Cleanup
 
-A cleanup script is provided for use by the mentors maintaining this repo. This script must be run before committing changes, to ensure that test reports and log files created during development and testing are cleaned up and thus not included in the Git repo. Because these files need to be Git-tracked when students run the tests they cannot be listed in `.gitignore`.
+The `postinstall` script must be run before committing changes to the master repo to ensure that all test reports are restored to the default `.todo.txt` files and the log file, if present, is cleaned up:
+
+```
+npm run postinstall
+```
 
 ## Exercises and Unit Tests
 

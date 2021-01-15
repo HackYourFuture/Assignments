@@ -1,6 +1,11 @@
 const fs = require("fs").promises;
 const path = require("path");
+const util = require("util");
 const chalk = require("chalk");
+const _rimraf = require("rimraf");
+
+const rimraf = util.promisify(_rimraf);
+
 const {
   makePath,
   compileMenuData,
@@ -29,6 +34,11 @@ async function prepareHashes(menuData) {
   );
 }
 
+function cleanUpLogFiles() {
+  console.log("Cleaning up log files...");
+  return rimraf(path.join(__dirname, "../*.log"));
+}
+
 (async () => {
   try {
     console.log("Scanning for unit tests...");
@@ -39,6 +49,9 @@ async function prepareHashes(menuData) {
 
     console.log("Computing exercise hashes...");
     await prepareHashes(menuData);
+
+    console.log("Clean up log files...");
+    await cleanUpLogFiles();
 
     console.log(chalk.green("Preparation was completed successfully."));
   } catch (err) {
