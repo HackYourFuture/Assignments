@@ -35,7 +35,6 @@ async function prepareHashes(menuData) {
 }
 
 function cleanUpLogFiles() {
-  console.log("Cleaning up log files...");
   return rimraf(path.join(__dirname, "../*.log"));
 }
 
@@ -50,7 +49,7 @@ function cleanUpLogFiles() {
     console.log("Computing exercise hashes...");
     await prepareHashes(menuData);
 
-    console.log("Clean up log files...");
+    console.log("Cleaning up log files...");
     await cleanUpLogFiles();
 
     console.log(chalk.green("Preparation was completed successfully."));
