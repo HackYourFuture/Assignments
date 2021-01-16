@@ -1,26 +1,86 @@
 "use strict";
 
-const {
-  validateCreditCardNumber,
-} = require("../homework/creditNumberValidator");
+function expectedReceived(expected, received) {
+  if (expected === received) {
+    return "";
+  }
+  return `\nExpected: ${expected}\nReceived: ${received}`;
+}
 
 describe("validateCreditCardNumber", () => {
-  it("should accept 9999777788880000", () => {
-    expect(validateCreditCardNumber("9999777788880000")).toBe(true);
+  let logSpy;
+  let validateCreditNumber;
+
+  beforeAll(() => {
+    const spy = jest.spyOn(console, "log").mockImplementation();
+    ({
+      validateCreditNumber,
+    } = require("../homework/ex5-creditNumberValidator"));
+    spy.mockRestore();
   });
-  it("should accept 6666666666661666", () => {
-    expect(validateCreditCardNumber("6666666666661666")).toBe(true);
+
+  beforeEach(() => {
+    logSpy = jest.spyOn(console, "log").mockImplementation();
   });
-  it("should reject a92332119c011112", () => {
-    expect(validateCreditCardNumber("a92332119c011112")).toBe(false);
+
+  afterEach(() => {
+    logSpy.mockRestore();
   });
-  it("should reject 4444444444444444", () => {
-    expect(validateCreditCardNumber("4444444444444444")).toBe(false);
+
+  it("should reject a92332119c011112 (invalid characters)", () => {
+    validateCreditNumber("a92332119c011112");
+    expect(logSpy).toHaveBeenCalled();
+
+    const message = expectedReceived(
+      "Invalid! The input a92332119c011112 should contain only numbers!",
+      logSpy.mock.calls[0][0]
+    );
+    expect(message).toBe("");
   });
-  it("should reject 1111111111111110", () => {
-    expect(validateCreditCardNumber("1111111111111110")).toBe(false);
+
+  it("should reject 4444444444444444 (all digits the same)", () => {
+    validateCreditNumber("4444444444444444");
+    expect(logSpy).toHaveBeenCalled();
+
+    const message = expectedReceived(
+      "Invalid! The input 4444444444444444 should contain at least 2 different types of numbers!",
+      logSpy.mock.calls[0][0]
+    );
+    expect(message).toBe("");
   });
-  it("should reject 6666666666666661", () => {
-    expect(validateCreditCardNumber("6666666666666661")).toBe(false);
+
+  it("should accept 6666666666661666 (valid)", () => {
+    validateCreditNumber("6666666666661666");
+    expect(logSpy).toHaveBeenCalled();
+
+    const message = expectedReceived(
+      "Success! The input 6666666666661666 is a valid credit card number!",
+      logSpy.mock.calls[0][0]
+    );
+    expect(message).toBe("");
+  });
+
+  it("should reject 1111111111111110 (sum < 16)", () => {
+    validateCreditNumber("1111111111111110");
+    expect(logSpy).toHaveBeenCalled();
+    expect(logSpy.mock.calls[0][0]).toEqual(
+      expect.not.stringContaining("Success")
+    );
+  });
+
+  it("should reject 6666666666666661 (final odd number)", () => {
+    validateCreditNumber("6666666666666661");
+    expect(logSpy).toHaveBeenCalled();
+    expect(logSpy.mock.calls[0][0]).toEqual(
+      expect.not.stringContaining("Success")
+    );
+  });
+
+  it("should reject 6666666666666 (length !== 16)", () => {
+    validateCreditNumber("6666666666666");
+    expect(logSpy).toHaveBeenCalled();
+    expect(logSpy.mock.calls[0][0]).toEqual(
+      expect.not.stringContaining("Success")
+    );
   });
 });
