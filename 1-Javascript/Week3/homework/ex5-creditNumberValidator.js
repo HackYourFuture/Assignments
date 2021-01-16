@@ -22,7 +22,7 @@
  * - 6666666666666661 (odd final number)
  */
 
-function validateCreditNumber(/* argument(s) go here*/) {
+function validateCreditNumber(/* parameters go here */) {
   // add your code here
 }
 
@@ -30,7 +30,7 @@ validateCreditNumber("a92332119c011112"); // Returns "Invalid! The input a923321
 validateCreditNumber("4444444444444444"); // Returns "Invalid! The input 4444444444444444 should contain at least 2 different types of numbers!""
 validateCreditNumber("6666666666661666"); // Returns "Success! The input 6666666666661666 is a valid credit card number!""
 
-// Do not modify or delete anything below this line
+// Do not change or remove the code below
 module.exports = {
   validateCreditNumber,
 };

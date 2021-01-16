@@ -12,7 +12,7 @@ const jobs = [
   /* ... */
 ];
 
-function tellFortune(/* parameter(s) go here */) {
+function tellFortune(/* parameters go here */) {
   // replace this comment with your code
 }
 
@@ -21,6 +21,7 @@ console.log(tellFortune(numChildren, partnerNames, locations, jobs));
 console.log(tellFortune(numChildren, partnerNames, locations, jobs));
 console.log(tellFortune(numChildren, partnerNames, locations, jobs));
 
+// Do not change or remove the code below
 module.exports = {
   tellFortune,
 };

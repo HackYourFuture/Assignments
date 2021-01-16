@@ -14,7 +14,7 @@
  *   calculateDogAge(3); // Returns "Your doggie is 21 years old in dog years!"
  */
 
-function calculateDogAge(/* add parameter(s) here*/) {
+function calculateDogAge(/* parameters go here */) {
   // replace this comment with your code
 }
 
@@ -22,6 +22,7 @@ console.log(calculateDogAge(1));
 console.log(calculateDogAge(2));
 console.log(calculateDogAge(3));
 
+// Do not change or remove the code below
 module.exports = {
   calculateDogAge,
 };
