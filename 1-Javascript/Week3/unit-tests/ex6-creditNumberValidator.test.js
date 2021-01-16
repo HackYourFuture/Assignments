@@ -15,7 +15,7 @@ describe("validateCreditCardNumber", () => {
     const spy = jest.spyOn(console, "log").mockImplementation();
     ({
       validateCreditNumber,
-    } = require("../homework/ex5-creditNumberValidator"));
+    } = require("../homework/ex6-creditNumberValidator"));
     spy.mockRestore();
   });
 

@@ -15,7 +15,7 @@ class MyCustomReporter {
             // unit test, e.g.:
             // expect(messages).toBe('')
             message += failureDetails.map(({ error }) => {
-              if (error.code) {
+              if (error.code || !error.matcherResult) {
                 throw error;
               }
               return error.matcherResult.expected === ""
