@@ -4,9 +4,10 @@ function giveCompliment(/* parameters go here */) {
   // replace this comment with your code
 }
 
-console.log(giveCompliment("Nancy"));
-console.log(giveCompliment("Nancy"));
-console.log(giveCompliment("Nancy"));
+// substitute your own name for "Jack"
+console.log(giveCompliment("Jack"));
+console.log(giveCompliment("Jack"));
+console.log(giveCompliment("Jack"));
 
 // Do not change or remove the code below
 module.exports = {
