@@ -52,7 +52,7 @@ function cleanUpLogFiles() {
     console.log("Cleaning up log files...");
     await cleanUpLogFiles();
 
-    console.log(chalk.green("Preparation was completed successfully."));
+    console.log(chalk.green("Postinstall was completed successfully."));
   } catch (err) {
     console.error(chalk.red(`Something went wrong: ${err.message}`));
   }
