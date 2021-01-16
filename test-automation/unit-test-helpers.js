@@ -11,7 +11,7 @@ function expectedReceived(expected, received) {
 function beforeAllHelper(exercisePath, options = {}) {
   const spy = jest.spyOn(console, "log").mockImplementation();
   const result = {};
-  result.exportedFunction = require(exercisePath);
+  result.exports = require(exercisePath);
   spy.mockRestore();
   if (options.parse === true) {
     const source = fs.readFileSync(exercisePath, "utf8");

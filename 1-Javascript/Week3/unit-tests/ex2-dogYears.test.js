@@ -11,8 +11,8 @@ describe("calculateDogAge", () => {
   let calculateDogAge;
 
   beforeAll(() => {
-    const { exportedFunction } = beforeAllHelper(exercisePath);
-    calculateDogAge = exportedFunction;
+    const { exports } = beforeAllHelper(exercisePath);
+    calculateDogAge = exports;
   });
 
   it("(1) should return `Your doggie is 7 years old in dog years!`", () => {

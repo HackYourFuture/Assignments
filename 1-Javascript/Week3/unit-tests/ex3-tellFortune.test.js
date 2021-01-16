@@ -15,10 +15,10 @@ describe("tellFortune", () => {
   const state = {};
 
   beforeAll(() => {
-    const { exportedFunction, rootNode } = beforeAllHelper(exercisePath, {
+    const { exports, rootNode } = beforeAllHelper(exercisePath, {
       parse: true,
     });
-    tellFortune = exportedFunction;
+    tellFortune = exports;
     walk.simple(rootNode, {
       VariableDeclarator({ id, init }) {
         if (id && init && init.type === "ArrayExpression") {

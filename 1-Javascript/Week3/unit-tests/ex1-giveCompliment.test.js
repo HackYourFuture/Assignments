@@ -14,10 +14,10 @@ describe("giveCompliment", () => {
   const state = {};
 
   beforeAll(() => {
-    const { exportedFunction, rootNode } = beforeAllHelper(exercisePath, {
+    const { exports, rootNode } = beforeAllHelper(exercisePath, {
       parse: true,
     });
-    giveCompliment = exportedFunction;
+    giveCompliment = exports;
 
     walk.simple(rootNode, {
       VariableDeclarator({ id, init }) {
