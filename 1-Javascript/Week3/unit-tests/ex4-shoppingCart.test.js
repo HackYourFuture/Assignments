@@ -1,60 +1,43 @@
 "use strict";
+const path = require("path");
+const {
+  expectedReceived,
+} = require("../../../test-automation/unit-test-helpers");
 
-function expectedReceived(expected, received) {
-  if (expected === received) {
-    return "";
-  }
-  return `\nExpected: ${expected}\nReceived: ${received}`;
-}
+const exercisePath = path.join(__dirname, "../homework/ex4-shoppingCart.js");
 
 describe("addToShoppingCart", () => {
   let logSpy;
-  let addToShoppingCart;
 
   beforeAll(() => {
-    const spy = jest.spyOn(console, "log").mockImplementation();
-    ({ addToShoppingCart } = require("../homework/ex4-shoppingCart"));
-    spy.mockRestore();
-  });
-
-  beforeEach(() => {
     logSpy = jest.spyOn(console, "log").mockImplementation();
+    // All calls to console.log happen at require time for this exercise
+    require(exercisePath);
   });
 
-  afterEach(() => {
+  afterAll(() => {
     logSpy.mockRestore();
   });
 
-  it('addToShoppingCart("chocolate")', () => {
-    addToShoppingCart("chocolate");
-    expect(logSpy).toHaveBeenCalled();
-
-    const message = expectedReceived(
+  it("should console.log three lines with the expected output", () => {
+    const expected = [
       "You bought bananas, milk, chocolate!",
-      logSpy.mock.calls[0][0]
-    );
-    expect(message).toBe("");
-  });
-
-  it('addToShoppingCart("waffles")', () => {
-    addToShoppingCart("waffles");
-    expect(logSpy).toHaveBeenCalled();
-
-    const message = expectedReceived(
       "You bought milk, chocolate, waffles!",
-      logSpy.mock.calls[0][0]
-    );
-    expect(message).toBe("");
-  });
-
-  it('addToShoppingCart("tea")', () => {
-    addToShoppingCart("tea");
-    expect(logSpy).toHaveBeenCalled();
-
-    const message = expectedReceived(
       "You bought chocolate, waffles, tea!",
-      logSpy.mock.calls[0][0]
-    );
+    ].join("\n");
+
+    const calls = logSpy.mock.calls.length;
+    if (calls !== 3) {
+      expect("\n" + expected).toBe("");
+    }
+
+    const received = [
+      logSpy.mock.calls[0][0],
+      logSpy.mock.calls[1][0],
+      logSpy.mock.calls[2][0],
+    ].join("\n");
+
+    const message = expectedReceived(expected, received);
     expect(message).toBe("");
   });
 });

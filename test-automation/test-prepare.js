@@ -11,7 +11,7 @@ const {
   compileMenuData,
   computeHash,
   prepareReportFolders,
-} = require("./helpers");
+} = require("./test-runner-helpers");
 
 async function prepareHashes(menuData) {
   const hashes = {};

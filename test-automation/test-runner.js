@@ -5,7 +5,11 @@ const { execSync } = require("child_process");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const prompts = require("prompts");
-const { makePath, compileMenuData, computeHash } = require("./helpers");
+const {
+  makePath,
+  compileMenuData,
+  computeHash,
+} = require("./test-runner-helpers");
 const logger = require("./logger");
 const hashes = require("./.hashes.json");
 

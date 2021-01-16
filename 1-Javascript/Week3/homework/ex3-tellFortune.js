@@ -1,5 +1,5 @@
 "use strict";
-const numChildren = [
+const numKids = [
   /* ... */
 ];
 const partnerNames = [
@@ -17,11 +17,9 @@ function tellFortune(/* parameters go here */) {
 }
 
 // Should log "You will be a ... in ..., married to ... with ... kids."
-console.log(tellFortune(numChildren, partnerNames, locations, jobs));
-console.log(tellFortune(numChildren, partnerNames, locations, jobs));
-console.log(tellFortune(numChildren, partnerNames, locations, jobs));
+console.log(tellFortune(numKids, partnerNames, locations, jobs));
+console.log(tellFortune(numKids, partnerNames, locations, jobs));
+console.log(tellFortune(numKids, partnerNames, locations, jobs));
 
 // Do not change or remove the code below
-module.exports = {
-  tellFortune,
-};
+module.exports = tellFortune;

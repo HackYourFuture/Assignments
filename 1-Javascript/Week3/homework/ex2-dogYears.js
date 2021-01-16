@@ -23,6 +23,4 @@ console.log(calculateDogAge(2));
 console.log(calculateDogAge(3));
 
 // Do not change or remove the code below
-module.exports = {
-  calculateDogAge,
-};
+module.exports = calculateDogAge;
