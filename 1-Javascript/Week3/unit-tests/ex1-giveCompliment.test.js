@@ -2,6 +2,13 @@
 const acorn = require("acorn");
 const walk = require("acorn-walk");
 
+function expectedReceived(expected, received) {
+  if (expected === received) {
+    return "";
+  }
+  return `\nExpected: ${expected}\nReceived: ${received}`;
+}
+
 describe("giveCompliment", () => {
   let giveCompliment;
   let rootNode;
@@ -53,11 +60,7 @@ describe("giveCompliment", () => {
     expect(mathRandomSpy).toHaveBeenCalled();
     mathRandomSpy.mockRestore();
 
-    const expected = `You are ${compliment}, Nancy!`;
-    const message =
-      received === expected
-        ? ""
-        : `\n  Expected: ${expected}\n  Received: ${received}`;
+    const message = expectedReceived(`You are ${compliment}, Nancy!`, received);
     expect(message).toBe("");
   });
 });
