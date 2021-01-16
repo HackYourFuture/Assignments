@@ -19,7 +19,7 @@ class MyCustomReporter {
                 throw error;
               }
               return error.matcherResult.expected === ""
-                ? error.matcherResult.actual
+                ? error.matcherResult.actual.replace(/\n/g, "\n  ")
                 : "";
             });
             return message;
