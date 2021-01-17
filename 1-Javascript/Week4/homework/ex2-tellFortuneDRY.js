@@ -31,4 +31,5 @@ console.log(tellFortune(numKids, partnerNames, locations, jobs));
 console.log(tellFortune(numKids, partnerNames, locations, jobs));
 console.log(tellFortune(numKids, partnerNames, locations, jobs));
 
+// Do not change or remove the code below
 module.exports = tellFortune;

@@ -28,6 +28,7 @@ function computeEarnings(/* parameter(s) go here */) {
 const earnings = computeEarnings(mondayTasks, hourlyRate);
 console.log(`Total earnings: ${earnings}`);
 
+// Do not change or remove the code below
 module.exports = {
   computeEarnings,
   mondayTasks,
