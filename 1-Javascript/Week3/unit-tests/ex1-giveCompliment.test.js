@@ -4,7 +4,6 @@ const path = require("path");
 const walk = require("acorn-walk");
 const {
   beforeAllHelper,
-  expectedReceived,
 } = require("../../../test-automation/unit-test-helpers");
 
 const exercisePath = path.join(__dirname, "../homework/ex1-giveCompliment.js");
@@ -63,10 +62,6 @@ describe("giveCompliment", () => {
     mathRandomSpy.mockRestore();
 
     const [compliment] = state.compliments;
-    const message = expectedReceived(
-      `You are ${compliment}, ${name}!`,
-      received
-    );
-    expect(message).toBe("");
+    expect(received).toBe(`You are ${compliment}, ${name}!`);
   });
 });

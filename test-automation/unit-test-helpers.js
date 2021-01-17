@@ -1,13 +1,6 @@
 const fs = require("fs");
 const acorn = require("acorn");
 
-function expectedReceived(expected, received) {
-  if (expected === received) {
-    return "";
-  }
-  return `\nExpected: ${expected}\nReceived: ${received}`;
-}
-
 function beforeAllHelper(exercisePath, options = {}) {
   const spy = jest.spyOn(console, "log").mockImplementation();
   const result = {};
@@ -22,5 +15,4 @@ function beforeAllHelper(exercisePath, options = {}) {
 
 module.exports = {
   beforeAllHelper,
-  expectedReceived,
 };

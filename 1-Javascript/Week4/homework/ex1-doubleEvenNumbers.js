@@ -17,6 +17,4 @@ function doubleEvenNumbers(numbers) {
 const myNumbers = [1, 2, 3, 4];
 console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
 
-module.exports = {
-  doubleEvenNumbers,
-};
+module.exports = doubleEvenNumbers;

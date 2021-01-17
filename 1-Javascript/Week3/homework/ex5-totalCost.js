@@ -7,6 +7,7 @@ const cartForParty = {
 function calculateTotalPrice(/* parameters go here */) {
   // replace this comment with your code
 }
+
 // Do not change or remove the code below
 module.exports = {
   cartForParty,

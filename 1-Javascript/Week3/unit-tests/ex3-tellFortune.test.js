@@ -5,7 +5,6 @@ const walk = require("acorn-walk");
 
 const {
   beforeAllHelper,
-  expectedReceived,
 } = require("../../../test-automation/unit-test-helpers");
 
 const exercisePath = path.join(__dirname, "../homework/ex3-tellFortune.js");
@@ -54,17 +53,15 @@ describe("tellFortune", () => {
     expect(state.jobs).toHaveLength(5);
   });
 
-  it("should fortune-tell by randomly selecting values from the arrays", () => {
+  it("should tell the fortune by randomly selecting values from the arrays", () => {
     const { numKids, partnerNames, locations, jobs } = state;
     const mathRandomSpy = jest.spyOn(global.Math, "random").mockReturnValue(0);
     const received = tellFortune(numKids, partnerNames, locations, jobs);
     expect(mathRandomSpy).toHaveBeenCalled();
     mathRandomSpy.mockRestore();
 
-    const message = expectedReceived(
-      `You will be a ${jobs[0]} in ${locations[0]}, married to ${partnerNames[0]} with ${numKids[0]} kids.`,
-      received
+    expect(received).toBe(
+      `You will be a ${jobs[0]} in ${locations[0]}, married to ${partnerNames[0]} with ${numKids[0]} kids.`
     );
-    expect(message).toBe("");
   });
 });

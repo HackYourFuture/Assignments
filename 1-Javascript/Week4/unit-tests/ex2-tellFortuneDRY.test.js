@@ -1,64 +1,74 @@
 /* eslint-disable hyf/camelcase */
 "use strict";
-const acorn = require("acorn");
+const path = require("path");
 const walk = require("acorn-walk");
 
-const numChildren = [1, 2, 3];
-const partnerNames = ["Marianne", "Sylvia", "Jane"];
-const locations = ["Amsterdam", "London", "Paris"];
-const jobs = ["engineer", "consultant", "programmer"];
+const {
+  beforeAllHelper,
+} = require("../../../test-automation/unit-test-helpers");
+
+const exercisePath = path.join(__dirname, "../homework/ex2-tellFortuneDRY.js");
 
 describe("tellFortune", () => {
   let tellFortune;
-  let rootNode;
+  const state = { selectRandomlyArgs: [] };
 
   beforeAll(() => {
-    const spy = jest.spyOn(console, "log").mockImplementation();
-    ({ tellFortune } = require("../homework/ex2-tellFortuneDRY"));
-    spy.mockRestore();
-    const source = tellFortune.toString();
-    rootNode = acorn.parse(source, { ecmaVersion: 2020 });
-  });
-
-  it("should take four parameters", () => {
-    const found = walk.findNodeAfter(rootNode, 0, (type, node) => {
-      return type === "FunctionDeclaration" && node.id.name === "tellFortune";
+    const { exports, rootNode } = beforeAllHelper(exercisePath, {
+      parse: true,
     });
-    expect(found).toBeDefined();
-    expect(found.node.params).toHaveLength(4);
-  });
+    tellFortune = exports;
 
-  it("should call function `selectRandomly` for each of its arguments", () => {
-    let tellFortuneArgs = [];
-    const selectRandomlyArgs = [];
     walk.simple(rootNode, {
+      VariableDeclarator({ id, init }) {
+        if (id && init && init.type === "ArrayExpression") {
+          state[id.name] = init.elements
+            .filter((elem) => elem.type === "Literal")
+            .map((elem) => elem.value);
+        }
+      },
       FunctionDeclaration(node) {
         if (node.id.name === "tellFortune") {
-          tellFortuneArgs = node.params.map((param) => param.name);
+          state.tellFortuneParams = node.params.map((param) => param.name);
         }
       },
       CallExpression(node) {
         if (
+          node.callee.type === "Identifier" &&
           node.callee.name === "selectRandomly" &&
-          node.arguments.length === 1 &&
-          node.arguments[0].type === "Identifier"
+          node.arguments.length > 0
         ) {
-          selectRandomlyArgs.push(node.arguments[0].name);
+          state.selectRandomlyArgs.push(node.arguments[0].name);
         }
       },
     });
-    expect(tellFortuneArgs).toHaveLength(4);
-    expect(selectRandomlyArgs).toEqual(expect.arrayContaining(tellFortuneArgs));
   });
 
-  it("should tell a random fortune", () => {
-    const mathRandomSpy = jest
-      .spyOn(global.Math, "random")
-      .mockReturnValue(0.9999);
-    expect(tellFortune(numChildren, partnerNames, locations, jobs)).toBe(
-      "You will be a programmer in Paris, married to Jane with 3 kids."
+  it("should take four parameters", () => {
+    expect(tellFortune).toHaveLength(4);
+  });
+
+  it("should call function `selectRandomly` for each of its arguments", () => {
+    expect(state.selectRandomlyArgs).toBeDefined();
+    expect(state.selectRandomlyArgs).toEqual(
+      expect.arrayContaining(state.tellFortuneParams)
     );
+  });
+
+  it("should tell the fortune by randomly selecting values from the arrays", () => {
+    const { numKids, partnerNames, locations, jobs } = state;
+    expect(numKids).toBeDefined();
+    expect(partnerNames).toBeDefined();
+    expect(locations).toBeDefined();
+    expect(jobs).toBeDefined();
+
+    const mathRandomSpy = jest.spyOn(global.Math, "random").mockReturnValue(0);
+    const received = tellFortune(numKids, partnerNames, locations, jobs);
     expect(mathRandomSpy).toHaveBeenCalled();
     mathRandomSpy.mockRestore();
+
+    expect(received).toBe(
+      `You will be a ${jobs[0]} in ${locations[0]}, married to ${partnerNames[0]} with ${numKids[0]} kids.`
+    );
   });
 });

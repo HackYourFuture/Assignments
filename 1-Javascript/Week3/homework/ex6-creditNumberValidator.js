@@ -31,6 +31,4 @@ validateCreditNumber("4444444444444444"); // Returns "Invalid! The input 4444444
 validateCreditNumber("6666666666661666"); // Returns "Success! The input 6666666666661666 is a valid credit card number!""
 
 // Do not change or remove the code below
-module.exports = {
-  validateCreditNumber,
-};
+module.exports = validateCreditNumber;

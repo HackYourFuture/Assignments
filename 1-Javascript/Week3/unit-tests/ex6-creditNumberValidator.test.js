@@ -1,22 +1,21 @@
 "use strict";
+const path = require("path");
+const {
+  beforeAllHelper,
+} = require("../../../test-automation/unit-test-helpers");
 
-function expectedReceived(expected, received) {
-  if (expected === received) {
-    return "";
-  }
-  return `\nExpected: ${expected}\nReceived: ${received}`;
-}
+const exercisePath = path.join(
+  __dirname,
+  "../homework/ex6-creditNumberValidator.js"
+);
 
-describe("validateCreditCardNumber", () => {
+describe("validateCreditNumber", () => {
   let logSpy;
   let validateCreditNumber;
 
   beforeAll(() => {
-    const spy = jest.spyOn(console, "log").mockImplementation();
-    ({
-      validateCreditNumber,
-    } = require("../homework/ex6-creditNumberValidator"));
-    spy.mockRestore();
+    const { exports } = beforeAllHelper(exercisePath);
+    validateCreditNumber = exports;
   });
 
   beforeEach(() => {
@@ -30,34 +29,25 @@ describe("validateCreditCardNumber", () => {
   it("should reject a92332119c011112 (invalid characters)", () => {
     validateCreditNumber("a92332119c011112");
     expect(logSpy).toHaveBeenCalled();
-
-    const message = expectedReceived(
-      "Invalid! The input a92332119c011112 should contain only numbers!",
-      logSpy.mock.calls[0][0]
+    expect(logSpy.mock.calls[0][0]).toBe(
+      "Invalid! The input a92332119c011112 should contain only numbers!"
     );
-    expect(message).toBe("");
   });
 
   it("should reject 4444444444444444 (all digits the same)", () => {
     validateCreditNumber("4444444444444444");
     expect(logSpy).toHaveBeenCalled();
-
-    const message = expectedReceived(
-      "Invalid! The input 4444444444444444 should contain at least 2 different types of numbers!",
-      logSpy.mock.calls[0][0]
+    expect(logSpy.mock.calls[0][0]).toBe(
+      "Invalid! The input 4444444444444444 should contain at least 2 different types of numbers!"
     );
-    expect(message).toBe("");
   });
 
   it("should accept 6666666666661666 (valid)", () => {
     validateCreditNumber("6666666666661666");
     expect(logSpy).toHaveBeenCalled();
-
-    const message = expectedReceived(
-      "Success! The input 6666666666661666 is a valid credit card number!",
-      logSpy.mock.calls[0][0]
+    expect(logSpy.mock.calls[0][0]).toBe(
+      "Success! The input 6666666666661666 is a valid credit card number!"
     );
-    expect(message).toBe("");
   });
 
   it("should reject 1111111111111110 (sum < 16)", () => {

@@ -1,15 +1,18 @@
 "use strict";
 const numKids = [
-  /* ... */
+  // add elements here
 ];
+
 const partnerNames = [
-  /* ... */
+  // add elements here
 ];
+
 const locations = [
-  /* ... */
+  // add elements here
 ];
+
 const jobs = [
-  /* ... */
+  // add elements here
 ];
 
 function tellFortune(/* parameters go here */) {

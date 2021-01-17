@@ -1,15 +1,18 @@
 "use strict";
-const numChildren = [
-  /* ... */
+const numKids = [
+  // add elements here
 ];
+
 const partnerNames = [
-  /* ... */
+  // add elements here
 ];
+
 const locations = [
-  /* ... */
+  // add elements here
 ];
+
 const jobs = [
-  /* ... */
+  // add elements here
 ];
 
 // This function should take an array as its parameter and return
@@ -19,15 +22,13 @@ function selectRandomly(/* parameter(s) go here */) {
 }
 
 function tellFortune(/* add parameter(s) here */) {
-  // Replace these comment with your code.
+  // Replace this comment with your code.
   // Make use or the `selectRandomly` function above
   // to make your code DRY
 }
 
-console.log(tellFortune(numChildren, partnerNames, locations, jobs));
-console.log(tellFortune(numChildren, partnerNames, locations, jobs));
-console.log(tellFortune(numChildren, partnerNames, locations, jobs));
+console.log(tellFortune(numKids, partnerNames, locations, jobs));
+console.log(tellFortune(numKids, partnerNames, locations, jobs));
+console.log(tellFortune(numKids, partnerNames, locations, jobs));
 
-module.exports = {
-  tellFortune,
-};
+module.exports = tellFortune;
