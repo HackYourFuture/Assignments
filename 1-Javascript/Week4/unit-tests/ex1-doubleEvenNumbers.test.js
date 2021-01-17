@@ -3,6 +3,7 @@
 const walk = require("acorn-walk");
 const {
   beforeAllHelper,
+  findAncestor,
 } = require("../../../test-automation/unit-test-helpers");
 
 describe("doubleEvenNumbers", () => {
@@ -17,12 +18,18 @@ describe("doubleEvenNumbers", () => {
     }));
     doubleEvenNumbers = exports;
 
-    walk.simple(rootNode, {
-      MemberExpression({ property }) {
-        if (property.name === "map") {
-          state.map = true;
-        } else if (property.name === "filter") {
-          state.filter = true;
+    // Look for `map` and `filter` calls inside the
+    // `doubleEvenNumber` function declaration
+    walk.ancestor(rootNode, {
+      MemberExpression({ property }, ancestors) {
+        if (["map", "filter"].includes(property.name)) {
+          const { found, ancestor } = findAncestor(
+            "FunctionDeclaration",
+            ancestors
+          );
+          if (found && ancestor.id.name === "doubleEvenNumbers") {
+            state[property.name] = true;
+          }
         }
       },
     });

@@ -27,6 +27,18 @@ function beforeAllHelper(testFilePath, options = {}) {
   return result;
 }
 
+function findAncestor(type, ancestors, startIndex) {
+  let index = (startIndex || ancestors.length) - 1;
+  while (index >= 0) {
+    if (ancestors[index].type === type) {
+      return { found: true, ancestor: ancestors[index], index };
+    }
+    index--;
+  }
+  return { found: false };
+}
+
 module.exports = {
   beforeAllHelper,
+  findAncestor,
 };
