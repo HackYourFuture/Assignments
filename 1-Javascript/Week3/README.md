@@ -40,7 +40,7 @@ You know how old your dog is in human years, but what about dog years? Let's cal
 
 2. Use `console.log` to display the result of the function for three different ages.
 
-### Exercise 3: Be your own fortune teller\*\*
+### Exercise 3: Be your own fortune teller
 
 **File**: `ex3-tellFortune.js`
 
