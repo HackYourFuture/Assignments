@@ -1,10 +1,6 @@
 # Homework Javascript Week 3
 
-The homework for this week can be found in this folder.
-
-## Handing in your homework
-
-Push your code to your own github and TODO
+The homework for this week can be found in the `homework` folder.
 
 ## Exercises
 
@@ -68,11 +64,70 @@ Let's do some grocery shopping! We're going to get some things to cook dinner wi
 
 1. Create an array called `shoppingCart` that holds the following strings: `"bananas"` and `"milk"`.
 
-2. Write a function named `addToShoppingCart`.
+2. Write a function named `addToShoppingCart` with the following characteristics:
 
-- It takes 1 argument: a grocery item (string)
-- Add grocery item to `shoppingCart`. If the amount of items is more than 3 remove the first one in the array.
-- Loops through the array in order to list out the items.
-- Return a string: **"You bought _\<items-bought>_!"**.
+   - It takes one argument: a grocery item (string)
+   - It adds the grocery item to `shoppingCart`. If the number of items is more than three remove the first one in the array.
+   - Loops through the array in order to list out the items in the shopping cart.
+   - Return a string: **"You bought _\<items-bought>_!"**.
 
-3. Call the function 3 times, each time with a different string as the argument. Use `console.log` to display the results.
+3. Call the function three times, each time with a different string as the argument. Use `console.log` to display the results.
+
+### Exercise 5: Total cost is ...
+
+**File**: `ex5-totalCost.js`
+
+You want to buy a couple of things from the supermarket to prepare for a party. After scanning all the items the cashier wants to give you the total price, but the machine is broken! Let's write her a `function` that does it for her instead!
+
+1. Create an object named `cartForParty` with five properties. Each property should be a grocery item (like `beers` or `chips`) and hold a number value (like `1.75` or `0.99`).
+
+2. Write a function called `calculateTotalPrice`.
+
+   - It takes one argument: an object that contains properties that only contain number values.
+   - Loop through the object and add all the number values together.
+   - Return a string: **"Total: _€\<amount>_"**.
+
+3. Call the function once, giving it the object `cartForParty` as an argument. Use `console.log` to display the result.
+
+### Exercise 6: Credit Card Validator
+
+**File**: `ex6-creditNumberValidator`
+
+In this project you'll write a function called `validateCreditNumber` that validates whether or not a credit card number is valid.
+
+Here are the criteria for a valid number:
+
+- Input must be 16 characters.
+- All characters must be numbers.
+- At least two different numbers should be represented.
+- The last number must be even.
+- The sum of all the numbers must be greater than 16.
+
+The following credit card numbers are valid:
+
+```markdown
+9999777788880000
+6666666666661666
+```
+
+The following credit card numbers are invalid:
+
+```markdown
+a92332119c011112 (invalid characters)
+4444444444444444 (only one type of number)
+1111111111111110 (sum less than 16)
+6666666666666661 (odd final number)
+```
+
+**Expected output:**
+
+```js
+// Returns "Invalid! The input a92332119c011112 should contain only numbers!""
+console.log(validateCreditNumber("a92332119c011112"));
+
+// Returns "Invalid! The input 4444444444444444 should contain at least 2 different types of numbers!""
+console.log(validateCreditNumber("4444444444444444"));
+
+// Returns "Success! The input 6666666666661666 is a valid credit card number!""
+console.log(validateCreditNumber("6666666666661666"));
+```
