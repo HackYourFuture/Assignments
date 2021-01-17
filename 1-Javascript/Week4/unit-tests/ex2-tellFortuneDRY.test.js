@@ -1,20 +1,16 @@
 /* eslint-disable hyf/camelcase */
 "use strict";
-const path = require("path");
 const walk = require("acorn-walk");
-
 const {
   beforeAllHelper,
 } = require("../../../test-automation/unit-test-helpers");
-
-const exercisePath = path.join(__dirname, "../homework/ex2-tellFortuneDRY.js");
 
 describe("tellFortune", () => {
   let tellFortune;
   const state = { selectRandomlyArgs: [] };
 
   beforeAll(() => {
-    const { exports, rootNode } = beforeAllHelper(exercisePath, {
+    const { exports, rootNode } = beforeAllHelper(__filename, {
       parse: true,
     });
     tellFortune = exports;

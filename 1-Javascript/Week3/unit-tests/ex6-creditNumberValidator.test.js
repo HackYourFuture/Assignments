@@ -1,19 +1,13 @@
 "use strict";
-const path = require("path");
 const {
   beforeAllHelper,
 } = require("../../../test-automation/unit-test-helpers");
-
-const exercisePath = path.join(
-  __dirname,
-  "../homework/ex6-creditNumberValidator.js"
-);
 
 describe("validateCreditNumber", () => {
   let validateCreditNumber;
 
   beforeAll(() => {
-    const { exports } = beforeAllHelper(exercisePath);
+    const { exports } = beforeAllHelper(__filename);
     validateCreditNumber = exports;
   });
 

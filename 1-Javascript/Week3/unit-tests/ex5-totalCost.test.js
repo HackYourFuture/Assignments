@@ -1,18 +1,15 @@
 /* eslint-disable hyf/camelcase */
 "use strict";
-const path = require("path");
 const {
   beforeAllHelper,
 } = require("../../../test-automation/unit-test-helpers");
-
-const exercisePath = path.join(__dirname, "../homework/ex5-totalCost.js");
 
 describe("calculateTotalPrice", () => {
   let calculateTotalPrice;
   let cartForParty;
 
   beforeAll(() => {
-    const { exports } = beforeAllHelper(exercisePath, {
+    const { exports } = beforeAllHelper(__filename, {
       parse: true,
     });
     ({ calculateTotalPrice, cartForParty } = exports);

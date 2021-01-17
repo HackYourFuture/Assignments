@@ -1,16 +1,13 @@
 "use strict";
-const path = require("path");
 const {
   beforeAllHelper,
 } = require("../../../test-automation/unit-test-helpers");
-
-const exercisePath = path.join(__dirname, "../homework/ex2-dogYears.js");
 
 describe("calculateDogAge", () => {
   let calculateDogAge;
 
   beforeAll(() => {
-    const { exports } = beforeAllHelper(exercisePath);
+    const { exports } = beforeAllHelper(__filename);
     calculateDogAge = exports;
   });
 

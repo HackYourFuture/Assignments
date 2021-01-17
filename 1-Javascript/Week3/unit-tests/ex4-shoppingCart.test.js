@@ -1,17 +1,14 @@
 "use strict";
-const path = require("path");
 const {
   beforeAllHelper,
 } = require("../../../test-automation/unit-test-helpers");
-
-const exercisePath = path.join(__dirname, "../homework/ex4-shoppingCart.js");
 
 describe("addToShoppingCart", () => {
   let shoppingCart;
   let addToShoppingCart;
 
   beforeAll(() => {
-    const { exports } = beforeAllHelper(exercisePath);
+    const { exports } = beforeAllHelper(__filename);
     ({ shoppingCart, addToShoppingCart } = exports);
     // re-initialize the array referenced by the global var `shoppingCart'
     // to its initially expected values
