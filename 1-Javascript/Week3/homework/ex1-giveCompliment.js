@@ -18,7 +18,7 @@
    `giveCompliment` function to the console.
 -----------------------------------------------------------------------------*/
 function giveCompliment(/* parameters go here */) {
-  // TODO: replace this comment with your code
+  // TODO: complete this function
 }
 
 // TODO: substitute your own name for "HackYourFuture"

@@ -20,7 +20,7 @@ instead!
    Use `console.log` to display the result.
 -----------------------------------------------------------------------------*/
 const cartForParty = {
-  // TODO: add properties here
+  // TODO: complete this function
 };
 
 function calculateTotalPrice(/* parameter(s) go here */) {

@@ -22,7 +22,7 @@ you have more than 3 items in your shopping cart the first item gets taken out.
 const shoppingCart = ["bananas", "milk"];
 
 function addToShoppingCart(/* parameters go here */) {
-  // TODO: replace this comment with your code
+  // TODO: complete this function
 }
 
 addToShoppingCart("chocolate"); // Returns "You bought bananas, milk, chocolate!"
