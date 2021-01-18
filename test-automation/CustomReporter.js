@@ -14,7 +14,8 @@ class MyCustomReporter {
             const { expected, actual } = error.matcherResult;
 
             if (expected === "" && typeof actual === "string") {
-              return actual.replace(/\n/g, "\n  ");
+              const text = actual.startsWith("\n") ? actual : "\n" + actual;
+              return text.replace(/\n/g, "\n  ");
             }
 
             if (typeof expected === "string") {
