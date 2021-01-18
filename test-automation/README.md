@@ -110,175 +110,90 @@ npm run postinstall
 
 Simple _Node_-based exercises, consisting of a single JavaScript file should include a `module.exports` object at the bottom of the file that exports a function that represents the exercise. For example:
 
-Exercise: `ex5-creditNumberValidator.js`
-
 ```js
-//...
-
-function validateCreditCardNumber(/* argument(s) go here*/) {
-  // add your code here
+function doubleEvenNumbers(numbers) {
+  // TODO: rewrite the function body using `map` and `filter`.
 }
 
-// Do not modify or delete anything below this line
-module.exports = {
-  validateCreditCardNumber,
-};
+// ! Do not change or remove the code below
+module.exports = doubleEvenNumbers;
 ```
 
-The corresponding unit test can `require` this function in order to test it.
-
-Unit test: `ex5-creditNumberValidator.test.js`
+The corresponding unit test can `require` this function in order to test it. Because many exercises in the JavaScript module include calls to `console.log` that we do not want to show up when running a test, the `require` is done dynamically with `console.log` being mocked for the duration of the `require`. This is done through the helper function `beforeAllHelper` in `unit-test-helper.js`. This function also reads the exercise file as text and (optionally) build an AST (Abstract Syntax Tree) to enable code analysis.
 
 ```js
-const {
-  validateCreditCardNumber,
-} = require("../homework/creditNumberValidator");
+describe("doubleEvenNumbers", () => {
+  let doubleEvenNumbers;
+  const state = {};
 
-describe("validateCreditCardNumber", () => {
-  it("should accept 9999777788880000", () => {
-    expect(validateCreditCardNumber("9999777788880000")).toBe(true);
+  beforeAll(() => {
+    const { exports, rootNode } = beforeAllHelper(__filename, {
+      parse: true,
+    });
+    doubleEvenNumbers = exports;
+
+    // ...
   });
-  //...
+
+  // ...
 });
 ```
 
 ### Code Analysis
 
-More sophisticated unit test can use code analysis to inspect the actual code of the exported function. JavaScript provides access to a function's code by calling `.toString()` on the function, e.g.:
+More sophisticated unit test can use code analysis to inspect the actual code of the exported function. For instance, for the `doubleEvenNumber` exercise the `for` loop from the existing (working) code should be replaced with `map` and `filter`. There no way to check this from the runtime context. Here, code analysis can come to the rescue.
+
+First of all (and this goes for exercises to be unit-tested), we must have a working model solution to analyze. For instance:
 
 ```js
-const { giveCompliment } = require("../homework/ex1-giveCompliment");
-
-// ...
-
-const source = giveCompliment.toString();
-```
-
-The `acorn` npm package included in this repo can be used to build an _Abstract Syntax Tree_ (AST) from the function's source code. This AST can then be queried and/or traversed using the included `acorn-walk` package.
-
-To find out which nodes of the AST of a acceptable solution need to be minimally present we can use the online [AST Explorer](https://astexplorer.net/) to examine the AST of a model solution (which of course requires that we create such a module solution in the first place).
-
-#### Exercise Example
-
-**Instructions**
-
-- Write a function named `giveCompliment`.
-  > - It takes 1 argument: your name.
-  >   -Inside the function define a variable that holds an array, `compliments`, with 10 strings.
-  > - Each string should be a compliment, like "great", "awesome".
-  > - Write code that randomly selects a compliment.
-  > - Return a string: "You are `compliment`, `your name`!
-  > - Call the function three times, giving each function call the same argument: your name.
-
-**Model solution**
-
-File: `ex1-giveCompliment.js`
-
-```js
-"use strict";
-
-function giveCompliment(name) {
-  const compliments = [
-    "great",
-    "awesome",
-    "lovely",
-    "marvelous",
-    "groovy",
-    "exciting",
-    "cool",
-    "excellent",
-    "smart",
-    "nice",
-  ];
-
-  const compliment =
-    compliments[Math.floor(Math.random() * compliments.length)];
-  return `You are ${compliment}, ${name}!`;
+function doubleEvenNumbers(numbers) {
+  return numbers.filter((num) => num % 2 === 0).map((num) => num * 2);
 }
-
-console.log(giveCompliment("Nancy"));
-console.log(giveCompliment("Nancy"));
-console.log(giveCompliment("Nancy"));
-
-module.exports = {
-  giveCompliment,
-};
 ```
 
-There are a couple of things we can test here:
+We can use the online [AST Explorer](https://astexplorer.net/) to examine the AST of a model solution. This is illustrated in Figure 1 below. The AST tree is actually a large, hierarchical JavaScript/JSON object that consist of (_ESTree_) "nodes".
 
-1. The function should produce a correctly formatted (random) compliment.
-2. The function should include an array named `compliments` initialized with 10 strings.
-3. Because we expect a randomly selected compliment we expect the `Math.random()` method to be called.
+> See [ESTree Spec](https://github.com/estree/estree). Of most interest are [es5.ms](https://github.com/estree/estree/blob/master/es5.md) and [es2015.md](https://github.com/estree/estree/blob/master/es2015.md).
 
-To inspect the AST for the `giveCompliments` function we can load the function's source code from the module solution in the [AST Explorer](https://astexplorer.net/), shown in the picture below.
-
-Here we can see that we expect the AST to include a `VariableDeclarator` containing an `Identifier` with a `name` of `compliments` and initialized with an `ArrayExpression` containing 10 `'Literal` nodes.
-
-![AST Explorer](./assets/ast-explorer.png)
-
-The AST is simple a large JavaScript object containing a hierarchy of _node_ objects that conform to the [ESTree Spec](https://github.com/estree/estree). Of most interest are [es5.ms](https://github.com/estree/estree/blob/master/es5.md) and [es2015.md](https://github.com/estree/estree/blob/master/es2015.md).
-
-Using this knowledge we can now write a unit test that incorporates code analysis as shown in the listing below.
-
-1. The model solution includes `console.log` statement that we do not wish to appear when running the unit test. For that purpose we can temporarily replace `console.log` with an empty mock implementation before dynamically `require`-ing the exercise file. This is shown in the code fragment below, which also shows how to extract the source code of the exercise function and build an AST from it, using `acorn.parse`.
-
-2. We use `walk.findNodeAfter` to look, starting from the root node, for the presence of a `VariableDeclarator` node with the name `compliments`, initialized with an `ArrayExpression`.
-
-3. To make `Math.random()` predictable, we use a mock implementation that always returns zero. Therefore we expect the exercise function to always use the first element of the `compliments` array. We can retrieve that actual literal value of that element from the AST.
-
-4. We expect `Math.random()` to have been called.
-
-5. The test runner does not display the normal (elaborate and potentially confusing) output from Jest. Instead, by default, only the title of the test (the first argument of the `it` function) is displayed for a failing test. This is accomplished by means of a _Custom Reporter_ (`CustomerReporter.js`). To display custom messages in addition to the test title, the custom reporter looks for a call to `expect` as follows:
-   ```js
-   expect(message).toBe("");
-   ```
-   If the `message` is not the empty string it will be displayed in addition to the title.
-
-File: `ex1-giveCompliment.test.js`
+By expanding and examining the nodes in the AST we can see that we should expect `MemberExpression` nodes with `property.name` of `"map"` and `"filter"` respectively. With this knowledge we can now write some code to "walk" the AST, looking for these `MemberExpression` nodes. (The actual code for this unit test also checks wether `map` and `filter` are used _within_ the scope of `doubleEvenNumbers`.)
 
 ```js
-describe("giveCompliment", () => {
-  let giveCompliment;
-  let rootNode;
+// ...
+let rootNode;
+const state = {};
 
-  beforeAll(() => {
-    const spy = jest.spyOn(console, "log").mockImplementation();
-    ({ giveCompliment } = require("../homework/ex1-giveCompliment"));
-    spy.mockRestore();
-    const source = giveCompliment.toString();
-    rootNode = acorn.parse(source, { ecmaVersion: 2020 });
-  });
+beforeAll(() => {
+  let exports;
+  ({ exports, rootNode } = beforeAllHelper(__filename, {
+    parse: true,
+  }));
+  doubleEvenNumbers = exports;
 
-  //...
-
-  it("should give a random compliment: You are `compliment`, `name`!", () => {
-    const found = walk.findNodeAfter(rootNode, 0, (type, node) => {
-      return (
-        type === "VariableDeclarator" &&
-        node.id.name === "compliments" &&
-        node.init &&
-        node.init.type === "ArrayExpression"
-      );
-    });
-
-    expect(found).toBeDefined();
-
-    const compliments = found.node.init.elements.map((elem) => elem.value);
-    const compliment = compliments[0];
-
-    const mathRandomSpy = jest.spyOn(Math, "random").mockReturnValue(0);
-    const received = giveCompliment("Nancy");
-
-    expect(mathRandomSpy).toHaveBeenCalled();
-    mathRandomSpy.mockRestore();
-
-    const expected = `You are ${compliment}, Nancy!`;
-    const message =
-      received === expected
-        ? ""
-        : `\n  Expected: ${expected}\n  Received: ${received}`;
-    expect(message).toBe("");
+  // Look for `map` and `filter` calls inside the
+  // scope of the `doubleEvenNumber` function
+  walk.simple(rootNode, {
+    MemberExpression({ property }, ancestors) {
+      if (["map", "filter"].includes(property.name)) {
+        state[property.name] = true;
+      }
+    },
   });
 });
 ```
+
+We can now write simple unit tests to check for the mandated existence of `map` and `filter`:
+
+```js
+it("should use `map`", () => {
+  expect(state.map).toBeDefined();
+});
+
+it("should use `filter`", () => {
+  expect(state.filter).toBeDefined();
+});
+```
+
+This completes the code analysis for this exercise example.
+
+![AST Explorer](./assets/ast-explorer.png)
+Figure 1: AST (Abstract Syntax Tree) of the function `doubleEvenNumbers`.
