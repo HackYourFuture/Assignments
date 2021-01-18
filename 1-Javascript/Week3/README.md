@@ -19,10 +19,10 @@ Do not delete or modify that code. It is required for automatic of the exercise.
 
 1. Write a function named `giveCompliment` with the following characteristics:
 
-   - It takes a single argument: `name`
+   - It takes a single argument: `name`.
    - Its function body includes a variable that holds an array, `compliments`, initialized with 10 strings. Each string should be a compliment, like `"great"`, `"awesome"` and so on.
    - It should randomly select a compliment from the array.
-   - It should return the string **"You are _\<compliment>_, _\<name>_!"**, where _\<compliment>_ is a randomly selected compliment and _\<name>_ is the name that was passed as the function's argument.
+   - It should return the string _"You are `compliment`, `name`!"_, where `compliment` is a randomly selected compliment and `name` is the name that was passed as the function's argument.
 
 2. Call the function three times, giving each function call the same argument: your name. Use `console.log` each time to display the return value of the `giveCompliment` function to the console.
 

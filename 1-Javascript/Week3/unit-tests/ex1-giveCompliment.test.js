@@ -3,6 +3,7 @@
 const walk = require("acorn-walk");
 const {
   beforeAllHelper,
+  findAncestor,
 } = require("../../../test-automation/unit-test-helpers");
 
 describe("giveCompliment", () => {
@@ -15,8 +16,8 @@ describe("giveCompliment", () => {
     });
     giveCompliment = exports;
 
-    walk.simple(rootNode, {
-      VariableDeclarator({ id, init }) {
+    walk.ancestor(rootNode, {
+      VariableDeclarator({ id, init }, ancestors) {
         if (
           id &&
           id.name === "compliments" &&
@@ -24,39 +25,38 @@ describe("giveCompliment", () => {
           init.type === "ArrayExpression"
         ) {
           state.compliments = init.elements.map((elem) => elem.value);
-        }
-      },
-      CallExpression({ callee, arguments: args }) {
-        if (
-          callee.type === "Identifier" &&
-          callee.name === "giveCompliment" &&
-          args.length > 0 &&
-          args[0].type === "Literal"
-        ) {
-          state.name = args[0].value;
+          const ancestor = findAncestor("FunctionDeclaration", ancestors);
+          if (ancestor && ancestor.id.name === "giveCompliment") {
+            state.inScope = true;
+          }
         }
       },
     });
   });
 
-  it("should contain a `const` array named `compliments` with 10 strings", () => {
-    expect(state.compliments).toBeDefined();
-    expect(state.compliments).toHaveLength(10);
+  it("should include a `compliments` array initialized with 10 strings", () => {
+    expect(state.compliments ? "" : "No such array found").toBe("");
     expect(
-      state.compliments.every((compliment) => typeof compliment === "string")
-    ).toBe(true);
+      state.compliments.length === 10 ? "" : "Array is not of length 10"
+    ).toBe("");
+    const isAllStrings = state.compliments.every(
+      (compliment) => typeof compliment === "string"
+    );
+    expect(isAllStrings ? "" : "Not all elements are strings").toBe("");
   });
 
   it("should give a random compliment: You are `compliment`, `name`!", () => {
     expect(state.compliments).toBeDefined();
 
-    const name = state.name || "Jack";
+    const name = "HackYourFuture";
 
-    const mathRandomSpy = jest.spyOn(Math, "random").mockReturnValue(0);
+    const spy = jest.spyOn(Math, "random").mockReturnValue(0);
     const received = giveCompliment(name);
 
-    expect(mathRandomSpy).toHaveBeenCalled();
-    mathRandomSpy.mockRestore();
+    expect(spy.mock.calls.length > 0 ? "" : "Compliment is not random").toBe(
+      ""
+    );
+    spy.mockRestore();
 
     const [compliment] = state.compliments;
     expect(received).toBe(`You are ${compliment}, ${name}!`);
