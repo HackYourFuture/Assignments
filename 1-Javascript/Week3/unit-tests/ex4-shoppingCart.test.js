@@ -12,7 +12,8 @@ describe("addToShoppingCart", () => {
     ({ shoppingCart, addToShoppingCart } = exports);
     // re-initialize the array referenced by the global var `shoppingCart'
     // to its initially expected values
-    shoppingCart.splice(0, shoppingCart.length, "bananas", "milk");
+    Array.isArray(shoppingCart) &&
+      shoppingCart.splice(0, shoppingCart.length, "bananas", "milk");
   });
 
   it("should add chocolate", () => {

@@ -3,7 +3,7 @@
 You know how old your dog is in human years, but what about dog years? Let's 
 calculate it!
 
-1. Write a function named `calculateDogAge`.
+1. Complete the function named `calculateDogAge`.
 
   - It takes one argument: your (fictional) puppy's age (number).
   - Calculate your dog's age based on the conversion rate of 1 human year to 

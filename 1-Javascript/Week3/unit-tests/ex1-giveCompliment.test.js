@@ -34,6 +34,10 @@ describe("giveCompliment", () => {
     });
   });
 
+  it("should take a single parameter", () => {
+    expect(giveCompliment).toHaveLength(1);
+  });
+
   it("should include a `compliments` array initialized with 10 strings", () => {
     expect(state.compliments ? "" : "No such array found").toBe("");
     expect(
@@ -53,7 +57,7 @@ describe("giveCompliment", () => {
     const spy = jest.spyOn(Math, "random").mockReturnValue(0);
     const received = giveCompliment(name);
 
-    expect(spy.mock.calls.length > 0 ? "" : "Compliment is not random").toBe(
+    expect(spy.mock.calls.length > 0 ? "" : "compliment is not random").toBe(
       ""
     );
     spy.mockRestore();
