@@ -12,8 +12,10 @@ npm install
 
 Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain homework exercises, this repository contains all of these exercises. The class repository will tell you how to hand in the homework, the curriculum will indicate what week you will need to do.
 
-- [Week 3](/Week3/README.md)
-- [Week 4](/Week4/README.md)
+### JavaScript
+
+- [Week 3](/1-JavaScript/Week3/README.md)
+- [Week 4](/1-JavaScript/Week4/README.md)
 
 TODO:
 
