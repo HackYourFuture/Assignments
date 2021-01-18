@@ -6,7 +6,7 @@ This repository includes infrastructure for the automatic checking (unit testing
 
 ## Running the tests
 
-Tests are expected to be executed one at a time. with the command:
+Tests are expected to be executed one at a time, with the command:
 
 ```
 npm test
@@ -108,7 +108,7 @@ npm run postinstall
 
 ## Exercises and Unit Tests
 
-Simple _Node_-based exercises, consisting of a single JavaScript file should include a `module.exports` object at the bottom of the file that exports a function that represents the exercise. For example:
+Simple _Node_-based exercises, consisting of a single JavaScript file, should include a `module.exports` object at the bottom of the file that exports a function to be test. For example:
 
 ```js
 function doubleEvenNumbers(numbers) {
@@ -119,7 +119,7 @@ function doubleEvenNumbers(numbers) {
 module.exports = doubleEvenNumbers;
 ```
 
-The corresponding unit test can `require` this function in order to test it. Because many exercises in the JavaScript module include calls to `console.log` that we do not want to show up when running a test, the `require` is done dynamically with `console.log` being mocked for the duration of the `require`. This is done through the helper function `beforeAllHelper` in `unit-test-helper.js`. This function also reads the exercise file as text and (optionally) build an AST (Abstract Syntax Tree) to enable code analysis.
+The corresponding unit test can `require` this function in order to test it. Because many exercises in the JavaScript module include calls to `console.log` that we do not want to show up while running a test, the `require` is executed dynamically, with `console.log` being mocked for the duration of the `require`. This is done through the helper function `beforeAllHelper` in `unit-test-helper.js`. This function also reads the exercise file as text and (optionally) builds an AST (Abstract Syntax Tree) to enable static code analysis.
 
 ```js
 describe("doubleEvenNumbers", () => {
@@ -141,7 +141,7 @@ describe("doubleEvenNumbers", () => {
 
 ### Code Analysis
 
-More sophisticated unit test can use code analysis to inspect the actual code of the exported function. For instance, for the `doubleEvenNumber` exercise the `for` loop from the existing (working) code should be replaced with `map` and `filter`. There no way to check this from the runtime context. Here, code analysis can come to the rescue.
+More sophisticated unit test can use static code analysis to inspect the actual code of the exported function. For instance, in the `doubleEvenNumber` exercise the `for` loop from the existing (working) code should be replaced with `map` and `filter`. There no way to check this from the runtime context. Here, static code analysis can come to the rescue.
 
 First of all (and this goes for exercises to be unit-tested), we must have a working model solution to analyze. For instance:
 
@@ -151,11 +151,11 @@ function doubleEvenNumbers(numbers) {
 }
 ```
 
-We can use the online [AST Explorer](https://astexplorer.net/) to examine the AST of a model solution. This is illustrated in Figure 1 below. The AST tree is actually a large, hierarchical JavaScript/JSON object that consist of (_ESTree_) "nodes".
+We can use the online [AST Explorer](https://astexplorer.net/) to examine the AST of a model solution. This is illustrated in Figure 1 below. The AST tree is actually a large, hierarchical JavaScript/JSON object that consist of **ESTree** "nodes".
 
 > See [ESTree Spec](https://github.com/estree/estree). Of most interest are [es5.ms](https://github.com/estree/estree/blob/master/es5.md) and [es2015.md](https://github.com/estree/estree/blob/master/es2015.md).
 
-By expanding and examining the nodes in the AST we can see that we should expect `MemberExpression` nodes with `property.name` of `"map"` and `"filter"` respectively. With this knowledge we can now write some code to "walk" the AST, looking for these `MemberExpression` nodes. (The actual code for this unit test also checks wether `map` and `filter` are used _within_ the scope of `doubleEvenNumbers`.)
+By expanding and examining the nodes in the AST we can see that we can expect `MemberExpression` nodes with a `property.name` of `"map"` and `"filter"` respectively. With this knowledge we can now write some code to "walk" the AST, looking for these `MemberExpression` nodes. (The actual code for this unit test also checks wether `map` and `filter` are used _within_ the scope of `doubleEvenNumbers`.)
 
 ```js
 // ...

@@ -11,7 +11,7 @@ Starter code for all exercises is located in the `homework` folder. Modify the s
 module.exports = giveCompliment;
 ```
 
-Do not delete or modify that code. It is required for automatic of the exercise.
+Do not delete or modify that code. It is required for automatic testing of the exercise.
 
 ### Exercise 1: You are amazing!
 
