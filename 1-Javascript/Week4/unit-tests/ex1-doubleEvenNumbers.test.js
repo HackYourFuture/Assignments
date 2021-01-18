@@ -19,15 +19,12 @@ describe("doubleEvenNumbers", () => {
     doubleEvenNumbers = exports;
 
     // Look for `map` and `filter` calls inside the
-    // `doubleEvenNumber` function declaration
+    // scope of the `doubleEvenNumber` function
     walk.ancestor(rootNode, {
       MemberExpression({ property }, ancestors) {
         if (["map", "filter"].includes(property.name)) {
-          const { found, ancestor } = findAncestor(
-            "FunctionDeclaration",
-            ancestors
-          );
-          if (found && ancestor.id.name === "doubleEvenNumbers") {
+          const ancestor = findAncestor("FunctionDeclaration", ancestors);
+          if (ancestor && ancestor.id.name === "doubleEvenNumbers") {
             state[property.name] = true;
           }
         }

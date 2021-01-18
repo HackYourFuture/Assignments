@@ -20,22 +20,22 @@ function beforeAllHelper(testFilePath, options = {}) {
   const result = {};
   result.exports = require(exercisePath);
   spy.mockRestore();
-  if (options.parse === true) {
+  if (options.parse) {
     const source = fs.readFileSync(exercisePath, "utf8");
     result.rootNode = acorn.parse(source, { ecmaVersion: 2020 });
   }
   return result;
 }
 
-function findAncestor(type, ancestors, startIndex) {
-  let index = (startIndex || ancestors.length) - 1;
+function findAncestor(type, ancestors) {
+  let index = ancestors.length - 1;
   while (index >= 0) {
     if (ancestors[index].type === type) {
-      return { found: true, ancestor: ancestors[index], index };
+      return ancestors[index];
     }
     index--;
   }
-  return { found: false };
+  return null;
 }
 
 module.exports = {
