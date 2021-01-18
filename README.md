@@ -2,7 +2,7 @@
 
 ## Installation
 
-After forking and cloning this repository execute the following command from the command line to install all software prerequisites:
+After forking and/or cloning this repository execute the following command from the command line to install all software prerequisites:
 
 ```
 npm install
