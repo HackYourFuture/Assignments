@@ -20,9 +20,9 @@ function beforeAllHelper(testFilePath, options = {}) {
   const result = {};
   result.exports = require(exercisePath);
   spy.mockRestore();
+  result.source = fs.readFileSync(exercisePath, "utf8");
   if (options.parse) {
-    const source = fs.readFileSync(exercisePath, "utf8");
-    result.rootNode = acorn.parse(source, { ecmaVersion: 2020 });
+    result.rootNode = acorn.parse(result.source, { ecmaVersion: 2020 });
   }
   return result;
 }
