@@ -17,6 +17,10 @@ Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you 
 - [Week 3](/1-JavaScript/Week3/README.md)
 - [Week 4](/1-JavaScript/Week4/README.md)
 
+### Browsers
+
+- [Week 1](/2-Browsers/Week1/README.md)
+
 TODO:
 
 - Explain how to modify the exercise starter file (what to change and what not to change).
