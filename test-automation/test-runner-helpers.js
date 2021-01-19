@@ -23,9 +23,7 @@ function compileMenuData() {
   const filePaths = fg.sync([fileSpec, "!**/node_modules"]);
 
   filePaths.forEach((filePath) => {
-    const matches = filePath.match(
-      /homework\/(.+)\/(Week\d).*\/(.+).test.js$/i
-    );
+    const matches = filePath.match(/^.*\/(.+)\/(Week\d).*\/(.+).test.js$/i);
     if (matches) {
       const [, module, week, testName] = matches;
       if (!menuData[module]) {
