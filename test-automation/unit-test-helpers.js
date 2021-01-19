@@ -2,7 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const acorn = require("acorn");
 
+const defaultOptions = {
+  parse: false,
+  noRequire: false,
+};
+
 function beforeAllHelper(testFilePath, options = {}) {
+  options = Object.assign(defaultOptions, options);
   const matches = testFilePath
     .replace(/\\/g, "/")
     .match(/^.*\/(.+)\/(Week\d)\/unit-tests\/(.+)\.test\.js$/i);
@@ -13,19 +19,29 @@ function beforeAllHelper(testFilePath, options = {}) {
   const homeworkFolder = process.env.HOMEWORK_FOLDER || "homework";
 
   const [, module, week, exercise] = matches;
-  const exercisePath = path.join(
+  let exercisePath = path.join(
     __dirname,
-    `../${module}/${week}/${homeworkFolder}/${exercise}.js`
+    `../${module}/${week}/${homeworkFolder}/${exercise}`
   );
 
-  const spy = jest.spyOn(console, "log").mockImplementation();
+  exercisePath = fs.existsSync(exercisePath)
+    ? path.join(exercisePath, "index.js")
+    : exercisePath + ".js";
+
   const result = {};
-  result.exports = require(exercisePath);
-  spy.mockRestore();
+
+  if (!options.noRequire) {
+    const spy = jest.spyOn(console, "log").mockImplementation();
+    result.exports = require(exercisePath);
+    spy.mockRestore();
+  }
+
   result.source = fs.readFileSync(exercisePath, "utf8");
+
   if (options.parse) {
     result.rootNode = acorn.parse(result.source, { ecmaVersion: 2020 });
   }
+
   return result;
 }
 

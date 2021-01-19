@@ -4,6 +4,7 @@ const _copy = require("recursive-copy");
 const _rimraf = require("rimraf");
 const { HtmlValidate } = require("html-validate");
 const { getFormatter } = require("html-validate/dist/cli/formatter");
+const htmlValidateOptions = require("../.htmlValidate.json");
 const stylish = getFormatter("stylish");
 
 const copy = util.promisify(_copy);
@@ -43,18 +44,17 @@ async function setUp(page) {
 }
 
 async function prepare(page) {
+  const homeworkFolder = process.env.HOMEWORK_FOLDER || "homework";
+
   const { testPath } = expect.getState();
   const exercisePath = testPath
-    .replace("unit-tests", "homework")
+    .replace("unit-tests", homeworkFolder)
     .replace(/\.test\.js$/, "");
   await copyFiles(exercisePath);
   return setUp(page);
 }
 
-const htmlValidate = new HtmlValidate({
-  extends: ["html-validate:recommended"],
-  rules: { "no-trailing-whitespace": "off" },
-});
+const htmlValidate = new HtmlValidate(htmlValidateOptions);
 
 async function validateHTML() {
   const outerHTML = await page.evaluate(
