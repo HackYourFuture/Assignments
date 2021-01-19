@@ -40,7 +40,7 @@ module.exports = {
       },
     ],
     "hyf/use-map-result": "error",
-    "hyf/no-nondescript-names": ["warn", "data|item"],
+    "hyf/no-nondescript-names": "off",
     "hyf/no-meaningless-affixes": ["warn", "[a-z]Array$|[a-z]Object$"],
     "hyf/camelcase": "warn",
     "hyf/no-commented-out-code": "warn",
