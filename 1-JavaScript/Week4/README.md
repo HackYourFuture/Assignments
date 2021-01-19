@@ -83,7 +83,7 @@ Consider the code below (from `ex4-publishSubscribe.js`):
 
 - The standard `console.log` function, which also conforms to the minimum requirement for a **listener** (although it can take more than one argument) is also added as a subscriber.
 
-- Finally, a call to the Publisher's `notify` function is expected to iterate through, and call, all subscribers from the `listeners` array, passing on the notification message to each listener.
+- Finally, a call to the Publisher's `notify` function is expected to iterate through, and call, all subscribers from the `listeners` array, relaying the notification message to each listener.
 
 Good luck with completing `createPublisher`!
 

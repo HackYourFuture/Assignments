@@ -119,7 +119,7 @@ C:\Users\jimcr\dev\hackyourfuture\homework\1-Javascript\Week3\homework\ex3-tellF
   46:10  error  'selectRandomly' is defined but never used  no-unused-vars
 ```
 
-Style errors do not prevent your code from running correctly. However, leaving them in is simply a bad practice and may lead to trouble ahead for other developers looking at your code that unfamiliar with your thinking.
+Style errors do not prevent your code from running correctly. However, leaving them in is simply a bad practice and is a recipe for trouble ahead for other developers looking at your code in the future.
 
 **\*\*Spell Checker Report\*\***
 
