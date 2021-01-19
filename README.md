@@ -14,7 +14,7 @@ Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you 
 
 ### Directory Structure
 
-The directory structure containing the homework for a curriculum module, in this example the **JavaScript**, module looks like this (Figure 1):
+The directory structure containing the homework for a specific curriculum module, in the example below the **JavaScript** module, looks like this (Figure 1):
 
 ```
 1-JavaScript/
