@@ -14,7 +14,7 @@ const logger = winston.createLogger({
   defaultMeta: { service: "user-service" },
   transports: [
     new winston.transports.File({
-      filename: `${email()}.log`,
+      filename: `${email() || "test-runner"}.log`,
     }),
   ],
 });
