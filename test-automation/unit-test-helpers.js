@@ -10,10 +10,12 @@ function beforeAllHelper(testFilePath, options = {}) {
     throw new Error(`Unexpected test path: ${testFilePath}`);
   }
 
+  const homeworkFolder = process.env.HOMEWORK_FOLDER || "homework";
+
   const [, module, week, exercise] = matches;
   const exercisePath = path.join(
     __dirname,
-    `../${module}/${week}/homework/${exercise}.js`
+    `../${module}/${week}/${homeworkFolder}/${exercise}.js`
   );
 
   const spy = jest.spyOn(console, "log").mockImplementation();

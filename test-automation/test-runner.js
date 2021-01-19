@@ -126,7 +126,9 @@ function execESLint(exercisePath) {
   // Note: ESLint warnings do not throw an error
   let output;
   try {
-    output = execSync(`npx eslint ${lintSpec}`, { encoding: "utf8" });
+    output = execSync(`npx eslint --ignore-pattern "!.homework" ${lintSpec}`, {
+      encoding: "utf8",
+    });
   } catch (err) {
     output = err.stdout;
   }
@@ -227,7 +229,9 @@ async function main() {
     logger.info(title);
     logger.info(separator);
 
-    const exercisePath = makePath(module, week, "homework", exercise);
+    const homeworkFolder = process.env.HOMEWORK_FOLDER || "homework";
+
+    const exercisePath = makePath(module, week, homeworkFolder, exercise);
     const hash = await computeHash(exercisePath);
 
     const untouched = hash === hashes[exercise];
