@@ -4,6 +4,7 @@
         "autofix",
         "camelcase",
         "eqeqeq",
+        "hplogo",
         "networkidle",
         "printf"
     ]
