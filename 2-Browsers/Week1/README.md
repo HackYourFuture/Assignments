@@ -92,7 +92,7 @@ Why wear a watch when you can check the time, live in your webpage?
 
 ## Exercise 5: The cat walk
 
-**Folder**: `e5-catWalk`
+**Folder**: `ex5-catWalk`
 
 Start with this webpage, which has a single img tag of an animated GIF of a cat walking.
 
