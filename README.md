@@ -62,7 +62,7 @@ In general you should only change or add code in the places indicated by the `//
 
 While working on the exercises you can run your code in the usual way, either using the command line for node-based applications or by running it in the browser for browser-based applications. Once you are satisfied with the results it is time to use the **test runner**, as described next.
 
-> IMPORTANT: it is not recommended to use the test-runner if your code still crashes when run directly. This will just crash the test runner too. You should at least have some running code before it makes sense to use the test runner,
+> IMPORTANT: it is not recommended to use the test-runner if your code still crashes when run directly. This will just crash the test runner too. You should at least have some running code before trying it with the test runner.
 
 ### Automated testing
 
