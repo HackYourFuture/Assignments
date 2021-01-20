@@ -157,7 +157,9 @@ function execSpellChecker(exercisePath) {
     console.log(chalk.green("No spelling errors detected."));
     return "";
   } catch (err) {
-    const output = err.stdout;
+    // remove full path
+    const output = err.stdout.replace(/\\/g, "/").replace(/^.*homework\//, "");
+
     const title = "*** Spell Checker Report ***";
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
