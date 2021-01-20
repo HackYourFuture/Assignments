@@ -17,10 +17,11 @@
    Use `console.log` each time to display the return value of the 
    `giveCompliment` function to the console.
 -----------------------------------------------------------------------------*/
-function giveCompliment(/* parameters go here */) {
+function giveCompliment(Name) {
+  compliments = [, "", "", , "", "", , "", "", , , "", "", "", , ``];
+  return `yoU Are a ${compliments[3]}, ${Name}!`;
   // TODO: complete this function
 }
-
 // TODO: substitute your own name for "HackYourFuture"
 const myName = "HackYourFuture";
 

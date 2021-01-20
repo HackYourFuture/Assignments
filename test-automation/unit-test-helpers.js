@@ -31,9 +31,13 @@ function beforeAllHelper(testFilePath, options = {}) {
   const result = {};
 
   if (!options.noRequire) {
-    const spy = jest.spyOn(console, "log").mockImplementation();
-    result.exports = require(exercisePath);
-    spy.mockRestore();
+    try {
+      const spy = jest.spyOn(console, "log").mockImplementation();
+      result.exports = require(exercisePath);
+      spy.mockRestore();
+    } catch (_) {
+      // Leave results.exports undefined;
+    }
   }
 
   result.source = fs.readFileSync(exercisePath, "utf8");

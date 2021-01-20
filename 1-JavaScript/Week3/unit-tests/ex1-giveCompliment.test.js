@@ -8,12 +8,14 @@ const {
 
 describe("giveCompliment", () => {
   let giveCompliment;
+  let exports;
+  let rootNode;
   const state = {};
 
   beforeAll(() => {
-    const { exports, rootNode } = beforeAllHelper(__filename, {
+    ({ exports, rootNode } = beforeAllHelper(__filename, {
       parse: true,
-    });
+    }));
     giveCompliment = exports;
 
     walk.ancestor(rootNode, {
@@ -34,11 +36,19 @@ describe("giveCompliment", () => {
     });
   });
 
+  it("should exist and be executable", () => {
+    if (!exports) {
+      expect(exports).toBeDefined();
+    }
+  });
+
   it("should take a single parameter", () => {
+    if (!exports) return;
     expect(giveCompliment).toHaveLength(1);
   });
 
   it("should include a `compliments` array initialized with 10 strings", () => {
+    if (!exports) return;
     expect(state.compliments ? "" : "No such array found").toBe("");
     expect(
       state.compliments.length === 10 ? "" : "Array is not of length 10"
@@ -50,6 +60,8 @@ describe("giveCompliment", () => {
   });
 
   it("should give a random compliment: You are `compliment`, `name`!", () => {
+    if (!exports) return;
+
     expect(state.compliments).toBeDefined();
 
     const name = "HackYourFuture";
