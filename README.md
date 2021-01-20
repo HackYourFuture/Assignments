@@ -58,6 +58,8 @@ Figure 2. Starter code example.
 
 In general you should only change or add code in the places indicated by the `// TODO` comments. You should not delete or rename the existing function(s) in the starter code, nor should you change the file names of the starter files. This repository comes with an automated test facility that relies on the presence of these files and functions.
 
+> Note: All JavaScript starter files in the exercises include a `"use strict"` directive at the top. This enforces that all variables are declared (with `const` or `'let`, but avoid `var`) before they are used. This is generally considered to be "_best practice_".
+
 ### Running the exercises
 
 While working on the exercises you can run your code in the usual way, either using the command line for node-based applications or by running it in the browser for browser-based applications. Once you are satisfied with the results it is time to use the **test runner**, as described next.
