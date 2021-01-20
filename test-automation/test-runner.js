@@ -130,7 +130,6 @@ function execESLint(exercisePath) {
       encoding: "utf8",
     });
   } catch (err) {
-    console.log("output :>> ", output);
     output = err.stdout;
   }
   if (output) {
