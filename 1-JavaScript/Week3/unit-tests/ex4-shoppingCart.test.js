@@ -1,34 +1,43 @@
 "use strict";
 const {
   beforeAllHelper,
+  itIf,
+  createGuard,
 } = require("../../../test-automation/unit-test-helpers");
 
+const guard = createGuard();
+
 describe("addToShoppingCart", () => {
-  let shoppingCart;
-  let addToShoppingCart;
+  let addToShoppingCart, shoppingCart;
 
   beforeAll(() => {
-    const { exports } = beforeAllHelper(__filename);
-    ({ shoppingCart, addToShoppingCart } = exports);
+    const { exported } = beforeAllHelper(__filename);
+    guard.setExports(exported);
+    if (!exported) return;
+    ({ shoppingCart, addToShoppingCart } = exported);
     // re-initialize the array referenced by the global var `shoppingCart'
     // to its initially expected values
     Array.isArray(shoppingCart) &&
       shoppingCart.splice(0, shoppingCart.length, "bananas", "milk");
   });
 
-  it("should add chocolate", () => {
+  it("should exist and be executable", () => {
+    expect(guard.hasExports()).toBeTruthy();
+  });
+
+  itIf(guard.hasExports, "should add chocolate", () => {
     expect(addToShoppingCart("chocolate")).toBe(
       "You bought bananas, milk, chocolate!"
     );
   });
 
-  it("should remove bananas after adding waffles", () => {
+  itIf(guard.hasExports, "should remove bananas after adding waffles", () => {
     expect(addToShoppingCart("waffles")).toBe(
       "You bought milk, chocolate, waffles!"
     );
   });
 
-  it("should remove milk after adding tea", () => {
+  itIf(guard.hasExports, "should remove milk after adding tea", () => {
     expect(addToShoppingCart("tea")).toBe(
       "You bought chocolate, waffles, tea!"
     );

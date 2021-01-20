@@ -3,20 +3,23 @@
 const walk = require("acorn-walk");
 const {
   beforeAllHelper,
+  itIf,
+  createGuard,
   findAncestor,
 } = require("../../../test-automation/unit-test-helpers");
 
+const guard = createGuard();
+
 describe("doubleEvenNumbers", () => {
   let doubleEvenNumbers;
-  let rootNode;
   const state = {};
 
   beforeAll(() => {
-    let exports;
-    ({ exports, rootNode } = beforeAllHelper(__filename, {
+    const { exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
-    }));
-    doubleEvenNumbers = exports;
+    });
+    guard.setExports(exported);
+    doubleEvenNumbers = exported;
 
     // Look for `map` and `filter` calls inside the
     // scope of the `doubleEvenNumber` function
@@ -32,15 +35,19 @@ describe("doubleEvenNumbers", () => {
     });
   });
 
-  it("should return doubled even numbers only", () => {
+  it("should exist and be executable", () => {
+    expect(guard.hasExports()).toBeTruthy();
+  });
+
+  itIf(guard.hasExports, "should return doubled even numbers only", () => {
     expect(doubleEvenNumbers([1, 2, 3, 4])).toEqual([4, 8]);
   });
 
-  it("should use `map`", () => {
+  itIf(guard.hasExports, "should use `map`", () => {
     expect(state.map).toBeDefined();
   });
 
-  it("should use `filter`", () => {
+  itIf(guard.hasExports, "should use `filter`", () => {
     expect(state.filter).toBeDefined();
   });
 });

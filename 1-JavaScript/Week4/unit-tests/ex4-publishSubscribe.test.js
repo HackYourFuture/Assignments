@@ -4,19 +4,22 @@ const walk = require("acorn-walk");
 const {
   beforeAllHelper,
   findAncestor,
+  itIf,
+  createGuard,
 } = require("../../../test-automation/unit-test-helpers");
+
+const guard = createGuard();
 
 describe("createPublisher", () => {
   let createPublisher;
-  let rootNode;
   const state = {};
 
   beforeAll(() => {
-    let exports;
-    ({ exports, rootNode } = beforeAllHelper(__filename, {
+    const { exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
-    }));
-    createPublisher = exports;
+    });
+    guard.setExports(exported);
+    createPublisher = exported;
 
     // Look for `map` and `filter` calls inside the
     // scope of the `doubleEvenNumber` function
@@ -32,28 +35,40 @@ describe("createPublisher", () => {
     });
   });
 
-  it("should return an object with `subscribe` and a `notify` function properties", () => {
-    const myPublisher = createPublisher();
-    expect(typeof myPublisher).toBe("object");
-    expect(typeof myPublisher.subscribe).toBe("function");
-    expect(typeof myPublisher.notify).toBe("function");
+  it("should exist and be executable", () => {
+    expect(guard.hasExports()).toBeTruthy();
   });
 
-  it("should notify all subscribers of any notification", () => {
-    const myPublisher = createPublisher();
-    expect(typeof myPublisher).toBe("object");
-    expect(typeof myPublisher.subscribe).toBe("function");
-    expect(typeof myPublisher.notify).toBe("function");
+  itIf(
+    guard.hasExports,
+    "should return an object with `subscribe` and a `notify` function properties",
+    () => {
+      const myPublisher = createPublisher();
+      expect(typeof myPublisher).toBe("object");
+      expect(typeof myPublisher.subscribe).toBe("function");
+      expect(typeof myPublisher.notify).toBe("function");
+    }
+  );
 
-    const listener1 = jest.fn();
-    const listener2 = jest.fn();
+  itIf(
+    guard.hasExports,
+    "should notify all subscribers of any notification",
+    () => {
+      const myPublisher = createPublisher();
+      expect(typeof myPublisher).toBe("object");
+      expect(typeof myPublisher.subscribe).toBe("function");
+      expect(typeof myPublisher.notify).toBe("function");
 
-    myPublisher.subscribe(listener1);
-    myPublisher.subscribe(listener2);
+      const listener1 = jest.fn();
+      const listener2 = jest.fn();
 
-    myPublisher.notify("Hi!");
+      myPublisher.subscribe(listener1);
+      myPublisher.subscribe(listener2);
 
-    expect(listener1).toHaveBeenCalledWith("Hi!");
-    expect(listener2).toHaveBeenCalledWith("Hi!");
-  });
+      myPublisher.notify("Hi!");
+
+      expect(listener1).toHaveBeenCalledWith("Hi!");
+      expect(listener2).toHaveBeenCalledWith("Hi!");
+    }
+  );
 });

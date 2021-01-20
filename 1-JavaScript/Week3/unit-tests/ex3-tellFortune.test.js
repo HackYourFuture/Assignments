@@ -3,17 +3,22 @@
 const walk = require("acorn-walk");
 const {
   beforeAllHelper,
+  itIf,
+  createGuard,
 } = require("../../../test-automation/unit-test-helpers");
+
+const guard = createGuard();
 
 describe("tellFortune", () => {
   let tellFortune;
   const state = {};
 
   beforeAll(() => {
-    const { exports, rootNode } = beforeAllHelper(__filename, {
+    const { exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
     });
-    tellFortune = exports;
+    guard.setExports(exported);
+    tellFortune = exported;
 
     walk.simple(rootNode, {
       VariableDeclarator({ id, init }) {
@@ -40,49 +45,61 @@ describe("tellFortune", () => {
     });
   });
 
-  it("should take four parameters", () => {
+  it("should exist and be executable", () => {
+    expect(guard.hasExports()).toBeTruthy();
+  });
+
+  itIf(guard.hasExports, "should take four parameters", () => {
     expect(tellFortune).toHaveLength(4);
   });
 
-  it("should call function `selectRandomly` for each of its arguments", () => {
-    expect(state.selectRandomlyArgs).toBeDefined();
-    expect(state.selectRandomlyArgs).toEqual(
-      expect.arrayContaining(state.tellFortuneParams)
-    );
-  });
+  itIf(
+    guard.hasExports,
+    "should call function `selectRandomly` for each of its arguments",
+    () => {
+      expect(state.selectRandomlyArgs).toBeDefined();
+      expect(state.selectRandomlyArgs).toEqual(
+        expect.arrayContaining(state.tellFortuneParams)
+      );
+    }
+  );
 
-  it("should tell the fortune by randomly selecting array values", () => {
-    const { numKids, partnerNames, locations, jobTitles } = state;
+  itIf(
+    guard.hasExports,
+    "should tell the fortune by randomly selecting array values",
+    () => {
+      const { numKids, partnerNames, locations, jobTitles } = state;
 
-    const arraysOkay =
-      Array.isArray(numKids) &&
-      numKids.length === 5 &&
-      Array.isArray(locations) &&
-      locations.length === 5 &&
-      Array.isArray(partnerNames) &&
-      partnerNames.length === 5 &&
-      Array.isArray(jobTitles) &&
-      jobTitles.length === 5;
+      const arraysOkay =
+        Array.isArray(numKids) &&
+        numKids.length === 5 &&
+        Array.isArray(locations) &&
+        locations.length === 5 &&
+        Array.isArray(partnerNames) &&
+        partnerNames.length === 5 &&
+        Array.isArray(jobTitles) &&
+        jobTitles.length === 5;
 
-    expect(
-      arraysOkay
-        ? ""
-        : "numKids, locations, partnerNames and jobTitles arrays must exist with five elements each"
-    ).toBe("");
+      expect(
+        arraysOkay
+          ? ""
+          : "numKids, locations, partnerNames and jobTitles arrays must exist with five elements each"
+      ).toBe("");
 
-    const spy = jest.spyOn(Math, "random").mockReturnValue(0);
+      const spy = jest.spyOn(Math, "random").mockReturnValue(0);
 
-    const received = tellFortune(numKids, partnerNames, locations, jobTitles);
+      const received = tellFortune(numKids, partnerNames, locations, jobTitles);
 
-    expect(
-      spy.mock.calls.length === 4
-        ? ""
-        : "fortune-telling is not randomly composed"
-    ).toBe("");
-    spy.mockRestore();
+      expect(
+        spy.mock.calls.length === 4
+          ? ""
+          : "fortune-telling is not randomly composed"
+      ).toBe("");
+      spy.mockRestore();
 
-    expect(received).toBe(
-      `You will be a ${jobTitles[0]} in ${locations[0]}, married to ${partnerNames[0]} with ${numKids[0]} kids.`
-    );
-  });
+      expect(received).toBe(
+        `You will be a ${jobTitles[0]} in ${locations[0]}, married to ${partnerNames[0]} with ${numKids[0]} kids.`
+      );
+    }
+  );
 });

@@ -3,20 +3,24 @@
 const walk = require("acorn-walk");
 const {
   beforeAllHelper,
+  itIf,
+  createGuard,
 } = require("../../../test-automation/unit-test-helpers");
 
+const guard = createGuard();
+
 describe("sanitizeFruitBasket", () => {
-  let sanitizeFruitBasket;
-  let fruitBasket;
-  let savedFruitBasket;
+  let sanitizeFruitBasket, fruitBasket, savedFruitBasket;
 
   const state = { selectRandomlyArgs: [] };
 
   beforeAll(() => {
-    const { exports, rootNode } = beforeAllHelper(__filename, {
+    const { exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
     });
-    ({ sanitizeFruitBasket, fruitBasket } = exports);
+    guard.setExports(exported);
+
+    ({ sanitizeFruitBasket, fruitBasket } = exported);
     savedFruitBasket = [...fruitBasket];
 
     walk.simple(rootNode, {
@@ -28,19 +32,27 @@ describe("sanitizeFruitBasket", () => {
     });
   });
 
-  it("should take two parameters", () => {
+  it("should exist and be executable", () => {
+    expect(guard.hasExports()).toBeTruthy();
+  });
+
+  itIf(guard.hasExports, "should take two parameters", () => {
     expect(sanitizeFruitBasket).toHaveLength(2);
   });
 
-  it("should use `filter`", () => {
+  itIf(guard.hasExports, "should use `filter`", () => {
     expect(state.filter).toBeDefined();
   });
 
-  it("should not modify the original `fruitBasket` array", () => {
-    expect(fruitBasket).toEqual(savedFruitBasket);
-  });
+  itIf(
+    guard.hasExports,
+    "should not modify the original `fruitBasket` array",
+    () => {
+      expect(fruitBasket).toEqual(savedFruitBasket);
+    }
+  );
 
-  it("should list the sanitized fruit basket", () => {
+  itIf(guard.hasExports, "should list the sanitized fruit basket", () => {
     const newBasket = fruitBasket.filter((fruit) => fruit !== "lemon");
     const expected = `My mom bought me a fruit basket containing ${newBasket.join(
       ", "

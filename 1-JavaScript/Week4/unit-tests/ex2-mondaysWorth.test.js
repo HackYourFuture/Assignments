@@ -3,20 +3,23 @@
 const walk = require("acorn-walk");
 const {
   beforeAllHelper,
+  itIf,
+  createGuard,
 } = require("../../../test-automation/unit-test-helpers");
 
+const guard = createGuard();
+
 describe("mondaysWorth", () => {
-  let computeEarnings;
-  let mondayTasks;
-  let hourlyRate;
+  let computeEarnings, mondayTasks, hourlyRate;
 
   const state = { selectRandomlyArgs: [] };
 
   beforeAll(() => {
-    const { exports, rootNode } = beforeAllHelper(__filename, {
+    const { exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
     });
-    ({ computeEarnings, mondayTasks, hourlyRate } = exports);
+    guard.setExports(exported);
+    ({ computeEarnings, mondayTasks, hourlyRate } = exported);
 
     walk.simple(rootNode, {
       MemberExpression({ property }) {
@@ -27,21 +30,29 @@ describe("mondaysWorth", () => {
     });
   });
 
-  it("should take two parameters", () => {
+  it("should exist and be executable", () => {
+    expect(guard.hasExports()).toBeTruthy();
+  });
+
+  itIf(guard.hasExports, "should take two parameters", () => {
     expect(computeEarnings).toHaveLength(2);
   });
 
-  it("should use `map`", () => {
+  itIf(guard.hasExports, "should use `map`", () => {
     expect(state.map).toBeDefined();
   });
 
-  it("should compute the earnings as a formatted Euro amount", () => {
-    const total = mondayTasks
-      .map((task) => (task.duration / 60) * hourlyRate)
-      .reduce((sum, value) => sum + value, 0);
+  itIf(
+    guard.hasExports,
+    "should compute the earnings as a formatted Euro amount",
+    () => {
+      const total = mondayTasks
+        .map((task) => (task.duration / 60) * hourlyRate)
+        .reduce((sum, value) => sum + value, 0);
 
-    expect(computeEarnings(mondayTasks, hourlyRate)).toBe(
-      `€${total.toFixed(2)}`
-    );
-  });
+      expect(computeEarnings(mondayTasks, hourlyRate)).toBe(
+        `€${total.toFixed(2)}`
+      );
+    }
+  );
 });
