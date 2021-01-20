@@ -130,9 +130,11 @@ function execESLint(exercisePath) {
       encoding: "utf8",
     });
   } catch (err) {
+    console.log("output :>> ", output);
     output = err.stdout;
   }
   if (output) {
+    output = output.replace(/\\/g, "/").replace(/^.*homework\//gm, "");
     const title = "*** ESLint Report ***";
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(output));
@@ -158,7 +160,9 @@ function execSpellChecker(exercisePath) {
     return "";
   } catch (err) {
     // remove full path
-    const output = err.stdout.replace(/\\/g, "/").replace(/^.*homework\//, "");
+    const output = err.stdout
+      .replace(/\\/g, "/")
+      .replace(/^.*homework\//gm, "");
 
     const title = "*** Spell Checker Report ***";
     console.log(chalk.yellow(`\n${title}\n`));
