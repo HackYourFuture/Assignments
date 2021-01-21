@@ -133,7 +133,7 @@ function execESLint(exercisePath) {
     output = err.stdout;
   }
   if (output) {
-    output = output.replace(/\\/g, "/").replace(/^.*homework\//gm, "");
+    output = output.replace(/\\/g, "/").replace(/^.*\/homework\//gm, "");
     const title = "*** ESLint Report ***";
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(output));
@@ -161,7 +161,7 @@ function execSpellChecker(exercisePath) {
     // remove full path
     const output = err.stdout
       .replace(/\\/g, "/")
-      .replace(/^.*homework\//gm, "");
+      .replace(/^.*\/homework\//gm, "");
 
     const title = "*** Spell Checker Report ***";
     console.log(chalk.yellow(`\n${title}\n`));
