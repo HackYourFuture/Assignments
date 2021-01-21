@@ -1,10 +1,10 @@
-# UNDER CONSTRUCTION.
+# UNDER CONSTRUCTION
 
 ## Installation
 
 After forking and/or cloning this repository execute the following command from the command line to install all software prerequisites:
 
-```
+```text
 npm install
 ```
 
@@ -16,7 +16,7 @@ Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you 
 
 The directory structure containing the homework for a specific curriculum module, in the example below the **JavaScript** module, looks like this (Figure 1):
 
-```
+```text
 1-JavaScript/
   Week3/
     homework/
@@ -78,13 +78,13 @@ The repository includes an automated test facility. It serves two purposes.
 
 To run a test, type the following command from the command line:
 
-```
+```text
 npm test
 ```
 
 This guides you through a series of prompts to select an exercise to test, as illustrated in Figure 3 below:
 
-```
+```text
 ? Which module? 1-Javascript
 ? Which week? Week3
 ? Which exercise? ex1-giveCompliment
@@ -106,7 +106,7 @@ Figure 3. Running a test.
 
 The message _You have not yet worked on this exercise_ indicates that this exercise is still unmodified from its original.
 
-**\*\*Unit Test Error Report\*\***
+#### \*\*Unit Test Error Report\*
 
 Unit tests are software tests that determine whether a particular part of your code produces an expected result. If is it does, it is said to _pass_ the test. If it doesn't, the failing test will be reported in the console.
 
@@ -114,24 +114,24 @@ In the example of Figure 3 there are three such failing unit tests. The messages
 
 Once you have corrected the error(s), rerun the test to try again.
 
-**\*\*ESLint Report\*\***
+#### \*\*ESLint Report\*\*
 
 These are not programming errors but _coding style_ errors. For instance, the unmodified exercise `ex3-tellFortune.js` produces this ESLint error:
 
-```
+```text
 C:\Users\jimcr\dev\hackyourfuture\homework\1-Javascript\Week3\homework\ex3-tellFortune.js
   46:10  error  'selectRandomly' is defined but never used  no-unused-vars
 ```
 
 Style errors do not prevent your code from running correctly. However, leaving them in is simply a bad practice and is a recipe for trouble when in the future other developers attempt to understand and maintain your code.
 
-**\*\*Spell Checker Report\*\***
+#### \*\*Spell Checker Report\*\*
 
 Leaving spelling errors in your code is just plain embarrassing, especially so when there are tools to check for them. Always correct spelling errors, or, if you know the spelling to be correct, add the word to the _workspace dictionary_ in VSCode so that it is not reported again.
 
 If there are no unit-test, style and/or spelling errors then all is well and you should see:
 
-```
+```text
 All unit tests passed.
 No linting errors detected.
 No spelling errors detected.
