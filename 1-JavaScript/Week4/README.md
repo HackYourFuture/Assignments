@@ -91,10 +91,10 @@ Good luck with completing `createPublisher`!
 function createPublisher() {
   const listeners = [];
   return {
-    subscribe: function (/* parameter(s) go here */) {
+    subscribe: function (/* TODO: parameter(s) go here */) {
       // TODO: complete this function
     },
-    notify: function (/* parameter(s) go here */) {
+    notify: function (/* TODO: parameter(s) go here */) {
       // TODO: complete this function
     },
   };

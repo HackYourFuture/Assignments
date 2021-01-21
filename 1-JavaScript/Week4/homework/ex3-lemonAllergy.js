@@ -23,7 +23,7 @@ const fruitBasket = [
   "lemon",
 ];
 
-function sanitizeFruitBasket(/* parameter(s) go here */) {
+function sanitizeFruitBasket(/* TODO: parameter(s) go here */) {
   // TODO: complete this function
 }
 

@@ -43,7 +43,7 @@ const jobTitles = [
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-function selectRandomly(/* parameter(s) go here */) {
+function selectRandomly(/* TODO: parameter(s) go here */) {
   // TODO: complete this function
 }
 

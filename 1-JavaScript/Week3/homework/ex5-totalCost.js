@@ -23,7 +23,7 @@ const cartForParty = {
   // TODO: complete this function
 };
 
-function calculateTotalPrice(/* parameter(s) go here */) {
+function calculateTotalPrice(/* TODO: parameter(s) go here */) {
   // TODO: replace this comment with your code
 }
 
