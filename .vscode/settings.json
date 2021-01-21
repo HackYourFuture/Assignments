@@ -8,7 +8,6 @@
     "source.fixAll": true
   },
   "files.autoSave": "onFocusChange",
-  "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
