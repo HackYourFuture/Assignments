@@ -39,6 +39,9 @@ describe("tellFortune", () => {
           node.callee.name === "selectRandomly" &&
           node.arguments.length > 0
         ) {
+          if (!state.selectRandomlyArgs) {
+            state.selectRandomlyArgs = [];
+          }
           state.selectRandomlyArgs.push(node.arguments[0].name);
         }
       },
