@@ -119,4 +119,4 @@ dist
 .hashes.json
 .recent.json
 .disclaimer
-.homework
+.homework*
