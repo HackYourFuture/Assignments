@@ -12,10 +12,11 @@ module.exports = {
     ecmaVersion: 2018,
   },
   globals: {
-    page: true,
-    browser: true,
-    context: true,
-    jestPuppeteer: true,
+    page: "readonly",
+    browser: "readonly",
+    context: "readonly",
+    jestPuppeteer: "readonly",
+    axios: "readonly",
   },
   rules: {
     "prettier/prettier": "warn",

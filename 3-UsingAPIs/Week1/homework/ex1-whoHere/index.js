@@ -1,16 +1,10 @@
-# Homework Using APIs Week 1
-
-## Exercises
-
-The homework for this week can be found in the `homework` folder.
-
-### Exercise 1: Who do we have here?
-
-Wouldn't it cool to make a new friend with just the click of a button?
-
+"use strict";
+/*
 Write a function that makes a HTTP Request to `https://www.randomuser.me/api`
 
 - Inside the JavaScript file write two functions: one with `XMLHttpRequest`, and the other with `axios`
 - Each function should make a HTTP Request to the given endpoint: `https://www.randomuser.me/api`
 - Log the received data to the console
 - Incorporate error handling: log to the console the error message
+*/
+// TODO: add your program here
