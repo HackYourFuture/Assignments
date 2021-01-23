@@ -7,6 +7,7 @@
         "eqeqeq",
         "hplogo",
         "networkidle",
-        "printf"
+        "printf",
+        "typeof"
     ]
 }

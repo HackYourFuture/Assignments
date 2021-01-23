@@ -1,20 +1,13 @@
-# Homework Using APIs Week 2
-
-## Exercises
-
-The homework for this week can be found in the `homework` folder.
-
-### Exercise 1: Promise me to wait
-
-#### Folder: `ex1-promiseToWait`
-
-In this exercise you'll practice refactoring `Promise` syntax into `async/await` + `try/catch` syntax. Rewrite exercise A & B using `async/await` + `try/catch` syntax.
-
-```js
-// Exercise A
+"use strict";
+/*------------------------------------------------------------------------------
+In this exercise you'll practice refactoring `Promise` syntax into 
+`async/await` + `try/catch` syntax. Rewrite exercise A & B using 
+`async/await` + `try/catch` syntax.
+------------------------------------------------------------------------------*/
+// TODO: convert to async/await + try/catch
 function getData(url) {
   fetch(url)
-    .then((response) => response.json)
+    .then((response) => response.json())
     .then((json) => console.log(json))
     .catch((error) => console.log(error));
 }
@@ -37,7 +30,7 @@ const makeAllCaps = (array) => {
   });
 };
 
+// TODO: convert to async/await + try/catch
 makeAllCaps(arrayOfWords)
   .then((result) => console.log(result))
   .catch((error) => console.log(error));
-```
