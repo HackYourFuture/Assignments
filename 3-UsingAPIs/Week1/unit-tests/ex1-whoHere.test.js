@@ -107,7 +107,7 @@ describe("ex1-whoHere", () => {
     expect(state.xmlHttpRequest.props.has("send")).toBe(true);
   });
 
-  it("should set XMLHttpRequest's `load` event handler", () => {
+  it("should handle XMLHttpRequest's `load` event", () => {
     expect(state.xmlHttpRequest).toBeDefined();
     expect(
       state.xmlHttpRequest.props.has("load") ||
@@ -115,7 +115,7 @@ describe("ex1-whoHere", () => {
     ).toBe(true);
   });
 
-  it("should set XMLHttpRequest's `error` event handler", () => {
+  it("should handle XMLHttpRequest's `error` event", () => {
     expect(state.xmlHttpRequest).toBeDefined();
     expect(
       state.xmlHttpRequest.props.has("error") ||

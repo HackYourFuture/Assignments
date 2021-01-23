@@ -10,7 +10,7 @@ const {
   findAncestor,
 } = require("../../../test-automation/unit-test-helpers");
 
-describe("ex2-programmerHumor", () => {
+describe("ex3-dogPhotoGallery", () => {
   const state = {};
 
   beforeAll(async () => {
