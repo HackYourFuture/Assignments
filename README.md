@@ -157,6 +157,8 @@ The repository includes an automated test facility. It serves two purposes.
 
 2. It allows mentors to gain a quick insight on some key quality benchmarks, giving them a head start in the review process.
 
+> The tests that we have provided here cannot possibly test conformance to every detail of the exercise assignments. Therefore running a successful test is just a first indication of success. Ultimately, it will be the mentor reviewing your homework to give the final verdict.
+
 ### Running a test
 
 To run a test, type the following command from the command line:
