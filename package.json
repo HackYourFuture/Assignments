@@ -10,7 +10,8 @@
     "itx": "cross-env HOMEWORK_FOLDER=.homework node ./test-runner/direct-runner",
     "postinstall": "node ./test-runner/postinstall",
     "encrypt": "node ./test-runner/encrypt",
-    "decrypt": "node ./test-runner/decrypt"
+    "decrypt": "node ./test-runner/decrypt",
+    "precommit": "npm run postinstall && npm run encrypt"
   },
   "repository": {
     "type": "git",
