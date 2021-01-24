@@ -119,7 +119,7 @@ The most convenient way to run an exercise from the command line is to use the *
 npm run it
 ```
 
-This will lead you through a series of prompts, similar to shown below, to select the exercise to run:
+This will lead you through a series of prompts, similar to as shown below, to select the exercise to run:
 
 ```text
 ? Which module? 1-Javascript
