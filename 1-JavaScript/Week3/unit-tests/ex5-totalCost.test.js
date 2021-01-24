@@ -1,44 +1,37 @@
 /* eslint-disable hyf/camelcase */
 "use strict";
-const {
-  itIf,
-  beforeAllHelper,
-  createGuard,
-} = require("../../../test-automation/unit-test-helpers");
-
-const guard = createGuard();
+const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
 
 describe("calculateTotalPrice", () => {
-  let calculateTotalPrice, cartForParty;
+  let exported, calculateTotalPrice, cartForParty;
 
   beforeAll(() => {
-    const { exported } = beforeAllHelper(__filename);
-    guard.setExports(exported);
+    ({ exported } = beforeAllHelper(__filename));
+    if (!exported) return;
     ({ calculateTotalPrice, cartForParty } = exported);
   });
 
   it("should exist and be executable", () => {
-    expect(guard.hasExports()).toBeTruthy();
+    expect(exported).toBeDefined();
   });
 
-  itIf(guard.hasExports, "should be a function taking one parameter", () => {
+  it("should be a function taking one parameter", () => {
+    if (!exported) return;
     expect(typeof calculateTotalPrice).toBe("function");
     expect(calculateTotalPrice).toHaveLength(1);
   });
 
-  itIf(
-    guard.hasExports,
-    "cartForParty should contain five grocery items with prices",
-    () => {
-      expect(typeof cartForParty).toBe("object");
-      expect(Object.keys(cartForParty)).toHaveLength(5);
-      expect(
-        Object.values(cartForParty).every((value) => typeof value === "number")
-      ).toBe(true);
-    }
-  );
+  it("cartForParty should contain five grocery items with prices", () => {
+    if (!exported) return;
+    expect(typeof cartForParty).toBe("object");
+    expect(Object.keys(cartForParty)).toHaveLength(5);
+    expect(
+      Object.values(cartForParty).every((value) => typeof value === "number")
+    ).toBe(true);
+  });
 
-  itIf(guard.hasExports, "should return the total price in Euros", () => {
+  it("should return the total price in Euros", () => {
+    if (!exported) return;
     expect(typeof cartForParty).toBe("object");
     expect(typeof calculateTotalPrice === "function").toBe(true);
 

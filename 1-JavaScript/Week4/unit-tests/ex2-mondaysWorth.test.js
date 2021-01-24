@@ -1,58 +1,53 @@
 /* eslint-disable hyf/camelcase */
 "use strict";
 const walk = require("acorn-walk");
-const {
-  beforeAllHelper,
-  itIf,
-  createGuard,
-} = require("../../../test-automation/unit-test-helpers");
-
-const guard = createGuard();
+const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
 
 describe("mondaysWorth", () => {
-  let computeEarnings, mondayTasks, hourlyRate;
+  let exported, rootNode, computeEarnings, mondayTasks, hourlyRate;
 
   const state = { selectRandomlyArgs: [] };
 
   beforeAll(() => {
-    const { exported, rootNode } = beforeAllHelper(__filename, {
+    ({ exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
-    });
-    guard.setExports(exported);
+    }));
+    if (!exported) return;
+
     ({ computeEarnings, mondayTasks, hourlyRate } = exported);
 
-    walk.simple(rootNode, {
-      MemberExpression({ property }) {
-        if (property.name === "map") {
-          state.map = true;
-        }
-      },
-    });
+    rootNode &&
+      walk.simple(rootNode, {
+        MemberExpression({ property }) {
+          if (property.name === "map") {
+            state.map = true;
+          }
+        },
+      });
   });
 
   it("should exist and be executable", () => {
-    expect(guard.hasExports()).toBeTruthy();
+    expect(exported).toBeDefined();
   });
 
-  itIf(guard.hasExports, "should take two parameters", () => {
+  it("should take two parameters", () => {
+    if (!exported) return;
     expect(computeEarnings).toHaveLength(2);
   });
 
-  itIf(guard.hasExports, "should use `map`", () => {
+  it("should use `map`", () => {
+    if (!exported) return;
     expect(state.map).toBeDefined();
   });
 
-  itIf(
-    guard.hasExports,
-    "should compute the earnings as a formatted Euro amount",
-    () => {
-      const total = mondayTasks
-        .map((task) => (task.duration / 60) * hourlyRate)
-        .reduce((sum, value) => sum + value, 0);
+  it("should compute the earnings as a formatted Euro amount", () => {
+    if (!exported) return;
+    const total = mondayTasks
+      .map((task) => (task.duration / 60) * hourlyRate)
+      .reduce((sum, value) => sum + value, 0);
 
-      expect(computeEarnings(mondayTasks, hourlyRate)).toBe(
-        `€${total.toFixed(2)}`
-      );
-    }
-  );
+    expect(computeEarnings(mondayTasks, hourlyRate)).toBe(
+      `€${total.toFixed(2)}`
+    );
+  });
 });

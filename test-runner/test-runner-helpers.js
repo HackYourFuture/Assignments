@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const util = require("util");
+const inquirer = require("inquirer");
 const _rimraf = require("rimraf");
 const fg = require("fast-glob");
 
@@ -74,9 +75,83 @@ async function prepareReportFolders(menuData) {
   }
 }
 
+function promptUseRecent(module, week, exercise) {
+  return inquirer.prompt([
+    {
+      type: "confirm",
+      name: "useRecent",
+      message: `Rerun last test (${module}, ${week}, ${exercise})?`,
+      default: true,
+    },
+  ]);
+}
+
+function selectModule(choices, module) {
+  return inquirer.prompt([
+    {
+      type: "list",
+      name: "module",
+      message: "Which module?",
+      choices,
+      default: module,
+    },
+  ]);
+}
+
+function selectWeek(choices, week) {
+  return inquirer.prompt([
+    {
+      type: "list",
+      name: "week",
+      message: "Which week?",
+      choices,
+      default: week,
+    },
+  ]);
+}
+
+function selectExercise(choices, exercise) {
+  return inquirer.prompt([
+    {
+      type: "list",
+      name: "exercise",
+      message: "Which exercise?",
+      choices,
+      default: exercise,
+    },
+  ]);
+}
+
+async function loadMostRecentSelection() {
+  try {
+    const json = await fs.promises.readFile(
+      path.join(__dirname, ".recent.json"),
+      "utf8"
+    );
+    return JSON.parse(json);
+  } catch (_) {
+    return null;
+  }
+}
+
+function saveMostRecentSelection(module, week, exercise) {
+  const json = JSON.stringify({ module, week, exercise });
+  return fs.promises.writeFileSync(
+    path.join(__dirname, ".recent.json"),
+    json,
+    "utf8"
+  );
+}
+
 module.exports = {
   compileMenuData,
   computeHash,
   prepareReportFolders,
   makePath,
+  promptUseRecent,
+  selectModule,
+  selectWeek,
+  selectExercise,
+  loadMostRecentSelection,
+  saveMostRecentSelection,
 };

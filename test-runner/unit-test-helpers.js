@@ -43,32 +43,14 @@ function beforeAllHelper(testFilePath, options = {}) {
   result.source = fs.readFileSync(exercisePath, "utf8");
 
   if (options.parse) {
-    result.rootNode = acorn.parse(result.source, { ecmaVersion: 2020 });
+    try {
+      result.rootNode = acorn.parse(result.source, { ecmaVersion: 2020 });
+    } catch (_) {
+      // Leave rootNode prop undefined
+    }
   }
 
   return result;
-}
-
-// Adapted from: https://github.com/facebook/jest/issues/3652#issuecomment-530745307
-function itIf(predicateFn, title, cb) {
-  it(title, (done) => {
-    if (predicateFn()) {
-      cb(done);
-    }
-    done();
-  });
-}
-
-function createGuard() {
-  let _hasExports = false;
-  return {
-    setExports(exported) {
-      _hasExports = !!exported;
-    },
-    hasExports() {
-      return _hasExports;
-    },
-  };
 }
 
 function findAncestor(type, ancestors) {
@@ -84,7 +66,5 @@ function findAncestor(type, ancestors) {
 
 module.exports = {
   beforeAllHelper,
-  itIf,
-  createGuard,
   findAncestor,
 };

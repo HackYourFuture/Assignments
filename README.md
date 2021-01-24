@@ -266,4 +266,4 @@ In addition, a log of the test results is written to a log file in the root dire
 
 Here you will find some documentation how to write exercises and unit tests.
 
-- [Test Automation](/test-automation/README.md)
+- [Test Runner](/test-runner/README.md)

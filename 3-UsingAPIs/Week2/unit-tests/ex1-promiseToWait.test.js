@@ -4,42 +4,42 @@ const {
   prepare,
   validateHTML,
   deleteFiles,
-} = require("../../../test-automation/puppeteer-helpers");
-const {
-  beforeAllHelper,
-} = require("../../../test-automation/unit-test-helpers");
+} = require("../../../test-runner/puppeteer-helpers");
+const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
 
 describe("ex1-promiseToWait", () => {
   const state = { asyncCount: 0, awaitCount: 0, tryCount: 0, catchCount: 0 };
+  let rootNode;
 
   beforeAll(async () => {
     await prepare(page);
-    const { rootNode } = beforeAllHelper(__filename, {
+    ({ rootNode } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
-    });
+    }));
 
-    walk.simple(rootNode, {
-      FunctionDeclaration({ async }) {
-        if (async) {
-          state.asyncCount += 1;
-        }
-      },
-      ArrowFunctionExpression({ async }) {
-        if (async) {
-          state.asyncCount += 1;
-        }
-      },
-      AwaitExpression() {
-        state.awaitCount += 1;
-      },
-      TryStatement() {
-        state.tryCount += 1;
-      },
-      CatchClause() {
-        state.catchCount += 1;
-      },
-    });
+    rootNode &&
+      walk.simple(rootNode, {
+        FunctionDeclaration({ async }) {
+          if (async) {
+            state.asyncCount += 1;
+          }
+        },
+        ArrowFunctionExpression({ async }) {
+          if (async) {
+            state.asyncCount += 1;
+          }
+        },
+        AwaitExpression() {
+          state.awaitCount += 1;
+        },
+        TryStatement() {
+          state.tryCount += 1;
+        },
+        CatchClause() {
+          state.catchCount += 1;
+        },
+      });
   });
 
   afterAll(() => {

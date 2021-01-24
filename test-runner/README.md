@@ -96,7 +96,7 @@ In each _Week𝑛_ folder a subfolder `test-reports` is created. Inside each `te
       creditNumberValidator.test.js
 ```
 
-Furthermore, a file `.hashes.json` is created in the `test-automation` folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of the exercise has been modified since initial installation. Note that `.hashes.json` is not tracked by Git (it is listed in `.gitignore`).
+Furthermore, a file `.hashes.json` is created in the `test-runner` folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of the exercise has been modified since initial installation. Note that `.hashes.json` is not tracked by Git (it is listed in `.gitignore`).
 
 ## Cleanup
 
@@ -171,13 +171,14 @@ beforeAll(() => {
 
   // Look for `map` and `filter` calls inside the
   // scope of the `doubleEvenNumber` function
-  walk.simple(rootNode, {
-    MemberExpression({ property }, ancestors) {
-      if (["map", "filter"].includes(property.name)) {
-        state[property.name] = true;
-      }
-    },
-  });
+  rootNode &&
+    walk.simple(rootNode, {
+      MemberExpression({ property }, ancestors) {
+        if (["map", "filter"].includes(property.name)) {
+          state[property.name] = true;
+        }
+      },
+    });
 });
 ```
 

@@ -9,7 +9,7 @@ module.exports = {
   plugins: ["prettier", "hyf", "no-autofix"],
   extends: ["eslint:recommended", "prettier"],
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
   },
   globals: {
     page: "readonly",

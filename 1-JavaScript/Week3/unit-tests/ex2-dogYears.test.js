@@ -1,40 +1,37 @@
 "use strict";
-const {
-  beforeAllHelper,
-  itIf,
-  createGuard,
-} = require("../../../test-automation/unit-test-helpers");
-
-const guard = createGuard();
+const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
 
 describe("calculateDogAge", () => {
-  let calculateDogAge;
+  let exported, calculateDogAge;
 
   beforeAll(() => {
-    const { exported } = beforeAllHelper(__filename);
-    guard.setExports(exported);
+    ({ exported } = beforeAllHelper(__filename));
     calculateDogAge = exported;
   });
 
   it("should exist and be executable", () => {
-    expect(guard.hasExports()).toBeTruthy();
+    expect(exported).toBeDefined();
   });
 
-  itIf(guard.hasExports, "should take a single parameter", () => {
+  it("should take a single parameter", () => {
+    if (!exported) return;
     expect(calculateDogAge).toHaveLength(1);
   });
 
-  itIf(guard.hasExports, "should give 7 dog years for 1 human year", () => {
+  it("should give 7 dog years for 1 human year", () => {
+    if (!exported) return;
     expect(calculateDogAge(1)).toBe("Your doggie is 7 years old in dog years!");
   });
 
-  itIf(guard.hasExports, "should give 14 dog years for 2 human years", () => {
+  it("should give 14 dog years for 2 human years", () => {
+    if (!exported) return;
     expect(calculateDogAge(2)).toBe(
       "Your doggie is 14 years old in dog years!"
     );
   });
 
-  itIf(guard.hasExports, "give 21 dog years for 3 human years", () => {
+  it("give 21 dog years for 3 human years", () => {
+    if (!exported) return;
     expect(calculateDogAge(3)).toBe(
       "Your doggie is 21 years old in dog years!"
     );

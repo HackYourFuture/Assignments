@@ -3,51 +3,51 @@
 const walk = require("acorn-walk");
 const {
   beforeAllHelper,
-  itIf,
-  createGuard,
   findAncestor,
-} = require("../../../test-automation/unit-test-helpers");
-
-const guard = createGuard();
+} = require("../../../test-runner/unit-test-helpers");
 
 describe("doubleEvenNumbers", () => {
-  let doubleEvenNumbers;
+  let exported, rootNode, doubleEvenNumbers;
   const state = {};
 
   beforeAll(() => {
-    const { exported, rootNode } = beforeAllHelper(__filename, {
+    ({ exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
-    });
-    guard.setExports(exported);
+    }));
+
     doubleEvenNumbers = exported;
 
     // Look for `map` and `filter` calls inside the
     // scope of the `doubleEvenNumber` function
-    walk.ancestor(rootNode, {
-      MemberExpression({ property }, ancestors) {
-        if (["map", "filter"].includes(property.name)) {
-          const ancestor = findAncestor("FunctionDeclaration", ancestors);
-          if (ancestor && ancestor.id.name === "doubleEvenNumbers") {
-            state[property.name] = true;
+    rootNode &&
+      walk.ancestor(rootNode, {
+        MemberExpression({ property }, ancestors) {
+          if (["map", "filter"].includes(property.name)) {
+            const ancestor = findAncestor("FunctionDeclaration", ancestors);
+            if (ancestor && ancestor.id.name === "doubleEvenNumbers") {
+              state[property.name] = true;
+            }
           }
-        }
-      },
-    });
+        },
+      });
   });
 
   it("should exist and be executable", () => {
-    expect(guard.hasExports()).toBeTruthy();
+    expect(exported).toBeDefined();
   });
 
-  itIf(guard.hasExports, "should return doubled even numbers only", () => {
+  it("should return doubled even numbers only", () => {
+    if (!exported) return;
     expect(doubleEvenNumbers([1, 2, 3, 4])).toEqual([4, 8]);
   });
 
-  itIf(guard.hasExports, "should use `map`", () => {
+  it("should use `map`", () => {
+    if (!exported) return;
     expect(state.map).toBeDefined();
   });
 
-  itIf(guard.hasExports, "should use `filter`", () => {
+  it("should use `filter`", () => {
+    if (!exported) return;
     expect(state.filter).toBeDefined();
   });
 });

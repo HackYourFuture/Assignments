@@ -2,13 +2,18 @@ const fs = require("fs").promises;
 const { existsSync } = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-const inquirer = require("inquirer");
 const chalk = require("chalk");
 const prompts = require("prompts");
 const {
   makePath,
   compileMenuData,
   computeHash,
+  promptUseRecent,
+  selectModule,
+  selectWeek,
+  selectExercise,
+  loadMostRecentSelection,
+  saveMostRecentSelection,
 } = require("./test-runner-helpers");
 const logger = require("./logger");
 const hashes = require("./.hashes.json");
@@ -52,53 +57,6 @@ async function writeReport(module, week, exercise, report) {
   await fs.writeFile(passFilePath, message, "utf8");
 }
 
-function promptUseRecent(module, week, exercise) {
-  return inquirer.prompt([
-    {
-      type: "confirm",
-      name: "useRecent",
-      message: `Rerun last test (${module}, ${week}, ${exercise})?`,
-      default: true,
-    },
-  ]);
-}
-
-function selectModule(choices, module) {
-  return inquirer.prompt([
-    {
-      type: "list",
-      name: "module",
-      message: "Which module?",
-      choices,
-      default: module,
-    },
-  ]);
-}
-
-function selectWeek(choices, week) {
-  return inquirer.prompt([
-    {
-      type: "list",
-      name: "week",
-      message: "Which week?",
-      choices,
-      default: week,
-    },
-  ]);
-}
-
-function selectExercise(choices, exercise) {
-  return inquirer.prompt([
-    {
-      type: "list",
-      name: "exercise",
-      message: "Which exercise?",
-      choices,
-      default: exercise,
-    },
-  ]);
-}
-
 function execJest(name) {
   try {
     const customReporterPath = path.join(__dirname, "CustomReporter.js");
@@ -133,7 +91,7 @@ function execESLint(exercisePath) {
     output = err.stdout;
   }
   if (output) {
-    output = output.replace(/\\/g, "/").replace(/^.*\/homework\//gm, "");
+    output = output.replace(/\\/g, "/").replace(/^.*\/\.?homework\//gm, "");
     const title = "*** ESLint Report ***";
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(output));
@@ -161,7 +119,7 @@ function execSpellChecker(exercisePath) {
     // remove full path
     const output = err.stdout
       .replace(/\\/g, "/")
-      .replace(/^.*\/homework\//gm, "");
+      .replace(/^.*\/\.?homework\//gm, "");
 
     const title = "*** Spell Checker Report ***";
     console.log(chalk.yellow(`\n${title}\n`));
@@ -170,23 +128,6 @@ function execSpellChecker(exercisePath) {
     logger.error(message);
     return "\n" + message;
   }
-}
-
-async function loadMostRecentSelection() {
-  try {
-    const json = await fs.readFile(
-      path.join(__dirname, ".recent.json"),
-      "utf8"
-    );
-    return JSON.parse(json);
-  } catch (_) {
-    return null;
-  }
-}
-
-function saveMostRecentSelection(module, week, exercise) {
-  const json = JSON.stringify({ module, week, exercise });
-  return fs.writeFile(path.join(__dirname, ".recent.json"), json, "utf8");
 }
 
 async function showDisclaimer() {

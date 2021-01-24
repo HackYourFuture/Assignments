@@ -2,7 +2,7 @@ const {
   prepare,
   validateHTML,
   deleteFiles,
-} = require("../../../test-automation/puppeteer-helpers");
+} = require("../../../test-runner/puppeteer-helpers");
 
 describe("Generated HTML", () => {
   beforeAll(async () => {

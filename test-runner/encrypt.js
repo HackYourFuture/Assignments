@@ -1,16 +1,19 @@
 const fs = require("fs").promises;
 const { existsSync } = require("fs");
 const path = require("path");
-const inquirer = require("inquirer");
+const util = require("util");
 const fg = require("fast-glob");
+const _rimraf = require("rimraf");
 const chalk = require("chalk");
+require("dotenv").config();
 
+const rimraf = util.promisify(_rimraf);
 const Cryptr = require("cryptr");
 
 const { compileMenuData, makePath } = require("./test-runner-helpers");
 
-async function encryptExerciseSolution(password, fileSpec, exerciseJSON) {
-  const cryptr = new Cryptr(password);
+async function encryptExerciseSolution(secret, fileSpec, exerciseJSON) {
+  const cryptr = new Cryptr(secret);
   const { exercise } = exerciseJSON;
   console.log(`Saving encrypted solution '${exercise}'`);
   const filePaths = fg.sync([fileSpec.replace(/\\/g, "/")], { dot: true });
@@ -37,7 +40,7 @@ async function encryptExerciseSolution(password, fileSpec, exerciseJSON) {
   );
 }
 
-function encryptExerciseSolutions(password, module, week, exercises) {
+function encryptExerciseSolutions(secret, module, week, exercises) {
   exercises.forEach((exercise) => {
     const filePath = makePath(module, week, ".homework", exercise);
     let fileSpec, isFolder;
@@ -52,34 +55,27 @@ function encryptExerciseSolutions(password, module, week, exercises) {
     }
 
     const exerciseJSON = { module, week, exercise, isFolder, files: [] };
-    encryptExerciseSolution(password, fileSpec, exerciseJSON);
+    encryptExerciseSolution(secret, fileSpec, exerciseJSON);
   });
 }
 
 (async () => {
   try {
-    let { password } = await inquirer.prompt([
-      {
-        message: "Password?",
-        type: "input",
-        name: "password",
-      },
-    ]);
-    password = password.trim();
-    if (!password) {
+    const secret = process.env.HYF_SECRET;
+    if (!secret) {
+      console.log("Secret is not set");
       process.exit(1);
     }
+
+    console.log("Clearing out previous encrypted solutions...");
+    const destinationPath = path.join(__dirname, "../test-encrypted/*");
+    await rimraf(destinationPath);
 
     console.log("Scanning for unit tests...");
     const menuData = compileMenuData();
     for (const module of Object.keys(menuData)) {
       for (const week of Object.keys(menuData[module])) {
-        encryptExerciseSolutions(
-          password,
-          module,
-          week,
-          menuData[module][week]
-        );
+        encryptExerciseSolutions(secret, module, week, menuData[module][week]);
       }
     }
   } catch (err) {

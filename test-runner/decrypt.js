@@ -1,9 +1,9 @@
 const fs = require("fs").promises;
 const { existsSync } = require("fs");
 const path = require("path");
-const inquirer = require("inquirer");
 const fg = require("fast-glob");
 const chalk = require("chalk");
+require("dotenv").config();
 
 const Cryptr = require("cryptr");
 
@@ -11,8 +11,8 @@ const { makePath } = require("./test-runner-helpers");
 
 const solutionsFolderName = ".homework";
 
-async function decryptExerciseSolution(filePath, password) {
-  const cryptr = new Cryptr(password);
+async function decryptExerciseSolution(filePath, secret) {
+  const cryptr = new Cryptr(secret);
 
   const jsonData = await fs.readFile(filePath, "utf8");
   let exerciseJSON;
@@ -50,15 +50,9 @@ async function decryptExerciseSolution(filePath, password) {
 
 (async () => {
   try {
-    let { password } = await inquirer.prompt([
-      {
-        message: "Password?",
-        type: "input",
-        name: "password",
-      },
-    ]);
-    password = password.trim();
-    if (!password) {
+    const secret = process.env.HYF_SECRET;
+    if (!secret) {
+      console.log("Secret is not set");
       process.exit(1);
     }
 
@@ -67,7 +61,7 @@ async function decryptExerciseSolution(filePath, password) {
     );
 
     const promises = filePaths.map((filePath) =>
-      decryptExerciseSolution(filePath, password)
+      decryptExerciseSolution(filePath, secret)
     );
 
     await Promise.all(promises);

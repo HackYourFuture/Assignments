@@ -1,58 +1,54 @@
 /* eslint-disable hyf/camelcase */
 "use strict";
 const walk = require("acorn-walk");
-const {
-  beforeAllHelper,
-  itIf,
-  createGuard,
-} = require("../../../test-automation/unit-test-helpers");
-
-const guard = createGuard();
+const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
 
 describe("sanitizeFruitBasket", () => {
-  let sanitizeFruitBasket, fruitBasket, savedFruitBasket;
+  let exported, rootNode, sanitizeFruitBasket, fruitBasket, savedFruitBasket;
 
   const state = { selectRandomlyArgs: [] };
 
   beforeAll(() => {
-    const { exported, rootNode } = beforeAllHelper(__filename, {
+    ({ exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
-    });
-    guard.setExports(exported);
+    }));
+    if (!exported) return;
 
     ({ sanitizeFruitBasket, fruitBasket } = exported);
     savedFruitBasket = [...fruitBasket];
 
-    walk.simple(rootNode, {
-      MemberExpression({ property }) {
-        if (property.name === "filter") {
-          state.filter = true;
-        }
-      },
-    });
+    rootNode &&
+      walk.simple(rootNode, {
+        MemberExpression({ property }) {
+          if (property.name === "filter") {
+            state.filter = true;
+          }
+        },
+      });
   });
 
   it("should exist and be executable", () => {
-    expect(guard.hasExports()).toBeTruthy();
+    if (!exported) return;
+    expect(exported).toBeDefined();
   });
 
-  itIf(guard.hasExports, "should take two parameters", () => {
+  it("should take two parameters", () => {
+    if (!exported) return;
     expect(sanitizeFruitBasket).toHaveLength(2);
   });
 
-  itIf(guard.hasExports, "should use `filter`", () => {
+  it("should use `filter`", () => {
+    if (!exported) return;
     expect(state.filter).toBeDefined();
   });
 
-  itIf(
-    guard.hasExports,
-    "should not modify the original `fruitBasket` array",
-    () => {
-      expect(fruitBasket).toEqual(savedFruitBasket);
-    }
-  );
+  it("should not modify the original `fruitBasket` array", () => {
+    if (!exported) return;
+    expect(fruitBasket).toEqual(savedFruitBasket);
+  });
 
-  itIf(guard.hasExports, "should list the sanitized fruit basket", () => {
+  it("should list the sanitized fruit basket", () => {
+    if (!exported) return;
     const newBasket = fruitBasket.filter((fruit) => fruit !== "lemon");
     const expected = `My mom bought me a fruit basket containing ${newBasket.join(
       ", "

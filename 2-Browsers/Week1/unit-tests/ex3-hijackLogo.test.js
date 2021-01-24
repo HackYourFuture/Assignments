@@ -1,25 +1,25 @@
 /* eslint-disable hyf/camelcase */
 const walk = require("acorn-walk");
-const {
-  beforeAllHelper,
-} = require("../../../test-automation/unit-test-helpers");
+const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
 
 describe("hijackLogo", () => {
+  let rootNode;
   const state = {};
 
   beforeAll(() => {
-    const { rootNode } = beforeAllHelper(__filename, {
+    ({ rootNode } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
-    });
+    }));
 
-    walk.simple(rootNode, {
-      MemberExpression({ property }) {
-        if (["src", "srcset"].includes(property.name)) {
-          state[property.name] = true;
-        }
-      },
-    });
+    rootNode &&
+      walk.simple(rootNode, {
+        MemberExpression({ property }) {
+          if (["src", "srcset"].includes(property.name)) {
+            state[property.name] = true;
+          }
+        },
+      });
   });
 
   it("should set the `src` property", () => {
