@@ -1,6 +1,7 @@
 const fs = require("fs").promises;
 const { existsSync } = require("fs");
-const path = require("path");
+const http = require("http");
+const handler = require("serve-handler");
 const open = require("open");
 const chalk = require("chalk");
 const {
@@ -17,10 +18,37 @@ const {
 const logger = require("./logger");
 const hashes = require("./.hashes.json");
 
+const PORT = 3030;
+
+function serve(exercisePath) {
+  const options = {
+    public: exercisePath,
+    headers: [
+      {
+        source: "**/*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache",
+          },
+        ],
+      },
+    ],
+  };
+  const server = http.createServer((request, response) => {
+    return handler(request, response, options);
+  });
+
+  server.listen(PORT, () => {
+    console.log(chalk.magenta(`HTTP server at http://localhost:${PORT}`));
+    console.log(chalk.magenta("Press Ctrl-C to exit."));
+    open(`http://localhost:${PORT}`);
+  });
+}
+
 async function runExercise(exercisePath) {
   if (existsSync(exercisePath)) {
-    const urlPath = path.join(exercisePath, "index.html");
-    await open(`file://${urlPath}`);
+    serve(exercisePath);
   } else {
     const code = await fs.readFile(exercisePath + ".js", "utf8");
     eval(code);
