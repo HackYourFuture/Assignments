@@ -40,7 +40,9 @@ function serve(exercisePath) {
   });
 
   server.listen(PORT, () => {
-    console.log(chalk.magenta(`HTTP server at http://localhost:${PORT}`));
+    console.log(
+      chalk.magenta(`HTTP server running at http://localhost:${PORT}`)
+    );
     console.log(chalk.magenta("Press Ctrl-C to exit."));
     open(`http://localhost:${PORT}`);
   });
