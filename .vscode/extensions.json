@@ -13,7 +13,6 @@
     "eamodio.gitlens",
     "esbenp.prettier-vscode",
     "ritwickdey.LiveServer",
-    "streetsidesoftware.code-spell-checker",
-    "techer.open-in-browser"
+    "streetsidesoftware.code-spell-checker"
   ]
 }
