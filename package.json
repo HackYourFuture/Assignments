@@ -25,11 +25,11 @@
   "engines": {
     "node": ">=14"
   },
-  "license": "ISC",
+  "license": "CC-BY-4.0",
   "bugs": {
-    "url": "https://github.com/HackYourFuture/WIP-Javascript/issues"
+    "url": "https://github.com/HackYourFuture/Homework/issues"
   },
-  "homepage": "https://github.com/HackYourFuture/WIP-Javascript#readme",
+  "homepage": "https://github.com/HackYourFuture/Homework#readme",
   "dependencies": {
     "@types/jest": "^26.0.19",
     "acorn": "^8.0.4",

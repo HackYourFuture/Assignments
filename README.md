@@ -1,6 +1,6 @@
 # UNDER CONSTRUCTION
 
-## Homework
+## Introduction
 
 Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain homework exercises. This repository contains all of these exercises. The class repository will tell you how to hand in the homework, the curriculum will indicate what week you will need to do.
 
@@ -249,21 +249,30 @@ In addition, a log of the test results is written to a log file in the root dire
 >
 > You should strive to complete all tests with no errors reported, however it is okay if for some reason you were unable to fix some error. However, you _**are**_ required to run the tests, whether successful or not.
 
-### JavaScript Homework Exercises
+## Homework Exercise Instructions
+
+### JavaScript Module
 
 - [Week 3](/1-JavaScript/Week3/README.md)
-- [Week 4](/1-JavaScript/Week4/README.md)
+- [Week 4](/1-JavaScript/Week3/README.md)
 
-### Browsers Homework Exercises
+### Browsers Module
 
 - [Week 1](/2-Browsers/Week1/README.md)
 
-### Using-APIs Homework Exercises
+### Using-APIs Module
 
-- TODO
+- [Week 1](/3-UsingAPIs/Week1/README.md)
+- [Week 2](/3-UsingAPIs/Week2/README.md)
 
 ## Information for mentors
 
 Here you will find some documentation how to write exercises and unit tests.
 
 - [Test Runner](/test-runner/README.md)
+
+## Copyright
+
+_The HackYourFuture curriculum is subject to CC BY copyright. This means you can freely use our materials, but just make sure to give us credit for it_ :).
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
