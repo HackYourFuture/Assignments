@@ -44,46 +44,105 @@ Complete the function called `checkDoubleDigits` such that:
 - If the number between 10 and 99 it should resolve to the string "This is double digit number!".
 - For any other number it should reject with an an Error object containing: "Expected a double digit number but got `number`", where `number` is the number that was passed as an argument.
 
-### Exercise 3: Programmer humor
+### Exercise 3: Roll a dice
 
-#### Folder: `ex2-programmerHumor`
+### File `ex3-rollDice.js`
 
-Who knew programmers could be funny?
+This exercise is about throwing a dice. A dice in this exercise may roll up to 10 times before it settles on a final value, depending on the energy with a is thrown. Unfortunately, if a dice rolls more than six times in our game it roll off the table and the throw becomes invalid. If it rolls six times or less, its final value will be valid.
 
-Write a program that makes an HTTP Request to: `https://xkcd.now.sh/?comic=latest`
+> Note: to keep things simple, we have taken some liberties in this exercise with respect to how a dice behaves in reality. For instance, in real life a dice cannot flip back to a value it previously had. Besides, it will mostly roll on its corners, not on its sides.
 
-1. Complete the function `getData()`. It should:
+The existing `rollDice()` function in the exercise file uses a callback to notify the caller of success or failure. Here is the code:
 
-   - Take a `url` string as its parameter.
-   - It should return a promise that resolves to the data returned from the Web API.
-   - It should return a rejected promise in case of HTTP errors and/or network errors.
+```js
+function rollDice(callback) {
+  const todo = Math.floor(Math.random() * 10) + 1;
+  console.log(`Dice starts rolling...`);
+  const rollOnce = (roll) => {
+    const value = Math.floor(Math.random() * 6) + 1;
+    console.log(`Dice value is now: ${value}`);
+    if (roll === todo) {
+      callback(null, value);
+    }
+    if (roll > 6) {
+      callback(new Error("Oops... Dice rolled off the table."));
+    }
+    if (roll < todo) {
+      setTimeout(() => rollOnce(roll + 1), 500);
+    }
+  };
+  rollOnce(1);
+}
 
-2. Complete the function body of the `.then()` method.
+rollDice((error, value) => {
+  if (error !== null) {
+    console.log(error.message);
+  } else {
+    console.log(`Success! Dice settled on ${value}.`);
+  }
+});
+```
 
-   - It should log the image data returned by `getData()` to the browser's console.
-   - It should dynamically create an `<img>` element and set its `src` property from the data.
-   - It should append the `<img>` element to the document's `<body>` element.
+Here is what the output could look like for a successful throw:
 
-3. Complete the function body of the `.catch()` method.
+```text
+❯ node .\ex3-rollDice.js
+Dice starts rolling...
+Dice value is now: 2
+Dice value is now: 3
+Dice value is now: 4
+Dice value is now: 5
+Dice value is now: 6
+Success! Dice settled on 6.
+```
 
-   - It should log the error information to the browser's console.
+However, there is a problem when the dice rolls off the table. In that case we expect a single error callback and no "success" callbacks. Evidently this is not what we are getting in the random throw below.
 
-### Exercise 4: Who do we have here?
+```text
+❯ node .\ex3-rollDice.js
+Dice starts rolling...
+Dice value is now: 3
+Dice value is now: 1
+Dice value is now: 3
+Dice value is now: 3
+Dice value is now: 1
+Dice value is now: 2
+Dice value is now: 4
+Oops... Dice rolled off the table.
+Dice value is now: 5
+Success! Dice settled on 5.
+Oops... Dice rolled off the table
+```
 
-### Folder: `ex4-whoHere`
+Since we want to practice with promises anyway, let's see how what happens when we refactor the code to use promises:
 
-Wouldn't it cool to make a new friend with just the click of a button?
+- Run the unmodified program and confirm that problem as described can be reproduced.
+- Refactor the `rollBack()` function from using a callback to returning a promise.
+- Change the calls to `callback()` to calls to `resolve()` and `reject()`.
+- Refactor the code that calls `rollDice()` to use the returned promise.
+- Does the problem described above still occur? If not, what would be your explanation? Add your answer as a comment to be bottom of the file.
 
-Complete the function `getData()` as follows:
+### Exercise 4: Throw the dices for a Poker Dice games
 
-- It should get data from the url passed to it by the existing function `main()`.
-- It should use the **axios** library to make the request.
-- Your code should use a promise chain (`.then()`, `.catch()`) to handle the response from axios.
-- Stringify the data so that it can be rendered it as JSON to the page:
+#### File: `ex4-pokerDiceAll.js`
 
-  ```js
-  const text = JSON.stringify(data, null, 2);
+Dices in a [Poker Dice](https://en.wikipedia.org/wiki/Poker_dice) game have representations of playing cards upon them (this exercise uses strings instead). You play it with five such dices that you must throw in one go. In this exercise we have provided a ready-made `rollDice()` function for you that takes a dice number (1-5) as an argument and returns a promise that resolves to its final value, or a rejected promise with an `Error` object if the dice rolled off the table. The `rollDice()` function is located in a separate file (`pokerDiceRoller.js`). For this exercise you do not need to look at it (though you are welcome to), or understand how it works. The only thing you need to know is that it returns a promise, as described.
+
+We have also provided some code that demonstrates how to handle throwing a single dice. For this exercise you should do the following:
+
+- Refactor the `rollTheDices()` function to throw five dices in one go, making use of the `dices` array and `Promise.all()`.
+- A successful (i.e. resolved) throw should output a message similar to:
+
+  ```text
+  Resolved! [ 'JACK', 'QUEEN', 'QUEEN', 'NINE', 'JACK' ]
   ```
 
-- Render the JSON string as a `<pre>` element appended to the `<body>` of the DOM.
-- Request errors should be logged the browser's console.
+- A unsuccessful (i.e. rejected) throw should output a message similar to:
+
+  ```text
+  Rejected! Dice 3 rolled off the table.
+  ```
+
+The provided `rollDice()` function outputs the state of a dice as it rolls, along with the time of day with millisecond accuracy. Once you have successfully completed this exercise you will notice that the intermediate messages are output in bursts of up to five at a time as the dices finish rolling asynchronously.
+
+You may also notice that, in the case of a rejected promise, dices that have not yet finished their roll continue to do so. Can you explain why? Please add your answer as a comment to the end of the exercise file.

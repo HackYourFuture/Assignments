@@ -1,4 +1,3 @@
-const fs = require("fs").promises;
 const { existsSync } = require("fs");
 const http = require("http");
 const handler = require("serve-handler");
@@ -52,8 +51,11 @@ async function runExercise(exercisePath) {
   if (existsSync(exercisePath)) {
     serve(exercisePath);
   } else {
-    const code = await fs.readFile(exercisePath + ".js", "utf8");
-    eval(code);
+    try {
+      require(exercisePath);
+    } catch (err) {
+      console.log(chalk.red(`Something went wrong: ${err.message}`));
+    }
   }
 }
 

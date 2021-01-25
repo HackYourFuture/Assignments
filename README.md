@@ -259,9 +259,9 @@ Table 1. Test report types
 
 For example:
 
-- `creditNumberValidator.todo.txt` _or_
-- `creditNumberValidator.pass.txt` _or_
-- `creditNumberValidator.fail.txt`
+- `ex1-giveCompliment.todo.txt` _or_
+- `ex1-giveCompliment.pass.txt` _or_
+- `ex1-giveCompliment.fail.txt`
 
 The report files are considered part of the pull request that you will make to submit your homework. They enable reviewers to get a quick overview of your progress.
 

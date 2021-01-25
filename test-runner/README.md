@@ -2,20 +2,20 @@
 
 ## Introduction
 
-This repository includes infrastructure for the automatic checking (unit testing, linting and spell-checking) of homework exercises for use by both students and homework reviewers. This document describes the setup of this infrastructure.
+This repository includes infrastructure for the automatic checking (unit testing, linting and spell-checking) of homework exercises, for use by both students and homework reviewers. This document describes this infrastructure.
 
 ## Running the tests
 
 Tests are expected to be executed one at a time, with the command:
 
-```
+```text
 npm test
 ```
 
 A test is selected by going through a series of prompts, for instance:
 
-```
-? Which module? 1-JavaScript
+```text
+? Which module? 1-Javascript
 ? Which week? Week3
 ? Which exercise? ex1-giveCompliment
 You have not yet worked on this exercise.
@@ -23,7 +23,9 @@ Running test, please wait...
 
 *** Unit Test Error Report ***
 
-- giveCompliment should contain a `const` array named `compliments` with 10 strings
+- giveCompliment should take a single parameter
+- giveCompliment should include a `compliments` array initialized with 10 strings
+  No such array found
 - giveCompliment should give a random compliment: You are `compliment`, `name`!
 
 No linting errors detected.
@@ -47,19 +49,19 @@ A report file containing these same messages is written to the corresponding `We
 <!-- prettier-ignore -->
 | Name | Status |
 | ---- | ------ |
-| **_\<exercise>_.todo.txt** | The tests for this exercise have not yet been executed. |
-| **_\<exercise>_.pass.txt** | All unit tests passed and no linting errors were detected. |
-| **_\<exercise>_.fail.txt** | Unit test errors or linting errors have been detected. |
+| `<exercise>.todo.txt` | The test for this exercise have not yet been executed or has been executed on unmodified code. |
+| `<exercise>.pass.txt` | All unit tests passed and no linting or spelling errors were detected. |
+| `<exercise>.fail.txt` | Unit test errors or ESLint or spelling errors were detected. |
 
 For example:
 
-- `creditNumberValidator.todo.txt` _or_
-- `creditNumberValidator.pass.txt` _or_
-- `creditNumberValidator.fail.txt`
+- `ex1-giveCompliment.todo.txt` _or_
+- `ex1-giveCompliment.pass.txt` _or_
+- `ex1-giveCompliment.fail.txt`
 
-These files are mutually exclusive; after running a test any previous report file is erased before a new one is created. However, if a student runs a test against a still untouched exercise the default `.todo.txt` file remains in place.
+These files are mutually exclusive; after running a test any previous report file for that test is erased before a new one is created. However, if a student runs a test against a still untouched exercise the default `.todo.txt` file remains in place.
 
-The report folders are tracked by Git and are part of the pull requests submitted by students. Students are required to run the relevant tests prior to submitting their PR for the current week. Running the tests gives them early feedback on the correctness of the expected results and conformance to the mandated coding style (as per ESLint), and an early opportunity for corrective action. Once submitted as a PR, it also gives pull request reviewers a head start in gaining insight in the correctness of the homework, although manual inspection is of course still required.
+The report folders are tracked by Git and are part of the pull requests submitted by students. Students are expected to run the relevant tests prior to submitting their PR for the current week. Running a test should give them early feedback on the correctness of the expected results and on the conformance to the mandated coding style (as per ESLint). This gives them an early opportunity for corrective action. Once submitted as a PR, the report files also gives pull request reviewers some key pointers into the correctness of the homework before going into a more elaborate visual inspection of the actual code.
 
 ### Test log file
 
@@ -72,8 +74,10 @@ The test runner relies on strict adherence to a predefined naming convention and
 <!-- prettier-ignore -->
 Folder | Description |
 ------ | ----------- |
-**_\<module>_/Week𝑛/homework**| Example: `1-JavaScript/Week3/homework`<br><br>The JavaScript file representing the exercise must named `<exercise-name>.js` and placed in this folder. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then these files must be placed in a _folder_ named `<exercise-name>`.<br><br>There can be multiple exercises per _Week𝑛_ folder.
-**_\<module>_/Week𝑛/unit-tests** | This folder contains the unit test JavaScript files. The JavaScript file containing the unit test(s) for ab exercise must named `<exercise-name>.test.js`.
+`<module>/Week𝑛/homework` | Example: `1-JavaScript/Week3/homework`<br><br>The JavaScript file representing the exercise must named `<exercise-name>.js` and placed in this folder. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then these files must be placed in a _folder_ named `<exercise-name>`.<br><br>There can be multiple exercises per _Week𝑛_ folder.
+`<module>/Week𝑛/unit-tests` | This folder contains the unit test JavaScript files. The JavaScript file containing the unit test(s) for ab exercise must named `<exercise-name>.test.js`.
+`<module>/Week𝑛/test-reports` | This folder will hold the test reports.
+`<module>/Week𝑛/.homework` | This folder (notice the leading dot in the name) is only used during development and maintenance of this repo. Working solutions to exercises can be placed in this folder for testing the "happy" path of the unit tests. A `.homework` folder is used in place of a regular `homework` folder when a unit test is run with the command: `npm run testx`.
 
 ## Linting
 
@@ -81,28 +85,31 @@ ESLint rules are configured as usual in the file `.eslintrc.js`. It is possible 
 
 ## Postinstall Script
 
-A number of folders and files are automatically created by means of a `postinstall` script in `package.json`. This script is run after `npm install` has completed installing the dependencies defined in `package.json`.
+An npm `postinstall` script is automatically executed as part of the installation process. This script regenerates the `test-report` folders, initialized with `.todo.txt` files and erases any existing `<email>.log` file.
 
-In each _Week𝑛_ folder a subfolder `test-reports` is created. Inside each `test-reports` folder one or more `.todo.txt` report files are created, one for each test of the corresponding week. The resulting structure thus looks like this:
+Furthermore, a file `.hashes.json` is created in the `test-runner` folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of the exercise has been modified since initial installation. Note that `.hashes.json` is git-ignored.
 
-```
+After running the `postinstall` script the resulting structure for a module looks similar to this:
+
+```text
 1-JavaScript/
   Week3/
     homework/
-      creditNumberValidator.js
+      ex1-giveCompliment.js
+      ...
     test-reports/
-      creditNumberValidator.todo.txt
+      ex1-giveCompliment.todo.txt
+      ...
     unit-tests/
-      creditNumberValidator.test.js
+      ex1-giveCompliment.test.js
+      ...
 ```
-
-Furthermore, a file `.hashes.json` is created in the `test-runner` folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of the exercise has been modified since initial installation. Note that `.hashes.json` is not tracked by Git (it is listed in `.gitignore`).
 
 ## Cleanup
 
 The `postinstall` script must be run before committing changes to the master repo to ensure that all test reports are restored to the default `.todo.txt` files and the log file, if present, is cleaned up:
 
-```
+```text
 npm run postinstall
 ```
 
