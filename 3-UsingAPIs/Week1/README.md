@@ -48,9 +48,9 @@ Complete the function called `checkDoubleDigits` such that:
 
 ### File `ex3-rollDice.js`
 
-This exercise is about throwing a dice. A dice in this exercise may roll up to 10 times before it settles on a final value, depending on the energy with a is thrown. Unfortunately, if a dice rolls more than six times in our game it roll off the table and the throw becomes invalid. If it rolls six times or less, its final value will be valid.
+This exercise is about throwing a dice. A dice in this exercise may roll up to 10 times before it settles on a final value, depending on the energy with which it is thrown. Unfortunately, if a dice rolls more than six times in our game it rolls off the table and the throw becomes invalid. If it rolls six times or less, its final value will be valid.
 
-> Note: to keep things simple, we have taken some liberties in this exercise with respect to how a dice behaves in reality. For instance, in real life a dice cannot flip back to a value it previously had. Besides, it will mostly roll on its corners, not on its sides.
+> Note: to keep things simple, we have taken some liberties in this exercise with respect to how a dice behaves in reality. For instance, in real life a dice cannot flip back to a value it previously had. Besides, it will mostly roll on its corners, not its sides.
 
 The existing `rollDice()` function in the exercise file uses a callback to notify the caller of success or failure. Here is the code:
 
@@ -114,9 +114,9 @@ Success! Dice settled on 5.
 Oops... Dice rolled off the table
 ```
 
-Since we want to practice with promises anyway, let's see how what happens when we refactor the code to use promises:
+Since we want to practice with promises anyway, let's see what happens when we refactor the code to use promises:
 
-- Run the unmodified program and confirm that problem as described can be reproduced.
+- Run the unmodified program and confirm the problem as described can be reproduced.
 - Refactor the `rollBack()` function from using a callback to returning a promise.
 - Change the calls to `callback()` to calls to `resolve()` and `reject()`.
 - Refactor the code that calls `rollDice()` to use the returned promise.
