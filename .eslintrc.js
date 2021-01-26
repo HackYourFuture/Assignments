@@ -6,8 +6,8 @@ module.exports = {
     node: true,
     jest: true,
   },
-  plugins: ['prettier', 'hyf', 'no-autofix'],
-  extends: ['eslint:recommended', 'prettier'],
+  plugins: ['hyf', 'no-autofix'],
+  extends: ['eslint:recommended'],
   parserOptions: {
     ecmaVersion: 2020,
   },
@@ -19,7 +19,6 @@ module.exports = {
     axios: 'readonly',
   },
   rules: {
-    'prettier/prettier': 'warn',
     'no-console': 'off',
     'no-var': 'error',
     'prefer-const': 'off',
