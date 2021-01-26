@@ -24,7 +24,7 @@ const getAnonName = (firstName, callback) => {
   }, 1000);
 };
 
-getAnonName("John", console.log);
+getAnonName('John', console.log);
 ```
 
 Rewrite this function, but replace the callback syntax with the Promise syntax:
@@ -69,7 +69,7 @@ function rollDice(callback) {
     // Use callback to notify that the dice rolled off the table after 6 rolls
     if (roll > 6) {
       // TODO replace "error" callback
-      callback(new Error("Oops... Dice rolled off the table."));
+      callback(new Error('Oops... Dice rolled off the table.'));
     }
 
     // Use callback to communicate the final dice value once finished rolling
@@ -100,7 +100,7 @@ rollDice((error, value) => {
 
 > A couple of comments about this code:
 >
-> - In real life a dice, once thrown, will continue rolling until its remaining (kinetic) energy is insufficient to make the next roll. Its initial energy depends on the force of the throw. In our simulation that initial "energy" is represented by the random value assigned to `randomRollsToDo`.
+> - In real life, once thrown, a dice, following the laws of nature, will run its course autonomously until it comes to a complete standstill. How long it will roll depends on the force of the throw. In our simulation that "force" is represented by the random value assigned to `randomRollsToDo`. As if subjected to the laws of nature, we mandate that our simulated dices continue to roll until they have reached their respective number of rolls-to-do.
 > - The callback format used in this example, using two parameters, is commonly used in Node.js. To communicate back _failure_, the callback is called with a _single_ argument: the error value (usually a JavaScript `Error` object). In the _successful_ case the callback is called with _two_ arguments, the first one being `null` (i.e., no error) and the second one containing the actual result.
 
 Here is what the output could look like for a successful throw:
