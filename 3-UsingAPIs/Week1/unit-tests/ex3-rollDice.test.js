@@ -1,3 +1,4 @@
-describe('rollDice', () => {
+describe('rollTheDices', () => {
+  it('will pass', () => {});
   // TODO
 });

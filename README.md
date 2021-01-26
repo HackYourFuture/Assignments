@@ -1,3 +1,7 @@
+# Homework
+
+This repository contains all of the homework exercises that need to be handed in for the HackYourFuture curriculum.
+
 ## Introduction
 
 Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain homework exercises. This repository contains all of these exercises. The class repository will tell you how to hand in the homework, the curriculum will indicate what week you will need to do.
@@ -40,7 +44,7 @@ As mentioned, each exercise comes with starter code. Inside the starter code you
 3. The **value** of the variable `myName`.
 
 ```js
-"use strict";
+'use strict';
 /* -----------------------------------------------------------------------------
 1. Complete the function named `giveCompliment`as follows:
 ...
@@ -50,7 +54,7 @@ function giveCompliment(/* TODO parameter(s) go here */) {
 }
 
 // TODO substitute your own name for "HackYourFuture"
-const myName = "HackYourFuture";
+const myName = 'HackYourFuture';
 
 console.log(giveCompliment(myName));
 console.log(giveCompliment(myName));
