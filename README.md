@@ -232,7 +232,7 @@ ex3-tellFortune.js
   46:10  error  'selectRandomly' is defined but never used  no-unused-vars
 ```
 
-In this example the error message indicate that a style error was detect in line 46, column 10 of the file `ex3-tellFortune`.js. The variable (or function) `selectRandomly` was defined but never used. Nevertheless, your code may still run fine.
+In this example the error message indicates that a style error was detect in line 46, column 10 of the file `ex3-tellFortune.js`. The variable (or function) `selectRandomly` was defined but never used. Despite this, your code may still run fine.
 
 Style errors do not prevent your code from running correctly. However, leaving them in is simply a bad practice and is a recipe for trouble in the future when other developers attempt to understand and maintain your code.
 
