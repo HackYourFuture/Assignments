@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 Why pay a fortune teller when you can just program your fortune yourself?
 

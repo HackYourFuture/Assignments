@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 1. Find out how to select the element that contains the Google logo, and store 
    it in a variable.

@@ -1,55 +1,55 @@
-const fs = require("fs").promises;
-const util = require("util");
-const _copy = require("recursive-copy");
-const _rimraf = require("rimraf");
-const { HtmlValidate } = require("html-validate");
-const { getFormatter } = require("html-validate/dist/cli/formatter");
-const htmlValidateOptions = require("../.htmlValidate.json");
-const stylish = getFormatter("stylish");
+const fs = require('fs').promises;
+const util = require('util');
+const _copy = require('recursive-copy');
+const _rimraf = require('rimraf');
+const { HtmlValidate } = require('html-validate');
+const { getFormatter } = require('html-validate/dist/cli/formatter');
+const htmlValidateOptions = require('../.htmlValidate.json');
+const stylish = getFormatter('stylish');
 
 const copy = util.promisify(_copy);
 const rimraf = util.promisify(_rimraf);
 
 const config = {
-  baseUrl: "http://localhost:5000/",
-  blockedResourceTypes: ["image", "stylesheet", "font"],
+  baseUrl: 'http://localhost:5000/',
+  blockedResourceTypes: ['image', 'stylesheet', 'font'],
 };
 
 async function copyFiles(exercisesDir) {
   try {
-    await fs.mkdir("./temp");
+    await fs.mkdir('./temp');
   } catch (err) {
-    if (err.code !== "EEXIST") {
+    if (err.code !== 'EEXIST') {
       throw err;
     }
   }
 
-  return copy(exercisesDir, "./temp", { overwrite: true });
+  return copy(exercisesDir, './temp', { overwrite: true });
 }
 
 function deleteFiles() {
-  return rimraf("./temp");
+  return rimraf('./temp');
 }
 
 async function setUp(page) {
   await page.setRequestInterception(true);
-  page.on("request", (req) => {
+  page.on('request', (req) => {
     if (config.blockedResourceTypes.includes(req.resourceType())) {
       req.abort();
     } else {
       req.continue();
     }
   });
-  return page.goto(config.baseUrl, { waitUntil: "networkidle0" });
+  return page.goto(config.baseUrl, { waitUntil: 'networkidle0' });
 }
 
 async function prepare(page) {
-  const homeworkFolder = process.env.HOMEWORK_FOLDER || "homework";
+  const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
 
   const { testPath } = expect.getState();
   const exercisePath = testPath
-    .replace("unit-tests", homeworkFolder)
-    .replace(/\.test\.js$/, "");
+    .replace('unit-tests', homeworkFolder)
+    .replace(/\.test\.js$/, '');
   await copyFiles(exercisePath);
   return setUp(page);
 }
@@ -63,7 +63,7 @@ async function validateHTML() {
   const htmlText = `<!DOCTYPE html>\n${outerHTML}`;
   const report = htmlValidate.validateString(htmlText);
   const validationReport = stylish(report);
-  expect(validationReport).toBe("");
+  expect(validationReport).toBe('');
 }
 
 module.exports = {

@@ -1,8 +1,8 @@
-const fs = require("fs").promises;
-const path = require("path");
-const util = require("util");
-const chalk = require("chalk");
-const _rimraf = require("rimraf");
+const fs = require('fs').promises;
+const path = require('path');
+const util = require('util');
+const chalk = require('chalk');
+const _rimraf = require('rimraf');
 
 const rimraf = util.promisify(_rimraf);
 
@@ -11,7 +11,7 @@ const {
   compileMenuData,
   computeHash,
   prepareReportFolders,
-} = require("./test-runner-helpers");
+} = require('./test-runner-helpers');
 
 async function prepareHashes(menuData) {
   const hashes = {};
@@ -21,38 +21,38 @@ async function prepareHashes(menuData) {
     for (const week of weeks) {
       const exercises = menuData[moduleName][week];
       for (const exercise of exercises) {
-        const exercisePath = makePath(moduleName, week, "homework", exercise);
+        const exercisePath = makePath(moduleName, week, 'homework', exercise);
         hashes[exercise] = await computeHash(exercisePath);
       }
     }
   }
 
   await fs.writeFile(
-    path.join(__dirname, ".hashes.json"),
+    path.join(__dirname, '.hashes.json'),
     JSON.stringify(hashes, null, 2),
-    "utf8"
+    'utf8'
   );
 }
 
 function cleanUpLogFiles() {
-  return rimraf(path.join(__dirname, "../*.log"));
+  return rimraf(path.join(__dirname, '../*.log'));
 }
 
 (async () => {
   try {
-    console.log("Scanning for unit tests...");
+    console.log('Scanning for unit tests...');
     const menuData = compileMenuData();
 
-    console.log("Preparing report folders...");
+    console.log('Preparing report folders...');
     await prepareReportFolders(menuData);
 
-    console.log("Computing exercise hashes...");
+    console.log('Computing exercise hashes...');
     await prepareHashes(menuData);
 
-    console.log("Cleaning up log files...");
+    console.log('Cleaning up log files...');
     await cleanUpLogFiles();
 
-    console.log(chalk.green("Postinstall was completed successfully."));
+    console.log(chalk.green('Postinstall was completed successfully.'));
   } catch (err) {
     console.error(chalk.red(`Something went wrong: ${err.message}`));
   }

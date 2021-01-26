@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 - Run the unmodified program and confirm that problem described occurs.
 - Refactor the `rollBack()` function from callback-based to returning a
@@ -24,7 +24,7 @@ function rollDice(callback) {
     // Use callback to notify that the dice rolled off the table after 6 rolls
     if (roll > 6) {
       // TODO replace "error" callback
-      callback(new Error("Oops... Dice rolled off the table."));
+      callback(new Error('Oops... Dice rolled off the table.'));
     }
 
     // Use callback to communicate the final dice value once finished rolling

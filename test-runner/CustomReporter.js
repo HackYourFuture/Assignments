@@ -1,10 +1,10 @@
 class MyCustomReporter {
   onRunComplete(contexts, results) {
-    let report = "";
+    let report = '';
 
     results.testResults.forEach(async ({ testResults }) => {
       report += testResults
-        .filter((testResult) => testResult.status === "failed")
+        .filter((testResult) => testResult.status === 'failed')
         .map(({ fullName, failureDetails }) => {
           const details = failureDetails.map((detail) => {
             const { error } = detail;
@@ -15,25 +15,25 @@ class MyCustomReporter {
 
               const { expected, actual } = error.matcherResult;
 
-              if (expected === "" && typeof actual === "string") {
-                const text = actual.startsWith("\n") ? actual : "\n" + actual;
-                return text.replace(/\n/g, "\n  ");
+              if (expected === '' && typeof actual === 'string') {
+                const text = actual.startsWith('\n') ? actual : '\n' + actual;
+                return text.replace(/\n/g, '\n  ');
               }
 
-              if (typeof expected === "string") {
+              if (typeof expected === 'string') {
                 return `\n  Expected: ${expected}\n  Received: ${actual}`;
               }
 
-              return "";
+              return '';
             }
           });
 
           return `- ${fullName}${details}`;
         })
-        .join("\n");
+        .join('\n');
     });
 
-    if (report !== "") {
+    if (report !== '') {
       console.log(report);
     }
   }

@@ -2,9 +2,9 @@ const {
   prepare,
   validateHTML,
   deleteFiles,
-} = require("../../../test-runner/puppeteer-helpers");
+} = require('../../../test-runner/puppeteer-helpers');
 
-describe("Generated HTML", () => {
+describe('Generated HTML', () => {
   beforeAll(async () => {
     await prepare(page);
   });
@@ -13,5 +13,5 @@ describe("Generated HTML", () => {
     deleteFiles();
   });
 
-  it("should be syntactically valid", validateHTML);
+  it('should be syntactically valid', validateHTML);
 });

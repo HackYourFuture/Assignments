@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const acorn = require("acorn");
+const fs = require('fs');
+const path = require('path');
+const acorn = require('acorn');
 
 const defaultOptions = {
   parse: false,
@@ -10,13 +10,13 @@ const defaultOptions = {
 function beforeAllHelper(testFilePath, options = {}) {
   options = Object.assign(defaultOptions, options);
   const matches = testFilePath
-    .replace(/\\/g, "/")
+    .replace(/\\/g, '/')
     .match(/^.*\/(.+)\/(Week\d)\/unit-tests\/(.+)\.test\.js$/i);
   if (!matches) {
     throw new Error(`Unexpected test path: ${testFilePath}`);
   }
 
-  const homeworkFolder = process.env.HOMEWORK_FOLDER || "homework";
+  const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
 
   const [, module, week, exercise] = matches;
   let exercisePath = path.join(
@@ -25,14 +25,14 @@ function beforeAllHelper(testFilePath, options = {}) {
   );
 
   exercisePath = fs.existsSync(exercisePath)
-    ? path.join(exercisePath, "index.js")
-    : exercisePath + ".js";
+    ? path.join(exercisePath, 'index.js')
+    : exercisePath + '.js';
 
   const result = {};
 
   if (!options.noRequire) {
     try {
-      const spy = jest.spyOn(console, "log").mockImplementation();
+      const spy = jest.spyOn(console, 'log').mockImplementation();
       result.exported = require(exercisePath);
       spy.mockRestore();
     } catch (_) {
@@ -40,7 +40,7 @@ function beforeAllHelper(testFilePath, options = {}) {
     }
   }
 
-  result.source = fs.readFileSync(exercisePath, "utf8");
+  result.source = fs.readFileSync(exercisePath, 'utf8');
 
   if (options.parse) {
     try {

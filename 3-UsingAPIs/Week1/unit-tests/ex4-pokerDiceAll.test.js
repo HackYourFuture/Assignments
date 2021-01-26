@@ -1,3 +1,3 @@
-describe("rollTheDices", () => {
+describe('rollTheDices', () => {
   // TODO
 });

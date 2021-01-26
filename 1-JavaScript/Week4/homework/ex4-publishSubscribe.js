@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*
 A software pattern that you may encounter in the future is a construct called
 the Observer Pattern. It enables "listeners" (which are usually functions) to
@@ -70,10 +70,10 @@ myPublisher.notify("Let's see what happens here!");
 // "let's see what happens here!"
 
 myPublisher.subscribe(function consoleReverse(message) {
-  console.log(message.split("").reverse().join(""));
+  console.log(message.split('').reverse().join(''));
 });
 
-myPublisher.notify("Beware the closed Observer 0_o");
+myPublisher.notify('Beware the closed Observer 0_o');
 // Prints the following to the console
 // "Beware the closed Observer 0_o!"
 // "BEWARE THE CLOSED OBSERVER 0_O!"

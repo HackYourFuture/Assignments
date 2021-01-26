@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 Complete the function called `checkDoubleDigits` such that:
 

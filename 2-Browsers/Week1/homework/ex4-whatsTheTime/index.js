@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 1. Inside the `index.js`, complete the `addCurrentTime` to add the current time 
   to the webpage. Make sure it's written in the HH:MM:SS notation (hour, minute,

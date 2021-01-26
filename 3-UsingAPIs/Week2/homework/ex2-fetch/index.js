@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 In this exercise you'll practice refactoring `Promise` syntax into 
 `async/await` + `try/catch` syntax. Rewrite exercise A & B using 
@@ -18,6 +18,6 @@ async function requestData(url) {
   // TODO complete this function
 }
 
-window.addEventListener("load", () =>
-  requestData("https://randomfox.ca/floof/")
+window.addEventListener('load', () =>
+  requestData('https://randomfox.ca/floof/')
 );

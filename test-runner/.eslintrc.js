@@ -7,7 +7,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ["eslint:recommended"],
+  extends: ['eslint:recommended'],
   parserOptions: {
     ecmaVersion: 2018,
   },
@@ -18,6 +18,6 @@ module.exports = {
     jestPuppeteer: true,
   },
   rules: {
-    "no-console": "off",
+    'no-console': 'off',
   },
 };

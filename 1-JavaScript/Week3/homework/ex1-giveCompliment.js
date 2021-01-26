@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /* -----------------------------------------------------------------------------
 
 1. Complete the function named `giveCompliment`as follows:
@@ -22,13 +22,13 @@ function giveCompliment(/* TODO parameter(s) go here */) {
 }
 
 // TODO substitute your own name for "HackYourFuture"
-const myName = "HackYourFuture";
+const myName = 'HackYourFuture';
 
 console.log(giveCompliment(myName));
 console.log(giveCompliment(myName));
 console.log(giveCompliment(myName));
 
-const yourName = "Amsterdam";
+const yourName = 'Amsterdam';
 
 console.log(giveCompliment(yourName));
 console.log(giveCompliment(yourName));

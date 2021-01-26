@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*
 Your mom bought you a basket of fruit, because you're doing so well in
 HackYourFuture. How sweet of her!
@@ -14,23 +14,23 @@ them before you get an attack.
   `list`!", where `list` is a comma-separated list of fruits.
 */
 const fruitBasket = [
-  "apple",
-  "lemon",
-  "grapefruit",
-  "lemon",
-  "banana",
-  "watermelon",
-  "lemon",
+  'apple',
+  'lemon',
+  'grapefruit',
+  'lemon',
+  'banana',
+  'watermelon',
+  'lemon',
 ];
 
 function sanitizeFruitBasket(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
 
-console.log(sanitizeFruitBasket(fruitBasket, "lemon"));
+console.log(sanitizeFruitBasket(fruitBasket, 'lemon'));
 //    -> "My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!"
 
-console.log(sanitizeFruitBasket(fruitBasket, "grapefruit"));
+console.log(sanitizeFruitBasket(fruitBasket, 'grapefruit'));
 //    -> "My mom bought me a fruit basket containing apple, lemon, lemon, banana, watermelon, lemon!"
 
 // ! Do not change or remove the code below

@@ -1,4 +1,4 @@
-const rollDice = require("../../helpers/pokerDiceRoller");
+const rollDice = require('../../helpers/pokerDiceRoller');
 
 function rollTheDices() {
   const dices = [1, 2, 3, 4, 5];
@@ -7,7 +7,7 @@ function rollTheDices() {
 
 //
 rollTheDices()
-  .then((results) => console.log("Resolved!", results))
-  .catch((error) => console.log("Rejected!", error.message));
+  .then((results) => console.log('Resolved!', results))
+  .catch((error) => console.log('Rejected!', error.message));
 
 module.export = rollTheDices;

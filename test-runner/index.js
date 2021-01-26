@@ -1,9 +1,9 @@
-const fs = require("fs").promises;
-const { existsSync } = require("fs");
-const path = require("path");
-const { execSync } = require("child_process");
-const chalk = require("chalk");
-const prompts = require("prompts");
+const fs = require('fs').promises;
+const { existsSync } = require('fs');
+const path = require('path');
+const { execSync } = require('child_process');
+const chalk = require('chalk');
+const prompts = require('prompts');
 const {
   makePath,
   compileMenuData,
@@ -14,9 +14,9 @@ const {
   selectExercise,
   loadMostRecentSelection,
   saveMostRecentSelection,
-} = require("./test-runner-helpers");
-const logger = require("./logger");
-const hashes = require("./.hashes.json");
+} = require('./test-runner-helpers');
+const logger = require('./logger');
+const hashes = require('./.hashes.json');
 
 const disclaimer = `
 *** Disclaimer **
@@ -37,7 +37,7 @@ async function unlink(filePath) {
 }
 
 async function writeReport(module, week, exercise, report) {
-  const reportDir = makePath(module, week, "test-reports");
+  const reportDir = makePath(module, week, 'test-reports');
 
   const todoFilePath = path.join(reportDir, `${exercise}.todo.txt`);
   await unlink(todoFilePath);
@@ -49,26 +49,26 @@ async function writeReport(module, week, exercise, report) {
   await unlink(failFilePath);
 
   if (report) {
-    await fs.writeFile(failFilePath, report, "utf8");
+    await fs.writeFile(failFilePath, report, 'utf8');
     return report;
   }
 
-  const message = "All tests passed";
-  await fs.writeFile(passFilePath, message, "utf8");
+  const message = 'All tests passed';
+  await fs.writeFile(passFilePath, message, 'utf8');
 }
 
 function execJest(name) {
   try {
-    const customReporterPath = path.join(__dirname, "CustomReporter.js");
+    const customReporterPath = path.join(__dirname, 'CustomReporter.js');
     execSync(
       `npx jest ${name} --silent false --verbose false --reporters="${customReporterPath}"`,
-      { encoding: "utf8" }
+      { encoding: 'utf8' }
     );
-    console.log(chalk.green("All unit tests passed."));
-    return "";
+    console.log(chalk.green('All unit tests passed.'));
+    return '';
   } catch (err) {
     const output = err.stdout;
-    const title = "*** Unit Test Error Report ***";
+    const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
     const message = `${title}\n\n${output}`;
@@ -85,23 +85,23 @@ function execESLint(exercisePath) {
   let output;
   try {
     output = execSync(`npx eslint --ignore-pattern "!.homework" ${lintSpec}`, {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     output = err.stdout;
   }
   if (output) {
-    output = output.replace(/\\/g, "/").replace(/^.*\/\.?homework\//gm, "");
-    const title = "*** ESLint Report ***";
+    output = output.replace(/\\/g, '/').replace(/^.*\/\.?homework\//gm, '');
+    const title = '*** ESLint Report ***';
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(output));
     const message = `${title}\n${output}`;
     logger.error(message);
-    return "\n" + message;
+    return '\n' + message;
   }
 
-  console.log(chalk.green("No linting errors detected."));
-  return "";
+  console.log(chalk.green('No linting errors detected.'));
+  return '';
 }
 
 function execSpellChecker(exercisePath) {
@@ -110,42 +110,42 @@ function execSpellChecker(exercisePath) {
       ? path.normalize(`${exercisePath}/**/*.js`)
       : `${exercisePath}.js`;
     execSync(`npx cspell ${cspellSpec}`, {
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "ignore"],
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
     });
-    console.log(chalk.green("No spelling errors detected."));
-    return "";
+    console.log(chalk.green('No spelling errors detected.'));
+    return '';
   } catch (err) {
     // remove full path
     const output = err.stdout
-      .replace(/\\/g, "/")
-      .replace(/^.*\/\.?homework\//gm, "");
+      .replace(/\\/g, '/')
+      .replace(/^.*\/\.?homework\//gm, '');
 
-    const title = "*** Spell Checker Report ***";
+    const title = '*** Spell Checker Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
     const message = `${title}\n\n${output}`;
     logger.error(message);
-    return "\n" + message;
+    return '\n' + message;
   }
 }
 
 async function showDisclaimer() {
-  const disclaimerPath = path.join(__dirname, ".disclaimer");
+  const disclaimerPath = path.join(__dirname, '.disclaimer');
   const suppressDisclaimer = existsSync(disclaimerPath);
   if (!suppressDisclaimer) {
     console.log(chalk.magenta(disclaimer));
     const { answer } = await prompts({
-      type: "confirm",
-      name: "answer",
-      message: "Display this disclaimer in the future?",
+      type: 'confirm',
+      name: 'answer',
+      message: 'Display this disclaimer in the future?',
       initial: true,
     });
     if (!answer) {
-      const message = "Disclaimer turned off";
+      const message = 'Disclaimer turned off';
       console.log(message);
       logger.info(message);
-      await fs.writeFile(disclaimerPath, "off", "utf8");
+      await fs.writeFile(disclaimerPath, 'off', 'utf8');
     }
   }
 }
@@ -170,24 +170,24 @@ async function main() {
     }
 
     const title = `>>> Running Unit Test \`${exercise}\` <<<`;
-    const separator = "-".repeat(title.length);
+    const separator = '-'.repeat(title.length);
     logger.info(separator);
     logger.info(title);
     logger.info(separator);
 
-    const homeworkFolder = process.env.HOMEWORK_FOLDER || "homework";
+    const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
 
     const exercisePath = makePath(module, week, homeworkFolder, exercise);
     const hash = await computeHash(exercisePath);
 
     const untouched = hash === hashes[exercise];
     if (untouched) {
-      logger.info("Exercise has not yet been modified");
-      console.log(chalk.blue("You have not yet worked on this exercise."));
+      logger.info('Exercise has not yet been modified');
+      console.log(chalk.blue('You have not yet worked on this exercise.'));
     }
 
-    console.log("Running test, please wait...");
-    let report = "";
+    console.log('Running test, please wait...');
+    let report = '';
     report += execJest(exercise);
     report += execESLint(exercisePath);
     report += execSpellChecker(exercisePath);
@@ -199,7 +199,7 @@ async function main() {
     if (report) {
       await showDisclaimer();
     } else {
-      logger.info("All steps were completed successfully");
+      logger.info('All steps were completed successfully');
     }
   } catch (err) {
     const message = `Something went wrong: ${err.message}`;

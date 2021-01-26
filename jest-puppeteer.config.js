@@ -1,6 +1,6 @@
 module.exports = {
   server: {
-    command: "npx serve ./temp",
+    command: 'npx serve ./temp',
     port: 5000,
   },
   launch: {

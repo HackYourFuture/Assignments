@@ -1,4 +1,4 @@
-const rollDice = require("../../helpers/pokerDiceRoller");
+const rollDice = require('../../helpers/pokerDiceRoller');
 
 // The dice number to use
 const dices = [1, 2, 3, 4, 5];
@@ -35,7 +35,7 @@ function rollSequentialPromiseChain() {
 // Pro: works for an arbitrary number of dices.
 // Con: complicated code
 function rollSequentialWithForEach() {
-  console.log("Sequential with forEach()");
+  console.log('Sequential with forEach()');
   const results = [];
   let promise = Promise.resolve();
   dices.forEach((dice) => {
@@ -47,7 +47,7 @@ function rollSequentialWithForEach() {
   return promise
     .then((result) => {
       results.push(result);
-      console.log("Your throw:", results);
+      console.log('Your throw:', results);
     })
     .catch((error) => console.log(error.message));
 }
@@ -56,7 +56,7 @@ function rollSequentialWithForEach() {
 // Pro: works for an arbitrary number of dices.
 // Con: complicated code
 function rollSequentialWithReduce() {
-  console.log("Sequential with reduce()");
+  console.log('Sequential with reduce()');
   const results = [];
   return dices
     .reduce((promise, dice) => {
@@ -67,7 +67,7 @@ function rollSequentialWithReduce() {
     }, Promise.resolve())
     .then((result) => {
       results.push(result);
-      console.log("Your throw:", results);
+      console.log('Your throw:', results);
     })
     .catch((error) => console.log(error.message));
 }
@@ -75,7 +75,7 @@ function rollSequentialWithReduce() {
 // Using async/await.
 // Pro: simple code, works for an arbitrary number of dices.
 async function rollSequentialWithAsyncAwait() {
-  console.log("Sequential with async/await");
+  console.log('Sequential with async/await');
   const results = [];
   // TODO: complete this function
   return results;
@@ -84,8 +84,8 @@ async function rollSequentialWithAsyncAwait() {
 // TODO refactor with async/await and try/catch
 function main(rollFunction) {
   rollFunction()
-    .then((results) => console.log("Resolved!", results))
-    .catch((error) => console.log("Rejected!", error.message));
+    .then((results) => console.log('Resolved!', results))
+    .catch((error) => console.log('Rejected!', error.message));
 }
 
 // Replace the argument with the name of the function you want to try.

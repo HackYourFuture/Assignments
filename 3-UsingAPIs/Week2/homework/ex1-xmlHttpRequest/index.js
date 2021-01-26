@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function requestData(url) {
   // TODO return a promise using XMLHttpRequest
@@ -17,7 +17,7 @@ function renderError(error) {
 
 // TODO refactor with async/await and try/catch
 function main() {
-  requestData("https://xkcd.now.sh/?comic=latest")
+  requestData('https://xkcd.now.sh/?comic=latest')
     .then((data) => {
       renderImage(data);
     })
@@ -26,4 +26,4 @@ function main() {
     });
 }
 
-window.addEventListener("load", main);
+window.addEventListener('load', main);

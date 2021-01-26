@@ -10,7 +10,7 @@
 
 // The line below makes the rollDice() function available to this file.
 // Do not change or remove it.
-const rollDice = require("../../helpers/pokerDiceRoller");
+const rollDice = require('../../helpers/pokerDiceRoller');
 
 function rollTheDices() {
   // TODO Refactor this function
@@ -19,8 +19,8 @@ function rollTheDices() {
 }
 
 rollTheDices()
-  .then((results) => console.log("Resolved!", results))
-  .catch((error) => console.log("Rejected!", error.message));
+  .then((results) => console.log('Resolved!', results))
+  .catch((error) => console.log('Rejected!', error.message));
 
 // ! Do not change or remove the code below
 module.export = rollTheDices;

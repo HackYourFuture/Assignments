@@ -1,9 +1,9 @@
 /* eslint-disable hyf/camelcase */
-"use strict";
-const walk = require("acorn-walk");
-const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
+'use strict';
+const walk = require('acorn-walk');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
-describe("mondaysWorth", () => {
+describe('mondaysWorth', () => {
   let exported, rootNode, computeEarnings, mondayTasks, hourlyRate;
 
   const state = { selectRandomlyArgs: [] };
@@ -19,28 +19,28 @@ describe("mondaysWorth", () => {
     rootNode &&
       walk.simple(rootNode, {
         MemberExpression({ property }) {
-          if (property.name === "map") {
+          if (property.name === 'map') {
             state.map = true;
           }
         },
       });
   });
 
-  it("should exist and be executable", () => {
+  it('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it("should take two parameters", () => {
+  it('should take two parameters', () => {
     if (!exported) return;
     expect(computeEarnings).toHaveLength(2);
   });
 
-  it("should use `map`", () => {
+  it('should use `map`', () => {
     if (!exported) return;
     expect(state.map).toBeDefined();
   });
 
-  it("should compute the earnings as a formatted Euro amount", () => {
+  it('should compute the earnings as a formatted Euro amount', () => {
     if (!exported) return;
     const total = mondayTasks
       .map((task) => (task.duration / 60) * hourlyRate)

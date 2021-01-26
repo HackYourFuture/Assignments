@@ -2,9 +2,9 @@ const {
   prepare,
   validateHTML,
   deleteFiles,
-} = require("../../../test-runner/puppeteer-helpers");
+} = require('../../../test-runner/puppeteer-helpers');
 
-describe("Generated HTML", () => {
+describe('Generated HTML', () => {
   beforeAll(async () => {
     await prepare(page);
   });
@@ -13,24 +13,24 @@ describe("Generated HTML", () => {
     deleteFiles();
   });
 
-  test("should be syntactically valid", validateHTML);
+  test('should be syntactically valid', validateHTML);
 
-  test("should contain a <ul> with 3 <li> elements", async () => {
+  test('should contain a <ul> with 3 <li> elements', async () => {
     const result = await page.evaluate(() => {
-      const nodeList = document.querySelectorAll("div[id=bookList] > ul > li");
+      const nodeList = document.querySelectorAll('div[id=bookList] > ul > li');
       return nodeList ? nodeList.length : 0;
     });
     expect(result).toBe(3);
   });
 
-  test("should include an <li> with title and author for each book", async () => {
+  test('should include an <li> with title and author for each book', async () => {
     const result = await page.evaluate(() => {
-      const nodeList = document.querySelectorAll("div[id=bookList] > ul > li");
+      const nodeList = document.querySelectorAll('div[id=bookList] > ul > li');
       return nodeList
         ? Array.from(nodeList)
             .map((node) => node.textContent)
-            .join(", ")
-        : "";
+            .join(', ')
+        : '';
     });
     expect(result).toMatch(/The Design of Everyday Things/);
     expect(result).toMatch(/Don Norman/);
@@ -40,10 +40,10 @@ describe("Generated HTML", () => {
     expect(result).toMatch(/Andrew Hunt/);
   });
 
-  test("should include an <img> element for each book", async () => {
+  test('should include an <img> element for each book', async () => {
     const result = await page.evaluate(() => {
       const nodeList = document.querySelectorAll(
-        "div[id=bookList] > ul > li img"
+        'div[id=bookList] > ul > li img'
       );
       return nodeList ? nodeList.length : 0;
     });

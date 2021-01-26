@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 1. Using JavaScript, change the body tag's style so it has a font-family of 
    "Arial, sans-serif".

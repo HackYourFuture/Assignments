@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*
 - Complete the function names `computeEarnings`. It should take an array of
   tasks and an hourly rate as arguments and return a formatted Euro amount
@@ -10,19 +10,19 @@
 */
 const mondayTasks = [
   {
-    name: "Daily standup",
+    name: 'Daily standup',
     duration: 30, // specified in minutes
   },
   {
-    name: "Feature discussion",
+    name: 'Feature discussion',
     duration: 120,
   },
   {
-    name: "Development time",
+    name: 'Development time',
     duration: 240,
   },
   {
-    name: "Talk to different members from the product team",
+    name: 'Talk to different members from the product team',
     duration: 60,
   },
 ];
@@ -41,15 +41,15 @@ console.log(`Total earnings: ${earnings}`); // -> "Total earnings: €187.5"
 const earnings = computeEarnings(
   [
     {
-      name: "walked 3 dogs",
+      name: 'walked 3 dogs',
       duration: 230,
     },
     {
-      name: "cooked 4 bowls of soup",
+      name: 'cooked 4 bowls of soup',
       duration: 185,
     },
     {
-      name: "cleaned 5 dirty dishes",
+      name: 'cleaned 5 dirty dishes',
       duration: 95,
     },
   ],

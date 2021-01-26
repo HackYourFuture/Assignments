@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 You want to buy a couple of things from the supermarket to prepare for a party.
 After scanning all the items the cashier wants to give you the total price, but

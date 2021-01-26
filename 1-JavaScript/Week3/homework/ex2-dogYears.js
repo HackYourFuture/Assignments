@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 You know how old your dog is in human years, but what about dog years? Let's
 calculate it!

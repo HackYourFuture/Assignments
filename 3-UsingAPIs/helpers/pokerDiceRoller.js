@@ -2,9 +2,9 @@
 // ! This file should not be changed!
 //-----------------------------------
 
-const moment = require("moment");
+const moment = require('moment');
 
-const faces = ["NINE", "TEN", "JACK", "QUEEN", "KING", "ACE"];
+const faces = ['NINE', 'TEN', 'JACK', 'QUEEN', 'KING', 'ACE'];
 
 const rollOrders = [
   [1, 5, 4, 0],
@@ -14,7 +14,7 @@ const rollOrders = [
 ];
 
 const logger = (...args) =>
-  console.log(moment().format("HH:mm:ss.SSS"), ...args);
+  console.log(moment().format('HH:mm:ss.SSS'), ...args);
 
 const getRandomNumber = (max) => Math.floor(Math.random() * max);
 
@@ -33,7 +33,7 @@ const createDiceRoller = (logFn) => (dice) => {
         reject(new Error(`Dice ${dice} rolled off the table.`));
       }
       if (roll === todo) {
-        const word = roll === 1 ? "roll" : "rolls";
+        const word = roll === 1 ? 'roll' : 'rolls';
         logFn(`Dice ${dice} settles on ${face} in ${roll} ${word}.`);
         resolve(face);
       }

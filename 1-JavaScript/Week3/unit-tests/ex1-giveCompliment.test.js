@@ -1,12 +1,12 @@
 /* eslint-disable hyf/camelcase */
-"use strict";
-const walk = require("acorn-walk");
+'use strict';
+const walk = require('acorn-walk');
 const {
   beforeAllHelper,
   findAncestor,
-} = require("../../../test-runner/unit-test-helpers");
+} = require('../../../test-runner/unit-test-helpers');
 
-describe("giveCompliment", () => {
+describe('giveCompliment', () => {
   const state = {};
   let exported, rootNode, giveCompliment;
 
@@ -19,10 +19,10 @@ describe("giveCompliment", () => {
     rootNode &&
       walk.ancestor(rootNode, {
         VariableDeclarator({ id, init }, ancestors) {
-          if (id?.name === "compliments" && init?.type === "ArrayExpression") {
+          if (id?.name === 'compliments' && init?.type === 'ArrayExpression') {
             state.compliments = init.elements.map((elem) => elem.value);
-            const ancestor = findAncestor("FunctionDeclaration", ancestors);
-            if (ancestor && ancestor.id.name === "giveCompliment") {
+            const ancestor = findAncestor('FunctionDeclaration', ancestors);
+            if (ancestor && ancestor.id.name === 'giveCompliment') {
               state.inScope = true;
             }
           }
@@ -30,38 +30,38 @@ describe("giveCompliment", () => {
       });
   });
 
-  it("should exist and be executable", () => {
+  it('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it("should take a single parameter", () => {
+  it('should take a single parameter', () => {
     if (!exported) return;
     expect(giveCompliment).toHaveLength(1);
   });
 
-  it("should include a `compliments` array initialized with 10 strings", () => {
+  it('should include a `compliments` array initialized with 10 strings', () => {
     if (!exported) return;
-    expect(state.compliments ? "" : "No such array found").toBe("");
+    expect(state.compliments ? '' : 'No such array found').toBe('');
     expect(
-      state.compliments.length === 10 ? "" : "Array is not of length 10"
-    ).toBe("");
+      state.compliments.length === 10 ? '' : 'Array is not of length 10'
+    ).toBe('');
     const isAllStrings = state.compliments.every(
-      (compliment) => typeof compliment === "string"
+      (compliment) => typeof compliment === 'string'
     );
-    expect(isAllStrings ? "" : "Not all elements are strings").toBe("");
+    expect(isAllStrings ? '' : 'Not all elements are strings').toBe('');
   });
 
-  it("should give a random compliment: You are `compliment`, `name`!", () => {
+  it('should give a random compliment: You are `compliment`, `name`!', () => {
     if (!exported) return;
     expect(state.compliments).toBeDefined();
 
-    const name = "HackYourFuture";
+    const name = 'HackYourFuture';
 
-    const spy = jest.spyOn(Math, "random").mockReturnValue(0);
+    const spy = jest.spyOn(Math, 'random').mockReturnValue(0);
     const received = giveCompliment(name);
 
-    expect(spy.mock.calls.length > 0 ? "" : "compliment is not random").toBe(
-      ""
+    expect(spy.mock.calls.length > 0 ? '' : 'compliment is not random').toBe(
+      ''
     );
     spy.mockRestore();
 

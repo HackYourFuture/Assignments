@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 1. Create a variable to store a reference to the `<img>` element.
 2. Change the style of the `<img>` to have a `left` of `0px`, so that it starts 

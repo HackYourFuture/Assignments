@@ -1,8 +1,8 @@
-const { existsSync } = require("fs");
-const http = require("http");
-const handler = require("serve-handler");
-const open = require("open");
-const chalk = require("chalk");
+const { existsSync } = require('fs');
+const http = require('http');
+const handler = require('serve-handler');
+const open = require('open');
+const chalk = require('chalk');
 const {
   makePath,
   compileMenuData,
@@ -13,9 +13,9 @@ const {
   selectExercise,
   loadMostRecentSelection,
   saveMostRecentSelection,
-} = require("./test-runner-helpers");
-const logger = require("./logger");
-const hashes = require("./.hashes.json");
+} = require('./test-runner-helpers');
+const logger = require('./logger');
+const hashes = require('./.hashes.json');
 
 const PORT = 3030;
 
@@ -24,11 +24,11 @@ function serve(exercisePath) {
     public: exercisePath,
     headers: [
       {
-        source: "**/*",
+        source: '**/*',
         headers: [
           {
-            key: "Cache-Control",
-            value: "no-cache",
+            key: 'Cache-Control',
+            value: 'no-cache',
           },
         ],
       },
@@ -42,7 +42,7 @@ function serve(exercisePath) {
     console.log(
       chalk.magenta(`HTTP server running at http://localhost:${PORT}`)
     );
-    console.log(chalk.magenta("Press Ctrl-C to exit."));
+    console.log(chalk.magenta('Press Ctrl-C to exit.'));
     open(`http://localhost:${PORT}`);
   });
 }
@@ -65,7 +65,7 @@ async function main() {
     let module, week, exercise;
     let useRecent = false;
 
-    const homeworkFolder = process.env.HOMEWORK_FOLDER || "homework";
+    const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
 
     const recentSelection = await loadMostRecentSelection();
     if (recentSelection) {
@@ -81,7 +81,7 @@ async function main() {
     }
 
     const title = `>>> Running Unit Test \`${exercise}\` <<<`;
-    const separator = "-".repeat(title.length);
+    const separator = '-'.repeat(title.length);
     logger.info(separator);
     logger.info(title);
     logger.info(separator);
@@ -91,11 +91,11 @@ async function main() {
 
     const untouched = hash === hashes[exercise];
     if (untouched) {
-      logger.info("Exercise has not yet been modified");
-      console.log(chalk.blue("You have not yet worked on this exercise."));
+      logger.info('Exercise has not yet been modified');
+      console.log(chalk.blue('You have not yet worked on this exercise.'));
     }
 
-    console.log("Running exercise, please wait...");
+    console.log('Running exercise, please wait...');
     await runExercise(exercisePath);
   } catch (err) {
     const message = `Something went wrong: ${err.message}`;

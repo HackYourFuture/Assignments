@@ -1,13 +1,13 @@
 /* eslint-disable hyf/camelcase */
-const walk = require("acorn-walk");
+const walk = require('acorn-walk');
 const {
   prepare,
   validateHTML,
   deleteFiles,
-} = require("../../../test-runner/puppeteer-helpers");
-const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
+} = require('../../../test-runner/puppeteer-helpers');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
-describe("ex1-promiseToWait", () => {
+describe('ex1-promiseToWait', () => {
   const state = { asyncCount: 0, awaitCount: 0, tryCount: 0, catchCount: 0 };
   let rootNode;
 
@@ -46,21 +46,21 @@ describe("ex1-promiseToWait", () => {
     deleteFiles();
   });
 
-  it("HTML should be syntactically valid", validateHTML);
+  it('HTML should be syntactically valid', validateHTML);
 
-  it("should use `async` twice", () => {
+  it('should use `async` twice', () => {
     expect(state.asyncCount).toBe(2);
   });
 
-  it("should use `await` three times", () => {
+  it('should use `await` three times', () => {
     expect(state.awaitCount).toBe(3);
   });
 
-  it("should use `try` twice", () => {
+  it('should use `try` twice', () => {
     expect(state.tryCount).toBe(2);
   });
 
-  it("should use `catch` twice", () => {
+  it('should use `catch` twice', () => {
     expect(state.catchCount).toBe(2);
   });
 });

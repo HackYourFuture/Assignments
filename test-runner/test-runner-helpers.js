@@ -1,10 +1,10 @@
-const fs = require("fs");
-const path = require("path");
-const crypto = require("crypto");
-const util = require("util");
-const inquirer = require("inquirer");
-const _rimraf = require("rimraf");
-const fg = require("fast-glob");
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const util = require('util');
+const inquirer = require('inquirer');
+const _rimraf = require('rimraf');
+const fg = require('fast-glob');
 
 const rimraf = util.promisify(_rimraf);
 
@@ -19,9 +19,9 @@ function makePath(module, week, folder, exercise) {
 function compileMenuData() {
   const menuData = {};
   const fileSpec = path
-    .join(__dirname, "..", "**/unit-tests/**/*.test.js")
-    .replace(/\\/g, "/");
-  const filePaths = fg.sync([fileSpec, "!**/node_modules"]);
+    .join(__dirname, '..', '**/unit-tests/**/*.test.js')
+    .replace(/\\/g, '/');
+  const filePaths = fg.sync([fileSpec, '!**/node_modules']);
 
   filePaths.forEach((filePath) => {
     const matches = filePath.match(/^.*\/(.+)\/(Week\d).*\/(.+).test.js$/i);
@@ -40,15 +40,15 @@ function compileMenuData() {
 }
 
 function computeHash(exercisePath) {
-  const md5sum = crypto.createHash("md5");
-  const fileSpec = fs.existsSync(exercisePath) ? "/**/*.js" : ".js";
-  const globSpec = (exercisePath + fileSpec).replace(/\\/g, "/");
+  const md5sum = crypto.createHash('md5');
+  const fileSpec = fs.existsSync(exercisePath) ? '/**/*.js' : '.js';
+  const globSpec = (exercisePath + fileSpec).replace(/\\/g, '/');
   const filePaths = fg.sync(globSpec);
   for (const filePath of filePaths) {
-    const content = fs.readFileSync(filePath, "utf8");
+    const content = fs.readFileSync(filePath, 'utf8');
     md5sum.update(content);
   }
-  return md5sum.digest("hex");
+  return md5sum.digest('hex');
 }
 
 async function prepareReportFolders(menuData) {
@@ -56,7 +56,7 @@ async function prepareReportFolders(menuData) {
     const weeks = Object.keys(menuData[moduleName]);
 
     for (const week of weeks) {
-      const dirPath = makePath(moduleName, week, "test-reports");
+      const dirPath = makePath(moduleName, week, 'test-reports');
       if (!fs.existsSync(dirPath)) {
         fs.mkdirSync(dirPath);
         console.log(
@@ -68,7 +68,7 @@ async function prepareReportFolders(menuData) {
       const exercises = menuData[moduleName][week];
       for (const exercise of exercises) {
         const reportPath = path.join(dirPath, `${exercise}.todo.txt`);
-        fs.writeFileSync(reportPath, "This test has not been run.", "utf8");
+        fs.writeFileSync(reportPath, 'This test has not been run.', 'utf8');
       }
       console.log(`Initialized test reports for ${moduleName}/${week}`);
     }
@@ -78,8 +78,8 @@ async function prepareReportFolders(menuData) {
 function promptUseRecent(module, week, exercise) {
   return inquirer.prompt([
     {
-      type: "confirm",
-      name: "useRecent",
+      type: 'confirm',
+      name: 'useRecent',
       message: `Rerun last test (${module}, ${week}, ${exercise})?`,
       default: true,
     },
@@ -89,9 +89,9 @@ function promptUseRecent(module, week, exercise) {
 function selectModule(choices, module) {
   return inquirer.prompt([
     {
-      type: "list",
-      name: "module",
-      message: "Which module?",
+      type: 'list',
+      name: 'module',
+      message: 'Which module?',
       choices,
       default: module,
     },
@@ -101,9 +101,9 @@ function selectModule(choices, module) {
 function selectWeek(choices, week) {
   return inquirer.prompt([
     {
-      type: "list",
-      name: "week",
-      message: "Which week?",
+      type: 'list',
+      name: 'week',
+      message: 'Which week?',
       choices,
       default: week,
     },
@@ -113,9 +113,9 @@ function selectWeek(choices, week) {
 function selectExercise(choices, exercise) {
   return inquirer.prompt([
     {
-      type: "list",
-      name: "exercise",
-      message: "Which exercise?",
+      type: 'list',
+      name: 'exercise',
+      message: 'Which exercise?',
       choices,
       default: exercise,
     },
@@ -125,8 +125,8 @@ function selectExercise(choices, exercise) {
 async function loadMostRecentSelection() {
   try {
     const json = await fs.promises.readFile(
-      path.join(__dirname, ".recent.json"),
-      "utf8"
+      path.join(__dirname, '.recent.json'),
+      'utf8'
     );
     return JSON.parse(json);
   } catch (_) {
@@ -137,9 +137,9 @@ async function loadMostRecentSelection() {
 function saveMostRecentSelection(module, week, exercise) {
   const json = JSON.stringify({ module, week, exercise });
   return fs.promises.writeFile(
-    path.join(__dirname, ".recent.json"),
+    path.join(__dirname, '.recent.json'),
     json,
-    "utf8"
+    'utf8'
   );
 }
 

@@ -1,9 +1,9 @@
 /* eslint-disable hyf/camelcase */
-"use strict";
-const walk = require("acorn-walk");
-const { beforeAllHelper } = require("../../../test-runner/unit-test-helpers");
+'use strict';
+const walk = require('acorn-walk');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
-describe("sanitizeFruitBasket", () => {
+describe('sanitizeFruitBasket', () => {
   let exported, rootNode, sanitizeFruitBasket, fruitBasket, savedFruitBasket;
 
   const state = { selectRandomlyArgs: [] };
@@ -20,40 +20,40 @@ describe("sanitizeFruitBasket", () => {
     rootNode &&
       walk.simple(rootNode, {
         MemberExpression({ property }) {
-          if (property.name === "filter") {
+          if (property.name === 'filter') {
             state.filter = true;
           }
         },
       });
   });
 
-  it("should exist and be executable", () => {
+  it('should exist and be executable', () => {
     if (!exported) return;
     expect(exported).toBeDefined();
   });
 
-  it("should take two parameters", () => {
+  it('should take two parameters', () => {
     if (!exported) return;
     expect(sanitizeFruitBasket).toHaveLength(2);
   });
 
-  it("should use `filter`", () => {
+  it('should use `filter`', () => {
     if (!exported) return;
     expect(state.filter).toBeDefined();
   });
 
-  it("should not modify the original `fruitBasket` array", () => {
+  it('should not modify the original `fruitBasket` array', () => {
     if (!exported) return;
     expect(fruitBasket).toEqual(savedFruitBasket);
   });
 
-  it("should list the sanitized fruit basket", () => {
+  it('should list the sanitized fruit basket', () => {
     if (!exported) return;
-    const newBasket = fruitBasket.filter((fruit) => fruit !== "lemon");
+    const newBasket = fruitBasket.filter((fruit) => fruit !== 'lemon');
     const expected = `My mom bought me a fruit basket containing ${newBasket.join(
-      ", "
+      ', '
     )}!`;
 
-    expect(sanitizeFruitBasket(fruitBasket, "lemon")).toBe(expected);
+    expect(sanitizeFruitBasket(fruitBasket, 'lemon')).toBe(expected);
   });
 });

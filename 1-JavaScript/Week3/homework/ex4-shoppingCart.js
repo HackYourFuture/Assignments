@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 Let's do some grocery shopping! We're going to get some things to cook dinner
 with. However, you like to spend money and always buy too many things. So when 
@@ -19,15 +19,15 @@ you have more than 3 items in your shopping cart the first item gets taken out.
 3. Call the function three times, each time with a different string as the 
    argument. Use `console.log` to display the results.
 -----------------------------------------------------------------------------*/
-const shoppingCart = ["bananas", "milk"];
+const shoppingCart = ['bananas', 'milk'];
 
 function addToShoppingCart(/* parameters go here */) {
   // TODO complete this function
 }
 
-addToShoppingCart("chocolate"); // Returns "You bought bananas, milk, chocolate!"
-addToShoppingCart("waffles"); // Returns "You bought milk, chocolate, waffles!"
-addToShoppingCart("tea"); // Returns "You bought chocolate, waffles, tea!"
+addToShoppingCart('chocolate'); // Returns "You bought bananas, milk, chocolate!"
+addToShoppingCart('waffles'); // Returns "You bought milk, chocolate, waffles!"
+addToShoppingCart('tea'); // Returns "You bought chocolate, waffles, tea!"
 
 // ! Do not change or remove any code below
 module.exports = {

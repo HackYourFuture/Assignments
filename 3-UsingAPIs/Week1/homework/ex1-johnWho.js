@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*------------------------------------------------------------------------------
 Rewrite this function, but replace the callback syntax with the Promise syntax:
 - Have the `getAnonName` function return a `new Promise`.
@@ -20,7 +20,7 @@ const getAnonName = (firstName, callback) => {
   }, 1000);
 };
 
-getAnonName("John", console.log);
+getAnonName('John', console.log);
 
 // ! Do not change or remove the code below
 module.exports = getAnonName;
