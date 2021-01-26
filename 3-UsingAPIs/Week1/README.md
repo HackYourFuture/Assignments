@@ -100,7 +100,7 @@ rollDice((error, value) => {
 
 > A couple of comments about this code:
 >
-> - In real life a dice will continue rolling until its remaining (kinetic) energy is insufficient to make the next roll. The initial energy depends on the force of the throw. In our simulation that initial "energy" is represented by the random value assigned to `randomRollsToDo`.
+> - In real life a dice, once thrown, will continue rolling until its remaining (kinetic) energy is insufficient to make the next roll. Its initial energy depends on the force of the throw. In our simulation that initial "energy" is represented by the random value assigned to `randomRollsToDo`.
 > - The callback format used in this example, using two parameters, is commonly used in Node.js. To communicate back _failure_, the callback is called with a _single_ argument: the error value (usually a JavaScript `Error` object). In the _successful_ case the callback is called with _two_ arguments, the first one being `null` (i.e., no error) and the second one containing the actual result.
 
 Here is what the output could look like for a successful throw:
