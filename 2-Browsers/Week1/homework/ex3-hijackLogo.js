@@ -6,7 +6,7 @@
    HackYourFuture logo instead.
 ------------------------------------------------------------------------------*/
 function hijackGoogleLogo() {
-  // TODO: your code goes in here
+  // TODO your code goes in here
 }
 
 hijackGoogleLogo();

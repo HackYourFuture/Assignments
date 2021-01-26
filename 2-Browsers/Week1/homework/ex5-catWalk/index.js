@@ -16,7 +16,7 @@
    continue the walk.
 -----------------------------------------------------------------------------*/
 function catWalk() {
-  // TODO: complete this function
+  // TODO complete this function
 }
 
-// TODO: execute `catWalk` when the browser has completed loading the page
+// TODO execute `catWalk` when the browser has completed loading the page

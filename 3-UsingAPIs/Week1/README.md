@@ -68,13 +68,13 @@ function rollDice(callback) {
 
     // Use callback to notify that the dice rolled off the table after 6 rolls
     if (roll > 6) {
-      // TODO: replace "error" callback
+      // TODO replace "error" callback
       callback(new Error("Oops... Dice rolled off the table."));
     }
 
     // Use callback to communicate the final dice value once finished rolling
     if (roll === randomRollsTodo) {
-      // TODO: replace "success" callback
+      // TODO replace "success" callback
       callback(null, value);
     }
 
@@ -88,7 +88,7 @@ function rollDice(callback) {
   rollOnce(1);
 }
 
-// TODO: Refactor to use promise
+// TODO Refactor to use promise
 rollDice((error, value) => {
   if (error !== null) {
     console.log(error.message);

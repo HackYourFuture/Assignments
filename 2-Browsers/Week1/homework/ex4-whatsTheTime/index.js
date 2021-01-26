@@ -6,7 +6,7 @@
 2. Have the function execute when it's loading in the browser.
 ------------------------------------------------------------------------------*/
 function addCurrentTime() {
-  // TODO: complete this function
+  // TODO complete this function
 }
 
-// TODO: execute `addCurrentTime` when the browser has completed loading the page
+// TODO execute `addCurrentTime` when the browser has completed loading the page

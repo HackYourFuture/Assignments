@@ -10,8 +10,8 @@ Complete the function called `checkDoubleDigits` such that:
   "Expected a double digit number but got `number`", where `number` is the 
   number that was passed as an argument.
 ------------------------------------------------------------------------------*/
-function checkDoubleDigits(/* TODO: add parameter(s) here */) {
-  // TODO: complete this function
+function checkDoubleDigits(/* TODO add parameter(s) here */) {
+  // TODO complete this function
 }
 
 checkDoubleDigits(11) // should resolve

@@ -15,7 +15,7 @@ calculate it!
 -----------------------------------------------------------------------------*/
 
 function calculateDogAge(/* parameters go here */) {
-  // TODO: complete this function
+  // TODO complete this function
 }
 
 console.log(calculateDogAge(1)); // -> "Your doggie is 7 years old in dog years!"

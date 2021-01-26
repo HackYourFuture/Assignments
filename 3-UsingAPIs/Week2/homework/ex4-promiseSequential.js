@@ -1,12 +1,6 @@
-/* eslint-disable no-unused-vars */
-/*------------------------------------------------------------------------------
-------------------------------------------------------------------------------*/
-
-// The line below makes the rollDice() function available to this file.
-// Do not change or remove it.
 const rollDice = require("../../helpers/pokerDiceRoller");
 
-// The dice numbers to use.
+// The dice number to use
 const dices = [1, 2, 3, 4, 5];
 
 // Fixed chain of promises.
@@ -87,7 +81,7 @@ async function rollSequentialWithAsyncAwait() {
   return results;
 }
 
-// TODO: replace promise chain with async/await and try/catch
+// TODO refactor with async/await and try/catch
 function main(rollFunction) {
   rollFunction()
     .then((results) => console.log("Resolved!", results))

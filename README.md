@@ -47,11 +47,11 @@ As mentioned, each exercise comes with starter code. Inside the starter code you
 1. Complete the function named `giveCompliment`as follows:
 ...
 ------------------------------------------------------------------------------*/
-function giveCompliment(/* TODO: parameter(s) go here */) {
-  // TODO: complete this function
+function giveCompliment(/* TODO parameter(s) go here */) {
+  // TODO complete this function
 }
 
-// TODO: substitute your own name for "HackYourFuture"
+// TODO substitute your own name for "HackYourFuture"
 const myName = "HackYourFuture";
 
 console.log(giveCompliment(myName));

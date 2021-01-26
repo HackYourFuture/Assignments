@@ -119,7 +119,7 @@ Simple _Node_-based exercises, consisting of a single JavaScript file, should in
 
 ```js
 function doubleEvenNumbers(numbers) {
-  // TODO: rewrite the function body using `map` and `filter`.
+  // TODO rewrite the function body using `map` and `filter`.
 }
 
 // ! Do not change or remove the code below

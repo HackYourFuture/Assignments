@@ -13,7 +13,7 @@
 const rollDice = require("../../helpers/pokerDiceRoller");
 
 function rollTheDices() {
-  // TODO: Refactor this function
+  // TODO Refactor this function
   const dices = [1, 2, 3, 4, 5];
   return rollDice(1);
 }

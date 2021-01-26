@@ -29,8 +29,8 @@ const mondayTasks = [
 
 const hourlyRate = 25;
 
-function computeEarnings(/* TODO: parameter(s) go here */) {
-  // TODO: complete this function
+function computeEarnings(/* TODO parameter(s) go here */) {
+  // TODO complete this function
 }
 
 // example use case 1

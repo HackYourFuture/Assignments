@@ -8,4 +8,4 @@
    `list-item`.
 ------------------------------------------------------------------------------*/
 
-// TODO: add your JavaScript code here.
+// TODO add your JavaScript code here.
