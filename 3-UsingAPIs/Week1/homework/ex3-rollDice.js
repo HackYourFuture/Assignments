@@ -21,16 +21,16 @@ function rollDice(callback) {
     const value = Math.floor(Math.random() * 6) + 1;
     console.log(`Dice value is now: ${value}`);
 
-    // Use callback to communicate the final dice value once finished rolling
-    if (roll === randomRollsTodo) {
-      // TODO: replace "success" callback
-      callback(null, value);
-    }
-
     // Use callback to notify that the dice rolled off the table after 6 rolls
     if (roll > 6) {
       // TODO: replace "error" callback
       callback(new Error("Oops... Dice rolled off the table."));
+    }
+
+    // Use callback to communicate the final dice value once finished rolling
+    if (roll === randomRollsTodo) {
+      // TODO: replace "success" callback
+      callback(null, value);
     }
 
     // Schedule the next roll todo until no more rolls to do

@@ -29,13 +29,13 @@ const createDiceRoller = (logFn) => (dice) => {
       const index = rollOrder[(roll + offset) % 4];
       const face = faces[index];
       logFn(`Dice ${dice} is now: ${face}`);
+      if (roll > 6) {
+        reject(new Error(`Dice ${dice} rolled off the table.`));
+      }
       if (roll === todo) {
         const word = roll === 1 ? "roll" : "rolls";
         logFn(`Dice ${dice} settles on ${face} in ${roll} ${word}.`);
         resolve(face);
-      }
-      if (roll > 6) {
-        reject(new Error(`Dice ${dice} rolled off the table.`));
       }
       if (roll < todo) {
         setTimeout(() => rollOnce(roll + 1), rollTime);
