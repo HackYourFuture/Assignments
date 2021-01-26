@@ -136,7 +136,7 @@ Oops... Dice rolled off the table
 
 Since we want to practice with promises anyway, let's see what happens when we refactor the code to use promises:
 
-- Run the unmodified program and confirm the problem as described can be reproduced.
+- Run the unmodified program and confirm that the problem as described can be reproduced.
 - Refactor the `rollBack()` function from using a callback to returning a promise.
 - Change the calls to `callback()` to calls to `resolve()` and `reject()`.
 - Refactor the code that calls `rollDice()` to use the returned promise.
