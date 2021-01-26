@@ -56,24 +56,39 @@ The existing `rollDice()` function in the exercise file uses a callback to notif
 
 ```js
 function rollDice(callback) {
-  const todo = Math.floor(Math.random() * 10) + 1;
   console.log(`Dice starts rolling...`);
+
+  // Compute a random number of rolls (1-10) that the dice MUST complete
+  const randomRollsTodo = Math.floor(Math.random() * 10) + 1;
+
   const rollOnce = (roll) => {
+    // Compute a random dice value for the current roll
     const value = Math.floor(Math.random() * 6) + 1;
     console.log(`Dice value is now: ${value}`);
-    if (roll === todo) {
+
+    // Use callback to communicate the final dice value once finished rolling
+    if (roll === randomRollsTodo) {
+      // TODO: replace "success" callback
       callback(null, value);
     }
+
+    // Use callback to notify that the dice rolled off the table after 6 rolls
     if (roll > 6) {
+      // TODO: replace "error" callback
       callback(new Error("Oops... Dice rolled off the table."));
     }
-    if (roll < todo) {
+
+    // Schedule the next roll todo until no more rolls to do
+    if (roll < randomRollsTodo) {
       setTimeout(() => rollOnce(roll + 1), 500);
     }
   };
+
+  // Start the initial roll
   rollOnce(1);
 }
 
+// TODO: Refactor to use promise
 rollDice((error, value) => {
   if (error !== null) {
     console.log(error.message);
@@ -82,6 +97,11 @@ rollDice((error, value) => {
   }
 });
 ```
+
+> A couple of comments about this code:
+>
+> - In real life a dice will continue rolling until its remaining (kinetic) energy is insufficient to make the next roll. The initial energy depends on the force of the throw. In our simulation that initial "energy" is represented by the random value assigned to `randomRollsToDo`.
+> - The callback format used in this example, using two parameters, is commonly used in Node.js. To communicate back _failure_, the callback is called with a _single_ argument: the error value (usually a JavaScript `Error` object). In the _successful_ case the callback is called with _two_ arguments, the first one being `null` (i.e., no error) and the second one containing the actual result.
 
 Here is what the output could look like for a successful throw:
 
