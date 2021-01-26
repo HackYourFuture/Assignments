@@ -1,5 +1,3 @@
-# UNDER CONSTRUCTION
-
 ## Introduction
 
 Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain homework exercises. This repository contains all of these exercises. The class repository will tell you how to hand in the homework, the curriculum will indicate what week you will need to do.
@@ -146,7 +144,7 @@ This will open a terminal window at the bottom of the screen, as show in Figure 
 Because we used the context menu in the VSCode File Explorer, the current directory in the terminal window is already the `homework` folder containing the exercise. We can execute our program (in this example `ex1-giveCompliment.js`) by typing `node`, followed by a space and then enough characters to uniquely identify the file. Then press the **Tab** key to _expand_ the file name. Because the names of all exercises start with `ex𝑛`, where 𝑛 is a number, it is enough to type just that and press the **Tab** key:
 
 ```text
-node ex1_ (press TAB)
+node ex1- (press TAB)
 ```
 
 This will run the code and any `console.log` statement will print in the terminal window. The unmodified code example will just print:
