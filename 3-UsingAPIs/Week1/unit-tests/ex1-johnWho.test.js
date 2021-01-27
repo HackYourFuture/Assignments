@@ -36,7 +36,7 @@ describe('getAnonName', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should call new Promise()', () => {
+  it('should call `new Promise()`', () => {
     if (!exported) return;
     expect(state.newPromise).toBeDefined();
   });

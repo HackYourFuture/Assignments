@@ -58,8 +58,8 @@ The existing `rollDice()` function in the exercise file uses a callback to notif
 function rollDice(callback) {
   console.log(`Dice starts rolling...`);
 
-  // Compute a random number of rolls (1-10) that the dice MUST complete
-  const randomRollsTodo = Math.floor(Math.random() * 10) + 1;
+  // Compute a random number of rolls (3-10) that the dice MUST complete
+  const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
 
   const rollOnce = (roll) => {
     // Compute a random dice value for the current roll
@@ -73,13 +73,13 @@ function rollDice(callback) {
     }
 
     // Use callback to communicate the final dice value once finished rolling
-    if (roll === randomRollsTodo) {
+    if (roll === randomRollsToDo) {
       // TODO replace "success" callback
       callback(null, value);
     }
 
     // Schedule the next roll todo until no more rolls to do
-    if (roll < randomRollsTodo) {
+    if (roll < randomRollsToDo) {
       setTimeout(() => rollOnce(roll + 1), 500);
     }
   };
@@ -100,7 +100,7 @@ rollDice((error, value) => {
 
 > A couple of comments about this code:
 >
-> - In real life, a dice, when thrown, will follow the laws of nature and run its course autonomously until it comes to a complete standstill. How long it will roll depends on the force of the throw. In our simulation that "force" is represented by the random value assigned to `randomRollsToDo`. As if subjected to the laws of nature, we insist that our simulated dices continue to roll until they have reached their respective number of rolls-to-do.
+> - In real life, a dice, when thrown, will autonomously run its course to completion until it comes to a complete standstill, abiding the laws of nature. How long it will roll depends on the force of the throw. In our simulation that "force" is represented by the random value assigned to `randomRollsToDo`. As if subjected to the laws of nature, we insist that our simulated dices continue to roll until they have reached their randomly assigned number of rolls-to-do.
 > - The callback format used in this example, using two parameters, is commonly used in Node.js. To communicate back _failure_, the callback is called with a _single_ argument: the error value (usually a JavaScript `Error` object). In the _successful_ case the callback is called with _two_ arguments, the first one being `null` (i.e., no error) and the second one containing the actual result.
 
 Here is what the output could look like for a successful throw:

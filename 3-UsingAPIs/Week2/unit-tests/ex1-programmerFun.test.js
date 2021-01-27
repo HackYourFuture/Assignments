@@ -72,6 +72,19 @@ describe('programmerFun', () => {
             }
           }
         },
+        TryStatement({ handler }) {
+          if (handler.type === 'CatchClause') {
+            state.tryCatch = true;
+          }
+        },
+        FunctionDeclaration({ async }) {
+          if (async) {
+            state.async = true;
+          }
+        },
+        AwaitExpression() {
+          state.await = true;
+        },
       });
   });
 
@@ -110,5 +123,14 @@ describe('programmerFun', () => {
       state.xmlHttpRequest.props.has('error') ||
         state.xmlHttpRequest.props.has('onerror')
     ).toBe(true);
+  });
+
+  it('should use async/wait', () => {
+    expect(state.async).toBeDefined();
+    expect(state.await).toBeDefined();
+  });
+
+  it('should use try/catch', () => {
+    expect(state.tryCatch).toBeDefined();
   });
 });

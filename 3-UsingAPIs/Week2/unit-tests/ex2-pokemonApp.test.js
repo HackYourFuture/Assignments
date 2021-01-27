@@ -29,6 +29,11 @@ describe('pokemonApp', () => {
             state.awaitFetch = true;
           }
         },
+        TryStatement({ handler }) {
+          if (handler.type === 'CatchClause') {
+            state.tryCatch = true;
+          }
+        },
       });
   });
 
@@ -40,5 +45,9 @@ describe('pokemonApp', () => {
 
   it('should use `await fetch()`', () => {
     expect(state.awaitFetch).toBeDefined();
+  });
+
+  it('should use try/catch', () => {
+    expect(state.tryCatch).toBeDefined();
   });
 });

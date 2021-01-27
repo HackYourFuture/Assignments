@@ -13,8 +13,8 @@
 function rollDice(callback) {
   console.log(`Dice starts rolling...`);
 
-  // Compute a random number of rolls (1-10) that the dice MUST complete
-  const randomRollsTodo = Math.floor(Math.random() * 10) + 1;
+  // Compute a random number of rolls (3-10) that the dice MUST complete
+  const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
 
   const rollOnce = (roll) => {
     // Compute a random dice value for the current roll
@@ -28,13 +28,13 @@ function rollDice(callback) {
     }
 
     // Use callback to communicate the final dice value once finished rolling
-    if (roll === randomRollsTodo) {
+    if (roll === randomRollsToDo) {
       // TODO replace "success" callback
       callback(null, value);
     }
 
     // Schedule the next roll todo until no more rolls to do
-    if (roll < randomRollsTodo) {
+    if (roll < randomRollsToDo) {
       setTimeout(() => rollOnce(roll + 1), 500);
     }
   };

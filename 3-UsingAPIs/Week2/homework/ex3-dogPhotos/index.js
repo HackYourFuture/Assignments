@@ -10,7 +10,7 @@ function renderError(error) {
   console.log(error);
 }
 
-async function sendAxiosRequest(url) {
+function sendAxiosRequest(url) {
   // TODO complete this function
 }
 
