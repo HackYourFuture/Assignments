@@ -67,7 +67,7 @@ Write a function that makes a HTTP Request to `https://dog.ceo/api/breeds/image/
 
 Last week we did an exercise where we threw five dices in one go for a game of Poker Dice. In the current exercise we use a single dice only, but now the objective is to keep rethrowing that dice until we get an ACE, or until a dice rolls off the table.
 
-The challenge of this exercise is that the outcome of one promise determines whether we need a next promise. If the `rollDice()` function resolves to an ACE then we're done. If not, we need another call to `rollDice()` and wait for it to resolve. And we need to repeat this until we get an ACE (or stop when the promise rejects).
+The challenge of this exercise is that the outcome of one throw determines whether we need to do a next throw. If the `rollDice()` function resolves to an ACE then we're done. If not, we need another call to `rollDice()` and wait for it to resolve. And we need to repeat this until we get an ACE or until the promise rejects.
 
 The exercise file `ex4-rollAnAce.js` includes a function that does just that, using `.then()` methods. It uses a technique called _recursion_ and looks like this:
 
@@ -93,7 +93,7 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
 2. Now, rewrite the body of the `rollDiceUntil()` function using async/await. Hint: a `while` loop may come handy.
 3. Refactor the function `main()` to use async/await and try/catch.
 
-### Dice Race
+### Exercise 5: Dice Race
 
 #### File `ex5-diceRace.js`
 
