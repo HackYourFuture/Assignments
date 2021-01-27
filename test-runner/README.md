@@ -77,7 +77,7 @@ Folder | Description |
 `<module>/Week𝑛/homework` | Example: `1-JavaScript/Week3/homework`<br><br>The JavaScript file representing the exercise must named `<exercise-name>.js` and placed in this folder. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then these files must be placed in a _folder_ named `<exercise-name>`.<br><br>There can be multiple exercises per _Week𝑛_ folder.
 `<module>/Week𝑛/unit-tests` | This folder contains the unit test JavaScript files. The JavaScript file containing the unit test(s) for ab exercise must named `<exercise-name>.test.js`.
 `<module>/Week𝑛/test-reports` | This folder will hold the test reports.
-`<module>/Week𝑛/.homework` | This folder (notice the leading dot in the name) is only used during development and maintenance of this repo. Working solutions to exercises can be placed in this folder for testing the "happy" path of the unit tests. A `.homework` folder is used in place of a regular `homework` folder when a unit test is run with the command: `npm run testx`.
+`<module>/Week𝑛/@homework` | This folder (notice the leading dot in the name) is only used during development and maintenance of this repo. Working solutions to exercises can be placed in this folder for testing the "happy" path of the unit tests. A `@homework` folder is used in place of a regular `homework` folder when a unit test is run with the command: `npm run testx`.
 
 ## Linting
 
@@ -129,7 +129,7 @@ module.exports = doubleEvenNumbers;
 The corresponding unit test can `require` this function in order to test it. Because many exercises in the JavaScript module include calls to `console.log` that we do not want to show up while running a test, the `require` is executed dynamically, with `console.log` being mocked for the duration of the `require`. This is done through the helper function `beforeAllHelper` in `unit-test-helper.js`. This function also reads the exercise file as text and (optionally) builds an AST (Abstract Syntax Tree) to enable static code analysis.
 
 ```js
-describe("doubleEvenNumbers", () => {
+describe('doubleEvenNumbers', () => {
   let doubleEvenNumbers;
   const state = {};
 
@@ -181,7 +181,7 @@ beforeAll(() => {
   rootNode &&
     walk.simple(rootNode, {
       MemberExpression({ property }, ancestors) {
-        if (["map", "filter"].includes(property.name)) {
+        if (['map', 'filter'].includes(property.name)) {
           state[property.name] = true;
         }
       },
@@ -192,11 +192,11 @@ beforeAll(() => {
 We can now write simple unit tests to check for the mandated existence of `map` and `filter`:
 
 ```js
-it("should use `map`", () => {
+it('should use `map`', () => {
   expect(state.map).toBeDefined();
 });
 
-it("should use `filter`", () => {
+it('should use `filter`', () => {
   expect(state.filter).toBeDefined();
 });
 ```

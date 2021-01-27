@@ -100,7 +100,7 @@ rollDice((error, value) => {
 
 > A couple of comments about this code:
 >
-> - In real life, once thrown, a dice, following the laws of nature, will run its course autonomously until it comes to a complete standstill. How long it will roll depends on the force of the throw. In our simulation that "force" is represented by the random value assigned to `randomRollsToDo`. As if subjected to the laws of nature, we mandate that our simulated dices continue to roll until they have reached their respective number of rolls-to-do.
+> - In real life, a dice, when thrown, will follow the laws of nature and run its course autonomously until it comes to a complete standstill. How long it will roll depends on the force of the throw. In our simulation that "force" is represented by the random value assigned to `randomRollsToDo`. As if subjected to the laws of nature, we insist that our simulated dices continue to roll until they have reached their respective number of rolls-to-do.
 > - The callback format used in this example, using two parameters, is commonly used in Node.js. To communicate back _failure_, the callback is called with a _single_ argument: the error value (usually a JavaScript `Error` object). In the _successful_ case the callback is called with _two_ arguments, the first one being `null` (i.e., no error) and the second one containing the actual result.
 
 Here is what the output could look like for a successful throw:
@@ -146,7 +146,7 @@ Since we want to practice with promises anyway, let's see what happens when we r
 
 #### File: `ex4-pokerDiceAll.js`
 
-Dices in a [Poker Dice](https://en.wikipedia.org/wiki/Poker_dice) game have representations of playing cards upon them (this exercise uses strings instead). You play it with five such dices that you must throw in one go. In this exercise we have provided a ready-made `rollDice()` function for you that takes a dice number (1-5) as an argument and returns a promise that resolves to its final value, or a rejected promise with an `Error` object if the dice rolled off the table. The `rollDice()` function is located in a separate file (`pokerDiceRoller.js`). For this exercise you do not need to look at it (though you are welcome to), or understand how it works. The only thing you need to know is that it returns a promise, as described.
+Dices in a [Poker Dice](https://en.wikipedia.org/wiki/Poker_dice) game have representations of playing cards upon them (this exercise uses strings instead). You play it with five such dices that you must throw in one go. In this exercise we have provided a ready-made `rollDice()` function for you that takes a dice number (1-5) as an argument and returns a promise that resolves to its final value, or a rejected promise with an `Error` object if the dice rolled off the table. The `rollDice()` function is located in a separate file (`pokerDiceRoller.js`). For this exercise you do not need to look at it (although you are welcome to), or understand how it works. The only thing you need to know is that it returns a promise, as described above.
 
 We have also provided some code that demonstrates how to handle throwing a single dice. For this exercise you should do the following:
 

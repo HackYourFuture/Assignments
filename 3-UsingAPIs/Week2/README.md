@@ -4,32 +4,47 @@
 
 The homework for this week can be found in the `homework` folder.
 
-### Exercise 1: Who do we have here?
+### Exercise 1: Programmer Fun
 
-#### Folder: `ex1-whoHere`
-
-Wouldn't it cool to make a new friend with just the click of a button?
-
-Write a function that makes a HTTP Request to `https://www.randomuser.me/api`.
-
-- Inside the JavaScript file write two functions: one with `XMLHttpRequest`, and the other with `axios`.
-- Each function should make a HTTP Request to the given endpoint: `https://www.randomuser.me/api`.
-- Log the received data to the console.
-- Incorporate error handling: log to the console the error message.
-
-### Exercise 2: Programmer humor
-
-#### Folder: `ex2-programmerFun`
+#### Folder: `ex1-programmerFun`
 
 Who knew programmers could be funny?
 
-Write a function that makes a HTTP Request to `https://xkcd.now.sh/?comic=latest`
+1. Complete the function `requestData()` using `XMLHttpRequest` to make a request to the url passed to it as an argument. The function should return a promise. Make sure that the promise is rejected in case of HTTP or network errors.
+2. Notice that the function `main()` calls `requestData()`, passing it the url `https://xkcd.now.sh/?comic=latest`. Try and run the code in the browser and open the browser's console to inspect the data returned from the request.
+3. Next, complete the function `renderImage()` to render an image as an `<img>` element appended to the document's body, using the data returned from the API.
+4. Complete the function `renderError()` to render any errors as an `<h1>` element appended to the document's body.
+5. Test error handling, for instance, by temporarily changing the `.sh` in the url with `.shx`. There is no server at the modified url, therefore this should result in a network (DNS) error.
 
-- Inside the same file write two programs: one with `XMLHttpRequest`, and the other with `axios`.
-- Each function should make a HTTP Request to the given endpoint: `https://xkcd.now.sh/?comic=latest`
-- Log the received data to the console.
-- Render the `img` property into an `<img>` tag in the DOM.
-- Incorporate error handling: log to the console the error message.
+### Exercise 2: Gotta catch 'em all
+
+#### Folder `ex2-pokemonApp`
+
+Let's catch all original 151 Pokemon in our own little web application! Here's an example of what you'll be building for this exercise:
+
+![Pokemon App](../../assets/pokemon-app.gif)
+
+In this exercise you're going to do several things:
+
+1. Create and append DOM elements using JavaScript only.
+2. Fetch data from a public API: <https://pokeapi.co/>
+3. Display the results in the DOM.
+
+#### Instructions
+
+- Complete the four functions provided in the starter `index.js` file:
+
+<!-- prettier-ignore -->
+Function | Purpose
+---------|--------
+`fetchData` | In the `fetchData` function, make use of `fetch` and its Promise syntax in order to get the data from the public API. Errors (HTTP or network errors) should be logged to the console.
+`fetchAndPopulatePokemons` | Use `fetchData()` to load the pokemon data from the public API and populates the `<select>` element in the DOM.
+`fetchImage` | Use `fetchData()` to fetch the selected image and update the `<img>` element in the DOM.
+`main` | The `main` function orchestrates the other functions. The `main` function should be executed when the window has finished loading.
+
+- Use async/await and try/catch to handle promises.
+
+- Try and avoid using global variables. Instead, use function parameters and return values to pass data back and forth.
 
 ### Exercise 3: Dog photo gallery
 
@@ -46,78 +61,44 @@ Write a function that makes a HTTP Request to `https://dog.ceo/api/breeds/image/
 - After receiving the data, append to the `<ul>` a `<li>` that contains an `<img>` element with the dog image.
 - Incorporate error handling: log to the console the error message.
 
-### Exercise 1: Promise me to wait
+### Exercise 4: Roll an ACE
 
-#### Folder: `ex1-promiseToWait`
+#### File `ex4-rollAnAce.js`
 
-In this exercise you'll practice refactoring `Promise` syntax into `async/await` + `try/catch` syntax. Rewrite exercise A & B using `async/await` + `try/catch` syntax.
+Last week we did an exercise where we threw five dices in one go for a game of Poker Dice. In the current exercise we use a single dice only, but now the objective is to keep rethrowing that dice until we get an ACE, or until a dice rolls off the table.
+
+The challenge of this exercise is that the outcome of one promise determines whether we need a next promise. If the `rollDice()` function resolves to an ACE then we're done. If not, we need another call to `rollDice()` and wait for it to resolve. And we need to repeat this until we get an ACE (or stop when the promise rejects).
+
+The exercise file `ex4-rollAnAce.js` includes a function that does just that, using `.then()` methods. It uses a technique called _recursion_ and looks like this:
 
 ```js
-// Exercise A
-function getData(url) {
-  fetch(url)
-    .then((response) => response.json)
-    .then((json) => console.log(json))
-    .catch((error) => console.log(error));
-}
-
-getData("https://randomfox.ca/floof/");
-
-// Exercise B
-const arrayOfWords = ["cucumber", "tomatoes", "avocado"];
-
-const makeAllCaps = (array) => {
-  return new Promise((resolve, reject) => {
-    const capsArray = array.map((word) => {
-      if (typeof word === "string") {
-        return word.toUpperCase();
-      } else {
-        reject("Error: Not all items in the array are strings!");
+function rollDiceUntil(wantedValue) {
+  const recurse = () => {
+    return rollDice().then((settledValue) => {
+      if (settledValue !== wantedValue) {
+        return recurse();
       }
+      return settledValue;
     });
-    resolve(capsArray);
-  });
-};
-
-makeAllCaps(arrayOfWords)
-  .then((result) => console.log(result))
-  .catch((error) => console.log(error));
+  };
+  return recurse();
+}
 ```
 
-### Exercise 2: Trivia time
+Hmm, while this works fine it is probably a bit difficult to wrap your head around. Even if you fully understand what it does (we don't expect you to, at this stage) it is easy to make a mistake, for instance, by forgetting to include a `return` somewhere.
 
-Don't you just love trivia games? Let's make our own!
+Luckily, this code can be rewritten to be much simpler, using async/await:
 
-In this exercise you'll make use of the [Open Trivia Database API](https://opentdb.com/). You are going to fetch 5 random trivia questions and then inject them into the DOM, inside of an accordion. It should behave similar to this:
+1. Run the unmodified exercise and observe that it works as advertised. Observe that the dice must be thrown an unpredictable number of times until we get an ACE or until it rolls off the table.
+2. Now, rewrite the body of the `rollDiceUntil()` function using async/await. Hint: a `while` loop may come handy.
+3. Refactor the function `main()` to use async/await and try/catch.
 
-![Trivia App](./../assets/trivia-app.gif)
+### Dice Race
 
-Here are the requirements:
+#### File `ex5-diceRace.js`
 
-- Create a folder called `trivia-app`, that includes an HTML, CSS and JavaScript file
-- Link them all together in the HTML file
-- Only provide the basic structure in the HTML file. All other DOM elements are to be created using JavaScript
-- No CSS frameworks are allowed!
-- Sometimes the strings you get back from the API contains HTML entities (like `&quote;`). Find out a way to turn this into regular text
-- Make use of the following endpoint: <https://opentdb.com/api.php?amount=5>
+In this exercise we will again throw five dices in one go, but this time we are only interested in the first dice that comes to a standstill. This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
 
-### Exercise 3: Gotta catch 'em all
-
-> Inside of your `homework` folder, create another folder called `pokemon-app`. There, create an `index.html` and `script.js` file
-
-Let's catch all original 151 Pokemon in our own little web application! Here's an example of what you'll be building for this exercise:
-
-![Pokemon App](../../assets/pokemon-app.gif)
-
-In this exercise you're going to do several things:
-
-1. Create and append DOM elements using JavaScript only
-2. Fetch data twice from a public API [PokeAPI](https://pokeapi.co/)
-3. Display the results in the DOM.
-
-Here are the requirements:
-
-- Create 3 functions: `fetchData`, `addPokemonToDOM` and `main`
-- The `main` function executes the other functions and contains all the variables
-- In the `fetchData` function, make use of `fetch` and its Promise syntax in order to get the data from the public API
-- Execute the `main` function when the window has finished loading
+1. Complete the function `rollTheDices()` by using `Promise.race()`.
+2. Refactor the function `main()` using async/await and try/catch.
+3. Once you got this working, you may observe that some dices continue rolling for some undetermined time after the promise returned by `Promise.race()` resolves. Do you know why? Add your answer as a comment to the bottom of the file.

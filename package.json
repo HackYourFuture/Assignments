@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./test-runner",
-    "testx": "cross-env HOMEWORK_FOLDER=.homework node ./test-runner",
-    "it": "node ./test-runner/direct-runner",
-    "itx": "cross-env HOMEWORK_FOLDER=.homework node ./test-runner/direct-runner",
+    "testat": "cross-env HOMEWORK_FOLDER=@homework node ./test-runner",
+    "it": "node ./test-runner/run-it",
+    "itat": "cross-env HOMEWORK_FOLDER=@homework node ./test-runner/run-it",
     "postinstall": "node ./test-runner/postinstall",
     "encrypt": "node ./test-runner/encrypt",
     "decrypt": "node ./test-runner/decrypt",

@@ -10,9 +10,9 @@ const {
   findAncestor,
 } = require('../../../test-runner/unit-test-helpers');
 
-describe('ex2-programmerHumor', () => {
-  let rootNode;
+describe('programmerFun', () => {
   const state = {};
+  let rootNode;
 
   beforeAll(async () => {
     await prepare(page);

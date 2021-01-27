@@ -14,7 +14,6 @@ const {
   loadMostRecentSelection,
   saveMostRecentSelection,
 } = require('./test-runner-helpers');
-const logger = require('./logger');
 const hashes = require('./.hashes.json');
 
 const PORT = 3030;
@@ -80,18 +79,11 @@ async function main() {
       saveMostRecentSelection(module, week, exercise);
     }
 
-    const title = `>>> Running Unit Test \`${exercise}\` <<<`;
-    const separator = '-'.repeat(title.length);
-    logger.info(separator);
-    logger.info(title);
-    logger.info(separator);
-
     const exercisePath = makePath(module, week, homeworkFolder, exercise);
     const hash = await computeHash(exercisePath);
 
     const untouched = hash === hashes[exercise];
     if (untouched) {
-      logger.info('Exercise has not yet been modified');
       console.log(chalk.blue('You have not yet worked on this exercise.'));
     }
 
@@ -99,7 +91,6 @@ async function main() {
     await runExercise(exercisePath);
   } catch (err) {
     const message = `Something went wrong: ${err.message}`;
-    logger.error(message);
     console.error(chalk.red(message));
   }
 }

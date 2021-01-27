@@ -84,7 +84,7 @@ function execESLint(exercisePath) {
   // Note: ESLint warnings do not throw an error
   let output;
   try {
-    output = execSync(`npx eslint --ignore-pattern "!.homework" ${lintSpec}`, {
+    output = execSync(`npx eslint ${lintSpec}`, {
       encoding: 'utf8',
     });
   } catch (err) {
