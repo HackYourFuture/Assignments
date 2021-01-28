@@ -5,6 +5,7 @@
         "Adel",
         "autofix",
         "camelcase",
+        "clonedeep",
         "Cryptr",
         "eqeqeq",
         "hplogo",
