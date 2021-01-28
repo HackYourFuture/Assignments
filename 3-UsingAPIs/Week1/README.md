@@ -175,11 +175,11 @@ Dice value is now: 6
 Success! Dice settled on 6.
 ```
 
-> :bulb: If you have much console output to inspect, you can maximize the VSCode terminal pane by pressing the up-arrow button in the top-right of the terminal pane, as shown in Figure 1 below:
+> :bulb: If you have a large amount of console output to inspect, you can maximize the VSCode terminal panel by pressing the up-arrow button in the top-right of the panel, as shown in Figure 1 below:
 >
-> ![Maximize Terminal Window](../../assets/maximize-terminal.png)
+> ![Maximize Terminal Panel](../../assets/maximize-terminal.png)
 >
-> Figure 1. Maximize the Terminal window
+> Figure 1. Maximize the Terminal Panel
 
 Try and increase the `count` limit in the `for` loop from `1000` to, say, `10000`, to take this to the extreme. Despite the timer firing after 500ms, the next scheduled `rollDice()` will only occur far later than that. This is because the `wasteTimeBlocking()` function blocks the JavaScript engine from doing anything else while it is executing: the function remains on the call stack until it returns, preventing the JavaScript engine to pick pending events (our scheduled `rollDice`) to run next.
 
