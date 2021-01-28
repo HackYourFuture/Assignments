@@ -56,10 +56,9 @@ The existing `rollDice()` function in the exercise file uses a callback to notif
 
 ```js
 function rollDice(callback) {
-  console.log(`Dice starts rolling...`);
-
   // Compute a random number of rolls (3-10) that the dice MUST complete
   const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
+  console.log(`Dice scheduled for ${randomRollsToDo} rolls...`);
 
   const rollOnce = (roll) => {
     // Compute a random dice value for the current roll
@@ -107,7 +106,7 @@ Here is what the output could look like for a successful throw:
 
 ```text
 ❯ node .\ex3-rollDice.js
-Dice starts rolling...
+Dice scheduled for 5 rolls...
 Dice value is now: 2
 Dice value is now: 3
 Dice value is now: 4
@@ -121,7 +120,7 @@ However, there is a problem when the dice rolls off the table. In that case we e
 ```text
 ❯ node .\ex3-rollDice.js
 Dice starts rolling...
-Dice value is now: 3
+Dice scheduled for 8 rolls...
 Dice value is now: 1
 Dice value is now: 3
 Dice value is now: 3
@@ -141,6 +140,86 @@ Since we want to practice with promises anyway, let's see what happens when we r
 - Change the calls to `callback()` to calls to `resolve()` and `reject()`.
 - Refactor the code that calls `rollDice()` to use the returned promise.
 - Does the problem described above still occur? If not, what would be your explanation? Add your answer as a comment to be bottom of the file.
+
+#### Bonus: Event Loop Experiments
+
+> The event loop in JavaScript is not that easy to comprehend. But having a good grasp of how it works is vital for you to better understand how asynchronous code works. We will examine the event loop in the experiment below. If you are still left puzzled, we invite you to discuss it with your class mates on Slack and see if you can work it out together.
+
+So what do you think the JavaScript engine is doing while it is waiting for a `setTimeout()` to fire? Well, since it has nothing else waiting for it to do on its call stack, it is just sitting idle.
+
+Lets give the JavaScript engine something more to do. Paste this code just above the `module.exports` line:
+
+```js
+function wasteTimeBlocking() {
+  for (let count = 1; count <= 1000; count++) {
+    console.log('  count =', count);
+  }
+}
+wasteTimeBlocking();
+```
+
+When we now execute the exercise, the JavaScript engine first calls the `rollDice()` function. This function returns immediately after having executed the first roll while scheduling the next roll to run 500ms later via a `setTimeout()`.
+
+Next, the JavaScript engine will call the `wasteTimeBlocking()` function. As you can see, this is literally a waste of time :grin:. It is also blocking the JavaScript engine as the next scheduled `rollDice()` cannot occur before `wasteTimeBlocking()` has returned. You can observe this from the console output:
+
+```text
+Dice scheduled for 4 rolls...
+Dice value is now: 3
+  count = 1
+  count = 2
+  ...
+  count = 1000
+Dice value is now: 6
+Dice value is now: 5
+Dice value is now: 6
+Success! Dice settled on 6.
+```
+
+> :bulb: If you have much console output to inspect, you can maximize the VSCode terminal pane by pressing the up-arrow button in the top-right of the terminal pane, as shown in Figure 1 below:
+>
+> ![Maximize Terminal Window](../../assets/maximize-terminal.png)
+>
+> Figure 1. Maximize the Terminal window
+
+Try and increase the `count` limit in the `for` loop from `1000` to, say, `10000`, to take this to the extreme. Despite the timer firing after 500ms, the next scheduled `rollDice()` will only occur far later than that. This is because the `wasteTimeBlocking()` function blocks the JavaScript engine from doing anything else while it is executing: the function remains on the call stack until it returns, preventing the JavaScript engine to pick pending events (our scheduled `rollDice`) to run next.
+
+Let's now replace the experimental `wasteTimeBlocking` code with a non-blocking version:
+
+```js
+function wasteTime() {
+  let count = 0;
+  const timer = setInterval(() => {
+    count += 1;
+    console.log('count =', count);
+    if (count > 100) {
+      clearInterval(timer);
+    }
+  }, 0);
+}
+wasteTime();
+```
+
+While still wasting time, this version does so in a non-blocking fashion, by scheduling the next iteration through the event loop. Setting the interval time to zero causes the event loop to immediately (i.e. without delay) pick up the next pending event once the call stack is empty. If you run this version you will observe that the output from `rollDice()` is interspersed with output from `wasteTime()`:
+
+```text
+Running exercise, please wait...
+Dice scheduled for 4 rolls...
+Dice value is now: 5
+count = 1
+count = 2
+...
+count = 73
+Dice value is now: 4
+count = 74
+count = 75
+...
+count = 101
+Dice value is now: 1
+Dice value is now: 4
+Success! Dice settled on 4.
+```
+
+As you can observe, the time between executions of `rollDice()` is 500ms, or perhaps one or two milliseconds later, but not much later than that.
 
 ### Exercise 4: Throw the dices for a Poker Dice games
 

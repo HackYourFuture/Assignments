@@ -11,10 +11,9 @@
 
 // TODO Remove callback and return a promise
 function rollDice(callback) {
-  console.log(`Dice starts rolling...`);
-
   // Compute a random number of rolls (3-10) that the dice MUST complete
   const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
+  console.log(`Dice scheduled for ${randomRollsToDo} rolls...`);
 
   const rollOnce = (roll) => {
     // Compute a random dice value for the current roll

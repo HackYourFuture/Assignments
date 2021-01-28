@@ -54,7 +54,7 @@ function createDiceRoller(logFn = logger) {
       const randomRollsToDo =
         getRandomNumber(MAX_ROLLS - MIN_ROLLS + 1) + MIN_ROLLS;
 
-      logFn(`Dice ${dice} starts rolling...`);
+      logFn(`Dice ${dice} scheduled for ${randomRollsToDo} rolls...`);
 
       // Function that executes a roll, called recursively until the mandated
       // number of rolls (`randomRollsToDo`) has been done.
