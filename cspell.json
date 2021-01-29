@@ -13,7 +13,10 @@
         "pokemons",
         "printf",
         "rethrowing",
+        "sysinfo",
+        "systeminformation",
         "testx",
-        "typeof"
+        "typeof",
+        "usingapis"
     ]
 }
