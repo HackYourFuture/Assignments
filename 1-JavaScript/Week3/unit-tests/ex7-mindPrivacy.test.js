@@ -1,7 +1,7 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
 const walk = require('acorn-walk');
-const cloneDeep = require('lodash.clonedeep');
+const _ = require('lodash');
 const {
   beforeAllHelper,
   findAncestor,
@@ -60,7 +60,7 @@ describe('filterPrivateData', () => {
 
   it("should not modify ('mutate') its arguments", () => {
     expect(typeof filterPrivateData === 'function').toBe(true);
-    const original = cloneDeep(employeeRecords);
+    const original = _.cloneDeep(employeeRecords);
     const newData = filterPrivateData(employeeRecords);
     expect(newData).not.toBe(employeeRecords);
     expect(employeeRecords).toEqual(original);
