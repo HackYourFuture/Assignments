@@ -85,7 +85,7 @@ From a _best practice_ point of view, there is a big problem with the code of th
 
 A function that mutates a global variable or in some other way interacts with the "_outside world_" (e.g. accessing a database, making a network request, or even logging something to the console) is said to cause "_side effects_. Sometimes this is necessary. A program that does not in some way interact with the outside world cannot possibly do something useful. However, in all other cases side-effects must be avoided.
 
-Experienced developers prefer to work with _pure functions_. These functions do not access (let alone,_mutate_) any data that exists outside of their own scope and return results solely through the function's return value. All required data should be passed through the argument list.
+Experienced developers prefer to work with _pure functions_. These functions do not access (let alone, _mutate_) any data that exists outside of their own scope and return results solely through the function's return value. All required data should be passed through the argument list.
 
 A key characteristic of a pure function is that if it is repeatedly called with the same argument it always produces the same result. This is clearly not the case with the `addToShoppingCart()` function of the previous exercise.
 
