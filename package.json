@@ -9,12 +9,11 @@
     "it": "node ./test-runner/run-it",
     "alt": "cross-env HOMEWORK_FOLDER=@homework node ./test-runner/run-it",
     "reset-reports": "node ./test-runner/reset-reports",
-    "postinstall": "npm run reset-reports && npm run sysinfo && npm run prepare-git",
+    "postinstall": "npm run reset-reports && npm run sysinfo",
     "encrypt": "node ./test-runner/encrypt",
     "decrypt": "node ./test-runner/decrypt",
     "precommit": "npm run postinstall && npm run encrypt",
-    "sysinfo": "node ./test-runner/sysinfo",
-    "prepare-git": "node ./test-runner/prepare-git"
+    "sysinfo": "node ./test-runner/sysinfo"
   },
   "repository": {
     "type": "git",

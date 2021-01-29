@@ -16,21 +16,9 @@ npm install
 
 This command:
 
-- Install software dependencies from the Internet.
+- Installs required software dependencies from the Internet.
 - Sets up folders and files used to track your progress.
 - Compiles system information and writes the result to `sysinfo.json`. This information can help to track problems with your computer setup when asking others (mentors or students) for (online) help.
-- Creates a git branch for each homework week.
-- Checks out the branch for the first week.
-
-The branch names are:
-
-```text
-javascript/week3
-javascript/week4
-browsers/week1
-usingapis/week1
-usingapis/week2
-```
 
 ## VSCode
 
