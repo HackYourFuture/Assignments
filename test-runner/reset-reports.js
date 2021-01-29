@@ -34,8 +34,9 @@ async function prepareHashes(menuData) {
   );
 }
 
-function cleanUpLogFiles() {
-  return rimraf(path.join(__dirname, '../*.log'));
+async function cleanUpLogFiles() {
+  await rimraf(path.join(__dirname, '../*.log'));
+  await rimraf(path.join(__dirname, '../sysinfo.json'));
 }
 
 (async () => {
@@ -51,8 +52,6 @@ function cleanUpLogFiles() {
 
     console.log('Cleaning up log files...');
     await cleanUpLogFiles();
-
-    console.log(chalk.green('Postinstall was completed successfully.'));
   } catch (err) {
     console.error(chalk.red(`Something went wrong: ${err.message}`));
   }
