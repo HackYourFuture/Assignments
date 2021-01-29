@@ -9,7 +9,7 @@ module.exports = {
   },
   extends: ['eslint:recommended'],
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2021,
   },
   globals: {
     page: true,
