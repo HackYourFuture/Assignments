@@ -357,7 +357,7 @@ A **breakpoint** is a location in our code where we would like the JavaScript en
 
 We can inspect the call stack and any breakpoints that were placed in the lower left portion of the screen, as shown in Figure 6.
 
-When executing code with the debugger, execution pauses as soon as a breakpoint is "_hit_". In Figure 7 we can see that execution is paused at our breakpoint in line 21. This is indicated by the yellow marker enclosing the red dot of the breakpoint.
+When executing code with the debugger, execution pauses as soon as a breakpoint is "_hit_". In Figure 7 we can see that execution is paused at our breakpoint in line 19. This is indicated by the yellow marker enclosing the red dot of the breakpoint.
 
 > ![Breakpoint ght at line 19](../../assets/breakpoint-hit-19.png)
 >
@@ -365,7 +365,7 @@ When executing code with the debugger, execution pauses as soon as a breakpoint 
 
 There are several things we can inspect while the execution is paused. For instance, as shown in Figure 7, we can hover the mouse pointer over the `laureates` parameter of the `renderLaureates()` function to inspect its value at this point in the execution. Array and object values can be expanded by pressing the triangular right-arrow.
 
-We can also inspect variables and the scopes in which they exist. In Figure 8 we have expanded the `laureates` variable. It appears that this variable is not an array, as we had assumed, but a JavaScript object with a `laureates` property which has an array value.
+We can also inspect variables and the scopes in which they exist. In Figure 8 we have expanded the `laureates` variable. It appears that this variable is not an array, as we had assumed, but a JavaScript object with a `laureates` property containing an array.
 
 > ![Debug variables](../../assets/debug-variables.png)
 >
@@ -413,13 +413,13 @@ Waiting for the debugger to disconnect...
 
 <!-- cspell:enable -->
 
-Apparently, where we expected an object with a `date` property, we actually got an undefined value in line 15 of the function `renderLaureate()`. From inspecting line 15 we can infer that the object in question is the `death` object. Let's place another breakpoint on line 15, but this time we will make it a _conditional_ breakpoint. Right-click to the left of the number 15 in the margin of the editor window and select **Add conditional breakpoint...** from the context menu. Enter the condition that we want to break on: `death === undefined`, as illustrated in Figure 10.
+Apparently, where we expected an object with a `date` property, we actually got an undefined value in line 15 of the function `renderLaureate()`. By inspecting line 15 we can infer that the object in question is the `death` object. Let's place another breakpoint on line 15, but this time we will make it a _conditional_ breakpoint. Right-click to the left of the number 15 in the margin of the editor window and select **Add conditional breakpoint...** from the context menu. Enter the condition that we want to break on: `death === undefined`, as illustrated in Figure 10.
 
 > ![Set conditional breakpoint](../../assets/set-conditional-breakpoint.png)
 >
 > Figure 10. Setting a conditional breakpoint.
 
-When we run the code again, first the breakpoint at line 19 will be hit. Press the blue triangle button again to resume execution. Next the breakpoint at line 15 will be hit when the condition is satisfied. Inspecting the `Variables` panel reveals the laureate in question is still alive. We gratefully acknowledge that this is a perfectly reasonable scenario that our code must be able to deal with.
+When we run the code again, first the breakpoint at line 19 will be hit. Press the blue triangle button again to resume execution. Next the breakpoint at line 15 will be hit when the condition is satisfied. Inspecting the `Variables` panel reveals the laureate in question is still alive because his death is `undefined`. We gratefully acknowledge that this is a perfectly reasonable scenario that our code must be able to deal with.
 
 > ![Conditional breakpoint hit](../../assets/conditional-breakpoint-hit.png)
 >
