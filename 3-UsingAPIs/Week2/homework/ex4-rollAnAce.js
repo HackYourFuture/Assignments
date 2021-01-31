@@ -32,4 +32,5 @@ function main() {
 
 main();
 
+// ! Do not change or remove the code below
 module.exports = rollDiceUntil;
