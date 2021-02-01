@@ -111,6 +111,8 @@ In this exercise we will again throw five dices in one go, but this time we are 
 
 In this exercise we will practice working with the VSCode Debugger. You can just follow along as we go.
 
+> Read more about debuggers in general in the Study Guide: [Debuggers](https://hackyourfuture.github.io/study/#/tools/debuggers)
+
 The exercise will make a fetch request to the [Nobel Prize API](https://www.nobelprize.org/about/developer-zone-2/) version 2 to obtain information about the Nobel Prize winners ("laureates"). Specifically, those that were born in the Netherlands. We will log this information to the console.
 
 This is the expected output:
