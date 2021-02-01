@@ -421,7 +421,7 @@ Apparently, where we expected an object with a `date` property, we actually got 
 >
 > Figure 10. Setting a conditional breakpoint.
 
-When we run the code again, first the breakpoint at line 19 will be hit. Press the blue triangle button again to resume execution. Next the breakpoint at line 15 will be hit when the condition is satisfied. Inspecting the `Variables` panel reveals the laureate in question is still alive because his death is `undefined`. We gratefully acknowledge that this is a perfectly reasonable scenario that our code must be able to deal with.
+When we run the code again, first the breakpoint at line 19 will be hit. Press the blue triangle button again to resume execution. Next the breakpoint at line 15 will be hit when the condition is satisfied. Inspecting the `Variables` panel reveals the laureate in question is still alive because his death is `undefined`. We humbly acknowledge that this is a perfectly reasonable possibility that our code must be able to deal with.
 
 > ![Conditional breakpoint hit](../../assets/conditional-breakpoint-hit.png)
 >
