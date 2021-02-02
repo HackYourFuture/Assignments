@@ -129,7 +129,9 @@ In this exercise we will practice using the Chrome debugger. Other browsers, suc
 
 At the end of the `index.js` file of the exercise is a `quiz` object with multiple-choice questions that we would like you to complete as you follow along the instructions below.
 
-> For a general tutorial on how to use the Chrome debugger see: [The definitive guide to JavaScript Debugging [2021 Edition]](https://dev.to/atapas/the-definitive-guide-to-javascript-debugging-2021-edition-116n).
+> Read more about debuggers in general in the Study Guide: [Debuggers](https://hackyourfuture.github.io/study/#/tools/debuggers)
+>
+> For an external tutorial on how to use the Chrome debugger, check out: [The definitive guide to JavaScript Debugging [2021 Edition]](https://dev.to/atapas/the-definitive-guide-to-javascript-debugging-2021-edition-116n).
 
 Here is a listing of the code in `index.js` (minus the `quiz` object) we will be working with:
 
