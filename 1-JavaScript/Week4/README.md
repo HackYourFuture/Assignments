@@ -121,7 +121,7 @@ myPublisher.notify("Let's see what happens here!");
 // "Let's see what happens here!"
 ```
 
-### Transfer into Wallet
+### Exercise 5: Transfer into Wallet
 
 #### Folder: `ex5-wallet`
 
