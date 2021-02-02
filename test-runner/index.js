@@ -2,6 +2,7 @@ const fs = require('fs').promises;
 const { existsSync } = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const fg = require('fast-glob');
 const chalk = require('chalk');
 const prompts = require('prompts');
 const {
@@ -57,21 +58,39 @@ async function writeReport(module, week, exercise, report) {
   await fs.writeFile(passFilePath, message, 'utf8');
 }
 
+function isUnitTestProvided(name) {
+  const unitTestPattern = path
+    .join(__dirname, `../**/unit-tests/${name}.test.js`)
+    .replace(/\\/g, '/');
+  const unitTestPaths = fg.sync([unitTestPattern, '!**/node_modules']);
+  return unitTestPaths.length > 0;
+}
+
 function execJest(name) {
+  let message;
   try {
+    if (!isUnitTestProvided(name)) {
+      message = 'A unit test file was not provided.';
+      console.log(chalk.yellow(message));
+      logger.warn(message);
+      return '';
+    }
+
     const customReporterPath = path.join(__dirname, 'CustomReporter.js');
     execSync(
       `npx jest ${name} --silent false --verbose false --reporters="${customReporterPath}"`,
       { encoding: 'utf8' }
     );
-    console.log(chalk.green('All unit tests passed.'));
+    message = 'All unit tests passed.';
+    console.log(chalk.green(message));
+    logger.info(message);
     return '';
   } catch (err) {
     const output = err.stdout;
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
-    const message = `${title}\n\n${output}`;
+    message = `${title}\n\n${output}`;
     logger.error(message);
     return message;
   }

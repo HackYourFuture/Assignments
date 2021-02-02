@@ -19,12 +19,16 @@ function makePath(module, week, folder, exercise) {
 function compileMenuData() {
   const menuData = {};
   const fileSpec = path
-    .join(__dirname, '..', '**/unit-tests/**/*.test.js')
+    .join(__dirname, '..', '**/homework/**/ex*')
     .replace(/\\/g, '/');
-  const filePaths = fg.sync([fileSpec, '!**/node_modules']);
+  const filePaths = fg.sync([fileSpec, '!**/node_modules'], {
+    onlyFiles: false,
+  });
 
   filePaths.forEach((filePath) => {
-    const matches = filePath.match(/^.*\/(.+)\/(Week\d).*\/(.+).test.js$/i);
+    const matches = filePath.match(
+      /^.*\/(.+)\/(Week\d)\/homework\/(.+?)(?:\.js)?$/i
+    );
     if (matches) {
       const [, module, week, testName] = matches;
       if (!menuData[module]) {
