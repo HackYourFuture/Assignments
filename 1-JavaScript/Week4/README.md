@@ -227,7 +227,7 @@ Name: Joe, balance: € 85,00
 Name: Jane, balance: € 15,00
 ```
 
-We seem to have a bug because we get `undefined` where we expect a name. We would like to investigate the state of the program at the point where we get the message `Insufficient funds!`.
+We seem to have a bug because we get `undefined` where we expect a name.
 
 Open the **Sources** panel from Developer Tools. Select `index.js` from the explorer panel and make sure that the console output is visible in the bottom panel, as shown in Figure 1.
 
