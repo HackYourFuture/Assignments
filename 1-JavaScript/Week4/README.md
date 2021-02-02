@@ -293,4 +293,32 @@ Now, let's resume execution of the code by pressing the button **Resume script e
 
 :question: Please answer question **q5** of the `quiz` object.
 
-Press the **Resume script execution** again. The program will now run to completion without issues. This also completes this exercise.
+Press the **Resume script execution** again. The program will now run to completion without issues.
+
+Having answered all questions, it is now time to run a test to check whether you provided the correct answers. Run the test command with:
+
+```console
+npm test
+```
+
+and select to rerun the previous exercise. Note that the test will not use the browser.
+
+If you have provided all the correct answers you will see:
+
+```console
+All unit tests passed.
+```
+
+Otherwise you will get a message in red for each incorrect answer:
+
+```console
+*** Unit Test Error Report ***
+
+- wallet q1: At line 26, which variables are in the scope marked Closure?
+- wallet q2: What is in the Call Stack, from top to bottom?
+- wallet q3: What tooltip appears when hovering over the third debug button?
+- wallet q4: What is displayed in the console?
+- wallet q5: The owner of the wallet with insufficient funds is:
+```
+
+This concludes the exercise.
