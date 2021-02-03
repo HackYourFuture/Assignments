@@ -127,7 +127,7 @@ myPublisher.notify("Let's see what happens here!");
 
 In this exercise we will practice using the Chrome debugger. Other browsers, such as FireFox, Edge and Safari have similar tools but the exact look and feel may be different.
 
-At the end of the `index.js` file of the exercise is a `quiz` object with multiple-choice questions that we would like you to complete as you follow along the instructions below.
+At the end of the `index.js` file of the exercise you will find a `quiz` object with multiple-choice questions that we would like you to complete as you follow along with the instructions below.
 
 > Read more about debuggers in general in the Study Guide: [Debuggers](https://hackyourfuture.github.io/study/#/tools/debuggers)
 >
@@ -273,9 +273,9 @@ Hover the mouse over each of these buttons in the browser and take note of the t
 
 :question: Please answer question **q3** of the `quiz` object.
 
-Press the button **Stepping over next function call**. As you can see the execution is now stopped at line 31. The whole function call, which spanned (due to Prettier) four lines is executed and stepped over. If we examine the console at the bottom of the screen we can see that the variable `name` was displayed correctly, but `wallet.name` was undefined. As we saw earlier in the Scope panel, a `wallet` object doesn't include a `name` property.
+Press the button **Step over next function call**. As you can see the execution is now stopped at line 31. The whole function call, which spans (due to Prettier) four lines is executed and stepped over. If we examine the console at the bottom of the screen we can see that the variable `name` is displayed correctly, but `wallet.name` is `undefined`. That is, as we saw earlier in the Scope panel, because a`wallet`object doesn't include a`name` property.
 
-The `name` variable, as well as the `cash` variable are deliberately made _private_ to each instance of a `wallet` object, by means of a _closure_. We don't want to give external code the ability to change the name of the wallet owner or change its cash amount. However, we _do_ want to give some form of **read-only** access to these variables. For this purpose the `wallet` object provides two functions, `reportBalance()` and `getName()`, that _do_ have access to the "_closed-in_" variables (or actually, in this case, _parameters_) `name` and `cash`. We can therefore fix the `undefined` bug by replacing `wallet.name` with `wallet.getName()`.
+The `name` variable, as well as the `cash` variable were intentionally made _private_ to each instance of a `wallet` object, by means of a _closure_. This to avoid that external code, accidentally or with malicious intent, changes the name of the wallet owner or change its cash amount. However, we _do_ want to give **read-only** access to the information these variables hold. For this purpose the `wallet` object provides two functions, `reportBalance()` and `getName()`, that _do_ have access to the "_closed-in_" variables (or actually, in this case, _parameters_) `name` and `cash`. We can therefore fix the `undefined` bug by replacing `wallet.name` with `wallet.getName()`.
 
 Let's try and make that change in the VSCode editor window. Prettier will probably now cause the `console.log` call to span five lines.
 
