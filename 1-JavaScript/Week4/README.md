@@ -31,9 +31,9 @@ Let's rewrite it (or _refactor_ it, as professional developers would call it):
 
 - Using the `map` and `filter` functions, rewrite the function body of `doubleEvenNumbers`.
 
-### Exercise 3: What's your Monday worth?
+### Exercise 2: What's your Monday worth?
 
-**File:** `ex3-mondaysWorth.js`
+**File:** `ex2-mondaysWorth.js`
 
 When you're a developer at a big company your Monday could look something like this:
 
@@ -64,6 +64,23 @@ Let's assume your hourly rate is €25. How much would you earn on that day?
 - Use the `map` array function to take out the duration time for each task.
 - Multiply each duration by a hourly rate for billing and sum it all up.
 - Make sure the program can be used on any array of objects that contain a `duration` property with a number value.
+
+### Exercise 3: Lemon allergy
+
+**File:** `ex3-lemonAllergy.js`
+
+Your mom bought you a basket of fruit, because you're doing so well in HackYourFuture. How sweet of her!
+
+```js
+const fruitBasket = ['Apple', 'Lemon', 'Grapefruit', 'Lemon', 'Banana', 'Watermelon', 'Lemon'];
+```
+
+However, she forgot that you are allergic to lemons! Let's quickly dispose of them before you get an attack.
+
+- Write a function
+- Use the `filter` array function to take out the lemons
+- Output a string that says: "My mom bought me a fruit basket, containing [array of fruits] !"
+
 
 ### Exercise 4: Publish and Subscribe
 
