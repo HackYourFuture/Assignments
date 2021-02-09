@@ -2,10 +2,7 @@
 'use strict';
 const walk = require('acorn-walk');
 const _ = require('lodash');
-const {
-  beforeAllHelper,
-  findAncestor,
-} = require('../../../test-runner/unit-test-helpers');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('filterPrivateData', () => {
   const state = {};
@@ -18,19 +15,13 @@ describe('filterPrivateData', () => {
     ({ filterPrivateData, employeeRecords } = exported);
 
     rootNode &&
-      walk.ancestor(rootNode, {
-        ObjectExpression({ properties }, ancestors) {
-          if (!findAncestor('ArrowFunctionExpression', ancestors)) {
-            return;
-          }
+      walk.simple(rootNode, {
+        ObjectExpression({ properties }) {
           if (properties.every((prop) => prop.shorthand)) {
             state.objectDestructuring = true;
           }
         },
-        ObjectPattern({ properties }, ancestors) {
-          if (!findAncestor('ArrowFunctionExpression', ancestors)) {
-            return;
-          }
+        ObjectPattern({ properties }) {
           if (properties.every((prop) => prop.shorthand)) {
             state.objectLiteralShorthand = true;
           }
