@@ -86,7 +86,7 @@ function execJest(name) {
     logger.info(message);
     return '';
   } catch (err) {
-    const output = err.stdout;
+    const output = err.stdout || err.message;
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
