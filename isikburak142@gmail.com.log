@@ -1,0 +1,14 @@
+2021-02-10 03:09:03 info: -------------------------------------------
+2021-02-10 03:09:03 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-02-10 03:09:03 info: -------------------------------------------
+2021-02-10 03:09:12 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a Engineer in Amsterdam, married to Abdulkareem with 15 kids.
+  Received: You will be a Engineer in Amsterdam married to Abdulkareem with 15
+
+2021-02-10 03:10:03 info: -------------------------------------------
+2021-02-10 03:10:03 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-02-10 03:10:03 info: -------------------------------------------
+2021-02-10 03:10:10 info: All unit tests passed.
+2021-02-10 03:10:14 info: All steps were completed successfully
