@@ -9,7 +9,5 @@
   },
   "files.autoSave": "onFocusChange",
   "prettier.trailingComma": "es5",
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
