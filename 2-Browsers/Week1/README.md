@@ -127,7 +127,7 @@ Start with this webpage, which has a single img tag of an animated GIF of a cat 
 
 **Folder**: `ex6-gameOfLife`
 
-This is not really an exercise for you to complete but rather just a fun JavaScript application to study. Your JavaScript skills should be sufficient by now to figure out how the code works. In case of questions, try and seek help in the class slack channel.
+This is not really an exercise for you to complete but rather just a fun JavaScript application to study. Your JavaScript skills should be sufficient by now to understand the code. In case of questions, try and seek help in the class slack channel.
 
 _Have fun!_
 
