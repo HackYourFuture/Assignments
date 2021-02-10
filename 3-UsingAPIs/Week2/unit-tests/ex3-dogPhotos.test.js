@@ -4,7 +4,7 @@ const {
   prepare,
   validateHTML,
   deleteFiles,
-} = require('../../../test-runner/puppeteer-helpers');
+} = require('../../../test-runner/jsdom-helpers');
 const {
   beforeAllHelper,
   findAncestor,
@@ -15,7 +15,8 @@ describe('dogPhotos', () => {
   let rootNode;
 
   beforeAll(async () => {
-    await prepare(page);
+    const { document } = await prepare();
+    state.outerHTML = document.documentElement.outerHTML;
     ({ rootNode } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
@@ -60,7 +61,7 @@ describe('dogPhotos', () => {
     deleteFiles();
   });
 
-  it('HTML should be syntactically valid', validateHTML);
+  it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
 
   it('should use `axios` inside a function', () => {
     expect(state.axios).toBeDefined();

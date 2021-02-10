@@ -1,3 +1,4 @@
+const jsdom = require('jsdom');
 const fs = require('fs').promises;
 const util = require('util');
 const _copy = require('recursive-copy');
@@ -9,11 +10,13 @@ const stylish = getFormatter('stylish');
 
 const copy = util.promisify(_copy);
 const rimraf = util.promisify(_rimraf);
+const { JSDOM } = jsdom;
 
-const config = {
-  baseUrl: 'http://localhost:5000/',
-  blockedResourceTypes: ['image', 'stylesheet', 'font'],
-};
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
 
 async function copyFiles(exercisesDir) {
   try {
@@ -31,19 +34,7 @@ function deleteFiles() {
   return rimraf('./temp');
 }
 
-async function setUp(page) {
-  await page.setRequestInterception(true);
-  page.on('request', (req) => {
-    if (config.blockedResourceTypes.includes(req.resourceType())) {
-      req.abort();
-    } else {
-      req.continue();
-    }
-  });
-  return page.goto(config.baseUrl, { waitUntil: 'networkidle0' });
-}
-
-async function prepare(page) {
+async function prepare() {
   const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
 
   const { testPath } = expect.getState();
@@ -51,15 +42,17 @@ async function prepare(page) {
     .replace('unit-tests', homeworkFolder)
     .replace(/\.test\.js$/, '');
   await copyFiles(exercisePath);
-  return setUp(page);
+  const { window } = await JSDOM.fromFile('./temp/index.html', {
+    runScripts: 'dangerously',
+    resources: 'usable',
+  });
+  await sleep(500);
+  return window;
 }
 
 const htmlValidate = new HtmlValidate(htmlValidateOptions);
 
-async function validateHTML() {
-  const outerHTML = await page.evaluate(
-    () => document.documentElement.outerHTML
-  );
+async function validateHTML(outerHTML) {
   const htmlText = `<!DOCTYPE html>\n${outerHTML}`;
   const report = htmlValidate.validateString(htmlText);
   const validationReport = stylish(report);

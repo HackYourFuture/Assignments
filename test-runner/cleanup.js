@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const chalk = require('chalk');
@@ -6,32 +6,20 @@ const _rimraf = require('rimraf');
 
 const rimraf = util.promisify(_rimraf);
 
-const {
-  makePath,
-  compileMenuData,
-  computeHash,
-  prepareReportFolders,
-} = require('./test-runner-helpers');
+const { makePath, compileMenuData } = require('./test-runner-helpers');
 
-async function prepareHashes(menuData) {
-  const hashes = {};
-
+async function cleanupReportFolders(menuData) {
   for (const moduleName of Object.keys(menuData)) {
     const weeks = Object.keys(menuData[moduleName]);
+
     for (const week of weeks) {
-      const exercises = menuData[moduleName][week];
-      for (const exercise of exercises) {
-        const exercisePath = makePath(moduleName, week, 'homework', exercise);
-        hashes[exercise] = await computeHash(exercisePath);
+      const dirPath = makePath(moduleName, week, 'test-reports');
+      if (fs.existsSync(dirPath)) {
+        await rimraf(path.normalize(`${dirPath}`));
+        console.log(`Cleaned up test reports for ${moduleName}/${week}`);
       }
     }
   }
-
-  await fs.writeFile(
-    path.join(__dirname, '.hashes.json'),
-    JSON.stringify(hashes, null, 2),
-    'utf8'
-  );
 }
 
 async function cleanUpLogFiles() {
@@ -45,10 +33,7 @@ async function cleanUpLogFiles() {
     const menuData = compileMenuData();
 
     console.log('Preparing report folders...');
-    await prepareReportFolders(menuData);
-
-    console.log('Computing exercise hashes...');
-    await prepareHashes(menuData);
+    await cleanupReportFolders(menuData);
 
     console.log('Cleaning up log files...');
     await cleanUpLogFiles();
