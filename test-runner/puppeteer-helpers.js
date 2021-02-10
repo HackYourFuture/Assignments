@@ -4,7 +4,7 @@ const _copy = require('recursive-copy');
 const _rimraf = require('rimraf');
 const { HtmlValidate } = require('html-validate');
 const { getFormatter } = require('html-validate/dist/cli/formatter');
-const htmlValidateOptions = require('../.htmlValidate.json');
+const htmlValidateOptions = require('../.htmlvalidate.json');
 const stylish = getFormatter('stylish');
 
 const copy = util.promisify(_copy);
