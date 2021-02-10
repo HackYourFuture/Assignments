@@ -13,18 +13,18 @@ I'd like to display my three favorite books inside a nice webpage!
 ```js
 const books = [
   {
-    title: "The Design of Everyday Things",
-    author: "Don Norman",
+    title: 'The Design of Everyday Things',
+    author: 'Don Norman',
     alreadyRead: false,
   },
   {
-    title: "The Most Human Human",
-    author: "Brian Christian",
+    title: 'The Most Human Human',
+    author: 'Brian Christian',
     alreadyRead: true,
   },
   {
-    title: "The Pragmatic Programmer",
-    author: "Andrew Hunt",
+    title: 'The Pragmatic Programmer',
+    author: 'Andrew Hunt',
     alreadyRead: true,
   },
 ];
@@ -37,7 +37,7 @@ const books = [
 5. Change the style of the book depending on whether you have read it (green) or not (red).
 
 The end result should look something like this:
-https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
+<https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/>
 
 ## Exercise 2: About me
 
@@ -66,7 +66,7 @@ Given this HTML:
 ```
 
 1. Using JavaScript, change the body tag's style so it has a font-family of "Arial, sans-serif".
-2. Using JavaScript, replace each of the spans (`nickname`, fav-food`, `hometown`) with your own information.
+2. Using JavaScript, replace each of the spans (`nickname`, fav-food`,`hometown`) with your own information.
 3. In JavaScript, iterate through each `<li>` and change the class to `list-item`.
 4. Inside the HTML file `<head>` tag, add a style tag that sets a rule for `.list-item` to make the color red. Do this manually (i.e., not with JavaScript).
 
@@ -74,7 +74,7 @@ Given this HTML:
 
 **File**: `ex3-hijackLogo.js`
 
-No homepage is safe from the logo bandit! Every time he sees a Google Logo he replaces it with a logo from HackYourFuture instead: https://www.hackyourfuture.dk/static/logo-dark.svg.
+No homepage is safe from the logo bandit! Every time he sees a Google Logo he replaces it with a logo from HackYourFuture instead: <https://www.hackyourfuture.dk/static/logo-dark.svg>.
 
 In this exercise you're expected to write a JavaScript function that can be executed in the console of the [Google website](https://www.google.com).
 
@@ -121,4 +121,14 @@ Start with this webpage, which has a single img tag of an animated GIF of a cat 
 3. Complete the function called catWalk() to move the cat 10 pixels to the right of where it started, by changing the `left` style property.
 4. Call that function every 50 milliseconds. Your cat should now be moving across the screen from left to right. Hurrah!
 5. When the cat reaches the right-hand of the screen, restart them at the left hand side (`0px`). So they should keep walking from left to right across the screen, forever and ever.
-6. When the cat reaches the middle of the screen, replace the img with an image of a cat dancing (use this URL: https://tenor.com/StFI.gif), keep it dancing for 5 seconds, and then replace the img with the original image and have it continue the walk.
+6. When the cat reaches the middle of the screen, replace the img with an image of a cat dancing (use this URL: <https://tenor.com/StFI.gif>), keep it dancing for 5 seconds, and then replace the img with the original image and have it continue the walk.
+
+## Bonus Exercise 6: Conway's Game of Life
+
+**Folder**: `ex6-gameOfLife`
+
+This is not really an exercise for you to complete but rather just a fun JavaScript application to study. Your JavaScript skills should be sufficient by now to figure out how the code works. In case of questions, try and seek help in the class slack channel.
+
+_Have fun!_
+
+![Game of Life](../../assets/game-of-life.gif)
