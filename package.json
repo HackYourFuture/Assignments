@@ -61,11 +61,10 @@
     "open": "^7.4.0",
     "prettier": "^2.2.1",
     "prompts": "^2.4.0",
-    "recursive-copy": "^2.0.11",
     "rimraf": "^3.0.2",
     "serve-handler": "^6.1.3",
     "simple-git": "^2.34.2",
-    "systeminformation": "^5.1.2",
+    "systeminformation": "^5.2.2",
     "winston": "^3.3.3"
   }
 }

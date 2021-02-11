@@ -1,8 +1,4 @@
-const {
-  prepare,
-  validateHTML,
-  deleteFiles,
-} = require('../../../test-runner/jsdom-helpers');
+const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 
 describe('Generated HTML', () => {
   const state = {};
@@ -10,10 +6,6 @@ describe('Generated HTML', () => {
   beforeAll(async () => {
     const { document } = await prepare();
     state.outerHTML = document.documentElement.outerHTML;
-  });
-
-  afterAll(() => {
-    deleteFiles();
   });
 
   it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));

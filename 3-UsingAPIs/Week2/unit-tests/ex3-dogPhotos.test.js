@@ -1,10 +1,6 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
-const {
-  prepare,
-  validateHTML,
-  deleteFiles,
-} = require('../../../test-runner/jsdom-helpers');
+const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 const {
   beforeAllHelper,
   findAncestor,
@@ -55,10 +51,6 @@ describe('dogPhotos', () => {
           state.await = true;
         },
       });
-  });
-
-  afterAll(() => {
-    deleteFiles();
   });
 
   it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));

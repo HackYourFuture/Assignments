@@ -1,10 +1,6 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
-const {
-  prepare,
-  validateHTML,
-  deleteFiles,
-} = require('../../../test-runner/jsdom-helpers');
+const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('pokemonApp', () => {
@@ -36,10 +32,6 @@ describe('pokemonApp', () => {
           }
         },
       });
-  });
-
-  afterAll(() => {
-    deleteFiles();
   });
 
   it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
