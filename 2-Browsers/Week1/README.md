@@ -123,12 +123,29 @@ Start with this webpage, which has a single img tag of an animated GIF of a cat 
 5. When the cat reaches the right-hand of the screen, restart them at the left hand side (`0px`). So they should keep walking from left to right across the screen, forever and ever.
 6. When the cat reaches the middle of the screen, replace the img with an image of a cat dancing (use this URL: <https://tenor.com/StFI.gif>), keep it dancing for 5 seconds, and then replace the img with the original image and have it continue the walk.
 
-## Bonus Exercise 6: Conway's Game of Life
+## Exercise 6: Conway's Game of Life
 
 **Folder**: `ex6-gameOfLife`
 
-This is not really an exercise for you to complete but rather just a fun JavaScript application to study. Your JavaScript skills should be sufficient by now to understand the code. In case of questions, try and seek help in the class slack channel.
+In this exercise you will work with existing, working code for which you are asked to implement an enhancement. The application is a JavaScript version of a classic simulation, called [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-_Have fun!_
+From Wikipedia:
+
+> The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.
+
+As illustrated in the picture below, the game is a two-dimensional grid where cells come alive and die, depending on certain rules. Every 200ms, a new generation of cells replaces the previous one.
 
 ![Game of Life](../../assets/game-of-life.gif)
+
+In the supplied JavaScript code the color of all living cells is a single shade of blue. This is in contrast to the illustration above where living cells have different shades of blue, depending on their life time. Your job is to add a life time property to cells and let the `opacity` of each cell depend on its value, as specified in this table:
+
+| Life time | Opacity |
+| :-------: | :-----: |
+|     1     |  0.25   |
+|     2     |   0.5   |
+|     3     |  0.75   |
+|    4+     |    1    |
+
+No need to say that a "dead" cell has a life time of zero. Also note that at the start of the game all living cells start with a life time of one.
+
+_Have fun!_
