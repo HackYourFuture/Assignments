@@ -46,7 +46,8 @@ You know how old your dog is in human years, but what about dog years? Let's cal
 
 Why pay a fortune teller when you can just program your fortune yourself?
 
-1. Create four arrays, `numKids`, `partnerNames`, `locations` and `jobTitles`. Give each array five random string values that have to do with the name of the variable.
+1. Create four arrays, `numKids`, `partnerNames`, `locations` and `jobTitles`. Give each array five random
+   values that have to do with the name of the variable.
 
 2. Complete the function `selectRandomly`. This function should take an array as a parameter and return a randomly selected element as its return value.
 
@@ -54,11 +55,11 @@ Why pay a fortune teller when you can just program your fortune yourself?
 
    - It should take four arguments: number of children (`number`), partner's name (`string`), geographic location (`string`) and job title (`string`).
    - It should use the `selectRandomly` function to randomly select values from the arrays.
-   - It should return a string: _"You will be a `jobTitle` in `location`, married to `partnerName` with `numKids`."_
+   - It should return a string: _"You will be a `jobTitle` in `location`, married to `partnerName` with `numKids` kids."_
 
 4. Call the function three times, passing the arrays as arguments. Use `console.log` to display the results.
 
-Note: The DRY is put into practice here: instead of repeating the code to randomly select array elements four times inside the `tellFortune` function body, this code is now written once only in a separated function.
+Note: The DRY principle is put into practice here: instead of repeating the code to randomly select array elements four times inside the `tellFortune` function body, this code is now written once only in a separated function.
 
 ### Exercise 4: Shopping at the supermarket
 
