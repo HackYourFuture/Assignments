@@ -20,11 +20,23 @@ instead!
    Use `console.log` to display the result.
 -----------------------------------------------------------------------------*/
 const cartForParty = {
-  // TODO complete this function
+  beers: 15.75,
+  chips: 40.54,
+  rice: 50.32,
+  water: 30.76,
+  bread: 40.98,
 };
 
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
-  // TODO replace this comment with your code
+function calculateTotalPrice(myObject) {
+  let sum = 0;
+
+  for (const el in myObject) {
+    if (Object.prototype.hasOwnProperty.call(myObject, el)) {
+      sum += parseFloat(myObject[el]);
+    }
+  }
+
+  return `Total: €${sum}`;
 }
 
 // this is one example, you will need to write a different object
@@ -35,6 +47,8 @@ calculateTotalPrice({
   durian: 73,
   elderberry: 10,
 }); // -> "Total: €102.42"
+
+console.log(calculateTotalPrice(cartForParty));
 
 // ! Do not change or remove the code below
 module.exports = {
