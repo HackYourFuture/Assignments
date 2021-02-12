@@ -15,15 +15,16 @@ it pure. Do the following:
 function addToShoppingCart(addToShopping, grocery) {
 
   let myArray = [];
-  if(addToShopping.length <= 2){
+  if(addToShopping.length < 3){
     myArray = [...addToShopping];
     myArray.push(grocery)
    } else {
     myArray = [...addToShopping];
-    myArray.push(grocery);
-    myArray.shift()
-       }
-       return myArray
+    myArray.shift();
+    myArray.push(grocery)
+  }
+  
+  return myArray
 }
 
 const shoppingCart = ['bananas', 'milk'];
