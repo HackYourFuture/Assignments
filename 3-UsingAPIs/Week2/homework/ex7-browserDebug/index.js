@@ -23,6 +23,7 @@ function addTableRow(table, label, value) {
   createAndAppend('th', tr, { text: label });
   createAndAppend('td', tr, { text: value });
 }
+
 function renderLaureate(ul, { knownName, birth, death }) {
   const li = createAndAppend('li', ul);
   const table = createAndAppend('table', li);
@@ -47,4 +48,4 @@ async function fetchAndRender() {
   }
 }
 
-fetchAndRender();
+window.addEventListener('load', fetchAndRender);
