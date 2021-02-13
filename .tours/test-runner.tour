@@ -77,6 +77,71 @@
           "character": 1
         }
       }
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "The students' exercises are in subfolders of the **homework** folder. For testing the \"happy path\" of the unit tests completed exercises can be placed in an alternate folder, the name of whhich can be defined through the `HOMEWORK_FOLDER` environment variable. The recommended folder for this purpose is **@homework** (git-ignored). The npm script **npm run testalt** sets the `HOMEWORK_FOLDER` environment variable to **@homework** before running the test.",
+      "line": 198
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "A hash is computed over each exercise as part of the **posinstall** npm script. These hashes are stored in the file `.hashes.json` (git-ignored). When the use runs a test the hash is recomputed and compare with the stored hash. If the hash values are the same then obviously the exercise has not been touched.",
+      "line": 201,
+      "title": "recompute hash",
+      "selection": {
+        "start": {
+          "line": 203,
+          "character": 1
+        },
+        "end": {
+          "line": 207,
+          "character": 6
+        }
+      }
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "If the exercise is untouched, we log a message to the console and to log file.",
+      "line": 207,
+      "selection": {
+        "start": {
+          "line": 203,
+          "character": 1
+        },
+        "end": {
+          "line": 208,
+          "character": 1
+        }
+      },
+      "title": "compare hashes"
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "Running a test comprises three steps:\n\n1. Unit test with Jest\n2. ESLint check\n3. Spelling check\n\nEach of these steps returns a (potentially multiline) string with error information or just an empty string if there were no errors. These strings are concatenated to form an error report.",
+      "line": 213,
+      "selection": {
+        "start": {
+          "line": 210,
+          "character": 1
+        },
+        "end": {
+          "line": 214,
+          "character": 1
+        }
+      },
+      "title": "run test steps"
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "An error report is written to the `test-reports` folder, but only if the student did some work on the exercise.",
+      "line": 216,
+      "title": "write report"
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "A textual disclaimer is shown at the end of the test that can be silenced for subsequent tests.",
+      "line": 220,
+      "title": "show disclaimer"
     }
   ]
 }
