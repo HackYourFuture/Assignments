@@ -1,0 +1,55 @@
+2021-02-10 09:37:48 info: ----------------------------------------------
+2021-02-10 09:37:48 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-02-10 09:37:48 info: ----------------------------------------------
+2021-02-10 09:37:58 error: *** Unit Test Error Report ***
+
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are great, HackYourFuture!
+  Received: You are great HackYourFuture!
+
+2021-02-10 09:38:01 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  21:7  warning  'compliments' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  22:7  warning  'compliment' is never reassigned. Use 'const' instead   no-autofix/prefer-const
+  23:7  warning  'result' is never reassigned. Use 'const' instead       no-autofix/prefer-const
+
+✖ 3 problems (0 errors, 3 warnings)
+
+
+2021-02-10 09:38:03 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:28:17 - Unknown word (Burak)
+
+2021-02-10 09:47:18 info: ----------------------------------------------
+2021-02-10 09:47:18 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-02-10 09:47:18 info: ----------------------------------------------
+2021-02-10 09:47:27 error: *** Unit Test Error Report ***
+
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are great, HackYourFuture!
+  Received: You are great HackYourFuture!
+
+2021-02-10 09:47:32 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:39:17 - Unknown word (Burak)
+
+2021-02-10 09:54:57 info: ----------------------------------------------
+2021-02-10 09:54:57 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-02-10 09:54:57 info: ----------------------------------------------
+2021-02-10 09:55:04 info: All unit tests passed.
+2021-02-10 09:55:09 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:39:17 - Unknown word (Burak)
+
+2021-02-10 09:58:22 info: Disclaimer turned off
+2021-02-10 09:58:31 info: ----------------------------------------------
+2021-02-10 09:58:31 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-02-10 09:58:31 info: ----------------------------------------------
+2021-02-10 09:58:39 info: All unit tests passed.
+2021-02-10 09:58:44 info: All steps were completed successfully
+2021-02-10 09:59:52 info: ----------------------------------------
+2021-02-10 09:59:52 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-02-10 09:59:52 info: ----------------------------------------
+2021-02-10 10:00:00 info: All unit tests passed.
+2021-02-10 10:00:04 info: All steps were completed successfully
