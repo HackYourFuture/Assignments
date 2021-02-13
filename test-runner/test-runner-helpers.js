@@ -19,7 +19,7 @@ function makePath(module, week, folder, exercise) {
 function compileMenuData() {
   const menuData = {};
   const fileSpec = path
-    .join(__dirname, '..', '**/homework/**/ex*')
+    .join(__dirname, '..', '**/homework/ex+([0-9])-*')
     .replace(/\\/g, '/');
   const filePaths = fg.sync([fileSpec, '!**/node_modules'], {
     onlyFiles: false,
