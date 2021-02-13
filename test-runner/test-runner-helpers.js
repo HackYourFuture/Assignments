@@ -30,14 +30,14 @@ function compileMenuData() {
       /^.*\/(.+)\/(Week\d)\/homework\/(.+?)(?:\.js)?$/i
     );
     if (matches) {
-      const [, module, week, testName] = matches;
+      const [, module, week, exercise] = matches;
       if (!menuData[module]) {
         menuData[module] = {};
       }
       if (!menuData[module][week]) {
         menuData[module][week] = [];
       }
-      menuData[module][week].push(testName);
+      menuData[module][week].push(exercise);
     }
   });
   return menuData;
