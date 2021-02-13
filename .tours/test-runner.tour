@@ -1,0 +1,82 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "test-runner",
+  "steps": [
+    {
+      "file": "test-runner/index.js",
+      "description": "The test runner starts by calling function `main()`.",
+      "line": 231,
+      "title": "entry point"
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "The function `compileMenuData()` is called to compile menu data by scanning the repo's directory tree, looking for exercise files and directories that match a prescribed naming convention. The returned menu data (a JavaScript object) is used to drive the menu dialog.",
+      "line": 175,
+      "title": "get menu data"
+    },
+    {
+      "file": "test-runner/test-runner-helpers.js",
+      "description": "Exercise files and folders must reside in a folder named **homework** and match a pattern that starts with the letters **ex** followed by a number and a dash. Each **homework** folder is a subfolder of a **Week𝑛** folder, which itself is a subfolder of a module specific top-level folder. For instance:\n\n```console\n1-JavaScript/\n  Week3/\n    homework/\n      ex1-giveCompliment.js\n      ...\n```\n\nNote that Windows paths contain back slashes that must be replaced with forward slashes as required by `fast-glob`.",
+      "line": 26,
+      "selection": {
+        "start": {
+          "line": 20,
+          "character": 3
+        },
+        "end": {
+          "line": 27,
+          "character": 1
+        }
+      },
+      "title": "compile menu data"
+    },
+    {
+      "file": "test-runner/test-runner-helpers.js",
+      "description": "We use a regular expression to extract the **module**, **week** and *exercise* name from each file path. If the exercise is a (JavaScript) file, we strip off the `.js` file extension.",
+      "line": 43,
+      "selection": {
+        "start": {
+          "line": 28,
+          "character": 1
+        },
+        "end": {
+          "line": 44,
+          "character": 1
+        }
+      },
+      "title": "build menu data object"
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "As a time-saver, a user is given the option to re-run the last test (if there is one). This information is kept in the file `.recent.json`.",
+      "line": 183,
+      "selection": {
+        "start": {
+          "line": 179,
+          "character": 1
+        },
+        "end": {
+          "line": 184,
+          "character": 1
+        }
+      },
+      "title": "recent selection"
+    },
+    {
+      "file": "test-runner/index.js",
+      "description": "If the user wishes to select a different exercise to test (or if there was no previous to re-run) a series of menu prompts allows the user to select a **module**, **week** and **exercise** to test.",
+      "line": 190,
+      "title": "selection menu",
+      "selection": {
+        "start": {
+          "line": 185,
+          "character": 1
+        },
+        "end": {
+          "line": 191,
+          "character": 1
+        }
+      }
+    }
+  ]
+}
