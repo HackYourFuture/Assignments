@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "test-runner",
+  "title": "1. test-runner",
   "steps": [
     {
       "file": "test-runner/index.js",
