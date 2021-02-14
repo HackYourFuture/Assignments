@@ -1,0 +1,58 @@
+{
+  "node": "v14.15.4",
+  "system": {
+    "manufacturer": "Sony Corporation",
+    "model": "SVE1511D1EW"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i3-2370M",
+    "speed": 2.4
+  },
+  "memory": "4 GB",
+  "osInfo": {
+    "platform": "win32",
+    "distro": "Microsoft Windows 10 Pro",
+    "release": "10.0.19042"
+  },
+  "blockDevices": [
+    {
+      "name": "C:",
+      "size": "126 GB",
+      "fsType": "ntfs",
+      "physical": "Local"
+    },
+    {
+      "name": "D:",
+      "size": "0 GB",
+      "fsType": "",
+      "physical": "CD/DVD"
+    }
+  ],
+  "vscodeInfo": {
+    "version": "1.53.2",
+    "extensions": [
+      "aaron-bond.better-comments",
+      "abusaidm.html-snippets",
+      "bierner.github-markdown-preview",
+      "bierner.markdown-checkbox",
+      "bierner.markdown-emoji",
+      "bierner.markdown-preview-github-styles",
+      "bierner.markdown-yaml-preamble",
+      "CoenraadS.bracket-pair-colorizer",
+      "CoenraadS.bracket-pair-colorizer-2",
+      "DavidAnson.vscode-markdownlint",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "ecmel.vscode-html-css",
+      "esbenp.prettier-vscode",
+      "evgeniypeshkov.syntax-highlighter",
+      "hdg.live-html-previewer",
+      "mkaufman.HTMLHint",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker",
+      "Zignd.html-css-class-completion"
+    ],
+    "userSettings": {}
+  }
+}
