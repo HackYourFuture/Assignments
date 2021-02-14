@@ -108,7 +108,7 @@ function execESLint(exercisePath) {
       stdio: 'pipe',
     });
   } catch (err) {
-    output = err.stdout;
+    output = err.stdout.trim();
   }
   if (output) {
     output = output.replace(/\\/g, '/').replace(/^.*\/\.?homework\//gm, '');
@@ -127,7 +127,7 @@ function execESLint(exercisePath) {
 function execSpellChecker(exercisePath) {
   try {
     const cspellSpec = existsSync(exercisePath)
-      ? path.normalize(`${exercisePath}/**/*.js`)
+      ? path.normalize(`${exercisePath}/*.js`)
       : `${exercisePath}.js`;
     execSync(`npx cspell ${cspellSpec}`, {
       encoding: 'utf8',
@@ -138,6 +138,7 @@ function execSpellChecker(exercisePath) {
   } catch (err) {
     // remove full path
     const output = err.stdout
+      .trim()
       .replace(/\\/g, '/')
       .replace(/^.*\/\.?homework\//gm, '');
 
