@@ -30,8 +30,8 @@ function filterPrivateData(arrayEmployee) {
 
   const myArray = [];
 
-  for (const {name, occupation, gender} of arrayEmployee){
-  const myObject = {name, occupation, gender};
+  for (const {name, occupation, email} of arrayEmployee){
+  const myObject = {name, occupation, email};
   myArray.push(myObject)
   }
 
