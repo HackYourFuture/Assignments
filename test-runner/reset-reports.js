@@ -41,7 +41,7 @@ async function cleanUpLogFiles() {
 
 (async () => {
   try {
-    console.log('Scanning for unit tests...');
+    console.log('Scanning for exercises...');
     const menuData = compileMenuData();
 
     console.log('Preparing report folders...');

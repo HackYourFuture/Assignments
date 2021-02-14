@@ -79,14 +79,14 @@ function execJest(name) {
     const customReporterPath = path.join(__dirname, 'CustomReporter.js');
     execSync(
       `npx jest ${name} --silent false --verbose false --reporters="${customReporterPath}"`,
-      { encoding: 'utf8' }
+      { encoding: 'utf8', stdio: 'pipe' }
     );
     message = 'All unit tests passed.';
     console.log(chalk.green(message));
     logger.info(message);
     return '';
   } catch (err) {
-    const output = err.stdout;
+    const output = err.stdout || err.message;
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
@@ -105,6 +105,7 @@ function execESLint(exercisePath) {
   try {
     output = execSync(`npx eslint ${lintSpec}`, {
       encoding: 'utf8',
+      stdio: 'pipe',
     });
   } catch (err) {
     output = err.stdout;
@@ -130,7 +131,7 @@ function execSpellChecker(exercisePath) {
       : `${exercisePath}.js`;
     execSync(`npx cspell ${cspellSpec}`, {
       encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
+      stdio: 'pipe',
     });
     console.log(chalk.green('No spelling errors detected.'));
     return '';

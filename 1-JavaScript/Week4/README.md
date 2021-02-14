@@ -72,7 +72,15 @@ Let's assume your hourly rate is €25. How much would you earn on that day?
 Your mom bought you a basket of fruit, because you're doing so well in HackYourFuture. How sweet of her!
 
 ```js
-const fruitBasket = ['Apple', 'Lemon', 'Grapefruit', 'Lemon', 'Banana', 'Watermelon', 'Lemon'];
+const fruitBasket = [
+  'apple',
+  'lemon',
+  'grapefruit',
+  'lemon',
+  'banana',
+  'watermelon',
+  'lemon',
+];
 ```
 
 However, she forgot that you are allergic to lemons! Let's quickly dispose of them before you get an attack.
@@ -80,7 +88,6 @@ However, she forgot that you are allergic to lemons! Let's quickly dispose of th
 - Write a function
 - Use the `filter` array function to take out the lemons
 - Output a string that says: "My mom bought me a fruit basket, containing [array of fruits] !"
-
 
 ### Exercise 4: Publish and Subscribe
 

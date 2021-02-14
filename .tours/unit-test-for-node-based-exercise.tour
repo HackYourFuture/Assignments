@@ -1,0 +1,84 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "2. jest custom reporter",
+  "steps": [
+    {
+      "file": "test-runner/index.js",
+      "description": "We use **jest** for unit testing, using a \"custom reporter\" to trim down the output normally produced by **jest** to an absolute minimum.",
+      "line": 83,
+      "selection": {
+        "start": {
+          "line": 80,
+          "character": 1
+        },
+        "end": {
+          "line": 84,
+          "character": 1
+        }
+      },
+      "title": "exec jest"
+    },
+    {
+      "file": "test-runner/CustomReporter.js",
+      "description": "When **jest** has completed its run, this hook from the custom reporter is called and gets passed the test results as a parameter.",
+      "line": 2,
+      "title": "onRunComplete"
+    },
+    {
+      "file": "test-runner/CustomReporter.js",
+      "description": "We are only interested in tests that failed.",
+      "line": 7,
+      "title": "failed tests"
+    },
+    {
+      "file": "test-runner/CustomReporter.js",
+      "description": "We have adapted special usages of the `expected` and `actual` values of test assertions. By default the custom reporter excludes these values from the report. ",
+      "line": 20,
+      "title": "actual vs expected"
+    },
+    {
+      "file": "test-runner/CustomReporter.js",
+      "description": "If `expected` is an empty string and `actual` is a string, we add the string `actual` to the report with some indentation added. This is our way of adding custom error detail information using an assert in a unit test,",
+      "line": 28,
+      "selection": {
+        "start": {
+          "line": 22,
+          "character": 1
+        },
+        "end": {
+          "line": 29,
+          "character": 1
+        }
+      },
+      "title": "report detail info"
+    },
+    {
+      "file": "1-JavaScript/Week3/unit-tests/ex1-giveCompliment.test.js",
+      "description": "Here is an example of using an assertion to provide detail error information. The `actual` value is a string which can either be empty or contain an error message. The assertion fails (and thus passes as a `failed` test through the custom reporter) if the `actual` value is not an empty string.",
+      "line": 44,
+      "title": "example detail info"
+    },
+    {
+      "file": "test-runner/CustomReporter.js",
+      "description": "Next, we also report `actual` and `expected` values are both strings.",
+      "line": 34,
+      "selection": {
+        "start": {
+          "line": 30,
+          "character": 1
+        },
+        "end": {
+          "line": 35,
+          "character": 1
+        }
+      },
+      "title": "actual & expected strings"
+    },
+    {
+      "file": "1-JavaScript/Week3/unit-tests/ex1-giveCompliment.test.js",
+      "description": "Here is an example where the custom reporter adds the `actual` and `expected` string values to the report.",
+      "line": 69,
+      "title": "example actual & expected"
+    }
+  ]
+}
