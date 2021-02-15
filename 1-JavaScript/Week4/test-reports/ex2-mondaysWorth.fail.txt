@@ -1,0 +1,16 @@
+*** Unit Test Error Report ***
+
+- mondaysWorth should compute the earnings as a formatted Euro amount
+  Expected: €187.50
+  Received: 187.5
+
+*** ESLint Report ***
+ex2-mondaysWorth.js
+  34:9  error    'duration' is assigned a value but never used  no-unused-vars
+  35:9  warning  'a' is never reassigned. Use 'const' instead   no-autofix/prefer-const
+
+✖ 2 problems (1 error, 1 warning)
+*** Spell Checker Report ***
+
+ex2-mondaysWorth.js:46:7 - Unknown word (searnings)
+ex2-mondaysWorth.js:63:33 - Unknown word (searnings)
