@@ -108,7 +108,7 @@ function execESLint(exercisePath) {
       stdio: 'pipe',
     });
   } catch (err) {
-    output = err.stdout.trim();
+    output = err.stdout;
   }
   if (output) {
     output = output.replace(/\\/g, '/').replace(/^.*\/\.?homework\//gm, '');
@@ -138,7 +138,6 @@ function execSpellChecker(exercisePath) {
   } catch (err) {
     // remove full path
     const output = err.stdout
-      .trim()
       .replace(/\\/g, '/')
       .replace(/^.*\/\.?homework\//gm, '');
 
