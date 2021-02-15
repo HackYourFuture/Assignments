@@ -12,7 +12,7 @@ you have more than 3 items in your shopping cart the first item gets taken out.
    - It should take one argument: a grocery item (string)
    - It should add the grocery item to `shoppingCart`. If the number of items is
      more than three remove the first one in the array.
-   - It should loop through the array in order to list out the items in the 
+   - It should iterate through the array in order to list out the items in the 
      shopping cart.
    - It should return a string: "You bought `shoppingCart`!".
 
@@ -23,6 +23,7 @@ const shoppingCart = ['bananas', 'milk'];
 
 function addToShoppingCart(/* parameters go here */) {
   // TODO complete this function
+  console.log(/* TODO add arguments here */);
 }
 
 addToShoppingCart('chocolate'); // Returns "You bought bananas, milk, chocolate!"
