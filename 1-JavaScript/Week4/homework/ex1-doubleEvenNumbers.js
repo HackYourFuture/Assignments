@@ -9,14 +9,11 @@ Let's rewrite it (or _refactor_ it, as professional developers would call it):
 `doubleEvenNumbers`.
 ------------------------------------------------------------------------------*/
 function doubleEvenNumbers(numbers) {
-  // TODO rewrite the function body using `map` and `filter`.
-  const newNumbers = [];
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2 === 0) {
-      newNumbers.push(numbers[i] * 2);
-    }
-  }
-  return newNumbers;
+  const newNumbers = numbers.filter((even) => even % 2 === 0);
+
+  const b = newNumbers.map((x) => x * 2);
+
+  return b;
 }
 
 const myNumbers = [1, 2, 3, 4];
