@@ -78,3 +78,26 @@ ex2-mondaysWorth.js
 2021-02-16 12:32:44 info: --------------------------------------------
 2021-02-16 12:32:49 info: All unit tests passed.
 2021-02-16 12:32:53 info: All steps were completed successfully
+2021-02-16 01:05:35 info: --------------------------------------------
+2021-02-16 01:05:35 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-02-16 01:05:35 info: --------------------------------------------
+2021-02-16 01:05:40 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: My mom bought me a fruit basket, containing apple,grapefruit,banana,watermelon!
+
+2021-02-16 01:09:03 info: --------------------------------------------
+2021-02-16 01:09:03 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-02-16 01:09:03 info: --------------------------------------------
+2021-02-16 01:09:08 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: My mom bought me a fruit basket, containing apple, grapefruit, banana, watermelon!
+
+2021-02-16 01:10:03 info: --------------------------------------------
+2021-02-16 01:10:03 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-02-16 01:10:03 info: --------------------------------------------
+2021-02-16 01:10:08 info: All unit tests passed.
+2021-02-16 01:10:12 info: All steps were completed successfully
