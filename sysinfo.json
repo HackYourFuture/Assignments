@@ -1,0 +1,58 @@
+{
+  "node": "v14.15.0",
+  "system": {
+    "manufacturer": "Dell Inc.",
+    "model": "Inspiron 15-3567"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i5-7200U",
+    "speed": 2.5,
+    "virtualization": true
+  },
+  "memory": "4 GB",
+  "osInfo": {
+    "platform": "win32",
+    "distro": "Microsoft Windows 10 Home",
+    "release": "10.0.18363"
+  },
+  "blockDevices": [
+    {
+      "name": "C:",
+      "size": "248 GB",
+      "fsType": "ntfs",
+      "physical": "Local"
+    },
+    {
+      "name": "D:",
+      "size": "734 GB",
+      "fsType": "ntfs",
+      "physical": "Local"
+    },
+    {
+      "name": "E:",
+      "size": "0 GB",
+      "fsType": "",
+      "physical": "CD/DVD"
+    }
+  ],
+  "vscodeInfo": {
+    "version": "1.53.2",
+    "extensions": [
+      "aaron-bond.better-comments",
+      "bierner.github-markdown-preview",
+      "bierner.markdown-checkbox",
+      "bierner.markdown-emoji",
+      "bierner.markdown-preview-github-styles",
+      "bierner.markdown-yaml-preamble",
+      "CoenraadS.bracket-pair-colorizer-2",
+      "DavidAnson.vscode-markdownlint",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker"
+    ],
+    "userSettings": {}
+  }
+}

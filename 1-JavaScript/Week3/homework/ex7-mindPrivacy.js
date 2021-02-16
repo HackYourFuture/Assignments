@@ -25,13 +25,28 @@ const employeeRecords = [
     salary: 60000,
   },
 ];
+/*
+console.log(...employeeRecords);
+*/
+let x;
+let y = {};
+for (x in employeeRecords) {
+  y += x;
+  console.log(y);
+  console.log(x);
+}
+console.log(y);
+/*let x;
+  for (x in cartForParty) {
+    amount += cartForParty[x];
+  }*/
 
 function filterPrivateData(/* parameter(s) go here */) {
   // TODO complete this function
 }
-
+/*
 console.log(filterPrivateData(employeeRecords));
-
+*/
 // ! Do not change or remove any code below
 module.exports = {
   employeeRecords,

@@ -1,0 +1,11 @@
+*** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: undefined
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: undefined
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: undefined
