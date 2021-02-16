@@ -136,7 +136,7 @@ Oops... Dice rolled off the table
 Since we want to practice with promises anyway, let's see what happens when we refactor the code to use promises:
 
 - Run the unmodified program and confirm that the problem as described can be reproduced.
-- Refactor the `rollBack()` function from using a callback to returning a promise.
+- Refactor the `rollDice()` function from using a callback to returning a promise.
 - Change the calls to `callback()` to calls to `resolve()` and `reject()`.
 - Refactor the code that calls `rollDice()` to use the returned promise.
 - Does the problem described above still occur? If not, what would be your explanation? Add your answer as a comment to be bottom of the file.
@@ -199,7 +199,7 @@ function wasteTime() {
 wasteTime();
 ```
 
-While still wasting time, this version does so in a non-blocking fashion, by scheduling the next iteration through the event loop. Setting the interval time to zero causes the event loop to immediately (i.e. without delay) pick up the next pending event once the call stack is empty. If you run this version you will observe that the output from `rollDice()` is interspersed with output from `wasteTime()`:
+While still wasting (tiny bits of) time, this version does so in a non-blocking fashion, by scheduling the next iteration through the event loop. Setting the interval time to zero causes the event loop to immediately (i.e. without delay) pick up the next pending event once the call stack is empty. If you run this version you will observe that the output from `rollDice()` is interspersed with output from `wasteTime()`:
 
 ```text
 Running exercise, please wait...
@@ -242,6 +242,6 @@ We have also provided some code that demonstrates how to handle throwing a singl
   Rejected! Dice 3 rolled off the table.
   ```
 
-The provided `rollDice()` function outputs the state of a dice as it rolls, along with the time of day with millisecond accuracy. Once you have successfully completed this exercise you will notice that the intermediate messages are output in bursts of up to five at a time as the dices finish rolling asynchronously.
+The provided `rollDice()` function logs the value of a dice as it rolls, time-stamped with the time of day (with millisecond accuracy) to the console. Once you have successfully completed this exercise you will notice that the intermediate messages are output in bursts of up to five at a time as the dices finish rolling asynchronously.
 
 You may also notice that, in the case of a rejected promise, dices that have not yet finished their roll continue to do so. Can you explain why? Please add your answer as a comment to the end of the exercise file.

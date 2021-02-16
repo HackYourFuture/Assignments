@@ -57,12 +57,7 @@ function getVSCodeInfo(platform) {
   const system = _.pick(_system, ['manufacturer', 'model']);
 
   const _cpu = await si.cpu();
-  const cpu = _.pick(_cpu, [
-    'manufacturer',
-    'brand',
-    'speed',
-    'virtualization',
-  ]);
+  const cpu = _.pick(_cpu, ['manufacturer', 'brand', 'speed']);
 
   const _memory = await si.mem();
   const memory = `${(_memory.total / ONE_GB_1024).toFixed(0)} GB`;

@@ -20,12 +20,15 @@ instead!
    Use `console.log` to display the result.
 -----------------------------------------------------------------------------*/
 const cartForParty = {
+
   // TODO complete this function
   beers: 1.75,
   chips: 0.99,
   chocolate: 1.25,
   waffles: 2.15,
   tea: 1.5,
+
+  // TODO complete this object
 };
 
 function calculateTotalPrice(cartForParty) {

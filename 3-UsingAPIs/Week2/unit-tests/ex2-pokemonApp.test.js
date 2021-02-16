@@ -1,10 +1,6 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
-const {
-  prepare,
-  validateHTML,
-  deleteFiles,
-} = require('../../../test-runner/puppeteer-helpers');
+const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('pokemonApp', () => {
@@ -12,7 +8,8 @@ describe('pokemonApp', () => {
   let rootNode;
 
   beforeAll(async () => {
-    await prepare(page);
+    const { document } = await prepare();
+    state.outerHTML = document.documentElement.outerHTML;
     ({ rootNode } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
@@ -37,11 +34,7 @@ describe('pokemonApp', () => {
       });
   });
 
-  afterAll(() => {
-    deleteFiles();
-  });
-
-  it('HTML should be syntactically valid', validateHTML);
+  it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
 
   it('should use `await fetch()`', () => {
     expect(state.awaitFetch).toBeDefined();

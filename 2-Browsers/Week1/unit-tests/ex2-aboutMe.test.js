@@ -1,17 +1,12 @@
-const {
-  prepare,
-  validateHTML,
-  deleteFiles,
-} = require('../../../test-runner/puppeteer-helpers');
+const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 
 describe('Generated HTML', () => {
+  const state = {};
+
   beforeAll(async () => {
-    await prepare(page);
+    const { document } = await prepare();
+    state.outerHTML = document.documentElement.outerHTML;
   });
 
-  afterAll(() => {
-    deleteFiles();
-  });
-
-  it('should be syntactically valid', validateHTML);
+  it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
 });

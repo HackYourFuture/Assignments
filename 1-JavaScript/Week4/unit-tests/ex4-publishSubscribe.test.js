@@ -1,35 +1,13 @@
-/* eslint-disable hyf/camelcase */
 'use strict';
-const walk = require('acorn-walk');
-const {
-  beforeAllHelper,
-  findAncestor,
-} = require('../../../test-runner/unit-test-helpers');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('createPublisher', () => {
-  let exported, rootNode, createPublisher;
-  const state = {};
+  let exported, createPublisher;
 
   beforeAll(() => {
-    ({ exported, rootNode } = beforeAllHelper(__filename, {
-      parse: true,
-    }));
+    ({ exported } = beforeAllHelper(__filename));
 
     createPublisher = exported;
-
-    // Look for `map` and `filter` calls inside the
-    // scope of the `doubleEvenNumber` function
-    rootNode &&
-      walk.ancestor(rootNode, {
-        MemberExpression({ property }, ancestors) {
-          if (['map', 'filter'].includes(property.name)) {
-            const ancestor = findAncestor('FunctionDeclaration', ancestors);
-            if (ancestor && ancestor.id.name === 'doubleEvenNumbers') {
-              state[property.name] = true;
-            }
-          }
-        },
-      });
   });
 
   it('should exist and be executable', () => {

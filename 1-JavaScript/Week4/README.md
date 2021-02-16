@@ -72,7 +72,15 @@ Let's assume your hourly rate is €25. How much would you earn on that day?
 Your mom bought you a basket of fruit, because you're doing so well in HackYourFuture. How sweet of her!
 
 ```js
-const fruitBasket = ['Apple', 'Lemon', 'Grapefruit', 'Lemon', 'Banana', 'Watermelon', 'Lemon'];
+const fruitBasket = [
+  'apple',
+  'lemon',
+  'grapefruit',
+  'lemon',
+  'banana',
+  'watermelon',
+  'lemon',
+];
 ```
 
 However, she forgot that you are allergic to lemons! Let's quickly dispose of them before you get an attack.
@@ -80,7 +88,6 @@ However, she forgot that you are allergic to lemons! Let's quickly dispose of th
 - Write a function
 - Use the `filter` array function to take out the lemons
 - Output a string that says: "My mom bought me a fruit basket, containing [array of fruits] !"
-
 
 ### Exercise 4: Publish and Subscribe
 
@@ -292,7 +299,9 @@ Hover the mouse over each of these buttons in the browser and take note of the t
 
 Press the button **Step over next function call**. As you can see the execution is now stopped at line 31. The whole function call, which spans (due to Prettier) four lines is executed and stepped over. If we examine the console at the bottom of the screen we can see that the variable `name` is displayed correctly, but `wallet.name` is `undefined`. That is, as we saw earlier in the Scope panel, because a`wallet`object doesn't include a`name` property.
 
-The `name` variable, as well as the `cash` variable were intentionally made _private_ to each instance of a `wallet` object, by means of a _closure_. This to avoid that external code, accidentally or with malicious intent, changes the name of the wallet owner or change its cash amount. However, we _do_ want to give **read-only** access to the information these variables hold. For this purpose the `wallet` object provides two functions, `reportBalance()` and `getName()`, that _do_ have access to the "_closed-in_" variables (or actually, in this case, _parameters_) `name` and `cash`. We can therefore fix the `undefined` bug by replacing `wallet.name` with `wallet.getName()`.
+The `name` variable, as well as the `cash` variable were intentionally made _private_ to each instance of a `wallet` object, by means of a _closure_. This to avoid that external code, accidentally or with malicious intent, changes the name of the wallet owner or change its cash amount. This holds true even for other instances of wallet objects.
+
+However, we _do_ want to give some form of **read-only** access to the information these variables hold. For this purpose the `wallet` object provides two functions, `reportBalance()` and `getName()`, that _do_ have access to the "_closed-in_" variables (or actually, in this case, _parameters_) `name` and `cash`. We can therefore fix the `undefined` bug by replacing `wallet.name` with `wallet.getName()`.
 
 Let's try and make that change in the VSCode editor window. Prettier will probably now cause the `console.log` call to span five lines.
 

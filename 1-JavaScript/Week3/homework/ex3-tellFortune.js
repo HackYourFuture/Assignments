@@ -3,7 +3,7 @@
 Why pay a fortune teller when you can just program your fortune yourself?
 
 1. Create four arrays, `numKids`, `partnerNames`, `locations` and `jobTitles`. 
-   Give each array five random string values that have to do with the name of 
+   Give each array five random values that have to do with the name of 
    the variable.
 
 2. Complete the function `selectRandomly`. This function should take an array 
@@ -16,7 +16,7 @@ Why pay a fortune teller when you can just program your fortune yourself?
    - It should use the `selectRandomly` function to randomly select values from 
      the arrays.
    - It should return a string: "You will be a `jobTitle` in `location`, 
-    married to `partnerName` with `numKids`."
+    married to `partnerName` with `numKids` kids."
 
 4. Call the function three times, passing the arrays as arguments. Use `
    console.log` to display the results.

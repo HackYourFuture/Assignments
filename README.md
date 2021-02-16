@@ -286,7 +286,7 @@ In addition, a log of the test results is written to a log file in the root dire
 ### JavaScript Module
 
 - [Week 3](/1-JavaScript/Week3/README.md)
-- [Week 4](/1-JavaScript/Week3/README.md)
+- [Week 4](/1-JavaScript/Week4/README.md)
 
 ### Browsers Module
 
