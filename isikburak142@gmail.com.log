@@ -101,3 +101,8 @@ ex2-mondaysWorth.js
 2021-02-16 01:10:03 info: --------------------------------------------
 2021-02-16 01:10:08 info: All unit tests passed.
 2021-02-16 01:10:12 info: All steps were completed successfully
+2021-02-17 01:11:51 info: ------------------------------------------------
+2021-02-17 01:11:51 info: >>> Running Unit Test `ex4-publishSubscribe` <<<
+2021-02-17 01:11:51 info: ------------------------------------------------
+2021-02-17 01:11:56 info: All unit tests passed.
+2021-02-17 01:12:00 info: All steps were completed successfully
