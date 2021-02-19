@@ -65,9 +65,9 @@ myPublisher.subscribe(consoleLowerCase);
 
 myPublisher.notify("Let's see what happens here!");
 // Prints the following to the console
-// "Let's see what happens here!"
 // "LET'S SEE WHAT HAPPENS HERE!"
 // "let's see what happens here!"
+// "Let's see what happens here!"
 
 myPublisher.subscribe(function consoleReverse(message) {
   console.log(message.split(' ').reverse().join(' '));
