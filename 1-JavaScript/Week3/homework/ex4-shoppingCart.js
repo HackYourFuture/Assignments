@@ -25,9 +25,9 @@ function addToShoppingCart(/* parameters go here */) {
   // TODO complete this function
 }
 
-console.log(addToShoppingCart('chocolate')); // Prints "You bought bananas, milk, chocolate!"
-console.log(addToShoppingCart('waffles')); // Returns "You bought milk, chocolate, waffles!"
-console.log(addToShoppingCart('tea')); // Returns "You bought chocolate, waffles, tea!"
+console.log(addToShoppingCart('chocolate')); // "You bought bananas, milk, chocolate!"
+console.log(addToShoppingCart('waffles')); // "You bought milk, chocolate, waffles!"
+console.log(addToShoppingCart('tea')); // "You bought chocolate, waffles, tea!"
 
 // ! Do not change or remove any code below
 module.exports = {
