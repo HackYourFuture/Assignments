@@ -38,6 +38,7 @@ module.exports = {
         selector: 'MemberExpression[computed] > Literal[value>0]',
         message: 'No literal',
       },
+      { selector: 'ForInStatement', message: 'Avoid `for in` loops' },
     ],
     'hyf/use-map-result': 'error',
     'hyf/camelcase': 'warn',
