@@ -221,7 +221,7 @@ Success! Dice settled on 4.
 
 As you can observe, the time between executions of `rollDice()` is 500ms, or perhaps one or two milliseconds later, but not much later than that.
 
-### Exercise 4: Throw the dices for a Poker Dice games
+### Exercise 4: Throw the dices for a Poker Dice game
 
 #### File: `ex4-pokerDiceAll.js`
 
