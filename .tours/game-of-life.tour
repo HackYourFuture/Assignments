@@ -102,7 +102,7 @@
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "This helper (arrow) function takes an **x** and **y** coordinate and computes an index into the **grid** array that corresponds to the passed coordinates. This is needed because the chosen one-dimensional array form for the **grid** turned out to be more convenient to handle than a two-dimensional one. An arrow function was chosen (as opposed to a traditional function declaration) because it can concisely be expressed a single line.",
+      "description": "This helper (arrow) function takes an **x** and **y** coordinate and computes an index into the **grid** array that corresponds to the passed coordinates. This is needed because the chosen one-dimensional array form for the **grid** turned out to be more convenient to handle than a two-dimensional one. An arrow function was chosen (as opposed to a traditional function declaration) because it can concisely be expressed in a single line.",
       "line": 53,
       "title": "gridToIndex arrow function"
     },
