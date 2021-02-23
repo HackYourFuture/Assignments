@@ -135,7 +135,17 @@ From Wikipedia:
 
 As illustrated in the picture below, the game is a two-dimensional grid where cells come alive and die, depending on certain rules. Every 200ms, a new generation of cells replaces the previous one.
 
-![Game of Life](../../assets/game-of-life.gif)
+> ![Game of Life](../../assets/game-of-life.gif)
+
+### Code Tour
+
+The code for this exercise is non-trivial and may look overwhelming and intimidating at first glance. In our experience, beginners often do not know where to start reading and how to methodically walk through the code. To help you with this, we have provided a Code Tour that guides you in this process.
+
+You will need to install the [CodeTour VSCode extension](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) (press the link for more info). Once you have done that, you can see an additional item in the bottom of the left-hand panel of VSCode as shown in the picture below. There are a number of code tours listed there, most of them intended for mentors involved in the maintenance of the Homework repo. The CodeTour for this exercise is titled **5. game of life**. To start the tour, press the green play button to the right of the title.
+
+> ![CodeTour](../../assets/code-tour.png)
+
+### Exercise
 
 In the supplied JavaScript code the color of all living cells is a single shade of blue. This is in contrast to the illustration above where living cells have different shades of blue, depending on their life time. Your job is to add a life time property to cells and let the `opacity` of each cell depend on its value, as specified in this table:
 
