@@ -204,7 +204,7 @@
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "The **gameLoop()** function indefinitely repeats the cycle of **updateGrid()** and **renderGrid()** and rescheduling itself after 200ms using **setTimeout**.",
+      "description": "The **gameLoop()** function indefinitely repeats the cycle of **updateGrid()** and **renderGrid()** and reschedules itself after 200ms using **setTimeout**.",
       "line": 119,
       "selection": {
         "start": {
@@ -220,7 +220,7 @@
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "All previously discussed inner functions within **createGame()** were just function declarations. Nothing was executed yet. But here we call the inner function **createGrid()** to create the initial grid with which the game starts. Finally, we return the functions **renderGrid** and **gameLoop** as the function's return value.",
+      "description": "All previously discussed inner functions within **createGame()** were just function declarations. At this point nothing was executed yet. But here we call the inner function **createGrid()** to create the initial grid with which the game starts. Finally, we return the functions **renderGrid** and **gameLoop** as the function's return value.",
       "line": 125,
       "selection": {
         "start": {
