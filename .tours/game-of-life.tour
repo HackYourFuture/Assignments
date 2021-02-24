@@ -48,7 +48,7 @@
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "The **createGame()** function creates the game \"engine\", taking the **context**, number of rows (**numRows**) and number of columns (**numColums**) as arguments and returns two functions, **renderGrid()** and **gameLoop()**.\n\nBasically, the state of the game at each point in time is maintained in a one-dimensional array called **grid**, where each element of the array represents a \"cell\". Each cell is either alive or dead.\n\n- The **renderGrid()** function takes the **grid** array and renders the grid as a visual presentation using the canvas context.\n- The **gameLoop()** function computes the next state of each cell in the **grid**, following the rules of the Game Of Life.\n\nThe functions **renderGrid()** and **gameLoop()** are repeatedly called every 200ms: this represents the **Game Of Life**.",
+      "description": "The **createGame()** function creates the game \"engine\", taking the **context**, number of rows (**numRows**) and number of columns (**numColums**) as arguments and returns two functions, **renderGrid()** and **gameLoop()**.\n\nBasically, the state of the game at each point in time is maintained in a one-dimensional array called **grid**, where each element of the array represents a \"cell\". Each cell is either alive or dead.\n\n- The **renderGrid()** function takes the **grid** array and renders the grid as a visual presentation using the canvas context.\n- The **gameLoop()** function executes one cycle in the Game Of Life and reschedules itself every 200ms.",
       "line": 136,
       "title": "create game"
     },
