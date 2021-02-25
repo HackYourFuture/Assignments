@@ -5,20 +5,36 @@
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
       "description": "The program starts when the browser has completed loading the page. When that happens the function **main** is called.",
-      "line": 145,
+      "line": 149,
       "title": "start"
     },
     {
-      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "The HTML page contains a \\<canvas> element in which the game cells \"live\". Here, we set the **width** and **height** (in pixels) of the canvas to the desired values.",
-      "line": 133,
+      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.html",
+      "description": "The HTML page includes a **\\<canvas>** element where the visual representation of the game is rendered.",
+      "line": 38,
       "selection": {
         "start": {
-          "line": 128,
+          "line": 36,
           "character": 1
         },
         "end": {
-          "line": 134,
+          "line": 39,
+          "character": 1
+        }
+      },
+      "title": "canvas element"
+    },
+    {
+      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
+      "description": "Here, we set the **width** and **height** (in pixels) of the canvas to the desired values.",
+      "line": 130,
+      "selection": {
+        "start": {
+          "line": 125,
+          "character": 1
+        },
+        "end": {
+          "line": 131,
           "character": 1
         }
       },
@@ -43,14 +59,24 @@
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
       "description": "The **context** variable holds a reference to a 2D context of the canvas that we need to draw on it.",
-      "line": 134,
+      "line": 131,
       "title": "get 2D context"
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "The **createGame()** function creates the game \"engine\", taking the **context**, number of rows (**numRows**) and number of columns (**numColums**) as arguments and returns two functions, **renderGrid()** and **gameLoop()**.\n\nBasically, the state of the game at each point in time is maintained in a one-dimensional array called **grid**, where each element of the array represents a \"cell\". Each cell is either alive or dead.\n\n- The **renderGrid()** function takes the **grid** array and renders the grid as a visual presentation using the canvas context.\n- The **gameLoop()** function executes one cycle in the Game Of Life and reschedules itself every 200ms.",
-      "line": 136,
-      "title": "create game"
+      "description": "The **createGame()** function creates the game \"engine\", taking the **context**, number of rows (**numRows**) and number of columns (**numColums**) as arguments and returns three functions, **createGrid()**, **renderGrid()** and **gameLoop()**.\n\nBasically, the state of the game at each point in time is maintained in a one-dimensional array called **grid**, where each element of the array represents a \"cell\". Each cell is either alive or dead.\n\n- The **createGrid()** function creates a **grid** array and randomly assigns \"life\" or \"death\" to each cell in the grid.\n- The **renderGrid()** function takes the **grid** array and renders the grid as a visual presentation using the canvas context.\n- The **gameLoop()** function executes one cycle in the Game Of Life and reschedules itself after 200ms.",
+      "line": 137,
+      "title": "create game",
+      "selection": {
+        "start": {
+          "line": 133,
+          "character": 1
+        },
+        "end": {
+          "line": 138,
+          "character": 1
+        }
+      }
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
@@ -200,7 +226,7 @@
           "character": 1
         }
       },
-      "title": "draw alive cell"
+      "title": "draw living cell"
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
@@ -220,31 +246,15 @@
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "All previously discussed inner functions within **createGame()** were just function declarations. At this point nothing was executed yet. But here we call the inner function **createGrid()** to create the initial grid with which the game starts. Finally, we return the functions **renderGrid** and **gameLoop** as the function's return value.",
-      "line": 125,
+      "description": "Upon return from the **createGame()** function, we create the initial grid, render it and kick-start the game by calling the **gameLoop()** function.\n\nThis concludes to Code Tour.",
+      "line": 147,
       "selection": {
         "start": {
-          "line": 122,
+          "line": 139,
           "character": 1
         },
         "end": {
-          "line": 124,
-          "character": 35
-        }
-      },
-      "title": "finalise createGame"
-    },
-    {
-      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "Upon return from the **createGame()** function, we render the initial grid and kick-start the **gameLoop()** function.\n\nThis concludes to Code Tour.",
-      "line": 143,
-      "selection": {
-        "start": {
-          "line": 138,
-          "character": 1
-        },
-        "end": {
-          "line": 143,
+          "line": 147,
           "character": 1
         }
       },

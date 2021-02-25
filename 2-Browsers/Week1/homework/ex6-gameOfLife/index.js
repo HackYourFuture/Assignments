@@ -118,10 +118,7 @@ function createGame(context, numRows, numColumns) {
     }, 200);
   }
 
-  // Create initial grid
-  createGrid();
-
-  return { renderGrid, gameLoop };
+  return { createGrid, renderGrid, gameLoop };
 }
 
 function main() {
@@ -133,7 +130,14 @@ function main() {
   canvas.width = numColumns * CELL_SIZE;
   const context = canvas.getContext('2d');
 
-  const { renderGrid, gameLoop } = createGame(context, numRows, numColumns);
+  const { createGrid, renderGrid, gameLoop } = createGame(
+    context,
+    numRows,
+    numColumns
+  );
+
+  // Create initial grid
+  createGrid();
 
   // Render the initial generation
   renderGrid();
