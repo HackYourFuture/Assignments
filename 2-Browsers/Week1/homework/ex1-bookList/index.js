@@ -1,3 +1,4 @@
+/* eslint-disable no-autofix/prefer-const */
 //cspell: disable
 /*
   
@@ -20,6 +21,36 @@
 
 function createBookList(books) {
   // your code goes in here, return the ul element
+
+  for (let i = 0; i < books.length; i++) {
+    let bookP = document.createElement('p');
+    let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
+    bookP.appendChild(bookDescription);
+    document.body.appendChild(bookP);
+  }
+
+  let bookList = document.createElement('ul');
+
+    for (let i = 0; i < books.length; i++) {
+      let bookItem = document.createElement('li');
+      let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
+      bookItem.appendChild(bookDescription);
+      let bookImg = document.createElement('img');
+      bookImg.src = books[i].img;
+      bookItem.appendChild(bookImg);
+
+
+      if (books[i].alreadyRead) {
+        bookItem.style.color = 'green';
+      }
+      else {
+        bookItem.style.color = 'red';
+      }
+      bookList.appendChild(bookItem);
+    }
+    document.body.appendChild(bookList);
+
+  return bookList;
 }
 
 const myBooks = [
