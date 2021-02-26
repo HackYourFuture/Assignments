@@ -1,0 +1,121 @@
+{
+  "node": "v15.1.0",
+  "system": {
+    "manufacturer": "Apple Inc.",
+    "model": "MacBookPro16,3"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i5-8257U",
+    "speed": 1.4
+  },
+  "memory": "8 GB",
+  "osInfo": {
+    "platform": "darwin",
+    "distro": "macOS",
+    "release": "11.2.1"
+  },
+  "blockDevices": [
+    {
+      "name": "/dev/disk0",
+      "size": "251 GB",
+      "fsType": "",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk0s1",
+      "size": "0 GB",
+      "fsType": "MS-DOS FAT32",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk0s2",
+      "size": "251 GB",
+      "fsType": "",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk1",
+      "size": "251 GB",
+      "fsType": "",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk1s1",
+      "size": "251 GB",
+      "fsType": "APFS",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk1s1s1",
+      "size": "251 GB",
+      "fsType": "APFS",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk1s2",
+      "size": "251 GB",
+      "fsType": "APFS",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk1s3",
+      "size": "251 GB",
+      "fsType": "APFS",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk1s4",
+      "size": "251 GB",
+      "fsType": "APFS",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk1s5",
+      "size": "251 GB",
+      "fsType": "APFS",
+      "physical": "SSD"
+    },
+    {
+      "name": "/dev/disk1s6",
+      "size": "251 GB",
+      "fsType": "APFS",
+      "physical": "SSD"
+    }
+  ],
+  "vscodeInfo": {
+    "version": "1.53.2",
+    "extensions": [
+      "CoenraadS.bracket-pair-colorizer",
+      "ritwickdey.LiveServer",
+      "stylelint.vscode-stylelint",
+      "techer.open-in-browser",
+      "vscjava.vscode-java-debug",
+      "vscodevim.vim"
+    ],
+    "userSettings": {
+      "editor.detectIndentation": false,
+      "editor.formatOnSave": true,
+      "editor.minimap.enabled": false,
+      "editor.renderIndentGuides": true,
+      "editor.tabSize": 2,
+      "editor.codeActionsOnSave": {
+        "source.fixAll": true
+      },
+      "eslint.autoFixOnSave": true,
+      "files.autoSave": "onFocusChange",
+      "prettier.singleQuote": true,
+      "prettier.trailingComma": "all",
+      "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+      },
+      "liveServer.settings.donotVerifyTags": true,
+      "liveServer.settings.donotShowInfoMsg": true,
+      "window.zoomLevel": 0,
+      "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+      },
+      "git.suggestSmartCommit": false
+    }
+  }
+}
