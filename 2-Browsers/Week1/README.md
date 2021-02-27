@@ -123,6 +123,10 @@ Start with this webpage, which has a single img tag of an animated GIF of a cat 
 5. When the cat reaches the right-hand of the screen, restart them at the left hand side (`0px`). So they should keep walking from left to right across the screen, forever and ever.
 6. When the cat reaches the middle of the screen, replace the img with an image of a cat dancing (use this URL: <https://tenor.com/StFI.gif>), keep it dancing for 5 seconds, and then replace the img with the original image and have it continue the walk.
 
+This is what it should like:
+
+> ![catwalk](../../assets/catwalk.gif)
+
 ## Exercise 6: Conway's Game of Life
 
 **Folder**: `ex6-gameOfLife`
@@ -133,7 +137,13 @@ From Wikipedia:
 
 > The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.
 
-As illustrated in the picture below, the game is a two-dimensional grid where cells come alive and die, depending on certain rules. Every 200ms, a new generation of cells replaces the previous one.
+As illustrated in the picture below, the game is a two-dimensional grid where cells come alive and die, depending on certain rules. These rules as summarized in the Wikipedia article as follow:
+
+1. Any live cell with two or three live neighbors survives.
+2. Any dead cell with three live neighbors becomes a live cell.
+3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+
+In the exercise code a new generation of cells replaces the previous one every 200ms. For each cell of the new generation life or death is determined by applying the above rules on the state of that same cell in the current generation.
 
 > ![Game of Life](../../assets/game-of-life.gif)
 
@@ -156,6 +166,14 @@ In the supplied JavaScript code the color of all living cells is a single shade 
 |     3     |  0.75   |
 |    4+     |    1    |
 
-No need to say that a "dead" cell has a life time of zero. Also note that at the start of the game all living cells start with a life time of one.
+A live cell starts with a life time of one. A dead cell remains at zero until brought to life. For each iteration of the gameLoop the life time of a live cell is incremented by one. A cell that died gets its life time reset to zero. For a dead cell that is brought to live the life time is reset to one.
+
+Note that at the start of the game all living cells start with a life time of one.
+
+To add an opacity value to the cell colour you can supply a fourth argument to the CSS `rgb` value as follows:
+
+```js
+context.fillStyle = `rgb(24, 215, 236, ${opacity})`;
+```
 
 _Have fun!_
