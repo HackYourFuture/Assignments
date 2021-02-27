@@ -12,8 +12,8 @@
 
 document.body.style.fontFamily = 'Arial, sans-serif';
 document.getElementById('nickname').textContent = 'Oki';
-document.getElementById('favorites').textContent = 'badminton, soccer, books, computer';
-document.getElementById('hometown').textContent = 'where i live free';
+document.getElementById('fav-food').textContent = 'badminton';
+document.getElementById('hometown').textContent = 'where';
 let items = document.getElementsByTagName('li');
 for (let i = 0; i < items.length; i++) {
    items[i].className = 'list-item';
@@ -21,5 +21,6 @@ for (let i = 0; i < items.length; i++) {
 
  let myPic = document.createElement('img');
  myPic.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Princess_Bubblegum.png/100px-Princess_Bubblegum.png';
+ myPic.alt = 'image'
  document.body.appendChild(myPic);
 
