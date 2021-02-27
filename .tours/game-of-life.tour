@@ -27,14 +27,14 @@
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
       "description": "Here, we set the **width** and **height** (in pixels) of the canvas to the desired values.",
-      "line": 130,
+      "line": 141,
       "selection": {
         "start": {
-          "line": 125,
+          "line": 140,
           "character": 1
         },
         "end": {
-          "line": 131,
+          "line": 142,
           "character": 1
         }
       },
@@ -58,53 +58,43 @@
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "The **context** variable holds a reference to a 2D context of the canvas that we need to draw on it.",
-      "line": 131,
+      "description": "The **context** variable will hold a reference to a 2D context of the canvas that we need to draw on it.",
+      "line": 142,
       "title": "get 2D context"
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "The **createGame()** function creates the game \"engine\", taking the **context**, number of rows (**numRows**) and number of columns (**numColums**) as arguments and returns three functions, **createGrid()**, **renderGrid()** and **gameLoop()**.\n\nBasically, the state of the game at each point in time is maintained in a one-dimensional array called **grid**, where each element of the array represents a \"cell\". Each cell is either alive or dead.\n\n- The **createGrid()** function creates a **grid** array and randomly assigns \"life\" or \"death\" to each cell in the grid.\n- The **renderGrid()** function takes the **grid** array and renders the grid as a visual presentation using the canvas context.\n- The **gameLoop()** function executes one cycle in the Game Of Life and reschedules itself after 200ms.",
-      "line": 137,
-      "title": "create game",
-      "selection": {
-        "start": {
-          "line": 133,
-          "character": 1
-        },
-        "end": {
-          "line": 138,
-          "character": 1
-        }
-      }
+      "description": "The **createGame()** function creates the game \"engine\", taking the **context**, number of rows (**numRows**) and number of columns (**numColums**) as arguments and returns a function **start()** that, when called, starts the game.\n\n",
+      "line": 144,
+      "title": "create game"
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
       "description": "Here is the function declaration for the **createGame()** function. The parameters **context**, **numRows**, **numColumns** and the variable **grid** are referenced by inner functions of **createGame()** and, as such, are captured in a _closure_: they remain in existence even after the **createGame()** function has finished execution.",
-      "line": 43,
       "selection": {
         "start": {
-          "line": 42,
+          "line": 19,
           "character": 1
         },
         "end": {
-          "line": 44,
+          "line": 21,
           "character": 1
         }
       },
-      "title": "createGame function declaration"
+      "title": "createGame function declaration",
+      "line": 21
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
       "description": "The **createGrid()** inner function is used to create the initial grid. It loops through each row and column to create the individual cells by calling the **createCell()** function, passing the **x** and **y** coordinates of the cell to be created.",
-      "line": 51,
+      "line": 28,
       "selection": {
         "start": {
-          "line": 45,
+          "line": 22,
           "character": 1
         },
         "end": {
-          "line": 52,
+          "line": 29,
           "character": 1
         }
       },
@@ -125,6 +115,38 @@
         }
       },
       "title": "createCell function"
+    },
+    {
+      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
+      "description": "The **draw()** function draws a cell onto the 2D canvas. First, it start by drawing a rectangular background.",
+      "line": 37,
+      "selection": {
+        "start": {
+          "line": 30,
+          "character": 1
+        },
+        "end": {
+          "line": 38,
+          "character": 1
+        }
+      },
+      "title": "draw cell background"
+    },
+    {
+      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
+      "description": "If the cell is alive, it draws a circle inside the cell using a foreground color.",
+      "line": 50,
+      "selection": {
+        "start": {
+          "line": 39,
+          "character": 1
+        },
+        "end": {
+          "line": 51,
+          "character": 1
+        }
+      },
+      "title": "draw living cell"
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
@@ -198,39 +220,7 @@
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "The **draw()** function draws a cell onto the 2D canvas. First, it start by drawing a rectangular background.",
-      "line": 26,
-      "selection": {
-        "start": {
-          "line": 19,
-          "character": 1
-        },
-        "end": {
-          "line": 27,
-          "character": 1
-        }
-      },
-      "title": "draw cell background"
-    },
-    {
-      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "If the cell is alive, it draws a circle inside the cell using a foreground color.",
-      "line": 39,
-      "selection": {
-        "start": {
-          "line": 28,
-          "character": 1
-        },
-        "end": {
-          "line": 40,
-          "character": 1
-        }
-      },
-      "title": "draw living cell"
-    },
-    {
-      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "The **gameLoop()** function indefinitely repeats the cycle of **updateGrid()** and **renderGrid()** and reschedules itself after 200ms using **setTimeout**.",
+      "description": "The **gameLoop()** function executes a cycle of **updateGrid()** and **renderGrid()** and then reschedules itself with a 200ms delay using **setTimeout**.",
       "line": 119,
       "selection": {
         "start": {
@@ -246,8 +236,24 @@
     },
     {
       "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
-      "description": "Upon return from the **createGame()** function, we create the initial grid, render it and kick-start the game by calling the **gameLoop()** function.\n\nThis concludes to Code Tour.",
-      "line": 147,
+      "description": "The **start()** function creates the initial grid, renders it and starts the game loop.",
+      "line": 130,
+      "selection": {
+        "start": {
+          "line": 121,
+          "character": 1
+        },
+        "end": {
+          "line": 131,
+          "character": 1
+        }
+      },
+      "title": "start function"
+    },
+    {
+      "file": "2-Browsers/Week1/homework/ex6-gameOfLife/index.js",
+      "description": "Upon return from the **createGame()** function, we call the **start()** function to start the game.\n\nThis concludes to Code Tour.",
+      "line": 146,
       "selection": {
         "start": {
           "line": 139,

@@ -16,29 +16,6 @@ function createCell(x, y) {
   };
 }
 
-function draw(cell, context) {
-  context.fillStyle = '#303030';
-  context.fillRect(
-    cell.x * CELL_SIZE,
-    cell.y * CELL_SIZE,
-    CELL_SIZE,
-    CELL_SIZE
-  );
-
-  if (cell.alive) {
-    context.fillStyle = `rgb(24, 215, 236)`;
-    context.beginPath();
-    context.arc(
-      cell.x * CELL_SIZE + CELL_RADIUS,
-      cell.y * CELL_SIZE + CELL_RADIUS,
-      CELL_RADIUS,
-      0,
-      TWO_PI
-    );
-    context.fill();
-  }
-}
-
 function createGame(context, numRows, numColumns) {
   const grid = [];
 
@@ -47,6 +24,29 @@ function createGame(context, numRows, numColumns) {
       for (let x = 0; x < numColumns; x++) {
         grid.push(createCell(x, y));
       }
+    }
+  }
+
+  function draw(cell) {
+    context.fillStyle = '#303030';
+    context.fillRect(
+      cell.x * CELL_SIZE,
+      cell.y * CELL_SIZE,
+      CELL_SIZE,
+      CELL_SIZE
+    );
+
+    if (cell.alive) {
+      context.fillStyle = `rgb(24, 215, 236)`;
+      context.beginPath();
+      context.arc(
+        cell.x * CELL_SIZE + CELL_RADIUS,
+        cell.y * CELL_SIZE + CELL_RADIUS,
+        CELL_RADIUS,
+        0,
+        TWO_PI
+      );
+      context.fill();
     }
   }
 
@@ -102,7 +102,7 @@ function createGame(context, numRows, numColumns) {
 
   function renderGrid() {
     // Draw all the game objects
-    grid.forEach((cell) => draw(cell, context));
+    grid.forEach(draw);
   }
 
   function gameLoop() {
@@ -114,11 +114,22 @@ function createGame(context, numRows, numColumns) {
 
     // Schedule the next generation
     setTimeout(() => {
-      window.requestAnimationFrame(() => gameLoop());
+      window.requestAnimationFrame(gameLoop);
     }, 200);
   }
 
-  return { createGrid, renderGrid, gameLoop };
+  function start() {
+    // Create initial grid
+    createGrid();
+
+    // Render the initial generation
+    renderGrid();
+
+    // Kick-start the evolution
+    window.requestAnimationFrame(gameLoop);
+  }
+
+  return start;
 }
 
 function main() {
@@ -130,20 +141,9 @@ function main() {
   canvas.width = numColumns * CELL_SIZE;
   const context = canvas.getContext('2d');
 
-  const { createGrid, renderGrid, gameLoop } = createGame(
-    context,
-    numRows,
-    numColumns
-  );
+  const start = createGame(context, numRows, numColumns);
 
-  // Create initial grid
-  createGrid();
-
-  // Render the initial generation
-  renderGrid();
-
-  // Kick-start the evolution
-  window.requestAnimationFrame(() => gameLoop());
+  start();
 }
 
 window.onload = main;
