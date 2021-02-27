@@ -29,8 +29,11 @@ describe('catWalk', () => {
           }
         },
         CallExpression({ callee }) {
-          if (callee.type === 'Identifier' && callee.name === 'setInterval') {
-            state.setInterval = true;
+          if (
+            callee.type === 'Identifier' &&
+            ['setTimeout', 'setInterval'].includes(callee.name)
+          ) {
+            state.hasTimer = true;
           }
         },
       });
@@ -38,8 +41,8 @@ describe('catWalk', () => {
 
   it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
 
-  it('should use `setInterval()`', () => {
-    expect(state.setInterval).toBeDefined();
+  it('should use `setInterval() and/or `setTimeout`', () => {
+    expect(state.hasTimer).toBeDefined();
   });
 
   it('should use `window.onload` or `window.addEventListener`', () => {
