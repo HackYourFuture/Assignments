@@ -83,13 +83,13 @@ function createGame(context, numRows, numColumns) {
       const numAlive = countLivingNeighbors(cell);
 
       if (numAlive === 2) {
-        // Do nothing
+        // Living cell remains living, dead cell remains dead
         cell.nextAlive = cell.alive;
       } else if (numAlive === 3) {
-        // Make alive
+        // Dead cell becomes living, living cell remains living
         cell.nextAlive = true;
       } else {
-        // Make dead
+        // Living cell dies, dead cell remains dead
         cell.nextAlive = false;
       }
     });
@@ -106,7 +106,7 @@ function createGame(context, numRows, numColumns) {
   }
 
   function gameLoop() {
-    // Check the surrounding of each cell
+    // Update the state of cells in the grid
     updateGrid();
 
     // Render the updated grid
