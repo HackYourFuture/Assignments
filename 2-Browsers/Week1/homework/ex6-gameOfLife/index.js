@@ -147,7 +147,7 @@ function createGame(context, numRows, numColumns) {
     window.requestAnimationFrame(gameLoop);
   }
 
-  return { start, drawCell, updateGrid };
+  return start;
 }
 
 function main() {
@@ -161,7 +161,7 @@ function main() {
   const context = canvas.getContext('2d');
 
   // Create the game "engine"
-  const { start } = createGame(context, NUM_ROWS, NUM_COLUMNS);
+  const start = createGame(context, NUM_ROWS, NUM_COLUMNS);
 
   // Start the game
   start();
