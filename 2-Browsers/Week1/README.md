@@ -170,7 +170,7 @@ In the supplied JavaScript code the color of all living cells is a single shade 
 
 1. In function `createCell()`, add a numeric `lifeTime` property to the object and assign it the value of one if the cell is initially alive or zero if it is initially dead.
 
-2. In function `drawCell()`, add a `opacity` parameter to the `rgb()` value like this:
+2. In function `drawCell()`, add an `opacity` parameter to the `rgb()` value like this:
 
    ```js
    context.fillStyle = `rgb(24, 215, 236, ${opacity})`;
