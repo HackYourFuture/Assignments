@@ -7,6 +7,7 @@
 ------------------------------------------------------------------------------*/
 function hijackGoogleLogo() {
   // TODO your code goes in here
+  
 }
 
 hijackGoogleLogo();

@@ -21,6 +21,6 @@ for (let i = 0; i < items.length; i++) {
 
  let myPic = document.createElement('img');
  myPic.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Princess_Bubblegum.png/100px-Princess_Bubblegum.png';
- myPic.alt = 'image'
+ myPic.alt = 'imagenpm test'
  document.body.appendChild(myPic);
 

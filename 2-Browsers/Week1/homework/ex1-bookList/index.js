@@ -31,14 +31,14 @@ function createBookList(books) {
 
   let bookList = document.createElement('ul');
 
-    for (let i = 0; i < books.length; i++) {
+  for (let i = 0; i < books.length; i++) {
+      //
       let bookItem = document.createElement('li');
-      let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
-      bookItem.appendChild(bookDescription);
       let bookImg = document.createElement('img');
       bookImg.src = books[i].img;
       bookItem.appendChild(bookImg);
-
+      let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
+      bookItem.appendChild(bookDescription);
 
       if (books[i].alreadyRead) {
         bookItem.style.color = 'green';
@@ -47,7 +47,14 @@ function createBookList(books) {
         bookItem.style.color = 'red';
       }
       bookList.appendChild(bookItem);
-    }
+      
+     
+
+      // eslint-disable-next-line hyf/no-commented-out-code
+      //bookImg.src = books[i].img;
+      bookItem.appendChild(bookImg);
+      
+  }
     document.body.appendChild(bookList);
 
   return bookList;
@@ -74,3 +81,18 @@ const myBooks = [
 const ulElement = createBookList(myBooks);
 
 // document.querySelector('#bookList').appendChild(ulElement);
+
+
+
+
+ //Adding img
+      // let bookImg = document.createElement('img');
+      // if (i ===0) {
+      //   bookImg.src = 'https://github.com/buraakkk/Homework/blob/Browser-Week1/2-Browsers/Week1/homework/ex1-bookList/assets/the_design_of_everyday_things.jpg?raw=true'
+      // }
+      // else if (i ===1) {
+      //   bookImg.src = 'https://github.com/buraakkk/Homework/blob/Browser-Week1/2-Browsers/Week1/homework/ex1-bookList/assets/the_most_human_human.jpg?raw=true'
+      // }
+      // else {
+      //   bookImg.src = 'https://github.com/buraakkk/Homework/blob/Browser-Week1/2-Browsers/Week1/homework/ex1-bookList/assets/the_pragmatic_programmer.jpg?raw=true'
+      // }
