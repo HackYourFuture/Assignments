@@ -188,7 +188,9 @@ In the supplied JavaScript code the color of all living cells is a single shade 
 3. In function `updateGrid()` add code to update the `lifeTime` value of each cell:
 
    a. A living cell that remains living should have its `lifeTime` incremented by one.
+
    b. A living cell that dies should have its `lifeTime` reset to zero.
+
    c. A dead cell that is brought to life should have its `lifeTime` reset to one.
 
 Here is a visual check that you can use to verify that the life time enhancement is correctly implemented. Most of the time, if you wait long enough, the game will "stabilize" to "still life" and "oscillator" patterns, as shown in the GIF below (see the Wikipedia article for more information about the Game Of Life patterns).
