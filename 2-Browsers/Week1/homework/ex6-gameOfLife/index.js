@@ -143,7 +143,7 @@ function createGame(context, numRows, numColumns) {
     // Render the initial generation
     renderGrid();
 
-    // Kick-start the evolution
+    // Kick-start the gameLoop
     window.requestAnimationFrame(gameLoop);
   }
 
