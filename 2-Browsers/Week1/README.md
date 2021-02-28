@@ -145,35 +145,58 @@ As illustrated in the picture below, the game is a two-dimensional grid where ce
 
 In the exercise code a new generation of cells replaces the previous one every 200ms. For each cell of the new generation life or death is determined by applying the above rules on the state of that same cell in the current generation.
 
-> ![Game of Life](../../assets/game-of-life.gif)
+> ![Game of Life changing](../../assets/game-of-life-1.gif)
 
-### Code Tour
+### Code walk-through
 
-The code for this exercise is non-trivial and may look overwhelming and intimidating at first glance. In our experience, beginners often do not know where to start reading and how to methodically walk through the code. To help you with this, we have provided a Code Tour that guides you in this process.
-
-You will need to install the [CodeTour VSCode extension](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) (press the link for more info). Once you have done that, you can see an additional item in the bottom of the left-hand panel of VSCode as shown in the picture below. There are a number of code tours listed there, most of them intended for mentors involved in the maintenance of the Homework repo. The CodeTour for this exercise is titled **5. game of life**. To start the tour, press the green play button to the right of the title.
-
-> ![CodeTour](../../assets/code-tour.png)
+<!--prettier-ignore-->
+| Function | Description |
+|----------|-------------|
+| `createCell()` | Creates a JavaScript object representing a cell with `x` (column number) and `y` (row number) properties and a boolean `aLive` property that is randomly initialized to `true` or `false`. |
+| `createGame()` | Creates the game "engine". The inner functions retain access to its parameters and the local `grid` variable through a closure when the outer function returns. |
+| `createGrid()` | Creates a two-dimensional array (i.e., an array of arrays) that represents a grid of cells that evolve over time. |
+| `forEachCell()` | A higher-order function that takes a callback as its parameter. The callback is called for each cell in the two-dimensional grid array. |
+| `drawCell()` | Takes a cell object as a parameter and draws the cell on the canvas. The visual representation depends on whether the cell is alive or dead. |
+| `isAlive()` | Determines is a cell at the given coordinates is alive or dead. The coordinates could potentially be off-grid. Off-grid cells are presumed dead. The function return one if the given cell is alive or zero if its dead. |
+| `countLivingNeighbors()` | Counts the number of living neighbors for a give cell. Each cell has six neighbors, some of which may be off-grid if the cell is located at an edge or a corner of the grid. |
+| `updateGrid()` | Iterates through all cells of the grid and computes the new state of each cell by applying the rules of the Game Of Life. |
+| `renderGrid()` | Iterate through all cells of the grid and draws each cell onto the canvas. |
+| `gameLoop()` | Executes one life cycle of the game (i.e., `updateGrid()` followed by `renderGrid()`) and then reschedules itself to run again after a delay. |
+| `main()` | Resize the canvas to the desired size and then creates and starts the game engine. The function `main()` itself is executed when the browser has finished loading the page. |
 
 ### Exercise
 
-In the supplied JavaScript code the color of all living cells is a single shade of blue. This is in contrast to the illustration above where living cells have different shades of blue, depending on their life time. Your job is to add a life time property to cells and let the `opacity` of each cell depend on its value, as specified in this table:
+In the supplied JavaScript code the color of all living cells is a single shade of blue. This is in contrast to the illustration above where living cells have different shades of blue, depending on their life time. Your job is as follows:
 
-| Life time | Opacity |
-| :-------: | :-----: |
-|     1     |  0.25   |
-|     2     |   0.5   |
-|     3     |  0.75   |
-|    4+     |    1    |
+1. In function `createCell()`, add a numeric `lifeTime` property to the object and assign it the value of one if the cell is initially alive or zero if it is initially dead.
 
-A live cell starts with a life time of one. A dead cell remains at zero until brought to life. For each iteration of the gameLoop the life time of a live cell is incremented by one. A cell that died gets its life time reset to zero. For a dead cell that is brought to live the life time is reset to one.
+2. In function `drawCell()`, add a `opacity` parameter to the `rgb()` value like this:
 
-Note that at the start of the game all living cells start with a life time of one.
+   ```js
+   context.fillStyle = `rgb(24, 215, 236, ${opacity})`;
+   ```
 
-To add an opacity value to the cell colour you can supply a fourth argument to the CSS `rgb` value as follows:
+   The `opacity` of each rendered cell should depend on the cell's `lifeTime` property, as specified in this table:
 
-```js
-context.fillStyle = `rgb(24, 215, 236, ${opacity})`;
-```
+   | lifeTime | opacity |
+   | :------: | :-----: |
+   |    1     |  0.25   |
+   |    2     |   0.5   |
+   |    3     |  0.75   |
+   |    4+    |    1    |
+
+3. In function `updateGrid()` add code to update the `lifeTime` value of each cell:
+
+   a. A living cell that remains living should have its `lifeTime` incremented by one.
+   b. A living cell that dies should have its `lifeTime` reset to zero.
+   c. A dead cell that is brought to life should have its `lifeTime` reset to one.
+
+Here is a visual check that you can use to verify that the life time enhancement is correctly implemented. Most of the time, if you wait long enough, the game will "stabilize" to "still life" and "oscillator" patterns, as shown in the GIF below (see the Wikipedia article for more information about the Game Of Life patterns).
+
+> ![Game of Life stable](../../assets/game-of-life-2.gif)
+
+- Cells in a still life pattern remain living indefinitely and should therefore stabilize at the highest opacity.
+
+- The oscillating parts of an oscillator pattern continually switch between life and death and, when briefly living, should have the lowest opacity.
 
 _Have fun!_
