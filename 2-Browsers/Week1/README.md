@@ -153,16 +153,16 @@ In the exercise code a new generation of cells replaces the previous one every 2
 | Function | Description |
 |----------|-------------|
 | `createCell()` | Creates a JavaScript object representing a cell with `x` (column number) and `y` (row number) properties and a boolean `aLive` property that is randomly initialized to `true` or `false`. |
-| `createGame()` | Creates the game "engine". The inner functions retain access to its parameters and the local `grid` variable through a closure when the outer function returns. |
+| `createGame()` | Creates the game "engine". When the function returns, its inner functions retain access to its parameters and the local `grid` variable through a closure. |
 | `createGrid()` | Creates a two-dimensional array (i.e., an array of arrays) that represents a grid of cells that evolve over time. |
 | `forEachCell()` | A higher-order function that takes a callback as its parameter. The callback is called for each cell in the two-dimensional grid array. |
 | `drawCell()` | Takes a cell object as a parameter and draws the cell on the canvas. The visual representation depends on whether the cell is alive or dead. |
-| `isAlive()` | Determines is a cell at the given coordinates is alive or dead. The coordinates could potentially be off-grid. Off-grid cells are presumed dead. The function return one if the given cell is alive or zero if its dead. |
-| `countLivingNeighbors()` | Counts the number of living neighbors for a give cell. Each cell has six neighbors, some of which may be off-grid if the cell is located at an edge or a corner of the grid. |
+| `isAlive()` | Determines whether a cell at the given coordinates is alive or dead. The coordinates could potentially be off-grid. Off-grid cells are presumed dead. The function returns one if the given cell is alive or zero if its dead. |
+| `countLivingNeighbors()` | Counts the number of living neighbors for a given cell. Each cell has eight neighbors, some of which may be off-grid if the cell is located at an edge or a corner of the grid. |
 | `updateGrid()` | Iterates through all cells of the grid and computes the new state of each cell by applying the rules of the Game Of Life. |
-| `renderGrid()` | Iterate through all cells of the grid and draws each cell onto the canvas. |
+| `renderGrid()` | Iterates through all cells of the grid and draws each cell onto the canvas. |
 | `gameLoop()` | Executes one life cycle of the game (i.e., `updateGrid()` followed by `renderGrid()`) and then reschedules itself to run again after a delay. |
-| `main()` | Resize the canvas to the desired size and then creates and starts the game engine. The function `main()` itself is executed when the browser has finished loading the page. |
+| `main()` | Resizes the canvas to the desired size and then creates and starts the game engine. The function `main()` itself is executed when the browser has finished loading the page. |
 
 ### Exercise
 
@@ -197,6 +197,6 @@ Here is a visual check that you can use to verify that the life time enhancement
 
 - Cells in a still life pattern remain living indefinitely and should therefore stabilize at the highest opacity.
 
-- The oscillating parts of an oscillator pattern continually switch between life and death and, when briefly living, should have the lowest opacity.
+- The oscillating parts of an oscillator pattern continually switch between life and death and, when briefly living, should have the lowest opacity. The stable parts should be at the highest opacity.
 
 _Have fun!_
