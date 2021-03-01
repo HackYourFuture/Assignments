@@ -1,3 +1,4 @@
+/* eslint-disable no-autofix/prefer-const */
 'use strict';
 /*------------------------------------------------------------------------------
 1. Create a variable to store a reference to the `<img>` element.
@@ -15,8 +16,36 @@
    for 5 seconds, and then replace the img with the original image and have it 
    continue the walk.
 -----------------------------------------------------------------------------*/
+//crating img and changing style of img
+const img = document.getElementsByTagName('img')[0]; // [0] i used it for first desired image, because it returns an array and i want to take first image
+img.style.left = '0px';
+
+let walkForwards = true;
+
+//moving cat to right 10px
 function catWalk() {
-  // TODO complete this function
+
+  let currentLeft = parseInt(img.style.left); //converting px to int number
+
+  // The innerWidth property returns the width of a window's content area
+  if (walkForwards && (currentLeft > (window.innerWidth-img.width))) {
+    walkForwards = false;
+  }
+
+  if (!walkForwards && (currentLeft <= 0)) {
+    walkForwards = true;
+  }
+  
+  if (walkForwards) {
+    img.style.left = (currentLeft + 10) + 'px';
+  } 
+
+  else {
+    img.style.left = (currentLeft - 10) + 'px';
+  }
+
 }
+window.setInterval(catWalk, 50);
 
 // TODO execute `catWalk` when the browser has completed loading the page
+                                                                                              
