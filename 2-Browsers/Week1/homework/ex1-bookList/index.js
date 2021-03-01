@@ -1,3 +1,4 @@
+/* eslint-disable hyf/no-commented-out-code */
 /* eslint-disable no-autofix/prefer-const */
 //cspell: disable
 /*
@@ -24,39 +25,72 @@ function createBookList(books) {
 
   for (let i = 0; i < books.length; i++) {
     let bookP = document.createElement('p');
-    let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
-    bookP.appendChild(bookDescription);
+    // eslint-disable-next-line hyf/no-commented-out-code
+    // let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
+    // bookP.appendChild(bookDescription);
     document.body.appendChild(bookP);
   }
 
-  let bookList = document.createElement('ul');
+  const bookList = document.createElement('ul');
+
+  bookList.style.cssText = `
+              display:flex;
+              flex-wrap:wrap;
+              padding:40px;
+              width:calc( 100% - 30px);
+              list-style:none`;
+
 
   for (let i = 0; i < books.length; i++) {
-      //
+
+      //creating li and img element
       let bookItem = document.createElement('li');
       let bookImg = document.createElement('img');
-      bookImg.src = books[i].img;
-      bookItem.appendChild(bookImg);
-      let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
-      bookItem.appendChild(bookDescription);
 
-      if (books[i].alreadyRead) {
-        bookItem.style.color = 'green';
+      //adding style to img
+      bookImg.style.height = '270px';
+      
+      // Adding images
+      if (books[i].author === 'Don Norman') {
+      bookImg.src = './assets/the_design_of_everyday_things.jpg';
+      }
+      else if (books[i].author === 'Brian Christian'){
+      bookImg.src = './assets/the_most_human_human.jpg';
       }
       else {
-        bookItem.style.color = 'red';
+      bookImg.src = './assets/the_pragmatic_programmer.jpg';
       }
-      bookList.appendChild(bookItem);
-      
-     
+      let bookP = document.createElement('p');
+      // creating title for each book
+      let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
+      bookP.appendChild(bookDescription);
+      document.body.appendChild(bookP);
 
-      // eslint-disable-next-line hyf/no-commented-out-code
-      //bookImg.src = books[i].img;
-      bookItem.appendChild(bookImg);
+      if (books[i].alreadyRead) {
+
+        bookItem.style.cssText = `
+                        width:calc(25% - 51px);
+                        margin:15px;
+                        padding:10px;
+                        padding-top:25px;
+                        background-color: green`;
+      }
+      else {  
+        bookItem.style.cssText = `
+                        width:calc(25% - 51px);
+                        margin:15px;
+                        padding:10px;
+                        padding-top:25px;
+                        background-color: red`;
+      }
+      bookItem.appendChild(bookDescription); // Append bookDescription to bookItem
+      bookItem.appendChild(bookImg);         // Append bookImg to bookItem
+      bookList.appendChild(bookItem);        // Append bookItem to bookList
+    
       
   }
-    document.body.appendChild(bookList);
-
+    document.body.appendChild(bookList);     // Append bookList to document
+    
   return bookList;
 }
 
@@ -80,19 +114,4 @@ const myBooks = [
 
 const ulElement = createBookList(myBooks);
 
-// document.querySelector('#bookList').appendChild(ulElement);
-
-
-
-
- //Adding img
-      // let bookImg = document.createElement('img');
-      // if (i ===0) {
-      //   bookImg.src = 'https://github.com/buraakkk/Homework/blob/Browser-Week1/2-Browsers/Week1/homework/ex1-bookList/assets/the_design_of_everyday_things.jpg?raw=true'
-      // }
-      // else if (i ===1) {
-      //   bookImg.src = 'https://github.com/buraakkk/Homework/blob/Browser-Week1/2-Browsers/Week1/homework/ex1-bookList/assets/the_most_human_human.jpg?raw=true'
-      // }
-      // else {
-      //   bookImg.src = 'https://github.com/buraakkk/Homework/blob/Browser-Week1/2-Browsers/Week1/homework/ex1-bookList/assets/the_pragmatic_programmer.jpg?raw=true'
-      // }
+document.querySelector('#bookList').appendChild(ulElement);
