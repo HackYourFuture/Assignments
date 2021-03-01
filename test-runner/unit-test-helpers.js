@@ -64,7 +64,43 @@ function findAncestor(type, ancestors) {
   return null;
 }
 
+function onloadValidator(state) {
+  return ({ object, property }, ancestors) => {
+    if (object.name === 'window' && property.type === 'Identifier') {
+      if (property.name === 'addEventListener') {
+        const callExpression = findAncestor('CallExpression', ancestors);
+        if (callExpression) {
+          if (callExpression.arguments.length === 2) {
+            if (
+              ['load', 'DOMContentLoaded'].includes(
+                callExpression.arguments[0].value
+              )
+            ) {
+              state.onload = true;
+            }
+            if (callExpression.arguments[1].type === 'CallExpression') {
+              state.callError = true;
+            }
+          }
+        }
+      } else if (property.name === 'onload') {
+        const assignmentExpression = findAncestor(
+          'AssignmentExpression',
+          ancestors
+        );
+        if (assignmentExpression) {
+          state.onload = true;
+          if (assignmentExpression.right.type === 'CallExpression') {
+            state.callError = true;
+          }
+        }
+      }
+    }
+  };
+}
+
 module.exports = {
   beforeAllHelper,
   findAncestor,
+  onloadValidator,
 };
