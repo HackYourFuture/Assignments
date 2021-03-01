@@ -20,13 +20,16 @@
 const img = document.getElementsByTagName('img')[0]; // [0] i used it for first desired image, because it returns an array and i want to take first image
 img.style.left = '0px';
 
+const dancingCat = 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif?itemid=10561424'
+const originalImgSrc = img.src;
+const originalImgWidth = img.width;
 let walkForwards = true;
 
 //moving cat to right 10px
 function catWalk() {
 
   let currentLeft = parseInt(img.style.left); //converting px to int number
-
+  const middlePosition = (window.innerWidth - originalImgWidth) / 2;
   // The innerWidth property returns the width of a window's content area
   if (walkForwards && (currentLeft > (window.innerWidth-img.width))) {
     walkForwards = false;
@@ -44,8 +47,19 @@ function catWalk() {
     img.style.left = (currentLeft - 10) + 'px';
   }
 
+  if (currentLeft >= middlePosition && currentLeft <= middlePosition ) {
+    clearInterval(interval);
+    img.src = dancingCat;
+    setTimeout(function() {
+        img.src = originalImgSrc;
+        img.style.left = (currentLeft + 20) + 'px';
+        interval = setInterval(catWalk, 50);
+    }, 5000);
 }
-window.setInterval(catWalk, 50);
+
+}
+let interval = setInterval(catWalk, 50);
+// window.setInterval(catWalk, 50);
 
 // TODO execute `catWalk` when the browser has completed loading the page
                                                                                               
