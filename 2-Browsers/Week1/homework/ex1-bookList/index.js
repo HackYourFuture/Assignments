@@ -42,4 +42,4 @@ const myBooks = [
 
 const ulElement = createBookList(myBooks);
 
-// document.querySelector('#bookList').appendChild(ulElement);
+document.querySelector('#bookList').appendChild(ulElement);
