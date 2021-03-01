@@ -1,7 +1,10 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
 const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  onloadValidator,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('catWalk', () => {
   let rootNode;
@@ -17,23 +20,14 @@ describe('catWalk', () => {
 
     rootNode &&
       walk.simple(rootNode, {
-        MemberExpression({ object, property }) {
-          if (
-            object.type === 'Identifier' &&
-            object.name === 'window' &&
-            property.type === 'Identifier'
-          ) {
-            if (['onload', 'addEventListener'].includes(property.name)) {
-              state.onload = true;
-            }
-          }
-        },
+        MemberExpression: onloadValidator(state),
         CallExpression({ callee }) {
           if (
-            callee.type === 'Identifier' &&
-            ['setTimeout', 'setInterval'].includes(callee.name)
+            ['setInterval', 'setTimeout'].includes(callee.name) ||
+            (callee.object?.name === 'window' &&
+              ['setInterval', 'setTimeout'].includes(callee.property?.name))
           ) {
-            state.hasTimer = true;
+            state.timer = true;
           }
         },
       });
@@ -41,11 +35,15 @@ describe('catWalk', () => {
 
   it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
 
-  it('should use `setInterval() and/or `setTimeout`', () => {
-    expect(state.hasTimer).toBeDefined();
+  it('should use `setInterval()` and/or `setTimeout()`', () => {
+    expect(state.timer).toBeDefined();
   });
 
-  it('should use `window.onload` or `window.addEventListener`', () => {
+  it('should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event', () => {
     expect(state.onload).toBeDefined();
+  });
+
+  it('`window.onload` or `window.addEventListener` should not call its event handler function', () => {
+    expect(state.callError).not.toBeDefined();
   });
 });

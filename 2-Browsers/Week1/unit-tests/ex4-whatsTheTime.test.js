@@ -1,7 +1,11 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
 const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  findAncestor,
+  onloadValidator,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('whatsTheTime', () => {
   let rootNode;
@@ -16,20 +20,14 @@ describe('whatsTheTime', () => {
     }));
 
     rootNode &&
-      walk.simple(rootNode, {
-        MemberExpression({ object, property }) {
-          if (
-            object.type === 'Identifier' &&
-            object.name === 'window' &&
-            property.type === 'Identifier'
-          ) {
-            if (['onload', 'addEventListener'].includes(property.name)) {
-              state.onload = true;
-            }
-          }
-        },
+      walk.ancestor(rootNode, {
+        MemberExpression: onloadValidator(state),
         CallExpression({ callee }) {
-          if (callee.type === 'Identifier' && callee.name === 'setInterval') {
+          if (
+            callee.name === 'setInterval' ||
+            (callee.object?.name === 'window' &&
+              callee.property?.name === 'setInterval')
+          ) {
             state.setInterval = true;
           }
         },
@@ -42,7 +40,11 @@ describe('whatsTheTime', () => {
     expect(state.setInterval).toBeDefined();
   });
 
-  it('should use `window.onload` or `window.addEventListener`', () => {
+  it('should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event', () => {
     expect(state.onload).toBeDefined();
+  });
+
+  it('`window.onload` or `window.addEventListener` should not call its event handler function', () => {
+    expect(state.callError).not.toBeDefined();
   });
 });
