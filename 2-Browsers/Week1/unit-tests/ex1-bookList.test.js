@@ -11,26 +11,19 @@ describe('Generated HTML', () => {
 
   it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
 
-  let ulInsideDiv = false;
-
-  test('should include a <ul> should that is a child of <div id="bookList">', () => {
+  test('should contain a <ul> that is a child of <div id="bookList">', () => {
     const ul = document.querySelector('div[id=bookList] > ul');
-    if (ul) {
-      ulInsideDiv = true;
-    }
     expect(ul).toBeTruthy();
   });
 
   test('should contain a <ul> with 3 <li> elements', () => {
-    if (!ulInsideDiv) return;
-    const nodeList = document.querySelectorAll('div[id=bookList] > ul > li');
+    const nodeList = document.querySelectorAll('ul > li');
     const result = nodeList ? nodeList.length : 0;
     expect(result).toBe(3);
   });
 
-  test('should include an <li> with title and author for each book', () => {
-    if (!ulInsideDiv) return;
-    const nodeList = document.querySelectorAll('div[id=bookList] > ul > li');
+  test('should contain an <li> with title and author for each book of the `myBooks` array', () => {
+    const nodeList = document.querySelectorAll('li');
     const result = nodeList
       ? Array.from(nodeList)
           .map((node) => node.textContent)
@@ -44,11 +37,8 @@ describe('Generated HTML', () => {
     expect(result).toMatch(/Andrew Hunt/);
   });
 
-  test('should include an <img> element for each book', () => {
-    if (!ulInsideDiv) return;
-    const nodeList = document.querySelectorAll(
-      'div[id=bookList] > ul > li img'
-    );
+  test('should contain an <img> element for each book', () => {
+    const nodeList = document.querySelectorAll('li img');
     const result = nodeList ? nodeList.length : 0;
     expect(result).toBe(3);
   });
