@@ -38,11 +38,6 @@ module.exports = {
         message:
           'The homework tests do not support `innerText`. Please replace with `textContent`.',
       },
-      {
-        // disallow numeric literals as array indices (zero is allowed)
-        selector: 'MemberExpression[computed] > Literal[value>0]',
-        message: 'No literal',
-      },
       { selector: 'ForInStatement', message: 'Avoid `for in` loops' },
     ],
     'hyf/use-map-result': 'error',
