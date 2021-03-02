@@ -19,7 +19,7 @@ describe('catWalk', () => {
     }));
 
     rootNode &&
-      walk.simple(rootNode, {
+      walk.ancestor(rootNode, {
         MemberExpression: onloadValidator(state),
         CallExpression({ callee }) {
           if (
