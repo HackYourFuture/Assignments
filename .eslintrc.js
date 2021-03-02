@@ -12,10 +12,6 @@ module.exports = {
     ecmaVersion: 2020,
   },
   globals: {
-    page: 'readonly',
-    browser: 'readonly',
-    context: 'readonly',
-    jestPuppeteer: 'readonly',
     axios: 'readonly',
   },
   rules: {
