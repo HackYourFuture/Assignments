@@ -3,7 +3,6 @@ const walk = require('acorn-walk');
 const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 const {
   beforeAllHelper,
-  findAncestor,
   onloadValidator,
 } = require('../../../test-runner/unit-test-helpers');
 
