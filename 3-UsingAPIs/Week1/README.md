@@ -236,7 +236,7 @@ We have also provided some code that demonstrates how to handle throwing a singl
   Resolved! [ 'JACK', 'QUEEN', 'QUEEN', 'NINE', 'JACK' ]
   ```
 
-- A unsuccessful (i.e. rejected) throw should output a message similar to:
+- An unsuccessful (i.e. rejected) throw should output a message similar to:
 
   ```text
   Rejected! Dice 3 rolled off the table.
