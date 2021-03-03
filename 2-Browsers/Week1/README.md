@@ -88,7 +88,7 @@ In this exercise you're expected to write a JavaScript function that can be exec
 Why wear a watch when you can check the time, live in your webpage?
 
 1. Inside the `index.js`, complete the `addCurrentTime` to add the current time to the webpage. Make sure it's written in the HH:MM:SS notation (hour, minute, second). Use `setInterval()` to make sure the time stays current.
-2. Have the function execute when it's loading in the browser.
+2. Have the function execute when the browser has finished loading the page.
 
 ## Exercise 5: The cat walk
 
@@ -121,7 +121,7 @@ Start with this webpage, which has a single img tag of an animated GIF of a cat 
 3. Complete the function called catWalk() to move the cat 10 pixels to the right of where it started, by changing the `left` style property.
 4. Call that function every 50 milliseconds. Your cat should now be moving across the screen from left to right. Hurrah!
 5. When the cat reaches the right-hand of the screen, restart them at the left hand side (`0px`). So they should keep walking from left to right across the screen, forever and ever.
-6. When the cat reaches the middle of the screen, replace the img with an image of a cat dancing (use this URL: <https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif>), keep it dancing for 5 seconds, and then replace the img with the original image and have it continue the walk.
+6. Each time when the cat reaches the middle of the screen, replace the img with an image of a cat dancing (use this URL: <https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif>), keep it dancing for 5 seconds, and then replace the img with the original image and have it continue the walk.
 
 This is what it should like:
 
