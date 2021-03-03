@@ -28,7 +28,7 @@ You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) w
 code homework
 ```
 
-When you open the repository for the first time you may be invited to install a set of recommended VSCode extensions. These extensions will provide useful help and guidance while you are working files in VSCode. Please install these extensions when invited to do so.
+> Important: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance while you are working files in VSCode. **Please install these extensions when invited to do so.**
 
 ### Overview of the Directory Structure
 
