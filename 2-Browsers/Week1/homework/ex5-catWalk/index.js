@@ -11,9 +11,13 @@
    hand side (`0px`). So they should keep walking from left to right across the 
    screen, forever and ever.
 6. When the cat reaches the middle of the screen, replace the img with an image 
-   of a cat dancing (use this URL: https://tenor.com/StFI.gif), keep it dancing 
-   for 5 seconds, and then replace the img with the original image and have it 
+   of a cat dancing (use this URL given below), keep it dancing for 5 seconds, 
+   and then replace the img with the original image and have it 
    continue the walk.
+
+   Dancing cat URL:
+
+   https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
 -----------------------------------------------------------------------------*/
 function catWalk() {
   // TODO complete this function
