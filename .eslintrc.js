@@ -34,6 +34,11 @@ module.exports = {
         message:
           'The homework tests do not support `innerText`. Please replace with `textContent`.',
       },
+      {
+        selector: "MemberExpression[property.name='innerHTML']",
+        message:
+          'Please do not use `innerHTML` in the homework. Use `textContent` and/or `document.createElement()` instead.',
+      },
       { selector: 'ForInStatement', message: 'Avoid `for in` loops' },
     ],
     'hyf/use-map-result': 'error',

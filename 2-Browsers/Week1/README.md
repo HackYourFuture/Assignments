@@ -4,6 +4,10 @@
 
 The homework for this week can be found in the `homework` folder.
 
+> :collision: **Important**
+>
+> In this homework you are not allowed to use `.innerHTML`. To create HTML elements, use `document.createElement()`. To set the text content of an element, use `.textContent`. The homework tests currently do not support `.innerText`.
+
 ## Exercise 1: The book list
 
 **Folder**: `ex1-bookList`
