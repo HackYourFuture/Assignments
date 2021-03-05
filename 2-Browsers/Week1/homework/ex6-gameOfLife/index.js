@@ -147,7 +147,7 @@ function createGame(context, numRows, numColumns) {
     window.requestAnimationFrame(gameLoop);
   }
 
-  return start;
+  return { grid, updateGrid, start };
 }
 
 function main() {
@@ -161,7 +161,7 @@ function main() {
   const context = canvas.getContext('2d');
 
   // Create the game "engine"
-  const start = createGame(context, NUM_ROWS, NUM_COLUMNS);
+  const { start } = createGame(context, NUM_ROWS, NUM_COLUMNS);
 
   // Start the game
   start();
@@ -169,3 +169,6 @@ function main() {
 
 // Start execution when the browser has finished loading the page.
 window.onload = main;
+
+// ! Do not change or remove any code below
+module.exports = createGame;
