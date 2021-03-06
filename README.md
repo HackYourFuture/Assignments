@@ -28,7 +28,18 @@ You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) w
 code homework
 ```
 
-> Important: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance while you are working files in VSCode. **Please install these extensions when invited to do so.**
+### Install Recommended VSCode Extensions
+
+**Important**: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance while you are working files in VSCode. **Please install these extensions when invited to do so.**
+
+<details>
+  <summary>Manual installation</summary>
+
+<br>If for some reason you do not see the VSCode message box inviting you to install the recommended extensions you can do so manually by clicking the **Extensions** button in the VSCode sidebar, pressing the **Filter** button and then selecting **Recommended** from the drop-down menu as shown in the figure below. Please install all extensions listed under the **Workspace Recommendations** header.
+
+![VSCode Recommended Extensions](./assets/vscode-recommended-extensions.png)
+
+</details>
 
 ### Overview of the Directory Structure
 
