@@ -35,7 +35,7 @@ function computeEarnings(/* TODO parameter(s) go here */) {
 
 // example use case 1
 const earnings = computeEarnings(mondayTasks, hourlyRate);
-console.log(`Total earnings: ${earnings}`); // -> "Total earnings: €187.5"
+console.log(`Total earnings: ${earnings}`); // -> "Total earnings: €187.50"
 
 // example use case 2
 const earnings = computeEarnings(
@@ -55,7 +55,7 @@ const earnings = computeEarnings(
   ],
   hourlyRate
 );
-console.log(`Total earnings: ${earnings}`); // -> "Total earnings: €212.5"
+console.log(`Total earnings: ${earnings}`); // -> "Total earnings: €212.50"
 
 // ! Do not change or remove the code below
 module.exports = {
