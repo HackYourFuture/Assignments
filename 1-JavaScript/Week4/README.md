@@ -93,7 +93,7 @@ However, she forgot that you are allergic to lemons! Let's quickly dispose of th
 
 **File:** `ex4-publishSubscribe.js`
 
-A software pattern that you may encounter in the future is a construct called the **Observer Pattern**. It enables **listeners** (which are usually functions) to **subscribe** to **notifications** from a **publisher**. Any number of listeners can subscribe.
+A software pattern that you may encounter in the future is a construct called the **Observer Pattern**. It enables **subscribers** (which are usually functions) to **subscribe** to **notifications** from a **publisher**. Any number of subscribers can subscribe.
 
 Consider the code below (from `ex4-publishSubscribe.js`):
 
@@ -101,48 +101,52 @@ Consider the code below (from `ex4-publishSubscribe.js`):
 
 - As you can see below, the `createPublisher` function is called and the resulting Publisher object is assigned to the `myPublisher` variable.
 
-- Next, two **listener** functions are defined, notably `consoleUpperCase` and `consoleLowerCase`. A listener function is defined here as a function that takes a single parameter, `message`. It is up to the listener what to do with `message`. (The **Publisher** has no say in this!).
+- Next, two **subscriber** functions are defined, notably `consoleUpperCase` and `consoleLowerCase`. A subscriber function is defined here as a function that takes a single parameter, `message`. It is up to the subscriber what to do with `message`. (The **Publisher** has no say in this!).
 
-- The **listener** functions are added as **subscribers** to `myPublisher` by calling its `subscribe` function. The `subscribe` function should take the function passed to it as an argument and push it onto the `listeners` array. (Yes, you can store functions in an array. Functions are treated in JavaScript like any other value. See [First-class Function](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function) in MDN Web Docs.)
+- The **subscriber** functions are added as **subscribers** to `myPublisher` by calling its `subscribe` function. The `subscribe` function should take the function passed to it as an argument and push it onto the `subscribers` array. (Yes, you can store functions in an array. Functions are treated in JavaScript like any other value. See [First-class Function](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function) in MDN Web Docs.)
 
-- The standard `console.log` function, which also conforms to the minimum requirement for a **listener** (although it can take more than one argument) is also added as a subscriber.
+- The standard `console.log` function, which also conforms to the minimum requirement for a **subscriber** (although it can take more than one argument) is also added as a subscriber.
 
-- Finally, a call to the Publisher's `notify` function is expected to iterate through, and call, all subscribers from the `listeners` array, relaying the notification message to each listener.
+- Finally, a call to the Publisher's `notify` function is expected to iterate through, and call, all subscribers from the `subscribers` array, relaying the notification message to each subscriber.
 
-Good luck with completing `createPublisher`!
+Good luck with completing `createPublisher()`!
 
 ```js
 function createPublisher() {
-  const listeners = [];
+  const subscribers = [];
   return {
-    subscribe: function (/* TODO parameter(s) go here */) {
+    subscribe(/* TODO parameter(s) go here */) {
       // TODO complete this function
     },
-    notify: function (/* TODO parameter(s) go here */) {
+    notify(/* TODO parameter(s) go here */) {
       // TODO complete this function
     },
   };
 }
 
-const myPublisher = createPublisher();
-
+// A candidate subscriber function
 function consoleUpperCase(message) {
   console.log(message.toUpperCase());
 }
 
+// Another candidate subscriber function
 function consoleLowerCase(message) {
   console.log(message.toLowerCase());
 }
 
+// Create a publisher object
+const myPublisher = createPublisher();
+
+// Register three subscribers
+myPublisher.subscribe(console.log);
 myPublisher.subscribe(consoleUpperCase);
 myPublisher.subscribe(consoleLowerCase);
-myPublisher.subscribe(console.log);
 
+// Send a message to all current subscribers
 myPublisher.notify("Let's see what happens here!");
-// Print the following to the console
-// "LET'S SEE WHAT HAPPENS HERE!"
-// "let's see what happens here!"
-// "Let's see what happens here!"
+// Let's see what happens here! (console.log subscriber)
+// LET'S SEE WHAT HAPPENS HERE! (consoleUpperCase subscriber)
+// let's see what happens here! (consoleLowerCase subscriber)
 ```
 
 ### Exercise 5: Transfer into Wallet

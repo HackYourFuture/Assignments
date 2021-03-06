@@ -1,8 +1,8 @@
 'use strict';
 /*
 A software pattern that you may encounter in the future is a construct called
-the Observer Pattern. It enables "listeners" (which are usually functions) to
-"subscribe" to "notifications" from a "publisher". Any number of listeners can
+the Observer Pattern. It enables "subscribers" (which are usually functions) to
+"subscribe" to "notifications" from a "publisher". Any number of subscribers can
 subscribe.
 
 Look at the code below:
@@ -15,70 +15,76 @@ Look at the code below:
 - As you can see below, the `createPublisher` function is called and the
   resulting Publisher object is assigned to the `myPublisher` variable.
 
-- Next, two "listener" functions are defined, notably `consoleUpperCase` and
-  `consoleLowerCase`. A listener function is defined here as a function that
-  takes a single parameter, `message`. It is up to the listener what to do
+- Next, two "subscriber" functions are defined, notably `consoleUpperCase` and
+  `consoleLowerCase`. A subscriber function is defined here as a function that
+  takes a single parameter, `message`. It is up to the subscriber what to do
   with `message`. (The Publisher has no say in this!).
 
-- The "listener" functions are added as "subscribers" to `myPublisher` by
+- The "subscriber" functions are added as "subscribers" to `myPublisher` by
   calling its `subscribe` function. The `subscribe` function should take the
-  function passed to it as an argument and push it onto the `listeners` array.
+  function passed to it as an argument and push it onto the `subscribers` array.
   (Yes, you can store functions in an array. Functions are treated in JavaScript
   like any other value.
 
 - The standard `console.log` function, which also conforms to the minimum
-  requirement for a "listener" (although it can take more than one argument)
+  requirement for a "subscriber" (although it can take more than one argument)
   is also added as a subscriber.
 
 - Finally, a call to the Publisher's `notify` function is expected to iterate
-  through, and call, all subscribers from the `listeners` array, passing on the
-  notification message to each listener.
+  through, and call, all subscribers from the `subscribers` array, passing on the
+  notification message to each subscriber.
 
 Good luck with completing `createPublisher`!
 */
 
 function createPublisher() {
-  const listeners = [];
+  const subscribers = [];
   return {
-    subscribe: function (/* TODO parameter(s) go here */) {
+    subscribe(/* TODO parameter(s) go here */) {
       // TODO complete this function
     },
-    notify: function (/* TODO parameter(s) go here */) {
+    notify(/* TODO parameter(s) go here */) {
       // TODO complete this function
     },
   };
 }
 
-const myPublisher = createPublisher();
-
+// A candidate subscriber function
 function consoleUpperCase(message) {
   console.log(message.toUpperCase());
 }
 
+// Another candidate subscriber function
 function consoleLowerCase(message) {
   console.log(message.toLowerCase());
 }
 
+// Create a publisher object
+const myPublisher = createPublisher();
+
+// Register three subscribers
 myPublisher.subscribe(console.log);
 myPublisher.subscribe(consoleUpperCase);
 myPublisher.subscribe(consoleLowerCase);
 
+// Send a message to all current subscribers
 myPublisher.notify("Let's see what happens here!");
-// Prints the following to the console
-// "LET'S SEE WHAT HAPPENS HERE!"
-// "let's see what happens here!"
-// "Let's see what happens here!"
+// Let's see what happens here! (console.log subscriber)
+// LET'S SEE WHAT HAPPENS HERE! (consoleUpperCase subscriber)
+// let's see what happens here! (consoleLowerCase subscriber)
 
-myPublisher.subscribe(function consoleReverse(message) {
+// Register a new subscriber
+myPublisher.subscribe((message) => {
   console.log(message.split(' ').reverse().join(' '));
 });
 
+// Send another message to all current subscribers
 myPublisher.notify('Alice answers your questions Bob');
 // Prints the following to the console
-// "ALICE ANSWERS YOUR QUESTIONS BOB"
-// "alice answers your questions bob"
-// "Alice answers your questions Bob"
-// "Bob questions your answers Alice"
+// Alice answers your questions Bob (console.log subscriber)
+// ALICE ANSWERS YOUR QUESTIONS BOB (consoleUpperCase subscriber)
+// alice answers your questions bob (consoleLowerCase subscriber)
+// Bob questions your answers Alice (arrow function subscriber)
 
 // ! Do not change or remove the code below
 module.exports = createPublisher;
