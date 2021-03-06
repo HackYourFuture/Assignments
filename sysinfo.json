@@ -47,10 +47,12 @@
       "ecmel.vscode-html-css",
       "esbenp.prettier-vscode",
       "evgeniypeshkov.syntax-highlighter",
+      "formulahendry.code-runner",
       "hdg.live-html-previewer",
       "mkaufman.HTMLHint",
       "ritwickdey.LiveServer",
       "streetsidesoftware.code-spell-checker",
+      "vsls-contrib.codetour",
       "Zignd.html-css-class-completion"
     ],
     "userSettings": {}
