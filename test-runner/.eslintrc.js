@@ -11,12 +11,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2021,
   },
-  globals: {
-    page: true,
-    browser: true,
-    context: true,
-    jestPuppeteer: true,
-  },
   rules: {
     'no-console': 'off',
   },

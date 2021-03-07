@@ -29,9 +29,9 @@ getAnonName('John', console.log);
 
 Rewrite this function, but replace the callback syntax with the Promise syntax:
 
-- Have the `getAnonName` function return a `new Promise`.
-- If the Promise `resolves`, pass the full name as an argument to resolve with.
-- If the Promise `rejects`, pass an error as the argument to reject with: "You didn't pass in a first name!"
+- Have the `getAnonName` arrow function return a `new Promise`.
+- If the Promise resolves, pass the full name as an argument to `resolve()`.
+- If the Promise rejects, pass an `Error` object containing "You didn't pass in a first name!" to `reject()`.
 
 ### Exercise 2: Is it a double digit number?
 
@@ -41,14 +41,14 @@ Complete the function called `checkDoubleDigits` such that:
 
 - It takes one argument: a number
 - It returns a `new Promise`.
-- If the number between 10 and 99 it should resolve to the string "This is double digit number!".
+- If the number is between 10 and 99 it should resolve to the string "This is double digit number!".
 - For any other number it should reject with an an Error object containing: "Expected a double digit number but got `number`", where `number` is the number that was passed as an argument.
 
 ### Exercise 3: Roll a dice
 
 ### File `ex3-rollDice.js`
 
-This exercise is about throwing a dice. A dice in this exercise may roll up to 10 times before it settles on a final value, depending on the energy with which it is thrown. Unfortunately, if a dice rolls more than six times in our game it rolls off the table and the throw becomes invalid. If it rolls six times or less, its final value will be valid.
+This exercise is about throwing a dice. A dice in this exercise may roll up to 10 times before it settles on a final value, depending on the "energy" with which it is thrown. Unfortunately, if a dice rolls more than six times in our game it rolls off the table and the throw becomes invalid. If it rolls six times or less, its final value will be valid.
 
 > Note: to keep things simple, we have taken some liberties in this exercise with respect to how a dice behaves in reality. For instance, in real life a dice cannot flip back to a value it previously had. And it will mostly roll on its corners, not its sides.
 
@@ -100,7 +100,7 @@ rollDice((error, value) => {
 > A couple of comments about this code:
 >
 > - In real life, a dice, when thrown, will autonomously run its course until it comes to a complete standstill, abiding the laws of nature. How long it will roll depends on the force of the throw. In our simulation that "force" is represented by the random value assigned to `randomRollsToDo`. As if subjected to the laws of nature, we insist that our simulated dices continue to roll until they have reached their randomly assigned number of rolls-to-do.
-> - The callback format used in this example, using two parameters, is commonly used in Node.js. To communicate back _failure_, the callback is called with a _single_ argument: the error value (usually a JavaScript `Error` object). In the _successful_ case the callback is called with _two_ arguments, the first one being `null` (i.e., no error) and the second one containing the actual result.
+> - The "error first" callback format used in this example, using two parameters, is commonly used in Node.js. To communicate back _failure_, the callback is called with a _single_ argument: the error value (usually a JavaScript `Error` object). In the _successful_ case the callback is called with _two_ arguments, the first one being `null` (i.e., no error) and the second one containing the actual result.
 
 Here is what the output could look like for a successful throw:
 
@@ -236,7 +236,7 @@ We have also provided some code that demonstrates how to handle throwing a singl
   Resolved! [ 'JACK', 'QUEEN', 'QUEEN', 'NINE', 'JACK' ]
   ```
 
-- A unsuccessful (i.e. rejected) throw should output a message similar to:
+- An unsuccessful (i.e. rejected) throw should output a message similar to:
 
   ```text
   Rejected! Dice 3 rolled off the table.

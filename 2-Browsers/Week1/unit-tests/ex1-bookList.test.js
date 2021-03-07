@@ -1,41 +1,67 @@
+/* eslint-disable hyf/camelcase */
+const walk = require('acorn-walk');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 
 describe('Generated HTML', () => {
   const state = {};
-  let document;
+  let document, rootNode;
 
   beforeAll(async () => {
     ({ document } = await prepare());
     state.outerHTML = document.documentElement.outerHTML;
+
+    ({ rootNode } = beforeAllHelper(__filename, {
+      noRequire: true,
+      parse: true,
+    }));
+
+    rootNode &&
+      walk.simple(rootNode, {
+        VariableDeclarator({ id, init }) {
+          if (id.name === 'myBooks' && init.type === 'ArrayExpression') {
+            state.titlesAndAuthors = init.elements.reduce((acc, element) => {
+              if (element.type === 'ObjectExpression') {
+                element.properties.forEach((prop) => {
+                  if (['title', 'author'].includes(prop.key.name)) {
+                    acc.push(prop.value.value);
+                  }
+                });
+              }
+              return acc;
+            }, []);
+          }
+        },
+      });
   });
 
   it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
 
+  test('should contain a <ul> that is a child of <div id="bookList">', () => {
+    const ul = document.querySelector('div[id=bookList] > ul');
+    expect(ul).toBeTruthy();
+  });
+
   test('should contain a <ul> with 3 <li> elements', () => {
-    const nodeList = document.querySelectorAll('div[id=bookList] > ul > li');
+    const nodeList = document.querySelectorAll('ul > li');
     const result = nodeList ? nodeList.length : 0;
     expect(result).toBe(3);
   });
 
-  test('should include an <li> with title and author for each book', () => {
-    const nodeList = document.querySelectorAll('div[id=bookList] > ul > li');
+  test('should contain an <li> with title and author for each book of the `myBooks` array', () => {
+    const nodeList = document.querySelectorAll('li');
     const result = nodeList
       ? Array.from(nodeList)
           .map((node) => node.textContent)
-          .join(', ')
+          .join(' ')
       : '';
-    expect(result).toMatch(/The Design of Everyday Things/);
-    expect(result).toMatch(/Don Norman/);
-    expect(result).toMatch(/The Most Human Human/);
-    expect(result).toMatch(/Brian Christian/);
-    expect(result).toMatch(/The Pragmatic Programmer/);
-    expect(result).toMatch(/Andrew Hunt/);
+    state.titlesAndAuthors.forEach((string) =>
+      expect(result).toEqual(expect.stringContaining(string))
+    );
   });
 
-  test('should include an <img> element for each book', () => {
-    const nodeList = document.querySelectorAll(
-      'div[id=bookList] > ul > li img'
-    );
+  test('should contain an <img> element for each book', () => {
+    const nodeList = document.querySelectorAll('li img');
     const result = nodeList ? nodeList.length : 0;
     expect(result).toBe(3);
   });

@@ -12,10 +12,6 @@ module.exports = {
     ecmaVersion: 2020,
   },
   globals: {
-    page: 'readonly',
-    browser: 'readonly',
-    context: 'readonly',
-    jestPuppeteer: 'readonly',
     axios: 'readonly',
   },
   rules: {
@@ -34,9 +30,14 @@ module.exports = {
         message: 'Results from `map` are unused. Replace `map` with `forEach`.',
       },
       {
-        // disallow numeric literals as array indices (zero is allowed)
-        selector: 'MemberExpression[computed] > Literal[value>0]',
-        message: 'No literal',
+        selector: "MemberExpression[property.name='innerText']",
+        message:
+          'The homework tests do not support `innerText`. Please replace with `textContent`.',
+      },
+      {
+        selector: "MemberExpression[property.name='innerHTML']",
+        message:
+          'Please do not use `innerHTML` in the homework. Use `textContent` and/or `document.createElement()` instead.',
       },
       { selector: 'ForInStatement', message: 'Avoid `for in` loops' },
     ],

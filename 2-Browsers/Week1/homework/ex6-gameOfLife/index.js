@@ -3,10 +3,12 @@
 // Adapted from: https://spicyyoghurt.com/tutorials/javascript/conways-game-of-life-canvas
 // Refactored from ES6 Class syntax to regular functions
 
-const CELL_RADIUS = 5;
-const CELL_SIZE = CELL_RADIUS * 2;
-const TWO_PI = 2 * Math.PI;
+const CELL_SIZE = 10;
+const NUM_COLUMNS = 75;
+const NUM_ROWS = 40;
 
+// Create a cell with the given coordinates and randomly assign its begin state:
+// life or death
 function createCell(x, y) {
   const alive = Math.random() > 0.5;
   return {
@@ -16,52 +18,63 @@ function createCell(x, y) {
   };
 }
 
-function draw(cell, context) {
-  context.fillStyle = '#303030';
-  context.fillRect(
-    cell.x * CELL_SIZE,
-    cell.y * CELL_SIZE,
-    CELL_SIZE,
-    CELL_SIZE
-  );
-
-  if (cell.alive) {
-    context.fillStyle = `rgb(24, 215, 236)`;
-    context.beginPath();
-    context.arc(
-      cell.x * CELL_SIZE + CELL_RADIUS,
-      cell.y * CELL_SIZE + CELL_RADIUS,
-      CELL_RADIUS,
-      0,
-      TWO_PI
-    );
-    context.fill();
-  }
-}
-
+// Create the game "engine" with a closure
 function createGame(context, numRows, numColumns) {
   const grid = [];
 
+  // Create the grid as a two-dimensional array (i.e. an array of arrays)
   function createGrid() {
     for (let y = 0; y < numRows; y++) {
+      const row = [];
       for (let x = 0; x < numColumns; x++) {
-        grid.push(createCell(x, y));
+        const cell = createCell(x, y);
+        row.push(cell);
       }
+      grid.push(row);
     }
   }
 
-  const gridToIndex = (x, y) => x + y * numColumns;
+  // Execute a callback for each cell in the grid
+  function forEachCell(callback) {
+    grid.forEach((row) => {
+      row.forEach((cell) => callback(cell));
+    });
+  }
 
+  // Draw a cell onto the canvas
+  function drawCell(cell) {
+    // Draw cell background
+    context.fillStyle = '#303030';
+    context.fillRect(
+      cell.x * CELL_SIZE,
+      cell.y * CELL_SIZE,
+      CELL_SIZE,
+      CELL_SIZE
+    );
+
+    if (cell.alive) {
+      // Draw living cell inside background
+      context.fillStyle = `rgb(24, 215, 236)`;
+      context.fillRect(
+        cell.x * CELL_SIZE + 1,
+        cell.y * CELL_SIZE + 1,
+        CELL_SIZE - 2,
+        CELL_SIZE - 2
+      );
+    }
+  }
+
+  // Check the state of the cell at the given coordinates
   function isAlive(x, y) {
     // Out-of-border cells are presumed dead
     if (x < 0 || x >= numColumns || y < 0 || y >= numRows) {
       return 0;
     }
 
-    return grid[gridToIndex(x, y)].alive ? 1 : 0;
+    return grid[y][x].alive ? 1 : 0;
   }
 
-  // Count number of living neighboring cells
+  // Count the number of living neighboring cells for a given cell
   function countLivingNeighbors(cell) {
     const { x, y } = cell;
     return (
@@ -76,37 +89,41 @@ function createGame(context, numRows, numColumns) {
     );
   }
 
+  // Update the state of the cells in the grid by applying the Game Of Life
+  // rules on each cell.
   function updateGrid() {
-    // Loop over all cells
-    grid.forEach((cell) => {
+    // Loop over all cells to determine their next state.
+    forEachCell((cell) => {
       // Count number of living neighboring cells
       const numAlive = countLivingNeighbors(cell);
 
       if (numAlive === 2) {
-        // Do nothing
+        // Living cell remains living, dead cell remains dead
         cell.nextAlive = cell.alive;
       } else if (numAlive === 3) {
-        // Make alive
+        // Dead cell becomes living, living cell remains living
         cell.nextAlive = true;
       } else {
-        // Make dead
+        // Living cell dies, dead cell remains dead
         cell.nextAlive = false;
       }
     });
 
-    // Apply the new state to the cells
-    grid.forEach((cell) => {
+    // Apply the newly computed state to the cells
+    forEachCell((cell) => {
       cell.alive = cell.nextAlive;
     });
   }
 
+  // Render a visual representation of the grid
   function renderGrid() {
-    // Draw all the game objects
-    grid.forEach((cell) => draw(cell, context));
+    // Draw all cells in the grid
+    forEachCell(drawCell);
   }
 
+  // Execute one game cycle
   function gameLoop() {
-    // Check the surrounding of each cell
+    // Update the state of cells in the grid
     updateGrid();
 
     // Render the updated grid
@@ -114,36 +131,44 @@ function createGame(context, numRows, numColumns) {
 
     // Schedule the next generation
     setTimeout(() => {
-      window.requestAnimationFrame(() => gameLoop());
+      window.requestAnimationFrame(gameLoop);
     }, 200);
   }
 
-  return { createGrid, renderGrid, gameLoop };
+  // Starts the game
+  function start() {
+    // Create initial grid
+    createGrid();
+
+    // Render the initial generation
+    renderGrid();
+
+    // Kick-start the gameLoop
+    window.requestAnimationFrame(gameLoop);
+  }
+
+  return { grid, updateGrid, start };
 }
 
 function main() {
-  const numColumns = 75;
-  const numRows = 40;
-
+  // Resize the canvas to accommodate the desired number of cell rows and
+  // columns
   const canvas = document.getElementById('canvas');
-  canvas.height = numRows * CELL_SIZE;
-  canvas.width = numColumns * CELL_SIZE;
+  canvas.height = NUM_ROWS * CELL_SIZE;
+  canvas.width = NUM_COLUMNS * CELL_SIZE;
+
+  // Obtain a context that is needed to draw on the canvas
   const context = canvas.getContext('2d');
 
-  const { createGrid, renderGrid, gameLoop } = createGame(
-    context,
-    numRows,
-    numColumns
-  );
+  // Create the game "engine"
+  const { start } = createGame(context, NUM_ROWS, NUM_COLUMNS);
 
-  // Create initial grid
-  createGrid();
-
-  // Render the initial generation
-  renderGrid();
-
-  // Kick-start the evolution
-  window.requestAnimationFrame(() => gameLoop());
+  // Start the game
+  start();
 }
 
+// Start execution when the browser has finished loading the page.
 window.onload = main;
+
+// ! Do not change or remove any code below
+module.exports = createGame;
