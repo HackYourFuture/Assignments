@@ -30,7 +30,7 @@ code homework
 
 ### Install Recommended VSCode Extensions
 
-**Important**: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance while you are working files in VSCode. **Please install these extensions when invited to do so.**
+**Important**: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
 
 <details>
   <summary>Manual installation</summary>
