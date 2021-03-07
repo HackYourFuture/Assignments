@@ -5,22 +5,25 @@
   second). Use `setInterval()` to make sure the time stays current.
 2. Have the function execute when it's loading in the browser.
 ------------------------------------------------------------------------------*/
-function addCurrentTime() {
-    // every second, time is updated
-    setInterval(addCurrentTime, 1000);
+const para = document.createElement("P");
+para.id = 'demo';
 
-    // creating a paragraph with id called demo
-    const para = document.createElement("P");
-    para.id = 'demo';
-    document.body.appendChild(para);
-    
+function addCurrentTime() {
+ 
     //Current time
     const dt = new Date();
-    const t =(("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2))
-    +":"+ (("0"+dt.getSeconds()).slice(-2));  
+    const hours   = ("0"+dt.getHours()).slice(-2);
+    const minutes = ("0"+dt.getMinutes()).slice(-2);
+    const seconds = (("0"+dt.getSeconds()).slice(-2));
+    const t = hours +":"+ minutes +":"+ seconds;  
     document.getElementById("demo").innerHTML = t;
 
 }
 
+    // creating a paragraph with id called demo
+
+document.body.appendChild(para);
+
 // TODO execute `addCurrentTime` when the browser has completed loading the page
-document.addEventListener("DOMContentLoaded", addCurrentTime);
+
+document.addEventListener("DOMContentLoaded", () => setInterval(addCurrentTime, 1000));

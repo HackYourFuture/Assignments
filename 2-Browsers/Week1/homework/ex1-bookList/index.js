@@ -23,13 +23,13 @@
 function createBookList(books) {
   // your code goes in here, return the ul element
 
-  for (let i = 0; i < books.length; i++) {
-    let bookP = document.createElement('p');
-    // eslint-disable-next-line hyf/no-commented-out-code
-    // let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
-    // bookP.appendChild(bookDescription);
-    document.body.appendChild(bookP);
-  }
+  // for (let i = 0; i < books.length; i++) {
+  //   let bookP = document.createElement('p');
+  //   eslint-disable-next-line hyf/no-commented-out-code
+  //   let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
+  //   bookP.appendChild(bookDescription);
+  //   document.body.appendChild(bookP);
+  // }
 
   const bookList = document.createElement('ul');
 
@@ -41,7 +41,7 @@ function createBookList(books) {
               list-style:none`;
 
 
-  for (let i = 0; i < books.length; i++) {
+  for (const v of books) {
 
       //creating li and img element
       let bookItem = document.createElement('li');
@@ -51,10 +51,10 @@ function createBookList(books) {
       bookImg.style.height = '270px';
       
       // Adding images
-      if (books[i].author === 'Don Norman') {
+      if (v.author === 'Don Norman') {
       bookImg.src = './assets/the_design_of_everyday_things.jpg';
       }
-      else if (books[i].author === 'Brian Christian'){
+      else if (v.author === 'Brian Christian'){
       bookImg.src = './assets/the_most_human_human.jpg';
       }
       else {
@@ -62,34 +62,33 @@ function createBookList(books) {
       }
       let bookP = document.createElement('p');
       // creating title for each book
-      let bookDescription = document.createTextNode(books[i].title + ' - ' + books[i].author);
+      let bookDescription = document.createTextNode(v.title + ' - ' + v.author);
       bookP.appendChild(bookDescription);
       document.body.appendChild(bookP);
 
-      if (books[i].alreadyRead) {
-
-        bookItem.style.cssText = `
+      bookItem.style.cssText = `
                         width:calc(25% - 51px);
                         margin:15px;
                         padding:10px;
-                        padding-top:25px;
-                        background-color: green`;
+                        padding-top:25px`;
+
+      if (v.alreadyRead) {
+
+                        bookItem.style.backgroundColor = "green";
       }
       else {  
-        bookItem.style.cssText = `
-                        width:calc(25% - 51px);
-                        margin:15px;
-                        padding:10px;
-                        padding-top:25px;
-                        background-color: red`;
+                        
+                        bookItem.style.backgroundColor = "red";
       }
-      bookItem.appendChild(bookDescription); // Append bookDescription to bookItem
+      
+      // bookItem.appendChild(bookDescription); // Append bookDescription to bookItem
+      bookItem.appendChild(bookP);
       bookItem.appendChild(bookImg);         // Append bookImg to bookItem
       bookList.appendChild(bookItem);        // Append bookItem to bookList
     
       
   }
-    document.body.appendChild(bookList);     // Append bookList to document
+   //  document.body.appendChild(bookList);     // Append bookList to document
     
   return bookList;
 }

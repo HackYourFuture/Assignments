@@ -15,8 +15,8 @@ document.getElementById('nickname').textContent = 'Oki';
 document.getElementById('fav-food').textContent = 'badminton';
 document.getElementById('hometown').textContent = 'where';
 let items = document.getElementsByTagName('li');
-for (let i = 0; i < items.length; i++) {
-   items[i].className = 'list-item';
+for (const i of items) {
+   i.className = 'list-item';
 }
 
  let myPic = document.createElement('img');
