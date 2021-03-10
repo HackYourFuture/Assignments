@@ -41,7 +41,7 @@ function createBookList(books) {
               list-style:none`;
 
 
-  for (const v of books) {
+  for (const book of books) {
 
       //creating li and img element
       let bookItem = document.createElement('li');
@@ -51,10 +51,10 @@ function createBookList(books) {
       bookImg.style.height = '270px';
       
       // Adding images
-      if (v.author === 'Don Norman') {
+      if (book.author === 'Don Norman') {
       bookImg.src = './assets/the_design_of_everyday_things.jpg';
       }
-      else if (v.author === 'Brian Christian'){
+      else if (book.author === 'Brian Christian'){
       bookImg.src = './assets/the_most_human_human.jpg';
       }
       else {
@@ -62,7 +62,7 @@ function createBookList(books) {
       }
       let bookP = document.createElement('p');
       // creating title for each book
-      let bookDescription = document.createTextNode(v.title + ' - ' + v.author);
+      let bookDescription = document.createTextNode(book.title + ' - ' + book.author);
       bookP.appendChild(bookDescription);
       document.body.appendChild(bookP);
 
@@ -72,7 +72,7 @@ function createBookList(books) {
                         padding:10px;
                         padding-top:25px`;
 
-      if (v.alreadyRead) {
+      if (book.alreadyRead) {
 
                         bookItem.style.backgroundColor = "green";
       }
