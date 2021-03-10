@@ -41,11 +41,11 @@ function catWalk() {
   }
   
   if (walkForwards) {
-    img.style.left = (currentLeft + 10) + 'px';
+    img.style.left = (currentLeft + 8) + 'px';
   } 
 
   else {
-    img.style.left = (currentLeft - 10) + 'px';
+    img.style.left = (currentLeft - 8) + 'px';
   }
 
   if (currentLeft >= middlePosition && currentLeft <= middlePosition ) {
