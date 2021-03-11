@@ -106,3 +106,39 @@ ex2-mondaysWorth.js
 2021-02-17 01:11:51 info: ------------------------------------------------
 2021-02-17 01:11:56 info: All unit tests passed.
 2021-02-17 01:12:00 info: All steps were completed successfully
+2021-02-26 05:44:45 info: ---------------------------------------
+2021-02-26 05:44:45 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-02-26 05:44:45 info: ---------------------------------------
+2021-02-26 05:44:53 info: All unit tests passed.
+2021-02-26 05:44:57 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:14:52 - Unknown word (Burki)
+2021-02-26 05:45:39 info: ---------------------------------------
+2021-02-26 05:45:39 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-02-26 05:45:39 info: ---------------------------------------
+2021-02-26 05:45:45 info: All unit tests passed.
+2021-02-26 05:45:49 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:14:52 - Unknown word (Burki)
+2021-02-26 05:46:02 info: ---------------------------------------
+2021-02-26 05:46:02 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-02-26 05:46:02 info: ---------------------------------------
+2021-02-26 05:46:09 info: All unit tests passed.
+2021-02-26 05:46:12 info: All steps were completed successfully
+2021-02-27 01:11:45 info: ---------------------------------------
+2021-02-27 01:11:45 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-02-27 01:11:45 info: ---------------------------------------
+2021-02-27 01:11:53 error: *** Unit Test Error Report ***
+
+- Generated HTML HTML should be syntactically valid
+  inline
+    27:2  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 1 problem (1 error, 0 warnings)
+  
+
+2021-02-27 01:13:01 info: ---------------------------------------
+2021-02-27 01:13:01 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-02-27 01:13:01 info: ---------------------------------------
+2021-02-27 01:13:07 info: All unit tests passed.
+2021-02-27 01:13:11 info: All steps were completed successfully

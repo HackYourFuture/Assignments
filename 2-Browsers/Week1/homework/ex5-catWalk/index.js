@@ -17,50 +17,37 @@
    continue the walk.
 -----------------------------------------------------------------------------*/
 //crating img and changing style of img
-const img = document.getElementsByTagName('img')[0]; // [0] i used it for first desired image, because it returns an array and i want to take first image
-img.style.left = '0px';
-
-const dancingCat = 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif?itemid=10561424';
-
+const img = document.querySelector('img');
+const dancingCat =
+  'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif?itemid=10561424';
 const originalImgSrc = img.src;
 const originalImgWidth = img.width;
-let walkForwards = true;
 
-//moving cat to right 10px
+function setCatPositionToBeginning() {
+  img.style.left = '8px';
+}
+setCatPositionToBeginning();
 function catWalk() {
-
-  let currentLeft = parseInt(img.style.left,10); //converting px to int number -- a radix of 10 converts from a decimal number--,
+  const currentPosition = parseFloat(img.style.left);
+  img.style.left = (currentPosition + 8).toString().concat('px');
   const middlePosition = (window.innerWidth - originalImgWidth) / 2;
-  // The innerWidth property returns the width of a window's content area
-  if (walkForwards && (currentLeft > (window.innerWidth-img.width))) {
-    walkForwards = false;
-  }
-
-  if (!walkForwards && (currentLeft <= 0)) {
-    walkForwards = true;
-  }
-  
-  if (walkForwards) {
-    img.style.left = (currentLeft + 8) + 'px';
-  } 
-
-  else {
-    img.style.left = (currentLeft - 8) + 'px';
-  }
-
-  if (currentLeft >= middlePosition && currentLeft <= middlePosition ) {
+  if (
+    currentPosition >= middlePosition - 8 &&
+    currentPosition <= middlePosition + 8
+  ) {
     clearInterval(interval);
     img.src = dancingCat;
-    setTimeout(function() {
-        img.src = originalImgSrc;
-        img.style.left = (currentLeft + 20) + 'px';
-        interval = setInterval(catWalk, 50);
+    setTimeout(function () {
+      img.src = originalImgSrc;
+      img.style.left = (currentPosition + 10).toString().concat('px');
+      interval = setInterval(catWalk, 50);
     }, 5000);
-}
-
+  }
+  if (currentPosition > window.innerWidth) {
+    setCatPositionToBeginning();
+  }
 }
 let interval = setInterval(catWalk, 50);
 // window.setInterval(catWalk, 50);
 
 // TODO execute `catWalk` when the browser has completed loading the page
-                                                                                              
