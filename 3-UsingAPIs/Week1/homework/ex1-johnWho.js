@@ -13,7 +13,6 @@ const getAnonName = (firstName, callback) => {
       callback(new Error("You didn't pass in a first name!"));
       return;
     }
-
     const fullName = `${firstName} Doe`;
 
     callback(fullName);

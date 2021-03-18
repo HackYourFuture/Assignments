@@ -1,0 +1,10 @@
+*** Unit Test Error Report ***
+
+- Generated HTML HTML should be syntactically valid
+  inline
+    10:282  error  <img> is missing required "alt" attribute  wcag/h37
+    10:515  error  <img> is missing required "alt" attribute  wcag/h37
+    10:739  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 3 problems (3 errors, 0 warnings)
+  

@@ -142,3 +142,52 @@ ex2-aboutMe/index.js:14:52 - Unknown word (Burki)
 2021-02-27 01:13:01 info: ---------------------------------------
 2021-02-27 01:13:07 info: All unit tests passed.
 2021-02-27 01:13:11 info: All steps were completed successfully
+2021-03-18 09:08:59 info: ---------------------------------------
+2021-03-18 09:08:59 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-18 09:08:59 info: ---------------------------------------
+2021-03-18 09:08:59 info: Exercise has not yet been modified
+2021-03-18 09:09:04 error: *** Unit Test Error Report ***
+
+- getAnonName should call `new Promise()`
+- getAnonName should take a single argument
+- getAnonName should return a resolved promise when called with a string argument,
+- getAnonName should return a rejected promise when called without an argument,
+
+2021-03-18 11:49:42 info: ---------------------------------------
+2021-03-18 11:49:42 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-18 11:49:42 info: ---------------------------------------
+2021-03-18 11:49:49 error: *** Unit Test Error Report ***
+
+- getAnonName should call `new Promise()`
+- getAnonName should take a single argument
+- getAnonName should return a resolved promise when called with a string argument,
+- getAnonName should return a rejected promise when called without an argument,
+
+2021-03-18 11:49:55 error: *** Spell Checker Report ***
+
+ex1-johnWho.js:16:18 - Unknown word (SDFG)
+2021-03-18 11:50:52 info: ----------------------------------------
+2021-03-18 11:50:52 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-03-18 11:50:52 info: ----------------------------------------
+2021-03-18 11:51:02 error: *** Unit Test Error Report ***
+
+- Generated HTML HTML should be syntactically valid
+  inline
+    10:282  error  <img> is missing required "alt" attribute  wcag/h37
+    10:515  error  <img> is missing required "alt" attribute  wcag/h37
+    10:739  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 3 problems (3 errors, 0 warnings)
+  
+
+2021-03-18 11:54:20 info: ----------------------------------------------
+2021-03-18 11:54:20 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-03-18 11:54:20 info: ----------------------------------------------
+2021-03-18 11:54:20 info: Exercise has not yet been modified
+2021-03-18 11:54:26 error: *** Unit Test Error Report ***
+
+- giveCompliment should take a single parameter
+- giveCompliment should include a `compliments` array initialized with 10 strings
+  No such array found
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+
