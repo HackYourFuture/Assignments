@@ -191,3 +191,13 @@ ex1-johnWho.js:16:18 - Unknown word (SDFG)
   No such array found
 - giveCompliment should give a random compliment: You are `compliment`, `name`!
 
+2021-03-18 12:23:58 info: ---------------------------------------
+2021-03-18 12:23:58 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-18 12:23:58 info: ---------------------------------------
+2021-03-18 12:24:03 error: *** Unit Test Error Report ***
+
+- getAnonName should call `new Promise()`
+- getAnonName should take a single argument
+- getAnonName should return a resolved promise when called with a string argument,
+- getAnonName should return a rejected promise when called without an argument,
+
