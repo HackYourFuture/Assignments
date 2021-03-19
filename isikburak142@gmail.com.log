@@ -282,3 +282,8 @@ npm ERR!     C:\Users\31685\AppData\Local\npm-cache\_logs\2021-03-19T11_26_01_35
 2021-03-19 07:43:10 info: ---------------------------------------
 2021-03-19 07:43:17 info: All unit tests passed.
 2021-03-19 07:43:20 info: All steps were completed successfully
+2021-03-20 12:35:26 info: ---------------------------------------
+2021-03-20 12:35:26 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-20 12:35:26 info: ---------------------------------------
+2021-03-20 12:35:33 info: All unit tests passed.
+2021-03-20 12:35:37 info: All steps were completed successfully

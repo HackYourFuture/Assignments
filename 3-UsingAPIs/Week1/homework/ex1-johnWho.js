@@ -12,7 +12,7 @@ const getAnonName = (firstName) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (!firstName) {
-        reject(new Error("You didn't pass in a first name!"));
+        reject(new Error("You didn't pass in a first name!")); //new Error provides an object (error is an object that's why reject should return an object.)
       } else {
         const fullName = `${firstName} Doe`;
         resolve(fullName);
