@@ -265,3 +265,20 @@ npm ERR!     C:\Users\31685\AppData\Local\npm-cache\_logs\2021-03-19T11_26_01_35
 
 - getAnonName should return a rejected promise when called without an argument
 
+2021-03-19 04:36:22 info: -------------------------------------------------
+2021-03-19 04:36:22 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-19 04:36:22 info: -------------------------------------------------
+2021-03-19 04:36:31 info: All unit tests passed.
+2021-03-19 04:36:37 info: All steps were completed successfully
+2021-03-19 07:42:07 info: ---------------------------------------
+2021-03-19 07:42:07 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-19 07:42:07 info: ---------------------------------------
+2021-03-19 07:42:14 error: *** Unit Test Error Report ***
+
+- getAnonName should return a rejected promise when called without an argument
+
+2021-03-19 07:43:10 info: ---------------------------------------
+2021-03-19 07:43:10 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-19 07:43:10 info: ---------------------------------------
+2021-03-19 07:43:17 info: All unit tests passed.
+2021-03-19 07:43:20 info: All steps were completed successfully

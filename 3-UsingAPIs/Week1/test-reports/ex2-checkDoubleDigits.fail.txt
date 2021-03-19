@@ -1,4 +1,0 @@
-*** Unit Test Error Report ***
-
-- checkDoubleDigits (5) should return a rejected promise with an Error object
-- checkDoubleDigits (123) should return a rejected promise with an Error object

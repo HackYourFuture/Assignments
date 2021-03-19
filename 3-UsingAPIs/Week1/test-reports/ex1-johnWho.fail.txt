@@ -1,3 +1,0 @@
-*** Unit Test Error Report ***
-
-- getAnonName should return a rejected promise when called without an argument
