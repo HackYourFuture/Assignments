@@ -217,3 +217,51 @@ ex1-johnWho.js:16:18 - Unknown word (SDFG)
 - checkDoubleDigits (5) should return a rejected promise with an Error object
 - checkDoubleDigits (123) should return a rejected promise with an Error object
 
+2021-03-19 12:25:47 info: -------------------------------------------------
+2021-03-19 12:25:47 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-19 12:25:47 info: -------------------------------------------------
+2021-03-19 12:26:01 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-checkDoubleDigits --silent false --verbose false --reporters="C:\Homework\test-runner\CustomReporter.js"
+Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (C:\Homework\node_modules\jest-jasmine2\build\jasmine\Spec.js:116:22)
+    at new Spec (C:\Homework\node_modules\jest-jasmine2\build\setup_jest_globals.js:78:9)
+    at specFactory (C:\Homework\node_modules\jest-jasmine2\build\jasmine\Env.js:523:24)
+    at Env.it (C:\Homework\node_modules\jest-jasmine2\build\jasmine\Env.js:592:24)
+    at Env.it (C:\Homework\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:134:23)
+    at it (C:\Homework\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:100:21)
+    at Suite.<anonymous> (C:\Homework\3-UsingAPIs\Week1\unit-tests\ex2-checkDoubleDigits.test.js:55:3)
+    at addSpecsToSuite (C:\Homework\node_modules\jest-jasmine2\build\jasmine\Env.js:444:51)
+    at Env.describe (C:\Homework\node_modules\jest-jasmine2\build\jasmine\Env.js:414:11)
+    at describe (C:\Homework\node_modules\jest-jasmine2\build\jasmine\jasmineLight.js:88:18)
+    at Object.<anonymous> (C:\Homework\3-UsingAPIs\Week1\unit-tests\ex2-checkDoubleDigits.test.js:8:1)
+    at Runtime._execModule (C:\Homework\node_modules\jest-runtime\build\index.js:1299:24)
+    at Runtime._loadModule (C:\Homework\node_modules\jest-runtime\build\index.js:898:12)
+    at Runtime.requireModule (C:\Homework\node_modules\jest-runtime\build\index.js:746:10)
+    at jasmine2 (C:\Homework\node_modules\jest-jasmine2\build\index.js:230:13)
+    at runTestInternal (C:\Homework\node_modules\jest-runner\build\runTest.js:380:22)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at runTest (C:\Homework\node_modules\jest-runner\build\runTest.js:472:34)
+npm ERR! code 1
+npm ERR! path C:\Homework
+npm ERR! command failed
+npm ERR! command C:\WINDOWS\system32\cmd.exe /d /s /c jest ex2-checkDoubleDigits --silent false --verbose false --reporters=C:\\Homework\\test-runner\\CustomReporter.js
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\31685\AppData\Local\npm-cache\_logs\2021-03-19T11_26_01_354Z-debug.log
+
+2021-03-19 12:26:44 info: -------------------------------------------------
+2021-03-19 12:26:44 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-19 12:26:44 info: -------------------------------------------------
+2021-03-19 12:26:48 error: *** Unit Test Error Report ***
+
+- checkDoubleDigits (5) should return a rejected promise with an Error object
+- checkDoubleDigits (123) should return a rejected promise with an Error object
+
+2021-03-19 12:54:21 info: ---------------------------------------
+2021-03-19 12:54:21 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-19 12:54:21 info: ---------------------------------------
+2021-03-19 12:54:28 error: *** Unit Test Error Report ***
+
+- getAnonName should return a rejected promise when called without an argument
+

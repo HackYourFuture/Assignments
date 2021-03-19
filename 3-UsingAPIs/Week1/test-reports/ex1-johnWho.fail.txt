@@ -1,6 +1,3 @@
 *** Unit Test Error Report ***
 
-- getAnonName should call `new Promise()`
-- getAnonName should take a single argument
-- getAnonName should return a resolved promise when called with a string argument,
-- getAnonName should return a rejected promise when called without an argument,
+- getAnonName should return a rejected promise when called without an argument
