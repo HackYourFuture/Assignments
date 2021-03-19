@@ -128,3 +128,25 @@ Rejected to value: "This is a double digit number!"
 2021-03-19 04:12:08 info: --------------------------------------------
 2021-03-19 04:12:14 info: All unit tests passed.
 2021-03-19 04:12:37 info: All steps were completed successfully
+2021-03-19 04:22:22 info: ----------------------------------------
+2021-03-19 04:22:22 info: >>> Running Unit Test `ex3-rollDice` <<<
+2021-03-19 04:22:22 info: ----------------------------------------
+2021-03-19 04:22:27 info: All unit tests passed.
+2021-03-19 04:22:52 info: All steps were completed successfully
+2021-03-19 04:27:00 info: --------------------------------------------
+2021-03-19 04:27:00 info: >>> Running Unit Test `ex4-pokerDiceAll` <<<
+2021-03-19 04:27:00 info: --------------------------------------------
+2021-03-19 04:27:05 info: All unit tests passed.
+2021-03-19 04:27:30 info: All steps were completed successfully
+2021-03-19 04:27:50 info: -------------------------------------------------
+2021-03-19 04:27:50 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-19 04:27:50 info: -------------------------------------------------
+2021-03-19 04:27:55 error: *** Unit Test Error Report ***
+
+- checkDoubleDigits "(11) should return a promise that resolves to "This is double digit number!"
+
+2021-03-19 04:29:39 info: -------------------------------------------------
+2021-03-19 04:29:39 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-19 04:29:39 info: -------------------------------------------------
+2021-03-19 04:29:44 info: All unit tests passed.
+2021-03-19 04:30:07 info: All steps were completed successfully
