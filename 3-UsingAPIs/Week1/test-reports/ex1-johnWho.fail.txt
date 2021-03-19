@@ -1,0 +1,9 @@
+
+*** ESLint Report ***
+
+ex1-johnWho.js
+  3:9   error  'reject' is assigned a value but never used  no-unused-vars
+  3:17  error  'result' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+

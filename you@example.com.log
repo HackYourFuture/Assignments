@@ -1,0 +1,130 @@
+2021-03-17 04:55:37 info: -------------------------------------------------
+2021-03-17 04:55:37 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-17 04:55:37 info: -------------------------------------------------
+2021-03-17 04:55:45 info: All unit tests passed.
+2021-03-17 04:56:31 info: All steps were completed successfully
+2021-03-18 12:18:21 info: ---------------------------------------
+2021-03-18 12:18:21 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-18 12:18:21 info: ---------------------------------------
+2021-03-18 12:18:31 info: All unit tests passed.
+2021-03-18 12:18:47 error: *** ESLint Report ***
+
+ex1-johnWho.js
+  3:9   error  'reject' is assigned a value but never used  no-unused-vars
+  3:17  error  'result' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2021-03-18 12:23:34 info: ---------------------------------------
+2021-03-18 12:23:34 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-18 12:23:34 info: ---------------------------------------
+2021-03-18 12:23:42 info: All unit tests passed.
+2021-03-18 12:24:00 error: *** ESLint Report ***
+
+ex1-johnWho.js
+  3:9   error  'reject' is assigned a value but never used  no-unused-vars
+  3:17  error  'result' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2021-03-18 12:42:46 info: -------------------------------------------------
+2021-03-18 12:42:46 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-18 12:42:46 info: -------------------------------------------------
+2021-03-18 12:42:51 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-checkDoubleDigits --silent false --verbose false --reporters="C:\Users\dorsn\Desktop\Hyf\Homework\test-runner\CustomReporter.js"
+Error: expect(received).resolves.toEqual()
+
+Received promise rejected instead of resolved
+Rejected to value: "This is double digit number!"
+    at expect (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\expect\build\index.js:134:15)
+    at Object.<anonymous> (C:\Users\dorsn\Desktop\Hyf\Homework\3-UsingAPIs\Week1\unit-tests\ex2-checkDoubleDigits.test.js:50:12)
+    at Object.asyncJestTest (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:106:37)
+    at C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:45:12
+    at new Promise (<anonymous>)
+    at mapper (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:28:19)
+    at C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+
+2021-03-18 12:43:34 info: -------------------------------------------------
+2021-03-18 12:43:34 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-18 12:43:34 info: -------------------------------------------------
+2021-03-18 12:43:38 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-checkDoubleDigits --silent false --verbose false --reporters="C:\Users\dorsn\Desktop\Hyf\Homework\test-runner\CustomReporter.js"
+Error: expect(received).resolves.toEqual()
+
+Received promise rejected instead of resolved
+Rejected to value: "This is double digit number!"
+    at expect (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\expect\build\index.js:134:15)
+    at Object.<anonymous> (C:\Users\dorsn\Desktop\Hyf\Homework\3-UsingAPIs\Week1\unit-tests\ex2-checkDoubleDigits.test.js:50:12)
+    at Object.asyncJestTest (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:106:37)
+    at C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:45:12
+    at new Promise (<anonymous>)
+    at mapper (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:28:19)
+    at C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:75:41
+
+2021-03-18 12:45:37 info: -------------------------------------------------
+2021-03-18 12:50:45 info: -------------------------------------------------
+2021-03-18 12:50:45 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-18 12:50:45 info: -------------------------------------------------
+2021-03-18 12:50:50 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-checkDoubleDigits --silent false --verbose false --reporters="C:\Users\dorsn\Desktop\Hyf\Homework\test-runner\CustomReporter.js"
+Error: expect(received).resolves.toEqual()
+
+Received promise rejected instead of resolved
+Rejected to value: "This is double digit number!"
+    at expect (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\expect\build\index.js:134:15)
+    at Object.<anonymous> (C:\Users\dorsn\Desktop\Hyf\Homework\3-UsingAPIs\Week1\unit-tests\ex2-checkDoubleDigits.test.js:50:12)
+    at Object.asyncJestTest (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:106:37)
+    at C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:45:12
+    at new Promise (<anonymous>)
+    at mapper (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:28:19)
+    at C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+
+2021-03-19 10:28:22 info: ---------------------------------------
+2021-03-19 10:28:22 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-03-19 10:28:22 info: ---------------------------------------
+2021-03-19 10:28:31 info: All unit tests passed.
+2021-03-19 10:28:45 error: *** ESLint Report ***
+
+ex1-johnWho.js
+  3:9   error  'reject' is assigned a value but never used  no-unused-vars
+  3:17  error  'result' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2021-03-19 10:39:36 info: -------------------------------------------------
+2021-03-19 10:39:36 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-19 10:39:36 info: -------------------------------------------------
+2021-03-19 10:39:41 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-checkDoubleDigits --silent false --verbose false --reporters="C:\Users\dorsn\Desktop\Hyf\Homework\test-runner\CustomReporter.js"
+Error: expect(received).resolves.toEqual()
+
+Received promise rejected instead of resolved
+Rejected to value: "This is a double digit number!"
+    at expect (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\expect\build\index.js:134:15)
+    at Object.<anonymous> (C:\Users\dorsn\Desktop\Hyf\Homework\3-UsingAPIs\Week1\unit-tests\ex2-checkDoubleDigits.test.js:50:12)
+    at Object.asyncJestTest (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:106:37)
+    at C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:45:12
+    at new Promise (<anonymous>)
+    at mapper (C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:28:19)
+    at C:\Users\dorsn\Desktop\Hyf\Homework\node_modules\jest-jasmine2\build\queueRunner.js:75:41
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+
+2021-03-19 03:24:41 info: --------------------------------------------
+2021-03-19 03:24:41 info: >>> Running Unit Test `ex4-pokerDiceAll` <<<
+2021-03-19 03:24:41 info: --------------------------------------------
+2021-03-19 03:24:49 info: All unit tests passed.
+2021-03-19 03:25:17 info: All steps were completed successfully
+2021-03-19 04:12:08 info: --------------------------------------------
+2021-03-19 04:12:08 info: >>> Running Unit Test `ex4-pokerDiceAll` <<<
+2021-03-19 04:12:08 info: --------------------------------------------
+2021-03-19 04:12:14 info: All unit tests passed.
+2021-03-19 04:12:37 info: All steps were completed successfully
