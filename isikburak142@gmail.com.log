@@ -201,3 +201,19 @@ ex1-johnWho.js:16:18 - Unknown word (SDFG)
 - getAnonName should return a resolved promise when called with a string argument,
 - getAnonName should return a rejected promise when called without an argument,
 
+2021-03-19 11:53:46 info: -------------------------------------------------
+2021-03-19 11:53:46 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-19 11:53:46 info: -------------------------------------------------
+2021-03-19 11:53:52 error: *** Unit Test Error Report ***
+
+- checkDoubleDigits (5) should return a rejected promise with an Error object
+- checkDoubleDigits (123) should return a rejected promise with an Error object
+
+2021-03-19 11:54:46 info: -------------------------------------------------
+2021-03-19 11:54:46 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-19 11:54:46 info: -------------------------------------------------
+2021-03-19 11:54:50 error: *** Unit Test Error Report ***
+
+- checkDoubleDigits (5) should return a rejected promise with an Error object
+- checkDoubleDigits (123) should return a rejected promise with an Error object
+
