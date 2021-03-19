@@ -287,3 +287,22 @@ npm ERR!     C:\Users\31685\AppData\Local\npm-cache\_logs\2021-03-19T11_26_01_35
 2021-03-20 12:35:26 info: ---------------------------------------
 2021-03-20 12:35:33 info: All unit tests passed.
 2021-03-20 12:35:37 info: All steps were completed successfully
+2021-03-20 12:38:55 info: -------------------------------------------------
+2021-03-20 12:38:55 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-20 12:38:55 info: -------------------------------------------------
+2021-03-20 12:38:59 error: *** Unit Test Error Report ***
+
+- checkDoubleDigits "(11) should return a promise that resolves to "This is double digit number!"
+
+2021-03-20 12:40:39 info: -------------------------------------------------
+2021-03-20 12:40:39 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-20 12:40:39 info: -------------------------------------------------
+2021-03-20 12:40:45 error: *** Unit Test Error Report ***
+
+- checkDoubleDigits "(11) should return a promise that resolves to "This is double digit number!"
+
+2021-03-20 12:47:05 info: -------------------------------------------------
+2021-03-20 12:47:05 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-03-20 12:47:05 info: -------------------------------------------------
+2021-03-20 12:47:10 info: All unit tests passed.
+2021-03-20 12:47:14 info: All steps were completed successfully
