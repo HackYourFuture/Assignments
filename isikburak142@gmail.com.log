@@ -306,3 +306,13 @@ npm ERR!     C:\Users\31685\AppData\Local\npm-cache\_logs\2021-03-19T11_26_01_35
 2021-03-20 12:47:05 info: -------------------------------------------------
 2021-03-20 12:47:10 info: All unit tests passed.
 2021-03-20 12:47:14 info: All steps were completed successfully
+2021-03-20 12:53:42 info: --------------------------------------------
+2021-03-20 12:53:42 info: >>> Running Unit Test `ex4-pokerDiceAll` <<<
+2021-03-20 12:53:42 info: --------------------------------------------
+2021-03-20 12:53:46 info: All unit tests passed.
+2021-03-20 12:53:50 info: All steps were completed successfully
+2021-03-20 12:58:43 info: --------------------------------------------
+2021-03-20 12:58:43 info: >>> Running Unit Test `ex4-pokerDiceAll` <<<
+2021-03-20 12:58:43 info: --------------------------------------------
+2021-03-20 12:58:47 info: All unit tests passed.
+2021-03-20 12:58:50 info: All steps were completed successfully

@@ -18,12 +18,14 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 function rollTheDices() {
   // TODO Refactor this function
   const dices = [1, 2, 3, 4, 5];
-  return rollDice(1);
+  const combinedPromise = dices.map((element) => rollDice(element));
+  Promise.all(combinedPromise)
+    .then((results) => {
+      console.log('Resolved!', results);
+    })
+    .catch((error) => console.log('Rejected!', error.message));
 }
-
-rollTheDices()
-  .then((results) => console.log('Resolved!', results))
-  .catch((error) => console.log('Rejected!', error.message));
+rollTheDices();
 
 // ! Do not change or remove the code below
 module.export = rollTheDices;
