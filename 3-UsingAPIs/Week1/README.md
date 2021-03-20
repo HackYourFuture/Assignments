@@ -99,7 +99,7 @@ rollDice((error, value) => {
 
 > A couple of comments about this code:
 >
-> - In real life, a dice, when thrown, will autonomously run its course until it comes to a complete standstill, abiding the laws of nature. How long it will roll depends on the force of the throw. In our simulation that "force" is represented by the random value assigned to `randomRollsToDo`. As if subjected to the laws of nature, we insist that our simulated dices continue to roll until they have reached their randomly assigned number of rolls-to-do.
+> - In real life, a dice, when thrown, will autonomously run its course until it comes to a complete standstill, abiding the laws of nature. How long it will roll depends on the force of the throw. In our simulation that "force" is represented by the random value assigned to `randomRollsToDo`. As if subjected to the laws of nature, we insist that our simulated dices continue to roll until they have reached their randomly assigned number of rolls-to-do, even after dropping of the table.
 > - The "error first" callback format used in this example, using two parameters, is commonly used in Node.js. To communicate back _failure_, the callback is called with a _single_ argument: the error value (usually a JavaScript `Error` object). In the _successful_ case the callback is called with _two_ arguments, the first one being `null` (i.e., no error) and the second one containing the actual result.
 
 Here is what the output could look like for a successful throw:

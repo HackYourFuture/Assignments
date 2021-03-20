@@ -24,6 +24,9 @@ describe('getAnonName', () => {
             }
           }
         },
+        FunctionDeclaration({ params }) {
+          state.paramCount = params.length;
+        },
         NewExpression({ callee }) {
           if (callee.type === 'Identifier' && callee.name === 'Promise') {
             state.newPromise = true;
