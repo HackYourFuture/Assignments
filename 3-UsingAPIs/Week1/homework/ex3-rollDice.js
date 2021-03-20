@@ -17,7 +17,7 @@ function rollDice() {
     console.log(`Dice scheduled for ${randomRollsToDo} rolls...`);
 
     const rollOnce = (roll) => {
-      // Compute a random dice value for the current roll
+      // Compute a random dice value for the current roll (39.30 new example)
       const value = Math.floor(Math.random() * 6) + 1;
       console.log(`Dice value is now: ${value}`);
 
