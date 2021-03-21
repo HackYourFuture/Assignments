@@ -340,3 +340,8 @@ ex3-rollDice.js
 2021-03-21 11:22:38 info: --------------------------------------------
 2021-03-21 11:22:45 info: All unit tests passed.
 2021-03-21 11:22:52 info: All steps were completed successfully
+2021-03-21 11:40:12 info: ----------------------------------------
+2021-03-21 11:40:12 info: >>> Running Unit Test `ex3-rollDice` <<<
+2021-03-21 11:40:12 info: ----------------------------------------
+2021-03-21 11:40:16 info: All unit tests passed.
+2021-03-21 11:40:19 info: All steps were completed successfully
