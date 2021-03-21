@@ -28,4 +28,4 @@ rollTheDices()
   .catch((error) => console.log('Rejected!', error.message));
 
 // ! Do not change or remove the code below
-module.export = rollTheDices;
+module.exports = rollTheDices;
