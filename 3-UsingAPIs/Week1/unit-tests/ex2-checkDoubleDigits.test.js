@@ -42,13 +42,13 @@ describe('checkDoubleDigits', () => {
     ).toBe(true);
   });
 
-  it('"(11) should return a promise that resolves to "This is double digit number!"', () => {
+  it('"(11) should return a promise that resolves to "This is a double digit number!"', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = checkDoubleDigits(11);
     expect(isPromise(promise)).toBe(true);
     return expect(promise).resolves.toEqual(
-      expect.stringContaining('This is double digit number!')
+      expect.stringContaining('This is a double digit number!')
     );
   });
 
