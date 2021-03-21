@@ -18,8 +18,8 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 function rollTheDices() {
   // TODO Refactor this function
   const dices = [1, 2, 3, 4, 5];
-  const combinedPromise = dices.map((element) => rollDice(element));
-  Promise.all(combinedPromise)
+  const myAllPromises = dices.map((element) => rollDice(element));
+  Promise.all(myAllPromises)
     .then((results) => {
       console.log('Resolved!', results);
     })
