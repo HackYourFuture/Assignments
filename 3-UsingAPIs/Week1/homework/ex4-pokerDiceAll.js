@@ -30,3 +30,5 @@ rollTheDices()
 
 // ! Do not change or remove the code below
 module.export = rollTheDices;
+
+/* Because we do not indicate for the promise to stop at the specific event of rolling off the table, so it just keeps executing */
