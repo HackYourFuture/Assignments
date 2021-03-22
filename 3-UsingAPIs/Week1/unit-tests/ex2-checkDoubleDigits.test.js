@@ -23,6 +23,11 @@ describe('checkDoubleDigits', () => {
             state.newPromise = true;
           }
         },
+        CallExpression({ callee, arguments: args }) {
+          if (['resolve', 'reject'].includes(callee.name)) {
+            state[callee.name] = args.length;
+          }
+        },
       });
   });
 
@@ -33,6 +38,16 @@ describe('checkDoubleDigits', () => {
   it('should call new Promise()', () => {
     if (!exported) return;
     expect(state.newPromise).toBeDefined();
+  });
+
+  it(': `resolve()` should be called with a one argument', () => {
+    if (!exported) return;
+    expect(state.resolve).toBe(1);
+  });
+
+  it(': `reject()` should be called with a one argument', () => {
+    if (!exported) return;
+    expect(state.reject).toBe(1);
   });
 
   it('should be a function that takes a single argument', () => {

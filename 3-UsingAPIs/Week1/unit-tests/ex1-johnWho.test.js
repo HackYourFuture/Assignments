@@ -32,6 +32,11 @@ describe('getAnonName', () => {
             state.newPromise = true;
           }
         },
+        CallExpression({ callee, arguments: args }) {
+          if (['resolve', 'reject'].includes(callee.name)) {
+            state[callee.name] = args.length;
+          }
+        },
       });
   });
 
@@ -49,7 +54,17 @@ describe('getAnonName', () => {
     expect(state.paramCount).toBe(1);
   });
 
-  it('should return a resolved promise when called with a string argument', () => {
+  it(': `resolve()` should be called with a one argument', () => {
+    if (!exported) return;
+    expect(state.resolve).toBe(1);
+  });
+
+  it(': `reject()` should be called with a one argument', () => {
+    if (!exported) return;
+    expect(state.reject).toBe(1);
+  });
+
+  it('should resolve when called with a string argument', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = getAnonName('John');
@@ -57,7 +72,7 @@ describe('getAnonName', () => {
     return expect(promise).resolves.toEqual('John Doe');
   });
 
-  it('should return a rejected promise when called without an argument', () => {
+  it('should reject with an Error object when called without an argument', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = getAnonName();
