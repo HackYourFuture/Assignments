@@ -21,7 +21,10 @@ function rollTheDices() {
       results.push(value);
       return rollDice(2);
     })
-    .then(() => console.log('Resolved!', results))
+    .then((value) => {
+      results.push(value);
+      console.log('Resolved!', results);
+    })
     .catch((error) => console.log('Rejected!', error.message));
 }
 
