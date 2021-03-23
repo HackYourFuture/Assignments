@@ -41,7 +41,7 @@ In this exercise you're going to do several things:
 Function | Purpose
 ---------|--------
 `fetchData` | In the `fetchData` function, make use of `fetch` and its Promise syntax in order to get the data from the public API. Errors (HTTP or network errors) should be logged to the console.
-`fetchAndPopulatePokemons` | Use `fetchData()` to load the pokemon data from the public API and populates the `<select>` element in the DOM.
+`fetchAndPopulatePokemons` | Use `fetchData()` to load the pokemon data from the public API and populate the `<select>` element in the DOM.
 `fetchImage` | Use `fetchData()` to fetch the selected image and update the `<img>` element in the DOM.
 `main` | The `main` function orchestrates the other functions. The `main` function should be executed when the window has finished loading.
 
@@ -73,7 +73,7 @@ function rollDiceUntil(wantedValue) {
 }
 ```
 
-Hmm, while this works fine it is probably a bit difficult to wrap your head around. Even if you fully understand what it does (we don't expect you to, at this stage) it is easy to make a mistake, for instance, by forgetting to include a `return` somewhere.
+Hmm, while this works fine it is probably a bit difficult to wrap your head around. Even if you fully understand what it does (don't worry if you don't) it is easy to make a mistake, for instance, by forgetting to include a `return` keyword somewhere.
 
 Luckily, this code can be rewritten to be much simpler, using async/await:
 
@@ -85,7 +85,7 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
 
 #### File `ex4-diceRace.js`
 
-In this exercise we will again throw five dices in one go, but this time we are only interested in the first dice that comes to a standstill. This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
+In this exercise we will again throw five dices in one go, but this time we are only interested in the first dice that settles that settles successfully (resolved promise) or rolls off the table (rejected promise). This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
 
 1. Complete the function `rollTheDices()` by using `Promise.race()`.
 2. Refactor the function `main()` using async/await and try/catch.
@@ -95,7 +95,7 @@ In this exercise we will again throw five dices in one go, but this time we are 
 
 #### File: `ex5-vscDebug.js`
 
-In this exercise we will practice working with the VSCode Debugger. You can just follow along as we go.
+In this exercise we will practice working with the VSCode Debugger. You can just follow along as we go. Note that we will not work with the browser this time. Instead, all output will be logged to the terminal window.
 
 > Read more about debuggers in general in the Study Guide: [Debuggers](https://hackyourfuture.github.io/study/#/tools/debuggers)
 
