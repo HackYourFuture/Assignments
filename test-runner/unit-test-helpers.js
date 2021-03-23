@@ -35,8 +35,8 @@ function beforeAllHelper(testFilePath, options = {}) {
       const spy = jest.spyOn(console, 'log').mockImplementation();
       result.exported = require(exercisePath);
       spy.mockRestore();
-    } catch (_) {
-      // Leave results.exported undefined;
+    } catch (err) {
+      console.log('Error attempting to `require`:', err);
     }
   }
 
