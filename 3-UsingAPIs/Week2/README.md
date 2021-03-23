@@ -76,11 +76,11 @@ The exercise file `ex4-rollAnAce.js` includes a function that does just that, us
 ```js
 function rollDiceUntil(wantedValue) {
   const recurse = () => {
-    return rollDice().then((settledValue) => {
-      if (settledValue !== wantedValue) {
+    return rollDice().then((value) => {
+      if (value !== wantedValue) {
         return recurse();
       }
-      return settledValue;
+      return value;
     });
   };
   return recurse();

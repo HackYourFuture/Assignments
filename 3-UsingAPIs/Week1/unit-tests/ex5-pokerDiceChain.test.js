@@ -1,36 +1,16 @@
-/* eslint-disable hyf/camelcase */
-const walk = require('acorn-walk');
 const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
-describe('ex4-pokerDiceAll', () => {
-  const state = {};
-  let exported, rootNode, rollTheDices;
+describe('ex5-pokerDiceChain', () => {
+  let exported, rollTheDices;
 
   beforeAll(() => {
-    ({ exported, rootNode } = beforeAllHelper(__filename, {
-      zeroTimeout: true,
-      zeroRandom: true,
-      parse: true,
-    }));
+    ({ exported } = beforeAllHelper(__filename)),
+      { zeroTimeout: true, zeroRandom: true };
     rollTheDices = exported;
-
-    rootNode &&
-      walk.simple(rootNode, {
-        MemberExpression({ object, property }) {
-          if (object.name === 'Promise' && property.name === 'all') {
-            state.promiseAll = true;
-          }
-        },
-      });
   });
 
   it('should exist and be executable', () => {
     expect(exported).toBeDefined();
-  });
-
-  it('should use `Promise.all()`', () => {
-    if (!exported) return;
-    expect(state.promiseAll).toBeDefined();
   });
 
   it('should resolve when all dices settle successfully', () => {

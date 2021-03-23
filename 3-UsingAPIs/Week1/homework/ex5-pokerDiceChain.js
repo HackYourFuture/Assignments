@@ -23,6 +23,7 @@ function rollTheDices() {
     })
     .then((value) => {
       results.push(value);
+      return results;
     });
 }
 

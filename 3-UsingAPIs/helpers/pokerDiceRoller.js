@@ -56,6 +56,8 @@ function createDiceRoller(logFn = logger) {
 
       logFn(`Dice ${dice} scheduled for ${randomRollsToDo} rolls...`);
 
+      let offTable = false;
+
       // Function that executes a roll, called recursively until the mandated
       // number of rolls (`randomRollsToDo`) has been done.
       const rollOnce = (roll) => {
@@ -67,6 +69,10 @@ function createDiceRoller(logFn = logger) {
         // If the dice rolls of the table we reject the promise (but that
         // doesn't stop the dice from completing it course).
         if (roll > OFF_TABLE_AFTER) {
+          if (!offTable) {
+            logFn(`Dice ${dice} continues rolling on the floor...`);
+            offTable = true;
+          }
           reject(new Error(`Dice ${dice} rolled off the table.`));
         }
 

@@ -3,8 +3,6 @@
 const walk = require('acorn-walk');
 const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
-const isPromise = (obj) => typeof obj === 'object' && 'then' in obj;
-
 describe('getAnonName', () => {
   const state = { paramCount: 0 };
   let exported, rootNode, getAnonName;
@@ -68,7 +66,7 @@ describe('getAnonName', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = getAnonName('John');
-    expect(isPromise(promise)).toBe(true);
+    expect(promise).toBeInstanceOf(Promise);
     return expect(promise).resolves.toEqual('John Doe');
   });
 
@@ -76,7 +74,7 @@ describe('getAnonName', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = getAnonName();
-    expect(isPromise(promise)).toBe(true);
+    expect(promise).toBeInstanceOf(Promise);
     return expect(promise).rejects.toBeInstanceOf(Error);
   });
 });
