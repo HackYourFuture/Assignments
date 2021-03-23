@@ -10,11 +10,12 @@ The homework for this week can be found in the `homework` folder.
 
 Who knew programmers could be funny?
 
-1. Complete the function `requestData()` using `XMLHttpRequest` to make a request to the url passed to it as an argument. The function should return a promise. Make sure that the promise is rejected in case of HTTP or network errors.
+1. Complete the function `requestData()` using `fetch()` to make a request to the url passed to it as an argument. The function should return a promise. Make sure that the promise is rejected in case of HTTP or network errors.
 2. Notice that the function `main()` calls `requestData()`, passing it the url `https://xkcd.now.sh/?comic=latest`. Try and run the code in the browser and open the browser's console to inspect the data returned from the request.
 3. Next, complete the function `renderImage()` to render an image as an `<img>` element appended to the document's body, using the data returned from the API.
 4. Complete the function `renderError()` to render any errors as an `<h1>` element appended to the document's body.
-5. Test error handling, for instance, by temporarily changing the `.sh` in the url with `.shx`. There is no server at the modified url, therefore this should result in a network (DNS) error.
+5. Refactor the `main()` function to use `async/await`.
+6. Test error handling, for instance, by temporarily changing the `.sh` in the url with `.shx`. There is no server at the modified url, therefore this should result in a network (DNS) error.
 
 ### Exercise 2: Gotta catch 'em all
 
@@ -46,26 +47,11 @@ Function | Purpose
 
 - Use async/await and try/catch to handle promises.
 
-- Try and avoid using global variables. Instead, use function parameters and return values to pass data back and forth.
+- Try and avoid using global variables. Instead, try and use function parameters and return values to pass data back and forth.
 
-### Exercise 3: Dog photo gallery
+### Exercise 3: Roll an ACE
 
-#### Folder: `dogPhotoGallery`
-
-Let's make a randomized dog photo gallery!
-
-Write a function that makes a HTTP Request to `https://dog.ceo/api/breeds/image/random`. It should trigger after clicking a button in your webpage. Every time the button is clicked it should append a new dog image to the DOM.
-
-- Create an `index.html` file that will display your random image.
-- Add two `<button>` and one `<ul>` element, either in the HTML or through JavaScript.
-- Write two versions for the button functionality: one with `XMLHttpRequest`, and the other with `axios`.
-- When any one of the two buttons is clicked it should make a HTTP Request to `https://dog.ceo/api/breeds/image/random`.
-- After receiving the data, append to the `<ul>` a `<li>` that contains an `<img>` element with the dog image.
-- Incorporate error handling: log to the console the error message.
-
-### Exercise 4: Roll an ACE
-
-#### File `ex4-rollAnAce.js`
+#### File `ex3-rollAnAce.js`
 
 Last week we did an exercise where we threw five dices in one go for a game of Poker Dice. In the current exercise we use a single dice only, but now the objective is to keep rethrowing that dice until we get an ACE, or until a dice rolls off the table.
 
@@ -95,9 +81,9 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
 2. Now, rewrite the body of the `rollDiceUntil()` function using async/await. Hint: a `while` loop may come handy.
 3. Refactor the function `main()` to use async/await and try/catch.
 
-### Exercise 5: Dice Race
+### Exercise 4: Dice Race
 
-#### File `ex5-diceRace.js`
+#### File `ex4-diceRace.js`
 
 In this exercise we will again throw five dices in one go, but this time we are only interested in the first dice that comes to a standstill. This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
 
@@ -105,9 +91,9 @@ In this exercise we will again throw five dices in one go, but this time we are 
 2. Refactor the function `main()` using async/await and try/catch.
 3. Once you got this working, you may observe that some dices continue rolling for some undetermined time after the promise returned by `Promise.race()` resolves. Do you know why? Add your answer as a comment to the bottom of the file.
 
-### Exercise 6: Using the VSCode Debugger
+### Exercise 5: Using the VSCode Debugger
 
-#### File: `ex6-vscDebug.js`
+#### File: `ex5-vscDebug.js`
 
 In this exercise we will practice working with the VSCode Debugger. You can just follow along as we go.
 
@@ -469,9 +455,9 @@ We still have an issue with displaying the locations for `birth` and `death`. We
 
 For more information about the VSCode debugger, visit: [Debugging in Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging).
 
-### Exercise 7: Using the Browser Debugger
+### Exercise 6: Using the Browser Debugger
 
-#### Folder: `ex7-browserDebug`
+#### Folder: `ex6-browserDebug`
 
 This exercise is about debugging similar code as in the previous one, but this time the program is web-based. Instead of the VSCode Debugger you must now use the debugger built into the browser, which has very similar features. Rather than repeating all the steps in detail here, we refer you to an excellent tutorial how to use this tool out on the web:
 

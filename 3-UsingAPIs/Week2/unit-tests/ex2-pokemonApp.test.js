@@ -17,13 +17,9 @@ describe('pokemonApp', () => {
 
     rootNode &&
       walk.simple(rootNode, {
-        AwaitExpression({ argument }) {
-          if (argument.type !== 'CallExpression') {
-            return;
-          }
-          const { callee } = argument;
-          if (callee?.name === 'fetch') {
-            state.awaitFetch = true;
+        CallExpression({ callee }) {
+          if (callee.name === 'fetch') {
+            state.fetch = true;
           }
         },
         TryStatement({ handler }) {
@@ -31,10 +27,17 @@ describe('pokemonApp', () => {
             state.tryCatch = true;
           }
         },
+        AwaitExpression() {
+          state.awaitFetch = true;
+        },
       });
   });
 
   it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
+
+  it('should use `fetch()`', () => {
+    expect(state.fetch).toBeDefined();
+  });
 
   it('should use `await fetch()`', () => {
     expect(state.awaitFetch).toBeDefined();
