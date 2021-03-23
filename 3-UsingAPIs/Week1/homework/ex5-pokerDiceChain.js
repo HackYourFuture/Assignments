@@ -16,19 +16,19 @@ function rollTheDices() {
   const results = [];
 
   // TODO: expand the chain to include five dices
-  rollDice(1)
+  return rollDice(1)
     .then((value) => {
       results.push(value);
       return rollDice(2);
     })
     .then((value) => {
       results.push(value);
-      console.log('Resolved!', results);
-    })
-    .catch((error) => console.log('Rejected!', error.message));
+    });
 }
 
-rollTheDices();
+rollTheDices()
+  .then((results) => console.log('Resolved!', results))
+  .catch((error) => console.log('Rejected!', error.message));
 
 // ! Do not change or remove the code below
 module.exports = rollTheDices;
