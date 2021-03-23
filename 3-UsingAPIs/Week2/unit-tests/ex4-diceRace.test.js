@@ -2,7 +2,7 @@
 const walk = require('acorn-walk');
 const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
-describe('ex4-pokerDiceAll', () => {
+describe('ex5-diceRace', () => {
   const state = {};
   let exported, rootNode, rollTheDices;
 
@@ -17,7 +17,7 @@ describe('ex4-pokerDiceAll', () => {
     rootNode &&
       walk.simple(rootNode, {
         MemberExpression({ object, property }) {
-          if (object.name === 'Promise' && property.name === 'all') {
+          if (object.name === 'Promise' && property.name === 'race') {
             state.promiseAll = true;
           }
         },
@@ -28,12 +28,12 @@ describe('ex4-pokerDiceAll', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should use `Promise.all()`', () => {
+  it('should use `Promise.race()`', () => {
     if (!exported) return;
     expect(state.promiseAll).toBeDefined();
   });
 
-  it('should resolve when all dices settle successfully', () => {
+  it('should resolve as soon as a dice settles successfully', () => {
     if (!exported) return;
     expect.assertions(2);
 
@@ -56,7 +56,7 @@ describe('ex4-pokerDiceAll', () => {
     return assertionPromise;
   });
 
-  it('should reject with an Error when a dice rolls off the table', async () => {
+  it('should reject with an Error as soon as a dice rolls off the table', async () => {
     if (!exported) return;
     expect.assertions(2);
 

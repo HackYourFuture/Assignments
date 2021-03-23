@@ -245,3 +245,11 @@ We have also provided some code that demonstrates how to handle throwing a singl
 The provided `rollDice()` function logs the value of a dice as it rolls, time-stamped with the time of day (with millisecond accuracy) to the console. Once you have successfully completed this exercise you will notice that the intermediate messages are output in bursts of up to five at a time as the dices finish rolling asynchronously.
 
 You may also notice that, in the case of a rejected promise, dices that have not yet finished their roll continue to do so. Can you explain why? Please add your answer as a comment to the end of the exercise file.
+
+### Exercise 5: Throw dices sequentially
+
+#### File: `ex5-pokerDiceChain.js`
+
+In the previous exercise we used `Promise.all()` to throw five dices in one go. In the current exercise we will be throwing five dices one at a time, waiting for a dice to settle before throwing the next one. Of course, we still consider a dice rolling off the table to be a showstopper.
+
+To throw the dices sequentially we will be using a _promise chain_. Your job is to expand the given promise chain to include five dices.

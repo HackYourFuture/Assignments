@@ -13,11 +13,11 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 function rollDiceUntil(wantedValue) {
   // TODO: rewrite this function using async/await
   const recurse = () => {
-    return rollDice().then((settledValue) => {
-      if (settledValue !== wantedValue) {
+    return rollDice().then((value) => {
+      if (value !== wantedValue) {
         return recurse();
       }
-      return settledValue;
+      return value;
     });
   };
   return recurse();
