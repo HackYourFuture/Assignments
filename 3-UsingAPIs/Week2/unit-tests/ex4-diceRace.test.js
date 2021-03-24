@@ -2,7 +2,7 @@
 const walk = require('acorn-walk');
 const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
-describe('ex5-diceRace', () => {
+describe('ex4-diceRace', () => {
   const state = {};
   let exported, rootNode, rollTheDices;
 

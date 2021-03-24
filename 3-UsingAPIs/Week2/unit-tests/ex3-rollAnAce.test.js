@@ -2,7 +2,7 @@
 const walk = require('acorn-walk');
 const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
-describe('rollAnAce', () => {
+describe('ex3-rollAnAce', () => {
   const state = {};
   let rootNode;
 
