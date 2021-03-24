@@ -47,7 +47,7 @@ Function | Purpose
 
 - Use async/await and try/catch to handle promises.
 
-- Try and avoid using global variables. Instead, try and use function parameters and return values to pass data back and forth.
+- Try and avoid using global variables. As much as possible, try and use function parameters and return values to pass data back and forth.
 
 ### Exercise 3: Roll an ACE
 
@@ -57,7 +57,7 @@ Last week we did an exercise where we threw five dices in one go for a game of P
 
 The challenge of this exercise is that the outcome of one throw determines whether we need to do a next throw. If the `rollDice()` function resolves to an ACE then we're done. If not, we need another call to `rollDice()` and wait for it to resolve. And we need to repeat this until we get an ACE or until the promise rejects.
 
-The exercise file `ex4-rollAnAce.js` includes a function that does just that, using `.then()` methods. It uses a technique called _recursion_ and looks like this:
+The exercise file `ex3-rollAnAce.js` includes a function that does just that, using `.then()` methods. It uses a technique called _recursion_ and looks like this:
 
 ```js
 function rollDiceUntil(wantedValue) {
@@ -73,7 +73,7 @@ function rollDiceUntil(wantedValue) {
 }
 ```
 
-Hmm, while this works fine it is probably a bit difficult to wrap your head around. Even if you fully understand what it does (don't worry if you don't) it is easy to make a mistake, for instance, by forgetting to include a `return` keyword somewhere.
+Hmm, while this works fine it is probably a bit difficult to wrap your head around. Even if you fully understand what it does (don't worry if you don't) it is easy to make a mistake, for instance, by forgetting to include a `return` keyword somewhere (speaking from experience here :wink:).
 
 Luckily, this code can be rewritten to be much simpler, using async/await:
 
@@ -85,7 +85,7 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
 
 #### File `ex4-diceRace.js`
 
-In this exercise we will again throw five dices in one go, but this time we are only interested in the first dice that settles that settles successfully (resolved promise) or rolls off the table (rejected promise). This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
+In this exercise we will again throw five dices in one go, but this time we are only interested in the first dice that settles successfully (promise resolved) or rolls off the table (promise rejected). This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
 
 1. Complete the function `rollTheDices()` by using `Promise.race()`.
 2. Refactor the function `main()` using async/await and try/catch.
@@ -186,14 +186,14 @@ This will give us some information where the error occurred:
 ```console
 Something went wrong: laureates.forEach is not a function
 TypeError: laureates.forEach is not a function
-    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:19:13)
-    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:27:5)
+    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:19:13)
+    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:27:5)
     at processTicksAndRejections (internal/process/task_queues.js:93:5)
 ```
 
 <!-- cspell:enable -->
 
-The stack trace gives us detailed information about the sequence of functions that have been called when the error occurred, from most recent to least recent. Of direct interest is the most recent call: we can see that the error occurred in line 19, column 13 of the file `ex6-vscDebug.js`:
+The stack trace gives us detailed information about the sequence of functions that have been called when the error occurred, from most recent to least recent. Of direct interest is the most recent call: we can see that the error occurred in line 19, column 13 of the file `ex5-vscDebug.js`:
 
 ```js
 18| function renderLaureates(laureates) {
@@ -222,9 +222,9 @@ When we run the code we now get:
 laureates: Promise { <pending> }
 Something went wrong: laureates.forEach is not a function
 TypeError: laureates.forEach is not a function
-    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:20:13)
-    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:28:5)
-    at Object.<anonymous> (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:35:1)
+    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:20:13)
+    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:28:5)
+    at Object.<anonymous> (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:35:1)
     at Module._compile (internal/modules/cjs/loader.js:1063:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
     at Module.load (internal/modules/cjs/loader.js:928:32)
@@ -292,8 +292,8 @@ Let's now run the code again:
 }
 Something went wrong: laureates.forEach is not a function
 TypeError: laureates.forEach is not a function
-    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:20:13)
-    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:28:5)
+    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:20:13)
+    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:28:5)
     at processTicksAndRejections (internal/process/task_queues.js:93:5)
 ```
 
@@ -390,10 +390,10 @@ Name: Bernard L. Feringa
 Birth: 1951-05-18, [object Object]
 Something went wrong: Cannot read property 'date' of undefined
 TypeError: Cannot read property 'date' of undefined
-    at renderLaureate (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:15:31)
+    at renderLaureate (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:15:31)
     at Array.forEach (<anonymous>)
-    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:19:13)
-    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex6-vscDebug.js:27:5)
+    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:19:13)
+    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:27:5)
     at processTicksAndRejections (internal/process/task_queues.js:93:5)
 Waiting for the debugger to disconnect...
 Waiting for the debugger to disconnect...
