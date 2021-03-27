@@ -57,28 +57,25 @@ Last week we did an exercise where we threw five dices in one go for a game of P
 
 The challenge of this exercise is that the outcome of one throw determines whether we need to do a next throw. If the `rollDice()` function resolves to an ACE then we're done. If not, we need another call to `rollDice()` and wait for it to resolve. And we need to repeat this until we get an ACE or until the promise rejects.
 
-The exercise file `ex3-rollAnAce.js` includes a function that does just that, using `.then()` methods. It uses a technique called _recursion_ and looks like this:
+The exercise file `ex3-rollAnAce.js` includes a function that does just that, using a `.then()` method. It uses a technique called _recursion_ (a function that calls itself) and looks like this:
 
 ```js
 function rollDiceUntil(wantedValue) {
-  const recurse = () => {
-    return rollDice().then((value) => {
-      if (value !== wantedValue) {
-        return recurse();
-      }
-      return value;
-    });
-  };
-  return recurse();
+  return rollDice().then((value) => {
+    if (value !== wantedValue) {
+      return rollDiceUntil(wantedValue);
+    }
+    return value;
+  });
 }
 ```
 
-Hmm, while this works fine it is probably a bit difficult to wrap your head around. Even if you fully understand what it does (don't worry if you don't) it is easy to make a mistake, for instance, by forgetting to include a `return` keyword somewhere (speaking from experience here :wink:).
+Hmm, while this works fine it is probably a bit difficult to wrap your head around. And it is easy to make a mistake, for instance, by forgetting to include a `return` keyword somewhere (speaking from experience here :wink:).
 
 Luckily, this code can be rewritten to be much simpler, using async/await:
 
-1. Run the unmodified exercise and observe that it works as advertised. Observe that the dice must be thrown an unpredictable number of times until we get an ACE or until it rolls off the table.
-2. Now, rewrite the body of the `rollDiceUntil()` function using async/await. Hint: a `while` loop may come handy.
+1. Run the unmodified exercise and observe that it works as advertised. Observe that the dice must be thrown an indeterminate number of times until we get an ACE or until it rolls off the table.
+2. Now, rewrite the body of the `rollDiceUntil()` function using async/await and without using recursion. Hint: a `while` loop may come handy.
 3. Refactor the function `main()` to use async/await and try/catch.
 
 ### Exercise 4: Dice Race
