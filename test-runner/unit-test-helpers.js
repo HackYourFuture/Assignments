@@ -31,20 +31,22 @@ function beforeAllHelper(testFilePath, options = {}) {
   const result = {};
 
   if (!options.noRequire) {
-    let randomSpy, timeoutSpy;
+    let randomSpy, timeoutSpy, intervalSpy, consoleLogSpy;
     try {
       if (options.zeroRandom) {
         randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
       }
-      if (options.zeroTimeout) {
+      if (options.nukeTimeout) {
         timeoutSpy = jest.spyOn(global, 'setTimeout').mockImplementation();
+        intervalSpy = jest.spyOn(global, 'setInterval').mockImplementation();
       }
-      const spy = jest.spyOn(console, 'log').mockImplementation();
+      consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
       result.exported = require(exercisePath);
-      spy.mockRestore();
     } catch (err) {
       console.log('Error attempting to `require`:', err);
     } finally {
+      consoleLogSpy.mockRestore();
+      intervalSpy?.mockRestore();
       timeoutSpy?.mockRestore();
       randomSpy?.mockRestore();
     }
