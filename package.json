@@ -9,12 +9,12 @@
     "it": "node ./test-runner/run-it",
     "alt": "cross-env HOMEWORK_FOLDER=@homework node ./test-runner/run-it",
     "reset-reports": "node ./test-runner/reset-reports",
+    "sysinfo": "node ./test-runner/sysinfo",
     "postinstall": "npm run sysinfo",
     "cleanup": "node ./test-runner/cleanup",
     "encrypt": "node ./test-runner/encrypt",
     "decrypt": "node ./test-runner/decrypt",
-    "precommit": "npm run reset-reports && npm run cleanup",
-    "sysinfo": "node ./test-runner/sysinfo"
+    "compile": "npm run reset-reports && npm run cleanup"
   },
   "repository": {
     "type": "git",
