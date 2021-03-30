@@ -1,0 +1,65 @@
+2021-03-30 12:52:41 info: ---------------------------------------------
+2021-03-30 12:52:41 info: >>> Running Unit Test `ex1-programmerFun` <<<
+2021-03-30 12:52:41 info: ---------------------------------------------
+2021-03-30 12:52:57 info: All unit tests passed.
+2021-03-30 12:53:05 info: All steps were completed successfully
+2021-03-30 12:53:18 info: -----------------------------------------
+2021-03-30 12:53:18 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-03-30 12:53:18 info: -----------------------------------------
+2021-03-30 12:53:26 info: All unit tests passed.
+2021-03-30 12:53:34 info: All steps were completed successfully
+2021-03-30 12:54:15 info: ----------------------------------------
+2021-03-30 12:54:15 info: >>> Running Unit Test `ex4-diceRace` <<<
+2021-03-30 12:54:15 info: ----------------------------------------
+2021-03-30 12:54:23 info: All unit tests passed.
+2021-03-30 12:54:31 info: All steps were completed successfully
+2021-03-30 12:54:44 info: ----------------------------------------
+2021-03-30 12:54:44 info: >>> Running Unit Test `ex5-vscDebug` <<<
+2021-03-30 12:54:44 info: ----------------------------------------
+2021-03-30 12:54:44 warn: A unit test file was not provided.
+2021-03-30 12:54:52 info: All steps were completed successfully
+2021-03-30 12:55:08 info: --------------------------------------------
+2021-03-30 12:55:08 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2021-03-30 12:55:08 info: --------------------------------------------
+2021-03-30 12:55:08 warn: A unit test file was not provided.
+2021-03-30 12:55:16 info: All steps were completed successfully
+2021-03-30 03:34:16 info: ------------------------------------------
+2021-03-30 03:34:16 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-03-30 03:34:16 info: ------------------------------------------
+2021-03-30 03:34:35 error: *** Unit Test Error Report ***
+
+- pokemonApp HTML should be syntactically valid
+  inline
+    11:2   error  <button> is missing required "type" attribute  element-required-attributes
+    11:47  error  <img> is missing required "src" attribute      element-required-attributes
+    11:47  error  <img> is missing required "alt" attribute      wcag/h37
+  
+  ✖ 3 problems (3 errors, 0 warnings)
+  
+
+2021-03-30 03:35:48 info: ------------------------------------------
+2021-03-30 03:35:48 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-03-30 03:35:48 info: ------------------------------------------
+2021-03-30 03:36:00 error: *** Unit Test Error Report ***
+
+- pokemonApp HTML should be syntactically valid
+  inline
+    11:61  error  <img> is missing required "src" attribute  element-required-attributes
+    11:61  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 2 problems (2 errors, 0 warnings)
+  
+
+2021-03-30 01:38:37 info: ------------------------------------------
+2021-03-30 01:38:37 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-03-30 01:38:37 info: ------------------------------------------
+2021-03-30 01:38:53 error: *** Unit Test Error Report ***
+
+- pokemonApp HTML should be syntactically valid
+  inline
+    11:61  error  <img> is missing required "src" attribute  element-required-attributes
+    11:61  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 2 problems (2 errors, 0 warnings)
+  
+

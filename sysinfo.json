@@ -30,7 +30,7 @@
     }
   ],
   "vscodeInfo": {
-    "version": "1.53.2",
+    "version": "1.54.3",
     "extensions": [
       "aaron-bond.better-comments",
       "abusaidm.html-snippets",
@@ -55,6 +55,10 @@
       "vsls-contrib.codetour",
       "Zignd.html-css-class-completion"
     ],
-    "userSettings": {}
+    "userSettings": {
+      "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
   }
 }
