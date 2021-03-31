@@ -36,7 +36,7 @@ function beforeAllHelper(testFilePath, options = {}) {
       if (options.zeroRandom) {
         randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
       }
-      if (options.nukeTimeout) {
+      if (options.nukeTimers) {
         timeoutSpy = jest.spyOn(global, 'setTimeout').mockImplementation();
         intervalSpy = jest.spyOn(global, 'setInterval').mockImplementation();
       }

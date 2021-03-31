@@ -5,7 +5,7 @@ describe('ex5-pokerDiceChain', () => {
 
   beforeAll(() => {
     ({ exported } = beforeAllHelper(__filename)),
-      { nukeTimeout: true, zeroRandom: true };
+      { nukeTimers: true, zeroRandom: true };
     rollTheDices = exported;
   });
 

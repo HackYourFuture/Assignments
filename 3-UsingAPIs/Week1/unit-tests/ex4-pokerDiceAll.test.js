@@ -8,7 +8,7 @@ describe('ex4-pokerDiceAll', () => {
 
   beforeAll(() => {
     ({ exported, rootNode } = beforeAllHelper(__filename, {
-      nukeTimeout: true,
+      nukeTimers: true,
       zeroRandom: true,
       parse: true,
     }));
