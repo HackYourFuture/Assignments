@@ -14,7 +14,7 @@
     "cleanup": "node ./test-runner/cleanup",
     "encrypt": "node ./test-runner/encrypt",
     "decrypt": "node ./test-runner/decrypt",
-    "compile": "npm run reset-reports && npm run cleanup"
+    "setup": "npm run reset-reports && npm run cleanup"
   },
   "repository": {
     "type": "git",

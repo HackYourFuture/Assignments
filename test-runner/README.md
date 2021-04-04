@@ -87,13 +87,13 @@ ESLint rules are configured as usual in the file `.eslintrc.js`. Should this be 
 
 An npm `postinstall` script is automatically executed as part of the `npm install` process. This script invokes the `sysinfo` script, which compiles system information about the student's computer as well as VSCode configuration information and writes it to a `sysinfo.json` file (git-tracked) in the project's root folder. This file can be useful if students need help with fixing configuration issues.
 
-## npm `compile` script
+## npm `setup` script
 
 This script (re-)generates the `test-report` folders, initialized with `.todo.txt` files and erases any existing `<email>.log` and `sysinfo.json` file.
 
 Furthermore, a file `.hashes.json` is created in the `test-runner` folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of the exercise has been modified since initial installation.
 
-After running the `compile` script the resulting structure for a module looks similar to this:
+After running the `setup` script the resulting structure for a module looks similar to this:
 
 ```text
 1-JavaScript/
@@ -109,7 +109,7 @@ After running the `compile` script the resulting structure for a module looks si
       ...
 ```
 
-The `compile` script must be run before committing changes to the main repo, to ensure that all test reports are generated/restored to the default `.todo.txt` versions, hashes computed for the exercise files and any user specific files (`<email>.log`, `sysinfo.json`) cleaned up.
+The `setup` script must be run before committing changes to the main repo, to ensure that all test reports are generated/restored to the default `.todo.txt` versions, hashes computed for the exercise files and any user specific files (`<email>.log`, `sysinfo.json`) cleaned up.
 
 ## Exercises and Unit Tests
 
@@ -214,4 +214,4 @@ To add a new exercise the following is needed:
 
 All files and folders should adhere to the naming conventions as described earlier in this document.
 
-Once the exercise file(s) are added and tested (where necessary) the `npm run compile` command should be executed to generate a default `.todo` test report and compute an exercise hash. Thereafter the changes can be pushed to the main repo.
+Once the exercise file(s) are added and tested (where necessary) the `npm run setup` command should be executed to generate a default `.todo` test report and compute an exercise hash. Thereafter the changes can be pushed to the main repo.
