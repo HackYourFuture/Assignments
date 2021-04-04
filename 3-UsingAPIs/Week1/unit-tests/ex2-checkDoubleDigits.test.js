@@ -38,12 +38,12 @@ describe('checkDoubleDigits', () => {
     expect(state.newPromise).toBeDefined();
   });
 
-  it(': `resolve()` should be called with a one argument', () => {
+  it('`resolve()` should be called with a one argument', () => {
     if (!exported) return;
     expect(state.resolve).toBe(1);
   });
 
-  it(': `reject()` should be called with a one argument', () => {
+  it('`reject()` should be called with a one argument', () => {
     if (!exported) return;
     expect(state.reject).toBe(1);
   });
@@ -55,10 +55,20 @@ describe('checkDoubleDigits', () => {
     ).toBe(true);
   });
 
-  it('"(11) should return a promise that resolves to "This is a double digit number!"', () => {
+  it('(10) should return a promise that resolves to "This is a double digit number!"', () => {
     if (!exported) return;
     expect.assertions(2);
-    const promise = checkDoubleDigits(11);
+    const promise = checkDoubleDigits(10);
+    expect(promise).toBeInstanceOf(Promise);
+    return expect(promise).resolves.toEqual(
+      expect.stringContaining('This is a double digit number!')
+    );
+  });
+
+  it('(99) should return a promise that resolves to "This is a double digit number!"', () => {
+    if (!exported) return;
+    expect.assertions(2);
+    const promise = checkDoubleDigits(99);
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).resolves.toEqual(
       expect.stringContaining('This is a double digit number!')

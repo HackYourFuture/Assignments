@@ -116,7 +116,6 @@ dist
 .pnp.*
 
 # test-runner
-.hashes.json
 .recent.json
 .disclaimer
 @homework*

@@ -12,8 +12,6 @@ async function cleanUpLogFiles() {
 
 (async () => {
   try {
-    console.log('Scanning for exercises...');
-
     console.log('Cleaning up log files...');
     await cleanUpLogFiles();
   } catch (err) {

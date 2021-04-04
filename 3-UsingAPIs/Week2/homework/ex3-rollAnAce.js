@@ -1,10 +1,10 @@
 'use strict';
 /*------------------------------------------------------------------------------
-1. Run the exercise as given and observe that it works as advertised. Note that 
-   the dice must be rolled an unpredictable number of times until we get an ACE 
-   (eventually, we will).
-2. Now, rewrite the body of the `rollDiceUntil()` function using async/await. 
-   Hint: a `while` loop may come handy.
+1. Run the unmodified exercise and observe that it works as advertised. Observe 
+   that the dice must be thrown an indeterminate number of times until we get an 
+   ACE or until it rolls off the table.
+2. Now, rewrite the body of the `rollDiceUntil()` function using async/await and 
+   without using recursion. Hint: a `while` loop may come handy.
 3. Refactor the function `main()` to use async/await and try/catch.
 ------------------------------------------------------------------------------*/
 // ! Do not change or remove the next two lines
@@ -12,15 +12,12 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 
 function rollDiceUntil(wantedValue) {
   // TODO: rewrite this function using async/await
-  const recurse = () => {
-    return rollDice().then((value) => {
-      if (value !== wantedValue) {
-        return recurse();
-      }
-      return value;
-    });
-  };
-  return recurse();
+  return rollDice().then((value) => {
+    if (value !== wantedValue) {
+      return rollDiceUntil(wantedValue);
+    }
+    return value;
+  });
 }
 
 // TODO refactor this function to use try/catch

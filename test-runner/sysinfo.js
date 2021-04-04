@@ -65,14 +65,6 @@ function getVSCodeInfo(platform) {
   const _osInfo = await si.osInfo();
   const osInfo = _.pick(_osInfo, ['platform', 'distro', 'release']);
 
-  const _blockDevices = await si.blockDevices();
-  const blockDevices = _blockDevices
-    .map((device) => _.pick(device, ['name', 'size', 'fsType', 'physical']))
-    .map((device) => ({
-      ...device,
-      size: `${(device.size / ONE_GB_1000).toFixed(0)} GB`,
-    }));
-
   const vscodeInfo = getVSCodeInfo(_osInfo.platform);
 
   const sysInfo = {
@@ -81,7 +73,6 @@ function getVSCodeInfo(platform) {
     cpu,
     memory,
     osInfo,
-    blockDevices,
     vscodeInfo,
   };
 

@@ -13,6 +13,10 @@ class MyCustomReporter {
             }
 
             if (error.code || !error.matcherResult) {
+              // Promise errors do not use matcherResults
+              if (error.message) {
+                return '\n' + error.message;
+              }
               // Rethrow in case of unexpected errors.
               throw error;
             }

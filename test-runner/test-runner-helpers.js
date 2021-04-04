@@ -44,7 +44,7 @@ function compileMenuData() {
 }
 
 function computeHash(exercisePath) {
-  const md5sum = crypto.createHash('md5');
+  const md5sum = crypto.createHash('sha256');
   const fileSpec = fs.existsSync(exercisePath) ? '/**/*.js' : '.js';
   const globSpec = (exercisePath + fileSpec).replace(/\\/g, '/');
   const filePaths = fg.sync(globSpec);
