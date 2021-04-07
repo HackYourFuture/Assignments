@@ -1,10 +1,12 @@
 const fs = require('fs').promises;
 const { existsSync } = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const util = require('util');
+const { exec } = require('child_process');
 const fg = require('fast-glob');
 const chalk = require('chalk');
 const prompts = require('prompts');
+const stripAnsi = require('strip-ansi');
 const {
   makePath,
   compileMenuData,
@@ -18,6 +20,8 @@ const {
 } = require('./test-runner-helpers');
 const logger = require('./logger');
 const hashes = require('./.hashes.json');
+
+const execAsync = util.promisify(exec);
 
 const disclaimer = `
 *** Disclaimer **
@@ -58,55 +62,69 @@ async function writeReport(module, week, exercise, report) {
   await fs.writeFile(passFilePath, message, 'utf8');
 }
 
-function isUnitTestProvided(name) {
+function getUnitTestPath(name) {
   const unitTestPattern = path
     .join(__dirname, `../**/unit-tests/${name}.test.js`)
     .replace(/\\/g, '/');
   const unitTestPaths = fg.sync([unitTestPattern, '!**/node_modules']);
-  return unitTestPaths.length > 0;
+  return unitTestPaths.length > 0 ? unitTestPaths[0] : null;
 }
 
-function execJest(name) {
+async function execJest(name) {
   let message;
   try {
-    if (!isUnitTestProvided(name)) {
+    const unitTestPath = getUnitTestPath(name);
+
+    if (!unitTestPath) {
       message = 'A unit test file was not provided.';
       console.log(chalk.yellow(message));
       logger.warn(message);
       return '';
     }
 
-    const customReporterPath = path.join(__dirname, 'CustomReporter.js');
-    execSync(
-      `npx jest ${name} --silent false --verbose false --reporters="${customReporterPath}"`,
-      { encoding: 'utf8', stdio: 'pipe' }
-    );
+    const verboseFilePath = path.join(path.dirname(unitTestPath), '.verbose');
+    const verbose = existsSync(verboseFilePath);
+
+    let cmdLine = `npx jest ${name} --colors`;
+
+    if (!verbose) {
+      const customReporterPath = path.join(__dirname, 'CustomReporter.js');
+      cmdLine += ` --reporters="${customReporterPath}"`;
+    }
+
+    const { stderr } = await execAsync(cmdLine, {
+      encoding: 'utf8',
+      stdio: 'pipe',
+    });
+
     message = 'All unit tests passed.';
-    console.log(chalk.green(message));
     logger.info(message);
+
+    console.log(verbose ? stderr : chalk.green(message));
     return '';
   } catch (err) {
     const output = err.stdout || err.message;
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
-    console.log(chalk.red(output));
-    message = `${title}\n\n${output}`;
+    console.log(output);
+    message = stripAnsi(`${title}\n\n${output})`);
     logger.error(message);
     return message;
   }
 }
 
-function execESLint(exercisePath) {
+async function execESLint(exercisePath) {
   const lintSpec = existsSync(exercisePath)
     ? exercisePath
     : `${exercisePath}.js`;
   // Note: ESLint warnings do not throw an error
   let output;
   try {
-    output = execSync(`npx eslint ${lintSpec}`, {
+    const { stdout } = await execAsync(`npx eslint ${lintSpec}`, {
       encoding: 'utf8',
       stdio: 'pipe',
     });
+    output = stdout;
   } catch (err) {
     output = err.stdout;
   }
@@ -124,12 +142,12 @@ function execESLint(exercisePath) {
   return '';
 }
 
-function execSpellChecker(exercisePath) {
+async function execSpellChecker(exercisePath) {
   try {
     const cspellSpec = existsSync(exercisePath)
       ? path.normalize(`${exercisePath}/*.js`)
       : `${exercisePath}.js`;
-    execSync(`npx cspell ${cspellSpec}`, {
+    await execAsync(`npx cspell ${cspellSpec}`, {
       encoding: 'utf8',
       stdio: 'pipe',
     });
@@ -139,7 +157,7 @@ function execSpellChecker(exercisePath) {
     // remove full path
     const output = err.stdout
       .replace(/\\/g, '/')
-      .replace(/^.*\/\.?homework\//gm, '');
+      .replace(/^.*\/\.?@?homework\//gm, '');
 
     const title = '*** Spell Checker Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
@@ -208,9 +226,9 @@ async function main() {
 
     console.log('Running test, please wait...');
     let report = '';
-    report += execJest(exercise);
-    report += execESLint(exercisePath);
-    report += execSpellChecker(exercisePath);
+    report += await execJest(exercise);
+    report += await execESLint(exercisePath);
+    report += await execSpellChecker(exercisePath);
 
     if (!untouched) {
       await writeReport(module, week, exercise, report);
