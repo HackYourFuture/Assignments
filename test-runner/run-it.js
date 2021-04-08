@@ -60,11 +60,11 @@ async function runExercise(exercisePath) {
 
 async function main() {
   try {
+    const homeworkFolder = process.argv[2] ?? 'homework';
+
     const menuData = compileMenuData();
     let module, week, exercise;
     let useRecent = false;
-
-    const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
 
     const recentSelection = await loadMostRecentSelection();
     if (recentSelection) {

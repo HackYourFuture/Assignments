@@ -70,7 +70,7 @@ function getUnitTestPath(name) {
   return unitTestPaths.length > 0 ? unitTestPaths[0] : null;
 }
 
-async function execJest(name) {
+async function execJest(name, homeworkFolder) {
   let message;
   try {
     const unitTestPath = getUnitTestPath(name);
@@ -95,6 +95,10 @@ async function execJest(name) {
     const { stderr } = await execAsync(cmdLine, {
       encoding: 'utf8',
       stdio: 'pipe',
+      env: {
+        ...process.env,
+        HOMEWORK_FOLDER: homeworkFolder,
+      },
     });
 
     message = 'All unit tests passed.';
@@ -190,6 +194,8 @@ async function showDisclaimer() {
 
 async function main() {
   try {
+    const homeworkFolder = process.argv[2] ?? 'homework';
+
     const menuData = compileMenuData();
     let module, week, exercise;
     let useRecent = false;
@@ -213,8 +219,6 @@ async function main() {
     logger.info(title);
     logger.info(separator);
 
-    const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
-
     const exercisePath = makePath(module, week, homeworkFolder, exercise);
     const hash = await computeHash(exercisePath);
 
@@ -226,7 +230,7 @@ async function main() {
 
     console.log('Running test, please wait...');
     let report = '';
-    report += await execJest(exercise);
+    report += await execJest(exercise, homeworkFolder);
     report += await execESLint(exercisePath);
     report += await execSpellChecker(exercisePath);
 
