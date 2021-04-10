@@ -3,7 +3,6 @@ const { existsSync } = require('fs');
 const path = require('path');
 const util = require('util');
 const { exec } = require('child_process');
-const fg = require('fast-glob');
 const chalk = require('chalk');
 const prompts = require('prompts');
 const stripAnsi = require('strip-ansi');
@@ -62,30 +61,30 @@ async function writeReport(module, week, exercise, report) {
   await fs.writeFile(passFilePath, message, 'utf8');
 }
 
-function getUnitTestPath(name) {
-  const unitTestPattern = path
-    .join(__dirname, `../**/unit-tests/${name}.test.js`)
-    .replace(/\\/g, '/');
-  const unitTestPaths = fg.sync([unitTestPattern, '!**/node_modules']);
-  return unitTestPaths.length > 0 ? unitTestPaths[0] : null;
-}
-
-async function execJest(name, homeworkFolder) {
+async function execJest(exercisePath, homeworkFolder) {
   let message;
   try {
-    const unitTestPath = getUnitTestPath(name);
+    let unitTestPath;
+    let verbose = true;
 
-    if (!unitTestPath) {
+    if (/\.test$/.test(exercisePath)) {
+      unitTestPath = exercisePath + '.js';
+    } else {
+      unitTestPath = exercisePath.replace(homeworkFolder, 'unit-tests');
+      // Use verbose only when the unit-tests folder contains a .verbose file
+      const verboseFilePath = path.join(path.dirname(unitTestPath), '.verbose');
+      verbose = existsSync(verboseFilePath);
+      unitTestPath += '.test.js';
+    }
+
+    if (!existsSync(unitTestPath)) {
       message = 'A unit test file was not provided.';
       console.log(chalk.yellow(message));
       logger.warn(message);
       return '';
     }
 
-    const verboseFilePath = path.join(path.dirname(unitTestPath), '.verbose');
-    const verbose = existsSync(verboseFilePath);
-
-    let cmdLine = `npx jest ${name} --colors`;
+    let cmdLine = `npx jest '${unitTestPath}' --colors`;
 
     if (!verbose) {
       const customReporterPath = path.join(__dirname, 'CustomReporter.js');
@@ -230,7 +229,7 @@ async function main() {
 
     console.log('Running test, please wait...');
     let report = '';
-    report += await execJest(exercise, homeworkFolder);
+    report += await execJest(exercisePath, homeworkFolder);
     report += await execESLint(exercisePath);
     report += await execSpellChecker(exercisePath);
 
