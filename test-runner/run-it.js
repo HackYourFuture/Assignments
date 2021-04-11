@@ -1,4 +1,5 @@
-const { existsSync } = require('fs');
+const fs = require('fs');
+const path = require('path');
 const http = require('http');
 const handler = require('serve-handler');
 const open = require('open');
@@ -47,14 +48,30 @@ function serve(exercisePath) {
 }
 
 async function runExercise(exercisePath) {
-  if (existsSync(exercisePath)) {
-    serve(exercisePath);
-  } else {
-    try {
-      require(exercisePath);
-    } catch (err) {
-      console.log(chalk.red(`Something went wrong: ${err.message}`));
+  let requirePath = exercisePath;
+  if (fs.existsSync(exercisePath)) {
+    // Check for an index.html file in the exercisePath
+    const htmlPath = path.join(exercisePath, 'index.html');
+    if (fs.existsSync(htmlPath)) {
+      // Run the exercise as a web app by starting an HTTP server
+      serve(exercisePath);
+      return;
     }
+
+    // Let's make sure we have a directory at this point
+    const stats = await fs.promises.stat(exercisePath);
+    if (stats.isDirectory()) {
+      const exercise = path.basename(exercisePath);
+      requirePath = path.join(exercisePath, exercise + '.js');
+    } else {
+      throw new Error(`Unexpected exercise path: ${exercisePath}`);
+    }
+  }
+
+  try {
+    require(requirePath);
+  } catch (err) {
+    console.log(chalk.red(`Something went wrong: ${err.message}`));
   }
 }
 

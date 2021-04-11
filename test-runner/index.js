@@ -64,24 +64,31 @@ async function writeReport(module, week, exercise, report) {
 async function execJest(exercisePath, homeworkFolder) {
   let message;
   try {
-    let unitTestPath;
     let verbose = true;
-
+    let unitTestPath;
     if (/\.test$/.test(exercisePath)) {
       unitTestPath = exercisePath + '.js';
     } else {
-      unitTestPath = exercisePath.replace(homeworkFolder, 'unit-tests');
-      // Use verbose only when the unit-tests folder contains a .verbose file
-      const verboseFilePath = path.join(path.dirname(unitTestPath), '.verbose');
-      verbose = existsSync(verboseFilePath);
-      unitTestPath += '.test.js';
-    }
+      const exercise = path.basename(exercisePath);
+      unitTestPath = path.join(exercisePath, exercise + '.test.js');
 
-    if (!existsSync(unitTestPath)) {
-      message = 'A unit test file was not provided.';
-      console.log(chalk.yellow(message));
-      logger.warn(message);
-      return '';
+      if (!existsSync(unitTestPath)) {
+        unitTestPath = exercisePath.replace(homeworkFolder, 'unit-tests');
+        // Use verbose only when the unit-tests folder contains a .verbose file
+        const verboseFilePath = path.join(
+          path.dirname(unitTestPath),
+          '.verbose'
+        );
+        verbose = existsSync(verboseFilePath);
+        unitTestPath += '.test.js';
+
+        if (!existsSync(unitTestPath)) {
+          message = 'A unit test file was not provided.';
+          console.log(chalk.yellow(message));
+          logger.warn(message);
+          return '';
+        }
+      }
     }
 
     let cmdLine = `npx jest '${unitTestPath}' --colors`;

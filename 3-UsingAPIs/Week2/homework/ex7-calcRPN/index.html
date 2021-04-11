@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPN Calculator</title>
+    <link rel="stylesheet" href="./ui/assets/style.css" />
+  </head>
+  <body>
+    <main class="main-container">
+      <div id="display-container">
+        <div class="display-row">
+          <div>t:</div>
+          <div id="t-register">0</div>
+        </div>
+        <div class="display-row">
+          <div>z:</div>
+          <div id="z-register">0</div>
+        </div>
+        <div class="display-row">
+          <div>y:</div>
+          <div id="y-register">0</div>
+        </div>
+        <div class="display-row">
+          <div>x:</div>
+          <div id="x-register">0</div>
+        </div>
+      </div>
+      <div id="input-container">
+        <input type="number" id="input" autofocus />
+        <button type="button" id="enter">Enter</button>
+      </div>
+      <div id="keypad-container"></div>
+      <div id="error-container"></div>
+    </main>
+    <script src="./ex7-calcRPN.js"></script>
+    <script src="./ui/main.js" type="module"></script>
+  </body>
+</html>

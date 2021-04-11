@@ -3,6 +3,7 @@
     "words": [
         "autofix",
         "camelcase",
+        "camelize",
         "clonedeep",
         "Cryptr",
         "endregion",
