@@ -1,8 +1,0 @@
-.display-row {
-  display: flex;
-  flex-direction: row;
-}
-
-#error-container {
-  color: red;
-}

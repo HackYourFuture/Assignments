@@ -1,100 +1,55 @@
-const mathOperations = {
-  '+': (x, y) => y + x,
-  '-': (x, y) => y - x,
-  '*': (x, y) => y * x,
-  '/': (x, y) => y / x,
-  chs: (x) => -x,
-};
+// Intentional block scope -- do not remove
+{
+  /* eslint-disable no-inner-declarations */
 
-const stackOperations = {
-  swap: ([x, y, ...rest]) => [y, x, ...rest],
-  dup: ([x, y, z]) => [x, x, y, z],
-};
+  const MATHEMATICAL = 'Mathematical';
+  const CONVERSION = 'Conversion';
 
-/**
- * Returns an array of opcodes.
- * @returns An array of opcodes
- */
-function getOpcodes() {
-  return [...Object.keys(mathOperations), ...Object.keys(stackOperations)];
-}
-
-/**
- * Check if the argument is a finite number.
- * Throws an error if it is not.
- * @param {*} result
- * @returns
- */
-function check(result) {
-  if (!Number.isFinite(result)) {
-    throw new Error('Invalid result');
+  /**
+   * Computes the factorial of `x`.
+   *
+   * If `x` is a floating point number this function rounds it down to the
+   * nearest integer before computing the factorial.
+   * @param {number} x Input value.
+   * @returns {number} The computed factorial.
+   * @throws If `x` is negative.
+   */
+  function fact(x) {
+    // TODO replace next line with your code
+    throw new Error('Not implemented');
   }
-  return result;
-}
+  fact.title = 'Factorial (!)';
+  fact.category = MATHEMATICAL;
 
-/**
- * Execute a single operation.
- * @param {number[]} stack Input stack
- * @param {(string|number)} opcode Operation code or number
- * @returns {number[]} Output stack
- */
-function executeOperation(stack, opcode) {
-  // An opcode that is a number is inserted into the stack
-  if (typeof opcode === 'number') {
-    const [x, y, z] = stack;
-    return [check(opcode), x, y, z];
+  /**
+   * Converts from °C to °F.
+   * @param {number} x The temperature in °C.
+   * @returns {number} The temperature in °F.
+   */
+  function c2f(x) {
+    // TODO replace next line with your code
+    throw new Error('Not implemented');
   }
+  c2f.title = '°C → °F';
+  c2f.category = CONVERSION;
 
-  // Stack operations take the whole stack as an argument
-  let operation = stackOperations[opcode];
-  if (operation) {
-    return operation(stack);
+  /**
+   * Converts from °F to °C.
+   * @param {number} x The temperature in °F.
+   * @returns {number} The temperature in °C.
+   */
+  function f2c(x) {
+    // TODO replace next line with your code
+    throw new Error('Not implemented');
   }
+  f2c.title = '°F → °C';
+  f2c.category = CONVERSION;
 
-  // Any other opcode must represent a math function
-  operation = mathOperations[opcode];
-  if (!operation) {
-    throw new Error(`Unsupported operation: '${opcode}'`);
-  }
-
-  // `operation.length` return the number of parameters that a function accepts.
-  // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length
-  switch (operation.length) {
-    case 1: {
-      // unary operations
-      const [x, ...rest] = stack;
-      return [check(operation(x)), ...rest];
-    }
-    case 2: {
-      // binary operations
-      const [x, y, ...rest] = stack;
-      return [check(operation(x, y)), ...rest, 0];
-    }
-    default:
-      throw new Error(
-        `Operation '${opcode}': unsupported number of parameters (${operation.length})`
-      );
-  }
-}
-
-/**
- * Execute a sequence of operations
- * @param {(string|number)[]} opcodes An array of opcodes
- * @param {number[]} stack Input stack
- * @returns {number[]} Output stack
- */
-function executeSequence(opcodes, stack = [0, 0, 0, 0]) {
-  return opcodes.reduce(executeOperation, stack);
-}
-
-// ! Do not change or remove the code below
-try {
-  // Exports for use with node / jest
+  // ! Do not change or remove the code below
   module.exports = {
-    getOpcodes,
-    executeOperation,
-    executeSequence,
+    fact,
+    c2f,
+    f2c,
   };
-} catch (_) {
-  // Ignored when used in browser
 }
+// End of intentional block scope

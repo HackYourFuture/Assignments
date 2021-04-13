@@ -5,36 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RPN Calculator</title>
-    <link rel="stylesheet" href="./ui/assets/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./app/assets/style.css" />
+    <script>
+      window.module = {};
+    </script>
   </head>
   <body>
     <main class="main-container">
-      <div id="display-container">
+      <div class="display-container">
+        <div id="annunciator"></div>
         <div class="display-row">
-          <div>t:</div>
-          <div id="t-register">0</div>
+          <div>𝑡</div><div id="t-register">0</div>
         </div>
         <div class="display-row">
-          <div>z:</div>
-          <div id="z-register">0</div>
+          <div>𝑧</div><div id="z-register">0</div>
         </div>
         <div class="display-row">
-          <div>y:</div>
-          <div id="y-register">0</div>
+          <div>𝑦</div><div id="y-register">0</div>
         </div>
         <div class="display-row">
-          <div>x:</div>
-          <div id="x-register">0</div>
+          <div>𝑥</div><div id="x-register">0</div>
         </div>
       </div>
-      <div id="input-container">
-        <input type="number" id="input" autofocus />
-        <button type="button" id="enter">Enter</button>
+      <div class="menu-container">
+        <select id="extension-select">
+          <option value="" class="category-header">-- Extras --</option>
+        </select>
+        <button id="extension-btn">Go</button>
       </div>
-      <div id="keypad-container"></div>
-      <div id="error-container"></div>
+      <div id="keypad-container">
+        <button class="key key-span-4 zoom" data-key="pow">𝑦<sup>𝑥</sup></button>
+        <button class="key key-span-4" data-key="log">LOG</button>
+        <button class="key key-span-4" data-key="ln">LN</button>
+        <button class="key key-span-4 zoom" data-key="exp">𝑒<sup>𝑥</sub></button>
+        <button class="key key-span-4" data-key="clr">CLR</button>
+
+        <button class="key key-span-4 zoom" data-key="sqrt">√𝑥</button>
+        <button class="key key-span-4" data-key="arc">ARC</button>
+        <button class="key key-span-4" data-key="sin">SIN</button>
+        <button class="key key-span-4" data-key="cos">COS</button>
+        <button class="key key-span-4" data-key="tan">TAN</button>
+
+        <button class="key key-span-4 zoom" data-key="reciprocal"><sup>1</sup>/𝑥</button>
+        <button class="key key-span-4 zoom" data-key="swap">𝑥↔︎𝑦</button>
+        <button class="key key-span-4 zoom" data-key="rollDown">≡↓</button>
+        <button class="key key-span-4" data-key="sto">STO</button>
+        <button class="key key-span-4" data-key="rcl">RCL</button>
+
+        <button class="key enter-key" data-key="enter">ENTER ↑</button>
+        <button class="key key-span-4" data-key="chs">CHS</button>
+        <button class="key key-span-4" data-key="eex">EEX</button>
+        <button class="key key-span-4" data-key="clx">CL𝑥</button>
+
+        <button class="key key-span-5 zoom" data-key="sub">−</button>
+        <button class="key key-span-5" data-key="7">7</button>
+        <button class="key key-span-5" data-key="8">8</button>
+        <button class="key key-span-5" data-key="9">9</button>
+
+        <button class="key key-span-5 zoom" data-key="add">+</button>
+        <button class="key key-span-5" data-key="4">4</button>
+        <button class="key key-span-5" data-key="5">5</button>
+        <button class="key key-span-5" data-key="7">6</button>
+
+        <button class="key key-span-5 zoom" data-key="mul">×</button>
+        <button class="key key-span-5" data-key="1">1</button>
+        <button class="key key-span-5" data-key="2">2</button>
+        <button class="key key-span-5" data-key="3">3</button>
+
+        <button class="key key-span-5 zoom" data-key="div">÷</button>
+        <button class="key key-span-5" data-key="0">0</button>
+        <button class="key key-span-5" data-key=".">•</button>
+        <button class="key key-span-5 zoom" data-key="pi">𝜋</button>
+      </div>
     </main>
     <script src="./ex7-calcRPN.js"></script>
-    <script src="./ui/main.js" type="module"></script>
+    <script src="./app/main.js" type="module"></script>
   </body>
 </html>
