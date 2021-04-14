@@ -16,7 +16,7 @@ function addCategory(dom, functions, category) {
     });
 }
 
-function extensionsController(dom, engine) {
+function ExtensionsController(dom, engine) {
   const functions = engine.getImportedFunctions();
 
   const categories = [
@@ -39,4 +39,4 @@ function extensionsController(dom, engine) {
   });
 }
 
-export default extensionsController;
+export default ExtensionsController;

@@ -1,4 +1,4 @@
-import check from '../../utils/check.js';
+import check from '../utils/check.js';
 import bufferFunctions from './functions/buffer.js';
 import unaryFunctions from './functions/unary.js';
 import binaryFunctions from './functions/binary.js';

@@ -1,4 +1,4 @@
-function createObservable() {
+function Observable() {
   const observers = [];
   return {
     subscribe(observer) {
@@ -10,4 +10,4 @@ function createObservable() {
   };
 }
 
-export default createObservable;
+export default Observable;

@@ -1,4 +1,4 @@
-function annunciatorView(dom) {
+function AnnunciatorView(dom) {
   return ({ error }) => {
     if (error) {
       dom.annunciator.textContent = error.message;
@@ -9,4 +9,4 @@ function annunciatorView(dom) {
   };
 }
 
-export default annunciatorView;
+export default AnnunciatorView;

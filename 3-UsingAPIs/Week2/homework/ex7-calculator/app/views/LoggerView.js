@@ -1,7 +1,7 @@
-function loggerView() {
+function LoggerView() {
   return (state) => {
     console.log(state);
   };
 }
 
-export default loggerView;
+export default LoggerView;
