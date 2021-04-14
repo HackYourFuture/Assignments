@@ -1,4 +1,4 @@
-import { addFunction } from './engine.js';
+import { addFunction } from './processor.js';
 
 const functionMap = window.module.exports;
 Object.entries(functionMap).forEach(([name, func]) => {

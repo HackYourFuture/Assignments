@@ -1,13 +1,12 @@
-function Annunciator(dom, engine) {
+function annunciatorView(dom) {
   return ({ error }) => {
     if (error) {
       dom.annunciator.textContent = error.message;
       setTimeout(() => {
         dom.annunciator.textContent = '';
-        engine.execute('noop');
       }, 2000);
     }
   };
 }
 
-export default Annunciator;
+export default annunciatorView;

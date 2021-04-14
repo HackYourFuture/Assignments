@@ -1,14 +1,16 @@
-import check from '../utils/check.js';
+import check from '../../utils/check.js';
 import bufferFunctions from './functions/buffer.js';
 import unaryFunctions from './functions/unary.js';
 import binaryFunctions from './functions/binary.js';
 import stackFunctions from './functions/stack.js';
+import './importExtensions.js';
 
 const initialState = {
   stack: [0, 0, 0, 0],
   memory: [0, 0, 0, 0],
   buffer: '',
   stackLift: true,
+  arc: false,
   keyCode: null,
   error: null,
 };
@@ -50,8 +52,9 @@ export function execute(state = initialState, keyCode) {
     const extras = {
       keyCode,
       buffer: '',
-      error: null,
+      arc: false,
       stackLift: !stackLiftPrevention.includes(keyCode),
+      error: null,
     };
 
     let func = bufferFunctions[keyCode];

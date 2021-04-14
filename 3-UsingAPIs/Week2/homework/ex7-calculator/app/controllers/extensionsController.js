@@ -1,23 +1,22 @@
 import createAndAppend from '../utils/createAndAppend.js';
 
 function addCategory(dom, functions, category) {
-  createAndAppend('option', dom.extensionSelect, {
-    text: category,
-    disabled: true,
+  const optGroup = createAndAppend('optgroup', dom.extensionSelect, {
+    label: category,
     class: 'category-header',
   });
 
   functions
     .filter(({ func }) => func.category === category)
     .forEach(({ name, func }) => {
-      createAndAppend('option', dom.extensionSelect, {
+      createAndAppend('option', optGroup, {
         value: name,
         text: func.title,
       });
     });
 }
 
-function ExtensionManager(dom, engine) {
+function extensionsController(dom, engine) {
   const functions = engine.getImportedFunctions();
 
   const categories = [
@@ -38,8 +37,6 @@ function ExtensionManager(dom, engine) {
   dom.extensionBtn.addEventListener('click', () => {
     engine.execute(dom.extensionSelect.value);
   });
-
-  return () => {};
 }
 
-export default ExtensionManager;
+export default extensionsController;

@@ -1,10 +1,8 @@
-function Keypad(dom, engine) {
+function keypadController(dom, model) {
   dom.keypadContainer.addEventListener('click', (event) => {
     const keyCode = event.target.dataset.key;
-    engine.execute(keyCode);
+    model.execute(keyCode);
   });
-
-  return () => undefined;
 }
 
-export default Keypad;
+export default keypadController;

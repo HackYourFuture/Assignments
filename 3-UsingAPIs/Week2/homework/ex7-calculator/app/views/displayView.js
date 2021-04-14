@@ -5,7 +5,7 @@ const format = (x) => {
     : x.toString();
 };
 
-function Display(dom) {
+function displayView(dom) {
   return ({ stack, buffer }) => {
     const [x, y, z, t] = stack;
     dom.tRegister.textContent = format(t);
@@ -15,4 +15,4 @@ function Display(dom) {
   };
 }
 
-export default Display;
+export default displayView;

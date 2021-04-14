@@ -1,8 +1,7 @@
-import { execute, getImportedFunctions } from './engine.js';
+import { execute, getImportedFunctions } from './processor/processor.js';
 import createObservable from '../utils/createObservable.js ';
-import './importExtensions.js';
 
-function createEngine() {
+function createModel() {
   const observable = createObservable();
 
   // Initialize state
@@ -13,6 +12,10 @@ function createEngine() {
     execute(keyCode) {
       state = execute(state, keyCode);
       observable.notify(state);
+      if (state.error) {
+        state = execute(state, 'noop');
+        observable.notify(state);
+      }
     },
     subscribe(listener) {
       observable.subscribe(listener);
@@ -20,4 +23,4 @@ function createEngine() {
   };
 }
 
-export default createEngine;
+export default createModel;
