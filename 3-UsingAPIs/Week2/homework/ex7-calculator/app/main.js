@@ -1,6 +1,5 @@
-import getDOM from './utils/getDOM.js';
-import Model from './model/Model.js';
-import Engine from './model/Engine.js';
+import getDOM from './lib/getDOM.js';
+import AppModel from './model/AppModel.js';
 import DisplayView from './views/DisplayView.js';
 import AnnunciatorView from './views/AnnunciatorView.js';
 import LoggerView from './views/LoggerView.js';
@@ -9,15 +8,14 @@ import ExtensionsController from './controllers/ExtensionsController.js';
 
 function main() {
   const dom = getDOM();
-  const model = Model();
-  const engine = Engine(model);
+  const model = AppModel();
 
   model.subscribe(DisplayView(dom));
   model.subscribe(AnnunciatorView(dom));
   model.subscribe(LoggerView(dom));
 
-  KeypadController(dom, engine);
-  ExtensionsController(dom, engine);
+  KeypadController(dom, model);
+  ExtensionsController(dom, model);
 }
 
 window.addEventListener('load', main);

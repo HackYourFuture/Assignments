@@ -1,4 +1,4 @@
-import createAndAppend from '../utils/createAndAppend.js';
+import createAndAppend from '../lib/createAndAppend.js';
 
 function addCategory(dom, functions, category) {
   const optGroup = createAndAppend('optgroup', dom.extensionSelect, {

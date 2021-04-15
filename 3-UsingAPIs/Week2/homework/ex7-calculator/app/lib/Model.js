@@ -1,4 +1,4 @@
-import Observable from '../utils/Observable.js ';
+import Observable from '../lib/Observable.js ';
 
 function Model() {
   const observable = Observable();
