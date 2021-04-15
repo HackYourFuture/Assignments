@@ -16,8 +16,8 @@ function addCategory(dom, functions, category) {
     });
 }
 
-function ExtensionsController(dom, engine) {
-  const functions = engine.getImportedFunctions();
+function ExtensionsController(dom, model) {
+  const functions = model.getImportedFunctions();
 
   const categories = [
     ...functions.reduce((set, { func }) => {
@@ -31,11 +31,11 @@ function ExtensionsController(dom, engine) {
   categories.forEach((category) => addCategory(dom, functions, category));
 
   dom.extensionSelect.addEventListener('change', () => {
-    engine.execute(dom.extensionSelect.value);
+    model.execute(dom.extensionSelect.value);
   });
 
   dom.extensionBtn.addEventListener('click', () => {
-    engine.execute(dom.extensionSelect.value);
+    model.execute(dom.extensionSelect.value);
   });
 }
 
