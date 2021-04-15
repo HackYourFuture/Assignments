@@ -1,20 +1,18 @@
 import Observable from '../lib/Observable.js ';
 
 function Model() {
-  const observable = Observable();
+  const { subscribe, notify } = Observable();
 
   let state;
 
   return {
-    subscribe(listener) {
-      observable.subscribe(listener);
-    },
+    subscribe,
     getState() {
       return state;
     },
     setState(newState) {
       state = newState;
-      observable.notify(state);
+      notify(state);
     },
   };
 }
