@@ -73,7 +73,13 @@ async function execJest(exercisePath, homeworkFolder) {
       unitTestPath = path.join(exercisePath, exercise + '.test.js');
 
       if (!existsSync(unitTestPath)) {
-        unitTestPath = exercisePath.replace(homeworkFolder, 'unit-tests');
+        const regexp = new RegExp(
+          String.raw`(Week\d+)${path.sep}${homeworkFolder}${path.sep}`
+        );
+        unitTestPath = exercisePath.replace(
+          regexp,
+          `$1${path.sep}unit-tests${path.sep}`
+        );
         // Use verbose only when the unit-tests folder contains a .verbose file
         const verboseFilePath = path.join(
           path.dirname(unitTestPath),
