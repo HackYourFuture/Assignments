@@ -1,6 +1,6 @@
 # TODO
 
-- Add an exercise where untestable legacy function (impure) must be made testable (pure), e.g:
+- Add an exercise where an untestable legacy function (impure) must be made testable (pure), e.g:
 
   ```js
   function foo(...) {
@@ -14,7 +14,7 @@
   ```js
   function foo(...) {
     ...
-    return(result);
+    return result;
   }
   ```
 
