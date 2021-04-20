@@ -1,3 +1,7 @@
+function removeArticles(text) {
+  // TODO replace with your own code
+}
+
 // Grammatic articles (English)
 const articles = ['a', 'an', 'the'];
 
@@ -15,9 +19,6 @@ const expectedText =
   'place it in its larger context, always trying to be aware of bigger ' +
   'picture.';
 
-function removeArticles(text) {
-  // TODO replace with your own code
-}
 describe('removeArticle', () => {
   it('should remove all articles from a string of English text', () => {
     // TODO replace with your own code
