@@ -1,10 +1,6 @@
-function removeArticles(text) {
-  // TODO replace with your own code
-}
+const { articles, removeArticles } = require('./ex7-removeArticles');
 
 // Grammatic articles (English)
-const articles = ['a', 'an', 'the'];
-
 const sourceText =
   'What distinguishes Pragmatic Programmers? ' +
   "We feel it's an attitude, a style, a philosophy of approaching problems and " +

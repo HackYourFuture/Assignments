@@ -48,6 +48,13 @@ function serve(exercisePath) {
 }
 
 async function runExercise(exercisePath) {
+  const testWarning =
+    'This is a unit test exercise. Please use `npm test` to run it.';
+  if (exercisePath.endsWith('.test')) {
+    console.log(chalk.red(testWarning));
+    return;
+  }
+
   let requirePath = exercisePath;
   if (fs.existsSync(exercisePath)) {
     // Check for an index.html file in the exercisePath
@@ -62,6 +69,14 @@ async function runExercise(exercisePath) {
     const stats = await fs.promises.stat(exercisePath);
     if (stats.isDirectory()) {
       const exercise = path.basename(exercisePath);
+      const possibleTestFilePath = path.join(
+        exercisePath,
+        exercise + '.test.js'
+      );
+      if (fs.existsSync(possibleTestFilePath)) {
+        console.log(chalk.red(testWarning));
+        return;
+      }
       requirePath = path.join(exercisePath, exercise + '.js');
     } else {
       throw new Error(`Unexpected exercise path: ${exercisePath}`);
