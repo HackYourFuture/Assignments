@@ -10,11 +10,11 @@ describe('createPublisher', () => {
     createPublisher = exported;
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should return an object with `subscribe` and a `notify` function properties', () => {
+  test('should return an object with `subscribe` and a `notify` function properties', () => {
     if (!exported) return;
     const myPublisher = createPublisher();
     expect(typeof myPublisher).toBe('object');
@@ -22,7 +22,7 @@ describe('createPublisher', () => {
     expect(typeof myPublisher.notify).toBe('function');
   });
 
-  it('should notify all subscribers of any notification', () => {
+  test('should notify all subscribers of any notification', () => {
     if (!exported) return;
     const myPublisher = createPublisher();
     expect(typeof myPublisher).toBe('object');

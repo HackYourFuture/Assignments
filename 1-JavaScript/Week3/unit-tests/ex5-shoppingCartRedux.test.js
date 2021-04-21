@@ -27,22 +27,22 @@ describe('addToShoppingCart', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should be a function that takes two parameters', () => {
+  test('should be a function that takes two parameters', () => {
     expect(exported).toBeDefined();
     expect(typeof addToShoppingCart === 'function').toBe(true);
     expect(addToShoppingCart).toHaveLength(2);
   });
 
-  it('should use spread syntax (...) inside an array', () => {
+  test('should use spread syntax (...) inside an array', () => {
     expect(exported).toBeDefined();
     expect(state.spreadInArray).toBeDefined();
   });
 
-  it("should not modify ('mutate') its arguments", () => {
+  test("should not modify ('mutate') its arguments", () => {
     expect(typeof addToShoppingCart === 'function').toBe(true);
     const cart = ['bananas', 'milk'];
     const original = [...cart];
@@ -50,7 +50,7 @@ describe('addToShoppingCart', () => {
     expect(cart).toEqual(original);
   });
 
-  it('should return a new array with new the item addded while taking out older items if items > 3', () => {
+  test('should return a new array with new the item addded while taking out older items if items > 3', () => {
     expect(typeof addToShoppingCart === 'function').toBe(true);
     const cart = ['bananas', 'milk'];
     let newCart = addToShoppingCart(cart, 'chocolate');

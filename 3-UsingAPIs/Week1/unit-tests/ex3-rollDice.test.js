@@ -29,19 +29,19 @@ describe('rollDice', () => {
       });
   });
 
-  it('should call `new Promise()`', () => {
+  test('should call `new Promise()`', () => {
     expect(state.newPromise).toBeDefined();
   });
 
-  it('`resolve()` should be called with a one argument', () => {
+  test('`resolve()` should be called with a one argument', () => {
     expect(state.resolve).toBe(1);
   });
 
-  it('`reject()` should be called with a one argument', () => {
+  test('`reject()` should be called with a one argument', () => {
     expect(state.reject).toBe(1);
   });
 
-  it('should resolve when the dice settles successfully', () => {
+  test('should resolve when the dice settles successfully', () => {
     if (!exported) return;
     expect.assertions(2);
 
@@ -64,7 +64,7 @@ describe('rollDice', () => {
     return assertionPromise;
   });
 
-  it('should reject with an Error when the dice rolls off the table', async () => {
+  test('should reject with an Error when the dice rolls off the table', async () => {
     if (!exported) return;
     expect.assertions(2);
 

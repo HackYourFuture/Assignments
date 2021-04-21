@@ -24,16 +24,16 @@ describe('ex4-pokerDiceAll', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should use `Promise.all()`', () => {
+  test('should use `Promise.all()`', () => {
     if (!exported) return;
     expect(state.promiseAll).toBeDefined();
   });
 
-  it('should resolve when all dices settle successfully', () => {
+  test('should resolve when all dices settle successfully', () => {
     if (!exported) return;
     expect.assertions(2);
 
@@ -56,7 +56,7 @@ describe('ex4-pokerDiceAll', () => {
     return assertionPromise;
   });
 
-  it('should reject with an Error when a dice rolls off the table', async () => {
+  test('should reject with an Error when a dice rolls off the table', async () => {
     if (!exported) return;
     expect.assertions(2);
 

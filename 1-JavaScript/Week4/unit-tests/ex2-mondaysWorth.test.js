@@ -26,21 +26,21 @@ describe('mondaysWorth', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should take two parameters', () => {
+  test('should take two parameters', () => {
     if (!exported) return;
     expect(computeEarnings).toHaveLength(2);
   });
 
-  it('should use `map`', () => {
+  test('should use `map`', () => {
     if (!exported) return;
     expect(state.map).toBeDefined();
   });
 
-  it('should compute the earnings as a formatted Euro amount', () => {
+  test('should compute the earnings as a formatted Euro amount', () => {
     if (!exported) return;
     const total = mondayTasks
       .map((task) => (task.duration / 60) * hourlyRate)

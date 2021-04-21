@@ -29,33 +29,33 @@ describe('checkDoubleDigits', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should call new Promise()', () => {
+  test('should call new Promise()', () => {
     if (!exported) return;
     expect(state.newPromise).toBeDefined();
   });
 
-  it('`resolve()` should be called with a one argument', () => {
+  test('`resolve()` should be called with a one argument', () => {
     if (!exported) return;
     expect(state.resolve).toBe(1);
   });
 
-  it('`reject()` should be called with a one argument', () => {
+  test('`reject()` should be called with a one argument', () => {
     if (!exported) return;
     expect(state.reject).toBe(1);
   });
 
-  it('should be a function that takes a single argument', () => {
+  test('should be a function that takes a single argument', () => {
     if (!exported) return;
     expect(
       typeof checkDoubleDigits === 'function' && checkDoubleDigits.length === 1
     ).toBe(true);
   });
 
-  it('(10) should return a promise that resolves to "This is a double digit number!"', () => {
+  test('(10) should return a promise that resolves to "This is a double digit number!"', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = checkDoubleDigits(10);
@@ -65,7 +65,7 @@ describe('checkDoubleDigits', () => {
     );
   });
 
-  it('(99) should return a promise that resolves to "This is a double digit number!"', () => {
+  test('(99) should return a promise that resolves to "This is a double digit number!"', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = checkDoubleDigits(99);
@@ -75,7 +75,7 @@ describe('checkDoubleDigits', () => {
     );
   });
 
-  it('(5) should return a rejected promise with an Error object', () => {
+  test('(5) should return a rejected promise with an Error object', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = checkDoubleDigits(5);
@@ -83,7 +83,7 @@ describe('checkDoubleDigits', () => {
     return expect(promise).rejects.toBeInstanceOf(Error);
   });
 
-  it('(123) should return a rejected promise with an Error object', () => {
+  test('(123) should return a rejected promise with an Error object', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = checkDoubleDigits(123);

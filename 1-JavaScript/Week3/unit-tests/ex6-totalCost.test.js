@@ -11,17 +11,17 @@ describe('calculateTotalPrice', () => {
     ({ calculateTotalPrice, cartForParty } = exported);
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should be a function taking one parameter', () => {
+  test('should be a function taking one parameter', () => {
     if (!exported) return;
     expect(typeof calculateTotalPrice).toBe('function');
     expect(calculateTotalPrice).toHaveLength(1);
   });
 
-  it('cartForParty should contain five grocery items with prices', () => {
+  test('cartForParty should contain five grocery items with prices', () => {
     if (!exported) return;
     expect(typeof cartForParty).toBe('object');
     expect(Object.keys(cartForParty)).toHaveLength(5);
@@ -30,7 +30,7 @@ describe('calculateTotalPrice', () => {
     ).toBe(true);
   });
 
-  it('should return the total price in Euros', () => {
+  test('should return the total price in Euros', () => {
     if (!exported) return;
     expect(typeof cartForParty).toBe('object');
     expect(typeof calculateTotalPrice === 'function').toBe(true);

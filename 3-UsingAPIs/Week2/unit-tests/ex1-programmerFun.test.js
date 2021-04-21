@@ -38,18 +38,19 @@ describe('programmerFun', () => {
       });
   });
 
-  it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
+  test('HTML should be syntactically valid', () =>
+    validateHTML(state.outerHTML));
 
-  it('should use `fetch()`', () => {
+  test('should use `fetch()`', () => {
     expect(state.fetch).toBeDefined();
   });
 
-  it('should use async/wait', () => {
+  test('should use async/wait', () => {
     expect(state.async).toBeDefined();
     expect(state.await).toBeDefined();
   });
 
-  it('should use try/catch', () => {
+  test('should use try/catch', () => {
     expect(state.tryCatch).toBeDefined();
   });
 });

@@ -8,7 +8,7 @@ function removeVowels(text) {
 
 // Unit Tests
 describe('removeVowels', () => {
-  it('should remove all vowels from a string of text', () => {
+  test('should remove all vowels from a string of text', () => {
     const result = removeVowels('Hello world!');
     /* cspell: disable-next-line */
     expect(result).toBe('Hll wrld!');

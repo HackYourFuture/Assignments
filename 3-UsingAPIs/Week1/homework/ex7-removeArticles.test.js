@@ -20,7 +20,7 @@ const expectedText =
   'picture.';
 
 describe('removeArticle', () => {
-  it('should remove all articles from a string of English text', () => {
+  test('should remove all articles from a string of English text', () => {
     // TODO replace with your own code
     expect(false).toBe(true);
   });

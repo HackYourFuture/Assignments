@@ -35,7 +35,8 @@ describe('Generated HTML', () => {
       });
   });
 
-  it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
+  test('HTML should be syntactically valid', () =>
+    validateHTML(state.outerHTML));
 
   test('should contain a <ul> that is a child of <div id="bookList">', () => {
     const ul = document.querySelector('div[id=bookList] > ul');

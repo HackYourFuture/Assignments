@@ -32,21 +32,21 @@ describe('doubleEvenNumbers', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should return doubled even numbers only', () => {
+  test('should return doubled even numbers only', () => {
     if (!exported) return;
     expect(doubleEvenNumbers([1, 2, 3, 4])).toEqual([4, 8]);
   });
 
-  it('should use `map`', () => {
+  test('should use `map`', () => {
     if (!exported) return;
     expect(state.map).toBeDefined();
   });
 
-  it('should use `filter`', () => {
+  test('should use `filter`', () => {
     if (!exported) return;
     expect(state.filter).toBeDefined();
   });

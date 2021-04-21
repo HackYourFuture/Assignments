@@ -27,27 +27,27 @@ describe('sanitizeFruitBasket', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     if (!exported) return;
     expect(exported).toBeDefined();
   });
 
-  it('should take two parameters', () => {
+  test('should take two parameters', () => {
     if (!exported) return;
     expect(sanitizeFruitBasket).toHaveLength(2);
   });
 
-  it('should use `filter`', () => {
+  test('should use `filter`', () => {
     if (!exported) return;
     expect(state.filter).toBeDefined();
   });
 
-  it('should not modify the original `fruitBasket` array', () => {
+  test('should not modify the original `fruitBasket` array', () => {
     if (!exported) return;
     expect(fruitBasket).toEqual(savedFruitBasket);
   });
 
-  it('should list the sanitized fruit basket', () => {
+  test('should list the sanitized fruit basket', () => {
     if (!exported) return;
     const newBasket = fruitBasket.filter((fruit) => fruit !== 'lemon');
     const expected = `My mom bought me a fruit basket containing ${newBasket.join(

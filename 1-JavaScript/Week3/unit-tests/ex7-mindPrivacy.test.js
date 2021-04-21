@@ -29,27 +29,27 @@ describe('filterPrivateData', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should be a function that takes a single parameter', () => {
+  test('should be a function that takes a single parameter', () => {
     expect(exported).toBeDefined();
     expect(typeof filterPrivateData === 'function').toBe(true);
     expect(filterPrivateData).toHaveLength(1);
   });
 
-  it('should use object destructuring', () => {
+  test('should use object destructuring', () => {
     expect(exported).toBeDefined();
     expect(state.objectDestructuring).toBeDefined();
   });
 
-  it('should use object literal shorthand', () => {
+  test('should use object literal shorthand', () => {
     expect(exported).toBeDefined();
     expect(state.objectLiteralShorthand).toBeDefined();
   });
 
-  it("should not modify ('mutate') its arguments", () => {
+  test("should not modify ('mutate') its arguments", () => {
     expect(typeof filterPrivateData === 'function').toBe(true);
     const original = _.cloneDeep(employeeRecords);
     const newData = filterPrivateData(employeeRecords);
@@ -57,7 +57,7 @@ describe('filterPrivateData', () => {
     expect(employeeRecords).toEqual(original);
   });
 
-  it('should return a new array with the private parts filtered', () => {
+  test('should return a new array with the private parts filtered', () => {
     expect(typeof filterPrivateData === 'function').toBe(true);
     const expected = [
       {

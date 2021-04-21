@@ -24,16 +24,16 @@ describe('ex4-diceRace', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should use `Promise.race()`', () => {
+  test('should use `Promise.race()`', () => {
     if (!exported) return;
     expect(state.promiseAll).toBeDefined();
   });
 
-  it('should resolve as soon as a dice settles successfully', () => {
+  test('should resolve as soon as a dice settles successfully', () => {
     if (!exported) return;
     expect.assertions(2);
 
@@ -56,7 +56,7 @@ describe('ex4-diceRace', () => {
     return assertionPromise;
   });
 
-  it('should reject with an Error as soon as a dice rolls off the table', async () => {
+  test('should reject with an Error as soon as a dice rolls off the table', async () => {
     if (!exported) return;
     expect.assertions(2);
 
