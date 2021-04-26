@@ -79,13 +79,13 @@ Let's do some grocery shopping! We're going to get some things to cook dinner wi
 
 ### Exercise 5: Improved shopping at the supermarket
 
-#### File: `ex5-shoppingCartRedux.js`
+#### File: `ex5-shoppingCartPure.js`
 
-From a _best practice_ point of view, there is a big problem with the code of the previous exercise (4): it modifies ("_mutates_") a global variable. In larger code bases this can become problematic, as it will be difficult to track down places in the code that might also (unexpectedly) mutate the global variable and, by doing so, cause bugs.
+From a _best practice_ point of view, there is a big problem with the code of the previous exercise (4): it modifies (_"mutates"_) a global variable. In larger code bases this can become problematic as it will be difficult to track down places in the code that might also (unexpectedly) mutate the global variable and, by doing so, cause bugs.
 
-A function that mutates a global variable or in some other way interacts with the "_outside world_" (e.g. accessing a database, making a network request, or even logging something to the console) is said to cause "_side effects_. Sometimes this is necessary. A program that does not in some way interact with the outside world cannot possibly do something useful. However, in all other cases side-effects must be avoided.
+A function that mutates a global variable or in some other way interacts with the "_outside world_" (e.g. accessing a database, making a network request, or even logging something to the console) is said to cause _"side effects"_. Sometimes this is necessary. A program that does not in some way interact with the outside world cannot possibly do something useful. However, in all other cases side-effects are best avoided.
 
-Experienced developers prefer to work with _pure functions_. These functions do not access (let alone, _mutate_) any data that exists outside of their own scope and return results solely through the function's return value. All required data should be passed through the argument list.
+Experienced developers prefer to work with _pure functions_. Pure functions do not access (let alone, _mutate_) any data that exists outside of their own scope and return results solely through the function's return value. All required data should be passed through the argument list.
 
 A key characteristic of a pure function is that if it is repeatedly called with the same argument it always produces the same result. This is clearly not the case with the `addToShoppingCart()` function of the previous exercise.
 
