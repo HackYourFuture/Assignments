@@ -1,6 +1,5 @@
 const winston = require('winston');
 const moment = require('moment');
-const email = require('./git-user-email');
 
 const tsFormat = () => moment().format('YYYY-MM-DD hh:mm:ss').trim();
 
@@ -14,7 +13,7 @@ const logger = winston.createLogger({
   defaultMeta: { service: 'user-service' },
   transports: [
     new winston.transports.File({
-      filename: `${email() || 'test-runner'}.log`,
+      filename: 'test-runner.log',
     }),
   ],
 });

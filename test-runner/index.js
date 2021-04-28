@@ -1,5 +1,4 @@
-const fs = require('fs').promises;
-const { existsSync } = require('fs');
+const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const { exec } = require('child_process');
@@ -18,7 +17,7 @@ const {
   saveMostRecentSelection,
 } = require('./test-runner-helpers');
 const logger = require('./logger');
-const hashes = require('./.hashes.json');
+const hashes = require('../.hashes.json');
 
 const execAsync = util.promisify(exec);
 
@@ -34,7 +33,7 @@ See the results here as suggestions, not the truth!
 
 async function unlink(filePath) {
   try {
-    await fs.unlink(filePath);
+    await fs.promises.unlink(filePath);
   } catch (_) {
     // ignore
   }
@@ -53,57 +52,85 @@ async function writeReport(module, week, exercise, report) {
   await unlink(failFilePath);
 
   if (report) {
-    await fs.writeFile(failFilePath, report, 'utf8');
+    await fs.promises.writeFile(failFilePath, report, 'utf8');
     return report;
   }
 
   const message = 'All tests passed';
-  await fs.writeFile(passFilePath, message, 'utf8');
+  await fs.promises.writeFile(passFilePath, message, 'utf8');
+}
+
+function getUnitTestPath(exercisePath, homeworkFolder) {
+  // If the exercise path ends with `.test` it is expected to represent a
+  // single JavaScript file that contains both a function-under-test and
+  // a unit test or suite of tests.
+  if (/\.test$/.test(exercisePath)) {
+    const unitTestPath = exercisePath + '.js';
+    if (!fs.existsSync(unitTestPath)) {
+      throw new Error(`Unit test file not found: ${unitTestPath}`);
+    }
+    return { unitTestPath, verbose: true };
+  }
+
+  const exerciseName = path.basename(exercisePath);
+
+  // If the unmodified exercise path exists "as is", it must be directory that
+  // contains the exercise file(s).
+  if (fs.existsSync(exercisePath)) {
+    const stats = fs.statSync(exercisePath);
+    if (!stats.isDirectory()) {
+      throw new Error(`Expected a directory: ${exercisePath}`);
+    }
+
+    // A unit test file may be present in the exercise directory, in which case
+    // the unit test itself is considered part of the exercise. This unit test
+    // file must then be named `<exercise-name>.test.js`.
+    const unitTestPath = path.join(exercisePath, exerciseName + '.test.js');
+    if (fs.existsSync(unitTestPath)) {
+      return { unitTestPath, verbose: true };
+    }
+  }
+
+  // If the exercise directory does not contain a unit test file then it may
+  // exist in the `unit-tests` directory.
+  const regexp = new RegExp(
+    String.raw`(Week\d+)${path.sep}${homeworkFolder}${path.sep}`
+  );
+  const unitTestPath =
+    exercisePath.replace(regexp, `$1${path.sep}unit-tests${path.sep}`) +
+    '.test.js';
+  if (fs.existsSync(unitTestPath)) {
+    // Use verbose mode if the unit-tests folder contains a `.verbose` file.
+    const verboseFilePath = path.join(path.dirname(unitTestPath), '.verbose');
+    const verbose = fs.existsSync(verboseFilePath);
+    return { unitTestPath, verbose };
+  }
+
+  // No unit test file was found for the current exercise.
+  return null;
 }
 
 async function execJest(exercisePath, homeworkFolder) {
   let message;
+
+  const result = getUnitTestPath(exercisePath, homeworkFolder);
+  if (!result) {
+    message = 'A unit test file was not provided.';
+    console.log(chalk.yellow(message));
+    logger.warn(message);
+    return '';
+  }
+
+  const { unitTestPath, verbose } = result;
+
+  let cmdLine = `npx jest '${unitTestPath}' --colors`;
+
+  if (!verbose) {
+    const customReporterPath = path.join(__dirname, 'CustomReporter.js');
+    cmdLine += ` --reporters="${customReporterPath}"`;
+  }
+
   try {
-    let verbose = true;
-    let unitTestPath;
-    if (/\.test$/.test(exercisePath)) {
-      unitTestPath = exercisePath + '.js';
-    } else {
-      const exercise = path.basename(exercisePath);
-      unitTestPath = path.join(exercisePath, exercise + '.test.js');
-
-      if (!existsSync(unitTestPath)) {
-        const regexp = new RegExp(
-          String.raw`(Week\d+)${path.sep}${homeworkFolder}${path.sep}`
-        );
-        unitTestPath = exercisePath.replace(
-          regexp,
-          `$1${path.sep}unit-tests${path.sep}`
-        );
-        // Use verbose only when the unit-tests folder contains a .verbose file
-        const verboseFilePath = path.join(
-          path.dirname(unitTestPath),
-          '.verbose'
-        );
-        verbose = existsSync(verboseFilePath);
-        unitTestPath += '.test.js';
-
-        if (!existsSync(unitTestPath)) {
-          message = 'A unit test file was not provided.';
-          console.log(chalk.yellow(message));
-          logger.warn(message);
-          return '';
-        }
-      }
-    }
-
-    let cmdLine = `npx jest '${unitTestPath}' --colors`;
-
-    if (!verbose) {
-      const customReporterPath = path.join(__dirname, 'CustomReporter.js');
-      cmdLine += ` --reporters="${customReporterPath}"`;
-    }
-
     const { stderr } = await execAsync(cmdLine, {
       encoding: 'utf8',
       stdio: 'pipe',
@@ -122,7 +149,7 @@ async function execJest(exercisePath, homeworkFolder) {
     const output = err.stdout || err.message;
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
-    console.log(output);
+    console.log(verbose ? output : chalk.red(output));
     message = stripAnsi(`${title}\n\n${output})`);
     logger.error(message);
     return message;
@@ -130,7 +157,7 @@ async function execJest(exercisePath, homeworkFolder) {
 }
 
 async function execESLint(exercisePath) {
-  const lintSpec = existsSync(exercisePath)
+  const lintSpec = fs.existsSync(exercisePath)
     ? exercisePath
     : `${exercisePath}.js`;
   // Note: ESLint warnings do not throw an error
@@ -160,7 +187,7 @@ async function execESLint(exercisePath) {
 
 async function execSpellChecker(exercisePath) {
   try {
-    const cspellSpec = existsSync(exercisePath)
+    const cspellSpec = fs.existsSync(exercisePath)
       ? path.normalize(`${exercisePath}/*.js`)
       : `${exercisePath}.js`;
     await execAsync(`npx cspell ${cspellSpec}`, {
@@ -185,8 +212,8 @@ async function execSpellChecker(exercisePath) {
 }
 
 async function showDisclaimer() {
-  const disclaimerPath = path.join(__dirname, '.disclaimer');
-  const suppressDisclaimer = existsSync(disclaimerPath);
+  const disclaimerPath = path.join(__dirname, '../.disclaimer');
+  const suppressDisclaimer = fs.existsSync(disclaimerPath);
   if (!suppressDisclaimer) {
     console.log(chalk.magenta(disclaimer));
     const { answer } = await prompts({
@@ -199,7 +226,7 @@ async function showDisclaimer() {
       const message = 'Disclaimer turned off';
       console.log(message);
       logger.info(message);
-      await fs.writeFile(disclaimerPath, 'off', 'utf8');
+      await fs.promises.writeFile(disclaimerPath, 'off', 'utf8');
     }
   }
 }

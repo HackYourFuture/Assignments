@@ -22,18 +22,81 @@ function doubleEvenNumbers(numbers) {
 }
 
 const myNumbers = [1, 2, 3, 4];
-console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
+const result = doubleEvenNumbers(input); // => [4, 8]
 ```
 
-The `doubleEvenNumbers` function returns only the even numbers in the array `myNumbers` and doubles them. While this code works as advertised we would like to use a more _functional_ approach.
+The `doubleEvenNumbers` function returns only the even numbers in the array passed as the `numbers` parameter and doubles them.
 
-Let's rewrite it (or _refactor_ it, as professional developers would call it):
+We could test the `doubleEvenNumbers` function manually by logging the result to the console and visually verifying that the result is an array with two elements: `4` and `8`. In this exercise we will use an automated test instead, for now, written in plain vanilla JavaScript and using [`console.assert()`](https://developer.mozilla.org/en-US/docs/Web/API/console/assert).
 
-- Using the `map` and `filter` functions, rewrite the function body of `doubleEvenNumbers`.
+> From MDN:
+>
+> _The console.assert() method writes an error message to the console if the assertion is false. If the assertion is true, nothing happens._
+>
+> ```js
+> console.assert(assertion, msg);
+> ```
+>
+> `-assertion` is any boolean expression. If the assertion is false, the message is written to the console.
+
+Here is the provided ready-to-use code for the automated test:
+
+```js
+// ! Test function
+function test() {
+  // test input
+  const input = [1, 2, 3, 4];
+  // expected outcome
+  const expected = [4, 8];
+
+  // execute function under test
+  const result = doubleEvenNumbers(input);
+
+  // assert that `result` is an array
+  console.assert(Array.isArray(result), 'result should be an array');
+
+  // assert that the `result` array has the expected length
+  console.assert(
+    result.length === expected.length,
+    'result and expected should have the same length'
+  );
+
+  // assert that the `result` array contains the expected elements
+  for (let i = 0; i < result.length; i++) {
+    console.assert(
+      result[i] === expected[i],
+      `element[${i}] should match: expected ${expected[i]}, received ${result[i]}`
+    );
+  }
+}
+
+// ! Execute test
+test();
+```
+
+In the test function we have chosen to make the following assertions:
+
+- that `result` is an array,
+- that the `result` array has the length that we expected,
+- that each element of `result` has the value we expected.
+
+If any of these assertions fails we say that `doubleEvenNumber()` _fails_ the test. If all assertions pass we say that the function _passes_ the tests.
+
+The challenge is to make sure that all edge cases are covered. For instance, if we forgot to test that the result array is of the same length as the expected array, the `doubleEvenNumbers()` function would still pass the tests if it returns a longer array provided that it starts with the expected elements. This would not be considered acceptable.
+
+#### Exercise instruction
+
+The `doubleEvenNumbers` function "as is" passes the tests. However, we would like to use a more _functional_ approach.
+
+Let's rewrite it (or _refactor_ it, as experienced developers would call it):
+
+1. Use the `npm run it` command to run the file and verify that all test pass (no assertion messages are logged to the console).
+2. Using the `map` and `filter` functions, rewrite the function body of `doubleEvenNumbers`.
+3. Run the modified exercise and confirm that all tests still pass.
 
 ### Exercise 2: What's your Monday worth?
 
-**File:** `ex2-mondaysWorth.js`
+**File:** `ex2-mondaysWorth.test.js`
 
 When you're a developer at a big company your Monday could look something like this:
 
@@ -58,12 +121,109 @@ const mondayTasks = [
 ];
 ```
 
-Let's assume your hourly rate is €25. How much would you earn on that day?
+Let's assume your hourly rate is €25.
 
-- Complete the function names `computeEarnings`. It should take an array of tasks and an hourly rate as arguments and return a formatted Euro amount (e.g: `€11.34`) comprising the total earnings.
-- Use the `map` array function to take out the duration time for each task.
-- Multiply each duration by a hourly rate for billing and sum it all up.
-- Make sure the program can be used on any array of objects that contain a `duration` property with a number value.
+```js
+const hourlyRate = 25;
+```
+
+How much would you earn on that day?
+
+For this exercise you need to complete the provided `computeEarnings()` function. But first we need to learn more about **unit testing**.
+
+#### Unit Tests Using Jest
+
+In this exercise we will be testing `computeEarnings()` with a test library called [Jest](https://jestjs.io/) rather than using plain vanilla JavaScript as we did in the previous exercise. You have been using Jest unit tests already in Week 3 when you ran the `npm test` command, although in that week the details were hidden from you. In this week's homework we will explicitly work with Jest unit tests inside the exercise files.
+
+> For an introduction of Unit Testing with Jest we recommend the [Jest Crash Course - Unit Testing in JavaScript](https://youtu.be/7r4xVDI2vho) YouTube video from Traversy Media. For this week, watch it up to the 0:21:24 time marker.
+
+Here is a listing of the skeleton `computeEarnings()` function (for you to complete) and the unit tests it must pass.
+
+```js
+// ! Function to be tested
+function computeEarnings(/* TODO parameter(s) go here */) {
+  // TODO complete this function
+}
+
+// ! Unit tests (using Jest)
+describe('computeEarnings', () => {
+  test('should take two parameters', () => {
+    // The `.length` property indicates the number of parameters expected by
+    // the function.
+    expect(computeEarnings).toHaveLength(2);
+  });
+
+  test('should use `.map()`', () => {
+    // The `.toString()` method returns the function's source text as a string
+    // value.
+    const sourceText = computeEarnings.toString();
+    expect(sourceText).toEqual(expect.stringContaining('.map('));
+  });
+
+  test('should compute the earnings as a formatted Euro amount', () => {
+    const result = computeEarnings(mondayTasks, hourlyRate);
+    const expected = '€187.50';
+    expect(result).toBe(expected);
+  });
+});
+```
+
+The [`describe()`](https://jestjs.io/docs/api#describename-fn), [`test()`](https://jestjs.io/docs/api#testname-fn-timeout) and [`expect()`](https://jestjs.io/docs/expect) functions are global functions provided by the Jest library.
+
+<!-- prettier-ignore -->
+| Function | Description |
+| -------- | ----------- |
+| `describe(name, fn)` | Creates a block that groups together several related tests.|
+| `test(name, fn)` | Defines a unit test. |
+
+The `name` arguments are used to provide meaningful descriptions of what is being tested.
+
+Clearly, when we run the unit tests for the current exercise (use `npm test` and select the name of the exercise) on the unfinished skeleton function the tests are bound to fail as can be seen in this console output (when viewing the actual output in the console it will be colored).
+
+```console
+Running test, please wait...
+
+*** Unit Test Error Report ***
+
+Command failed: npx jest '/home/jim/dev/hackyourfuture/homework/1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js' --colors
+ FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+  computeEarnings
+    ✕ should take two parameters (4 ms)
+    ✕ should use `.map()` (1 ms)
+    ✕ should compute the earnings as a formatted Euro amount (1 ms)
+
+...
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        0.696 s, estimated 1 s
+Ran all test suites matching /\/home\/jim\/dev\/hackyourfuture\/homework-fork\/1-JavaScript\/Week4\/homework\/ex2-mondaysWorth.test.js/i.
+
+No linting errors detected.
+No spelling errors detected.
+```
+
+The practice of first writing unit tests and then writing the code that must pass the tests is called [Test Driven Development](https://www.freecodecamp.org/news/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2/):
+
+1. We start off with writing unit tests that our target function should pass.
+2. Next, we write a minimal implementation of the target function (e.g. the skeleton function from this exercise) that we know will fail the tests: all test results are output in red.
+3. Then we write a minimal implementation that will pass the unit tests: all test results are output in green.
+
+Then, if desired, we can refactor the function to make it more efficient, cleaner etc. Each time after we have made an improvement we rerun the unit tests to make sure that all test still pass. If not, we fix the problem until they do.
+
+#### Exercise instructions
+
+1. Run `npm test` on the unmodified exercise and examine the test output. Observe that all unit tests fail with the test output in red.
+
+2. Complete the `computeEarnings()` function as follows:
+
+   - It should take an array of tasks and an hourly rate as arguments and return a formatted Euro amount (e.g., `€11.34`) comprising the total earnings.
+   - Use the `.map()` array method to pick the duration time for each task.
+   - Multiply each duration by a hourly rate for billing and sum it all up.
+   - Make sure the program can be used on any array of objects that contain a `duration` property with a number value.
+
+3. Run `npm test` again. If the tests pass, you're done (congrats!). If not, zoom in on the failing test(s) and fix the problem(s). Then repeat until all tests pass.
 
 ### Exercise 3: Lemon allergy
 
@@ -85,44 +245,44 @@ const fruitBasket = [
 
 However, she forgot that you are allergic to lemons! Let's quickly dispose of them before you get an attack.
 
-- Write a function
-- Use the `filter` array function to take out the lemons
-- Output a string that says: "My mom bought me a fruit basket, containing [array of fruits] !"
+1. Run `npm test` and observe that all unit tests fail.
 
-### Exercise 4: Publish and Subscribe
+2. Complete the function called `sanitizeFruitBasket()`.
 
-**File:** `ex4-publishSubscribe.js`
+   - It should take two parameters: an array of strings representing a fruit basket to be sanitized and a string indicating the name of the fruit to be taken out.
+   - Use the `.filter()` array method to take out the unwanted fruit.
+   - Return a new array that contains the fruits with any lemons removed.
 
-A software pattern that you may encounter in the future is a construct called the **Observer Pattern**. It enables **subscribers** (which are usually functions) to **subscribe** to **notifications** from a **publisher**. Any number of subscribers can subscribe.
+3. Run `npm test` again, and repeat if necessary after fixing any failing test until all tests pass.
 
-Consider the code below (from `ex4-publishSubscribe.js`):
+### Exercise 4: Observable
 
-- The call to the `createPublisher` function returns an object. For ease of reference, let's call it a **Publisher** object here. The **Publisher** object has two properties, `subscribe` and `notify`, which are both functions. In this exercise you are required to complete them. (But continue reading first.)
+**Folder:** `ex4-observable`
 
-- As you can see below, the `createPublisher` function is called and the resulting Publisher object is assigned to the `myPublisher` variable.
+A software pattern that you may encounter in the future is a construct called the **Observer Pattern**. It enables **subscribers** (which are usually functions) to **subscribe** to **notifications** from an **observable**. Any number of subscribers can subscribe.
 
-- Next, two **subscriber** functions are defined, notably `consoleUpperCase` and `consoleLowerCase`. A subscriber function is defined here as a function that takes a single parameter, `message`. It is up to the subscriber what to do with `message`. (The **Publisher** has no say in this!).
-
-- The **subscriber** functions are added as **subscribers** to `myPublisher` by calling its `subscribe` function. The `subscribe` function should take the function passed to it as an argument and push it onto the `subscribers` array. (Yes, you can store functions in an array. Functions are treated in JavaScript like any other value. See [First-class Function](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function) in MDN Web Docs.)
-
-- The standard `console.log` function, which also conforms to the minimum requirement for a **subscriber** (although it can take more than one argument) is also added as a subscriber.
-
-- Finally, a call to the Publisher's `notify` function is expected to iterate through, and call, all subscribers from the `subscribers` array, relaying the notification message to each subscriber.
-
-Good luck with completing `createPublisher()`!
+Consider the code below (from `ex4-observable.js`):
 
 ```js
-function createPublisher() {
+function createObservable() {
   const subscribers = [];
   return {
-    subscribe(/* TODO parameter(s) go here */) {
+    subscribe: function (subscriber) {
       // TODO complete this function
     },
-    notify(/* TODO parameter(s) go here */) {
+    notify: function (message) {
       // TODO complete this function
     },
   };
 }
+```
+
+The `createObservable()` function returns an object with two function properties, `subscribe` and `notify`. In this exercise you are required to complete them.
+
+The file `runit.js`, listed below, demonstrates a minimal example use case of the `createObservable()` function.
+
+```js
+const createObservable = require('./ex4-observable');
 
 // A candidate subscriber function
 function consoleUpperCase(message) {
@@ -134,20 +294,100 @@ function consoleLowerCase(message) {
   console.log(message.toLowerCase());
 }
 
-// Create a publisher object
-const myPublisher = createPublisher();
+// Create an observable object
+const observable = createObservable();
 
-// Register three subscribers
-myPublisher.subscribe(console.log);
-myPublisher.subscribe(consoleUpperCase);
-myPublisher.subscribe(consoleLowerCase);
+// Add three subscribers
+observable.subscribe(console.log);
+observable.subscribe(consoleUpperCase);
+observable.subscribe(consoleLowerCase);
 
 // Send a message to all current subscribers
-myPublisher.notify("Let's see what happens here!");
-// Let's see what happens here! (console.log subscriber)
-// LET'S SEE WHAT HAPPENS HERE! (consoleUpperCase subscriber)
-// let's see what happens here! (consoleLowerCase subscriber)
+observable.notify("Let's see what happens here!");
 ```
+
+Because the `createObservable()` function resides in another file we first need to obtain a reference to it by calling the Node.js `require()` function and saving the reference to a `const` variable. (You will learn more about Node.js in the Node curriculum module. Note that the `ex4-observable.js` file "exports" the `createObserver` function.)
+
+In `runit.js`, we first create two example functions that log their argument to the console after modifying it (upper case, lower case).
+
+Next, we call `createObservable()` to create an `observable` object.
+
+We then subscribe three functions to the `observable` object by passing these functions as arguments to the object's `.subscribe()` method. One of these functions is the standard `console.log` which outputs its argument unmodified.
+
+Finally, we call the `.notify()` method on the `observable` object, passing a message (in this case a string) that we expect to be sent to all subscriber functions. Each of our example subscriber functions logs the message to the console in it own fashion (unmodified, in upper case, in lower case). In the _finished_ exercise the output should look like this (using `npm run it`).
+
+```console
+Let's see what happens here! (console.log subscriber)
+LET'S SEE WHAT HAPPENS HERE! (consoleUpperCase subscriber)
+let's see what happens here! (consoleLowerCase subscriber)
+```
+
+#### Running the Unit Tests
+
+This time we have provided the unit tests in a separate file called `ex4-observable.test.js`. You should not modify this file, nor do you need to fully understand how it works at this stage. However, we will try to give an explanation here all the same.
+
+The first two unit tests in the file will pass already on the unmodified exercise (lucky you!).
+
+```js
+const createObservable = require('./ex4-observable');
+
+describe('createObservable', () => {
+  test('should exist and be a function', () => {
+    expect(typeof createObservable).toBe('function');
+  });
+
+  test('should return an object with `subscribe` and a `notify` function properties', () => {
+    const observable = createObservable();
+    expect(typeof observable).toBe('object');
+    expect(typeof observable.subscribe).toBe('function');
+    expect(typeof observable.notify).toBe('function');
+  });
+
+  ...
+});
+```
+
+The third unit test tests the "beef" of this exercise: your implementation of the methods `subscribe()` and `notify()`.
+
+```js
+describe('createObservable', () => {
+  ...
+
+  test('should notify all subscribers of any notification', () => {
+    const observable = createObservable();
+
+    // Create two mocked listener functions
+    const listener1 = jest.fn();
+    const listener2 = jest.fn();
+
+    // Subscribe both function to the observable
+    observable.subscribe(listener1);
+    observable.subscribe(listener2);
+
+    // Notify all subscribers with a Hi! message
+    observable.notify('Hi!');
+
+    // Assert that both listeners have been called with the Hi! message
+    expect(listener1).toHaveBeenCalledWith('Hi!');
+    expect(listener2).toHaveBeenCalledWith('Hi!');
+  });
+});
+
+```
+
+The `listener1` and `listener2` variables are each assigned a Jest "mock" function. We can use such functions in place of actual production functions to observe their usage during a unit test. In this case we are interested whether these functions are called with a notification message if we subscribe them to an observable. After the `.notify()` method is called we `expect` both listeners to have been called with the string that was passed as an argument to `.notify()`.
+
+#### Exercise instructions
+
+Complete the `createObservable()` function as follows:
+
+- The `subscribe` function should take the function passed to it as an argument and push it onto the `subscribers` array. (Yes, you can store functions in an array. Functions are treated in JavaScript like any other value.)
+
+- The `notify` function should iterate through, and call, all subscribers from the `subscribers` array, passing on the notification message to each subscriber.
+
+To see your implementation in action, use `npm run it` to run the `runit.js` file.
+
+To test your implementation with the Jest unit tests, run `npm test`. This will run the tests in `ex4-observable.test.js`.
 
 ### Exercise 5: Transfer into Wallet
 

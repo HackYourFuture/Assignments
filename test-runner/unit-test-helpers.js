@@ -11,7 +11,7 @@ function beforeAllHelper(testFilePath, options = {}) {
   options = Object.assign(defaultOptions, options);
   const matches = testFilePath
     .replace(/\\/g, '/')
-    .match(/^.*\/(.+)\/(Week\d)\/unit-tests\/(.+)\.test\.js$/i);
+    .match(/^.*\/(.+)\/(Week\d)\/.+\/(.+)\.test\.js$/i);
   if (!matches) {
     throw new Error(`Unexpected test path: ${testFilePath}`);
   }

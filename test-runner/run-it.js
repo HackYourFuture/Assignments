@@ -15,7 +15,7 @@ const {
   loadMostRecentSelection,
   saveMostRecentSelection,
 } = require('./test-runner-helpers');
-const hashes = require('./.hashes.json');
+const hashes = require('../.hashes.json');
 
 const PORT = 3030;
 
@@ -66,18 +66,13 @@ async function runExercise(exercisePath) {
     }
 
     // Let's make sure we have a directory at this point
-    const stats = await fs.promises.stat(exercisePath);
+    const stats = fs.statSync(exercisePath);
     if (stats.isDirectory()) {
-      const exercise = path.basename(exercisePath);
-      const possibleTestFilePath = path.join(
-        exercisePath,
-        exercise + '.test.js'
-      );
-      if (fs.existsSync(possibleTestFilePath)) {
-        console.log(chalk.red(testWarning));
-        return;
+      requirePath = path.join(exercisePath, 'runit.js');
+      if (!fs.existsSync(requirePath)) {
+        const exerciseName = path.basename(exercisePath);
+        requirePath = path.join(exercisePath, exerciseName + '.js');
       }
-      requirePath = path.join(exercisePath, exercise + '.js');
     } else {
       throw new Error(`Unexpected exercise path: ${exercisePath}`);
     }

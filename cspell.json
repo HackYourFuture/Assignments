@@ -10,6 +10,7 @@
         "endregion",
         "eqeqeq",
         "Grammatic",
+        "hackyourfuture",
         "hplogo",
         "htmlvalidate",
         "networkidle",
@@ -18,6 +19,7 @@
         "precommit",
         "printf",
         "rethrowing",
+        "runit",
         "significand",
         "srcset",
         "sysinfo",
@@ -25,6 +27,7 @@
         "testalt",
         "testx",
         "thruthy",
+        "Traversy",
         "typeof",
         "usingapis",
         "Woww"

@@ -1,13 +1,13 @@
 /*------------------------------------------------------------------------------
-The `doubleEvenNumbers` function returns only the even numbers in the array `
-myNumbers` and doubles them. While this code works as advertised we would like
-to use a more _functional_ approach.
+The `doubleEvenNumbers` function returns only the even numbers in the array 
+passed as the `numbers` parameter and doubles them.
 
-Let's rewrite it (or _refactor_ it, as professional developers would call it):
+Let's rewrite it (or _refactor_ it, as experienced developers would call it):
 
 - Using the `map` and `filter` functions, rewrite the function body of
 `doubleEvenNumbers`.
 ------------------------------------------------------------------------------*/
+// ! Function to be tested
 function doubleEvenNumbers(numbers) {
   // TODO rewrite the function body using `map` and `filter`.
   const newNumbers = [];
@@ -19,11 +19,33 @@ function doubleEvenNumbers(numbers) {
   return newNumbers;
 }
 
-const myNumbers = [1, 2, 3, 4];
-console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
+// ! Test function (plain vanilla JavaScript)
+function test() {
+  // test input
+  const input = [1, 2, 3, 4];
+  // expected outcome
+  const expected = [4, 8];
 
-const yourNumbers = [1, 3, 6, 10, 13, 4];
-console.log(doubleEvenNumbers(yourNumbers)); // Logs "[12, 20, 8]" to the console
+  // execute function under test
+  const result = doubleEvenNumbers(input);
 
-// ! Do not change or remove the code below
-module.exports = doubleEvenNumbers;
+  // assert that `result` is an array
+  console.assert(Array.isArray(result), 'result should be an array');
+
+  // assert that the `result` array has the expected length
+  console.assert(
+    result.length === expected.length,
+    'result and expected should have the same length'
+  );
+
+  // assert that the `result` array contains the expected elements
+  for (let i = 0; i < result.length; i++) {
+    console.assert(
+      result[i] === expected[i],
+      `element[${i}] should match: expected ${expected[i]}, received ${result[i]}`
+    );
+  }
+}
+
+// ! Execute test
+test();

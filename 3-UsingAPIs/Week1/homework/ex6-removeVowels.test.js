@@ -1,6 +1,3 @@
-// ! Do not remove the line below
-require('../../../test-runner/jest-noop');
-
 // Function to be tested
 function removeVowels(text) {
   // TODO complete the function body to pass the unit test
