@@ -21,16 +21,48 @@ you have more than 3 items in your shopping cart the first item gets taken out.
 -----------------------------------------------------------------------------*/
 const shoppingCart = ['bananas', 'milk'];
 
+// ! Function to be tested
 function addToShoppingCart(/* parameters go here */) {
   // TODO complete this function
 }
 
-console.log(addToShoppingCart('chocolate')); // "You bought bananas, milk, chocolate!"
-console.log(addToShoppingCart('waffles')); // "You bought milk, chocolate, waffles!"
-console.log(addToShoppingCart('tea')); // "You bought chocolate, waffles, tea!"
+// ! Test functions (plain vanilla JavaScript)
+function test1() {
+  console.log('Test 1: addShoppingCart() should take one parameter');
+  // Note: the `.length` property of a function indicates the number of
+  // parameters it expects.
+  console.assert(addToShoppingCart.length === 1);
+}
 
-// ! Do not change or remove any code below
-module.exports = {
-  shoppingCart,
-  addToShoppingCart,
-};
+function test2() {
+  console.log('Test 2: `chocolate` should be added');
+  const result = addToShoppingCart('chocolate');
+  console.log(result);
+  const expected = 'You bought bananas, milk, chocolate!';
+  console.assert(result === expected);
+}
+
+function test3() {
+  console.log('Test 3: `waffles` should be added and `bananas` removed');
+  const result = addToShoppingCart('waffles');
+  console.log(result);
+  const expected = 'You bought milk, chocolate, waffles!';
+  console.assert(result === expected);
+}
+
+function test4() {
+  console.log('Test 4: `tea` should be added and `milk` removed');
+  const result = addToShoppingCart('tea');
+  console.log(result);
+  const expected = 'You bought chocolate, waffles, tea!';
+  console.assert(result === expected);
+}
+
+function test() {
+  test1();
+  test2();
+  test3();
+  test4();
+}
+
+test();
