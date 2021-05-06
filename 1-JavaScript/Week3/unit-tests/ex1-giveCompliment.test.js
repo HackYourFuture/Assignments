@@ -1,10 +1,7 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
 const walk = require('acorn-walk');
-const {
-  beforeAllHelper,
-  findAncestor,
-} = require('../../../test-runner/unit-test-helpers');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('giveCompliment', () => {
   const state = {};
@@ -17,14 +14,10 @@ describe('giveCompliment', () => {
     giveCompliment = exported;
 
     rootNode &&
-      walk.ancestor(rootNode, {
-        VariableDeclarator({ id, init }, ancestors) {
+      walk.simple(rootNode, {
+        VariableDeclarator({ id, init }) {
           if (id?.name === 'compliments' && init?.type === 'ArrayExpression') {
             state.compliments = init.elements.map((elem) => elem.value);
-            const ancestor = findAncestor('FunctionDeclaration', ancestors);
-            if (ancestor && ancestor.id.name === 'giveCompliment') {
-              state.inScope = true;
-            }
           }
         },
       });

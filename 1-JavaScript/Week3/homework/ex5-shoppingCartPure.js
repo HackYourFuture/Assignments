@@ -11,6 +11,7 @@ it pure. Do the following:
 3. The shopping cart passed as an argument should not be mutated.
 4. When constructing the new shopping cart array you should make use of the ES5 
    spread syntax.
+5. Confirm that you function passes the provided unit tests.
 ------------------------------------------------------------------------------*/
 // ! Function under test
 function addToShoppingCart(/* TODO parameter(s) go here */) {

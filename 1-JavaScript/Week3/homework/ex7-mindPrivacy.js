@@ -8,6 +8,7 @@
    employee record (an `object`) and object literal shorthand to create a new 
    employee record with just the non-private parts (name, occupation and email).
 4. Return the new array as the return value of the function.
+5. Run the exercise and verify that it passes all the unit tests.
 ------------------------------------------------------------------------------*/
 const isEqual = require('lodash.isequal');
 

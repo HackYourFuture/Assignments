@@ -16,8 +16,7 @@ instead!
    - Loop through the object and add all the number values together.
    - Return a string: "Total: €`amount`".
 
-3. Call the function once, giving it the object `cartForParty` as an argument.
-   Use `console.log` to display the result.
+3. Complete the unit test functions and verify that all is working as expected.
 -----------------------------------------------------------------------------*/
 const cartForParty = {
   // TODO complete this object
@@ -28,24 +27,18 @@ function calculateTotalPrice(/* TODO parameter(s) go here */) {
 }
 
 function test1() {
-  console.log('Test 1: cartForParty is an object with 5 numeric properties');
+  console.log('\nTest 1: calculateTotalPrice should take one argument');
   // TODO replace this comment with your code
 }
 
 function test2() {
-  console.log('\nTest 2: calculateTotalPrice should take one argument');
-  // TODO replace this comment with your code
-}
-
-function test3() {
-  console.log('\nTest 2: calculateTotalPrice should return correct output');
+  console.log('\nTest 2: return correct output when passed cartForParty');
   // TODO replace this comment with your code
 }
 
 function test() {
   test1();
   test2();
-  test3();
 }
 
 test();
