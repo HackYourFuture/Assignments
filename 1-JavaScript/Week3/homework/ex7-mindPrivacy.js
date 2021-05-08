@@ -10,8 +10,6 @@
 4. Return the new array as the return value of the function.
 5. Run the exercise and verify that it passes all the unit tests.
 ------------------------------------------------------------------------------*/
-const isEqual = require('lodash.isequal');
-
 const employeeRecords = [
   {
     name: 'John',
@@ -55,7 +53,7 @@ function test2() {
     },
   ];
   const result = filterPrivateData(employeeRecords);
-  console.assert(isEqual(result, expected));
+  console.assert(JSON.stringify(result) === JSON.stringify(expected));
 }
 
 function test() {

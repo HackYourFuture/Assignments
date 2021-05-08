@@ -84,12 +84,12 @@ Let's do some grocery shopping! We're going to get some things to cook dinner wi
 
 #### Unit tests
 
-The code listing below shows the plain vanilla JavaScript unit tests that are provided for this exercise. There are four separate tests, each one focussing on a separate expected characteristic or behaviour of the function to be tested. All tests consist of the following parts:
+The code listing below shows the plain vanilla JavaScript unit tests that are provided for this exercise. There are four separate tests, each one focussing on an expected characteristic or behaviour of the function to be tested. Each test is made up of the following parts:
 
-1. A `console.log` message to communicate _what_ we are testing.
-2. A definition of the _expected value_ that the function-under-test should _return_.
-3. A _call_ to the function-under-test, supplying the _arguments_ that should produce the _expected result_.
-4. A `console.assert()` to assert that the _actual result_ matches the _expected result_.
+1. A `console.log` message that describes what the test is about.
+2. A definition of the expected value that the function-under-test should return.
+3. A call to the function-under-test, supplying the arguments that should produce the expected result.
+4. A `console.assert()` that asserts that the actual result matches the expected result.
 
 ```js
 function test1() {
@@ -143,7 +143,19 @@ Test 4: `tea` should be added and `milk` removed
 Assertion failed
 ```
 
-When the function-under-test is correctly implemented we expect all assertion to _pass_ (i.e., the `console.assert` statements will remain silent).
+> From MDN Web Docs [console.assert()](https://developer.mozilla.org/en-US/docs/Web/API/console/assert):
+>
+> _The console.assert() method writes an error message to the console if the assertion is false. If the assertion is true, nothing happens._
+>
+> ```js
+> console.assert(assertion, msg);
+> ```
+>
+> `assertion` is any boolean expression. If the assertion is false, the message is written to the console.
+>
+> (In Node.js, if `msg` is omitted, the default message "Assertion failed" will be used.)
+
+When the function-under-test is correctly implemented we expect all assertions to _pass_ (i.e., the `console.assert` statements will remain silent).
 
 ```console
 Test 1: addShoppingCart() should take one parameter
@@ -152,23 +164,21 @@ Test 3: `waffles` should be added and `bananas` removed
 Test 4: `tea` should be added and `milk` removed
 ```
 
-> The `console.assert()` method does not output anything if the condition supplied to it as its (first) argument is _truthy_. It the condition is _falsy_ by default the message "Assertion failed" is output. For more information, refer to MDN Web Docs [console.assert()](https://developer.mozilla.org/en-US/docs/Web/API/console/assert).
-
 ### Exercise 5: Improved shopping at the supermarket
 
 #### File: `ex5-shoppingCartPure.js`
 
-From a _best practice_ point of view, there is a big problem with the code of the previous exercise (4): it modifies (_"mutates"_) a global variable. In larger code bases this can become problematic as it will be difficult to track down places in the code that might also (unexpectedly) mutate the global variable. Conversely, there might be yet other code, tucked away somewhere else, that expects the variable to remain constant. Global variables (other than those that are truly and explicitly understood to be constant) are best avoided.
+From a _best practice_ point of view, there is a big problem with the code of the previous exercise: it modifies (_"mutates"_) a global variable. In larger code bases this can become problematic as it will be difficult to track down places in the code that might also (unexpectedly) mutate the global variable. Conversely, there might be yet other code, tucked away somewhere else, that expects the variable to remain constant. Global variables (other than those that are truly and explicitly understood to be constant) are best avoided.
 
-A function that mutates a global variable or in some other way interacts with the "_outside world_" (e.g. accessing a database, making a network request, or even logging something to the console) is said to cause _"side effects"_. Sometimes this is necessary. A program that does not in some way affects the outside world cannot possibly do something useful. However, in all other cases side-effects are best avoided.
+A function that mutates a global variable or in some other way interacts with the "_outside world_" (e.g. accessing a database, making a network request, or even logging something to the console) is said to cause _"side effects"_. Sometimes this is necessary. A program that does not in some way affect the outside world cannot possibly do something useful. However, in all other cases side-effects are best avoided.
 
-Experienced developers therefore prefer to work with _pure functions_. Pure functions do not access (let alone, _mutate_) any data that exists outside of their own scope and return results solely through the function's return value. All required data is expected to be passed through its parameter list.
+Experienced developers therefore prefer to work with _pure functions_. Pure functions do not access (let alone, _mutate_) any data that exists outside of their own scope and returns results solely through the function's return value. All required data is expected to be passed through its parameter list.
 
-A key characteristic of a pure function is that if it is repeatedly called with the same argument it always produces the same result. This is clearly not the case with the `addToShoppingCart()` function of the previous exercise.
+A key characteristic of a pure function is that if it is repeatedly called with the same arguments it always produces the same result. This is clearly not the case with the `addToShoppingCart()` function of the previous exercise.
 
 In the current exercise we will rewrite the `addToShoppingCart` function to make it _pure_. Do the following:
 
-1. Complete the parameter list of `addToShopping()`. As a first parameter it should accept a shopping cart array and as a second parameter it should accept a grocery item to be added.
+1. Complete the parameter list of `addToShoppingCart()`. As a first parameter it should accept a shopping cart array and as a second parameter it should accept a grocery item to be added.
 2. The function should return a _new_ shopping cart array, following the same rule as in the previous exercise: it should contain a maximum of three items.
 3. The shopping cart passed as an argument should not be modified.
 4. When constructing the new shopping cart array you should make use of the ES5 _spread_ syntax.<br>See also [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) on MDN Web Docs.
@@ -178,7 +188,7 @@ In the current exercise we will rewrite the `addToShoppingCart` function to make
 
 #### File: `ex6-totalCost.js`
 
-> In this exercise you need to complete both a _function-under-test_ as well as three separate unit test functions to test the correctness of the function-under-test.
+> In this exercise you need to complete both a _function-under-test_ as well as two separate unit test functions to test the correctness of the function-under-test.
 
 You want to buy a couple of things from the supermarket to prepare for a party. After scanning all the items the cashier wants to give you the total price, but the machine is broken! Let's write her a _function_ that does it for her instead!
 
@@ -213,7 +223,7 @@ test();
 
 #### Exercise instructions
 
-1. Create an object named `cartForParty` with five properties. Each property should be a grocery item (like `beers` or `chips`) and hold a number value (like `1.75` or `0.99`).
+1. Create an object named `cartForParty` with five properties. Each property should be a grocery item (like `beer` or `chips`) and hold a number value (like `1.75` or `0.99`).
 
 2. Write a function called `calculateTotalPrice`.
 
@@ -257,3 +267,29 @@ You should do the following:
 3. Use [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring) to extract the non-private properties from an employee record (an `object`) and [object literal shorthand](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#property_definitions) to create a new employee record with just the non-private parts (`name`, `occupation` and `email`).
 4. Return the new array as the return value of the function.
 5. Run the exercise and verify that it passes all the unit tests.
+
+#### Note: Comparing Objects
+
+In the second unit test (see below) we need to compare the returned object against the result we expect (also an object). We cannot simply use an equality comparison operator (strict or non-strict) to compare the two objects. The variables `expected` and `result` reference different objects and therefore a direct comparison `expected === result` will always be false.
+
+In this unit test we have used a trick: we create a string ("JSON") representation of each object, using `JSON.stringify()`. Then we compare the resulting strings. For our purposes here this will work fine. However, it is a fragile way of comparing objects: if we change the order of the properties in one object (e.g. placing the `occupation` property before the `name` property in the `expected` object) the comparison will fail, although we should still consider the object to match. In Week 3 we will be using the Jest test library that has more advanced "matchers" that work correctly even if the order of the properties is different.
+
+```js
+function test2() {
+  console.log('Test 2: gender and salary should be filtered out');
+  const expected = [
+    {
+      name: 'John',
+      occupation: 'developer',
+      email: 'john.doe@somewhere.net',
+    },
+    {
+      name: 'Jane',
+      occupation: 'manager',
+      email: 'jane.eyre@somewhere.net',
+    },
+  ];
+  const result = filterPrivateData(employeeRecords);
+  console.assert(JSON.stringify(result) === JSON.stringify(expected));
+}
+```

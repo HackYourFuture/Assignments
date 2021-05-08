@@ -29,7 +29,6 @@ const mondayTasks = [
 
 const hourlyRate = 25;
 
-// ! Function to be tested
 function computeEarnings(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
@@ -40,13 +39,6 @@ describe('computeEarnings', () => {
     // The `.length` property indicates the number of parameters expected by
     // the function.
     expect(computeEarnings).toHaveLength(2);
-  });
-
-  test('should use `.map()`', () => {
-    // The `.toString()` method returns the function's source text as a string
-    // value.
-    const sourceText = computeEarnings.toString();
-    expect(sourceText).toEqual(expect.stringContaining('.map('));
   });
 
   test('should compute the earnings as a formatted Euro amount', () => {

@@ -4,14 +4,20 @@
 
 The homework for this week can be found in the `homework` folder.
 
+> In this week we will be using a test library called [Jest](https://jestjs.io/) rather than using plain vanilla JavaScript as we did last week.
+>
+> For an introduction of Unit Testing with Jest we recommend the [Jest Crash Course - Unit Testing in JavaScript](https://youtu.be/7r4xVDI2vho) YouTube video from Traversy Media. For this week, please watch it up to the 0:21:24 time marker.
+
 ### Exercise 1: The odd ones out
 
-**File:** `ex1-doubleEvenNumbers.js`
+**File:** `ex1-doubleEvenNumbers.test.js`
 
-Look at the following code snippet:
+Look at the following code from the exercise:
 
 ```js
+// ! Function to be test
 function doubleEvenNumbers(numbers) {
+  // TODO rewrite the function body using `map` and `filter`.
   const newNumbers = [];
   for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] % 2 === 0) {
@@ -21,78 +27,44 @@ function doubleEvenNumbers(numbers) {
   return newNumbers;
 }
 
-const myNumbers = [1, 2, 3, 4];
-const result = doubleEvenNumbers(input); // => [4, 8]
-```
-
-The `doubleEvenNumbers` function returns only the even numbers in the array passed as the `numbers` parameter and doubles them.
-
-We could test the `doubleEvenNumbers` function manually by logging the result to the console and visually verifying that the result is an array with two elements: `4` and `8`. In this exercise we will use an automated test instead, for now, written in plain vanilla JavaScript and using [`console.assert()`](https://developer.mozilla.org/en-US/docs/Web/API/console/assert).
-
-> From MDN:
->
-> _The console.assert() method writes an error message to the console if the assertion is false. If the assertion is true, nothing happens._
->
-> ```js
-> console.assert(assertion, msg);
-> ```
->
-> `-assertion` is any boolean expression. If the assertion is false, the message is written to the console.
-
-Here is the provided ready-to-use code for the automated test:
-
-```js
-// ! Test function
-function test() {
-  // test input
-  const input = [1, 2, 3, 4];
-  // expected outcome
+// ! Unit test (using Jest)
+test('doubleEvenNumbers should take the even numbers and double them', () => {
+  const actual = doubleEvenNumbers([1, 2, 3, 4]);
   const expected = [4, 8];
-
-  // execute function under test
-  const result = doubleEvenNumbers(input);
-
-  // assert that `result` is an array
-  console.assert(Array.isArray(result), 'result should be an array');
-
-  // assert that the `result` array has the expected length
-  console.assert(
-    result.length === expected.length,
-    'result and expected should have the same length'
-  );
-
-  // assert that the `result` array contains the expected elements
-  for (let i = 0; i < result.length; i++) {
-    console.assert(
-      result[i] === expected[i],
-      `element[${i}] should match: expected ${expected[i]}, received ${result[i]}`
-    );
-  }
-}
-
-// ! Execute test
-test();
+  expect(actual).toEqual(expected);
+});
 ```
 
-In the test function we have chosen to make the following assertions:
+The `doubleEvenNumbers` function creates a new array by taking the even numbers from its `numbers` parameter (an array) and then doubling them. The resulting new array is returned as the function's return value.
 
-- that `result` is an array,
-- that the `result` array has the length that we expected,
-- that each element of `result` has the value we expected.
+A single unit test is provided. It consist of a call to the global `test()` function (provided by the Jest library) that is executed when you run the `npm test` command for this exercise. The Jest `test()` function takes two arguments:
 
-If any of these assertions fails we say that `doubleEvenNumber()` _fails_ the test. If all assertions pass we say that the function _passes_ the tests.
+1. A title string that describes what is being tested.
+2. A callback function that is responsible for performing the actual test.
 
-The challenge is to make sure that all edge cases are covered. For instance, if we forgot to test that the result array is of the same length as the expected array, the `doubleEvenNumbers()` function would still pass the tests if it returns a longer array provided that it starts with the expected elements. This would not be considered acceptable.
+Inside the callback function we call the function to tested, passing to it the arguments relevant for the test at hand and saving its return value for subsequent inspection. The global Jest `expect()` function is then used to _assert_ that the returned value matches the expected value for this test.
 
-#### Exercise instruction
+#### Exercise instructions
 
-The `doubleEvenNumbers` function "as is" passes the tests. However, we would like to use a more _functional_ approach.
+Your task in this assignment is to rewrite the function body so that it uses the standard `.map()` and `.filter()` array methods to replace the existing loop-based implementation that pushes elements onto an array.
 
-Let's rewrite it (or _refactor_ it, as experienced developers would call it):
+> Revising/improving a function without changing its externally observable behaviour is referred to as _refactoring_. The availability of one or more unit tests for the function to be refactored can help to ensure that the function still performs as expected after refactoring.
 
-1. Use the `npm run it` command to run the file and verify that all test pass (no assertion messages are logged to the console).
-2. Using the `map` and `filter` functions, rewrite the function body of `doubleEvenNumbers`.
-3. Run the modified exercise and confirm that all tests still pass.
+1. Use the `npm test` command on the unmodified exercise and observe that it passes the unit test.
+2. Using the `.map()` and `.filter()` functions, rewrite the function body of `doubleEvenNumbers`.
+3. Run `npm test` on the modified exercise and check that the unit test still passes (if not, fix the problem and try again).
+
+Expected output from a successful unit test:
+
+```console
+ PASS  1-JavaScript/Week4/homework/ex1-doubleEvenNumbers.test.js
+  ✓ doubleEvenNumbers should take the even numbers and double them (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.764 s, estimated 1 s
+```
 
 ### Exercise 2: What's your Monday worth?
 
@@ -127,37 +99,17 @@ Let's assume your hourly rate is €25.
 const hourlyRate = 25;
 ```
 
-How much would you earn on that day?
+For this exercise you need to complete the provided `computeEarnings()` function. The provided unit tests give clues on what this function should do:
 
-For this exercise you need to complete the provided `computeEarnings()` function. But first we need to learn more about **unit testing**.
-
-#### Unit Tests Using Jest
-
-In this exercise we will be testing `computeEarnings()` with a test library called [Jest](https://jestjs.io/) rather than using plain vanilla JavaScript as we did in the previous exercise. You have been using Jest unit tests already in Week 3 when you ran the `npm test` command, although in that week the details were hidden from you. In this week's homework we will explicitly work with Jest unit tests inside the exercise files.
-
-> For an introduction of Unit Testing with Jest we recommend the [Jest Crash Course - Unit Testing in JavaScript](https://youtu.be/7r4xVDI2vho) YouTube video from Traversy Media. For this week, watch it up to the 0:21:24 time marker.
-
-Here is a listing of the skeleton `computeEarnings()` function (for you to complete) and the unit tests it must pass.
+1. It should take two parameters (the `tasks` object and the hourly `rate`).
+2. It should compute the earnings: a formatted Euro amount. The tests also gives away the expected answer: `'€187.50'`
 
 ```js
-// ! Function to be tested
-function computeEarnings(/* TODO parameter(s) go here */) {
-  // TODO complete this function
-}
-
-// ! Unit tests (using Jest)
 describe('computeEarnings', () => {
   test('should take two parameters', () => {
     // The `.length` property indicates the number of parameters expected by
     // the function.
     expect(computeEarnings).toHaveLength(2);
-  });
-
-  test('should use `.map()`', () => {
-    // The `.toString()` method returns the function's source text as a string
-    // value.
-    const sourceText = computeEarnings.toString();
-    expect(sourceText).toEqual(expect.stringContaining('.map('));
   });
 
   test('should compute the earnings as a formatted Euro amount', () => {
@@ -168,66 +120,95 @@ describe('computeEarnings', () => {
 });
 ```
 
-The [`describe()`](https://jestjs.io/docs/api#describename-fn), [`test()`](https://jestjs.io/docs/api#testname-fn-timeout) and [`expect()`](https://jestjs.io/docs/expect) functions are global functions provided by the Jest library.
-
-<!-- prettier-ignore -->
-| Function | Description |
-| -------- | ----------- |
-| `describe(name, fn)` | Creates a block that groups together several related tests.|
-| `test(name, fn)` | Defines a unit test. |
-
-The `name` arguments are used to provide meaningful descriptions of what is being tested.
-
-Clearly, when we run the unit tests for the current exercise (use `npm test` and select the name of the exercise) on the unfinished skeleton function the tests are bound to fail as can be seen in this console output (when viewing the actual output in the console it will be colored).
-
-```console
-Running test, please wait...
-
-*** Unit Test Error Report ***
-
-Command failed: npx jest '/home/jim/dev/hackyourfuture/homework/1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js' --colors
- FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
-  computeEarnings
-    ✕ should take two parameters (4 ms)
-    ✕ should use `.map()` (1 ms)
-    ✕ should compute the earnings as a formatted Euro amount (1 ms)
-
-...
-
-Test Suites: 1 failed, 1 total
-Tests:       3 failed, 3 total
-Snapshots:   0 total
-Time:        0.696 s, estimated 1 s
-Ran all test suites matching /\/home\/jim\/dev\/hackyourfuture\/homework-fork\/1-JavaScript\/Week4\/homework\/ex2-mondaysWorth.test.js/i.
-
-No linting errors detected.
-No spelling errors detected.
-```
-
-The practice of first writing unit tests and then writing the code that must pass the tests is called [Test Driven Development](https://www.freecodecamp.org/news/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2/):
-
-1. We start off with writing unit tests that our target function should pass.
-2. Next, we write a minimal implementation of the target function (e.g. the skeleton function from this exercise) that we know will fail the tests: all test results are output in red.
-3. Then we write a minimal implementation that will pass the unit tests: all test results are output in green.
-
-Then, if desired, we can refactor the function to make it more efficient, cleaner etc. Each time after we have made an improvement we rerun the unit tests to make sure that all test still pass. If not, we fix the problem until they do.
-
 #### Exercise instructions
 
-1. Run `npm test` on the unmodified exercise and examine the test output. Observe that all unit tests fail with the test output in red.
+1. Use the `npm test` command on the unmodified exercise and observe that both unit tests fail. (A green check mark indicates a _passed_ test, a red cross indicates a _failed_ test.)
 
-2. Complete the `computeEarnings()` function as follows:
+   ```console
+   FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+     computeEarnings
+       ✕ should take two parameters (3 ms)
+       ✕ should compute the earnings as a formatted Euro amount (1 ms)
 
-   - It should take an array of tasks and an hourly rate as arguments and return a formatted Euro amount (e.g., `€11.34`) comprising the total earnings.
-   - Use the `.map()` array method to pick the duration time for each task.
-   - Multiply each duration by a hourly rate for billing and sum it all up.
-   - Make sure the program can be used on any array of objects that contain a `duration` property with a number value.
+     ● computeEarnings › should take two parameters
 
-3. Run `npm test` again. If the tests pass, you're done (congrats!). If not, zoom in on the failing test(s) and fix the problem(s). Then repeat until all tests pass.
+       expect(received).toHaveLength(expected)
+
+       Expected length:   2
+       Received length:   0
+       Received function: [Function computeEarnings]
+
+         (stack trace omitted for brevity)
+
+     ● computeEarnings › should compute the earnings as a formatted Euro amount
+
+       expect(received).toBe(expected) // Object.is equality
+
+       Expected: "€187.50"
+       Received: undefined
+
+      // stack trace omitted for brevity
+
+   Test Suites: 1 failed, 1 total
+   Tests:       2 failed, 2 total
+   Snapshots:   0 total
+   Time:        0.767 s, estimated 1 s
+   ```
+
+2. Add the expected parameters to the function parameter list. Leave the function body unchanged for now.
+
+3. Run `npm test` again and observe that the first test now passes while the second one still fails.
+
+   ```console
+   FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+     computeEarnings
+       ✓ should take two parameters (2 ms)
+       ✕ should compute the earnings as a formatted Euro amount (1 ms)
+
+     ● computeEarnings › should compute the earnings as a formatted Euro amount
+
+       expect(received).toBe(expected) // Object.is equality
+
+       Expected: "€187.50"
+       Received: undefined
+
+       // stack trace omitted for brevity
+
+   Test Suites: 1 failed, 1 total
+   Tests:       1 failed, 1 passed, 2 total
+   Snapshots:   0 total
+   Time:        0.79 s, estimated 1 s
+   ```
+
+4. Complete the function body as you see fit.
+
+5. Run `npm test` again and check whether the second unit test now passes. If not, fix the problem and try again.
+
+   ```console
+   PASS  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+     computeEarnings
+       ✓ should take two parameters (1 ms)
+       ✓ should compute the earnings as a formatted Euro amount (1 ms)
+
+   Test Suites: 1 passed, 1 total
+   Tests:       2 passed, 2 total
+   Snapshots:   0 total
+   Time:        0.768 s, estimated 1 s
+   ```
+
+> The practice of first writing unit tests and then writing the code that must pass the tests is called [Test Driven Development](https://www.freecodecamp.org/news/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2/):
+>
+> 1. We start off with writing unit tests that our target function should pass.
+> 2. Next, we write a minimal implementation of the target function (e.g. the skeleton function from this exercise) that we know will fail the tests: all test results are output in red.
+> 3. Then we write a minimal implementation that will pass the unit tests: all test results are output in green.
+>
+> Then, if desired, we refactor the function to make it more efficient, cleaner etc. Each time after we have made an improvement we rerun the unit tests to make sure that all test still pass. If not, we fix the problems until they do.
 
 ### Exercise 3: Lemon allergy
 
 **File:** `ex3-lemonAllergy.js`
+
+> In this exercise your job is to both complete the unit test function and the function to be tested itself.
 
 Your mom bought you a basket of fruit, because you're doing so well in HackYourFuture. How sweet of her!
 
@@ -243,17 +224,48 @@ const fruitBasket = [
 ];
 ```
 
-However, she forgot that you are allergic to lemons! Let's quickly dispose of them before you get an attack.
+However, she forgot that you are allergic to lemons! Let's quickly dispose of them before you get an attack. For that purpose we need to complete the function `sanitizeFruitBasket()`:
+
+```js
+// ! Function under test
+function sanitizeFruitBasket(/* TODO parameter(s) go here */) {
+  // TODO complete this function
+}
+
+// ! Unit tests (using Jest)
+describe('sanitizeFruitBasket', () => {
+  test('should take two parameters', () => {
+    // TODO replace next line with your code
+    expect(false).toBe(true);
+  });
+
+  test('should not modify the original `fruitBasket` array', () => {
+    // Save the original contents of the fruit basket
+    const originalFruitBasketContents = [...fruitBasket];
+    // TODO replace next line with your code
+    expect(false).toBe(true);
+  });
+
+  test('should return a new array that does not include the unwanted `lemon`', () => {
+    // TODO replace next line with your code
+    expect(false).toBe(true);
+  });
+});
+```
+
+As you can see, besides the `sanitizeFruitBasket()` function there are three skeleton unit tests that you need to complete. As a placeholder we have included a test that will always fail (as `false` can never become `true`).
+
+The second unit test may need some clarification: we expect `sanitizeFruitBasket()` to be a _pure_ function, i.e. it should not mutate any data outside its own scope. In this case, that means that we expect that the original `fruitBasket` remains unmodified after it is passed as an argument to `sanitizeFruitBasket()`. For that purpose, we save the contents of `fruitBasket` to a new array (using _spread_ syntax) prior to calling `sanitizeFruitBasket()`. After calling `sanitizeFruitBasket()` we can then assert that the contents of `fruitBasket` still matches the contents we saved earlier.
+
+#### Exercise instructions
 
 1. Run `npm test` and observe that all unit tests fail.
 
-2. Complete the function called `sanitizeFruitBasket()`.
+2. Try and complete the unit tests first. Then run `npm test` again: the unit test should still fail.
 
-   - It should take two parameters: an array of strings representing a fruit basket to be sanitized and a string indicating the name of the fruit to be taken out.
-   - Use the `.filter()` array method to take out the unwanted fruit.
-   - Return a new array that contains the fruits with any lemons removed.
+3. In an iterative process, implement the `sanitizeFruitBasket()` function, perhaps by first adding the expected parameters and running the tests again.
 
-3. Run `npm test` again, and repeat if necessary after fixing any failing test until all tests pass.
+4. Complete the function-under-test and the unit tests until you are satisfied that all is performing as expected.
 
 ### Exercise 4: Observable
 
@@ -312,7 +324,7 @@ In `runit.js`, we first create two example functions that log their argument to 
 
 Next, we call `createObservable()` to create an `observable` object.
 
-We then subscribe three functions to the `observable` object by passing these functions as arguments to the object's `.subscribe()` method. One of these functions is the standard `console.log` which outputs its argument unmodified.
+We then subscribe three functions to the `observable` object by passing these functions as arguments to the object's `.subscribe()` method. Note that one of these functions is the standard `console.log` which outputs its argument unmodified.
 
 Finally, we call the `.notify()` method on the `observable` object, passing a message (in this case a string) that we expect to be sent to all subscriber functions. Each of our example subscriber functions logs the message to the console in it own fashion (unmodified, in upper case, in lower case). In the _finished_ exercise the output should look like this (using `npm run it`).
 
@@ -324,7 +336,7 @@ let's see what happens here! (consoleLowerCase subscriber)
 
 #### Running the Unit Tests
 
-This time we have provided the unit tests in a separate file called `ex4-observable.test.js`. You should not modify this file, nor do you need to fully understand how it works at this stage. However, we will try to give an explanation here all the same.
+This time we have provided the unit tests in a separate file called `ex4-observable.test.js`. You should not modify this file, nor is it necessary to fully understand how it works at this stage. However, we will try to give an explanation here all the same.
 
 The first two unit tests in the file will pass already on the unmodified exercise (lucky you!).
 
@@ -385,7 +397,7 @@ Complete the `createObservable()` function as follows:
 
 - The `notify` function should iterate through, and call, all subscribers from the `subscribers` array, passing on the notification message to each subscriber.
 
-To see your implementation in action, use `npm run it` to run the `runit.js` file.
+To see your implementation in action, use `npm run it` to run exercise (the `runit.js` file will be executed).
 
 To test your implementation with the Jest unit tests, run `npm test`. This will run the tests in `ex4-observable.test.js`.
 

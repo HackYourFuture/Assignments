@@ -19,33 +19,9 @@ function doubleEvenNumbers(numbers) {
   return newNumbers;
 }
 
-// ! Test function (plain vanilla JavaScript)
-function test() {
-  // test input
-  const input = [1, 2, 3, 4];
-  // expected outcome
+// ! Unit test (using Jest)
+test('doubleEvenNumbers should take the even numbers and double them', () => {
+  const actual = doubleEvenNumbers([1, 2, 3, 4]);
   const expected = [4, 8];
-
-  // execute function under test
-  const result = doubleEvenNumbers(input);
-
-  // assert that `result` is an array
-  console.assert(Array.isArray(result), 'result should be an array');
-
-  // assert that the `result` array has the expected length
-  console.assert(
-    result.length === expected.length,
-    'result and expected should have the same length'
-  );
-
-  // assert that the `result` array contains the expected elements
-  for (let i = 0; i < result.length; i++) {
-    console.assert(
-      result[i] === expected[i],
-      `element[${i}] should match: expected ${expected[i]}, received ${result[i]}`
-    );
-  }
-}
-
-// ! Execute test
-test();
+  expect(actual).toEqual(expected);
+});
