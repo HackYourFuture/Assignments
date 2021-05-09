@@ -1,0 +1,411 @@
+2021-05-09 03:15:21 info: ----------------------------------------------
+2021-05-09 03:15:21 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-09 03:15:21 info: ----------------------------------------------
+2021-05-09 03:15:27 error: *** Unit Test Error Report ***
+
+- giveCompliment should include a `compliments` array initialized with 10 strings
+  No such array found
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+2021-05-09 03:15:29 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  22:7  warning  'compliment' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  24:7  warning  'result' is never reassigned. Use 'const' instead      no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-09 03:16:51 info: Disclaimer turned off
+2021-05-09 03:17:05 info: ----------------------------------------------
+2021-05-09 03:17:05 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-09 03:17:05 info: ----------------------------------------------
+2021-05-09 03:17:11 error: *** Unit Test Error Report ***
+
+- giveCompliment should include a `compliments` array initialized with 10 strings
+  No such array found
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+2021-05-09 03:18:26 info: ----------------------------------------------
+2021-05-09 03:18:26 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-09 03:18:26 info: ----------------------------------------------
+2021-05-09 03:18:31 error: *** Unit Test Error Report ***
+
+- giveCompliment should include a `compliments` array initialized with 10 strings
+  No such array found
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+2021-05-09 03:19:57 info: ----------------------------------------------
+2021-05-09 03:19:57 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-09 03:19:57 info: ----------------------------------------------
+2021-05-09 03:20:03 info: All unit tests passed.
+2021-05-09 03:20:06 info: All steps were completed successfully
+2021-05-09 04:33:03 info: ----------------------------------------
+2021-05-09 04:33:03 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-05-09 04:33:03 info: ----------------------------------------
+2021-05-09 04:33:12 error: *** Unit Test Error Report ***
+
+- calculateDogAge should give 7 dog years for 1 human year
+  Expected: Your doggie is 7 years old in dog years!
+  Received: Your doggie is 7 years old in dogs years!
+- calculateDogAge should give 14 dog years for 2 human years
+  Expected: Your doggie is 14 years old in dog years!
+  Received: Your doggie is 14 years old in dogs years!
+- calculateDogAge give 21 dog years for 3 human years
+  Expected: Your doggie is 21 years old in dog years!
+  Received: Your doggie is 21 years old in dogs years!
+
+2021-05-09 04:35:16 info: ----------------------------------------
+2021-05-09 04:35:16 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-05-09 04:35:16 info: ----------------------------------------
+2021-05-09 04:35:24 info: All unit tests passed.
+2021-05-09 04:35:31 info: All steps were completed successfully
+2021-05-09 04:36:45 info: -------------------------------------------
+2021-05-09 04:36:45 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 04:36:45 info: -------------------------------------------
+2021-05-09 04:36:53 error: *** Unit Test Error Report ***
+
+- tellFortune should exist and be executable
+
+2021-05-09 04:36:56 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  32:7  error  Parsing error: Identifier 'numKids' has already been declared
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-09 04:37:40 info: -------------------------------------------
+2021-05-09 04:37:40 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 04:37:40 info: -------------------------------------------
+2021-05-09 04:37:48 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  numKids, locations, partnerNames and jobTitles arrays must exist with five elements each
+
+2021-05-09 04:37:51 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  48:7  warning  'result' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-09 04:41:13 info: --------------------------------------------
+2021-05-09 04:41:13 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 04:41:13 info: --------------------------------------------
+2021-05-09 04:41:22 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought milk,chocolate,waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought chocolate,waffles,tea!
+
+2021-05-09 04:42:46 info: --------------------------------------------
+2021-05-09 04:42:46 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 04:42:46 info: --------------------------------------------
+2021-05-09 04:42:54 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought tea!
+
+2021-05-09 04:46:27 info: --------------------------------------------
+2021-05-09 04:46:27 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 04:46:27 info: --------------------------------------------
+2021-05-09 04:46:35 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought milk,chocolate,waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought chocolate,waffles,tea!
+
+2021-05-09 04:48:50 info: --------------------------------------------
+2021-05-09 04:48:50 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 04:48:50 info: --------------------------------------------
+2021-05-09 04:48:58 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought milk,chocolate,waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought chocolate,waffles,tea!
+
+2021-05-09 09:49:13 info: --------------------------------------------
+2021-05-09 09:49:13 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 09:49:13 info: --------------------------------------------
+2021-05-09 09:49:23 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought milk,chocolate,waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought chocolate,waffles,tea!
+
+2021-05-09 09:50:34 info: -------------------------------------------
+2021-05-09 09:50:34 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 09:50:34 info: -------------------------------------------
+2021-05-09 09:50:42 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  numKids, locations, partnerNames and jobTitles arrays must exist with five elements each
+
+2021-05-09 09:50:45 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  48:7  warning  'result' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-09 09:52:11 info: -------------------------------------------
+2021-05-09 09:52:11 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 09:52:11 info: -------------------------------------------
+2021-05-09 09:52:19 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  numKids, locations, partnerNames and jobTitles arrays must exist with five elements each
+
+2021-05-09 10:02:56 info: -------------------------------------------
+2021-05-09 10:02:56 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 10:02:56 info: -------------------------------------------
+2021-05-09 10:03:05 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a programmer in Holland, married to Jack with 3 kids.
+  Received: You will be a programmer  in Holland  married to Jack  with 3  kids!
+
+2021-05-09 10:04:14 info: -------------------------------------------
+2021-05-09 10:04:14 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 10:04:14 info: -------------------------------------------
+2021-05-09 10:04:22 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a programmer in Holland, married to Jack with 3 kids.
+  Received: You will be a programmer  in Holland,  married to Jack  with 3  kids!
+
+2021-05-09 10:05:15 info: -------------------------------------------
+2021-05-09 10:05:15 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 10:05:15 info: -------------------------------------------
+2021-05-09 10:05:23 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a programmer in Holland, married to Jack with 3 kids.
+  Received: You will be a programmer in Holland,  married to Jack  with 3  kids!
+
+2021-05-09 10:06:08 info: -------------------------------------------
+2021-05-09 10:06:08 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 10:06:08 info: -------------------------------------------
+2021-05-09 10:06:16 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a programmer in Holland, married to Jack with 3 kids.
+  Received: You will be a programmer in Holland, married to Jack with 3 kids!
+
+2021-05-09 10:06:58 info: -------------------------------------------
+2021-05-09 10:06:58 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 10:06:58 info: -------------------------------------------
+2021-05-09 10:07:06 info: All unit tests passed.
+2021-05-09 10:07:12 info: All steps were completed successfully
+2021-05-09 10:08:03 info: -------------------------------------------------
+2021-05-09 10:08:03 info: >>> Running Unit Test `ex5-shoppingCartRedux` <<<
+2021-05-09 10:08:03 info: -------------------------------------------------
+2021-05-09 10:08:14 info: All unit tests passed.
+2021-05-09 10:08:18 error: *** ESLint Report ***
+
+ex5-shoppingCartRedux.js
+  3:9  error  'rest' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-09 10:11:40 info: -----------------------------------------
+2021-05-09 10:11:40 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-09 10:11:40 info: -----------------------------------------
+2021-05-09 10:11:49 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+  Expected: Total: €12.10
+  Received: total:  € 12.1
+
+2021-05-09 10:12:52 info: -----------------------------------------
+2021-05-09 10:12:52 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-09 10:12:52 info: -----------------------------------------
+2021-05-09 10:13:00 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+  Expected: Total: €12.10
+  Received: total: € 12.1
+
+2021-05-09 10:14:33 info: -----------------------------------------
+2021-05-09 10:14:33 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-09 10:14:33 info: -----------------------------------------
+2021-05-09 10:14:42 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+  Expected: Total: €11.60
+  Received: total: €11.6
+
+2021-05-09 10:16:13 info: -----------------------------------------
+2021-05-09 10:16:13 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-09 10:16:13 info: -----------------------------------------
+2021-05-09 10:16:22 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+  Expected: Total: €15.00
+  Received: total: €15
+
+2021-05-09 10:20:16 info: -------------------------------------------
+2021-05-09 10:20:16 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-09 10:20:16 info: -------------------------------------------
+2021-05-09 10:20:25 info: All unit tests passed.
+2021-05-09 10:20:28 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  30:7  warning  'newArr' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-09 10:21:11 info: -------------------------------------------
+2021-05-09 10:21:11 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-09 10:21:11 info: -------------------------------------------
+2021-05-09 10:21:19 info: All unit tests passed.
+2021-05-09 10:21:25 info: All steps were completed successfully
+2021-05-09 10:26:39 info: -----------------------------------------
+2021-05-09 10:26:39 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-09 10:26:39 info: -----------------------------------------
+2021-05-09 10:26:47 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+  Expected: Total: €15.00
+  Received: Total: €15
+
+2021-05-09 10:28:57 info: -----------------------------------------
+2021-05-09 10:28:57 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-09 10:28:57 info: -----------------------------------------
+2021-05-09 10:29:05 info: All unit tests passed.
+2021-05-09 10:29:11 info: All steps were completed successfully
+2021-05-09 10:31:17 info: --------------------------------------------
+2021-05-09 10:31:17 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 10:31:17 info: --------------------------------------------
+2021-05-09 10:31:26 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought milk,chocolate,waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought chocolate,waffles,tea!
+
+2021-05-09 10:32:35 info: --------------------------------------------
+2021-05-09 10:32:35 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 10:32:35 info: --------------------------------------------
+2021-05-09 10:32:43 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought !
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought !
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought !
+
+2021-05-09 10:42:45 info: --------------------------------------------
+2021-05-09 10:42:45 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 10:42:45 info: --------------------------------------------
+2021-05-09 10:42:53 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought milk,chocolate,waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought chocolate,waffles,tea!
+
+2021-05-09 10:46:01 info: --------------------------------------------
+2021-05-09 10:46:01 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 10:46:01 info: --------------------------------------------
+2021-05-09 10:46:10 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should exist and be executable
+
+2021-05-09 10:58:59 info: --------------------------------------------
+2021-05-09 10:58:59 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 10:58:59 info: --------------------------------------------
+2021-05-09 10:59:09 info: All unit tests passed.
+2021-05-09 10:59:15 info: All steps were completed successfully
+2021-05-09 10:59:35 info: ----------------------------------------------
+2021-05-09 10:59:35 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-09 10:59:35 info: ----------------------------------------------
+2021-05-09 10:59:43 info: All unit tests passed.
+2021-05-09 10:59:49 info: All steps were completed successfully
+2021-05-09 11:00:05 info: ----------------------------------------
+2021-05-09 11:00:05 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-05-09 11:00:05 info: ----------------------------------------
+2021-05-09 11:00:13 info: All unit tests passed.
+2021-05-09 11:00:19 info: All steps were completed successfully
+2021-05-09 11:01:08 info: -------------------------------------------
+2021-05-09 11:01:08 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-09 11:01:08 info: -------------------------------------------
+2021-05-09 11:01:16 info: All unit tests passed.
+2021-05-09 11:01:22 info: All steps were completed successfully
+2021-05-09 11:01:44 info: --------------------------------------------
+2021-05-09 11:01:44 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-09 11:01:44 info: --------------------------------------------
+2021-05-09 11:01:52 info: All unit tests passed.
+2021-05-09 11:01:58 info: All steps were completed successfully
+2021-05-09 11:02:17 info: -------------------------------------------------
+2021-05-09 11:02:17 info: >>> Running Unit Test `ex5-shoppingCartRedux` <<<
+2021-05-09 11:02:17 info: -------------------------------------------------
+2021-05-09 11:02:25 info: All unit tests passed.
+2021-05-09 11:02:28 error: *** ESLint Report ***
+
+ex5-shoppingCartRedux.js
+  3:9  error  'rest' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-09 11:04:34 info: -----------------------------------------
+2021-05-09 11:04:34 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-09 11:04:34 info: -----------------------------------------
+2021-05-09 11:04:42 info: All unit tests passed.
+2021-05-09 11:04:48 info: All steps were completed successfully
+2021-05-09 11:05:10 info: -------------------------------------------
+2021-05-09 11:05:10 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-09 11:05:10 info: -------------------------------------------
+2021-05-09 11:05:18 info: All unit tests passed.
+2021-05-09 11:05:24 info: All steps were completed successfully

@@ -1,0 +1,58 @@
+{
+  "node": "v14.15.1",
+  "system": {
+    "manufacturer": "HP",
+    "model": "HP EliteBook 830 G5"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i5-8350U",
+    "speed": 1.7
+  },
+  "memory": "8 GB",
+  "osInfo": {
+    "platform": "win32",
+    "distro": "Microsoft Windows 10 Pro",
+    "release": "10.0.19041"
+  },
+  "vscodeInfo": {
+    "version": "1.56.0",
+    "extensions": [
+      "aaron-bond.better-comments",
+      "bierner.github-markdown-preview",
+      "bierner.markdown-checkbox",
+      "bierner.markdown-emoji",
+      "bierner.markdown-preview-github-styles",
+      "bierner.markdown-yaml-preamble",
+      "cmstead.jsrefactor",
+      "CoenraadS.bracket-pair-colorizer",
+      "CoenraadS.bracket-pair-colorizer-2",
+      "DavidAnson.vscode-markdownlint",
+      "dbaeumer.jshint",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "evgeniypeshkov.syntax-highlighter",
+      "firefox-devtools.vscode-firefox-debug",
+      "hdg.live-html-previewer",
+      "HookyQR.beautify",
+      "monokai.theme-monokai-pro-vscode",
+      "ms-azuretools.vscode-docker",
+      "msjsdiag.debugger-for-chrome",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker",
+      "WallabyJs.quokka-vscode"
+    ],
+    "userSettings": {
+      "workbench.colorTheme": "Visual Studio Dark",
+      "files.autoSave": "onFocusChange",
+      "editor.multiCursorModifier": "ctrlCmd",
+      "editor.wordWrap": "on",
+      "editor.formatOnSave": true,
+      "window.zoomLevel": -1,
+      "diffEditor.renderSideBySide": false,
+      "workbench.editor.untitled.hint": "hidden",
+      "terminal.integrated.tabs.enabled": true
+    }
+  }
+}

@@ -20,18 +20,23 @@ instead!
    Use `console.log` to display the result.
 -----------------------------------------------------------------------------*/
 const cartForParty = {
-  // TODO complete this object
+  bananas: 1.30,
+  strawberries: 3,
+  ham: 4,
+  cheese: 2.25,
+  beer: 5.20
 };
 
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
-  // TODO replace this comment with your code
+function calculateTotalPrice(obj) {
+const total = Object.values(obj).reduce((a,b) => a + b,0)
+ return `Total: €${total}`
 }
 
 // this is one example, you will need to write a different object
 calculateTotalPrice({
   apples: 12,
   bananas: 0.12,
-  cranberries: 7.3,
+  cranberries: 7.30,
   durian: 73,
   elderberry: 10,
 }); // -> "Total: €102.42"
