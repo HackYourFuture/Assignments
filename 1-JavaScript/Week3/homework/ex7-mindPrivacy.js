@@ -1,7 +1,7 @@
 'use strict';
 /*------------------------------------------------------------------------------
 1. Complete the `filterPrivateData()` function. It should take a single 
-   argument: the array of employee records.
+   parameter: the array of employee records.
 2. It should create a _new_ array, containing employee data without the private
    data.
 3. Use object destructuring to extract the non-private properties from an 

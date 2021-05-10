@@ -11,7 +11,7 @@ instead!
 
 2. Complete the function called `calculateTotalPrice`.
 
-   - It takes one argument: an object that contains properties that only contain
+   - It takes one parameter: an object that contains properties that only contain
      number values.
    - Loop through the object and add all the number values together.
    - Return a string: "Total: €`amount`".
@@ -27,7 +27,7 @@ function calculateTotalPrice(/* TODO parameter(s) go here */) {
 }
 
 function test1() {
-  console.log('\nTest 1: calculateTotalPrice should take one argument');
+  console.log('\nTest 1: calculateTotalPrice should take one parameter');
   // TODO replace this comment with your code
 }
 

@@ -19,10 +19,10 @@ Do not delete or modify that code. It is required for the automatic testing of t
 
 1. Complete the function named `giveCompliment`as follows:
 
-   - It should take a single argument: `name`.
+   - It should take a single parameter: `name`.
    - Its function body should include a variable that holds an array, `compliments`, initialized with 10 strings. Each string should be a compliment, like `"great"`, `"awesome"` and so on.
    - It should randomly select a compliment from the array.
-   - It should return the string _"You are `compliment`, `name`!"_, where `compliment` is a randomly selected compliment and `name` is the name that was passed as the function's argument.
+   - It should return the string _"You are `compliment`, `name`!"_, where `compliment` is a randomly selected compliment and `name` is the name that was passed as argument to the function.
 
 2. Call the function three times, giving each function call the same argument: your name. Use `console.log` each time to display the return value of the `giveCompliment` function to the console.
 
@@ -34,7 +34,7 @@ You know how old your dog is in human years, but what about dog years? Let's cal
 
 1. Complete the function named `calculateDogAge`.
 
-   - It takes one argument: your (fictional) puppy's age (number).
+   - It takes one parameter: your (fictional) puppy's age (number).
    - Calculate your dog's age based on the conversion rate of 1 human year to 7 dog years.
    - Return a string: _"Your doggie is `age` years old in dog years!"_
 
@@ -52,7 +52,7 @@ Why pay a fortune teller when you can just program your fortune yourself?
 
 3. Complete the function named `tellFortune` as follows:
 
-   - It should take four arguments: number of children (`number`), partner's name (`string`), geographic location (`string`) and job title (`string`).
+   - It should take four parameters: number of children (`number`), partner's name (`string`), geographic location (`string`) and job title (`string`).
    - It should use the `selectRandomly` function to randomly select values from the arrays.
    - It should return a string: _"You will be a `jobTitle` in `location`, married to `partnerName` with `numKids` kids."_
 
@@ -76,7 +76,7 @@ Let's do some grocery shopping! We're going to get some things to cook dinner wi
 
 2. Complete the function named `addToShoppingCart` as follows:
 
-   - It should take one argument: a grocery item (string)
+   - It should take one parameter: a grocery item (string)
    - It should add the grocery item to `shoppingCart`. If the number of items is more than three remove the first one in the array.
    - It should return a string "You bought _\<list-of-items>_!", where _\<list-of-items>_ is a comma-separated list of items from the shopping cart array.
 
@@ -204,7 +204,7 @@ function calculateTotalPrice(/* TODO parameter(s) go here */) {
 }
 
 function test1() {
-  console.log('\nTest 1: calculateTotalPrice should take one argument');
+  console.log('\nTest 1: calculateTotalPrice should take one parameter');
   // TODO replace this comment with your code
 }
 
@@ -227,7 +227,7 @@ test();
 
 2. Write a function called `calculateTotalPrice`.
 
-   - It takes one argument: an object that contains properties that only contain number values.
+   - It takes one parameter: an object that contains properties that only contain number values.
    - Loop through the object and add all the number values together.
    - Return a string: _"Total: €`amount`"_.
 
@@ -262,7 +262,7 @@ Sometimes it is necessary for the HR department to share employee records with o
 
 You should do the following:
 
-1. Complete the `filterPrivateData()` function. It should take a single argument: the array of employee records.
+1. Complete the `filterPrivateData()` function. It should take a single parameter: the array of employee records.
 2. It should create a _new_ array, containing employee data without the private data.
 3. Use [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring) to extract the non-private properties from an employee record (an `object`) and [object literal shorthand](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#property_definitions) to create a new employee record with just the non-private parts (`name`, `occupation` and `email`).
 4. Return the new array as the return value of the function.
