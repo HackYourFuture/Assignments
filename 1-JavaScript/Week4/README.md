@@ -255,7 +255,7 @@ describe('sanitizeFruitBasket', () => {
 
 As you can see, besides the `sanitizeFruitBasket()` function there are three skeleton unit tests that you need to complete. As a placeholder we have included a test that will always fail (as `false` can never become `true`).
 
-The second unit test may need some clarification: we expect `sanitizeFruitBasket()` to be a _pure_ function, i.e. it should not mutate any data outside its own scope. In this case, that means that we expect that the original `fruitBasket` remains unmodified after it is passed as an argument to `sanitizeFruitBasket()`. For that purpose, we save the contents of `fruitBasket` to a new array (using _spread_ syntax) prior to calling `sanitizeFruitBasket()`. After calling `sanitizeFruitBasket()` we can then assert that the contents of `fruitBasket` still matches the contents we saved earlier.
+The second unit test may need some clarification: we expect `sanitizeFruitBasket()` to be a _pure_ function, i.e. it should not mutate any data outside its own scope. In this case, that means that we expect that the original `fruitBasket` remains unmodified after it is passed as an argument to `sanitizeFruitBasket()`. For that purpose, we save the contents of `fruitBasket` to a new array (using _spread_ syntax) prior to calling `sanitizeFruitBasket()`. After calling `sanitizeFruitBasket()` we can then assert that the contents of `fruitBasket` still matches the contents we saved earlier. **Hint**: use the [`.toEqual()`](https://jestjs.io/docs/expect#toequalvalue) Jest matcher.
 
 #### Exercise instructions
 
