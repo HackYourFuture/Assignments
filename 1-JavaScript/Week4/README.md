@@ -271,6 +271,10 @@ The second unit test may need some clarification: we expect `sanitizeFruitBasket
 
 **Folder:** `ex4-observable`
 
+> In previous exercises we combined the function to be tested and the unit test code in a single file. This was done for introductory purposes but it is not how it is done in practice. In practice we should have our unit tests as separate files and that is what we will do from now on.
+>
+> Unit tests should be run during development and maintenance only, using a test runner such as Jest (when you run `npm test` in this repo Jest is executed behind the scenes). When using unit tests (not all projects do) it is the developers responsibility to ensure that all tests pass before deploying the application code operationally. Note also that the `describe()`, `test()` and `expect()` global functions exist only in the Jest execution context. Elsewhere, e.g. when trying to run them directly in Node.js, these functions are non-existent and you will experience runtime errors, e.g. `ReferenceError: test is not defined`.
+
 A software pattern that you may encounter in the future is a construct called the **Observer Pattern**. It enables **subscribers** (which are usually functions) to **subscribe** to **notifications** from an **observable**. Any number of subscribers can subscribe.
 
 Consider the code below (from `ex4-observable.js`):
