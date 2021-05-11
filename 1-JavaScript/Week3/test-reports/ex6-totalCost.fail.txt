@@ -1,0 +1,3 @@
+*** Unit Test Error Report ***
+
+Command failed: npx jest ex6-totalCost --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"

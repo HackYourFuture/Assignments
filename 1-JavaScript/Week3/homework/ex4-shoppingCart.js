@@ -21,13 +21,19 @@ you have more than 3 items in your shopping cart the first item gets taken out.
 -----------------------------------------------------------------------------*/
 const shoppingCart = ['bananas', 'milk'];
 
-function addToShoppingCart(/* parameters go here */) {
+function addToShoppingCart(str) {
   // TODO complete this function
+  shoppingCart.push(str);
+  if (shoppingCart.length > 3) {
+    shoppingCart.shift();
+  }
+
+  console.log(`You bought ${shoppingCart}!`);
 }
 
-console.log(addToShoppingCart('chocolate')); // "You bought bananas, milk, chocolate!"
-console.log(addToShoppingCart('waffles')); // "You bought milk, chocolate, waffles!"
-console.log(addToShoppingCart('tea')); // "You bought chocolate, waffles, tea!"
+console.log(addToShoppingCart('chocolate'));
+console.log(addToShoppingCart('waffles'));
+console.log(addToShoppingCart('tea'));
 
 // ! Do not change or remove any code below
 module.exports = {

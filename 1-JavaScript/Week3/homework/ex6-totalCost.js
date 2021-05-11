@@ -21,20 +21,23 @@ instead!
 -----------------------------------------------------------------------------*/
 const cartForParty = {
   // TODO complete this object
-};
-
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
-  // TODO replace this comment with your code
-}
-
-// this is one example, you will need to write a different object
-calculateTotalPrice({
   apples: 12,
   bananas: 0.12,
   cranberries: 7.3,
   durian: 73,
   elderberry: 10,
-}); // -> "Total: €102.42"
+};
+
+function calculateTotalPrice(obj) {
+  // TODO replace this comment with your code
+  const values = Object.values(obj);
+  const sum = values.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  });
+  console.log(`Total:€ ${sum}.`);
+}
+
+calculateTotalPrice(cartForParty);
 
 // ! Do not change or remove the code below
 module.exports = {

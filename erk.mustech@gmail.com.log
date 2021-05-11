@@ -1,0 +1,191 @@
+2021-05-11 07:15:35 info: -------------------------------------------
+2021-05-11 07:15:35 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-11 07:15:35 info: -------------------------------------------
+2021-05-11 07:15:42 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex7-mindPrivacy --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:16:41 info: Disclaimer turned off
+2021-05-11 07:17:08 info: ----------------------------------------------
+2021-05-11 07:17:08 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-11 07:17:08 info: ----------------------------------------------
+2021-05-11 07:17:10 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:17:11 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  24:3  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-11 07:18:28 info: ----------------------------------------------
+2021-05-11 07:18:28 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-11 07:18:28 info: ----------------------------------------------
+2021-05-11 07:18:31 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:18:32 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  24:3  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-11 07:21:11 info: ----------------------------------------------
+2021-05-11 07:21:11 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-11 07:21:11 info: ----------------------------------------------
+2021-05-11 07:21:14 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:21:15 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  24:3  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-11 07:23:09 info: ----------------------------------------------
+2021-05-11 07:23:09 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-11 07:23:09 info: ----------------------------------------------
+2021-05-11 07:23:11 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:24:45 info: ----------------------------------------
+2021-05-11 07:24:45 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-05-11 07:24:45 info: ----------------------------------------
+2021-05-11 07:24:48 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-dogYears --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:25:28 info: ----------------------------------------
+2021-05-11 07:25:28 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-05-11 07:25:28 info: ----------------------------------------
+2021-05-11 07:25:31 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-dogYears --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:26:25 info: -------------------------------------------
+2021-05-11 07:26:25 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-11 07:26:25 info: -------------------------------------------
+2021-05-11 07:26:28 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-tellFortune --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:26:29 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  36:7  warning  Identifier 'r_value' is not in camelCase            hyf/camelcase
+  36:7  warning  'r_value' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-11 07:26:30 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:26 - Unknown word (furkan)
+ex3-tellFortune.js:28:36 - Unknown word (sayfu)
+ex3-tellFortune.js:28:45 - Unknown word (lutun)
+ex3-tellFortune.js:30:31 - Unknown word (kashiger)
+ex3-tellFortune.js:30:43 - Unknown word (yerkent)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-11 07:28:28 info: -------------------------------------------
+2021-05-11 07:28:28 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-11 07:28:28 info: -------------------------------------------
+2021-05-11 07:28:30 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-tellFortune --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:28:31 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  34:7  warning  Identifier 'r_value' is not in camelCase            hyf/camelcase
+  34:7  warning  'r_value' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-11 07:28:32 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:26 - Unknown word (furkan)
+ex3-tellFortune.js:28:36 - Unknown word (sayfu)
+ex3-tellFortune.js:28:45 - Unknown word (lutun)
+ex3-tellFortune.js:30:31 - Unknown word (kashiger)
+ex3-tellFortune.js:30:43 - Unknown word (yerkent)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-11 07:29:21 info: --------------------------------------------
+2021-05-11 07:29:21 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-11 07:29:21 info: --------------------------------------------
+2021-05-11 07:29:24 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-shoppingCart --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:29:50 info: -------------------------------------------------
+2021-05-11 07:29:50 info: >>> Running Unit Test `ex5-shoppingCartRedux` <<<
+2021-05-11 07:29:50 info: -------------------------------------------------
+2021-05-11 07:29:53 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex5-shoppingCartRedux --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:29:54 error: *** ESLint Report ***
+
+ex5-shoppingCartRedux.js
+  16:7  warning  'newShoppingCart' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-11 07:30:35 info: -------------------------------------------------
+2021-05-11 07:30:35 info: >>> Running Unit Test `ex5-shoppingCartRedux` <<<
+2021-05-11 07:30:35 info: -------------------------------------------------
+2021-05-11 07:30:37 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex5-shoppingCartRedux --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:31:09 info: -----------------------------------------
+2021-05-11 07:31:09 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-11 07:31:09 info: -----------------------------------------
+2021-05-11 07:31:12 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex6-totalCost --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:31:29 info: -------------------------------------------
+2021-05-11 07:31:29 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-11 07:31:29 info: -------------------------------------------
+2021-05-11 07:31:31 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex7-mindPrivacy --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:41:35 info: -------------------------------------------
+2021-05-11 07:41:35 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-11 07:41:35 info: -------------------------------------------
+2021-05-11 07:41:38 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex7-mindPrivacy --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:42:09 info: -------------------------------------------
+2021-05-11 07:42:09 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-11 07:42:09 info: -------------------------------------------
+2021-05-11 07:42:12 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex7-mindPrivacy --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:42:37 info: -------------------------------------------
+2021-05-11 07:42:37 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-11 07:42:37 info: -------------------------------------------
+2021-05-11 07:42:40 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex7-mindPrivacy --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:44:21 info: -------------------------------------------
+2021-05-11 07:44:21 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-11 07:44:21 info: -------------------------------------------
+2021-05-11 07:44:23 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex7-mindPrivacy --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:45:18 info: -----------------------------------------
+2021-05-11 07:45:18 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-11 07:45:18 info: -----------------------------------------
+2021-05-11 07:45:21 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex6-totalCost --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 07:55:18 info: -----------------------------------------
+2021-05-11 07:55:18 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-11 07:55:18 info: -----------------------------------------
+2021-05-11 07:55:25 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex6-totalCost --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"

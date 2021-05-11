@@ -1,0 +1,21 @@
+*** Unit Test Error Report ***
+
+Command failed: npx jest ex3-tellFortune --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+*** ESLint Report ***
+
+ex3-tellFortune.js
+  34:7  warning  Identifier 'r_value' is not in camelCase            hyf/camelcase
+  34:7  warning  'r_value' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+*** Spell Checker Report ***
+
+ex3-tellFortune.js:28:26 - Unknown word (furkan)
+ex3-tellFortune.js:28:36 - Unknown word (sayfu)
+ex3-tellFortune.js:28:45 - Unknown word (lutun)
+ex3-tellFortune.js:30:31 - Unknown word (kashiger)
+ex3-tellFortune.js:30:43 - Unknown word (yerkent)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)

@@ -26,9 +26,20 @@ const employeeRecords = [
   },
 ];
 
-function filterPrivateData(/* parameter(s) go here */) {
-  // TODO complete this function
-}
+const publicData = ({ name, occupation, email }) => {
+  return {
+    name,
+    occupation,
+    email,
+  };
+};
+
+const filterPrivateData = (arr) => {
+  return arr.reduce((accumulator, employee) => {
+    accumulator.push(publicData(employee));
+    return accumulator;
+  }, []);
+};
 
 console.log(filterPrivateData(employeeRecords));
 
