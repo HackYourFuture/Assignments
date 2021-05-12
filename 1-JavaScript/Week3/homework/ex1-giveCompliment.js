@@ -18,7 +18,6 @@
    `giveCompliment` function to the console.
 -----------------------------------------------------------------------------*/
 function giveCompliment(name) {
-  // TODO complete this function
   const compliments = [
     'great',
     'wonderful',
@@ -36,7 +35,6 @@ function giveCompliment(name) {
   return `You are ${random}, ${name}!`;
 }
 
-// TODO substitute your own name for "HackYourFuture"
 const myName = 'HackYourFuture';
 
 console.log(giveCompliment(myName));

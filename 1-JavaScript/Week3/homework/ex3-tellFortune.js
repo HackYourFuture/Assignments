@@ -26,8 +26,8 @@ randomly select array elements four times inside the `tellFortune` function
 body, this code is now written once only in a separated function.
 -----------------------------------------------------------------------------*/
 const numKids = ['erk', 'furkan', 'sayfu', 'lutun', 'Gul'];
-const partnerNames = ['aa', 'fss', 'ash', 'fes', 'Ali'];
-const locations = ['urumqi', 'kashiger', 'yerkent', 'Hard'];
+const partnerNames = ['aa', 'fss', 'alif', 'gulya', 'roze'];
+const locations = ['Urumqi', 'kashiger', 'Altay', 'Istanbul'];
 const jobTitles = ['teacher', ' busisnesman', 'SDET', 'dev', 'TESTER'];
 
 function selectRandomly(arr) {
@@ -35,13 +35,13 @@ function selectRandomly(arr) {
   return r_value;
 }
 
-function tellFortune(arr) {
-  const value = selectRandomly(arr);
-  console.log(`You will be a ${value} in ${value}, 
-    married to ${value} with ${value} kids.`);
+function tellFortune(arr1, arr2, arr3, arr4) {
+  return `You will be a ${selectRandomly(arr1)} in ${selectRandomly(
+    arr2
+  )}, married to ${selectRandomly(arr3)} with ${selectRandomly(arr4)} kids.`;
 }
 
-console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
+console.log(tellFortune(jobTitles, locations, partnerNames, numKids));
 
 // ! Do not change or remove the code below
 module.exports = tellFortune;
