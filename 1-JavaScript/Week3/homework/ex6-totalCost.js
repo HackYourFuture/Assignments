@@ -29,12 +29,11 @@ const cartForParty = {
 };
 
 function calculateTotalPrice(obj) {
-  // TODO replace this comment with your code
   const values = Object.values(obj);
   const sum = values.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
-  });
-  console.log(`Total:€ ${sum}.`);
+  }, 0);
+  return `Total: €${sum}`;
 }
 
 calculateTotalPrice(cartForParty);

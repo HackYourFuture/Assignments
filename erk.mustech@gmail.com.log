@@ -189,3 +189,762 @@ Command failed: npx jest ex6-totalCost --silent false --verbose false --reporter
 2021-05-11 07:55:25 error: *** Unit Test Error Report ***
 
 Command failed: npx jest ex6-totalCost --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 08:24:55 info: ----------------------------------------------
+2021-05-11 08:24:55 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-11 08:24:55 info: ----------------------------------------------
+2021-05-11 08:25:01 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-11 10:12:10 info: ----------------------------------------------
+2021-05-11 10:12:10 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-11 10:12:10 info: ----------------------------------------------
+2021-05-11 10:12:16 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-12 09:57:59 info: ----------------------------------------------
+2021-05-12 09:57:59 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-12 09:57:59 info: ----------------------------------------------
+2021-05-12 09:58:05 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-12 09:59:54 info: -----------------------------------------
+2021-05-12 09:59:54 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-12 09:59:54 info: -----------------------------------------
+2021-05-12 09:59:56 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex6-totalCost --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-12 10:06:30 info: -----------------------------------------
+2021-05-12 10:06:30 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-12 10:06:30 info: -----------------------------------------
+2021-05-12 10:06:32 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex6-totalCost --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-12 11:07:28 info: -----------------------------------------
+2021-05-12 11:07:28 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-12 11:07:28 info: -----------------------------------------
+2021-05-12 11:07:31 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex6-totalCost --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-12 01:04:32 info: -------------------------------------------------
+2021-05-12 01:04:32 info: >>> Running Unit Test `ex1-doubleEvenNumbers` <<<
+2021-05-12 01:04:32 info: -------------------------------------------------
+2021-05-12 01:04:39 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-doubleEvenNumbers --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-12 01:04:41 error: *** ESLint Report ***
+
+ex1-doubleEvenNumbers.js
+  13:3   warning  Remove commented-out code            hyf/no-commented-out-code
+  22:3   warning  Remove commented-out code            hyf/no-commented-out-code
+  24:36  error    Expected '===' and instead saw '=='  eqeqeq
+
+✖ 3 problems (1 error, 2 warnings)
+
+
+2021-05-12 01:07:03 info: -------------------------------------------------
+2021-05-12 01:07:03 info: >>> Running Unit Test `ex1-doubleEvenNumbers` <<<
+2021-05-12 01:07:03 info: -------------------------------------------------
+2021-05-12 01:07:05 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-doubleEvenNumbers --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-12 03:36:44 info: --------------------------------------------
+2021-05-12 03:36:44 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-12 03:36:44 info: --------------------------------------------
+2021-05-12 03:36:51 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-lemonAllergy --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+2021-05-13 12:13:24 info: --------------------------------------------
+2021-05-13 12:13:24 info: >>> Running Unit Test `ex2-mondaysWorth` <<<
+2021-05-13 12:13:24 info: --------------------------------------------
+2021-05-13 12:13:32 error: *** Unit Test Error Report ***
+
+- mondaysWorth should compute the earnings as a formatted Euro amount
+  Expected: €187.50
+  Received: 187.5
+
+2021-05-13 12:15:51 info: --------------------------------------------
+2021-05-13 12:15:51 info: >>> Running Unit Test `ex2-mondaysWorth` <<<
+2021-05-13 12:15:51 info: --------------------------------------------
+2021-05-13 12:15:55 error: *** Unit Test Error Report ***
+
+- mondaysWorth should compute the earnings as a formatted Euro amount
+  Expected: €187.50
+  Received: €0
+
+2021-05-13 12:16:33 info: -------------------------------------------------
+2021-05-13 12:16:33 info: >>> Running Unit Test `ex1-doubleEvenNumbers` <<<
+2021-05-13 12:16:33 info: -------------------------------------------------
+2021-05-13 12:16:38 info: All unit tests passed.
+2021-05-13 12:16:41 info: All steps were completed successfully
+2021-05-13 12:18:58 info: --------------------------------------------
+2021-05-13 12:18:58 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2021-05-13 12:18:58 info: --------------------------------------------
+2021-05-13 12:18:58 info: Exercise has not yet been modified
+2021-05-13 12:19:04 error: *** Unit Test Error Report ***
+
+- whatsTheTime should use `setInterval()`
+- whatsTheTime should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event
+
+2021-05-13 12:19:06 error: *** ESLint Report ***
+
+ex4-whatsTheTime/index.js
+  8:10  error  'addCurrentTime' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-13 12:19:25 info: --------------------------------------------
+2021-05-13 12:19:25 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-13 12:19:25 info: --------------------------------------------
+2021-05-13 12:19:28 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: undefined
+
+2021-05-13 12:44:14 info: ----------------------------------------------
+2021-05-13 12:44:14 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-13 12:44:14 info: ----------------------------------------------
+2021-05-13 12:44:20 info: All unit tests passed.
+2021-05-13 12:44:23 info: All steps were completed successfully
+2021-05-13 12:44:32 info: ----------------------------------------
+2021-05-13 12:44:32 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-05-13 12:44:32 info: ----------------------------------------
+2021-05-13 12:44:35 error: *** Unit Test Error Report ***
+
+- calculateDogAge should give 7 dog years for 1 human year
+  Expected: Your doggie is 7 years old in dog years!
+  Received: Your doggie is 7 years old in dog years
+- calculateDogAge should give 14 dog years for 2 human years
+  Expected: Your doggie is 14 years old in dog years!
+  Received: Your doggie is 14 years old in dog years
+- calculateDogAge give 21 dog years for 3 human years
+  Expected: Your doggie is 21 years old in dog years!
+  Received: Your doggie is 21 years old in dog years
+
+2021-05-13 12:45:15 info: ----------------------------------------
+2021-05-13 12:45:15 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-05-13 12:45:15 info: ----------------------------------------
+2021-05-13 12:45:17 info: All unit tests passed.
+2021-05-13 12:45:19 info: All steps were completed successfully
+2021-05-13 12:45:30 info: -------------------------------------------
+2021-05-13 12:45:30 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-13 12:45:30 info: -------------------------------------------
+2021-05-13 12:45:33 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  numKids, locations, partnerNames and jobTitles arrays must exist with five elements each
+
+2021-05-13 12:45:33 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  34:7  warning  Identifier 'r_value' is not in camelCase            hyf/camelcase
+  34:7  warning  'r_value' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-13 12:45:35 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:26 - Unknown word (furkan)
+ex3-tellFortune.js:28:36 - Unknown word (sayfu)
+ex3-tellFortune.js:28:45 - Unknown word (lutun)
+ex3-tellFortune.js:29:37 - Unknown word (alif)
+ex3-tellFortune.js:29:45 - Unknown word (gulya)
+ex3-tellFortune.js:29:54 - Unknown word (roze)
+ex3-tellFortune.js:30:31 - Unknown word (kashiger)
+ex3-tellFortune.js:30:43 - Unknown word (Altay)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-13 12:48:54 info: -------------------------------------------
+2021-05-13 12:48:54 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-13 12:48:54 info: -------------------------------------------
+2021-05-13 12:48:57 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  numKids, locations, partnerNames and jobTitles arrays must exist with five elements each
+
+2021-05-13 12:48:58 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  34:7  warning  'randomValue' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-13 12:48:59 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:33 - Unknown word (Roze)
+ex3-tellFortune.js:29:41 - Unknown word (alif)
+ex3-tellFortune.js:29:49 - Unknown word (gulya)
+ex3-tellFortune.js:29:58 - Unknown word (yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-13 12:50:11 info: -------------------------------------------
+2021-05-13 12:50:11 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-13 12:50:11 info: -------------------------------------------
+2021-05-13 12:50:13 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a teacher in Amsterdam, married to jenny with Max kids.
+  Received: You will be a Max in jenny, married to Amsterdam with teacher kids.
+
+2021-05-13 12:50:15 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:33 - Unknown word (Roze)
+ex3-tellFortune.js:29:41 - Unknown word (alif)
+ex3-tellFortune.js:29:49 - Unknown word (gulya)
+ex3-tellFortune.js:29:58 - Unknown word (yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-13 12:51:50 info: -------------------------------------------
+2021-05-13 12:51:50 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-13 12:51:50 info: -------------------------------------------
+2021-05-13 12:51:53 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a teacher in Amsterdam, married to jenny with Max kids.
+  Received: You will be a Max in jenny, married to Amsterdam with teacher kids.
+
+2021-05-13 12:51:55 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:33 - Unknown word (Roze)
+ex3-tellFortune.js:29:41 - Unknown word (alif)
+ex3-tellFortune.js:29:49 - Unknown word (gulya)
+ex3-tellFortune.js:29:58 - Unknown word (yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-13 01:15:53 info: -------------------------------------------
+2021-05-13 01:15:53 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-13 01:15:53 info: -------------------------------------------
+2021-05-13 01:16:01 error: *** Unit Test Error Report ***
+
+- filterPrivateData should use object literal shorthand
+- filterPrivateData should return a new array with the private parts filtered
+
+2021-05-13 01:16:02 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  34:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  42:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-13 01:16:04 error: *** Spell Checker Report ***
+
+ex7-mindPrivacy.js:30:9 - Unknown word (maparr)
+ex7-mindPrivacy.js:31:15 - Unknown word (maparr)
+
+2021-05-13 01:16:48 info: -------------------------------------------
+2021-05-13 01:16:48 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-13 01:16:48 info: -------------------------------------------
+2021-05-13 01:16:51 info: All unit tests passed.
+2021-05-13 01:16:52 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  29:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-13 01:16:53 error: *** Spell Checker Report ***
+
+ex7-mindPrivacy.js:30:12 - Unknown word (maparr)
+ex7-mindPrivacy.js:31:18 - Unknown word (maparr)
+
+2021-05-15 09:43:25 info: ----------------------------------------------
+2021-05-15 09:43:25 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-15 09:43:25 info: ----------------------------------------------
+2021-05-15 09:43:32 info: All unit tests passed.
+2021-05-15 09:43:36 info: All steps were completed successfully
+2021-05-15 09:43:49 info: ----------------------------------------
+2021-05-15 09:43:49 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-05-15 09:43:49 info: ----------------------------------------
+2021-05-15 09:43:55 info: All unit tests passed.
+2021-05-15 09:43:57 info: All steps were completed successfully
+2021-05-15 09:44:08 info: -------------------------------------------
+2021-05-15 09:44:08 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-15 09:44:08 info: -------------------------------------------
+2021-05-15 09:44:11 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a teacher in Amsterdam, married to jenny with Max kids.
+  Received: You will be a Max in jenny, married to Amsterdam with teacher kids.
+
+2021-05-15 09:44:14 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:33 - Unknown word (Roze)
+ex3-tellFortune.js:29:41 - Unknown word (alif)
+ex3-tellFortune.js:29:49 - Unknown word (gulya)
+ex3-tellFortune.js:29:58 - Unknown word (yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-15 09:47:57 info: -------------------------------------------
+2021-05-15 09:47:57 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-15 09:47:57 info: -------------------------------------------
+2021-05-15 09:48:00 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a teacher in Amsterdam, married to jenny with Max kids.
+  Received: You will be a Max in jenny, married to Amsterdam with teacher kids.
+
+2021-05-15 09:48:00 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  46:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-15 09:48:01 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:41 - Unknown word (Alif)
+ex3-tellFortune.js:29:49 - Unknown word (Gulya)
+ex3-tellFortune.js:29:58 - Unknown word (Yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-15 09:48:41 info: -------------------------------------------
+2021-05-15 09:48:41 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-15 09:48:41 info: -------------------------------------------
+2021-05-15 09:48:44 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a teacher in Amsterdam, married to jenny with Max kids.
+  Received: You will be a Max in jenny, married to Amsterdam with teacher kids.
+
+2021-05-15 09:48:46 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:41 - Unknown word (Alif)
+ex3-tellFortune.js:29:49 - Unknown word (Gulya)
+ex3-tellFortune.js:29:58 - Unknown word (Yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-15 09:50:11 info: -------------------------------------------
+2021-05-15 09:50:11 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-15 09:50:11 info: -------------------------------------------
+2021-05-15 09:50:14 error: *** Unit Test Error Report ***
+
+- tellFortune should exist and be executable
+
+2021-05-15 09:50:15 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  38:44  error  Parsing error: Argument name clash
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-15 09:50:16 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:41 - Unknown word (Alif)
+ex3-tellFortune.js:29:49 - Unknown word (Gulya)
+ex3-tellFortune.js:29:58 - Unknown word (Yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-15 10:04:30 info: -------------------------------------------
+2021-05-15 10:04:30 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-15 10:04:30 info: -------------------------------------------
+2021-05-15 10:04:37 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a teacher in Amsterdam, married to jenny with Max kids.
+  Received: You will be a Max in jenny, married to Amsterdam with teacher kids.
+
+2021-05-15 10:04:39 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  34:7  warning  Identifier 'r_value' is not in camelCase            hyf/camelcase
+  34:7  warning  'r_value' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-15 10:04:40 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:41 - Unknown word (Alif)
+ex3-tellFortune.js:29:49 - Unknown word (Gulya)
+ex3-tellFortune.js:29:58 - Unknown word (Yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-15 10:10:51 info: -------------------------------------------
+2021-05-15 10:10:51 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-15 10:10:51 info: -------------------------------------------
+2021-05-15 10:10:57 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a teacher in Amsterdam, married to jenny with Max kids.
+  Received: You will be a Max in jenny, married to Amsterdam with teacher kids.
+
+2021-05-15 10:11:00 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:41 - Unknown word (Alif)
+ex3-tellFortune.js:29:49 - Unknown word (Gulya)
+ex3-tellFortune.js:29:58 - Unknown word (Yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-15 10:11:46 info: -------------------------------------------
+2021-05-15 10:11:46 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-15 10:11:46 info: -------------------------------------------
+2021-05-15 10:11:51 error: *** Unit Test Error Report ***
+
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a teacher in Amsterdam, married to jenny with Max kids.
+  Received: You will be a Max in jenny, married to Amsterdam with teacher kids.
+
+2021-05-15 10:11:54 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:41 - Unknown word (Alif)
+ex3-tellFortune.js:29:49 - Unknown word (Gulya)
+ex3-tellFortune.js:29:58 - Unknown word (Yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-15 10:14:42 info: -------------------------------------------
+2021-05-15 10:14:42 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-15 10:14:42 info: -------------------------------------------
+2021-05-15 10:14:45 info: All unit tests passed.
+2021-05-15 10:14:48 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:41 - Unknown word (Alif)
+ex3-tellFortune.js:29:49 - Unknown word (Gulya)
+ex3-tellFortune.js:29:58 - Unknown word (Yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-15 10:15:02 info: --------------------------------------------
+2021-05-15 10:15:02 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-15 10:15:02 info: --------------------------------------------
+2021-05-15 10:15:07 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: undefined
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: undefined
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: undefined
+
+2021-05-15 11:25:45 info: --------------------------------------------
+2021-05-15 11:25:45 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-15 11:25:45 info: --------------------------------------------
+2021-05-15 11:25:52 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: undefined
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: undefined
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: undefined
+
+2021-05-15 11:25:54 error: *** ESLint Report ***
+
+ex4-shoppingCart.js
+  29:25  error  'item' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-15 11:47:17 info: --------------------------------------------
+2021-05-15 11:47:17 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-15 11:47:17 info: --------------------------------------------
+2021-05-15 11:47:24 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought milk,chocolate,waffles
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought chocolate,waffles,tea
+
+2021-05-15 11:47:26 error: *** ESLint Report ***
+
+ex4-shoppingCart.js
+  30:25  error  'item' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-15 11:48:27 info: --------------------------------------------
+2021-05-15 11:48:27 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-15 11:48:27 info: --------------------------------------------
+2021-05-15 11:48:32 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought milk,chocolate,waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought chocolate,waffles,tea!
+
+2021-05-15 11:48:33 error: *** ESLint Report ***
+
+ex4-shoppingCart.js
+  30:25  error  'item' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-15 11:49:14 info: --------------------------------------------
+2021-05-15 11:49:14 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-15 11:49:14 info: --------------------------------------------
+2021-05-15 11:49:17 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should add chocolate
+  Expected: You bought bananas, milk, chocolate!
+  Received: You bought  bananas,milk,chocolate!
+- addToShoppingCart should remove bananas after adding waffles
+  Expected: You bought milk, chocolate, waffles!
+  Received: You bought  milk,chocolate,waffles!
+- addToShoppingCart should remove milk after adding tea
+  Expected: You bought chocolate, waffles, tea!
+  Received: You bought  chocolate,waffles,tea!
+
+2021-05-15 11:49:18 error: *** ESLint Report ***
+
+ex4-shoppingCart.js
+  30:25  error  'item' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-15 11:58:29 info: -------------------------------------------------
+2021-05-15 11:58:29 info: >>> Running Unit Test `ex5-shoppingCartRedux` <<<
+2021-05-15 11:58:29 info: -------------------------------------------------
+2021-05-15 11:58:36 error: *** Unit Test Error Report ***
+
+- addToShoppingCart should return a new array with new the item addded while taking out older items if items > 3
+
+2021-05-16 12:04:33 info: -------------------------------------------------
+2021-05-16 12:04:33 info: >>> Running Unit Test `ex5-shoppingCartRedux` <<<
+2021-05-16 12:04:33 info: -------------------------------------------------
+2021-05-16 12:04:39 info: All unit tests passed.
+2021-05-16 12:04:41 error: *** ESLint Report ***
+
+ex5-shoppingCartRedux.js
+  17:7  warning  'newShoppingCart' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-16 12:05:02 info: -----------------------------------------
+2021-05-16 12:05:02 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-16 12:05:02 info: -----------------------------------------
+2021-05-16 12:05:08 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+
+2021-05-16 12:08:48 info: -----------------------------------------
+2021-05-16 12:08:48 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-16 12:08:48 info: -----------------------------------------
+2021-05-16 12:08:51 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+
+2021-05-16 12:09:04 info: -----------------------------------------
+2021-05-16 12:09:04 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-16 12:09:04 info: -----------------------------------------
+2021-05-16 12:09:06 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+
+2021-05-16 12:10:51 info: -----------------------------------------
+2021-05-16 12:10:51 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-16 12:10:51 info: -----------------------------------------
+2021-05-16 12:10:54 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+  Expected: Total: €102.42
+  Received: Total:€ 102.42.
+
+2021-05-16 12:11:12 info: -----------------------------------------
+2021-05-16 12:11:12 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-16 12:11:12 info: -----------------------------------------
+2021-05-16 12:11:14 error: *** Unit Test Error Report ***
+
+- calculateTotalPrice should return the total price in Euros
+  Expected: Total: €102.42
+  Received: Total:€102.42.
+
+2021-05-16 12:11:33 info: -----------------------------------------
+2021-05-16 12:11:33 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-16 12:11:33 info: -----------------------------------------
+2021-05-16 12:11:36 info: All unit tests passed.
+2021-05-16 12:11:38 info: All steps were completed successfully
+2021-05-16 12:11:54 info: -------------------------------------------
+2021-05-16 12:11:54 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-16 12:11:54 info: -------------------------------------------
+2021-05-16 12:11:57 info: All unit tests passed.
+2021-05-16 12:11:58 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  29:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-16 12:11:59 error: *** Spell Checker Report ***
+
+ex7-mindPrivacy.js:30:12 - Unknown word (maparr)
+ex7-mindPrivacy.js:31:18 - Unknown word (maparr)
+
+2021-05-16 12:12:33 info: -------------------------------------------------
+2021-05-16 12:12:33 info: >>> Running Unit Test `ex1-doubleEvenNumbers` <<<
+2021-05-16 12:12:33 info: -------------------------------------------------
+2021-05-16 12:12:36 info: All unit tests passed.
+2021-05-16 12:12:38 info: All steps were completed successfully
+2021-05-16 12:12:50 info: ----------------------------------------------
+2021-05-16 12:12:50 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-16 12:12:50 info: ----------------------------------------------
+2021-05-16 12:12:53 info: All unit tests passed.
+2021-05-16 12:12:55 info: All steps were completed successfully
+2021-05-16 12:13:05 info: --------------------------------------------
+2021-05-16 12:13:05 info: >>> Running Unit Test `ex2-mondaysWorth` <<<
+2021-05-16 12:13:05 info: --------------------------------------------
+2021-05-16 12:13:08 error: *** Unit Test Error Report ***
+
+- mondaysWorth should compute the earnings as a formatted Euro amount
+  Expected: €187.50
+  Received: 187.5
+
+2021-05-16 12:17:46 info: --------------------------------------------
+2021-05-16 12:17:46 info: >>> Running Unit Test `ex2-mondaysWorth` <<<
+2021-05-16 12:17:46 info: --------------------------------------------
+2021-05-16 12:17:50 error: *** Unit Test Error Report ***
+
+- mondaysWorth should compute the earnings as a formatted Euro amount
+  Expected: €187.50
+  Received: €187.5
+
+2021-05-16 12:18:28 info: --------------------------------------------
+2021-05-16 12:18:28 info: >>> Running Unit Test `ex2-mondaysWorth` <<<
+2021-05-16 12:18:28 info: --------------------------------------------
+2021-05-16 12:18:31 info: All unit tests passed.
+2021-05-16 12:18:32 info: All steps were completed successfully
+2021-05-16 12:18:51 info: --------------------------------------------
+2021-05-16 12:18:51 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-16 12:18:51 info: --------------------------------------------
+2021-05-16 12:18:54 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: undefined
+
+2021-05-16 12:21:00 info: --------------------------------------------
+2021-05-16 12:21:00 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-16 12:21:00 info: --------------------------------------------
+2021-05-16 12:21:04 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: My mom bought me a fruit basket containing apple,grapefruit,banana,watermelon!
+
+2021-05-16 12:22:07 info: --------------------------------------------
+2021-05-16 12:22:07 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-16 12:22:07 info: --------------------------------------------
+2021-05-16 12:22:10 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: My mom bought me a fruit basket containing  apple,grapefruit,banana,watermelon!
+
+2021-05-16 12:22:38 info: --------------------------------------------
+2021-05-16 12:22:38 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-16 12:22:38 info: --------------------------------------------
+2021-05-16 12:22:40 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: My mom bought me a fruit basket containing apple,grapefruit,banana,watermelon!
+
+2021-05-16 12:24:10 info: --------------------------------------------
+2021-05-16 12:24:10 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-16 12:24:10 info: --------------------------------------------
+2021-05-16 12:24:13 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: My mom bought me a fruit basket containing apple,grapefruit,banana,watermelon!
+
+2021-05-16 12:24:28 info: ------------------------------------------------
+2021-05-16 12:24:28 info: >>> Running Unit Test `ex4-publishSubscribe` <<<
+2021-05-16 12:24:28 info: ------------------------------------------------
+2021-05-16 12:24:28 info: Exercise has not yet been modified
+2021-05-16 12:24:31 error: *** Unit Test Error Report ***
+
+- createPublisher should notify all subscribers of any notification
+
+2021-05-16 12:24:32 error: *** ESLint Report ***
+
+ex4-publishSubscribe.js
+  41:9  error  'subscribers' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-16 12:28:36 info: -------------------------------------------
+2021-05-16 12:28:36 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-05-16 12:28:36 info: -------------------------------------------
+2021-05-16 12:28:42 info: All unit tests passed.
+2021-05-16 12:28:46 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:28:48 - Unknown word (Sofiya)
+ex3-tellFortune.js:29:41 - Unknown word (Alif)
+ex3-tellFortune.js:29:49 - Unknown word (Gulya)
+ex3-tellFortune.js:29:58 - Unknown word (Yusha)
+ex3-tellFortune.js:30:34 - Unknown word (kashiger)
+ex3-tellFortune.js:31:33 - Unknown word (busisnesman)
+ex3-tellFortune.js:31:48 - Unknown word (SDET)
+
+2021-05-16 12:29:01 info: --------------------------------------------
+2021-05-16 12:29:01 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-16 12:29:01 info: --------------------------------------------
+2021-05-16 12:29:05 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: My mom bought me a fruit basket containing apple,grapefruit,banana,watermelon!
+

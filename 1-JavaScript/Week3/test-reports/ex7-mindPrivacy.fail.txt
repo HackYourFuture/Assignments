@@ -1,3 +1,13 @@
-*** Unit Test Error Report ***
 
-Command failed: npx jest ex7-mindPrivacy --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
+*** ESLint Report ***
+
+ex7-mindPrivacy.js
+  29:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+*** Spell Checker Report ***
+
+ex7-mindPrivacy.js:30:12 - Unknown word (maparr)
+ex7-mindPrivacy.js:31:18 - Unknown word (maparr)

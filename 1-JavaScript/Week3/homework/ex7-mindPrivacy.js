@@ -26,6 +26,11 @@ const employeeRecords = [
   },
 ];
 
+// function filterPrivateData(arr) {
+//   const maparr = arr.map((nar) => `${nar.name},${nar.occupation},${nar.email}`);
+//   console.log(maparr);
+// }
+
 const publicData = ({ name, occupation, email }) => {
   return {
     name,

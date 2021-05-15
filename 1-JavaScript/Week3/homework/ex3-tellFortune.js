@@ -25,20 +25,22 @@ Note: The DRY is put into practice here: instead of repeating the code to
 randomly select array elements four times inside the `tellFortune` function 
 body, this code is now written once only in a separated function.
 -----------------------------------------------------------------------------*/
-const numKids = ['erk', 'furkan', 'sayfu', 'lutun', 'Gul'];
-const partnerNames = ['aa', 'fss', 'alif', 'gulya', 'roze'];
-const locations = ['Urumqi', 'kashiger', 'Altay', 'Istanbul'];
+const numKids = ['Max', 'Min', 'John', 'Rob', 'Sofiya'];
+const partnerNames = ['jenny', 'Rose', 'Alif', 'Gulya', 'Yusha'];
+const locations = ['Amsterdam', 'kashiger', 'Berlin', 'Istanbul', 'Paris'];
 const jobTitles = ['teacher', ' busisnesman', 'SDET', 'dev', 'TESTER'];
 
 function selectRandomly(arr) {
-  let r_value = arr[Math.floor(Math.random() * arr.length)];
-  return r_value;
+  const randomValue = arr[Math.floor(Math.random() * arr.length)];
+  return randomValue;
 }
 
-function tellFortune(arr1, arr2, arr3, arr4) {
-  return `You will be a ${selectRandomly(arr1)} in ${selectRandomly(
-    arr2
-  )}, married to ${selectRandomly(arr3)} with ${selectRandomly(arr4)} kids.`;
+function tellFortune(numKids, partnerNames, locations, jobTitles) {
+  return `You will be a ${selectRandomly(jobTitles)} in ${selectRandomly(
+    locations
+  )}, married to ${selectRandomly(partnerNames)} with ${selectRandomly(
+    numKids
+  )} kids.`;
 }
 
 console.log(tellFortune(jobTitles, locations, partnerNames, numKids));

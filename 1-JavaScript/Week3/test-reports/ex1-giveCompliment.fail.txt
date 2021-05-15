@@ -1,3 +1,0 @@
-*** Unit Test Error Report ***
-
-Command failed: npx jest ex1-giveCompliment --silent false --verbose false --reporters="/Users/hackyourfuture/Documents/HYF/Homework-class32/test-runner/CustomReporter.js"
