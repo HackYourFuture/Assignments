@@ -1,0 +1,37 @@
+2021-05-16 12:36:26 info: -------------------------------------------------
+2021-05-16 12:36:26 info: >>> Running Unit Test `ex1-doubleEvenNumbers` <<<
+2021-05-16 12:36:26 info: -------------------------------------------------
+2021-05-16 12:36:32 info: All unit tests passed.
+2021-05-16 12:36:34 error: *** ESLint Report ***
+
+ex1-doubleEvenNumbers.js
+  14:36  error  Expected '===' and instead saw '=='  eqeqeq
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-16 12:38:00 info: ----------------------------------------------
+2021-05-16 12:38:00 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-05-16 12:38:00 info: ----------------------------------------------
+2021-05-16 12:38:00 info: Exercise has not yet been modified
+2021-05-16 12:38:06 error: *** Unit Test Error Report ***
+
+- giveCompliment should take a single parameter
+- giveCompliment should include a `compliments` array initialized with 10 strings
+  No such array found
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+2021-05-16 12:38:30 info: --------------------------------------------
+2021-05-16 12:38:30 info: >>> Running Unit Test `ex2-mondaysWorth` <<<
+2021-05-16 12:38:30 info: --------------------------------------------
+2021-05-16 12:38:34 info: All unit tests passed.
+2021-05-16 12:38:37 info: All steps were completed successfully
+2021-05-16 12:39:35 info: --------------------------------------------
+2021-05-16 12:39:35 info: >>> Running Unit Test `ex3-lemonAllergy` <<<
+2021-05-16 12:39:35 info: --------------------------------------------
+2021-05-16 12:39:38 error: *** Unit Test Error Report ***
+
+- sanitizeFruitBasket should list the sanitized fruit basket
+  Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
+  Received: My mom bought me a fruit basket containing apple,grapefruit,banana,watermelon!
+
