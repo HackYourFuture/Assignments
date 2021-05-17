@@ -948,3 +948,27 @@ ex3-tellFortune.js:31:48 - Unknown word (SDET)
   Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
   Received: My mom bought me a fruit basket containing apple,grapefruit,banana,watermelon!
 
+2021-05-17 03:22:27 info: -------------------------------------------
+2021-05-17 03:22:27 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-17 03:22:27 info: -------------------------------------------
+2021-05-17 03:22:34 info: All unit tests passed.
+2021-05-17 03:22:35 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  29:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  34:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  42:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 3 problems (0 errors, 3 warnings)
+
+
+2021-05-17 03:22:37 error: *** Spell Checker Report ***
+
+ex7-mindPrivacy.js:30:12 - Unknown word (maparr)
+ex7-mindPrivacy.js:31:18 - Unknown word (maparr)
+
+2021-05-17 03:23:19 info: -------------------------------------------
+2021-05-17 03:23:19 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-17 03:23:19 info: -------------------------------------------
+2021-05-17 03:23:22 info: All unit tests passed.
+2021-05-17 03:23:24 info: All steps were completed successfully

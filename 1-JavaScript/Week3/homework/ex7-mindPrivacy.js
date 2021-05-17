@@ -26,25 +26,16 @@ const employeeRecords = [
   },
 ];
 
-// function filterPrivateData(arr) {
-//   const maparr = arr.map((nar) => `${nar.name},${nar.occupation},${nar.email}`);
-//   console.log(maparr);
-// }
-
-const publicData = ({ name, occupation, email }) => {
-  return {
-    name,
-    occupation,
-    email,
-  };
-};
-
-const filterPrivateData = (arr) => {
-  return arr.reduce((accumulator, employee) => {
-    accumulator.push(publicData(employee));
-    return accumulator;
-  }, []);
-};
+function filterPrivateData(arr) {
+  return arr.map((item) => {
+    const { name, occupation, email } = item;
+    return {
+      name,
+      occupation,
+      email,
+    };
+  });
+}
 
 console.log(filterPrivateData(employeeRecords));
 
