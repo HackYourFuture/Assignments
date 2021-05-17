@@ -40,8 +40,8 @@ Good luck with completing `createPublisher`!
 function createPublisher() {
   const subscribers = [];
   return {
-    subscribe(/* TODO parameter(s) go here */) {
-      // TODO complete this function
+    subscribe(message) {
+      console.log(message);
     },
     notify(/* TODO parameter(s) go here */) {
       // TODO complete this function

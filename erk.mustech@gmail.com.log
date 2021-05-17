@@ -35,3 +35,23 @@ ex1-doubleEvenNumbers.js
   Expected: My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!
   Received: My mom bought me a fruit basket containing apple,grapefruit,banana,watermelon!
 
+2021-05-17 12:06:14 info: --------------------------------------
+2021-05-17 12:06:14 info: >>> Running Unit Test `ex5-wallet` <<<
+2021-05-17 12:06:14 info: --------------------------------------
+2021-05-17 12:06:21 error: *** Unit Test Error Report ***
+
+- wallet q1: At line 26, which variables are in the scope marked Closure?
+- wallet q3: What tooltip appears when hovering over the third debug button?
+
+2021-05-17 12:06:56 info: --------------------------------------
+2021-05-17 12:06:56 info: >>> Running Unit Test `ex5-wallet` <<<
+2021-05-17 12:06:56 info: --------------------------------------
+2021-05-17 12:06:59 error: *** Unit Test Error Report ***
+
+- wallet q1: At line 26, which variables are in the scope marked Closure?
+
+2021-05-17 12:07:56 info: --------------------------------------
+2021-05-17 12:07:56 info: >>> Running Unit Test `ex5-wallet` <<<
+2021-05-17 12:07:56 info: --------------------------------------
+2021-05-17 12:07:58 info: All unit tests passed.
+2021-05-17 12:08:00 info: All steps were completed successfully
