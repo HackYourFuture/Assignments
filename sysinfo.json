@@ -1,0 +1,52 @@
+{
+  "node": "v14.17.0",
+  "system": {
+    "manufacturer": "Acer",
+    "model": "Predator PH315-53"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i7-10750H",
+    "speed": 2.6
+  },
+  "memory": "32 GB",
+  "osInfo": {
+    "platform": "win32",
+    "distro": "Microsoft Windows 10 Home",
+    "release": "10.0.19042"
+  },
+  "vscodeInfo": {
+    "version": "1.56.2",
+    "extensions": [
+      "abdoseadaa.node-js-snippet",
+      "christian-kohler.npm-intellisense",
+      "DavidAnson.vscode-markdownlint",
+      "donjayamanne.jquerysnippets",
+      "eg2.vscode-npm-script",
+      "georgewfraser.vscode-javac",
+      "hdg.live-html-previewer",
+      "lonefy.vscode-JS-CSS-HTML-formatter",
+      "ms-azuretools.vscode-docker",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-toolsai.jupyter",
+      "ms-vscode.brackets-keybindings",
+      "redhat.java",
+      "ritwickdey.LiveServer",
+      "VisualStudioExptTeam.vscodeintellicode",
+      "vscjava.vscode-java-debug",
+      "vscjava.vscode-java-dependency",
+      "vscjava.vscode-java-pack",
+      "vscjava.vscode-java-test",
+      "vscjava.vscode-maven",
+      "xabikos.JavaScriptSnippets"
+    ],
+    "userSettings": {
+      "python.pythonPath": "C:\\Users\\farbod\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+      "editor.suggestSelection": "first",
+      "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+      "git.enableSmartCommit": true,
+      "git.autoRepositoryDetection": "subFolders"
+    }
+  }
+}

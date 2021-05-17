@@ -2,10 +2,8 @@
 /*
 Your mom bought you a basket of fruit, because you're doing so well in
 HackYourFuture. How sweet of her!
-
 However, she forgot that you are allergic to lemons! Let's quickly dispose of
 them before you get an attack.
-
 - Complete the function called `sanitizeFruitBasket`. It should take two
    parameters: an array of strings representing a fruit basket to be sanitized
    and a string indicating the name of the fruit to be taken out.
@@ -14,17 +12,22 @@ them before you get an attack.
   `list`!", where `list` is a comma-separated list of fruits.
 */
 const fruitBasket = [
-  'apple',
-  'lemon',
-  'grapefruit',
-  'lemon',
-  'banana',
-  'watermelon',
-  'lemon',
+    'apple',
+    'lemon',
+    'grapefruit',
+    'lemon',
+    'banana',
+    'watermelon',
+    'lemon',
 ];
 
-function sanitizeFruitBasket(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+function sanitizeFruitBasket(arr, disposeStr) {
+    // filtered out unwanted fruit.
+    const list = arr.filter((arr) => arr !== disposeStr);
+
+    // returned the wanted fruit array and added an ignore command to prevent the extension prettier to break my long line into multiple lines.
+    // prettier-ignore
+    return `My mom bought me a fruit basket containing ${list.join(', ')}!`;
 }
 
 console.log(sanitizeFruitBasket(fruitBasket, 'lemon'));
@@ -35,6 +38,6 @@ console.log(sanitizeFruitBasket(fruitBasket, 'grapefruit'));
 
 // ! Do not change or remove the code below
 module.exports = {
-  sanitizeFruitBasket,
-  fruitBasket,
+    sanitizeFruitBasket,
+    fruitBasket,
 };

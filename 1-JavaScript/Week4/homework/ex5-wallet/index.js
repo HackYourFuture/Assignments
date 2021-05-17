@@ -3,48 +3,48 @@
 // Based on an example from: Philipp Beau (@ze_german)
 
 const eurosFormatter = new Intl.NumberFormat('nl-NL', {
-  style: 'currency',
-  currency: 'EUR',
+    style: 'currency',
+    currency: 'EUR',
 });
 
 function createWallet(name, cash = 0) {
-  function deposit(amount) {
-    cash += amount;
-  }
-
-  function withdraw(amount) {
-    if (cash - amount < 0) {
-      console.log(`Insufficient funds!`);
-      return 0;
+    function deposit(amount) {
+        cash += amount;
     }
 
-    cash -= amount;
-    return amount;
-  }
+    function withdraw(amount) {
+        if (cash - amount < 0) {
+            console.log(`Insufficient funds!`);
+            return 0;
+        }
 
-  function transferInto(wallet, amount) {
-    console.log(
-      `Transferring ${eurosFormatter.format(amount)} from ${name} to ${
-        wallet.name
-      }`
-    );
-    const withdrawnAmount = withdraw(amount);
-    wallet.deposit(withdrawnAmount);
-  }
+        cash -= amount;
+        return amount;
+    }
 
-  function reportBalance() {
-    console.log(`Name: ${name}, balance: ${eurosFormatter.format(cash)}`);
-  }
+    function transferInto(wallet, amount) {
+        console.log(
+            `Transferring ${eurosFormatter.format(
+        amount
+      )} from ${name} to ${wallet.getName()}`
+        );
+        const withdrawnAmount = withdraw(amount);
+        wallet.deposit(withdrawnAmount);
+    }
 
-  const getName = () => name;
+    function reportBalance() {
+        console.log(`Name: ${name}, balance: ${eurosFormatter.format(cash)}`);
+    }
 
-  return {
-    deposit,
-    withdraw,
-    transferInto,
-    reportBalance,
-    getName,
-  };
+    const getName = () => name;
+
+    return {
+        deposit,
+        withdraw,
+        transferInto,
+        reportBalance,
+        getName,
+    };
 }
 
 const walletJack = createWallet('Jack', 100);
@@ -70,49 +70,49 @@ walletJane.reportBalance();
 // prettier-ignore
 // eslint-disable-next-line no-unused-vars
 const quiz = {
-  q1: {
-    question: 'At line 26, which variables are in the scope marked Closure?',
-    choices: { 
-      a: 'There is no scope marked Closure', 
-      b: 'cash, name', 
-      c: 'amount, this, wallet'
+    q1: {
+        question: 'At line 26, which variables are in the scope marked Closure?',
+        choices: {
+            a: 'There is no scope marked Closure',
+            b: 'cash, name',
+            c: 'amount, this, wallet'
+        },
+        answer: 'b',
     },
-    answer: undefined,
-  },
-  q2: {
-    question: 'What is in the Call Stack, from top to bottom?',
-    choices: { 
-      a: 'withdraw, anonymous', 
-      b: 'anonymous, transferInto', 
-      c: 'transferInto, anonymous' 
+    q2: {
+        question: 'What is in the Call Stack, from top to bottom?',
+        choices: {
+            a: 'withdraw, anonymous',
+            b: 'anonymous, transferInto',
+            c: 'transferInto, anonymous'
+        },
+        answer: 'c',
     },
-    answer: undefined,
-  },
-  q3: {
-    question: 'What tooltip appears when hovering over the third debug button?',
-    choices: { 
-      a: 'Step into next function call', 
-      b: 'Step out of current function', 
-      c: 'Step' 
+    q3: {
+        question: 'What tooltip appears when hovering over the third debug button?',
+        choices: {
+            a: 'Step into next function call',
+            b: 'Step out of current function',
+            c: 'Step'
+        },
+        answer: 'a',
     },
-    answer: undefined,
-  },
-  q4: {
-    question: 'What is displayed in the console?',
-    choices: { 
-      a: 'Transferring € 50,00 from Jack to Joe', 
-      b: 'Transferring € 50,00 from Jack to undefined', 
-      c: 'Transferring € 50,00 from Jack to Jane' 
+    q4: {
+        question: 'What is displayed in the console?',
+        choices: {
+            a: 'Transferring € 50,00 from Jack to Joe',
+            b: 'Transferring € 50,00 from Jack to undefined',
+            c: 'Transferring € 50,00 from Jack to Jane'
+        },
+        answer: 'a',
     },
-    answer: undefined,
-  },
-  q5: {
-    question: 'The owner of the wallet with insufficient funds is:',
-    choices: { 
-      a: 'Jack', 
-      b: 'Joe', 
-      c: 'Jane' 
+    q5: {
+        question: 'The owner of the wallet with insufficient funds is:',
+        choices: {
+            a: 'Jack',
+            b: 'Joe',
+            c: 'Jane'
+        },
+        answer: 'c',
     },
-    answer: undefined,
-  },
 };
