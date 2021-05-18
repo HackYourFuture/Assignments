@@ -40,11 +40,11 @@ Good luck with completing `createPublisher`!
 function createPublisher() {
   const subscribers = [];
   return {
-    subscribe(message) {
-      console.log(message);
+    subscribe(arg) {
+      subscribers.push(arg);
     },
-    notify(/* TODO parameter(s) go here */) {
-      // TODO complete this function
+    notify(arg) {
+      subscribers.forEach((data) => data(arg));
     },
   };
 }

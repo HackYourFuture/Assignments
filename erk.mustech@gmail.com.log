@@ -77,3 +77,8 @@ ex1-doubleEvenNumbers.js
 2021-05-17 05:20:04 info: --------------------------------------------
 2021-05-17 05:20:06 info: All unit tests passed.
 2021-05-17 05:20:08 info: All steps were completed successfully
+2021-05-18 09:12:54 info: ------------------------------------------------
+2021-05-18 09:12:54 info: >>> Running Unit Test `ex4-publishSubscribe` <<<
+2021-05-18 09:12:54 info: ------------------------------------------------
+2021-05-18 09:13:01 info: All unit tests passed.
+2021-05-18 09:13:04 info: All steps were completed successfully
