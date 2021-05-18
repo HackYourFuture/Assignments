@@ -1,8 +1,0 @@
-
-*** ESLint Report ***
-
-ex1-doubleEvenNumbers.js
-  14:36  error  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 1 problem (1 error, 0 warnings)
-

@@ -55,3 +55,25 @@ ex1-doubleEvenNumbers.js
 2021-05-17 12:07:56 info: --------------------------------------
 2021-05-17 12:07:58 info: All unit tests passed.
 2021-05-17 12:08:00 info: All steps were completed successfully
+2021-05-17 05:19:13 info: -------------------------------------------------
+2021-05-17 05:19:13 info: >>> Running Unit Test `ex1-doubleEvenNumbers` <<<
+2021-05-17 05:19:13 info: -------------------------------------------------
+2021-05-17 05:19:19 info: All unit tests passed.
+2021-05-17 05:19:21 error: *** ESLint Report ***
+
+ex1-doubleEvenNumbers.js
+  14:36  error  Expected '===' and instead saw '=='  eqeqeq
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-17 05:19:35 info: -------------------------------------------------
+2021-05-17 05:19:35 info: >>> Running Unit Test `ex1-doubleEvenNumbers` <<<
+2021-05-17 05:19:35 info: -------------------------------------------------
+2021-05-17 05:19:38 info: All unit tests passed.
+2021-05-17 05:19:40 info: All steps were completed successfully
+2021-05-17 05:20:04 info: --------------------------------------------
+2021-05-17 05:20:04 info: >>> Running Unit Test `ex2-mondaysWorth` <<<
+2021-05-17 05:20:04 info: --------------------------------------------
+2021-05-17 05:20:06 info: All unit tests passed.
+2021-05-17 05:20:08 info: All steps were completed successfully
