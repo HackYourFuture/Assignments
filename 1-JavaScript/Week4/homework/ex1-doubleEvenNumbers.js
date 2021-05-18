@@ -8,8 +8,7 @@ Let's rewrite it (or _refactor_ it, as professional developers would call it):
 - Using the `map` and `filter` functions, rewrite the function body of
 `doubleEvenNumbers`.
 ------------------------------------------------------------------------------*/
-function doubleEvenNumbers(numbers) {
-}
+function doubleEvenNumbers(numbers) {}
 
 const myNumbers = [1, 2, 3, 4];
 console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
