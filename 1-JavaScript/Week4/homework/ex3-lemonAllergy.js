@@ -23,10 +23,7 @@ const fruitBasket = [
   'lemon',
 ];
 
-function sanitizeFruitBasket(arr, str) {
-  const sanitizeFruitBasket = arr.filter((bedFruit) => bedFruit !== str);
-  return `My mom bought me a fruit basket containing ${sanitizeFruitBasket}!`;
-}
+function sanitizeFruitBasket() {}
 
 console.log(sanitizeFruitBasket(fruitBasket, 'lemon'));
 //    -> "My mom bought me a fruit basket containing apple, grapefruit, banana, watermelon!"

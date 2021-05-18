@@ -9,10 +9,6 @@ Let's rewrite it (or _refactor_ it, as professional developers would call it):
 `doubleEvenNumbers`.
 ------------------------------------------------------------------------------*/
 function doubleEvenNumbers(numbers) {
-  const doubleNum = numbers
-    .filter((number) => number % 2 === 0)
-    .map((num) => num * 2);
-  return doubleNum;
 }
 
 const myNumbers = [1, 2, 3, 4];

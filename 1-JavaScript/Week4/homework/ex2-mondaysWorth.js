@@ -29,11 +29,8 @@ const mondayTasks = [
 
 const hourlyRate = 25;
 
-function computeEarnings(arr, arg) {
-  const values = arr
-    .map((task) => (task.duration / 60) * arg)
-    .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-  return `€${values}0`;
+function computeEarnings() {
+
 }
 
 // example use case
