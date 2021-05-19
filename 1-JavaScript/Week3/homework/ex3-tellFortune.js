@@ -11,8 +11,11 @@ Why pay a fortune teller when you can just program your fortune yourself?
 
 3. Complete the function named `tellFortune` as follows:
 
-   - It should take four arguments: number of children (`number`), partner's 
-     name (`string`), geographic location (`string`) and job title (`string`).
+   - It should take four arguments (in the order listed): 
+     * number of children (`number`), 
+     * partner's name (`string`), 
+     * geographic location (`string`) and 
+     * job title (`string`).
    - It should use the `selectRandomly` function to randomly select values from 
      the arrays.
    - It should return a string: "You will be a `jobTitle` in `location`, 
