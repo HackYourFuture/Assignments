@@ -68,7 +68,7 @@ async function runExercise(exercisePath) {
     // Let's make sure we have a directory at this point
     const stats = fs.statSync(exercisePath);
     if (stats.isDirectory()) {
-      requirePath = path.join(exercisePath, 'runit.js');
+      requirePath = path.join(exercisePath, 'main.js');
       if (!fs.existsSync(requirePath)) {
         const exerciseName = path.basename(exercisePath);
         requirePath = path.join(exercisePath, exerciseName + '.js');

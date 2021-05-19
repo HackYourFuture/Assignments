@@ -295,7 +295,7 @@ function createObservable() {
 
 The `createObservable()` function returns an object with two function properties, `subscribe` and `notify`. In this exercise you are required to complete them.
 
-The file `runit.js`, listed below, demonstrates a minimal example use case of the `createObservable()` function.
+The file `main.js`, listed below, demonstrates a minimal example use case of the `createObservable()` function.
 
 ```js
 const createObservable = require('./ex4-observable');
@@ -324,7 +324,7 @@ observable.notify("Let's see what happens here!");
 
 Because the `createObservable()` function resides in another file we first need to obtain a reference to it by calling the Node.js `require()` function and saving the reference to a `const` variable. (You will learn more about Node.js in the Node curriculum module. Note that the `ex4-observable.js` file "exports" the `createObserver` function.)
 
-In `runit.js`, we first create two example functions that log their argument to the console after modifying it (upper case, lower case).
+In `main.js`, we first create two example functions that log their argument to the console after modifying it (upper case, lower case).
 
 Next, we call `createObservable()` to create an `observable` object.
 
@@ -401,7 +401,7 @@ Complete the `createObservable()` function as follows:
 
 - The `notify` function should iterate through, and call, all subscribers from the `subscribers` array, passing on the notification message to each subscriber.
 
-To see your implementation in action, use `npm run it` to run exercise (the `runit.js` file will be executed).
+To see your implementation in action, use `npm run it` to run exercise (the `main.js` file will be executed).
 
 To test your implementation with the Jest unit tests, run `npm test`. This will run the tests in `ex4-observable.test.js`.
 
