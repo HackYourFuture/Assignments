@@ -21,6 +21,8 @@ const hashes = require('../.hashes.json');
 
 const execAsync = util.promisify(exec);
 
+const MINIMUM_NODE_VERSION = 14;
+
 const disclaimer = `
 *** Disclaimer **
 
@@ -232,8 +234,19 @@ async function showDisclaimer() {
 }
 
 async function main() {
+  const [majorVersion] = process.versions.node.split('.');
+  if (+majorVersion < MINIMUM_NODE_VERSION) {
+    console.log(chalk.red(`Required Node version: 14 or higher.`));
+    console.log(
+      chalk.red(
+        `Your version: ${majorVersion}. Please upgrade your version of Node.`
+      )
+    );
+    process.exit(1);
+  }
+
   try {
-    const homeworkFolder = process.argv[2] ?? 'homework';
+    const homeworkFolder = process.argv[2] || 'homework';
 
     const menuData = compileMenuData();
     let module, week, exercise;
