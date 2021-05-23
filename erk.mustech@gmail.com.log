@@ -1085,3 +1085,30 @@ ex4-shoppingCart.js
   Expected: You bought chocolate, waffles, tea!
   Received: You bought chocolate,waffles,tea!
 
+2021-05-23 04:38:37 info: -------------------------------------------------
+2021-05-23 04:38:37 info: >>> Running Unit Test `ex5-shoppingCartRedux` <<<
+2021-05-23 04:38:37 info: -------------------------------------------------
+2021-05-23 04:38:39 info: All unit tests passed.
+2021-05-23 04:38:40 error: *** ESLint Report ***
+
+ex5-shoppingCartRedux.js
+  17:7  warning  'newShoppingCart' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-23 04:38:53 info: -----------------------------------------
+2021-05-23 04:38:53 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-05-23 04:38:53 info: -----------------------------------------
+2021-05-23 04:38:56 info: All unit tests passed.
+2021-05-23 04:38:58 info: All steps were completed successfully
+2021-05-23 04:39:09 info: -------------------------------------------
+2021-05-23 04:39:09 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-05-23 04:39:09 info: -------------------------------------------
+2021-05-23 04:39:12 info: All unit tests passed.
+2021-05-23 04:39:14 info: All steps were completed successfully
+2021-05-23 04:41:34 info: --------------------------------------------
+2021-05-23 04:41:34 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-05-23 04:41:34 info: --------------------------------------------
+2021-05-23 04:41:37 info: All unit tests passed.
+2021-05-23 04:41:38 info: All steps were completed successfully
