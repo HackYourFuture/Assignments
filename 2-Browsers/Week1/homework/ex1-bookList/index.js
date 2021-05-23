@@ -39,10 +39,32 @@ const myBooks = [
   },
 ];
 
-function createBookList(books) {
-  // your code goes in here, return the ul element
-}
+// function createBookList(books) {
+//   books.forEach((book) => {
+//     document.querySelector('#booklist');
+//     const bookDiv = document.createElement('div');
+//     div.innerText = `book is here`;
+//     (bookDiv.style.background = 'orange'),
+//       (width = '200px'),
+//       (height = '300px'),
+//       (margin = '10px 20px');
+//     bookDiv.appendChild(bookDiv);
+//   });
+// }
 
-const ulElement = createBookList(myBooks);
+// function createBookList(books) {
+//   books.forEach(function (book) {
+//     //create a DOM element
+//     let target = document.querySelector('#bookList');
+//     let div = document.createElement('div');
+//     //add class row every 2 loops
+//     div.className = 'row';
+//     //names
+//     div.innerHTML = 'books';
+//     div.append(target);
+//   });
+// }
 
-document.querySelector('#bookList').appendChild(ulElement);
+// const ulElement = createBookList(myBooks);
+
+// document.querySelector('#bookList').appendChild(ulElement);

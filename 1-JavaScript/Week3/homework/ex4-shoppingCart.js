@@ -26,15 +26,13 @@ function addToShoppingCart(str) {
   if (shoppingCart.length > 3) {
     shoppingCart.shift();
   }
-
-  shoppingCart.forEach((item) => {});
-  return `You bought  ${shoppingCart}!`;
+  return `You bought ${shoppingCart}!`;
 }
+console.log(addToShoppingCart('chocolate')); // "You bought bananas, milk, chocolate!"
+console.log(addToShoppingCart('waffles')); // "You bought milk, chocolate, waffles!"
+console.log(addToShoppingCart('tea')); // "You bought chocolate, waffles, tea!"
 
-console.log(addToShoppingCart('chocolate'));
-console.log(addToShoppingCart('waffles'));
-console.log(addToShoppingCart('tea'));
-
+// there is a space between the two elme, I don't know
 // ! Do not change or remove any code below
 module.exports = {
   shoppingCart,
