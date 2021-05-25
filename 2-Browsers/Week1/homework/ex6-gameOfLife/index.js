@@ -9,12 +9,25 @@ const NUM_ROWS = 40;
 
 // Create a cell with the given coordinates and randomly assign its begin state:
 // life or death
+/* 
+Exercise
+In the supplied JavaScript code the color of all living cells is a single shade of blue. This is in contrast to the illustration above where living cells have different shades of blue, depending on their life time. Your job is as follows:
+
+In function createCell(), add a numeric lifeTime property to the object and assign it the value of one if the cell is initially alive or zero if it is initially dead.
+
+In function drawCell(), add an opacity parameter to the rgb() value like this:
+
+context.fillStyle = `rgb(24, 215, 236, ${opacity})`;
+*/
+
 function createCell(x, y) {
   const alive = Math.random() > 0.5;
+  const lifeTime = 0;
   return {
     x,
     y,
     alive,
+    lifeTime,
   };
 }
 
@@ -45,6 +58,7 @@ function createGame(context, numRows, numColumns) {
   function drawCell(cell) {
     // Draw cell background
     context.fillStyle = '#303030';
+    // context.fillStyle = `rgb(24, 215, 236, ${opacity})`;
     context.fillRect(
       cell.x * CELL_SIZE,
       cell.y * CELL_SIZE,
@@ -54,7 +68,7 @@ function createGame(context, numRows, numColumns) {
 
     if (cell.alive) {
       // Draw living cell inside background
-      context.fillStyle = `rgb(24, 215, 236)`;
+      context.fillStyle = `rgb(24, 215, 236, ${cell.lifeTime / 4})`;
       context.fillRect(
         cell.x * CELL_SIZE + 1,
         cell.y * CELL_SIZE + 1,
@@ -97,15 +111,18 @@ function createGame(context, numRows, numColumns) {
       // Count number of living neighboring cells
       const numAlive = countLivingNeighbors(cell);
 
-      if (numAlive === 2) {
+      if (numAlive === 2 && cell.alive > 0) {
         // Living cell remains living, dead cell remains dead
         cell.nextAlive = cell.alive;
+        cell.lifeTime += 1;
       } else if (numAlive === 3) {
         // Dead cell becomes living, living cell remains living
         cell.nextAlive = true;
+        cell.lifeTime += 1;
       } else {
         // Living cell dies, dead cell remains dead
         cell.nextAlive = false;
+        cell.lifeTime = 0;
       }
     });
 

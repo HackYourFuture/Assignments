@@ -1,0 +1,758 @@
+2021-05-25 08:14:53 info: ------------------------------------------
+2021-05-25 08:14:53 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2021-05-25 08:14:53 info: ------------------------------------------
+2021-05-25 08:15:00 error: *** Unit Test Error Report ***
+
+- Game Of Life: a living cell with three living neighbors should survive and have its life time incremented by one
+- Game Of Life: a dead cell with two living neighbors should remain dead and have a life time of zero
+
+2021-05-25 08:15:03 error: *** ESLint Report ***
+
+ex6-gameOfLife/index.js
+  25:7  warning  'lifeTime' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  61:5  warning  Remove commented-out code                            hyf/no-commented-out-code
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-25 08:16:28 info: ------------------------------------------
+2021-05-25 08:16:28 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2021-05-25 08:16:28 info: ------------------------------------------
+2021-05-25 08:16:34 error: *** Unit Test Error Report ***
+
+- Game Of Life: a living cell with two living neighbors should survive and have its life time incremented by one
+- Game Of Life: a dead cell with two living neighbors should remain dead and have a life time of zero
+
+2021-05-25 08:16:35 error: *** ESLint Report ***
+
+ex6-gameOfLife/index.js
+  25:7  warning  'lifeTime' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  61:5  warning  Remove commented-out code                            hyf/no-commented-out-code
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-25 08:19:48 info: ------------------------------------------
+2021-05-25 08:19:48 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2021-05-25 08:19:48 info: ------------------------------------------
+2021-05-25 08:19:52 error: *** Unit Test Error Report ***
+
+- Game Of Life: a living cell with two living neighbors should survive and have its life time incremented by one
+- Game Of Life: a dead cell with two living neighbors should remain dead and have a life time of zero
+
+2021-05-25 08:19:53 error: *** ESLint Report ***
+
+ex6-gameOfLife/index.js
+  25:7  warning  'lifeTime' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  61:5  warning  Remove commented-out code                            hyf/no-commented-out-code
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-25 08:21:31 info: ------------------------------------------
+2021-05-25 08:21:31 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2021-05-25 08:21:31 info: ------------------------------------------
+2021-05-25 08:21:35 error: *** Unit Test Error Report ***
+
+- Game Of Life: a living cell with three living neighbors should survive and have its life time incremented by one
+- Game Of Life: a dead cell with two living neighbors should remain dead and have a life time of zero
+
+2021-05-25 08:21:36 error: *** ESLint Report ***
+
+ex6-gameOfLife/index.js
+  25:7  warning  'lifeTime' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  61:5  warning  Remove commented-out code                            hyf/no-commented-out-code
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-25 08:24:57 info: ------------------------------------------
+2021-05-25 08:24:57 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2021-05-25 08:24:57 info: ------------------------------------------
+2021-05-25 08:25:01 error: *** Unit Test Error Report ***
+
+- Game Of Life: a living cell with two living neighbors should survive and have its life time incremented by one
+
+2021-05-25 08:25:03 error: *** ESLint Report ***
+
+ex6-gameOfLife/index.js
+  25:7  warning  'lifeTime' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  61:5  warning  Remove commented-out code                            hyf/no-commented-out-code
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-25 08:25:55 info: ------------------------------------------
+2021-05-25 08:25:55 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2021-05-25 08:25:55 info: ------------------------------------------
+2021-05-25 08:26:00 error: *** Unit Test Error Report ***
+
+- Game Of Life: a living cell with two living neighbors should survive and have its life time incremented by one
+
+2021-05-25 08:26:02 error: *** ESLint Report ***
+
+ex6-gameOfLife/index.js
+  61:5  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 08:26:53 info: ------------------------------------------
+2021-05-25 08:26:53 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2021-05-25 08:26:53 info: ------------------------------------------
+2021-05-25 08:26:57 info: All unit tests passed.
+2021-05-25 08:26:58 error: *** ESLint Report ***
+
+ex6-gameOfLife/index.js
+  61:5  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 08:44:01 info: ----------------------------------------
+2021-05-25 08:44:01 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-05-25 08:44:01 info: ----------------------------------------
+2021-05-25 08:44:10 error: *** Unit Test Error Report ***
+
+- Generated HTML HTML should be syntactically valid
+  inline
+    10:238  error  <img> is missing required "src" attribute  element-required-attributes
+    10:238  error  <img> is missing required "alt" attribute  wcag/h37
+    10:550  error  <img> is missing required "src" attribute  element-required-attributes
+    10:550  error  <img> is missing required "alt" attribute  wcag/h37
+    10:853  error  <img> is missing required "src" attribute  element-required-attributes
+    10:853  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 6 problems (6 errors, 0 warnings)
+  
+
+2021-05-25 08:44:12 error: *** ESLint Report ***
+
+ex1-bookList/index.js
+  46:7  warning  'ulElement' is never reassigned. Use 'const' instead      no-autofix/prefer-const
+  49:7  warning  'background' is never reassigned. Use 'const' instead     no-autofix/prefer-const
+  49:7  error    'background' is assigned a value but never used           no-unused-vars
+  52:9  warning  'liElement' is never reassigned. Use 'const' instead      no-autofix/prefer-const
+  63:9  warning  'liElementText' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  65:9  warning  'liImg' is never reassigned. Use 'const' instead          no-autofix/prefer-const
+
+✖ 6 problems (1 error, 5 warnings)
+
+
+2021-05-25 08:46:52 info: ----------------------------------------
+2021-05-25 08:46:52 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-05-25 08:46:52 info: ----------------------------------------
+2021-05-25 08:46:57 error: *** Unit Test Error Report ***
+
+- Generated HTML HTML should be syntactically valid
+  inline
+    10:238  error  <img> is missing required "src" attribute  element-required-attributes
+    10:238  error  <img> is missing required "alt" attribute  wcag/h37
+    10:550  error  <img> is missing required "src" attribute  element-required-attributes
+    10:550  error  <img> is missing required "alt" attribute  wcag/h37
+    10:853  error  <img> is missing required "src" attribute  element-required-attributes
+    10:853  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 6 problems (6 errors, 0 warnings)
+  
+
+2021-05-25 08:51:29 info: ----------------------------------------
+2021-05-25 08:51:29 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-05-25 08:51:29 info: ----------------------------------------
+2021-05-25 08:51:38 error: *** Unit Test Error Report ***
+
+- Generated HTML HTML should be syntactically valid
+  inline
+    10:238  error  <img> is missing required "src" attribute  element-required-attributes
+    10:238  error  <img> is missing required "alt" attribute  wcag/h37
+    10:572  error  <img> is missing required "src" attribute  element-required-attributes
+    10:572  error  <img> is missing required "alt" attribute  wcag/h37
+    10:897  error  <img> is missing required "src" attribute  element-required-attributes
+    10:897  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 6 problems (6 errors, 0 warnings)
+  
+
+2021-05-25 08:56:22 info: ---------------------------------------
+2021-05-25 08:56:22 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 08:56:22 info: ---------------------------------------
+2021-05-25 08:56:28 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 08:56:29 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  13:5  warning  'body' is never reassigned. Use 'const' instead       no-autofix/prefer-const
+  13:5  error    'body' is assigned a value but never used             no-unused-vars
+  16:5  warning  'name' is never reassigned. Use 'const' instead       no-autofix/prefer-const
+  16:5  error    'name' is assigned a value but never used             no-unused-vars
+  19:5  warning  Identifier 'fav_food' is not in camelCase             hyf/camelcase
+  19:5  warning  'fav_food' is never reassigned. Use 'const' instead   no-autofix/prefer-const
+  19:5  error    'fav_food' is assigned a value but never used         no-unused-vars
+  22:5  warning  'home' is never reassigned. Use 'const' instead       no-autofix/prefer-const
+  22:5  error    'home' is assigned a value but never used             no-unused-vars
+  23:5  warning  'liElement' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 10 problems (4 errors, 6 warnings)
+
+
+2021-05-25 08:56:30 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:4 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:15 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:4 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:11 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:20 - Unknown word (Pitsa)
+
+2021-05-25 08:59:39 info: ---------------------------------------
+2021-05-25 08:59:39 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 08:59:39 info: ---------------------------------------
+2021-05-25 08:59:44 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 08:59:44 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  13:5  warning  'body' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  13:5  error    'body' is assigned a value but never used        no-unused-vars
+  16:7  error    'name' is assigned a value but never used        no-unused-vars
+  19:7  warning  Identifier 'fav_food' is not in camelCase        hyf/camelcase
+  19:7  error    'fav_food' is assigned a value but never used    no-unused-vars
+  22:7  error    'home' is assigned a value but never used        no-unused-vars
+
+✖ 6 problems (4 errors, 2 warnings)
+
+
+2021-05-25 08:59:45 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:4 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:15 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:4 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:11 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:20 - Unknown word (Pitsa)
+
+2021-05-25 09:00:52 info: ---------------------------------------
+2021-05-25 09:00:52 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 09:00:52 info: ---------------------------------------
+2021-05-25 09:00:57 error: *** Unit Test Error Report ***
+
+- Generated HTML - the body font-family should be `Arial, sans-serif`
+- Generated HTML - each <li> should have the CSS class `list-item`
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 09:00:57 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  13:45  error  Parsing error: Unexpected token ;
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-25 09:00:58 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:18:4 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:18:15 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:22:4 - Unknown word (Pilav)
+ex2-aboutMe/index.js:22:11 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:22:20 - Unknown word (Pitsa)
+
+2021-05-25 09:01:52 info: ---------------------------------------
+2021-05-25 09:01:52 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 09:01:52 info: ---------------------------------------
+2021-05-25 09:01:58 error: *** Unit Test Error Report ***
+
+- Generated HTML - the body font-family should be `Arial, sans-serif`
+- Generated HTML - each <li> should have the CSS class `list-item`
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 09:01:58 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  16:48  error  Parsing error: Unexpected token ;
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-25 09:01:59 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:18:4 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:18:15 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:22:4 - Unknown word (Pilav)
+ex2-aboutMe/index.js:22:11 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:22:20 - Unknown word (Pitsa)
+
+2021-05-25 09:03:56 info: ---------------------------------------
+2021-05-25 09:03:56 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 09:03:56 info: ---------------------------------------
+2021-05-25 09:04:01 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 09:04:02 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  19:7  warning  Identifier 'fav_food' is not in camelCase  hyf/camelcase
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 09:04:03 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:25 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:32 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:41 - Unknown word (Pitsa)
+
+2021-05-25 09:04:20 info: ---------------------------------------
+2021-05-25 09:04:20 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 09:04:20 info: ---------------------------------------
+2021-05-25 09:04:25 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should have the CSS class `list-item`
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 09:04:26 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  19:7  error  'favFood' is assigned a value but never used  no-unused-vars
+  20:1  error  'fav_food' is not defined                     no-undef
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2021-05-25 09:04:27 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:25 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:32 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:41 - Unknown word (Pitsa)
+
+2021-05-25 09:05:12 info: ---------------------------------------
+2021-05-25 09:05:12 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 09:05:12 info: ---------------------------------------
+2021-05-25 09:05:18 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 09:05:19 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 09:14:32 info: ------------------------------------------
+2021-05-25 09:14:32 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2021-05-25 09:14:32 info: ------------------------------------------
+2021-05-25 09:14:32 info: Exercise has not yet been modified
+2021-05-25 09:14:40 error: *** Unit Test Error Report ***
+
+- hijackLogo should set the `src` property
+- hijackLogo should set the `srcset` property
+
+2021-05-25 09:15:20 info: ------------------------------------------
+2021-05-25 09:15:20 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2021-05-25 09:15:20 info: ------------------------------------------
+2021-05-25 09:15:25 info: All unit tests passed.
+2021-05-25 09:15:26 error: *** ESLint Report ***
+
+ex3-hijackLogo.js
+  9:7  warning  'logo' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 09:15:28 error: *** Spell Checker Report ***
+
+ex3-hijackLogo.js:9:41 - Unknown word (Xdpd)
+
+2021-05-25 09:16:32 info: --------------------------------------------
+2021-05-25 09:16:32 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2021-05-25 09:16:32 info: --------------------------------------------
+2021-05-25 09:16:38 error: *** Unit Test Error Report ***
+
+- whatsTheTime should use `setInterval()`
+
+2021-05-25 09:16:39 error: *** ESLint Report ***
+
+ex4-whatsTheTime/index.js
+   9:7   warning  'time' is never reassigned. Use 'const' instead         no-autofix/prefer-const
+  13:7   warning  Identifier 'am_pm' is not in camelCase                  hyf/camelcase
+  19:12  error    Expected '===' and instead saw '=='                     eqeqeq
+  27:7   warning  'currentTime' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  43:7   error    'clock' is assigned a value but never used              no-unused-vars
+
+✖ 5 problems (2 errors, 3 warnings)
+
+
+2021-05-25 09:17:29 info: ---------------------------------------
+2021-05-25 09:17:29 info: >>> Running Unit Test `ex5-catWalk` <<<
+2021-05-25 09:17:29 info: ---------------------------------------
+2021-05-25 09:17:29 info: Exercise has not yet been modified
+2021-05-25 09:17:36 error: *** Unit Test Error Report ***
+
+- catWalk should use `setInterval()` and/or `setTimeout()`
+- catWalk should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event
+
+2021-05-25 09:17:37 error: *** ESLint Report ***
+
+ex5-catWalk/index.js
+  22:10  error  'catWalk' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-05-25 09:18:37 info: ---------------------------------------
+2021-05-25 09:18:37 info: >>> Running Unit Test `ex5-catWalk` <<<
+2021-05-25 09:18:37 info: ---------------------------------------
+2021-05-25 09:18:42 info: All unit tests passed.
+2021-05-25 09:18:43 error: *** ESLint Report ***
+
+ex5-catWalk/index.js
+  23:7  warning  'cat' is never reassigned. Use 'const' instead        no-autofix/prefer-const
+  31:9  warning  'fullWidth' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-05-25 09:19:13 info: ------------------------------------------
+2021-05-25 09:19:13 info: >>> Running Unit Test `ex6-gameOfLife` <<<
+2021-05-25 09:19:13 info: ------------------------------------------
+2021-05-25 09:19:16 info: All unit tests passed.
+2021-05-25 09:19:17 error: *** ESLint Report ***
+
+ex6-gameOfLife/index.js
+  61:5  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 09:19:36 info: ----------------------------------------
+2021-05-25 09:19:36 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-05-25 09:19:36 info: ----------------------------------------
+2021-05-25 09:19:41 error: *** Unit Test Error Report ***
+
+- Generated HTML HTML should be syntactically valid
+  inline
+    10:238  error  <img> is missing required "src" attribute  element-required-attributes
+    10:238  error  <img> is missing required "alt" attribute  wcag/h37
+    10:572  error  <img> is missing required "src" attribute  element-required-attributes
+    10:572  error  <img> is missing required "alt" attribute  wcag/h37
+    10:897  error  <img> is missing required "src" attribute  element-required-attributes
+    10:897  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 6 problems (6 errors, 0 warnings)
+  
+
+2021-05-25 10:20:24 info: ----------------------------------------
+2021-05-25 10:20:24 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-05-25 10:20:24 info: ----------------------------------------
+2021-05-25 10:20:34 error: *** Unit Test Error Report ***
+
+- Generated HTML HTML should be syntactically valid
+  inline
+    10:238  error  <img> is missing required "alt" attribute  wcag/h37
+    10:523  error  <img> is missing required "alt" attribute  wcag/h37
+    10:799  error  <img> is missing required "alt" attribute  wcag/h37
+  
+  ✖ 3 problems (3 errors, 0 warnings)
+  
+
+2021-05-25 10:20:36 error: *** ESLint Report ***
+
+ex1-bookList/index.js
+  66:5  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 10:21:37 info: ----------------------------------------
+2021-05-25 10:21:37 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-05-25 10:21:37 info: ----------------------------------------
+2021-05-25 10:21:43 info: All unit tests passed.
+2021-05-25 10:21:44 error: *** ESLint Report ***
+
+ex1-bookList/index.js
+  67:5  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 10:23:33 info: ---------------------------------------
+2021-05-25 10:23:33 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:23:33 info: ---------------------------------------
+2021-05-25 10:23:38 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:23:40 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:26:42 info: ---------------------------------------
+2021-05-25 10:26:42 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:26:42 info: ---------------------------------------
+2021-05-25 10:26:47 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should have the CSS class `list-item`
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:26:48 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  25:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 10:26:49 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:27:07 info: ---------------------------------------
+2021-05-25 10:27:07 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:27:07 info: ---------------------------------------
+2021-05-25 10:27:12 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should have the CSS class `list-item`
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:27:14 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:27:55 info: ---------------------------------------
+2021-05-25 10:27:55 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:27:55 info: ---------------------------------------
+2021-05-25 10:28:00 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should have the CSS class `list-item`
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:28:02 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:28:28 info: ---------------------------------------
+2021-05-25 10:28:28 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:28:28 info: ---------------------------------------
+2021-05-25 10:28:34 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:28:34 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  26:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 10:28:36 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:29:36 info: ---------------------------------------
+2021-05-25 10:29:36 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:29:36 info: ---------------------------------------
+2021-05-25 10:29:42 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should have the CSS class `list-item`
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:29:43 error: *** ESLint Report ***
+
+ex2-aboutMe/index.js
+  27:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 10:29:44 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:31:39 info: ---------------------------------------
+2021-05-25 10:31:39 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:31:39 info: ---------------------------------------
+2021-05-25 10:31:45 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:31:47 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:35:08 info: ---------------------------------------
+2021-05-25 10:35:08 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:35:08 info: ---------------------------------------
+2021-05-25 10:35:14 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:35:15 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:36:59 info: ---------------------------------------
+2021-05-25 10:36:59 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:36:59 info: ---------------------------------------
+2021-05-25 10:37:05 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should have the CSS class `list-item`
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:37:07 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:38:16 info: ---------------------------------------
+2021-05-25 10:38:16 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:38:16 info: ---------------------------------------
+2021-05-25 10:38:22 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:38:24 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Goshnan)
+ex2-aboutMe/index.js:20:40 - Unknown word (Pitsa)
+
+2021-05-25 10:38:55 info: ---------------------------------------
+2021-05-25 10:38:55 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:38:55 info: ---------------------------------------
+2021-05-25 10:39:00 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:39:02 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Doner)
+ex2-aboutMe/index.js:20:38 - Unknown word (Pitsa)
+
+2021-05-25 10:41:56 info: ------------------------------------------
+2021-05-25 10:41:56 info: >>> Running Unit Test `ex3-hijackLogo` <<<
+2021-05-25 10:41:56 info: ------------------------------------------
+2021-05-25 10:41:59 info: All unit tests passed.
+2021-05-25 10:41:59 error: *** ESLint Report ***
+
+ex3-hijackLogo.js
+  9:7  warning  'logo' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 10:42:00 error: *** Spell Checker Report ***
+
+ex3-hijackLogo.js:9:41 - Unknown word (Xdpd)
+
+2021-05-25 10:43:12 info: --------------------------------------------
+2021-05-25 10:43:12 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2021-05-25 10:43:12 info: --------------------------------------------
+2021-05-25 10:43:17 error: *** Unit Test Error Report ***
+
+- whatsTheTime should use `setInterval()`
+
+2021-05-25 10:43:17 error: *** ESLint Report ***
+
+ex4-whatsTheTime/index.js
+   9:7   warning  'time' is never reassigned. Use 'const' instead         no-autofix/prefer-const
+  13:7   warning  Identifier 'am_pm' is not in camelCase                  hyf/camelcase
+  19:12  error    Expected '===' and instead saw '=='                     eqeqeq
+  27:7   warning  'currentTime' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  43:7   error    'clock' is assigned a value but never used              no-unused-vars
+
+✖ 5 problems (2 errors, 3 warnings)
+
+
+2021-05-25 10:46:35 info: --------------------------------------------
+2021-05-25 10:46:35 info: >>> Running Unit Test `ex4-whatsTheTime` <<<
+2021-05-25 10:46:35 info: --------------------------------------------
+2021-05-25 10:46:40 info: All unit tests passed.
+2021-05-25 10:46:41 error: *** ESLint Report ***
+
+ex4-whatsTheTime/index.js
+   9:7   warning  'time' is never reassigned. Use 'const' instead         no-autofix/prefer-const
+  13:7   warning  Identifier 'am_pm' is not in camelCase                  hyf/camelcase
+  19:12  error    Expected '===' and instead saw '=='                     eqeqeq
+  27:7   warning  'currentTime' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  43:7   error    'clock' is assigned a value but never used              no-unused-vars
+  47:1   warning  Remove commented-out code                               hyf/no-commented-out-code
+
+✖ 6 problems (2 errors, 4 warnings)
+
+
+2021-05-25 10:47:22 info: ----------------------------------------
+2021-05-25 10:47:22 info: >>> Running Unit Test `ex1-bookList` <<<
+2021-05-25 10:47:22 info: ----------------------------------------
+2021-05-25 10:47:29 info: All unit tests passed.
+2021-05-25 10:47:29 error: *** ESLint Report ***
+
+ex1-bookList/index.js
+  68:5  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-05-25 10:47:56 info: ---------------------------------------
+2021-05-25 10:47:56 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:47:56 info: ---------------------------------------
+2021-05-25 10:48:02 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:48:04 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Doner)
+ex2-aboutMe/index.js:20:38 - Unknown word (Pitsa)
+

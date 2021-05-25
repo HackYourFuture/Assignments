@@ -1,0 +1,11 @@
+*** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+*** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Doner)
+ex2-aboutMe/index.js:20:38 - Unknown word (Pitsa)

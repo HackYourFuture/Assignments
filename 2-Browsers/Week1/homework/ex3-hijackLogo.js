@@ -6,7 +6,9 @@
    HackYourFuture logo instead.
 ------------------------------------------------------------------------------*/
 function hijackGoogleLogo() {
-  // TODO your code goes in here
+  let logo = document.querySelector('.lnXdpd');
+  logo.src = 'https://www.hackyourfuture.dk/static/logo-dark.svg';
+  logo.srcset = 'https://www.hackyourfuture.dk/static/logo-dark.svg';
 }
 
 hijackGoogleLogo();

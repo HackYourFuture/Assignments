@@ -9,3 +9,21 @@
 ------------------------------------------------------------------------------*/
 
 // TODO add your JavaScript code here.
+
+const body = document.querySelector('body');
+body.style.fontFamily = 'Arial, sans-serif';
+
+const name = document.getElementById('nickname');
+name.textContent = 'Hudawaerdi Aibaidula';
+
+const favFood = document.getElementById('fav-food');
+favFood.textContent = 'Pilav, Doner, Pitsa';
+
+const home = document.getElementById('hometown');
+home.textContent = 'Urumqi';
+const liElement = document.getElementsByTagName('li');
+
+for (let i = 0; i < liElement.length; i++) {
+  liElement[i].className = 'list-item';
+}
+//each <li> should rendered red  , i can't understand what they want to say 'rendered red'

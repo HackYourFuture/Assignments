@@ -24,25 +24,54 @@ const myBooks = [
     author: 'Don Norman',
     isbn: '978-0465050659',
     alreadyRead: false,
+    imgSrc: 'url(assets/the_design_of_everyday_things.jpg)',
   },
   {
     title: 'The Most Human Human',
     author: 'Brian Christian',
     isbn: '978-1617933431',
     alreadyRead: true,
+    imgSrc: 'url(assets/the_most_human_human.jpg)',
   },
   {
     title: 'The Pragmatic Programmer',
     author: 'Andrew Hunt',
     isbn: '978-0201616224',
     alreadyRead: true,
+    imgSrc: 'url(assets/the_pragmatic_programmer.jpg)',
   },
 ];
 
 function createBookList(books) {
-  // your code goes in here, return the ul element
-}
+  const ulElement = document.createElement('ul');
+  ulElement.style.display = 'flex';
+  document.querySelector('#bookList').appendChild(ulElement);
 
+  for (let i = 0; i < books.length; i++) {
+    const liElement = document.createElement('li');
+    liElement.setAttribute(
+      'style',
+      'width:calc(30% - 20px); display:block; margin: 10px 20px; padding: 10px;min-width:300px;background-color:red;listStyle :none'
+    );
+
+    if (books[i].alreadyRead === true) {
+      liElement.style.backgroundColor = 'green';
+    }
+
+    ulElement.appendChild(liElement);
+    const liElementText = document.createElement('p');
+    liElementText.textContent = `${books[i].title} - ${books[i].author}`;
+    const liImg = document.createElement('img');
+    liImg.src = `${books[i].imgSrc}`;
+    liImg.alt = `${books[i].imgSrc}`;
+    // the picture doesn't show up the page, but when i called as a background, it is ok. of course it is not the way we are inquired.
+    // liImg.style.backgroundImage = books[i].imgSrc;
+    liImg.setAttribute('style', ' height:400px;float:left; margin: 20px;');
+
+    liElement.appendChild(liElementText);
+    liElement.appendChild(liImg);
+  }
+}
 const ulElement = createBookList(myBooks);
 
 document.querySelector('#bookList').appendChild(ulElement);

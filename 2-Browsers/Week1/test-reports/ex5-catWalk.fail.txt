@@ -1,0 +1,9 @@
+
+*** ESLint Report ***
+
+ex5-catWalk/index.js
+  23:7  warning  'cat' is never reassigned. Use 'const' instead        no-autofix/prefer-const
+  31:9  warning  'fullWidth' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
