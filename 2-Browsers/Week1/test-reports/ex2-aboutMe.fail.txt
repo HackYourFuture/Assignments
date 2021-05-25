@@ -1,6 +1,3 @@
-*** Unit Test Error Report ***
-
-- Generated HTML - each <li> should rendered red
 
 *** Spell Checker Report ***
 

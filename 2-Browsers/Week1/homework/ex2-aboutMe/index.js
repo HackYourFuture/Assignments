@@ -25,5 +25,5 @@ const liElement = document.getElementsByTagName('li');
 
 for (let i = 0; i < liElement.length; i++) {
   liElement[i].className = 'list-item';
+  liElement[i].style.color = 'red';
 }
-//each <li> should rendered red  , i can't understand what they want to say 'rendered red'

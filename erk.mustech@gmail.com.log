@@ -756,3 +756,42 @@ ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
 ex2-aboutMe/index.js:20:31 - Unknown word (Doner)
 ex2-aboutMe/index.js:20:38 - Unknown word (Pitsa)
 
+2021-05-25 10:54:18 info: ---------------------------------------
+2021-05-25 10:54:18 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:54:18 info: ---------------------------------------
+2021-05-25 10:54:28 error: *** Unit Test Error Report ***
+
+- Generated HTML - each <li> should rendered red
+
+2021-05-25 10:54:32 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Doner)
+ex2-aboutMe/index.js:20:38 - Unknown word (Pitsa)
+
+2021-05-25 10:55:55 info: ---------------------------------------
+2021-05-25 10:55:55 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:55:55 info: ---------------------------------------
+2021-05-25 10:56:02 info: All unit tests passed.
+2021-05-25 10:56:05 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Doner)
+ex2-aboutMe/index.js:20:38 - Unknown word (Pitsa)
+
+2021-05-25 10:56:24 info: ---------------------------------------
+2021-05-25 10:56:24 info: >>> Running Unit Test `ex2-aboutMe` <<<
+2021-05-25 10:56:24 info: ---------------------------------------
+2021-05-25 10:56:30 info: All unit tests passed.
+2021-05-25 10:56:32 error: *** Spell Checker Report ***
+
+ex2-aboutMe/index.js:17:21 - Unknown word (Hudawaerdi)
+ex2-aboutMe/index.js:17:32 - Unknown word (Aibaidula)
+ex2-aboutMe/index.js:20:24 - Unknown word (Pilav)
+ex2-aboutMe/index.js:20:31 - Unknown word (Doner)
+ex2-aboutMe/index.js:20:38 - Unknown word (Pitsa)
+
