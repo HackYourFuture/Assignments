@@ -338,6 +338,10 @@ LET'S SEE WHAT HAPPENS HERE! (consoleUpperCase subscriber)
 let's see what happens here! (consoleLowerCase subscriber)
 ```
 
+> The main purpose of this exercise is to demonstrate an application of closures and higher order functions. But let's look a bit deeper at the Observer Pattern itself. The Observer Pattern allows "listeners" to dynamically (i.e., at runtime) subscribe to notifications of "publishers". It is said that the "listeners" are "loosely coupled" to the "publisher". This is different from hard-coding calls to specific listener functions inside the code of the "publisher"; this would be called "tightly coupled".
+>
+> In the Browser module you will learn how to add "event listeners" to DOM elements such as HTML buttons, which you may have seen in passing already. This is an example of an Observer Pattern implementation.
+
 #### Running the Unit Tests
 
 This time we have provided the unit tests in a separate file called `ex4-observable.test.js`. You should not modify this file, nor is it necessary to fully understand how it works at this stage. However, we will try to give an explanation here all the same.
