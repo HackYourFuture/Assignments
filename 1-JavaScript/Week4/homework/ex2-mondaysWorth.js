@@ -29,16 +29,16 @@ const mondayTasks = [
 
 const hourlyRate = 25;
 
-function computeEarnings(arr, arg) {
-  const values = arr
-    .map((task) => (task.duration / 60) * arg)
+function computeEarnings(list, rate) {
+  const value = list
+    .map((task) => (task.duration / 60) * rate)
     .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-  return `€${values}0`;
+  return `€${value}0`;
 }
 
 // example use case
 const earnings = computeEarnings(mondayTasks, hourlyRate);
-console.log(`Total earnings: ${earnings}`); // -> "Total earnings: €187.50"
+console.log("Total earnings +'earnings.join('0')'"); // -> "Total earnings: €187.50"
 
 // ! Do not change or remove the code below
 module.exports = {
