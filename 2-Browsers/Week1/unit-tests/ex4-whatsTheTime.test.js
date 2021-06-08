@@ -9,10 +9,14 @@ const {
 describe('whatsTheTime', () => {
   let rootNode;
   const state = {};
+  let setIntervalSpy;
 
   beforeAll(async () => {
-    const { document } = await prepare();
-    state.outerHTML = document.documentElement.outerHTML;
+    const window = await prepare();
+
+    setIntervalSpy = jest.spyOn(window, 'setInterval');
+
+    state.outerHTML = window.document.documentElement.outerHTML;
     ({ rootNode } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
@@ -33,17 +37,27 @@ describe('whatsTheTime', () => {
       });
   });
 
-  it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
+  test('HTML should be syntactically valid', () =>
+    validateHTML(state.outerHTML));
 
-  it('should use `setInterval()`', () => {
+  test('should use `setInterval()`', () => {
     expect(state.setInterval).toBeDefined();
   });
 
-  it('should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event', () => {
+  test('should not call `setInterval()` more than once', async () => {
+    const callCount = await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(setIntervalSpy.mock.calls.length);
+      }, 2000);
+    });
+    expect(callCount).toBeLessThanOrEqual(1);
+  });
+
+  test('should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event', () => {
     expect(state.onload).toBeDefined();
   });
 
-  it('`window.onload` or `window.addEventListener` should not call its event handler function', () => {
+  test('`window.onload` or `window.addEventListener` should not call its event handler function', () => {
     expect(state.callError).not.toBeDefined();
   });
 });

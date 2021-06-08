@@ -22,11 +22,11 @@ describe('hijackLogo', () => {
       });
   });
 
-  it('should set the `src` property', () => {
+  test('should set the `src` property', () => {
     expect(state.src).toBeDefined();
   });
 
-  it('should set the `srcset` property', () => {
+  test('should set the `srcset` property', () => {
     expect(state.srcset).toBeDefined();
   });
 });

@@ -39,7 +39,10 @@ module.exports = {
         message:
           'Please do not use `innerHTML` in the homework. Use `textContent` and/or `document.createElement()` instead.',
       },
-      { selector: 'ForInStatement', message: 'Avoid `for in` loops' },
+      {
+        selector: 'ForInStatement',
+        message: 'Avoid `for in` loops. Prefer `Object.keys()` instead.',
+      },
     ],
     'hyf/use-map-result': 'error',
     'hyf/camelcase': 'warn',

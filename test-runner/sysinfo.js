@@ -7,7 +7,6 @@ const { parse } = require('comment-json');
 const _ = require('lodash');
 const chalk = require('chalk');
 
-const ONE_GB_1000 = 1_000_000_000;
 const ONE_GB_1024 = 1024 * 1024 * 1024;
 
 const vscodeUserSettingsLocations = {

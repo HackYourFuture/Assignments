@@ -1,10 +1,7 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
 const walk = require('acorn-walk');
-const {
-  beforeAllHelper,
-  findAncestor,
-} = require('../../../test-runner/unit-test-helpers');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('giveCompliment', () => {
   const state = {};
@@ -17,29 +14,25 @@ describe('giveCompliment', () => {
     giveCompliment = exported;
 
     rootNode &&
-      walk.ancestor(rootNode, {
-        VariableDeclarator({ id, init }, ancestors) {
+      walk.simple(rootNode, {
+        VariableDeclarator({ id, init }) {
           if (id?.name === 'compliments' && init?.type === 'ArrayExpression') {
             state.compliments = init.elements.map((elem) => elem.value);
-            const ancestor = findAncestor('FunctionDeclaration', ancestors);
-            if (ancestor && ancestor.id.name === 'giveCompliment') {
-              state.inScope = true;
-            }
           }
         },
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should take a single parameter', () => {
+  test('should take a single parameter', () => {
     if (!exported) return;
     expect(giveCompliment).toHaveLength(1);
   });
 
-  it('should include a `compliments` array initialized with 10 strings', () => {
+  test('should include a `compliments` array initialized with 10 strings', () => {
     if (!exported) return;
     expect(state.compliments ? '' : 'No such array found').toBe('');
     expect(
@@ -51,7 +44,7 @@ describe('giveCompliment', () => {
     expect(isAllStrings ? '' : 'Not all elements are strings').toBe('');
   });
 
-  it('should give a random compliment: You are `compliment`, `name`!', () => {
+  test('should give a random compliment: You are `compliment`, `name`!', () => {
     if (!exported) return;
     expect(state.compliments).toBeDefined();
 

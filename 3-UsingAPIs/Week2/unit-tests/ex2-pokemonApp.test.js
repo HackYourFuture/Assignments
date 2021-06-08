@@ -33,17 +33,18 @@ describe('pokemonApp', () => {
       });
   });
 
-  it('HTML should be syntactically valid', () => validateHTML(state.outerHTML));
+  test('HTML should be syntactically valid', () =>
+    validateHTML(state.outerHTML));
 
-  it('should use `fetch()`', () => {
+  test('should use `fetch()`', () => {
     expect(state.fetch).toBeDefined();
   });
 
-  it('should use `await fetch()`', () => {
+  test('should use `await fetch()`', () => {
     expect(state.awaitFetch).toBeDefined();
   });
 
-  it('should use try/catch', () => {
+  test('should use try/catch', () => {
     expect(state.tryCatch).toBeDefined();
   });
 });

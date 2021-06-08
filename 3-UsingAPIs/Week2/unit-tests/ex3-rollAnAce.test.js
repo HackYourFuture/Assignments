@@ -30,12 +30,12 @@ describe('ex3-rollAnAce', () => {
       });
   });
 
-  it('should use async/wait', () => {
+  test('should use async/wait', () => {
     expect(state.async).toBeDefined();
     expect(state.await).toBeDefined();
   });
 
-  it('should use try/catch', () => {
+  test('should use try/catch', () => {
     expect(state.tryCatch).toBeDefined();
   });
 });

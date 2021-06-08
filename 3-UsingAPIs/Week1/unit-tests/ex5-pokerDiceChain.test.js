@@ -9,11 +9,11 @@ describe('ex5-pokerDiceChain', () => {
     rollTheDices = exported;
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should resolve when all dices settle successfully', () => {
+  test('should resolve when all dices settle successfully', () => {
     if (!exported) return;
     expect.assertions(2);
 
@@ -36,7 +36,7 @@ describe('ex5-pokerDiceChain', () => {
     return assertionPromise;
   });
 
-  it('should reject with an Error when a dice rolls off the table', async () => {
+  test('should reject with an Error when a dice rolls off the table', async () => {
     if (!exported) return;
     expect.assertions(2);
 

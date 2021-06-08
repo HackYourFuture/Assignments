@@ -33,13 +33,17 @@ function computeEarnings(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
 
-// example use case
-const earnings = computeEarnings(mondayTasks, hourlyRate);
-console.log(`Total earnings: ${earnings}`); // -> "Total earnings: €187.50"
+// ! Unit tests (using Jest)
+describe('computeEarnings', () => {
+  test('should take two parameters', () => {
+    // The `.length` property indicates the number of parameters expected by
+    // the function.
+    expect(computeEarnings).toHaveLength(2);
+  });
 
-// ! Do not change or remove the code below
-module.exports = {
-  computeEarnings,
-  mondayTasks,
-  hourlyRate,
-};
+  test('should compute the earnings as a formatted Euro amount', () => {
+    const result = computeEarnings(mondayTasks, hourlyRate);
+    const expected = '€187.50';
+    expect(result).toBe(expected);
+  });
+});

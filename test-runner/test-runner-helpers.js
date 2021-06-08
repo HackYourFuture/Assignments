@@ -129,7 +129,7 @@ function selectExercise(choices, exercise) {
 async function loadMostRecentSelection() {
   try {
     const json = await fs.promises.readFile(
-      path.join(__dirname, '.recent.json'),
+      path.join(__dirname, '../.recent.json'),
       'utf8'
     );
     return JSON.parse(json);
@@ -141,7 +141,7 @@ async function loadMostRecentSelection() {
 function saveMostRecentSelection(module, week, exercise) {
   const json = JSON.stringify({ module, week, exercise });
   return fs.promises.writeFile(
-    path.join(__dirname, '.recent.json'),
+    path.join(__dirname, '../.recent.json'),
     json,
     'utf8'
   );

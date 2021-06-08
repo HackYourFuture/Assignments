@@ -5,7 +5,7 @@ calculate it!
 
 1. Complete the function named `calculateDogAge`.
 
-  - It takes one argument: your (fictional) puppy's age (number).
+  - It takes one parameter: your (fictional) puppy's age (number).
   - Calculate your dog's age based on the conversion rate of 1 human year to
     7 dog years.
   - Return a string: "Your doggie is `age` years old in dog years!"

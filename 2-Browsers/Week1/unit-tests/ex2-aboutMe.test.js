@@ -10,21 +10,21 @@ describe('Generated HTML', () => {
     state.outerHTML = document.documentElement.outerHTML;
   });
 
-  it('should be syntactically valid', () => validateHTML(state.outerHTML));
+  test('should be syntactically valid', () => validateHTML(state.outerHTML));
 
-  it('- the body font-family should be `Arial, sans-serif`', () => {
+  test('- the body font-family should be `Arial, sans-serif`', () => {
     const fontFamily = document.body.style.fontFamily;
     expect(fontFamily).toEqual(expect.stringContaining('Arial'));
     expect(fontFamily).toEqual(expect.stringContaining('sans-serif'));
   });
 
-  it('- each <li> should have the CSS class `list-item`', () => {
+  test('- each <li> should have the CSS class `list-item`', () => {
     const nodeList = document.querySelectorAll('li');
     const classNames = [...nodeList].map((node) => node.className);
     expect(classNames.every((name) => name === 'list-item')).toBeTruthy();
   });
 
-  it('- each <li> should rendered red', () => {
+  test('- each <li> should rendered red', () => {
     const nodeList = document.querySelectorAll('li');
     const colors = [...nodeList].map(
       (node) => window.getComputedStyle(node).color

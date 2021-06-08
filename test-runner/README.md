@@ -214,4 +214,4 @@ To add a new exercise the following is needed:
 
 All files and folders should adhere to the naming conventions as described earlier in this document.
 
-Once the exercise file(s) are added and tested (where necessary) the `npm run setup` command should be executed to generate a default `.todo` test report and compute an exercise hash. Thereafter the changes can be pushed to the main repo.
+Once the exercise file(s) are added and tested (where necessary) the `npm run precommit` command should be executed to generate a default `.todo` test report and compute an exercise hash. Thereafter the changes can be pushed to the main repo.

@@ -43,16 +43,16 @@ describe('tellFortune', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should take four parameters', () => {
+  test('should take four parameters', () => {
     if (!exported) return;
     expect(tellFortune).toHaveLength(4);
   });
 
-  it('should call function `selectRandomly` for each of its arguments', () => {
+  test('should call function `selectRandomly` for each of its arguments', () => {
     if (!exported) return;
     expect(state.selectRandomlyArgs).toBeDefined();
     expect(state.selectRandomlyArgs).toEqual(
@@ -60,7 +60,7 @@ describe('tellFortune', () => {
     );
   });
 
-  it('should tell the fortune by randomly selecting array values', () => {
+  test('should tell the fortune by randomly selecting array values', () => {
     if (!exported) return;
     const { numKids, partnerNames, locations, jobTitles } = state;
 

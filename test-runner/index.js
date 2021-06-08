@@ -1,10 +1,10 @@
-const fs = require('fs').promises;
-const { existsSync } = require('fs');
+const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
-const fg = require('fast-glob');
+const util = require('util');
+const { exec } = require('child_process');
 const chalk = require('chalk');
 const prompts = require('prompts');
+const stripAnsi = require('strip-ansi');
 const {
   makePath,
   compileMenuData,
@@ -17,7 +17,11 @@ const {
   saveMostRecentSelection,
 } = require('./test-runner-helpers');
 const logger = require('./logger');
-const hashes = require('./.hashes.json');
+const hashes = require('../.hashes.json');
+
+const execAsync = util.promisify(exec);
+
+const MINIMUM_NODE_VERSION = 14;
 
 const disclaimer = `
 *** Disclaimer **
@@ -31,7 +35,7 @@ See the results here as suggestions, not the truth!
 
 async function unlink(filePath) {
   try {
-    await fs.unlink(filePath);
+    await fs.promises.unlink(filePath);
   } catch (_) {
     // ignore
   }
@@ -50,63 +54,122 @@ async function writeReport(module, week, exercise, report) {
   await unlink(failFilePath);
 
   if (report) {
-    await fs.writeFile(failFilePath, report, 'utf8');
+    await fs.promises.writeFile(failFilePath, report, 'utf8');
     return report;
   }
 
   const message = 'All tests passed';
-  await fs.writeFile(passFilePath, message, 'utf8');
+  await fs.promises.writeFile(passFilePath, message, 'utf8');
 }
 
-function isUnitTestProvided(name) {
-  const unitTestPattern = path
-    .join(__dirname, `../**/unit-tests/${name}.test.js`)
-    .replace(/\\/g, '/');
-  const unitTestPaths = fg.sync([unitTestPattern, '!**/node_modules']);
-  return unitTestPaths.length > 0;
-}
+function getUnitTestPath(exercisePath, homeworkFolder) {
+  // If the exercise path ends with `.test` it is expected to represent a
+  // single JavaScript file that contains both a function-under-test and
+  // a unit test or suite of tests.
+  if (/\.test$/.test(exercisePath)) {
+    const unitTestPath = exercisePath + '.js';
+    if (!fs.existsSync(unitTestPath)) {
+      throw new Error(`Unit test file not found: ${unitTestPath}`);
+    }
+    return { unitTestPath, verbose: true };
+  }
 
-function execJest(name) {
-  let message;
-  try {
-    if (!isUnitTestProvided(name)) {
-      message = 'A unit test file was not provided.';
-      console.log(chalk.yellow(message));
-      logger.warn(message);
-      return '';
+  const exerciseName = path.basename(exercisePath);
+
+  // If the unmodified exercise path exists "as is", it must be directory that
+  // contains the exercise file(s).
+  if (fs.existsSync(exercisePath)) {
+    const stats = fs.statSync(exercisePath);
+    if (!stats.isDirectory()) {
+      throw new Error(`Expected a directory: ${exercisePath}`);
     }
 
+    // A unit test file may be present in the exercise directory, in which case
+    // the unit test itself is considered part of the exercise. This unit test
+    // file must then be named `<exercise-name>.test.js`.
+    const unitTestPath = path.join(exercisePath, exerciseName + '.test.js');
+    if (fs.existsSync(unitTestPath)) {
+      return { unitTestPath, verbose: true };
+    }
+  }
+
+  // If the exercise directory does not contain a unit test file then it may
+  // exist in the `unit-tests` directory.
+  const regexp = new RegExp(
+    String.raw`(Week\d+)${path.sep}${homeworkFolder}${path.sep}`
+  );
+  const unitTestPath =
+    exercisePath.replace(regexp, `$1${path.sep}unit-tests${path.sep}`) +
+    '.test.js';
+  if (fs.existsSync(unitTestPath)) {
+    // Use verbose mode if the unit-tests folder contains a `.verbose` file.
+    const verboseFilePath = path.join(path.dirname(unitTestPath), '.verbose');
+    const verbose = fs.existsSync(verboseFilePath);
+    return { unitTestPath, verbose };
+  }
+
+  // No unit test file was found for the current exercise.
+  return null;
+}
+
+async function execJest(exercisePath, homeworkFolder) {
+  let message;
+
+  const result = getUnitTestPath(exercisePath, homeworkFolder);
+  if (!result) {
+    message = 'A unit test file was not provided.';
+    console.log(chalk.yellow(message));
+    logger.warn(message);
+    return '';
+  }
+
+  const { unitTestPath, verbose } = result;
+
+  let cmdLine = `npx jest '${unitTestPath}' --colors`;
+
+  if (!verbose) {
     const customReporterPath = path.join(__dirname, 'CustomReporter.js');
-    execSync(
-      `npx jest ${name} --silent false --verbose false --reporters="${customReporterPath}"`,
-      { encoding: 'utf8', stdio: 'pipe' }
-    );
+    cmdLine += ` --reporters="${customReporterPath}"`;
+  }
+
+  try {
+    const { stderr } = await execAsync(cmdLine, {
+      encoding: 'utf8',
+      stdio: 'pipe',
+      env: {
+        ...process.env,
+        HOMEWORK_FOLDER: homeworkFolder,
+      },
+    });
+
     message = 'All unit tests passed.';
-    console.log(chalk.green(message));
     logger.info(message);
+
+    console.log(verbose ? stderr : chalk.green(message));
     return '';
   } catch (err) {
     const output = err.stdout || err.message;
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
-    console.log(chalk.red(output));
-    message = `${title}\n\n${output}`;
+    console.log(verbose ? output : chalk.red(output));
+    message = stripAnsi(`${title}\n\n${output})`);
     logger.error(message);
     return message;
   }
 }
 
-function execESLint(exercisePath) {
-  const lintSpec = existsSync(exercisePath)
+async function execESLint(exercisePath) {
+  const lintSpec = fs.existsSync(exercisePath)
     ? exercisePath
     : `${exercisePath}.js`;
   // Note: ESLint warnings do not throw an error
   let output;
   try {
-    output = execSync(`npx eslint ${lintSpec}`, {
+    const { stdout } = await execAsync(`npx eslint ${lintSpec}`, {
       encoding: 'utf8',
       stdio: 'pipe',
     });
+    output = stdout;
   } catch (err) {
     output = err.stdout;
   }
@@ -124,12 +187,12 @@ function execESLint(exercisePath) {
   return '';
 }
 
-function execSpellChecker(exercisePath) {
+async function execSpellChecker(exercisePath) {
   try {
-    const cspellSpec = existsSync(exercisePath)
+    const cspellSpec = fs.existsSync(exercisePath)
       ? path.normalize(`${exercisePath}/*.js`)
       : `${exercisePath}.js`;
-    execSync(`npx cspell ${cspellSpec}`, {
+    await execAsync(`npx cspell ${cspellSpec}`, {
       encoding: 'utf8',
       stdio: 'pipe',
     });
@@ -139,7 +202,7 @@ function execSpellChecker(exercisePath) {
     // remove full path
     const output = err.stdout
       .replace(/\\/g, '/')
-      .replace(/^.*\/\.?homework\//gm, '');
+      .replace(/^.*\/\.?@?homework\//gm, '');
 
     const title = '*** Spell Checker Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
@@ -151,8 +214,8 @@ function execSpellChecker(exercisePath) {
 }
 
 async function showDisclaimer() {
-  const disclaimerPath = path.join(__dirname, '.disclaimer');
-  const suppressDisclaimer = existsSync(disclaimerPath);
+  const disclaimerPath = path.join(__dirname, '../.disclaimer');
+  const suppressDisclaimer = fs.existsSync(disclaimerPath);
   if (!suppressDisclaimer) {
     console.log(chalk.magenta(disclaimer));
     const { answer } = await prompts({
@@ -165,13 +228,26 @@ async function showDisclaimer() {
       const message = 'Disclaimer turned off';
       console.log(message);
       logger.info(message);
-      await fs.writeFile(disclaimerPath, 'off', 'utf8');
+      await fs.promises.writeFile(disclaimerPath, 'off', 'utf8');
     }
   }
 }
 
 async function main() {
+  const [majorVersion] = process.versions.node.split('.');
+  if (+majorVersion < MINIMUM_NODE_VERSION) {
+    console.log(chalk.red(`Required Node version: 14 or higher.`));
+    console.log(
+      chalk.red(
+        `Your version: ${majorVersion}. Please upgrade your version of Node.`
+      )
+    );
+    process.exit(1);
+  }
+
   try {
+    const homeworkFolder = process.argv[2] || 'homework';
+
     const menuData = compileMenuData();
     let module, week, exercise;
     let useRecent = false;
@@ -195,8 +271,6 @@ async function main() {
     logger.info(title);
     logger.info(separator);
 
-    const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
-
     const exercisePath = makePath(module, week, homeworkFolder, exercise);
     const hash = await computeHash(exercisePath);
 
@@ -208,9 +282,9 @@ async function main() {
 
     console.log('Running test, please wait...');
     let report = '';
-    report += execJest(exercise);
-    report += execESLint(exercisePath);
-    report += execSpellChecker(exercisePath);
+    report += await execJest(exercisePath, homeworkFolder);
+    report += await execESLint(exercisePath);
+    report += await execSpellChecker(exercisePath);
 
     if (!untouched) {
       await writeReport(module, week, exercise, report);

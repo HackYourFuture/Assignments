@@ -27,11 +27,11 @@ describe('Game Of Life:', () => {
     createGame = exported;
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('a living cell with zero living neighbors should die and have its life time reset to zero', () => {
+  test('a living cell with zero living neighbors should die and have its life time reset to zero', () => {
     const grid = _.cloneDeep(gridTemplate);
     const midCell = grid[1][1];
     midCell.alive = true;
@@ -51,7 +51,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(0);
   });
 
-  it('a living cell with one living neighbor should die and have its life time reset to zero', () => {
+  test('a living cell with one living neighbor should die and have its life time reset to zero', () => {
     const grid = _.cloneDeep(gridTemplate);
     grid[1][0].alive = true;
     const midCell = grid[1][1];
@@ -72,7 +72,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(0);
   });
 
-  it('a living cell with two living neighbors should survive and have its life time incremented by one', () => {
+  test('a living cell with two living neighbors should survive and have its life time incremented by one', () => {
     const grid = _.cloneDeep(gridTemplate);
     grid[1][0].alive = true;
     grid[1][2].alive = true;
@@ -94,7 +94,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(2);
   });
 
-  it('a living cell with three living neighbors should survive and have its life time incremented by one', () => {
+  test('a living cell with three living neighbors should survive and have its life time incremented by one', () => {
     const grid = _.cloneDeep(gridTemplate);
     grid[1][0].alive = true;
     grid[1][2].alive = true;
@@ -117,7 +117,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(2);
   });
 
-  it('a living cell with four living neighbors should die and have its life time reset to zero', () => {
+  test('a living cell with four living neighbors should die and have its life time reset to zero', () => {
     const grid = _.cloneDeep(gridTemplate);
     grid[1][0].alive = true;
     grid[1][2].alive = true;
@@ -141,7 +141,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(0);
   });
 
-  it('a dead cell with zero living neighbors should remain dead and have a life time of zero', () => {
+  test('a dead cell with zero living neighbors should remain dead and have a life time of zero', () => {
     const grid = _.cloneDeep(gridTemplate);
     const midCell = grid[1][1];
     midCell.alive = false;
@@ -161,7 +161,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(0);
   });
 
-  it('a dead cell with one living neighbor should remain dead and have a life time of zero', () => {
+  test('a dead cell with one living neighbor should remain dead and have a life time of zero', () => {
     const grid = _.cloneDeep(gridTemplate);
     grid[1][0].alive = true;
     const midCell = grid[1][1];
@@ -182,7 +182,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(0);
   });
 
-  it('a dead cell with two living neighbors should remain dead and have a life time of zero', () => {
+  test('a dead cell with two living neighbors should remain dead and have a life time of zero', () => {
     const grid = _.cloneDeep(gridTemplate);
     grid[1][0].alive = true;
     grid[1][2].alive = true;
@@ -204,7 +204,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(0);
   });
 
-  it('a dead cell with three living neighbors should come alive and have its lifeTime reset to one', () => {
+  test('a dead cell with three living neighbors should come alive and have its lifeTime reset to one', () => {
     const grid = _.cloneDeep(gridTemplate);
     grid[0][0].alive = true;
     grid[1][0].alive = true;
@@ -227,7 +227,7 @@ describe('Game Of Life:', () => {
     expect(midCell.lifeTime).toBe(1);
   });
 
-  it('a dead cell with four living neighbors should remain dead and have a life time of zero', () => {
+  test('a dead cell with four living neighbors should remain dead and have a life time of zero', () => {
     const grid = _.cloneDeep(gridTemplate);
     grid[0][0].alive = true;
     grid[0][1].alive = true;

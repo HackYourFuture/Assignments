@@ -1,4 +1,5 @@
-const { existsSync } = require('fs');
+const fs = require('fs');
+const path = require('path');
 const http = require('http');
 const handler = require('serve-handler');
 const open = require('open');
@@ -14,7 +15,7 @@ const {
   loadMostRecentSelection,
   saveMostRecentSelection,
 } = require('./test-runner-helpers');
-const hashes = require('./.hashes.json');
+const hashes = require('../.hashes.json');
 
 const PORT = 3030;
 
@@ -47,24 +48,50 @@ function serve(exercisePath) {
 }
 
 async function runExercise(exercisePath) {
-  if (existsSync(exercisePath)) {
-    serve(exercisePath);
-  } else {
-    try {
-      require(exercisePath);
-    } catch (err) {
-      console.log(chalk.red(`Something went wrong: ${err.message}`));
+  const testWarning =
+    'This is a unit test exercise. Please use `npm test` to run it.';
+  if (exercisePath.endsWith('.test')) {
+    console.log(chalk.red(testWarning));
+    return;
+  }
+
+  let requirePath = exercisePath;
+  if (fs.existsSync(exercisePath)) {
+    // Check for an index.html file in the exercisePath
+    const htmlPath = path.join(exercisePath, 'index.html');
+    if (fs.existsSync(htmlPath)) {
+      // Run the exercise as a web app by starting an HTTP server
+      serve(exercisePath);
+      return;
     }
+
+    // Let's make sure we have a directory at this point
+    const stats = fs.statSync(exercisePath);
+    if (stats.isDirectory()) {
+      requirePath = path.join(exercisePath, 'main.js');
+      if (!fs.existsSync(requirePath)) {
+        const exerciseName = path.basename(exercisePath);
+        requirePath = path.join(exercisePath, exerciseName + '.js');
+      }
+    } else {
+      throw new Error(`Unexpected exercise path: ${exercisePath}`);
+    }
+  }
+
+  try {
+    require(requirePath);
+  } catch (err) {
+    console.log(chalk.red(`Something went wrong: ${err.message}`));
   }
 }
 
 async function main() {
   try {
+    const homeworkFolder = process.argv[2] ?? 'homework';
+
     const menuData = compileMenuData();
     let module, week, exercise;
     let useRecent = false;
-
-    const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
 
     const recentSelection = await loadMostRecentSelection();
     if (recentSelection) {

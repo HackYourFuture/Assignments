@@ -94,8 +94,9 @@ In this exercise you're expected to write a JavaScript function that can be exec
 
 Why wear a watch when you can check the time, live in your webpage?
 
-1. Inside the `index.js`, complete the `addCurrentTime` to add the current time to the webpage. Make sure it's written in the HH:MM:SS notation (hour, minute, second). Use `setInterval()` to make sure the time stays current.
+1. Inside the `index.js`, complete the `addCurrentTime` to add the current time to the webpage. Make sure it's written in the HH:MM:SS notation (hour, minute, second). Log the current time to the console also. Use `setInterval()` to make sure the time stays up to date.
 2. Have the function execute when the browser has finished loading the page.
+3. Verify that the current time is displayed correctly on both the web page and the browser's console.
 
 ## Exercise 5: The cat walk
 

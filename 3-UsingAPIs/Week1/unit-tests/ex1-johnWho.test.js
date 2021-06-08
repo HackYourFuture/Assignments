@@ -38,31 +38,31 @@ describe('getAnonName', () => {
       });
   });
 
-  it('should exist and be executable', () => {
+  test('should exist and be executable', () => {
     expect(exported).toBeDefined();
   });
 
-  it('should call `new Promise()`', () => {
+  test('should call `new Promise()`', () => {
     if (!exported) return;
     expect(state.newPromise).toBeDefined();
   });
 
-  it('should take a single argument', () => {
+  test('should take a single argument', () => {
     if (!exported) return;
     expect(state.paramCount).toBe(1);
   });
 
-  it(': `resolve()` should be called with a one argument', () => {
+  test(': `resolve()` should be called with a one argument', () => {
     if (!exported) return;
     expect(state.resolve).toBe(1);
   });
 
-  it(': `reject()` should be called with a one argument', () => {
+  test(': `reject()` should be called with a one argument', () => {
     if (!exported) return;
     expect(state.reject).toBe(1);
   });
 
-  it('should resolve when called with a string argument', () => {
+  test('should resolve when called with a string argument', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = getAnonName('John');
@@ -70,7 +70,7 @@ describe('getAnonName', () => {
     return expect(promise).resolves.toEqual('John Doe');
   });
 
-  it('should reject with an Error object when called without an argument', () => {
+  test('should reject with an Error object when called without an argument', () => {
     if (!exported) return;
     expect.assertions(2);
     const promise = getAnonName();

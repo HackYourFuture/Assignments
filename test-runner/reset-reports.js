@@ -28,7 +28,7 @@ async function prepareHashes(menuData) {
   }
 
   await fs.writeFile(
-    path.join(__dirname, '.hashes.json'),
+    path.join(__dirname, '../.hashes.json'),
     JSON.stringify(hashes, null, 2),
     'utf8'
   );
