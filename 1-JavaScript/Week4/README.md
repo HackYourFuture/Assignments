@@ -180,7 +180,7 @@ describe('computeEarnings', () => {
    Time:        0.79 s, estimated 1 s
    ```
 
-4. Complete the function body as you see fit.
+4. Complete the function body to return the computed earnings as a formatted Euro amount.
 
 5. Run `npm test` again and check whether the second unit test now passes. If not, fix the problem and try again.
 

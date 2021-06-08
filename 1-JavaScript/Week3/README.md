@@ -272,7 +272,7 @@ You should do the following:
 
 In the second unit test (see below) we need to compare the returned object against the result we expect (also an object). We cannot simply use an equality comparison operator (strict or non-strict) to compare the two objects. The variables `expected` and `result` reference different objects and therefore a direct comparison `expected === result` will always be false.
 
-In this unit test we have used a trick: we create a string ("JSON") representation of each object, using `JSON.stringify()`. Then we compare the resulting strings. For our purposes here this will work fine. However, it is a fragile way of comparing objects: if we change the order of the properties in one object (e.g. placing the `occupation` property before the `name` property in the `expected` object) the comparison will fail, although we should still consider the object to match. In Week 3 we will be using the Jest test library that has more advanced "matchers" that work correctly even if the order of the properties is different.
+In this unit test we have used a trick: we create a string ("JSON") representation of each object, using `JSON.stringify()`. Then we compare the resulting strings. For our purposes here this will work fine. However, it is a fragile way of comparing objects: if we change the order of the properties in one object (e.g. placing the `occupation` property before the `name` property in the `expected` object) the comparison will fail, although we should still consider the objects to match. In Week 3 we will be using the Jest test library that has more advanced "matchers" that work correctly even if the order of the properties is different.
 
 ```js
 function test2() {
