@@ -1,7 +1,7 @@
 'use strict';
 /*------------------------------------------------------------------------------
 - Run the unmodified program and confirm that problem described occurs.
-- Refactor the `rollBack()` function from callback-based to returning a
+- Refactor the `rollDice()` function from callback-based to returning a
   promise.
 - Change the calls to `callback()` to calls to `resolve()` and `reject()`.
 - Refactor the code that call `rollDice()` to use the promise it returns.
