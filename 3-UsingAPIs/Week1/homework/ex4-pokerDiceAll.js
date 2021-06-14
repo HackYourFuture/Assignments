@@ -25,13 +25,21 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 
 function rollTheDices() {
   // TODO Refactor this function
-  const dices = [1, 2, 3, 4, 5];
-  return rollDice(1);
+  const dices = [
+    rollDice(1),
+    rollDice(2),
+    rollDice(3),
+    rollDice(4),
+    rollDice(5),
+  ];
+  return Promise.all(dices);
 }
 
 rollTheDices()
   .then((results) => console.log('Resolved!', results))
   .catch((error) => console.log('Rejected!', error.message));
+
+// I am in confusing why the dice still keep going after it back to reject, , I tired to change the position of the if statement.No effect. I assumed that may be there is something we don't know in settimeout method.
 
 // ! Do not change or remove the code below
 module.exports = rollTheDices;

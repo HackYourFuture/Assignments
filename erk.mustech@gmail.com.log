@@ -284,3 +284,64 @@ ex2-mondaysWorth.js
 2021-05-30 11:04:21 info: ------------------------------------------------
 2021-05-30 11:04:24 info: All unit tests passed.
 2021-05-30 11:04:26 info: All steps were completed successfully
+2021-06-14 10:55:50 info: ---------------------------------------
+2021-06-14 10:55:50 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-06-14 10:55:50 info: ---------------------------------------
+2021-06-14 10:56:00 error: *** Unit Test Error Report ***
+
+- getAnonName should reject with an Error object when called without an argument
+
+2021-06-14 11:00:58 info: ---------------------------------------
+2021-06-14 11:00:58 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-06-14 11:00:58 info: ---------------------------------------
+2021-06-14 11:01:08 info: All unit tests passed.
+2021-06-14 11:01:13 info: All steps were completed successfully
+2021-06-14 11:02:20 info: -------------------------------------------------
+2021-06-14 11:02:20 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-06-14 11:02:20 info: -------------------------------------------------
+2021-06-14 11:02:26 error: *** Unit Test Error Report ***
+
+- checkDoubleDigits (10) should return a promise that resolves to "This is a double digit number!"
+expect(received).resolves.toEqual()
+
+Received promise rejected instead of resolved
+Rejected to value: [Error: Expected a double digit number but got 10],
+- checkDoubleDigits (99) should return a promise that resolves to "This is a double digit number!"
+expect(received).resolves.toEqual()
+
+Received promise rejected instead of resolved
+Rejected to value: [Error: Expected a double digit number but got 99],
+
+2021-06-14 11:04:34 info: -------------------------------------------------
+2021-06-14 11:04:34 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-06-14 11:04:34 info: -------------------------------------------------
+2021-06-14 11:04:41 info: All unit tests passed.
+2021-06-14 11:04:48 info: All steps were completed successfully
+2021-06-14 11:04:58 info: ----------------------------------------
+2021-06-14 11:04:58 info: >>> Running Unit Test `ex3-rollDice` <<<
+2021-06-14 11:04:58 info: ----------------------------------------
+2021-06-14 11:04:58 info: Exercise has not yet been modified
+2021-06-14 11:05:06 error: *** Unit Test Error Report ***
+
+- rollDice should call `new Promise()`
+- rollDice `resolve()` should be called with a one argument
+- rollDice `reject()` should be called with a one argument
+- rollDice should resolve when the dice settles successfully
+callback is not a function,
+- rollDice should reject with an Error when the dice rolls off the table
+
+2021-06-14 11:05:24 info: ----------------------------------------
+2021-06-14 11:05:24 info: >>> Running Unit Test `ex3-rollDice` <<<
+2021-06-14 11:05:24 info: ----------------------------------------
+2021-06-14 11:05:28 info: All unit tests passed.
+2021-06-14 11:05:35 info: All steps were completed successfully
+2021-06-14 11:09:59 info: ----------------------------------------------
+2021-06-14 11:09:59 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2021-06-14 11:09:59 info: ----------------------------------------------
+2021-06-14 11:10:04 info: All unit tests passed.
+2021-06-14 11:10:07 info: All steps were completed successfully
+2021-06-14 11:17:26 info: --------------------------------------------
+2021-06-14 11:17:26 info: >>> Running Unit Test `ex4-pokerDiceAll` <<<
+2021-06-14 11:17:26 info: --------------------------------------------
+2021-06-14 11:17:29 info: All unit tests passed.
+2021-06-14 11:17:31 info: All steps were completed successfully
