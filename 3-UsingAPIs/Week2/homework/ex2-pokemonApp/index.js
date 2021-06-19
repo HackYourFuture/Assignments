@@ -1,4 +1,7 @@
 'use strict';
+
+const { forEach } = require('lodash');
+
 /*------------------------------------------------------------------------------
 Complete the four functions provided in the starter `index.js` file:
 
@@ -20,8 +23,13 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
-function fetchData(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function fetchAndPopulatePokemons(/* TODO parameter(s) go here */) {

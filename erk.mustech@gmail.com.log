@@ -345,3 +345,42 @@ callback is not a function,
 2021-06-14 11:17:26 info: --------------------------------------------
 2021-06-14 11:17:29 info: All unit tests passed.
 2021-06-14 11:17:31 info: All steps were completed successfully
+2021-06-18 11:12:04 info: ---------------------------------------------
+2021-06-18 11:12:04 info: >>> Running Unit Test `ex1-programmerFun` <<<
+2021-06-18 11:12:04 info: ---------------------------------------------
+2021-06-18 11:12:11 info: All unit tests passed.
+2021-06-18 11:12:14 info: All steps were completed successfully
+2021-06-18 11:23:16 info: ------------------------------------------
+2021-06-18 11:23:16 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-18 11:23:16 info: ------------------------------------------
+2021-06-18 11:23:27 error: *** Unit Test Error Report ***
+
+- pokemonApp should use try/catch
+
+2021-06-18 11:23:29 error: *** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  23:16  error  'fetchData' is defined but never used                 no-unused-vars
+  25:9   error  'response' is assigned a value but never used         no-unused-vars
+  38:10  error  'fetchAndPopulatePokemons' is defined but never used  no-unused-vars
+  42:10  error  'fetchImage' is defined but never used                no-unused-vars
+  46:10  error  'main' is defined but never used                      no-unused-vars
+
+✖ 5 problems (5 errors, 0 warnings)
+
+
+2021-06-18 11:53:18 info: ------------------------------------------
+2021-06-18 11:53:18 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-18 11:53:18 info: ------------------------------------------
+2021-06-18 11:53:27 info: All unit tests passed.
+2021-06-18 11:53:29 error: *** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  23:16  error  'fetchData' is defined but never used                 no-unused-vars
+  32:10  error  'fetchAndPopulatePokemons' is defined but never used  no-unused-vars
+  36:10  error  'fetchImage' is defined but never used                no-unused-vars
+  40:10  error  'main' is defined but never used                      no-unused-vars
+
+✖ 4 problems (4 errors, 0 warnings)
+
+

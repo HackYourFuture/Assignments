@@ -27,7 +27,14 @@ function main() {
     .catch((error) => console.log('Rejected!', error.message));
 }
 
-main();
+const main = async()=>{
+  try{
+    const rollDice= await rollDiceUntil();
+
+  }catch(error){
+    console.log(error)
+  }
+};
 
 // ! Do not change or remove the code below
 module.exports = rollDiceUntil;

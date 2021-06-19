@@ -15,8 +15,13 @@
    url with `.shx`. There is no server at the modified url, therefore this 
    should result in a network (DNS) error.
 ------------------------------------------------------------------------------*/
-function requestData(url) {
+async function requestData(url) {
   // TODO return a promise using `fetch()`
+  try {
+    await fetch(url);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function renderImage(data) {

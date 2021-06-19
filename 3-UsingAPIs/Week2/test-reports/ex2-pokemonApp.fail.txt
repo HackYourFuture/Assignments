@@ -1,0 +1,11 @@
+
+*** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  23:16  error  'fetchData' is defined but never used                 no-unused-vars
+  32:10  error  'fetchAndPopulatePokemons' is defined but never used  no-unused-vars
+  36:10  error  'fetchImage' is defined but never used                no-unused-vars
+  40:10  error  'main' is defined but never used                      no-unused-vars
+
+✖ 4 problems (4 errors, 0 warnings)
+
