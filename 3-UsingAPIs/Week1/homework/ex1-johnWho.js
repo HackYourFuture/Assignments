@@ -20,12 +20,7 @@ function getAnonName(firstName) {
   });
 }
 
-getAnonName('john')
-  .then((fullName) => {
-    console.log(fullName);
-    return getAnonName();
-  })
-  .catch((err) => console.log(err));
+getAnonName('john').then(console.log).catch(console.error);
 
 // ! Do not change or remove the code below
 module.exports = getAnonName;

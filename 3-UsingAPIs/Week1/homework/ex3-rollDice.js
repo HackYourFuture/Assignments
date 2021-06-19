@@ -47,9 +47,7 @@ rollDice()
   .then((message) => {
     console.log(`Success! Dice settled on ${message}.`);
   })
-  .catch((error) => {
-    console.log(error);
-  });
+  .catch(console.error);
 
 // ! Do not change or remove the code below
 module.exports = rollDice;

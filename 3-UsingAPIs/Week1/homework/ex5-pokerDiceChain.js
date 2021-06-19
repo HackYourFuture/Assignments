@@ -19,19 +19,19 @@ function rollTheDices() {
   return rollDice(1)
     .then((value) => {
       results.push(value);
-      return rollDice(2);
+      return results;
     })
     .then((value) => {
       results.push(value);
-      return rollDice(3);
+      return results;
     })
     .then((value) => {
       results.push(value);
-      return rollDice(4);
+      return results;
     })
     .then((value) => {
       results.push(value);
-      return rollDice(5);
+      return results;
     });
 }
 
