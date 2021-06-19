@@ -8,7 +8,7 @@
 - Does the problem described above still occur? If not, what would be your
   explanation? Add your answer as a comment to be bottom of the file.
 ------------------------------------------------------------------------------*/
-
+let counter = 6;
 function rollDice() {
   return new Promise((resolve, reject) => {
     const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
@@ -18,9 +18,10 @@ function rollDice() {
       // Compute a random dice value for the current roll
       const value = Math.floor(Math.random() * 6) + 1;
       console.log(`Dice value is now: ${value}`);
+      counter = counter - 1;
 
       // Use callback to notify that the dice rolled off the table after 6 rolls
-      if (roll > 6) {
+      if (roll > 6 || counter === 0) {
         // TODO replace "error" callback
         reject(new Error('Oops... Dice rolled off the table.'));
       }
@@ -48,6 +49,8 @@ rollDice()
     console.log(`Success! Dice settled on ${message}.`);
   })
   .catch(console.error);
+
+//problem still occured, because there is condition for the limit of the dice value but, no limit of the times, I added a counter and after every play the value of the counter  deacreamented one. but the problems still solve, I think because the something wrong with resolve and reject block
 
 // ! Do not change or remove the code below
 module.exports = rollDice;

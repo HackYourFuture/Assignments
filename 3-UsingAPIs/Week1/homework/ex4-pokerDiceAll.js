@@ -33,5 +33,7 @@ rollTheDices()
   .then((results) => console.log('Resolved!', results))
   .catch((error) => console.log('Rejected!', error.message));
 
+// dice keeps in't running albeight it taken the rejected function, I assume the is no limit for the time of the rolling.
+
 // ! Do not change or remove the code below
 module.exports = rollTheDices;
