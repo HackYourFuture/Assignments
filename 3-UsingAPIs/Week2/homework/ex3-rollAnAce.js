@@ -27,12 +27,11 @@ function main() {
     .catch((error) => console.log('Rejected!', error.message));
 }
 
-const main = async()=>{
-  try{
-    const rollDice= await rollDiceUntil();
-
-  }catch(error){
-    console.log(error)
+const main = async () => {
+  try {
+    const rollDice = await rollDiceUntil();
+  } catch (error) {
+    console.log(error);
   }
 };
 

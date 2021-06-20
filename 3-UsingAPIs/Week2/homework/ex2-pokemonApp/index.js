@@ -1,6 +1,7 @@
 'use strict';
 
 const { forEach } = require('lodash');
+const { Body } = require('node-fetch');
 
 /*------------------------------------------------------------------------------
 Complete the four functions provided in the starter `index.js` file:
@@ -34,10 +35,13 @@ async function fetchData(url) {
 
 function fetchAndPopulatePokemons(/* TODO parameter(s) go here */) {
   // TODO complete this function
+  const img = document.createElement('img');
+  document.querySelectorAll('body').appendChild(select);
 }
 
 function fetchImage(/* TODO parameter(s) go here */) {
   // TODO complete this function
+  const imgScr = response.img;
 }
 
 function main() {

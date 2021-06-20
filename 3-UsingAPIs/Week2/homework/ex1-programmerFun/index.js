@@ -18,7 +18,11 @@
 async function requestData(url) {
   // TODO return a promise using `fetch()`
   try {
-    await fetch(url);
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
   } catch (error) {
     console.log(error);
   }
@@ -26,17 +30,22 @@ async function requestData(url) {
 
 function renderImage(data) {
   // TODO render the image to the DOM
-  console.log(data);
+  const img = document.createElement('img');
+  img.src = data.img;
+  document.querySelector('body').appendChild(img);
+  console.log(data.img);
 }
 
-function renderError(error) {
+function renderError() {
   // TODO render the error to the DOM
-  console.log(error);
+  const err = document.createElement('h1');
+  err.textContent = 'error';
+  document.querySelector('body').appendChild(err);
 }
 
 // TODO refactor with async/await and try/catch
-function main() {
-  requestData('https://xkcd.now.sh/?comic=latest')
+async function main() {
+  await requestData('https://xkcd.now.sh/?comic=latest')
     .then((data) => {
       renderImage(data);
     })
