@@ -26,55 +26,55 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
 const body = document.querySelector('body');
-body.style.display = 'flex';
-const btn = document.createElement('button');
-btn.textContent = 'Get Pokemon';
-body.appendChild(btn);
-btn.addEventListener('click', fetchData);
 
-const selectList = document.createElement('select');
-selectList.id = 'mySelect';
-body.appendChild(selectList);
-
-const url = 'https://pokeapi.co/api/v2/pokemon?limit=156';
-const arr = [];
 async function fetchData(url) {
   try {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      for (let i = 0; i < 156; i++) {
-        arr.push(data.results);
-      }
-      return arr;
+      return data;
     }
   } catch (error) {
     console.log(error);
   }
 }
 
-function fetchAndPopulatePokemons(arr) {
-  for (let i = 0; i < arr.length; i++) {
+function fetchAndPopulatePokemons(data) {
+  const selectList = document.getElementById('mySelect');
+  data.results.forEach((item) => {
     const option = document.createElement('option');
-    option.value = arr[i].name;
-    option.text = arr[i].name;
+    option.value = item.name;
+    option.textContent = item.name;
+    option.url = item.ul;
+    option.addEventListener('click', async () => {
+      const link = await fetchData(url);
+      fetchImage(link);
+    });
     selectList.appendChild(option);
-    option.addEventListener('click', fetchImage);
-    const img = document.createElement('img');
-    img.src = arr[i].url;
-    return img;
-  }
+  });
 }
 
-function fetchImage(img) {
-  body.appendChild(arr[i].url);
+function fetchImage(data) {
+  const img = document.getElementById('img');
+  img.src = data.url;
+  body.appendChild(img);
 }
 
 function main() {
-  fetchData();
+  body.style.display = 'flex';
+  const btn = document.createElement('button');
+  btn.textContent = 'Get Pokemon';
+  btn.type = 'submit';
+  body.appendChild(btn);
+  btn.addEventListener('click', async () => {
+    const res = await fetchData(url);
+    fetchAndPopulatePokemons(res);
+  });
+  const selectList = document.createElement('select');
+  selectList.id = 'mySelect';
+  body.appendChild(selectList);
 }
 
-window.onload = function () {
-  main();
-};
+window.addEventListener('load', main);

@@ -413,3 +413,20 @@ ex3-rollAnAce.js
 2021-06-21 10:02:30 info: -----------------------------------------
 2021-06-21 10:02:33 info: All unit tests passed.
 2021-06-21 10:02:35 info: All steps were completed successfully
+2021-06-21 11:47:28 info: ------------------------------------------
+2021-06-21 11:47:28 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-21 11:47:28 info: ------------------------------------------
+2021-06-21 11:47:38 error: *** Unit Test Error Report ***
+
+- pokemonApp HTML should be syntactically valid
+  inline
+    11:2  error  <button> is missing required "type" attribute  element-required-attributes
+  
+  ✖ 1 problem (1 error, 0 warnings)
+  
+
+2021-06-21 11:51:12 info: ------------------------------------------
+2021-06-21 11:51:12 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-21 11:51:12 info: ------------------------------------------
+2021-06-21 11:51:19 info: All unit tests passed.
+2021-06-21 11:51:22 info: All steps were completed successfully
