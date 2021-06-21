@@ -389,3 +389,8 @@ ex2-pokemonApp/index.js
 2021-06-21 04:41:09 info: ---------------------------------------------
 2021-06-21 04:41:18 info: All unit tests passed.
 2021-06-21 04:41:20 info: All steps were completed successfully
+2021-06-21 09:59:53 info: ----------------------------------------
+2021-06-21 09:59:53 info: >>> Running Unit Test `ex4-diceRace` <<<
+2021-06-21 09:59:53 info: ----------------------------------------
+2021-06-21 09:59:59 info: All unit tests passed.
+2021-06-21 10:00:03 info: All steps were completed successfully

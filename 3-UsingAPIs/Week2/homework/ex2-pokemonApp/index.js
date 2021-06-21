@@ -26,6 +26,16 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
+const body = document.querySelector('body');
+body.style.display = 'flex';
+const btn = document.createElement('button');
+btn.textContent = 'Get Pokemon';
+body.appendChild(btn);
+btn.addEventListener('click', fetchData);
+
+const selectList = document.createElement('select');
+selectList.id = 'mySelect';
+body.appendChild(selectList);
 
 const url = 'https://pokeapi.co/api/v2/pokemon?limit=156';
 const arr = [];
@@ -35,7 +45,7 @@ async function fetchData(url) {
     if (response.ok) {
       const data = await response.json();
       for (let i = 0; i < 156; i++) {
-        arr.push(data.results[i].name);
+        arr.push(data.results);
       }
       return arr;
     }
@@ -44,52 +54,25 @@ async function fetchData(url) {
   }
 }
 
-function fetchAndPopulatePokemons(data) {
-  // TODO complete this function
-  const body = document.querySelector('body');
-  body.style.display = 'flex';
-  const btn = document.createElement('button');
-  btn.textContent = 'Get Pokemon';
-  body.appendChild(btn);
-  // btn.addEventListener('click' fetchData());
-
-  const selectList = document.createElement('select');
-  selectList.id = 'mySelect';
-  body.appendChild(selectList);
-  console.log(arr);
-
-  // let leng = data.results.length;
-  // console.log(leng);
-  // const arr = push(data.results);
-  // console.log(arr.length);
-
+function fetchAndPopulatePokemons(arr) {
   for (let i = 0; i < arr.length; i++) {
     const option = document.createElement('option');
-    option.value = arr[i];
-    option.text = arr[i];
+    option.value = arr[i].name;
+    option.text = arr[i].name;
     selectList.appendChild(option);
+    option.addEventListener('click', fetchImage);
+    const img = document.createElement('img');
+    img.src = arr[i].url;
+    return img;
   }
 }
 
-function fetchImage(/* TODO parameter(s) go here */) {
-  // TODO complete this function
-  const img = document.createElement('img');
-  img.src = data.img;
-  document.querySelector('body').appendChild(img);
-  console.log(data.img);
+function fetchImage(img) {
+  body.appendChild(arr[i].url);
 }
 
 function main() {
-  // TODO complete this function
-  const displaySuggestions = (event) => {
-    event.preventDefault();
-    while (responseField.firstChild) {
-      responseField.removeChild(responseField.firstChild);
-    }
-    getSuggestions();
-  };
-
-  submit.addEventListener('click', displaySuggestions);
+  fetchData();
 }
 
 window.onload = function () {

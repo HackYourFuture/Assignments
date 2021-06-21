@@ -10,30 +10,22 @@
 // ! Do not change or remove the next two lines
 const rollDice = require('../../helpers/pokerDiceRoller');
 
-function rollDiceUntil(wantedValue) {
-  // TODO: rewrite this function using async/await
-  return rollDice().then((value) => {
-    if (value !== wantedValue) {
-      return rollDiceUntil(wantedValue);
-    }
-    return value;
-  });
+async function rollDiceUntil(wantedValue) {
+  const res = await rollDice();
+  while (value !== wantedValue) {
+    await rollDiceUntil(wantedValue);
+  }
 }
 
 // TODO refactor this function to use try/catch
-function main() {
-  rollDiceUntil('ACE')
-    .then((results) => console.log('Resolved!', results))
-    .catch((error) => console.log('Rejected!', error.message));
-}
-
-const main = async () => {
+async function main() {
   try {
-    const rollDice = await rollDiceUntil();
+    rollDiceUntil('ACE');
+    console.log;
   } catch (error) {
-    console.log(error);
+    console.error;
   }
-};
+}
 
 // ! Do not change or remove the code below
 module.exports = rollDiceUntil;
