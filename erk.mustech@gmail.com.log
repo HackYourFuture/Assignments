@@ -384,3 +384,8 @@ ex2-pokemonApp/index.js
 ✖ 4 problems (4 errors, 0 warnings)
 
 
+2021-06-21 04:41:09 info: ---------------------------------------------
+2021-06-21 04:41:09 info: >>> Running Unit Test `ex1-programmerFun` <<<
+2021-06-21 04:41:09 info: ---------------------------------------------
+2021-06-21 04:41:18 info: All unit tests passed.
+2021-06-21 04:41:20 info: All steps were completed successfully

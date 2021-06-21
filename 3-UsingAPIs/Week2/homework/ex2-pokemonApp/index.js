@@ -92,9 +92,6 @@ function main() {
   submit.addEventListener('click', displaySuggestions);
 }
 
-fetchAndPopulatePokemons();
-fetchData(url);
-
-// window.onload = function () {
-//   main();
-// };
+window.onload = function () {
+  main();
+};
