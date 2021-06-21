@@ -394,3 +394,22 @@ ex2-pokemonApp/index.js
 2021-06-21 09:59:53 info: ----------------------------------------
 2021-06-21 09:59:59 info: All unit tests passed.
 2021-06-21 10:00:03 info: All steps were completed successfully
+2021-06-21 10:01:00 info: -----------------------------------------
+2021-06-21 10:01:00 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-06-21 10:01:00 info: -----------------------------------------
+2021-06-21 10:01:03 info: All unit tests passed.
+2021-06-21 10:01:04 error: *** ESLint Report ***
+
+ex3-rollAnAce.js
+  14:9   error  'res' is assigned a value but never used  no-unused-vars
+  15:10  error  'value' is not defined                    no-undef
+  21:16  error  'main' is defined but never used          no-unused-vars
+
+✖ 3 problems (3 errors, 0 warnings)
+
+
+2021-06-21 10:02:30 info: -----------------------------------------
+2021-06-21 10:02:30 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-06-21 10:02:30 info: -----------------------------------------
+2021-06-21 10:02:33 info: All unit tests passed.
+2021-06-21 10:02:35 info: All steps were completed successfully

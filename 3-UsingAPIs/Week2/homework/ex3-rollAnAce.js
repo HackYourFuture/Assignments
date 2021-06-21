@@ -11,7 +11,7 @@
 const rollDice = require('../../helpers/pokerDiceRoller');
 
 async function rollDiceUntil(wantedValue) {
-  const res = await rollDice();
+  const value = await rollDice();
   while (value !== wantedValue) {
     await rollDiceUntil(wantedValue);
   }
@@ -26,6 +26,7 @@ async function main() {
     console.error;
   }
 }
+main();
 
 // ! Do not change or remove the code below
 module.exports = rollDiceUntil;
