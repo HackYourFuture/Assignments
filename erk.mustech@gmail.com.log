@@ -440,3 +440,133 @@ ex3-rollAnAce.js
 2021-06-22 01:31:45 info: ----------------------------------------
 2021-06-22 01:31:45 warn: A unit test file was not provided.
 2021-06-22 01:31:47 info: All steps were completed successfully
+2021-06-22 03:22:46 info: --------------------------------------------
+2021-06-22 03:22:46 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2021-06-22 03:22:46 info: --------------------------------------------
+2021-06-22 03:22:47 warn: A unit test file was not provided.
+2021-06-22 03:22:51 info: All steps were completed successfully
+2021-06-22 03:55:36 info: --------------------------------------------
+2021-06-22 03:55:36 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2021-06-22 03:55:36 info: --------------------------------------------
+2021-06-22 03:55:36 warn: A unit test file was not provided.
+2021-06-22 03:55:40 info: All steps were completed successfully
+2021-06-22 03:59:34 info: --------------------------------------------
+2021-06-22 03:59:34 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2021-06-22 03:59:34 info: --------------------------------------------
+2021-06-22 03:59:34 warn: A unit test file was not provided.
+2021-06-22 03:59:36 info: All steps were completed successfully
+2021-06-22 09:19:39 info: ------------------------------------------
+2021-06-22 09:19:39 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-22 09:19:39 info: ------------------------------------------
+2021-06-22 09:19:49 error: *** Unit Test Error Report ***
+
+- pokemonApp should use `fetch()`
+- pokemonApp should use `await fetch()`
+- pokemonApp should use try/catch
+
+2021-06-22 09:19:51 error: *** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  75:1  error  Parsing error: Unexpected token function
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-06-22 09:20:28 info: ------------------------------------------
+2021-06-22 09:20:28 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-22 09:20:28 info: ------------------------------------------
+2021-06-22 09:20:38 error: *** Unit Test Error Report ***
+
+- pokemonApp should use `fetch()`
+- pokemonApp should use `await fetch()`
+- pokemonApp should use try/catch
+
+2021-06-22 09:20:40 error: *** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  75:1  error  Parsing error: Unexpected token function
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-06-22 09:21:19 info: ------------------------------------------
+2021-06-22 09:21:19 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-22 09:21:19 info: ------------------------------------------
+2021-06-22 09:21:25 info: All unit tests passed.
+2021-06-22 09:21:25 error: *** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  52:13  error  'link' is assigned a value but never used      no-unused-vars
+  59:9   error  'imgUrl' is assigned a value but never used    no-unused-vars
+  61:9   error  'endpoint' is assigned a value but never used  no-unused-vars
+  65:3   error  'data' is not defined                          no-undef
+  71:13  error  'data' is not defined                          no-undef
+
+✖ 5 problems (5 errors, 0 warnings)
+
+
+2021-06-22 09:27:47 info: ------------------------------------------
+2021-06-22 09:27:47 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-22 09:27:47 info: ------------------------------------------
+2021-06-22 09:27:57 info: All unit tests passed.
+2021-06-22 09:27:59 error: *** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  52:13  error  'link' is assigned a value but never used      no-unused-vars
+  59:9   error  'imgUrl' is assigned a value but never used    no-unused-vars
+  61:9   error  'endpoint' is assigned a value but never used  no-unused-vars
+  65:3   error  'data' is not defined                          no-undef
+  71:15  error  'data' is not defined                          no-undef
+
+✖ 5 problems (5 errors, 0 warnings)
+
+
+2021-06-22 09:31:36 info: ------------------------------------------
+2021-06-22 09:31:36 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-22 09:31:36 info: ------------------------------------------
+2021-06-22 09:31:46 info: All unit tests passed.
+2021-06-22 09:31:49 info: All steps were completed successfully
+2021-06-22 10:00:43 info: ------------------------------------------
+2021-06-22 10:00:43 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-22 10:00:43 info: ------------------------------------------
+2021-06-22 10:00:52 info: All unit tests passed.
+2021-06-22 10:00:54 error: *** ESLint Report ***
+
+ex2-pokemonApp/index.js
+  62:9  error  'url' is assigned a value but never used  no-unused-vars
+  69:7  error  'queryParam' is constant                  no-const-assign
+  70:7  error  'imgRes' is constant                      no-const-assign
+
+✖ 3 problems (3 errors, 0 warnings)
+
+
+2021-06-22 10:03:05 info: ------------------------------------------
+2021-06-22 10:03:05 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-22 10:03:05 info: ------------------------------------------
+2021-06-22 10:03:12 info: All unit tests passed.
+2021-06-22 10:03:15 info: All steps were completed successfully
+2021-06-22 10:05:15 info: ---------------------------------------------
+2021-06-22 10:05:15 info: >>> Running Unit Test `ex1-programmerFun` <<<
+2021-06-22 10:05:15 info: ---------------------------------------------
+2021-06-22 10:05:24 info: All unit tests passed.
+2021-06-22 10:05:27 info: All steps were completed successfully
+2021-06-22 10:05:40 info: -----------------------------------------
+2021-06-22 10:05:40 info: >>> Running Unit Test `ex3-rollAnAce` <<<
+2021-06-22 10:05:40 info: -----------------------------------------
+2021-06-22 10:05:43 info: All unit tests passed.
+2021-06-22 10:05:45 info: All steps were completed successfully
+2021-06-22 10:05:57 info: ----------------------------------------
+2021-06-22 10:05:57 info: >>> Running Unit Test `ex4-diceRace` <<<
+2021-06-22 10:05:57 info: ----------------------------------------
+2021-06-22 10:06:00 info: All unit tests passed.
+2021-06-22 10:06:01 info: All steps were completed successfully
+2021-06-22 10:06:11 info: ----------------------------------------
+2021-06-22 10:06:11 info: >>> Running Unit Test `ex5-vscDebug` <<<
+2021-06-22 10:06:11 info: ----------------------------------------
+2021-06-22 10:06:11 warn: A unit test file was not provided.
+2021-06-22 10:06:13 info: All steps were completed successfully
+2021-06-22 10:06:23 info: --------------------------------------------
+2021-06-22 10:06:23 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2021-06-22 10:06:23 info: --------------------------------------------
+2021-06-22 10:06:23 warn: A unit test file was not provided.
+2021-06-22 10:06:25 info: All steps were completed successfully
