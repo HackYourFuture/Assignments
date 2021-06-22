@@ -22,7 +22,7 @@ async function main() {
   await console.log;
   await console.error;
 }
-
+// although there is used promise race which can solve the problems that  promise all can't solve last time, but async ,await pauses the execution of the function and waits for the passed  resolution and returns it again.
 main();
 
 // ! Do not change or remove the code below
