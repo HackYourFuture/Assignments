@@ -54,20 +54,20 @@ function fetchAndPopulatePokemons(data) {
   });
 }
 
-function fetchImage(data) {
+async function fetchImage(data) {
   const imgUrl = 'https://pokeapi.co/api/v2/pokemon/';
   let queryParam = '1';
   const lastPram = '/';
   const endpoint = `${imgUrl}${queryParam}${lastPram}`;
-  let imgData = fetch(endpoint);
-  const imgRes = imgData.json();
-  const imgName = imgRes.name;
-  const imgSrc = imgRes.sprites.back_default;
+  let imgRes = await fetch(endpoint);
+  const imgData = imgRes.json();
+  const imgName = imgData.name;
+  const imgSrc = imgData.sprites.back_default;
 
   while (imgName !== data.name) {
     for (let i = 2; i < 151; i++) {
       queryParam = i;
-      imgData = fetch(endpoint);
+      imgRes = fetch(endpoint);
     }
   }
   const imgBox = document.createElement('div');

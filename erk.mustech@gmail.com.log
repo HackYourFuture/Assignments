@@ -570,3 +570,8 @@ ex2-pokemonApp/index.js
 2021-06-22 10:06:23 info: --------------------------------------------
 2021-06-22 10:06:23 warn: A unit test file was not provided.
 2021-06-22 10:06:25 info: All steps were completed successfully
+2021-06-22 10:42:51 info: ------------------------------------------
+2021-06-22 10:42:51 info: >>> Running Unit Test `ex2-pokemonApp` <<<
+2021-06-22 10:42:51 info: ------------------------------------------
+2021-06-22 10:43:02 info: All unit tests passed.
+2021-06-22 10:43:05 info: All steps were completed successfully
