@@ -26,71 +26,71 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
-const url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
-const body = document.querySelector('body');
+const API_URL = 'https://pokeapi.co/api/v2';
 
-async function fetchData(url) {
+const fetchData = async (url) => {
   try {
-    const response = await fetch(url);
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    }
+    const data = await fetch(API_URL + url);
+    return await data.json();
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-function fetchAndPopulatePokemons(data) {
-  const selectList = document.getElementById('mySelect');
-  data.results.forEach((item) => {
-    const option = document.createElement('option');
-    option.value = item.name;
-    option.textContent = item.name;
-    selectList.appendChild(option);
-    option.addEventListener('click', async () => {
-      await fetchImage(item);
-    });
+const styleEl = (el, styles) => {
+  Object.keys(styles).forEach((style) => {
+    el.style[style] = styles[style];
   });
-}
+};
+
+const createEl = (type = 'div', id = '', styles = {}) => {
+  const el = document.createElement(type);
+  el.id = id || false;
+  document.body.appendChild(el);
+  styleEl(el, styles);
+  return el;
+};
+const fetchAndPopulatePokemons = (src) => {
+  const btn = createEl('button', 'btn', {
+    marginLeft: '20vw',
+  });
+  btn.textContent = 'Get Pokemon!';
+  btn.type = 'button';
+  const select = createEl('select', 'select', {
+    marginLeft: '20vw',
+    display: 'flex',
+  });
+  const image = createEl('img', 'image', {
+    marginLeft: '20vw',
+    marginTop: '20px',
+    width: '20vw',
+  });
+  image.src = src;
+  image.alt = '';
+  return {
+    btn,
+    select,
+    image,
+  };
+};
 
 async function fetchImage(data) {
-  const imgUrl = 'https://pokeapi.co/api/v2/pokemon/';
-  let queryParam = '1';
-  const lastPram = '/';
-  const endpoint = `${imgUrl}${queryParam}${lastPram}`;
-  let imgRes = await fetch(endpoint);
-  const imgData = imgRes.json();
-  const imgName = imgData.name;
-  const imgSrc = imgData.sprites.back_default;
-
-  while (imgName !== data.name) {
-    for (let i = 2; i < 151; i++) {
-      queryParam = i;
-      imgRes = fetch(endpoint);
-    }
-  }
-  const imgBox = document.createElement('div');
-  const img = document.createElement('img');
-  imgBox.appendChild('img');
-  body.appendChild(imgBox);
-  img.src = imgSrc;
-}
-//unfortunately the pic can't show up in screen. I can't solve. I will wait for your hint.
-
-function main() {
-  body.style.display = 'flex';
-  const btn = document.createElement('button');
-  btn.textContent = 'Get Pokemon!';
-  btn.type = 'submit';
-  body.appendChild(btn);
-  const selectList = document.createElement('select');
-  selectList.id = 'mySelect';
-  body.appendChild(selectList);
-  btn.addEventListener('click', async () => {
-    const res = await fetchData(url);
-    fetchAndPopulatePokemons(res);
+  const { image, select } = fetchAndPopulatePokemons(data);
+  Object.entries(data.results).forEach((result) => {
+    const options = createEl('option');
+    const name = result[1].name;
+    options.textContent = name;
+    select.appendChild(options);
+  });
+  select.addEventListener('change', async (e) => {
+    const data = await fetchData('/pokemon/' + e.target.value);
+    image.src = data.sprites.back_default;
   });
 }
+
+const main = async () => {
+  const data = await fetchData('/pokemon');
+  return fetchImage(data);
+};
 
 window.addEventListener('load', main);
