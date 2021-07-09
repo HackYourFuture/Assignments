@@ -22,7 +22,7 @@ function giveCompliment(name) {
     'Amazing', 'Incredible', 'Awesome', 'Beautiful','Superb', 'Great', 'Outstanding','Splendid', 'Magnificent', 'Excellent'
   ]
  const randomCompliment = compliments[Math.floor(Math.random()* compliments.length)]; 
- return randomCompliment + ', ' + name;
+ return 'You are ' + randomCompliment + ', ' + name + '!';
 }
 
 // TODO substitute your own name for "HackYourFuture"

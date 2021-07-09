@@ -1,0 +1,4 @@
+
+*** Spell Checker Report ***
+
+ex1-giveCompliment.js:29:27 - Unknown word (Urroz)

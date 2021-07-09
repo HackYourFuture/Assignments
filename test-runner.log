@@ -1,0 +1,35 @@
+2021-07-10 12:50:51 info: ----------------------------------------------
+2021-07-10 12:50:51 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-10 12:50:51 info: ----------------------------------------------
+2021-07-10 12:50:55 error: *** Unit Test Error Report ***
+
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are Amazing, HackYourFuture!
+  Received: Amazing, HackYourFuture
+)
+2021-07-10 12:50:58 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:29:27 - Unknown word (Urroz)
+
+2021-07-10 12:53:53 info: ----------------------------------------------
+2021-07-10 12:53:53 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-10 12:53:53 info: ----------------------------------------------
+2021-07-10 12:53:56 error: *** Unit Test Error Report ***
+
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are Amazing, HackYourFuture!
+  Received: You are Amazing, HackYourFuture
+)
+2021-07-10 12:53:58 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:29:27 - Unknown word (Urroz)
+
+2021-07-10 12:59:27 info: ----------------------------------------------
+2021-07-10 12:59:27 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-10 12:59:27 info: ----------------------------------------------
+2021-07-10 12:59:30 info: All unit tests passed.
+2021-07-10 12:59:32 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:29:27 - Unknown word (Urroz)
+
+2021-07-10 01:07:05 info: Disclaimer turned off
