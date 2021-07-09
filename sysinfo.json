@@ -1,0 +1,23 @@
+{
+  "node": "v14.17.2",
+  "system": {
+    "manufacturer": "Apple Inc.",
+    "model": "MacBookPro11,1"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i5-4278U",
+    "speed": 2.6
+  },
+  "memory": "8 GB",
+  "osInfo": {
+    "platform": "darwin",
+    "distro": "Mac OS X",
+    "release": "10.15.7"
+  },
+  "vscodeInfo": {
+    "version": "",
+    "extensions": [],
+    "userSettings": {}
+  }
+}
