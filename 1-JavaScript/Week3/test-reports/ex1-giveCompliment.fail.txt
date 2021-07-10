@@ -1,4 +1,0 @@
-
-*** Spell Checker Report ***
-
-ex1-giveCompliment.js:37:17 - Unknown word (Hudawerdi)

@@ -154,3 +154,18 @@ ex7-mindPrivacy.js
 2021-07-10 02:58:29 info: -------------------------------------------
 2021-07-10 02:58:29 warn: A unit test file was not provided.
 2021-07-10 02:58:32 info: All steps were completed successfully
+2021-07-10 07:09:23 info: ----------------------------------------------
+2021-07-10 07:09:23 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-10 07:09:23 info: ----------------------------------------------
+2021-07-10 07:09:31 info: All unit tests passed.
+2021-07-10 07:09:36 info: All steps were completed successfully
+2021-07-10 07:11:26 info: ----------------------------------------
+2021-07-10 07:11:26 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-10 07:11:26 info: ----------------------------------------
+2021-07-10 07:11:31 info: All unit tests passed.
+2021-07-10 07:11:35 info: All steps were completed successfully
+2021-07-10 07:12:51 info: --------------------------------------------
+2021-07-10 07:12:51 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-07-10 07:12:51 info: --------------------------------------------
+2021-07-10 07:12:51 warn: A unit test file was not provided.
+2021-07-10 07:12:55 info: All steps were completed successfully
