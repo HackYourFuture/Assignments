@@ -38,3 +38,8 @@ ex1-giveCompliment.js:29:27 - Unknown word (Urroz)
 2021-07-10 01:32:37 info: ----------------------------------------
 2021-07-10 01:32:40 info: All unit tests passed.
 2021-07-10 01:32:42 info: All steps were completed successfully
+2021-07-10 12:21:24 info: ----------------------------------------
+2021-07-10 12:21:24 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-10 12:21:24 info: ----------------------------------------
+2021-07-10 12:21:28 info: All unit tests passed.
+2021-07-10 12:21:30 info: All steps were completed successfully
