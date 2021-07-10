@@ -96,7 +96,7 @@ function getUnitTestPath(exercisePath, homeworkFolder) {
   // If the exercise directory does not contain a unit test file then it may
   // exist in the `unit-tests` directory.
   const regexp = new RegExp(
-    String.raw`(Week\d+)${path.sep}${homeworkFolder}${path.sep}`
+    `(Week\\d+)\\${path.sep}${homeworkFolder}\\${path.sep}`
   );
   const unitTestPath =
     exercisePath.replace(regexp, `$1${path.sep}unit-tests${path.sep}`) +
@@ -125,7 +125,7 @@ async function execJest(exercisePath, homeworkFolder) {
 
   const { unitTestPath, verbose } = result;
 
-  let cmdLine = `npx jest '${unitTestPath}' --colors`;
+  let cmdLine = `npx jest "${unitTestPath}" --colors`;
 
   if (!verbose) {
     const customReporterPath = path.join(__dirname, 'CustomReporter.js');
