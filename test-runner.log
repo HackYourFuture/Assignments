@@ -43,3 +43,55 @@ ex1-giveCompliment.js:29:27 - Unknown word (Urroz)
 2021-07-10 12:21:24 info: ----------------------------------------
 2021-07-10 12:21:28 info: All unit tests passed.
 2021-07-10 12:21:30 info: All steps were completed successfully
+2021-07-11 01:08:05 info: -------------------------------------------
+2021-07-11 01:08:05 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-11 01:08:05 info: -------------------------------------------
+2021-07-11 01:08:09 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a Tech lead in Paris, married to Marie with 1 kids.
+  Received: You will be a Tech lead in Paris married to Marie with 1 kids.
+)
+2021-07-11 01:08:10 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  54:22  error  'number' is defined but never used  no-unused-vars
+  54:30  error  'a' is defined but never used       no-unused-vars
+  54:33  error  'b' is defined but never used       no-unused-vars
+  54:36  error  'c' is defined but never used       no-unused-vars
+
+✖ 4 problems (4 errors, 0 warnings)
+
+
+2021-07-11 01:08:11 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:36:40 - Unknown word (Lety)
+
+2021-07-11 01:11:28 info: -------------------------------------------
+2021-07-11 01:11:28 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-11 01:11:28 info: -------------------------------------------
+2021-07-11 01:11:31 error: *** Unit Test Error Report ***
+
+- tellFortune should take four parameters
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a Tech lead in Paris, married to Marie with 1 kids.
+  Received: You will be a Tech lead in Paris , married to Marie with 1 kids.
+)
+2021-07-11 01:11:33 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:36:40 - Unknown word (Lety)
+
+2021-07-11 01:13:03 info: -------------------------------------------
+2021-07-11 01:13:03 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-11 01:13:03 info: -------------------------------------------
+2021-07-11 01:13:06 info: All unit tests passed.
+2021-07-11 01:13:08 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:36:40 - Unknown word (Lety)
+
+2021-07-11 01:13:48 info: -------------------------------------------
+2021-07-11 01:13:48 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-11 01:13:48 info: -------------------------------------------
+2021-07-11 01:13:50 info: All unit tests passed.
+2021-07-11 01:13:52 info: All steps were completed successfully
