@@ -34,7 +34,7 @@ function giveCompliment(name) {
   return `You are ${randomCom}, ${name}!`;
 }
 
-const myName = 'Hudawerdi';
+const myName = 'erk';
 
 console.log(giveCompliment(myName));
 console.log(giveCompliment(myName));
