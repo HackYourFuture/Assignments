@@ -28,10 +28,17 @@ const employeeRecords = [
 ];
 
 // ! Function under test
-function filterPrivateData(/* parameter(s) go here */) {
-  // TODO complete this function
+function filterPrivateData(data) {
+  const publicData = data.map((person) => {
+    const { name, occupation, email } = person;
+    return {
+      name,
+      occupation,
+      email,
+    };
+  });
+  return publicData;
 }
-
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
   console.log('Test 1: filterPrivateData should take one parameters');
