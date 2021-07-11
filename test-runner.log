@@ -117,3 +117,22 @@ ex5-shoppingCartPure.js
 2021-07-11 10:37:46 info: ------------------------------------------------
 2021-07-11 10:37:46 warn: A unit test file was not provided.
 2021-07-11 10:37:47 info: All steps were completed successfully
+2021-07-11 11:33:26 info: -----------------------------------------
+2021-07-11 11:33:26 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-07-11 11:33:26 info: -----------------------------------------
+2021-07-11 11:33:26 warn: A unit test file was not provided.
+2021-07-11 11:33:27 error: *** ESLint Report ***
+
+ex6-totalCost.js
+  29:10  error    'calculateTotalPrice' is defined but never used       no-unused-vars
+  29:30  error    'myObject' is defined but never used                  no-unused-vars
+  30:1   warning  Avoid `for in` loops. Prefer `Object.keys()` instead  no-restricted-syntax
+
+✖ 3 problems (2 errors, 1 warning)
+
+
+2021-07-12 12:17:24 info: -----------------------------------------
+2021-07-12 12:17:24 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-07-12 12:17:24 info: -----------------------------------------
+2021-07-12 12:17:24 warn: A unit test file was not provided.
+2021-07-12 12:17:26 info: All steps were completed successfully
