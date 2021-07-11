@@ -95,3 +95,8 @@ ex3-tellFortune.js:36:40 - Unknown word (Lety)
 2021-07-11 01:13:48 info: -------------------------------------------
 2021-07-11 01:13:50 info: All unit tests passed.
 2021-07-11 01:13:52 info: All steps were completed successfully
+2021-07-11 09:59:28 info: --------------------------------------------
+2021-07-11 09:59:28 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-07-11 09:59:28 info: --------------------------------------------
+2021-07-11 09:59:28 warn: A unit test file was not provided.
+2021-07-11 09:59:30 info: All steps were completed successfully
