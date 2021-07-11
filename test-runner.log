@@ -169,3 +169,77 @@ ex7-mindPrivacy.js
 2021-07-10 07:12:51 info: --------------------------------------------
 2021-07-10 07:12:51 warn: A unit test file was not provided.
 2021-07-10 07:12:55 info: All steps were completed successfully
+2021-07-11 01:06:48 info: -------------------------------------------
+2021-07-11 01:06:48 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-11 01:06:48 info: -------------------------------------------
+2021-07-11 01:06:48 warn: A unit test file was not provided.
+2021-07-11 01:06:56 info: All steps were completed successfully
+2021-07-11 07:36:19 info: -------------------------------------------
+2021-07-11 07:36:19 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-11 07:36:19 info: -------------------------------------------
+2021-07-11 07:36:19 warn: A unit test file was not provided.
+2021-07-11 07:36:21 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  31:1   warning  Remove commented-out code                          hyf/no-commented-out-code
+  46:11  warning  'salary' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  46:11  error    'salary' is assigned a value but never used        no-unused-vars
+  46:19  warning  'gender' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  46:19  error    'gender' is assigned a value but never used        no-unused-vars
+  46:30  warning  'others' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 6 problems (2 errors, 4 warnings)
+
+
+2021-07-11 07:37:07 info: -------------------------------------------
+2021-07-11 07:37:07 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-11 07:37:07 info: -------------------------------------------
+2021-07-11 07:37:07 warn: A unit test file was not provided.
+2021-07-11 07:37:07 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  31:1   warning  Remove commented-out code                    hyf/no-commented-out-code
+  46:13  error    'salary' is assigned a value but never used  no-unused-vars
+  46:21  error    'gender' is assigned a value but never used  no-unused-vars
+
+✖ 3 problems (2 errors, 1 warning)
+
+
+2021-07-11 07:38:10 info: -------------------------------------------
+2021-07-11 07:38:10 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-11 07:38:10 info: -------------------------------------------
+2021-07-11 07:38:10 warn: A unit test file was not provided.
+2021-07-11 07:38:10 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  31:1  warning  Remove commented-out code  hyf/no-commented-out-code
+  51:1  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2021-07-11 07:39:22 info: -------------------------------------------
+2021-07-11 07:39:22 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-11 07:39:22 info: -------------------------------------------
+2021-07-11 07:39:22 warn: A unit test file was not provided.
+2021-07-11 07:39:24 error: *** ESLint Report ***
+
+ex7-mindPrivacy.js
+  31:1   warning  Remove commented-out code           hyf/no-commented-out-code
+  44:27  error    'salary' is defined but never used  no-unused-vars
+  44:35  error    'gender' is defined but never used  no-unused-vars
+  49:1   warning  Remove commented-out code           hyf/no-commented-out-code
+
+✖ 4 problems (2 errors, 2 warnings)
+
+
+2021-07-11 07:40:02 info: -------------------------------------------
+2021-07-11 07:40:02 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-11 07:40:02 info: -------------------------------------------
+2021-07-11 07:40:02 warn: A unit test file was not provided.
+2021-07-11 07:40:06 info: All steps were completed successfully
+2021-07-11 07:41:00 info: -------------------------------------------
+2021-07-11 07:41:00 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-11 07:41:00 info: -------------------------------------------
+2021-07-11 07:41:00 warn: A unit test file was not provided.
+2021-07-11 07:41:02 info: All steps were completed successfully
