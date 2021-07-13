@@ -1,3 +1,5 @@
+/* eslint-disable no-autofix/prefer-const */
+/* eslint-disable no-unused-vars */
 'use strict';
 /*------------------------------------------------------------------------------
 You want to buy a couple of things from the supermarket to prepare for a party.
@@ -18,21 +20,30 @@ instead!
 
 3. Complete the unit test functions and verify that all is working as expected.
 -----------------------------------------------------------------------------*/
+
 const cartForParty = {
-  // TODO complete this object
+  beer: 5,
+  chips: 2.5,
+  cola: 1.2,
+  juice: 3,
+  water: 1.7,
 };
 
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
-  // TODO replace this comment with your code
+function calculateTotalPrice(total) {
+  let totalValue = 0;
+  for (let grocery of Object.values(cartForParty)) {
+    totalValue += grocery;
+  }
+  return `total:$ ${totalValue}`;
 }
 
 function test1() {
-  console.log('\nTest 1: calculateTotalPrice should take one parameter');
+  console.log();
   // TODO replace this comment with your code
 }
 
 function test2() {
-  console.log('\nTest 2: return correct output when passed cartForParty');
+  console.log(calculateTotalPrice(cartForParty));
   // TODO replace this comment with your code
 }
 
