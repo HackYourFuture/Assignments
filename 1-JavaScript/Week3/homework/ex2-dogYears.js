@@ -14,8 +14,9 @@ calculate it!
    ages.
 -----------------------------------------------------------------------------*/
 
-function calculateDogAge(/* parameters go here */) {
-  // TODO complete this function
+function calculateDogAge(age) {
+  const dogYears = 7 * age;
+  return 'Your doggie is ' + dogYears + ' years old in dog years!';
 }
 
 console.log(calculateDogAge(1)); // -> "Your doggie is 7 years old in dog years!"

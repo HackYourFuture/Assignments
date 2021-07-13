@@ -1,0 +1,26 @@
+{
+  "node": "v14.17.1",
+  "system": {
+    "manufacturer": "Apple Inc.",
+    "model": "MacBookAir6,2"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i5-4260U",
+    "speed": 1.4
+  },
+  "memory": "8 GB",
+  "osInfo": {
+    "platform": "darwin",
+    "distro": "macOS",
+    "release": "11.4"
+  },
+  "vscodeInfo": {
+    "version": "1.58.0",
+    "extensions": [
+      "ritwickdey.LiveServer",
+      "WallabyJs.quokka-vscode"
+    ],
+    "userSettings": {}
+  }
+}

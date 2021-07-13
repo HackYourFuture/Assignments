@@ -1,0 +1,35 @@
+2021-07-13 08:01:16 info: ----------------------------------------------
+2021-07-13 08:01:16 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-13 08:01:16 info: ----------------------------------------------
+2021-07-13 08:01:21 info: All unit tests passed.
+2021-07-13 08:01:23 info: All steps were completed successfully
+2021-07-13 08:02:32 info: ----------------------------------------
+2021-07-13 08:02:32 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-13 08:02:32 info: ----------------------------------------
+2021-07-13 08:02:35 info: All unit tests passed.
+2021-07-13 08:02:37 info: All steps were completed successfully
+2021-07-13 08:05:46 info: -------------------------------------------
+2021-07-13 08:05:46 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-13 08:05:46 info: -------------------------------------------
+2021-07-13 08:05:49 info: All unit tests passed.
+2021-07-13 08:05:51 info: All steps were completed successfully
+2021-07-13 08:06:58 info: --------------------------------------------
+2021-07-13 08:06:58 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-07-13 08:06:58 info: --------------------------------------------
+2021-07-13 08:06:58 warn: A unit test file was not provided.
+2021-07-13 08:07:00 info: All steps were completed successfully
+2021-07-13 08:08:04 info: ------------------------------------------------
+2021-07-13 08:08:04 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2021-07-13 08:08:04 info: ------------------------------------------------
+2021-07-13 08:08:04 warn: A unit test file was not provided.
+2021-07-13 08:08:06 info: All steps were completed successfully
+2021-07-13 08:10:01 info: -----------------------------------------
+2021-07-13 08:10:01 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-07-13 08:10:01 info: -----------------------------------------
+2021-07-13 08:10:01 warn: A unit test file was not provided.
+2021-07-13 08:10:03 info: All steps were completed successfully
+2021-07-13 08:11:09 info: -------------------------------------------
+2021-07-13 08:11:10 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-13 08:11:10 info: -------------------------------------------
+2021-07-13 08:11:10 warn: A unit test file was not provided.
+2021-07-13 08:11:11 info: All steps were completed successfully
