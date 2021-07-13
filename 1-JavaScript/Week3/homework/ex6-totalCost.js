@@ -20,11 +20,21 @@ instead!
 -----------------------------------------------------------------------------*/
 const cartForParty = {
   // TODO complete this object
+  beer: 2,
+  bread: 3,
+  cheese: 5.3,
+  cola: 2.2,
+  water: 2.39,
 };
-
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
+let totalPrice;
+function calculateTotalPrice(items) {
   // TODO replace this comment with your code
+  for (item in items) {
+    totalPrice += `${items[item]}`;
+  }
+  return `total: ${totalPrice}€ amount`;
 }
+console.log(calculateTotalPrice(cartForParty));
 
 function test1() {
   console.log('\nTest 1: calculateTotalPrice should take one parameter');

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 /*------------------------------------------------------------------------------
 1. Complete the `filterPrivateData()` function. It should take a single 
@@ -28,8 +29,16 @@ const employeeRecords = [
 ];
 
 // ! Function under test
-function filterPrivateData(/* parameter(s) go here */) {
-  // TODO complete this function
+
+// TODO complete this function
+function filterPrivateData(arr) {
+  const newArray = [];
+
+  // eslint-disable-next-line no-global-assign
+  for ({ name, occupation, email } of arr) {
+    newArray.push({ name, occupation, email });
+  }
+  return newArray;
 }
 
 // ! Test functions (plain vanilla JavaScript)
