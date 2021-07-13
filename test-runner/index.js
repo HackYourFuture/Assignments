@@ -152,7 +152,7 @@ async function execJest(exercisePath, homeworkFolder) {
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(verbose ? output : chalk.red(output));
-    message = stripAnsi(`${title}\n\n${output})`);
+    message = stripAnsi(`${title}\n\n${output}`);
     logger.error(message);
     return message;
   }
