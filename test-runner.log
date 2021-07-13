@@ -259,3 +259,13 @@ ex7-mindPrivacy.js
 2021-07-13 04:12:07 info: -------------------------------------------
 2021-07-13 04:12:07 warn: A unit test file was not provided.
 2021-07-13 04:12:11 info: All steps were completed successfully
+2021-07-13 05:05:16 info: -------------------------------------------
+2021-07-13 05:05:16 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-13 05:05:16 info: -------------------------------------------
+2021-07-13 05:05:16 warn: A unit test file was not provided.
+2021-07-13 05:05:32 info: All steps were completed successfully
+2021-07-13 09:05:50 info: -------------------------------------------
+2021-07-13 09:05:50 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-13 09:05:50 info: -------------------------------------------
+2021-07-13 09:05:50 warn: A unit test file was not provided.
+2021-07-13 09:05:53 info: All steps were completed successfully
