@@ -125,7 +125,9 @@ async function execJest(exercisePath, homeworkFolder) {
 
   const { unitTestPath, verbose } = result;
 
-  let cmdLine = `npx jest "${unitTestPath}" --colors`;
+  const exerciseName = path.basename(unitTestPath);
+
+  let cmdLine = `npx jest ${exerciseName} --colors`;
 
   if (!verbose) {
     const customReporterPath = path.join(__dirname, 'CustomReporter.js');
