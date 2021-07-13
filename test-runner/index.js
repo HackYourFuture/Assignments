@@ -125,7 +125,9 @@ async function execJest(exercisePath, homeworkFolder) {
 
   const { unitTestPath, verbose } = result;
 
-  let cmdLine = `npx jest "${unitTestPath}" --colors`;
+  const exerciseName = path.basename(unitTestPath);
+
+  let cmdLine = `npx jest ${exerciseName} --colors`;
 
   if (!verbose) {
     const customReporterPath = path.join(__dirname, 'CustomReporter.js');
@@ -152,7 +154,7 @@ async function execJest(exercisePath, homeworkFolder) {
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(verbose ? output : chalk.red(output));
-    message = stripAnsi(`${title}\n\n${output})`);
+    message = stripAnsi(`${title}\n\n${output}`);
     logger.error(message);
     return message;
   }
