@@ -1,11 +1,3 @@
 *** Unit Test Error Report ***
 
 - tellFortune should call function `selectRandomly` for each of its arguments
-- tellFortune should tell the fortune by randomly selecting array values
-  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
-  Received: You will be a Amsterdam in Paula, married to accountant with 1 kids
-
-*** Spell Checker Report ***
-
-ex3-tellFortune.js:42:9 - Unknown word (numkid)
-ex3-tellFortune.js:44:10 - Unknown word (numkid)

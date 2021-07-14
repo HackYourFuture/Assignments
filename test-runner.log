@@ -172,3 +172,143 @@ ex3-tellFortune.js:44:10 - Unknown word (numkid)
 ex3-tellFortune.js:42:9 - Unknown word (numkid)
 ex3-tellFortune.js:44:10 - Unknown word (numkid)
 
+2021-07-14 11:57:06 info: -------------------------------------------
+2021-07-14 11:57:06 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 11:57:06 info: -------------------------------------------
+2021-07-14 11:57:07 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
+  Received: You will be a Amsterdam in Paula, married to accountant with 1 kids
+
+2021-07-14 11:57:08 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:42:9 - Unknown word (numkid)
+ex3-tellFortune.js:44:10 - Unknown word (numkid)
+
+2021-07-14 11:57:26 info: ----------------------------------------------
+2021-07-14 11:57:26 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-14 11:57:26 info: ----------------------------------------------
+2021-07-14 11:57:27 info: All unit tests passed.
+2021-07-14 11:57:28 info: All steps were completed successfully
+2021-07-14 11:58:49 info: ----------------------------------------
+2021-07-14 11:58:49 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-14 11:58:49 info: ----------------------------------------
+2021-07-14 11:58:51 info: All unit tests passed.
+2021-07-14 11:58:52 info: All steps were completed successfully
+2021-07-14 11:59:05 info: ----------------------------------------
+2021-07-14 11:59:05 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-14 11:59:05 info: ----------------------------------------
+2021-07-14 11:59:06 info: All unit tests passed.
+2021-07-14 11:59:07 info: All steps were completed successfully
+2021-07-14 12:00:01 info: -------------------------------------------
+2021-07-14 12:00:01 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:00:01 info: -------------------------------------------
+2021-07-14 12:00:02 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
+  Received: You will be a Amsterdam in Paula, married to accountant with 1 kids
+
+2021-07-14 12:00:03 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:42:9 - Unknown word (numkid)
+ex3-tellFortune.js:44:10 - Unknown word (numkid)
+
+2021-07-14 12:01:56 info: --------------------------------------------
+2021-07-14 12:01:56 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-07-14 12:01:56 info: --------------------------------------------
+2021-07-14 12:01:56 warn: A unit test file was not provided.
+2021-07-14 12:01:58 info: All steps were completed successfully
+2021-07-14 12:02:15 info: ------------------------------------------------
+2021-07-14 12:02:15 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2021-07-14 12:02:15 info: ------------------------------------------------
+2021-07-14 12:02:15 warn: A unit test file was not provided.
+2021-07-14 12:02:16 info: All steps were completed successfully
+2021-07-14 12:02:30 info: -----------------------------------------
+2021-07-14 12:02:30 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-07-14 12:02:30 info: -----------------------------------------
+2021-07-14 12:02:30 warn: A unit test file was not provided.
+2021-07-14 12:02:31 info: All steps were completed successfully
+2021-07-14 12:02:44 info: -------------------------------------------
+2021-07-14 12:02:44 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-07-14 12:02:44 info: -------------------------------------------
+2021-07-14 12:02:44 warn: A unit test file was not provided.
+2021-07-14 12:02:45 info: All steps were completed successfully
+2021-07-14 12:05:51 info: -------------------------------------------
+2021-07-14 12:05:51 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:05:51 info: -------------------------------------------
+2021-07-14 12:05:53 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
+  Received: You will be a Amsterdam in Paula, married to accountant with 1 kids
+
+2021-07-14 12:09:37 info: -------------------------------------------
+2021-07-14 12:09:37 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:09:37 info: -------------------------------------------
+2021-07-14 12:09:39 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
+  Received: You will be a accountant in Amsterdam, married to Paula with 1 kids
+
+2021-07-14 12:10:03 info: -------------------------------------------
+2021-07-14 12:10:03 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:10:03 info: -------------------------------------------
+2021-07-14 12:10:05 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+
+2021-07-14 12:11:34 info: -------------------------------------------
+2021-07-14 12:11:34 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:11:34 info: -------------------------------------------
+2021-07-14 12:11:35 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+You must provide an array to ArrayContaining, not 'undefined'.
+
+2021-07-14 12:15:03 info: -------------------------------------------
+2021-07-14 12:15:03 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:15:03 info: -------------------------------------------
+2021-07-14 12:15:04 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+You must provide an array to ArrayContaining, not 'undefined'.
+
+2021-07-14 12:21:47 info: -------------------------------------------
+2021-07-14 12:21:47 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:21:47 info: -------------------------------------------
+2021-07-14 12:21:48 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+You must provide an array to ArrayContaining, not 'undefined'.
+
+2021-07-14 12:22:45 info: -------------------------------------------
+2021-07-14 12:22:45 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:22:45 info: -------------------------------------------
+2021-07-14 12:22:47 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+
+2021-07-14 12:23:16 info: -------------------------------------------
+2021-07-14 12:23:16 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 12:23:16 info: -------------------------------------------
+2021-07-14 12:23:17 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+
+2021-07-14 12:24:05 info: ----------------------------------------------
+2021-07-14 12:24:05 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-14 12:24:05 info: ----------------------------------------------
+2021-07-14 12:24:06 info: All unit tests passed.
+2021-07-14 12:24:07 info: All steps were completed successfully
+2021-07-14 12:24:20 info: ----------------------------------------
+2021-07-14 12:24:20 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-14 12:24:20 info: ----------------------------------------
+2021-07-14 12:24:22 info: All unit tests passed.
+2021-07-14 12:24:23 info: All steps were completed successfully
