@@ -119,3 +119,4 @@ dist
 .recent.json
 .disclaimer
 @homework*
+.DS_Store

@@ -1,0 +1,174 @@
+2021-07-14 11:20:48 info: ----------------------------------------------
+2021-07-14 11:20:48 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-14 11:20:48 info: ----------------------------------------------
+2021-07-14 11:20:50 error: *** Unit Test Error Report ***
+
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are great, HackYourFuture!
+  Received: you are  great HackYourFuture
+
+2021-07-14 11:21:58 info: Disclaimer turned off
+2021-07-14 11:22:09 info: ----------------------------------------------
+2021-07-14 11:22:09 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-14 11:22:09 info: ----------------------------------------------
+2021-07-14 11:22:11 error: *** Unit Test Error Report ***
+
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are great, HackYourFuture!
+  Received: You are  great HackYourFuture!
+
+2021-07-14 11:23:02 info: ----------------------------------------------
+2021-07-14 11:23:02 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-14 11:23:02 info: ----------------------------------------------
+2021-07-14 11:23:04 info: All unit tests passed.
+2021-07-14 11:23:05 info: All steps were completed successfully
+2021-07-14 11:30:44 info: ----------------------------------------------
+2021-07-14 11:30:44 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-14 11:30:44 info: ----------------------------------------------
+2021-07-14 11:30:45 info: All unit tests passed.
+2021-07-14 11:30:46 info: All steps were completed successfully
+2021-07-14 11:31:29 info: ----------------------------------------------
+2021-07-14 11:31:29 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-14 11:31:29 info: ----------------------------------------------
+2021-07-14 11:31:30 info: All unit tests passed.
+2021-07-14 11:31:31 info: All steps were completed successfully
+2021-07-14 11:31:43 info: ----------------------------------------------
+2021-07-14 11:31:43 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-07-14 11:31:43 info: ----------------------------------------------
+2021-07-14 11:31:44 info: All unit tests passed.
+2021-07-14 11:31:45 info: All steps were completed successfully
+2021-07-14 11:32:27 info: ----------------------------------------
+2021-07-14 11:32:27 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-14 11:32:27 info: ----------------------------------------
+2021-07-14 11:32:28 error: *** Unit Test Error Report ***
+
+- calculateDogAge should give 7 dog years for 1 human year
+  Expected: Your doggie is 7 years old in dog years!
+  Received: your doggie is7 years old in dog years !
+- calculateDogAge should give 14 dog years for 2 human years
+  Expected: Your doggie is 14 years old in dog years!
+  Received: your doggie is14 years old in dog years !
+- calculateDogAge give 21 dog years for 3 human years
+  Expected: Your doggie is 21 years old in dog years!
+  Received: your doggie is21 years old in dog years !
+
+2021-07-14 11:33:59 info: ----------------------------------------
+2021-07-14 11:33:59 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-14 11:33:59 info: ----------------------------------------
+2021-07-14 11:34:00 error: *** Unit Test Error Report ***
+
+- calculateDogAge should give 7 dog years for 1 human year
+  Expected: Your doggie is 7 years old in dog years!
+  Received: Your doggie is7 years for 1 human year !
+- calculateDogAge should give 14 dog years for 2 human years
+  Expected: Your doggie is 14 years old in dog years!
+  Received: Your doggie is14 years for 1 human year !
+- calculateDogAge give 21 dog years for 3 human years
+  Expected: Your doggie is 21 years old in dog years!
+  Received: Your doggie is21 years for 1 human year !
+
+2021-07-14 11:34:47 info: ----------------------------------------
+2021-07-14 11:34:47 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-14 11:34:47 info: ----------------------------------------
+2021-07-14 11:34:49 error: *** Unit Test Error Report ***
+
+- calculateDogAge should give 7 dog years for 1 human year
+  Expected: Your doggie is 7 years old in dog years!
+  Received: Your doggie is 7 years old in dog years !
+- calculateDogAge should give 14 dog years for 2 human years
+  Expected: Your doggie is 14 years old in dog years!
+  Received: Your doggie is 14 years old in dog years !
+- calculateDogAge give 21 dog years for 3 human years
+  Expected: Your doggie is 21 years old in dog years!
+  Received: Your doggie is 21 years old in dog years !
+
+2021-07-14 11:35:09 info: ----------------------------------------
+2021-07-14 11:35:09 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-14 11:35:09 info: ----------------------------------------
+2021-07-14 11:35:11 info: All unit tests passed.
+2021-07-14 11:35:12 info: All steps were completed successfully
+2021-07-14 11:35:27 info: ----------------------------------------
+2021-07-14 11:35:27 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-07-14 11:35:27 info: ----------------------------------------
+2021-07-14 11:35:28 info: All unit tests passed.
+2021-07-14 11:35:29 info: All steps were completed successfully
+2021-07-14 11:35:46 info: -------------------------------------------
+2021-07-14 11:35:46 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 11:35:46 info: -------------------------------------------
+2021-07-14 11:35:48 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
+  Received: you will be Amsterdam in Paula married to accountant with 1 kids
+
+2021-07-14 11:35:49 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:42:9 - Unknown word (numkid)
+ex3-tellFortune.js:44:10 - Unknown word (numkid)
+
+2021-07-14 11:37:07 info: -------------------------------------------
+2021-07-14 11:37:07 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 11:37:07 info: -------------------------------------------
+2021-07-14 11:37:09 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
+  Received: You will be a Amsterdam in Paula, married to accountant with 1 kids
+
+2021-07-14 11:37:10 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:42:9 - Unknown word (numkid)
+ex3-tellFortune.js:44:10 - Unknown word (numkid)
+
+2021-07-14 11:38:04 info: -------------------------------------------
+2021-07-14 11:38:04 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 11:38:04 info: -------------------------------------------
+2021-07-14 11:38:05 error: *** Unit Test Error Report ***
+
+- tellFortune should exist and be executable
+
+2021-07-14 11:38:05 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  42:9   error  'numkid' is assigned a value but never used  no-unused-vars
+  44:10  error  'numKid' is not defined                      no-undef
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2021-07-14 11:38:06 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:42:9 - Unknown word (numkid)
+
+2021-07-14 11:38:29 info: -------------------------------------------
+2021-07-14 11:38:29 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 11:38:29 info: -------------------------------------------
+2021-07-14 11:38:30 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
+  Received: You will be a Amsterdam in Paula, married to accountant with 1 kids
+
+2021-07-14 11:38:31 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:42:9 - Unknown word (numkid)
+ex3-tellFortune.js:44:10 - Unknown word (numkid)
+
+2021-07-14 11:40:06 info: -------------------------------------------
+2021-07-14 11:40:06 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 11:40:06 info: -------------------------------------------
+2021-07-14 11:40:08 error: *** Unit Test Error Report ***
+
+- tellFortune should call function `selectRandomly` for each of its arguments
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a accountant in Amsterdam, married to Paula with 1 kids.
+  Received: You will be a Amsterdam in Paula, married to accountant with 1 kids
+
+2021-07-14 11:40:09 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:42:9 - Unknown word (numkid)
+ex3-tellFortune.js:44:10 - Unknown word (numkid)
+
