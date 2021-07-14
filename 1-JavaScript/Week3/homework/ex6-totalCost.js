@@ -51,7 +51,7 @@ function test2() {
     chips: 5,
     popcorn: 7,
     peanuts: 1,
-    cupcake: 9,
+    cupcake: 8,
   };
   const result = calculateTotalPrice(initialCart);
   console.assert(result === 25);
