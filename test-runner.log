@@ -33,3 +33,8 @@
 2021-07-13 08:11:10 info: -------------------------------------------
 2021-07-13 08:11:10 warn: A unit test file was not provided.
 2021-07-13 08:11:11 info: All steps were completed successfully
+2021-07-14 06:08:14 info: -----------------------------------------
+2021-07-14 06:08:14 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-07-14 06:08:14 info: -----------------------------------------
+2021-07-14 06:08:14 warn: A unit test file was not provided.
+2021-07-14 06:08:16 info: All steps were completed successfully
