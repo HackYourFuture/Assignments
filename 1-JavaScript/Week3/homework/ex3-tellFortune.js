@@ -32,27 +32,23 @@ const numKids = [1, 3, 4, 2, 5];
 
 const partnerNames = ['Paula', 'Sara', 'Any', 'Ola', 'Alexandra'];
 
-const locations = ['Amsterdam', 'Rotterdam', 'Utrecht', 'New york', 'rome'];
+const locations = ['Amsterdam', 'Rotterdam', 'Utrecht', 'New York', 'Rome'];
 
-const jobTitles = ['accountant', 'Doctor', 'Developer', 'Salesman', 'Manager'];
+const jobTitles = ['Accountant', 'Doctor', 'Developer', 'Salesman', 'Manager'];
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-  function selectRandomly (arr) {
+function selectRandomly(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
-
-  
 }
 
- function tellFortune(numKid,partnerName, location, jobTitle ) {
-numKid=selectRandomly(numKids);
-partnerName=selectRandomly(partnerNames);
-location=selectRandomly(locations);
-jobTitle=selectRandomly(jobTitles);
+function tellFortune(numKids, partnerNames, locations, jobTitles) {
+  const numKid = selectRandomly(numKids);
+  const partnerName = selectRandomly(partnerNames);
+  const location = selectRandomly(locations);
+  const jobTitle = selectRandomly(jobTitles);
 
-
-  return `You will be a ${jobTitle} in ${
-    location}, married to ${partnerName} with ${numKid} kids.`;
+  return `You will be a ${jobTitle} in ${location}, married to ${partnerName} with ${numKid} kids.`;
 }
 
 console.log(tellFortune(numKids, partnerNames, locations, jobTitles));

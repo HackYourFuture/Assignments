@@ -1,3 +1,0 @@
-*** Unit Test Error Report ***
-
-- tellFortune should call function `selectRandomly` for each of its arguments

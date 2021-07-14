@@ -312,3 +312,13 @@ You must provide an array to ArrayContaining, not 'undefined'.
 2021-07-14 12:24:20 info: ----------------------------------------
 2021-07-14 12:24:22 info: All unit tests passed.
 2021-07-14 12:24:23 info: All steps were completed successfully
+2021-07-14 01:03:13 info: -------------------------------------------
+2021-07-14 01:03:13 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-07-14 01:03:13 info: -------------------------------------------
+2021-07-14 01:03:15 info: All unit tests passed.
+2021-07-14 01:03:16 info: All steps were completed successfully
+2021-07-14 01:22:45 info: -----------------------------------------
+2021-07-14 01:22:45 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-07-14 01:22:45 info: -----------------------------------------
+2021-07-14 01:22:45 warn: A unit test file was not provided.
+2021-07-14 01:22:46 info: All steps were completed successfully

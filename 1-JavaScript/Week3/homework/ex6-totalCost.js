@@ -36,15 +36,18 @@ function calculateTotalPrice(total) {
   }
   return `total:$ ${totalValue}`;
 }
+console.log(calculateTotalPrice(cartForParty));
 
 function test1() {
   console.log();
-  // TODO replace this comment with your code
+  const result = calculateTotalPrice(cartForParty);
+  console.assert(result === 12);
 }
 
 function test2() {
-  console.log(calculateTotalPrice(cartForParty));
-  // TODO replace this comment with your code
+  console.log();
+  const result = calculateTotalPrice(cartForParty);
+  console.assert(result.length === 3);
 }
 
 function test() {
