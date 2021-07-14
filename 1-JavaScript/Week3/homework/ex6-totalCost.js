@@ -46,8 +46,15 @@ function test1() {
 
 function test2() {
   console.log();
-  const result = calculateTotalPrice(cartForParty);
-  console.assert(result.length === 3);
+  const initialCart = {
+    beers: 3,
+    chips: 5,
+    popcorn: 7,
+    peanuts: 1,
+    cupcake: 9,
+  };
+  const result = calculateTotalPrice(initialCart);
+  console.assert(result === 25);
 }
 
 function test() {
