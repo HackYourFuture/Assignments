@@ -26,6 +26,13 @@ function addToShoppingCart(/* parameters go here */) {
 }
 
 // ! Test functions (plain vanilla JavaScript)
+function test0() {
+  console.log('Test 0: addShoppingCart() with intitial array of length 2 should not throw an index out of bounds exception');
+  const expected = 'You bought bananas, milk!';
+  const actual = addToShoppingCart(null);
+  console.assert(actual === expected);
+}
+
 function test1() {
   console.log('Test 1: addShoppingCart() should take one parameter');
   const expected = 1;
@@ -55,6 +62,7 @@ function test4() {
 }
 
 function test() {
+  test0();
   test1();
   test2();
   test3();
