@@ -52,7 +52,7 @@ Why pay a fortune teller when you can just program your fortune yourself?
 
 3. Complete the function named `tellFortune` as follows:
 
-   - It should take four parameters (in the order listed): number of children (`number`), partner's name (`string`), geographic location (`string`) and job title (`string`).
+   - It should take four parameters (in the order listed): the array with the options for the number of children, the array with the options for the partner's name, the array with the options for the geographic location and the array with the options for the job title.
    - It should use the `selectRandomly` function to randomly select values from the arrays.
    - It should return a string: _"You will be a `jobTitle` in `location`, married to `partnerName` with `numKids` kids."_
 
