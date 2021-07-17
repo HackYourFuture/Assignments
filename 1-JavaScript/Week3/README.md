@@ -92,6 +92,13 @@ The code listing below shows the plain vanilla JavaScript unit tests that are pr
 4. A `console.assert()` that asserts that the actual result matches the expected result.
 
 ```js
+function test0() {
+  console.log('Test 0: addShoppingCart() with intitial array of length 2 should not throw an index out of bounds exception');
+  const expected = 'You bought bananas, milk!';
+  const actual = addToShoppingCart(null);
+  console.assert(actual === expected);
+}
+
 function test1() {
   console.log('Test 1: addShoppingCart() should take one parameter');
   const expected = 1;
