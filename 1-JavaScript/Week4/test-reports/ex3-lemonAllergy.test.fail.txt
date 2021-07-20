@@ -1,0 +1,40 @@
+*** Unit Test Error Report ***
+
+Command failed: npx jest ex3-lemonAllergy.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js
+  sanitizeFruitBasket
+    ✕ should take two parameters (3 ms)
+    ✓ should not modify the original `fruitBasket` array
+    ✓ should return a new array that does not include the unwanted `lemon`
+
+  ● sanitizeFruitBasket › should take two parameters
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      34 |   test('should take two parameters', () => {
+      35 |     expect(sanitizeFruitBasket.length).toBe(2);
+    > 36 |     expect(false).toBe(true);
+         |                   ^
+      37 |   });
+      38 | 
+      39 |   test('should not modify the original `fruitBasket` array', () => {
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js:36:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        0.796 s, estimated 1 s
+Ran all test suites matching /ex3-lemonAllergy.test.js/i.
+
+*** ESLint Report ***
+
+ex3-lemonAllergy.test.js
+  52:5  warning  Remove commented-out code  hyf/no-commented-out-code
+  60:5  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 2 problems (0 errors, 2 warnings)
+

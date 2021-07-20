@@ -15,10 +15,12 @@ function createObservable() {
   const subscribers = [];
   return {
     subscribe: function (subscriber) {
-      // TODO complete this function
+      subscribers.push(subscriber);
     },
     notify: function (message) {
-      // TODO complete this function
+      subscribers.forEach((subscriber) => {
+        return subscriber(message);
+      });
     },
   };
 }
