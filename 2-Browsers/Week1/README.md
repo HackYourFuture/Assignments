@@ -1,6 +1,6 @@
 # Homework Browsers Week 1
 
-## Exercises
+## Deliverable Exercises
 
 The homework for this week can be found in the `homework` folder.
 
@@ -134,6 +134,9 @@ Start with this webpage, which has a single img tag of an animated GIF of a cat 
 This is what it should like:
 
 > ![catwalk](../../assets/catwalk.gif)
+
+## Prep exercises
+Prep exercises are exercises that are a little more difficult. We will go through these exercises on Sunday, but do expect you to have already gotten a solution by then as a student will be asked to share their solution. You may have to come together as a class for some of them! You should NOT hand in these exercises, so make sure to not add it to the commit for your homework (have a look at the `git add` documentation [here](https://git-scm.com/docs/git-add) for all the options to exclude files in a commit).
 
 ## Exercise 6: Conway's Game of Life
 
