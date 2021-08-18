@@ -136,6 +136,7 @@ This is what it should like:
 > ![catwalk](../../assets/catwalk.gif)
 
 ## Prep exercises
+
 Prep exercises are exercises that are a little more difficult. We will go through these exercises on Sunday, but do expect you to have already gotten a solution by then as a student will be asked to share their solution. You may have to come together as a class for some of them! You should NOT hand in these exercises, so make sure to not add it to the commit for your homework (have a look at the `git add` documentation [here](https://git-scm.com/docs/git-add) for all the options to exclude files in a commit).
 
 ## Exercise 6: Conway's Game of Life
@@ -175,16 +176,26 @@ In the exercise code a new generation of cells replaces the previous one every 2
 | `gameLoop()` | Executes one life cycle of the game (i.e., `updateGrid()` followed by `renderGrid()`) and then reschedules itself to run again after a delay. |
 | `main()` | Resizes the canvas to the desired size and then creates and starts the game engine. The function `main()` itself is executed when the browser has finished loading the page. |
 
+The diagram below visualizes the overall call hierarchy of the various functions. The `main()` function calls `createGame()`, which in turn creates a closure enclosing the `grid` array and a couple of functions that operate on that `grid`. Then, `main()` calls the `start()` function to start the game.
+
+The `start()` function creates the initial grid, renders it to the web page by calling `renderGrid()` and calls `gameLoop()` to kickstart the game.
+
+The `gameLoop()` function calls `updateGrid()` to update (each cell of) the grid according to the game rules (see above) and the calls `renderGrid()` to render the updated grid to the web page. It then schedules a call to itself using `setTimeout()`. This causes the game to keep evolving the grid according to the game rules every 200ms until the page is closed.
+
+Note: The use of [`window.requestAnimationFrame()`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) is not essential for the functioning of the game but helps to avoid screen flicker.
+
+![Game of Life Call Graph](../../assets/game-of-life-call-graph.png)
+
 ### Exercise
 
 In the supplied JavaScript code the color of all living cells is a single shade of blue. This is in contrast to the illustration above where living cells have different shades of blue, depending on their life time. Your job is as follows:
 
 1. In function `createCell()`, add a numeric `lifeTime` property to the object and assign it the value of one if the cell is initially alive or zero if it is initially dead.
 
-2. In function `drawCell()`, add an `opacity` parameter to the `rgb()` value like this:
+2. In function `drawCell()`, replace [`rgb()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb()>) with [`rgba()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba()>) that adds a fourth parameter indicating `opacity` to the `rgb` value like this:
 
    ```js
-   context.fillStyle = `rgb(24, 215, 236, ${opacity})`;
+   context.fillStyle = `rgba(24, 215, 236, ${opacity})`;
    ```
 
    The `opacity` of each rendered cell should depend on the cell's `lifeTime` property, as specified in this table:
