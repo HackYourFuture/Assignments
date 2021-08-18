@@ -58,7 +58,7 @@ Why pay a fortune teller when you can just program your fortune yourself?
 
 4. Call the function three times, passing the arrays as arguments. Use `console.log` to display the results.
 
-Note: The DRY principle is put into practice here: instead of repeating the code to randomly select array elements four times inside the `tellFortune` function body, this code is now written once only in a separated function.
+Note: The DRY principle is put into practice here: instead of repeating the code to randomly select array elements four times inside the `tellFortune` function body, this code is now written once only in a separate function.
 
 ### Exercise 4: Shopping at the supermarket
 
