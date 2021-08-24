@@ -58,7 +58,7 @@ Why pay a fortune teller when you can just program your fortune yourself?
 
 4. Call the function three times, passing the arrays as arguments. Use `console.log` to display the results.
 
-Note: The DRY principle is put into practice here: instead of repeating the code to randomly select array elements four times inside the `tellFortune` function body, this code is now written once only in a separated function.
+Note: The DRY principle is put into practice here: instead of repeating the code to randomly select array elements four times inside the `tellFortune` function body, this code is now written once only in a separate function.
 
 ### Exercise 4: Shopping at the supermarket
 
@@ -84,7 +84,7 @@ Let's do some grocery shopping! We're going to get some things to cook dinner wi
 
 #### Unit tests
 
-The code listing below shows the plain vanilla JavaScript unit tests that are provided for this exercise. There are four separate tests, each one focussing on an expected characteristic or behaviour of the function to be tested. Each test is made up of the following parts:
+The code listing below shows the plain vanilla JavaScript unit tests that are provided for this exercise. There are five separate tests, each one focussing on an expected characteristic or behaviour of the function to be tested. Each test is made up of the following parts:
 
 1. A `console.log` message that describes what the test is about.
 2. A definition of the expected value that the function-under-test should return.
@@ -93,28 +93,37 @@ The code listing below shows the plain vanilla JavaScript unit tests that are pr
 
 ```js
 function test1() {
-  console.log('Test 1: addShoppingCart() should take one parameter');
+  console.log(
+    'Test 1: addShoppingCart() called without an argument should leave the shopping cart unchanged'
+  );
+  const expected = 'You bought bananas, milk!';
+  const actual = addToShoppingCart();
+  console.assert(actual === expected);
+}
+
+function test2() {
+  console.log('Test 2: addShoppingCart() should take one parameter');
   const expected = 1;
   const actual = addToShoppingCart.length;
   console.assert(actual === expected);
 }
 
-function test2() {
-  console.log('Test 2: `chocolate` should be added');
+function test3() {
+  console.log('Test 3: `chocolate` should be added');
   const expected = 'You bought bananas, milk, chocolate!';
   const actual = addToShoppingCart('chocolate');
   console.assert(actual === expected);
 }
 
-function test3() {
-  console.log('Test 3: `waffles` should be added and `bananas` removed');
+function test4() {
+  console.log('Test 4: `waffles` should be added and `bananas` removed');
   const expected = 'You bought milk, chocolate, waffles!';
   const actual = addToShoppingCart('waffles');
   console.assert(actual === expected);
 }
 
-function test4() {
-  console.log('Test 4: `tea` should be added and `milk` removed');
+function test5() {
+  console.log('Test 5: `tea` should be added and `milk` removed');
   const expected = 'You bought chocolate, waffles, tea!';
   const actual = addToShoppingCart('tea');
   console.assert(actual === expected);
@@ -125,6 +134,7 @@ function test() {
   test2();
   test3();
   test4();
+  test5();
 }
 
 test();
@@ -133,13 +143,15 @@ test();
 When running the unmodified exercise we expect all assertions to _fail_:
 
 ```console
-Test 1: addShoppingCart() should take one parameter
+Test 1: addShoppingCart() called without an argument should leave the shopping cart unchanged
 Assertion failed
-Test 2: `chocolate` should be added
+Test 2: addShoppingCart() should take one parameter
 Assertion failed
-Test 3: `waffles` should be added and `bananas` removed
+Test 3: `chocolate` should be added
 Assertion failed
-Test 4: `tea` should be added and `milk` removed
+Test 4: `waffles` should be added and `bananas` removed
+Assertion failed
+Test 5: `tea` should be added and `milk` removed
 Assertion failed
 ```
 
@@ -158,10 +170,11 @@ Assertion failed
 When the function-under-test is correctly implemented we expect all assertions to _pass_ (i.e., the `console.assert` statements will remain silent).
 
 ```console
-Test 1: addShoppingCart() should take one parameter
-Test 2: `chocolate` should be added
-Test 3: `waffles` should be added and `bananas` removed
-Test 4: `tea` should be added and `milk` removed
+Test 1: addShoppingCart() called without an argument should leave the shopping cart unchanged
+Test 2: addShoppingCart() should take one parameter
+Test 3: `chocolate` should be added
+Test 4: `waffles` should be added and `bananas` removed
+Test 5: `tea` should be added and `milk` removed
 ```
 
 ### Exercise 5: Improved shopping at the supermarket
