@@ -29,6 +29,7 @@ async function prepare() {
     }
   );
 
+  window.fetch = require('node-fetch');
   await sleep(500);
   return window;
 }
