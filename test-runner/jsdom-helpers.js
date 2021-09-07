@@ -30,7 +30,7 @@ async function prepare() {
   );
 
   window.fetch = require('node-fetch');
-  await sleep(500);
+  await sleep(1000);
   return window;
 }
 
