@@ -48,7 +48,7 @@ Complete the function called `checkDoubleDigits` such that:
 
 ### File `ex3-rollDice.js`
 
-This exercise is about throwing a dice. A dice in this exercise may roll up to 10 times before it settles on a final value, depending on the "energy" with which it is thrown. Unfortunately, if a dice rolls more than six times in our game it rolls off the table and the throw becomes invalid. If it rolls six times or less, its final value will be valid.
+This exercise is about throwing a dice. A dice in this exercise may roll up to 10 times before it settles on a final value, depending on the "force" with which it is thrown. Unfortunately, if a dice rolls more than six times in our game it rolls off the table and the throw becomes invalid. If it rolls six times or less, its final (_"settled"_) value will be valid.
 
 > Note: to keep things simple, we have taken some liberties in this exercise with respect to how a dice behaves in reality. For instance, in real life a dice cannot flip back to a value it previously had. And it will mostly roll on its corners, not its sides.
 
@@ -225,7 +225,13 @@ As you can observe, the time between executions of `rollDice()` is 500ms, or per
 
 #### File: `ex4-pokerDiceAll.js`
 
-Dices in a [Poker Dice](https://en.wikipedia.org/wiki/Poker_dice) game have representations of playing cards upon them (this exercise uses strings instead). You play it with five such dices that you must throw in one go. In this exercise we have provided a ready-made `rollDice()` function for you that takes a dice number (1-5) as an argument and returns a promise that resolves to its final value, or a rejected promise with an `Error` object if the dice rolled off the table. The `rollDice()` function is located in a separate file (`pokerDiceRoller.js`). For this exercise you do not need to look at it, although you are welcome to do so. The only thing you need to know is that it returns a promise, as described above.
+![Poker Dice Set](../../assets/dice-set.png)
+
+Dices in a [Poker Dice](https://en.wikipedia.org/wiki/Poker_dice) game have representations of playing cards upon them (this exercise uses strings instead). You play it with five such dices that you must throw in one go.
+
+> You do not need to understand the rules of the Poker Dice game in order to work on this exercise. The only thing that is important is that the dices can be thrown and each one will either settle on some value or "roll off the table".
+
+In this exercise we have provided a ready-made `rollDice()` function for you that takes a dice number (1-5) as an argument and returns a promise that resolves to its final value, or a rejected promise with an `Error` object if the dice rolled off the table. The `rollDice()` function is located in a separate file (`pokerDiceRoller.js`). For this exercise you do not need to look at it, although you are welcome to do so. The only thing you need to know is that it returns a promise, as described above.
 
 We have also provided some code that demonstrates how to handle throwing a single dice. For this exercise you should do the following:
 
