@@ -1,4 +1,6 @@
 /*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-4-throw-the-dices-for-a-poker-dice-game
+
 For this exercise you should do the following:
   - Refactor the rollTheDices() function to throw five dices in one go, making 
     use of the dices array and Promise.all().

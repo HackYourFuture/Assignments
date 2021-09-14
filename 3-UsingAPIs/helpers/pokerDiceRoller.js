@@ -23,6 +23,8 @@ const ROLL_TIME = 500;
 // The couple of possible roll orders of the side on which the dices can roll.
 // The number represent indexes into the `sides` array. The roll order to use
 // is randomly selected.
+// For a visual illustration see:
+// https://github.com/HackYourFuture/Homework/blob/main/assets/flattened-dice.png
 const rollOrders = [
   [1, 5, 4, 0],
   [3, 5, 2, 0],

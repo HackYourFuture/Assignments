@@ -1,5 +1,7 @@
 'use strict';
 /*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Homework/blob/main/3-UsingAPIs/Week2/README.md#exercise-4-dice-race
+
 1. Complete the function `rollTheDices()` by using `Promise.race()`.
 2. Refactor the function `main()` using async/await and try/catch.
 3. Once you got this working, you may observe that some dices continue rolling 
