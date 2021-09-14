@@ -1,13 +1,16 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  checkTodos,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('ex3-rollAnAce', () => {
   const state = {};
-  let rootNode;
+  let rootNode, source;
 
   beforeAll(async () => {
-    ({ rootNode } = beforeAllHelper(__filename, {
+    ({ rootNode, source } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
     }));
@@ -29,6 +32,8 @@ describe('ex3-rollAnAce', () => {
         },
       });
   });
+
+  test('should have all TODO comments removed', () => checkTodos(source));
 
   test('should use async/wait', () => {
     expect(state.async).toBeDefined();

@@ -1,14 +1,17 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
 const walk = require('acorn-walk');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  checkTodos,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('getAnonName', () => {
   const state = { paramCount: 0 };
-  let exported, rootNode, getAnonName;
+  let exported, rootNode, source, getAnonName;
 
   beforeAll(() => {
-    ({ exported, rootNode } = beforeAllHelper(__filename, {
+    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
       parse: true,
     }));
     getAnonName = exported;
@@ -42,37 +45,35 @@ describe('getAnonName', () => {
     expect(exported).toBeDefined();
   });
 
+  test('should have all TODO comments removed', () => checkTodos(source));
+
   test('should call `new Promise()`', () => {
-    if (!exported) return;
     expect(state.newPromise).toBeDefined();
   });
 
   test('should take a single argument', () => {
-    if (!exported) return;
     expect(state.paramCount).toBe(1);
   });
 
-  test(': `resolve()` should be called with a one argument', () => {
-    if (!exported) return;
+  test('`resolve()` should be called with a one argument', () => {
     expect(state.resolve).toBe(1);
   });
 
-  test(': `reject()` should be called with a one argument', () => {
-    if (!exported) return;
+  test('`reject()` should be called with a one argument', () => {
     expect(state.reject).toBe(1);
   });
 
   test('should resolve when called with a string argument', () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
     const promise = getAnonName('John');
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).resolves.toEqual('John Doe');
   });
 
   test('should reject with an Error object when called without an argument', () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
     const promise = getAnonName();
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).rejects.toBeInstanceOf(Error);

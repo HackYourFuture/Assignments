@@ -1,10 +1,13 @@
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  checkTodos,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('ex5-pokerDiceChain', () => {
-  let exported, rollTheDices;
+  let exported, source, rollTheDices;
 
   beforeAll(() => {
-    ({ exported } = beforeAllHelper(__filename)),
+    ({ exported, source } = beforeAllHelper(__filename)),
       { nukeTimers: true, zeroRandom: true };
     rollTheDices = exported;
   });
@@ -13,9 +16,11 @@ describe('ex5-pokerDiceChain', () => {
     expect(exported).toBeDefined();
   });
 
+  test('should have all TODO comments removed', () => checkTodos(source));
+
   test('should resolve when all dices settle successfully', () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
@@ -37,8 +42,8 @@ describe('ex5-pokerDiceChain', () => {
   });
 
   test('should reject with an Error when a dice rolls off the table', async () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
