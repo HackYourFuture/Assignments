@@ -33,71 +33,67 @@ const rollOrders = [
 ];
 
 // A logger function that timestamps the console.log output
-const logger = (...args) =>
+const logStamped = (...args) =>
   console.log(moment().format('HH:mm:ss.SSS'), ...args);
 
 // A convenience function to get a random integer: 0 <= n < max
 const getRandomNumber = (max) => Math.floor(Math.random() * max);
 
-function createDiceRoller(logFn = logger) {
-  return function (dice = 1) {
-    return new Promise((resolve, reject) => {
-      // Introduce a slightly random variation in roll time.
-      const rollTime = ROLL_TIME - 5 + getRandomNumber(10);
+function rollDice(dice = 1) {
+  return new Promise((resolve, reject) => {
+    // Introduce a slightly random variation in roll time.
+    const rollTime = ROLL_TIME - 5 + getRandomNumber(10);
 
-      // Select a random roll order.
-      const rollOrder = rollOrders[getRandomNumber(rollOrders.length)];
+    // Select a random roll order.
+    const rollOrder = rollOrders[getRandomNumber(rollOrders.length)];
 
-      // Start the roll on a random side.
-      const offset = getRandomNumber(rollOrder.length);
+    // Start the roll on a random side.
+    const offset = getRandomNumber(rollOrder.length);
 
-      // Select a random number of roles to do before the dice settles on a
-      // side.
-      const randomRollsToDo =
-        getRandomNumber(MAX_ROLLS - MIN_ROLLS + 1) + MIN_ROLLS;
+    // Select a random number of roles to do before the dice settles on a
+    // side.
+    const randomRollsToDo =
+      getRandomNumber(MAX_ROLLS - MIN_ROLLS + 1) + MIN_ROLLS;
 
-      logFn(`Dice ${dice} scheduled for ${randomRollsToDo} rolls...`);
+    logStamped(`Dice ${dice} scheduled for ${randomRollsToDo} rolls...`);
 
-      let offTable = false;
+    let offTable = false;
 
-      // Function that executes a roll, called recursively until the mandated
-      // number of rolls (`randomRollsToDo`) has been done.
-      const rollOnce = (roll) => {
-        // Compute the index of the side in the roll (round-robin fashion)
-        const index = rollOrder[(roll + offset) % 4];
-        const side = sides[index];
-        logFn(`Dice ${dice} is now: ${side}`);
+    // Function that executes a roll, called recursively until the mandated
+    // number of rolls (`randomRollsToDo`) has been done.
+    const rollOnce = (roll) => {
+      // Compute the index of the side in the roll (round-robin fashion)
+      const index = rollOrder[(roll + offset) % 4];
+      const side = sides[index];
+      logStamped(`Dice ${dice} is now: ${side}`);
 
-        // If the dice rolls of the table we reject the promise (but that
-        // doesn't stop the dice from completing it course).
-        if (roll > OFF_TABLE_AFTER) {
-          if (!offTable) {
-            logFn(`Dice ${dice} continues rolling on the floor...`);
-            offTable = true;
-          }
-          reject(new Error(`Dice ${dice} rolled off the table.`));
+      // If the dice rolls of the table we reject the promise (but that
+      // doesn't stop the dice from completing it course).
+      if (roll > OFF_TABLE_AFTER) {
+        if (!offTable) {
+          logStamped(`Dice ${dice} continues rolling on the floor...`);
+          offTable = true;
         }
+        reject(new Error(`Dice ${dice} rolled off the table.\n`));
+      }
 
-        // If the dices settles (i.e. all mandated rolls are completed) we
-        // resolve the promise.
-        if (roll === randomRollsToDo) {
-          const word = roll === 1 ? 'roll' : 'rolls';
-          logFn(`Dice ${dice} settles on ${side} in ${roll} ${word}.`);
-          resolve(side);
-        }
+      // If the dices settles (i.e. all mandated rolls are completed) we
+      // resolve the promise.
+      if (roll === randomRollsToDo) {
+        const word = roll === 1 ? 'roll' : 'rolls';
+        logStamped(`Dice ${dice} settles on ${side} in ${roll} ${word}.`);
+        resolve(side);
+      }
 
-        // If the dice has more rolls to do, schedule execution of the next roll.
-        if (roll < randomRollsToDo) {
-          setTimeout(() => rollOnce(roll + 1), rollTime);
-        }
-      };
+      // If the dice has more rolls to do, schedule execution of the next roll.
+      if (roll < randomRollsToDo) {
+        setTimeout(() => rollOnce(roll + 1), rollTime);
+      }
+    };
 
-      // Start the first roll.
-      rollOnce(1);
-    });
-  };
+    // Start the first roll.
+    rollOnce(1);
+  });
 }
-
-const rollDice = createDiceRoller();
 
 module.exports = rollDice;
