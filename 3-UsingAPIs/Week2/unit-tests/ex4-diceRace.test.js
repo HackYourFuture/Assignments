@@ -22,6 +22,8 @@ describe('ex4-diceRace', () => {
         MemberExpression({ object, property }) {
           if (object.name === 'Promise' && property.name === 'race') {
             state.promiseAll = true;
+          } else if (object.name === 'dices' && property.name === 'map') {
+            state.dicesMap = true;
           }
         },
       });
@@ -32,6 +34,10 @@ describe('ex4-diceRace', () => {
   });
 
   test('should have all TODO comments removed', () => checkTodos(source));
+
+  test('should use `dices.map()`', () => {
+    expect(state.dicesMap).toBeDefined();
+  });
 
   test('should use `Promise.race()`', () => {
     expect(state.promiseAll).toBeDefined();
@@ -61,8 +67,8 @@ describe('ex4-diceRace', () => {
   });
 
   test('should reject with an Error as soon as a dice rolls off the table', async () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
