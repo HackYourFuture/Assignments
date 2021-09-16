@@ -235,7 +235,7 @@ In this exercise we have provided a ready-made `rollDice()` function for you tha
 
 We have also provided some code that demonstrates how to handle throwing a single dice. For this exercise you should do the following:
 
-- Refactor the `rollTheDices()` function to throw five dices in one go, making use of the `dices` array and `Promise.all()`.
+- Refactor the `rollTheDices()` function to throw five dices in one go, by using `.map()` on the `dices` array to create an array of promises for use with `Promise.all()`.
 - A successful (i.e. resolved) throw should output a message similar to:
 
   ```text

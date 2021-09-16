@@ -2,8 +2,9 @@
 Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-4-throw-the-dices-for-a-poker-dice-game
 
 For this exercise you should do the following:
-  - Refactor the rollTheDices() function to throw five dices in one go, making 
-    use of the dices array and Promise.all().
+  - Refactor the `rollTheDices()` function to throw five dices in one go, by 
+    using `.map()` on the `dices` array to create an array of promises for use 
+    with `Promise.all()`.
   - A successful (i.e. resolved) throw should output a message similar to: 
       Resolved! [ 'JACK', 'QUEEN', 'QUEEN', 'NINE', 'JACK' ]
   - An unsuccessful (i.e. rejected) throw should output a message similar to:
