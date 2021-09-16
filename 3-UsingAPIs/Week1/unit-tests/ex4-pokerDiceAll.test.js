@@ -22,6 +22,8 @@ describe('ex4-pokerDiceAll', () => {
         MemberExpression({ object, property }) {
           if (object.name === 'Promise' && property.name === 'all') {
             state.promiseAll = true;
+          } else if (object.name === 'dices' && property.name === 'map') {
+            state.dicesMap = true;
           }
         },
       });
@@ -32,6 +34,10 @@ describe('ex4-pokerDiceAll', () => {
   });
 
   test('should have all TODO comments removed', () => checkTodos(source));
+
+  test('should use `dices.map()`', () => {
+    expect(state.dicesMap).toBeDefined();
+  });
 
   test('should use `Promise.all()`', () => {
     expect(state.promiseAll).toBeDefined();
