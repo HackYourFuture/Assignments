@@ -43,7 +43,7 @@ describe('ex4-diceRace', () => {
     expect(state.promiseAll).toBeDefined();
   });
 
-  test('should resolve as soon as a dice settles successfully', () => {
+  test('should resolve as soon as a dice settles successfully', async () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
 
@@ -55,15 +55,14 @@ describe('ex4-diceRace', () => {
 
     const promise = rollTheDices();
     expect(promise).toBeInstanceOf(Promise);
-    const assertionPromise = expect(promise).resolves.toBeDefined();
+    const result = await promise;
+    expect(typeof result).toBe('string');
 
     promise.finally(() => {
       setTimeoutSpy.mockRestore();
       randomSpy.mockRestore();
       logSpy.mockRestore();
     });
-
-    return assertionPromise;
   });
 
   test('should reject with an Error as soon as a dice rolls off the table', async () => {

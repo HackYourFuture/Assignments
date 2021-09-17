@@ -43,8 +43,8 @@ describe('ex4-pokerDiceAll', () => {
     expect(state.promiseAll).toBeDefined();
   });
 
-  test('should resolve when all dices settle successfully', () => {
-    expect.assertions(3);
+  test('should resolve when all dices settle successfully', async () => {
+    expect.assertions(4);
     expect(exported).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
@@ -55,15 +55,15 @@ describe('ex4-pokerDiceAll', () => {
 
     const promise = rollTheDices();
     expect(promise).toBeInstanceOf(Promise);
-    const assertionPromise = expect(promise).resolves.toBeDefined();
+    const result = await promise;
+    expect(Array.isArray(result)).toBe(true);
+    expect(result).toHaveLength(5);
 
     promise.finally(() => {
       setTimeoutSpy.mockRestore();
       randomSpy.mockRestore();
       logSpy.mockRestore();
     });
-
-    return assertionPromise;
   });
 
   test('should reject with an Error when a dice rolls off the table', async () => {
