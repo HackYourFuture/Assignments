@@ -3,6 +3,7 @@ const walk = require('acorn-walk');
 const {
   beforeAllHelper,
   checkTodos,
+  findAncestor,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('ex3-rollAnAce', () => {
@@ -17,7 +18,7 @@ describe('ex3-rollAnAce', () => {
     rollDiceUntil = exported;
 
     rootNode &&
-      walk.simple(rootNode, {
+      walk.ancestor(rootNode, {
         TryStatement({ handler }) {
           if (handler.type === 'CatchClause') {
             state.tryCatch = true;
@@ -31,10 +32,25 @@ describe('ex3-rollAnAce', () => {
         AwaitExpression() {
           state.await = true;
         },
+        CallExpression({ callee }, ancestors) {
+          if (callee.name == 'rollDiceUntil') {
+            const functionDeclaration = findAncestor(
+              'FunctionDeclaration',
+              ancestors
+            );
+            if (functionDeclaration?.id?.name === 'rollDiceUntil') {
+              state.recursive = true;
+            }
+          }
+        },
       });
   });
 
   test('should have all TODO comments removed', () => checkTodos(source));
+
+  test('should not include a recursive call', () => {
+    expect(state.recursive).toBeUndefined();
+  });
 
   test('should use async/wait', () => {
     expect(state.async).toBeDefined();
