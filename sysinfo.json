@@ -1,0 +1,60 @@
+{
+  "node": "v14.17.1",
+  "system": {
+    "manufacturer": "Apple Inc.",
+    "model": "MacBookPro12,1"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i7-5557U",
+    "speed": 3.1
+  },
+  "memory": "16 GB",
+  "osInfo": {
+    "platform": "darwin",
+    "distro": "macOS",
+    "release": "11.5.2"
+  },
+  "vscodeInfo": {
+    "version": "1.60.0",
+    "extensions": [
+      "aaron-bond.better-comments",
+      "alexkrechik.cucumberautocomplete",
+      "AravindKumar.gherkin-indent",
+      "bierner.github-markdown-preview",
+      "bierner.markdown-checkbox",
+      "bierner.markdown-emoji",
+      "bierner.markdown-preview-github-styles",
+      "bierner.markdown-yaml-preamble",
+      "CoenraadS.bracket-pair-colorizer",
+      "CoenraadS.bracket-pair-colorizer-2",
+      "DavidAnson.vscode-markdownlint",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "evgeniypeshkov.syntax-highlighter",
+      "formulahendry.terminal",
+      "hdg.live-html-previewer",
+      "redhat.vscode-commons",
+      "redhat.vscode-xml",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker",
+      "WallabyJs.quokka-vscode"
+    ],
+    "userSettings": {
+      "explorer.confirmDragAndDrop": false,
+      "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+      "liveServer.settings.CustomBrowser": "firefox",
+      "liveServer.settings.ChromeDebuggingAttachment": false,
+      "files.autoSave": "afterDelay",
+      "window.zoomLevel": 1,
+      "redhat.telemetry.enabled": true,
+      "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+      }
+    }
+  }
+}
