@@ -33,7 +33,7 @@ describe('ex3-rollAnAce', () => {
           state.await = true;
         },
         CallExpression({ callee }, ancestors) {
-          if (callee.name == 'rollDiceUntil') {
+          if (callee.name === 'rollDiceUntil') {
             const functionDeclaration = findAncestor(
               'FunctionDeclaration',
               ancestors
