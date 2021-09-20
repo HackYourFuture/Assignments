@@ -4,6 +4,7 @@
   "rules": {
     "no-inline-style": "off",
     "void-style": "off",
-    "no-trailing-whitespace": "off"
+    "no-trailing-whitespace": "off",
+    "attribute-boolean-style": "off"
   }
 }

@@ -47,7 +47,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeFalsy();
+    expect(midCell.alive).toBe(false);
     expect(midCell.lifeTime).toBe(0);
   });
 
@@ -68,7 +68,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeFalsy();
+    expect(midCell.alive).toBe(false);
     expect(midCell.lifeTime).toBe(0);
   });
 
@@ -90,7 +90,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeTruthy();
+    expect(midCell.alive).toBe(true);
     expect(midCell.lifeTime).toBe(2);
   });
 
@@ -113,7 +113,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeTruthy();
+    expect(midCell.alive).toBe(true);
     expect(midCell.lifeTime).toBe(2);
   });
 
@@ -137,7 +137,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeFalsy();
+    expect(midCell.alive).toBe(false);
     expect(midCell.lifeTime).toBe(0);
   });
 
@@ -157,7 +157,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeFalsy();
+    expect(midCell.alive).toBe(false);
     expect(midCell.lifeTime).toBe(0);
   });
 
@@ -178,7 +178,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeFalsy();
+    expect(midCell.alive).toBe(false);
     expect(midCell.lifeTime).toBe(0);
   });
 
@@ -200,7 +200,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeFalsy();
+    expect(midCell.alive).toBe(false);
     expect(midCell.lifeTime).toBe(0);
   });
 
@@ -223,7 +223,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeTruthy();
+    expect(midCell.alive).toBe(true);
     expect(midCell.lifeTime).toBe(1);
   });
 
@@ -247,7 +247,7 @@ describe('Game Of Life:', () => {
 
     game.updateGrid();
 
-    expect(midCell.alive).toBeFalsy();
+    expect(midCell.alive).toBe(false);
     expect(midCell.lifeTime).toBe(0);
   });
 });
