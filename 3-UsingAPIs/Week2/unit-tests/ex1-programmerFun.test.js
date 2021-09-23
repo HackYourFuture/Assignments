@@ -1,16 +1,19 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
 const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  checkTodos,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('programmerFun', () => {
   const state = {};
-  let rootNode;
+  let rootNode, source;
 
   beforeAll(async () => {
     const { document } = await prepare();
     state.outerHTML = document.documentElement.outerHTML;
-    ({ rootNode } = beforeAllHelper(__filename, {
+    ({ rootNode, source } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
     }));
@@ -40,6 +43,8 @@ describe('programmerFun', () => {
 
   test('HTML should be syntactically valid', () =>
     validateHTML(state.outerHTML));
+
+  test('should have all TODO comments removed', () => checkTodos(source));
 
   test('should use `fetch()`', () => {
     expect(state.fetch).toBeDefined();

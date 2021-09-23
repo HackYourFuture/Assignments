@@ -1,14 +1,17 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
 const walk = require('acorn-walk');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  checkTodos,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('checkDoubleDigits', () => {
   const state = {};
-  let exported, rootNode, checkDoubleDigits;
+  let exported, rootNode, source, checkDoubleDigits;
 
   beforeAll(() => {
-    ({ exported, rootNode } = beforeAllHelper(__filename, {
+    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
       parse: true,
     }));
 
@@ -33,31 +36,30 @@ describe('checkDoubleDigits', () => {
     expect(exported).toBeDefined();
   });
 
+  test('should have all TODO comments removed', () => checkTodos(source));
+
   test('should call new Promise()', () => {
-    if (!exported) return;
     expect(state.newPromise).toBeDefined();
   });
 
   test('`resolve()` should be called with a one argument', () => {
-    if (!exported) return;
     expect(state.resolve).toBe(1);
   });
 
   test('`reject()` should be called with a one argument', () => {
-    if (!exported) return;
     expect(state.reject).toBe(1);
   });
 
   test('should be a function that takes a single argument', () => {
-    if (!exported) return;
+    expect(exported).toBeDefined();
     expect(
       typeof checkDoubleDigits === 'function' && checkDoubleDigits.length === 1
     ).toBe(true);
   });
 
   test('(10) should return a promise that resolves to "This is a double digit number!"', () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
     const promise = checkDoubleDigits(10);
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).resolves.toEqual(
@@ -66,7 +68,6 @@ describe('checkDoubleDigits', () => {
   });
 
   test('(99) should return a promise that resolves to "This is a double digit number!"', () => {
-    if (!exported) return;
     expect.assertions(2);
     const promise = checkDoubleDigits(99);
     expect(promise).toBeInstanceOf(Promise);
@@ -76,7 +77,6 @@ describe('checkDoubleDigits', () => {
   });
 
   test('(5) should return a rejected promise with an Error object', () => {
-    if (!exported) return;
     expect.assertions(2);
     const promise = checkDoubleDigits(5);
     expect(promise).toBeInstanceOf(Promise);
@@ -84,7 +84,6 @@ describe('checkDoubleDigits', () => {
   });
 
   test('(123) should return a rejected promise with an Error object', () => {
-    if (!exported) return;
     expect.assertions(2);
     const promise = checkDoubleDigits(123);
     expect(promise).toBeInstanceOf(Promise);

@@ -1,13 +1,16 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  checkTodos,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('rollDice', () => {
   const state = {};
-  let exported, rootNode, rollDice;
+  let exported, rootNode, source, rollDice;
 
   beforeAll(() => {
-    ({ exported, rootNode } = beforeAllHelper(__filename, {
+    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
       nukeTimers: true,
       zeroRandom: true,
       parse: true,
@@ -29,6 +32,12 @@ describe('rollDice', () => {
       });
   });
 
+  test('should exist and be executable', () => {
+    expect(exported).toBeDefined();
+  });
+
+  test('should have all TODO comments removed', () => checkTodos(source));
+
   test('should call `new Promise()`', () => {
     expect(state.newPromise).toBeDefined();
   });
@@ -42,8 +51,8 @@ describe('rollDice', () => {
   });
 
   test('should resolve when the dice settles successfully', () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
@@ -65,8 +74,8 @@ describe('rollDice', () => {
   });
 
   test('should reject with an Error when the dice rolls off the table', async () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
