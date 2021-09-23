@@ -1,5 +1,7 @@
 'use strict';
 /*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-3-roll-a-dice
+
 - Run the unmodified program and confirm that problem described occurs.
 - Refactor the `rollDice()` function from callback-based to returning a
   promise.

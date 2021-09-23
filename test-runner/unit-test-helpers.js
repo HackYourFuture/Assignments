@@ -111,8 +111,13 @@ function onloadValidator(state) {
   };
 }
 
+function checkTodos(source) {
+  expect(source.includes('TODO')).toBeFalsy();
+}
+
 module.exports = {
   beforeAllHelper,
   findAncestor,
   onloadValidator,
+  checkTodos,
 };

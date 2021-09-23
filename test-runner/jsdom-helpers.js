@@ -21,15 +21,19 @@ async function prepare() {
     .replace('unit-tests', homeworkFolder)
     .replace(/\.test\.js$/, '');
 
+  const virtualConsole = new jsdom.VirtualConsole();
+
   const { window } = await JSDOM.fromFile(
     path.join(exercisePath, 'index.html'),
     {
       runScripts: 'dangerously',
       resources: 'usable',
+      virtualConsole,
     }
   );
 
-  await sleep(500);
+  window.fetch = require('node-fetch');
+  await sleep(1000);
   return window;
 }
 

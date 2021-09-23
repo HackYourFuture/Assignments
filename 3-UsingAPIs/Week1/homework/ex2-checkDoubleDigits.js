@@ -1,5 +1,7 @@
 'use strict';
 /*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-2-is-it-a-double-digit-number
+
 Complete the function called `checkDoubleDigits` such that:
 
 - It takes one argument: a number

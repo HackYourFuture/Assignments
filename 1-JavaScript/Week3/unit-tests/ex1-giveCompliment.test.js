@@ -1,14 +1,17 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
 const walk = require('acorn-walk');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  checkTodos,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('giveCompliment', () => {
   const state = {};
-  let exported, rootNode, giveCompliment;
+  let exported, rootNode, source, giveCompliment;
 
   beforeAll(() => {
-    ({ exported, rootNode } = beforeAllHelper(__filename, {
+    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
       parse: true,
     }));
     giveCompliment = exported;
@@ -27,13 +30,14 @@ describe('giveCompliment', () => {
     expect(exported).toBeDefined();
   });
 
+  test('should have all TODO comments removed', () => checkTodos(source));
+
   test('should take a single parameter', () => {
-    if (!exported) return;
+    expect(exported).toBeDefined();
     expect(giveCompliment).toHaveLength(1);
   });
 
   test('should include a `compliments` array initialized with 10 strings', () => {
-    if (!exported) return;
     expect(state.compliments ? '' : 'No such array found').toBe('');
     expect(
       state.compliments.length === 10 ? '' : 'Array is not of length 10'
@@ -45,7 +49,8 @@ describe('giveCompliment', () => {
   });
 
   test('should give a random compliment: You are `compliment`, `name`!', () => {
-    if (!exported) return;
+    expect(exported).toBeDefined();
+
     expect(state.compliments).toBeDefined();
 
     const name = 'HackYourFuture';
