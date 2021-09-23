@@ -1,4 +1,6 @@
 /*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-5-throw-dices-sequentially
+
 In the previous exercise we used `Promise.all()` to throw five dices in one go.
 In the current exercise we will be throwing five dices one at a time, waiting 
 for a dice to settle before throwing the next one. Of course, we still consider 

@@ -1,5 +1,7 @@
 'use strict';
 /*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-7-mind-the-privacy
+
 1. Complete the `filterPrivateData()` function. It should take a single 
    parameter: the array of employee records.
 2. It should create a _new_ array, containing employee data without the private

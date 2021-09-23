@@ -1,5 +1,7 @@
 'use strict';
 /*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-4-shopping-at-the-supermarket
+
 Let's do some grocery shopping! We're going to get some things to cook dinner
 with. However, you like to spend money and always buy too many things. So when 
 you have more than 3 items in your shopping cart the first item gets taken out.

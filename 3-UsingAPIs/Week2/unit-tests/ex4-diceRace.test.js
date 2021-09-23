@@ -1,13 +1,16 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  checkTodos,
+} = require('../../../test-runner/unit-test-helpers');
 
 describe('ex4-diceRace', () => {
   const state = {};
-  let exported, rootNode, rollTheDices;
+  let exported, rootNode, source, rollTheDices;
 
   beforeAll(() => {
-    ({ exported, rootNode } = beforeAllHelper(__filename, {
+    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
       nukeTimers: true,
       zeroRandom: true,
       parse: true,
@@ -19,6 +22,8 @@ describe('ex4-diceRace', () => {
         MemberExpression({ object, property }) {
           if (object.name === 'Promise' && property.name === 'race') {
             state.promiseAll = true;
+          } else if (object.name === 'dices' && property.name === 'map') {
+            state.dicesMap = true;
           }
         },
       });
@@ -28,14 +33,19 @@ describe('ex4-diceRace', () => {
     expect(exported).toBeDefined();
   });
 
+  test('should have all TODO comments removed', () => checkTodos(source));
+
+  test('should use `dices.map()`', () => {
+    expect(state.dicesMap).toBeDefined();
+  });
+
   test('should use `Promise.race()`', () => {
-    if (!exported) return;
     expect(state.promiseAll).toBeDefined();
   });
 
-  test('should resolve as soon as a dice settles successfully', () => {
-    if (!exported) return;
-    expect.assertions(2);
+  test('should resolve as soon as a dice settles successfully', async () => {
+    expect.assertions(3);
+    expect(exported).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
@@ -45,20 +55,19 @@ describe('ex4-diceRace', () => {
 
     const promise = rollTheDices();
     expect(promise).toBeInstanceOf(Promise);
-    const assertionPromise = expect(promise).resolves.toBeDefined();
+    const result = await promise;
+    expect(typeof result).toBe('string');
 
     promise.finally(() => {
       setTimeoutSpy.mockRestore();
       randomSpy.mockRestore();
       logSpy.mockRestore();
     });
-
-    return assertionPromise;
   });
 
   test('should reject with an Error as soon as a dice rolls off the table', async () => {
-    if (!exported) return;
-    expect.assertions(2);
+    expect.assertions(3);
+    expect(exported).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);

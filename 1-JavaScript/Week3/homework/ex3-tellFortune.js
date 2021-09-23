@@ -1,5 +1,7 @@
 'use strict';
 /*------------------------------------------------------------------------------
+Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-3-be-your-own-fortune-teller
+
 Why pay a fortune teller when you can just program your fortune yourself?
 
 1. Create four arrays, `numKids`, `partnerNames`, `locations` and `jobTitles`. 
