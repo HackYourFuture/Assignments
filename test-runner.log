@@ -27,3 +27,13 @@
 2021-09-23 08:51:46 info: -------------------------------------------
 2021-09-23 08:51:49 info: All unit tests passed.
 2021-09-23 08:51:52 info: All steps were completed successfully
+2021-09-23 09:51:01 info: --------------------------------------------
+2021-09-23 09:51:01 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-09-23 09:51:01 info: --------------------------------------------
+2021-09-23 09:51:01 warn: A unit test file was not provided.
+2021-09-23 09:51:04 info: All steps were completed successfully
+2021-09-23 10:10:21 info: --------------------------------------------
+2021-09-23 10:10:21 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-09-23 10:10:21 info: --------------------------------------------
+2021-09-23 10:10:21 warn: A unit test file was not provided.
+2021-09-23 10:10:24 info: All steps were completed successfully
