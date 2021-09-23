@@ -22,3 +22,8 @@
 2021-09-23 07:53:14 info: ----------------------------------------
 2021-09-23 07:53:17 info: All unit tests passed.
 2021-09-23 07:53:20 info: All steps were completed successfully
+2021-09-23 08:51:46 info: -------------------------------------------
+2021-09-23 08:51:46 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-09-23 08:51:46 info: -------------------------------------------
+2021-09-23 08:51:49 info: All unit tests passed.
+2021-09-23 08:51:52 info: All steps were completed successfully
