@@ -72,3 +72,13 @@ ex6-totalCost.js
 2021-09-24 07:20:37 info: -----------------------------------------
 2021-09-24 07:20:37 warn: A unit test file was not provided.
 2021-09-24 07:20:39 info: All steps were completed successfully
+2021-09-26 02:59:07 info: -------------------------------------------
+2021-09-26 02:59:07 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-09-26 02:59:07 info: -------------------------------------------
+2021-09-26 02:59:07 warn: A unit test file was not provided.
+2021-09-26 02:59:11 info: All steps were completed successfully
+2021-09-26 03:00:22 info: -------------------------------------------
+2021-09-26 03:00:22 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-09-26 03:00:22 info: -------------------------------------------
+2021-09-26 03:00:22 warn: A unit test file was not provided.
+2021-09-26 03:00:25 info: All steps were completed successfully
