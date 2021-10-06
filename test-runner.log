@@ -874,3 +874,55 @@ Ran all test suites matching /ex3-lemonAllergy.test.js/i.
 2021-10-06 12:48:32 info: -------------------------------------------------
 2021-10-06 12:48:36 info: All unit tests passed.
 2021-10-06 12:48:41 info: All steps were completed successfully
+2021-10-06 02:01:52 info: ------------------------------------------
+2021-10-06 02:01:52 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-06 02:01:52 info: ------------------------------------------
+2021-10-06 02:01:52 info: Exercise has not yet been modified
+2021-10-06 02:01:57 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    ✓ should exist and be a function (2 ms)
+    ✓ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    ✕ should notify all subscribers of any notification (4 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        1.913 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-06 02:01:58 error: *** ESLint Report ***
+
+ex4-observable/ex4-observable.js
+  17:9   error  'subscribers' is assigned a value but never used  no-unused-vars
+  19:26  error  'subscriber' is defined but never used            no-unused-vars
+  22:23  error  'message' is defined but never used               no-unused-vars
+
+✖ 3 problems (3 errors, 0 warnings)
+
+
+2021-10-06 02:17:02 info: ------------------------------------------
+2021-10-06 02:17:02 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-06 02:17:02 info: ------------------------------------------
+2021-10-06 02:17:05 info: All unit tests passed.
+2021-10-06 02:17:09 info: All steps were completed successfully
