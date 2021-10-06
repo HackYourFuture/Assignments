@@ -31,6 +31,7 @@ const mondayTasks = [
 
 const hourlyRate = 25;
 
+// Using only `Array.reduce()`
 /* function computeEarnings(mondayTasks, hourlyRate) {
   // TODO complete this function
   const totalEarnings = mondayTasks.reduce((accumulated, currentElement) => {
@@ -38,9 +39,9 @@ const hourlyRate = 25;
   }, 0);
 
   return `€${totalEarnings.toFixed(2)}`;
-}
- */
+} */
 
+// Using `Array.map()` and `Array.reduce()`
 function computeEarnings(mondayTasks, hourlyRate) {
   // TODO complete this function
   const durations = mondayTasks.map(element => element.duration);

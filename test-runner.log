@@ -82,3 +82,795 @@ ex6-totalCost.js
 2021-09-26 03:00:22 info: -------------------------------------------
 2021-09-26 03:00:22 warn: A unit test file was not provided.
 2021-09-26 03:00:25 info: All steps were completed successfully
+2021-10-04 09:21:56 info: ------------------------------------------------------
+2021-10-04 09:21:56 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-04 09:21:56 info: ------------------------------------------------------
+2021-10-04 09:21:56 info: Exercise has not yet been modified
+2021-10-04 09:22:00 info: All unit tests passed.
+2021-10-04 09:22:02 info: All steps were completed successfully
+2021-10-04 09:38:53 info: ------------------------------------------------------
+2021-10-04 09:38:53 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-04 09:38:53 info: ------------------------------------------------------
+2021-10-04 09:38:55 info: All unit tests passed.
+2021-10-04 09:38:58 info: All steps were completed successfully
+2021-10-04 09:44:23 info: ------------------------------------------------------
+2021-10-04 09:44:23 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-04 09:44:23 info: ------------------------------------------------------
+2021-10-04 09:44:26 info: All unit tests passed.
+2021-10-04 09:44:28 info: All steps were completed successfully
+2021-10-04 09:45:29 info: ------------------------------------------------------
+2021-10-04 09:45:29 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-04 09:45:29 info: ------------------------------------------------------
+2021-10-04 09:45:32 info: All unit tests passed.
+2021-10-04 09:45:34 info: All steps were completed successfully
+2021-10-04 10:10:19 info: -------------------------------------------------
+2021-10-04 10:10:19 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-04 10:10:19 info: -------------------------------------------------
+2021-10-04 10:10:19 info: Exercise has not yet been modified
+2021-10-04 10:10:22 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-mondaysWorth.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+  computeEarnings
+    ✕ should take two parameters (4 ms)
+    ✕ should compute the earnings as a formatted Euro amount (2 ms)
+
+  ● computeEarnings › should take two parameters
+
+    expect(received).toHaveLength(expected)
+
+    Expected length:   2
+    Received length:   0
+    Received function: [Function computeEarnings]
+
+      41 |     // The `.length` property indicates the number of parameters expected by
+      42 |     // the function.
+    > 43 |     expect(computeEarnings).toHaveLength(2);
+         |                             ^
+      44 |   });
+      45 |
+      46 |   test('should compute the earnings as a formatted Euro amount', () => {
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:43:29)
+
+  ● computeEarnings › should compute the earnings as a formatted Euro amount
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "€187.50"
+    Received: undefined
+
+      47 |     const result = computeEarnings(mondayTasks, hourlyRate);
+      48 |     const expected = '€187.50';
+    > 49 |     expect(result).toBe(expected);
+         |                    ^
+      50 |   });
+      51 | });
+      52 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:49:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        1.419 s
+Ran all test suites matching /ex2-mondaysWorth.test.js/i.
+
+2021-10-04 10:14:34 info: -------------------------------------------------
+2021-10-04 10:14:34 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-04 10:14:34 info: -------------------------------------------------
+2021-10-04 10:14:37 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-mondaysWorth.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+  computeEarnings
+    ✓ should take two parameters (2 ms)
+    ✕ should compute the earnings as a formatted Euro amount (3 ms)
+
+  ● computeEarnings › should compute the earnings as a formatted Euro amount
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "€187.50"
+    Received: undefined
+
+      48 |     const result = computeEarnings(mondayTasks, hourlyRate);
+      49 |     const expected = '€187.50';
+    > 50 |     expect(result).toBe(expected);
+         |                    ^
+      51 |   });
+      52 | });
+      53 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:50:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.263 s
+Ran all test suites matching /ex2-mondaysWorth.test.js/i.
+
+2021-10-04 10:14:38 error: *** ESLint Report ***
+
+ex2-mondaysWorth.test.js
+  34:26  error  'mondayTasks' is defined but never used  no-unused-vars
+  34:39  error  'hourlyRate' is defined but never used   no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2021-10-04 10:37:40 info: -------------------------------------------------
+2021-10-04 10:37:40 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-04 10:37:40 info: -------------------------------------------------
+2021-10-04 10:37:42 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-mondaysWorth.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+  computeEarnings
+    ✓ should take two parameters (2 ms)
+    ✕ should compute the earnings as a formatted Euro amount (4 ms)
+
+  ● computeEarnings › should compute the earnings as a formatted Euro amount
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "€187.50"
+    Received: undefined
+
+      50 |     const result = computeEarnings(mondayTasks, hourlyRate);
+      51 |     const expected = '€187.50';
+    > 52 |     expect(result).toBe(expected);
+         |                    ^
+      53 |   });
+      54 | });
+      55 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:52:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.188 s
+Ran all test suites matching /ex2-mondaysWorth.test.js/i.
+
+2021-10-04 10:39:13 info: -------------------------------------------------
+2021-10-04 10:39:13 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-04 10:39:13 info: -------------------------------------------------
+2021-10-04 10:39:16 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex2-mondaysWorth.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+  computeEarnings
+    ✓ should take two parameters (3 ms)
+    ✕ should compute the earnings as a formatted Euro amount (3 ms)
+
+  ● computeEarnings › should compute the earnings as a formatted Euro amount
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "€187.50"
+    Received: undefined
+
+      50 |     const result = computeEarnings(mondayTasks, hourlyRate);
+      51 |     const expected = '€187.50';
+    > 52 |     expect(result).toBe(expected);
+         |                    ^
+      53 |   });
+      54 | });
+      55 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:52:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.183 s
+Ran all test suites matching /ex2-mondaysWorth.test.js/i.
+
+2021-10-04 11:03:45 info: -------------------------------------------------
+2021-10-04 11:03:45 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-04 11:03:45 info: -------------------------------------------------
+2021-10-04 11:03:48 error: *** Unit Test Error Report ***
+
+  console.log
+    0
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Daily standup', duration: 30 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    30
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    12.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Feature discussion', duration: 120 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    132.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    55.208333333333336
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Development time', duration: 240 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    295.2083333333333
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    123.00347222222221
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    {
+      name: 'Talk to different members from the product team',
+      duration: 60
+    }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    183.00347222222223
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    undefined
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:45:9)
+
+
+2021-10-04 11:04:19 info: Disclaimer turned off
+2021-10-04 11:04:28 info: -------------------------------------------------
+2021-10-04 11:04:28 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-04 11:04:28 info: -------------------------------------------------
+2021-10-04 11:04:31 error: *** Unit Test Error Report ***
+
+  console.log
+    0
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Daily standup', duration: 30 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    30
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    12.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Feature discussion', duration: 120 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    132.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    55.208333333333336
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Development time', duration: 240 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    295.2083333333333
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    123.00347222222221
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    {
+      name: 'Talk to different members from the product team',
+      duration: 60
+    }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    183.00347222222223
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    undefined
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:45:9)
+
+  console.log
+    0
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Daily standup', duration: 30 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    30
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    12.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Feature discussion', duration: 120 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    132.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    55.208333333333336
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Development time', duration: 240 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    295.2083333333333
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    123.00347222222221
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    {
+      name: 'Talk to different members from the product team',
+      duration: 60
+    }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    183.00347222222223
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:40:13)
+          at Array.reduce (<anonymous>)
+
+
+2021-10-05 07:54:30 info: -------------------------------------------------
+2021-10-05 07:54:30 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-05 07:54:30 info: -------------------------------------------------
+2021-10-05 07:54:34 error: *** Unit Test Error Report ***
+
+  console.log
+    0
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Daily standup', duration: 30 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    12.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Feature discussion', duration: 120 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    62.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Development time', duration: 240 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    162.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    {
+      name: 'Talk to different members from the product team',
+      duration: 60
+    }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    €187.5
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:46:9)
+
+  console.log
+    0
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Daily standup', duration: 30 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    12.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Feature discussion', duration: 120 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    62.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    { name: 'Development time', duration: 240 }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    162.5
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:37:13)
+          at Array.reduce (<anonymous>)
+
+  console.log
+    {
+      name: 'Talk to different members from the product team',
+      duration: 60
+    }
+
+      at reduce (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:38:13)
+          at Array.reduce (<anonymous>)
+
+
+2021-10-05 07:54:36 error: *** ESLint Report ***
+
+ex2-mondaysWorth.test.js
+  36:7  warning  'sum' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-10-05 08:10:53 info: -------------------------------------------------
+2021-10-05 08:10:53 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-05 08:10:53 info: -------------------------------------------------
+2021-10-05 08:10:55 info: All unit tests passed.
+2021-10-05 08:10:58 info: All steps were completed successfully
+2021-10-05 09:50:21 info: -------------------------------------------------
+2021-10-05 09:50:21 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-05 09:50:21 info: -------------------------------------------------
+2021-10-05 09:50:24 info: All unit tests passed.
+2021-10-05 09:50:27 info: All steps were completed successfully
+2021-10-05 10:22:20 info: -------------------------------------------------
+2021-10-05 10:22:20 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-05 10:22:20 info: -------------------------------------------------
+2021-10-05 10:22:23 info: All unit tests passed.
+2021-10-05 10:22:25 info: All steps were completed successfully
+2021-10-06 11:59:11 info: -------------------------------------------------
+2021-10-06 11:59:11 info: >>> Running Unit Test `ex3-lemonAllergy.test` <<<
+2021-10-06 11:59:11 info: -------------------------------------------------
+2021-10-06 11:59:11 info: Exercise has not yet been modified
+2021-10-06 11:59:15 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-lemonAllergy.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js
+  sanitizeFruitBasket
+    ✕ should take two parameters (6 ms)
+    ✕ should not modify the original `fruitBasket` array (1 ms)
+    ✕ should return a new array that does not include the unwanted `lemon`
+
+  ● sanitizeFruitBasket › should take two parameters
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      35 |   test('should take two parameters', () => {
+      36 |     // TODO replace next line with your code
+    > 37 |     expect(false).toBe(true);
+         |                   ^
+      38 |   });
+      39 |
+      40 |   test('should not modify the original `fruitBasket` array', () => {
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js:37:19)
+
+  ● sanitizeFruitBasket › should not modify the original `fruitBasket` array
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      42 |     const originalFruitBasketContents = [...fruitBasket];
+      43 |     // TODO replace next line with your code
+    > 44 |     expect(false).toBe(true);
+         |                   ^
+      45 |   });
+      46 |
+      47 |   test('should return a new array that does not include the unwanted `lemon`', () => {
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js:44:19)
+
+  ● sanitizeFruitBasket › should return a new array that does not include the unwanted `lemon`
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      47 |   test('should return a new array that does not include the unwanted `lemon`', () => {
+      48 |     // TODO replace next line with your code
+    > 49 |     expect(false).toBe(true);
+         |                   ^
+      50 |   });
+      51 | });
+      52 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js:49:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        2.01 s
+Ran all test suites matching /ex3-lemonAllergy.test.js/i.
+
+2021-10-06 11:59:17 error: *** ESLint Report ***
+
+ex3-lemonAllergy.test.js
+  29:10  error  'sanitizeFruitBasket' is defined but never used                   no-unused-vars
+  42:11  error  'originalFruitBasketContents' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2021-10-06 12:28:11 info: -------------------------------------------------
+2021-10-06 12:28:11 info: >>> Running Unit Test `ex3-lemonAllergy.test` <<<
+2021-10-06 12:28:11 info: -------------------------------------------------
+2021-10-06 12:28:15 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-lemonAllergy.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js
+  sanitizeFruitBasket
+    ✕ should take two parameters (4 ms)
+    ✓ should not modify the original `fruitBasket` array (1 ms)
+    ✕ should return a new array that does not include the unwanted `lemon` (1 ms)
+
+  ● sanitizeFruitBasket › should take two parameters
+
+    expect(received).toHaveLength(expected)
+
+    Expected length:   2
+    Received length:   0
+    Received function: [Function sanitizeFruitBasket]
+
+      35 |   test('should take two parameters', () => {
+      36 |     // TODO replace next line with your code
+    > 37 |     expect(sanitizeFruitBasket).toHaveLength(2);
+         |                                 ^
+      38 |   });
+      39 |
+      40 |   test('should not modify the original `fruitBasket` array', () => {
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js:37:33)
+
+  ● sanitizeFruitBasket › should return a new array that does not include the unwanted `lemon`
+
+    expect(received).not.toContain(expected) // indexOf
+
+    Matcher error: received value must not be null nor undefined
+
+    Received has value: undefined
+
+      49 |     // TODO replace next line with your code
+      50 |     const newBasket = sanitizeFruitBasket(fruitBasket, 'lemon');
+    > 51 |     expect(newBasket).not.toContain('lemon');
+         |                           ^
+      52 |   });
+      53 | });
+      54 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js:51:27)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        1.531 s
+Ran all test suites matching /ex3-lemonAllergy.test.js/i.
+
+2021-10-06 12:31:56 info: -------------------------------------------------
+2021-10-06 12:31:56 info: >>> Running Unit Test `ex3-lemonAllergy.test` <<<
+2021-10-06 12:31:56 info: -------------------------------------------------
+2021-10-06 12:32:00 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-lemonAllergy.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js
+  sanitizeFruitBasket
+    ✓ should take two parameters (2 ms)
+    ✓ should not modify the original `fruitBasket` array (1 ms)
+    ✕ should return a new array that does not include the unwanted `lemon` (2 ms)
+
+  ● sanitizeFruitBasket › should return a new array that does not include the unwanted `lemon`
+
+    expect(received).not.toContain(expected) // indexOf
+
+    Matcher error: received value must not be null nor undefined
+
+    Received has value: undefined
+
+      56 |     // TODO replace next line with your code
+      57 |     const newBasket = sanitizeFruitBasket(fruitBasket, 'lemon');
+    > 58 |     expect(newBasket).not.toContain('lemon');
+         |                           ^
+      59 |   });
+      60 | });
+      61 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js:58:27)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        1.52 s
+Ran all test suites matching /ex3-lemonAllergy.test.js/i.
+
+2021-10-06 12:32:01 error: *** ESLint Report ***
+
+ex3-lemonAllergy.test.js
+  29:30  error  'basket' is defined but never used  no-unused-vars
+  29:38  error  'fruit' is defined but never used   no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2021-10-06 12:46:29 info: -------------------------------------------------
+2021-10-06 12:46:29 info: >>> Running Unit Test `ex3-lemonAllergy.test` <<<
+2021-10-06 12:46:29 info: -------------------------------------------------
+2021-10-06 12:46:33 info: All unit tests passed.
+2021-10-06 12:46:37 info: All steps were completed successfully
+2021-10-06 12:47:10 info: -------------------------------------------------
+2021-10-06 12:47:10 info: >>> Running Unit Test `ex3-lemonAllergy.test` <<<
+2021-10-06 12:47:10 info: -------------------------------------------------
+2021-10-06 12:47:14 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-lemonAllergy.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js
+  sanitizeFruitBasket
+    ✓ should take two parameters (2 ms)
+    ✓ should not modify the original `fruitBasket` array (1 ms)
+    ✕ should return a new array that does not include the unwanted `lemon` (3 ms)
+
+  ● sanitizeFruitBasket › should return a new array that does not include the unwanted `lemon`
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: "lemon"
+    Received array: ["apple", "grapefruit", "banana", "watermelon"]
+
+      51 |     // TODO replace next line with your code
+      52 |     const newBasket = sanitizeFruitBasket(fruitBasket, 'lemon');
+    > 53 |     expect(newBasket).toContain('lemon');
+         |                       ^
+      54 |   });
+      55 | });
+      56 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex3-lemonAllergy.test.js:53:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        1.648 s
+Ran all test suites matching /ex3-lemonAllergy.test.js/i.
+
+2021-10-06 12:48:32 info: -------------------------------------------------
+2021-10-06 12:48:32 info: >>> Running Unit Test `ex3-lemonAllergy.test` <<<
+2021-10-06 12:48:32 info: -------------------------------------------------
+2021-10-06 12:48:36 info: All unit tests passed.
+2021-10-06 12:48:41 info: All steps were completed successfully
