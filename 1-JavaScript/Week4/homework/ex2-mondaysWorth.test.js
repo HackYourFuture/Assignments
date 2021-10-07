@@ -31,8 +31,31 @@ const mondayTasks = [
 
 const hourlyRate = 25;
 
-function computeEarnings(/* TODO parameter(s) go here */) {
+// Using only `Array.reduce()`
+/* function computeEarnings(mondayTasks, hourlyRate) {
   // TODO complete this function
+  const totalEarnings = mondayTasks.reduce((accumulated, currentElement) => {
+    return accumulated + currentElement.duration * hourlyRate / 60;
+  }, 0);
+
+  return `€${totalEarnings.toFixed(2)}`;
+} */
+
+// Using `Array.map()` and `Array.reduce()`
+function computeEarnings(mondayTasks, hourlyRate) {
+  // TODO complete this function
+  const durations = mondayTasks.map(element => element.duration);
+  const totalDuration = durations.reduce((accumulated, currentElement) => {
+    return accumulated + currentElement;
+  }, 0);
+
+  const totalEarnings = totalDuration * hourlyRate / 60;
+  const eurosFormatter = new Intl.NumberFormat('en-IE', {
+    style: 'currency',
+    currency: 'EUR'
+  });
+
+  return eurosFormatter.format(totalEarnings);
 }
 
 // ! Unit tests (using Jest)
