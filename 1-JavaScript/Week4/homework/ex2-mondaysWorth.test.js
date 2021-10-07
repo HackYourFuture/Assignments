@@ -50,12 +50,12 @@ function computeEarnings(mondayTasks, hourlyRate) {
   }, 0);
 
   const totalEarnings = totalDuration * hourlyRate / 60;
-  const formatter = new Intl.NumberFormat('en-IE', {
+  const eurosFormatter = new Intl.NumberFormat('en-IE', {
     style: 'currency',
     currency: 'EUR'
   });
 
-  return formatter.format(totalEarnings);
+  return eurosFormatter.format(totalEarnings);
 }
 
 // ! Unit tests (using Jest)

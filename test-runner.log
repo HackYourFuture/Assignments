@@ -926,3 +926,20 @@ ex4-observable/ex4-observable.js
 2021-10-06 02:17:02 info: ------------------------------------------
 2021-10-06 02:17:05 info: All unit tests passed.
 2021-10-06 02:17:09 info: All steps were completed successfully
+2021-10-06 02:25:00 info: -------------------------------------------------
+2021-10-06 02:25:00 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-06 02:25:00 info: -------------------------------------------------
+2021-10-06 02:25:03 info: All unit tests passed.
+2021-10-06 02:25:06 info: All steps were completed successfully
+2021-10-07 02:16:05 info: --------------------------------------
+2021-10-07 02:16:05 info: >>> Running Unit Test `ex5-wallet` <<<
+2021-10-07 02:16:05 info: --------------------------------------
+2021-10-07 02:16:10 error: *** Unit Test Error Report ***
+
+- wallet q1: At line 26, which variables are in the scope marked Closure?
+
+2021-10-07 02:16:47 info: --------------------------------------
+2021-10-07 02:16:47 info: >>> Running Unit Test `ex5-wallet` <<<
+2021-10-07 02:16:47 info: --------------------------------------
+2021-10-07 02:16:51 info: All unit tests passed.
+2021-10-07 02:16:55 info: All steps were completed successfully
