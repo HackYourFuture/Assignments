@@ -1,0 +1,8 @@
+
+*** Spell Checker Report ***
+
+ex3-tellFortune.js:35:24 - Unknown word (Alaa)
+ex3-tellFortune.js:35:31 - Unknown word (soad)
+ex3-tellFortune.js:35:38 - Unknown word (fathea)
+ex3-tellFortune.js:35:47 - Unknown word (nagat)
+ex3-tellFortune.js:35:55 - Unknown word (faozya)

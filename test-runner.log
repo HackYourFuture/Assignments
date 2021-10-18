@@ -1,0 +1,169 @@
+2021-10-17 01:21:41 info: ----------------------------------------
+2021-10-17 01:21:41 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-10-17 01:21:41 info: ----------------------------------------
+2021-10-17 01:21:43 info: All unit tests passed.
+2021-10-17 01:21:45 error: *** ESLint Report ***
+
+ex2-dogYears.js
+  21:7  warning  'humanDogAge' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-10-17 01:22:35 info: ----------------------------------------
+2021-10-17 01:22:35 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-10-17 01:22:35 info: ----------------------------------------
+2021-10-17 01:22:38 info: All unit tests passed.
+2021-10-17 01:22:41 info: All steps were completed successfully
+2021-10-17 01:25:36 info: ----------------------------------------
+2021-10-17 01:25:36 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-10-17 01:25:36 info: ----------------------------------------
+2021-10-17 01:25:39 info: All unit tests passed.
+2021-10-17 01:25:41 info: All steps were completed successfully
+2021-10-17 03:17:36 info: ----------------------------------------
+2021-10-17 03:17:36 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-10-17 03:17:36 info: ----------------------------------------
+2021-10-17 03:17:38 info: All unit tests passed.
+2021-10-17 03:17:41 info: All steps were completed successfully
+2021-10-18 03:47:41 info: --------------------------------------------
+2021-10-18 03:47:41 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-10-18 03:47:41 info: --------------------------------------------
+2021-10-18 03:47:41 warn: A unit test file was not provided.
+2021-10-18 03:47:50 info: All steps were completed successfully
+2021-10-18 03:53:55 info: -------------------------------------------
+2021-10-18 03:53:55 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-10-18 03:53:55 info: -------------------------------------------
+2021-10-18 03:54:21 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="D:\programming\hackyour\module2\Homework-class34\test-runner\CustomReporter.js"
+
+2021-10-18 03:54:23 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:35:24 - Unknown word (menna)
+ex3-tellFortune.js:35:32 - Unknown word (nouran)
+ex3-tellFortune.js:35:49 - Unknown word (walaa)
+ex3-tellFortune.js:35:57 - Unknown word (arwa)
+
+2021-10-18 03:54:40 info: Disclaimer turned off
+2021-10-18 03:54:54 info: -------------------------------------------
+2021-10-18 03:54:54 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-10-18 03:54:54 info: -------------------------------------------
+2021-10-18 03:54:57 error: *** Unit Test Error Report ***
+
+- tellFortune should exist and be executable
+ENOENT: no such file or directory, open 'D:\programming\hackyour\module2\Homework-class34\1-JavaScript\Week3\homework\ex3-tellFortune.js',
+- tellFortune should have all TODO comments removed
+ENOENT: no such file or directory, open 'D:\programming\hackyour\module2\Homework-class34\1-JavaScript\Week3\homework\ex3-tellFortune.js',
+Cannot read property 'includes' of undefined
+- tellFortune should take four parameters
+ENOENT: no such file or directory, open 'D:\programming\hackyour\module2\Homework-class34\1-JavaScript\Week3\homework\ex3-tellFortune.js',
+- tellFortune should call function `selectRandomly` for each of its arguments
+ENOENT: no such file or directory, open 'D:\programming\hackyour\module2\Homework-class34\1-JavaScript\Week3\homework\ex3-tellFortune.js',
+- tellFortune should tell the fortune by randomly selecting array values
+ENOENT: no such file or directory, open 'D:\programming\hackyour\module2\Homework-class34\1-JavaScript\Week3\homework\ex3-tellFortune.js',
+
+2021-10-18 03:54:58 error: *** Spell Checker Report ***
+
+
+2021-10-18 06:15:26 info: -----------------------------------------
+2021-10-18 06:15:26 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-10-18 06:15:26 info: -----------------------------------------
+2021-10-18 06:15:26 warn: A unit test file was not provided.
+2021-10-18 06:21:15 info: -----------------------------------------
+2021-10-18 06:21:15 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-10-18 06:21:15 info: -----------------------------------------
+2021-10-18 06:21:15 warn: A unit test file was not provided.
+2021-10-18 06:21:46 error: *** ESLint Report ***
+
+ex6-totalCost.js
+  23:7  error  'cartForParty' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-10-18 06:22:35 info: -----------------------------------------
+2021-10-18 06:22:35 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-10-18 06:22:35 info: -----------------------------------------
+2021-10-18 06:22:35 warn: A unit test file was not provided.
+2021-10-18 06:23:05 error: *** Spell Checker Report ***
+
+ex6-totalCost.js:26:9 - Unknown word (nums)
+ex6-totalCost.js:30:20 - Unknown word (nums)
+ex6-totalCost.js:32:12 - Unknown word (nums)
+
+2021-10-18 06:24:51 info: -----------------------------------------
+2021-10-18 06:24:51 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-10-18 06:24:51 info: -----------------------------------------
+2021-10-18 06:24:51 warn: A unit test file was not provided.
+2021-10-18 06:24:58 info: All steps were completed successfully
+2021-10-18 09:22:08 info: ----------------------------------------------
+2021-10-18 09:22:08 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-10-18 09:22:08 info: ----------------------------------------------
+2021-10-18 09:22:45 error: *** Unit Test Error Report ***
+
+- giveCompliment should have all TODO comments removed
+- giveCompliment should take a single parameter
+- giveCompliment should include a `compliments` array initialized with 10 strings
+  No such array found
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+2021-10-18 09:39:26 info: -------------------------------------------
+2021-10-18 09:39:26 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-10-18 09:39:26 info: -------------------------------------------
+2021-10-18 09:39:45 error: *** Unit Test Error Report ***
+
+- tellFortune should have all TODO comments removed
+- tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a doctor in Amsterdam, married to Alaa with 1 kids.
+  Received: You will be a doctor in Amsterdam, 
+  married to Alaa with 1 kids.
+
+2021-10-18 09:39:56 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:35:24 - Unknown word (Alaa)
+ex3-tellFortune.js:35:31 - Unknown word (soad)
+ex3-tellFortune.js:35:38 - Unknown word (fathea)
+ex3-tellFortune.js:35:47 - Unknown word (nagat)
+ex3-tellFortune.js:35:55 - Unknown word (faozya)
+
+2021-10-18 09:41:54 info: -------------------------------------------
+2021-10-18 09:41:54 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-10-18 09:41:54 info: -------------------------------------------
+2021-10-18 09:42:00 info: All unit tests passed.
+2021-10-18 09:42:05 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:35:24 - Unknown word (Alaa)
+ex3-tellFortune.js:35:31 - Unknown word (soad)
+ex3-tellFortune.js:35:38 - Unknown word (fathea)
+ex3-tellFortune.js:35:47 - Unknown word (nagat)
+ex3-tellFortune.js:35:55 - Unknown word (faozya)
+
+2021-10-18 09:43:14 info: -------------------------------------------
+2021-10-18 09:43:14 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-10-18 09:43:14 info: -------------------------------------------
+2021-10-18 09:43:19 info: All unit tests passed.
+2021-10-18 09:43:23 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:35:24 - Unknown word (Alaa)
+ex3-tellFortune.js:35:31 - Unknown word (soad)
+ex3-tellFortune.js:35:38 - Unknown word (fathea)
+ex3-tellFortune.js:35:47 - Unknown word (nagat)
+ex3-tellFortune.js:35:55 - Unknown word (faozya)
+
+2021-10-18 09:43:39 info: -------------------------------------------
+2021-10-18 09:43:39 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-10-18 09:43:39 info: -------------------------------------------
+2021-10-18 09:43:43 info: All unit tests passed.
+2021-10-18 09:43:47 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:35:24 - Unknown word (Alaa)
+ex3-tellFortune.js:35:31 - Unknown word (soad)
+ex3-tellFortune.js:35:38 - Unknown word (fathea)
+ex3-tellFortune.js:35:47 - Unknown word (nagat)
+ex3-tellFortune.js:35:55 - Unknown word (faozya)
+
+2021-10-18 10:00:35 info: -------------------------------------------
+2021-10-18 10:00:35 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2021-10-18 10:00:35 info: -------------------------------------------
+2021-10-18 10:00:35 warn: A unit test file was not provided.
+2021-10-18 10:00:46 info: All steps were completed successfully

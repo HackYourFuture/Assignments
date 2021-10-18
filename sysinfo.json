@@ -1,0 +1,46 @@
+{
+  "node": "v14.18.1",
+  "system": {
+    "manufacturer": "Acer",
+    "model": "Aspire VX5-591G"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i7-7700HQ",
+    "speed": 2.8
+  },
+  "memory": "16 GB",
+  "osInfo": {
+    "platform": "win32",
+    "distro": "Microsoft Windows 10 Pro",
+    "release": "10.0.19043"
+  },
+  "vscodeInfo": {
+    "version": "1.61.1",
+    "extensions": [
+      "2gua.rainbow-brackets",
+      "abusaidm.html-snippets",
+      "CoenraadS.bracket-pair-colorizer",
+      "CoenraadS.bracket-pair-colorizer-2",
+      "esbenp.prettier-vscode",
+      "evgeniypeshkov.syntax-highlighter",
+      "formulahendry.auto-close-tag",
+      "hdg.live-html-previewer",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.jupyter-keymap",
+      "ms-toolsai.jupyter-renderers",
+      "ritwickdey.LiveServer",
+      "tygooch.autoclose-find",
+      "voldemortensen.rainbow-tags",
+      "WallabyJs.quokka-vscode"
+    ],
+    "userSettings": {
+      "files.autoSave": "afterDelay",
+      "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+      "editor.formatOnSave": true,
+      "git.autofetch": true
+    }
+  }
+}
