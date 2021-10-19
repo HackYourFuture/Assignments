@@ -30,30 +30,28 @@ Note: The DRY principle is put into practice here: instead of repeating the code
 randomly select array elements four times inside the `tellFortune` function 
 body, this code is now written once only in a separated function.
 -----------------------------------------------------------------------------*/
-const numKids = [
-  // TODO add elements here
-];
+const numKids = [1, 3, 4, 2, 5];
 
-const partnerNames = [
-  // TODO add elements here
-];
+const partnerNames = ['Paula', 'Sara', 'Any', 'Ola', 'Alexandra'];
 
-const locations = [
-  // TODO add elements here
-];
+const locations = ['Amsterdam', 'Rotterdam', 'Utrecht', 'New york', 'rome'];
 
-const jobTitles = [
-  // TODO add elements here
-];
+const jobTitles = ['accountant', 'Doctor', 'Developer', 'Salesman', 'Manager'];
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-function selectRandomly(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+function selectRandomly(arr) {
+  const random = arr[Math.floor(Math.random() * arr.length)];
+
+  return random;
 }
 
-function tellFortune(/* add parameter(s) here */) {
-  // TODO complete this function
+function tellFortune(numKids, partnerNames, locations, jobTitles) {
+  return `You will be a ${selectRandomly(jobTitles)} in ${selectRandomly(
+    locations
+  )}, married to ${selectRandomly(partnerNames)} with ${selectRandomly(
+    numKids
+  )} kids.`;
 }
 
 console.log(tellFortune(numKids, partnerNames, locations, jobTitles));

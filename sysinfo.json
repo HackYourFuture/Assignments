@@ -1,0 +1,23 @@
+{
+  "node": "v14.17.2",
+  "system": {
+    "manufacturer": "Apple Inc.",
+    "model": "MacBookAir10,1"
+  },
+  "cpu": {
+    "manufacturer": "Apple",
+    "brand": "M1",
+    "speed": 2.4
+  },
+  "memory": "8 GB",
+  "osInfo": {
+    "platform": "darwin",
+    "distro": "macOS",
+    "release": "11.6"
+  },
+  "vscodeInfo": {
+    "version": "",
+    "extensions": [],
+    "userSettings": {}
+  }
+}
