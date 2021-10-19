@@ -1,0 +1,8 @@
+
+*** ESLint Report ***
+
+ex6-totalCost.js
+  34:3  warning  Avoid `for in` loops. Prefer `Object.keys()` instead  no-restricted-syntax
+
+✖ 1 problem (0 errors, 1 warning)
+

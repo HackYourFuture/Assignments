@@ -1,0 +1,5 @@
+*** Unit Test Error Report ***
+
+- tellFortune should take four parameters
+- tellFortune should tell the fortune by randomly selecting array values
+  numKids, locations, partnerNames and jobTitles arrays must exist with five elements each

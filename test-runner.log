@@ -1,0 +1,47 @@
+2021-10-19 11:40:11 info: ----------------------------------------------
+2021-10-19 11:40:11 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-10-19 11:40:11 info: ----------------------------------------------
+2021-10-19 11:40:18 error: *** Unit Test Error Report ***
+
+- giveCompliment should have all TODO comments removed
+- giveCompliment should include a `compliments` array initialized with 10 strings
+  No such array found
+- giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+2021-10-19 11:43:29 info: ----------------------------------------
+2021-10-19 11:43:29 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-10-19 11:43:29 info: ----------------------------------------
+2021-10-19 11:43:35 error: *** Unit Test Error Report ***
+
+- calculateDogAge should give 7 dog years for 1 human year
+  Expected: Your doggie is 7 years old in dog years!
+  Received: 7
+- calculateDogAge should give 14 dog years for 2 human years
+  Expected: Your doggie is 14 years old in dog years!
+  Received: 14
+- calculateDogAge give 21 dog years for 3 human years
+  Expected: Your doggie is 21 years old in dog years!
+  Received: 21
+
+2021-10-19 11:44:01 info: Disclaimer turned off
+2021-10-19 11:44:26 info: -------------------------------------------
+2021-10-19 11:44:26 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-10-19 11:44:26 info: -------------------------------------------
+2021-10-19 11:44:31 error: *** Unit Test Error Report ***
+
+- tellFortune should take four parameters
+- tellFortune should tell the fortune by randomly selecting array values
+  numKids, locations, partnerNames and jobTitles arrays must exist with five elements each
+
+2021-10-19 11:49:17 info: -----------------------------------------
+2021-10-19 11:49:17 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-10-19 11:49:17 info: -----------------------------------------
+2021-10-19 11:49:17 warn: A unit test file was not provided.
+2021-10-19 11:49:20 error: *** ESLint Report ***
+
+ex6-totalCost.js
+  34:3  warning  Avoid `for in` loops. Prefer `Object.keys()` instead  no-restricted-syntax
+
+✖ 1 problem (0 errors, 1 warning)
+
+
