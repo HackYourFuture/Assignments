@@ -45,3 +45,39 @@ ex6-totalCost.js
 ✖ 1 problem (0 errors, 1 warning)
 
 
+2021-10-19 11:50:36 info: -----------------------------------------
+2021-10-19 11:50:36 info: >>> Running Unit Test `ex6-totalCost` <<<
+2021-10-19 11:50:36 info: -----------------------------------------
+2021-10-19 11:50:36 warn: A unit test file was not provided.
+2021-10-19 11:50:39 error: *** ESLint Report ***
+
+ex6-totalCost.js
+  34:3  warning  Avoid `for in` loops. Prefer `Object.keys()` instead  no-restricted-syntax
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2021-10-19 11:51:15 info: --------------------------------------------
+2021-10-19 11:51:15 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2021-10-19 11:51:15 info: --------------------------------------------
+2021-10-19 11:51:15 warn: A unit test file was not provided.
+2021-10-19 11:51:21 info: All steps were completed successfully
+2021-10-19 11:52:18 info: ------------------------------------------------
+2021-10-19 11:52:18 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2021-10-19 11:52:18 info: ------------------------------------------------
+2021-10-19 11:52:18 warn: A unit test file was not provided.
+2021-10-19 11:52:24 info: All steps were completed successfully
+2021-10-19 11:53:46 info: ------------------------------------------------
+2021-10-19 11:53:46 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2021-10-19 11:53:46 info: ------------------------------------------------
+2021-10-19 11:53:46 warn: A unit test file was not provided.
+2021-10-19 11:53:53 info: All steps were completed successfully
+2021-10-19 11:54:55 info: -------------------------------------------
+2021-10-19 11:54:55 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2021-10-19 11:54:55 info: -------------------------------------------
+2021-10-19 11:55:00 error: *** Unit Test Error Report ***
+
+- tellFortune should take four parameters
+- tellFortune should tell the fortune by randomly selecting array values
+  numKids, locations, partnerNames and jobTitles arrays must exist with five elements each
+
