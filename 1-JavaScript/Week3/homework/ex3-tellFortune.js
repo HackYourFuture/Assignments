@@ -30,30 +30,43 @@ Note: The DRY principle is put into practice here: instead of repeating the code
 randomly select array elements four times inside the `tellFortune` function 
 body, this code is now written once only in a separated function.
 -----------------------------------------------------------------------------*/
-const numKids = [
-  // TODO add elements here
-];
+const numKids = [0, 1, 2, 3, 4, 5];
 
-const partnerNames = [
-  // TODO add elements here
-];
+const partnerNames = [`Sally`, 'Jenny', 'Lily', 'Jacob', 'David'];
 
-const locations = [
-  // TODO add elements here
-];
+const locations = ['Cleveland', 'New York', 'Shanghai', 'Dubai', 'Cape Town'];
 
 const jobTitles = [
-  // TODO add elements here
+  'front-end developer',
+  'sales representative',
+  'human resource manager',
+  'plumber',
+  'teacher',
+];
+const personalSet = [
+  numKids[Math.floor(Math.random() * numKids.length)],
+  partnerNames[Math.floor(Math.random() * partnerNames.length)],
+  locations[Math.floor(Math.random() * locations.length)],
+  jobTitles[Math.floor(Math.random() * jobTitles.length)],
 ];
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-function selectRandomly(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+function selectRandomly(numKids, partnerNames, locations, jobTitles) {
+  return {
+    numKids,
+    partnerNames,
+    locations,
+    jobTitles,
+  };
 }
 
-function tellFortune(/* add parameter(s) here */) {
-  // TODO complete this function
+function tellFortune() {
+  return `You will be a ${selectRandomly(...personalSet).jobTitles} in ${
+    selectRandomly(...personalSet).locations
+  }, married to ${selectRandomly(...personalSet).partnerNames}, with ${
+    selectRandomly(...personalSet).numKids
+  } kid(s)`;
 }
 
 console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
