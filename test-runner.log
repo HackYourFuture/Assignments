@@ -943,3 +943,119 @@ ex4-observable/ex4-observable.js
 2021-10-07 02:16:47 info: --------------------------------------
 2021-10-07 02:16:51 info: All unit tests passed.
 2021-10-07 02:16:55 info: All steps were completed successfully
+2021-10-21 01:37:58 info: -------------------------------------------------
+2021-10-21 01:37:58 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2021-10-21 01:37:58 info: -------------------------------------------------
+2021-10-21 01:38:01 info: All unit tests passed.
+2021-10-21 01:38:04 info: All steps were completed successfully
+2021-10-21 01:39:20 info: ---------------------------------------
+2021-10-21 01:39:20 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-10-21 01:39:20 info: ---------------------------------------
+2021-10-21 01:39:25 error: *** Unit Test Error Report ***
+
+  console.log
+    John Doe
+
+      at 3-UsingAPIs/Week1/homework/ex1-johnWho.js:29:27
+
+
+2021-10-21 01:41:04 info: ---------------------------------------
+2021-10-21 01:41:04 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-10-21 01:41:04 info: ---------------------------------------
+2021-10-21 01:41:08 error: *** Unit Test Error Report ***
+
+  console.error
+    Error: You didn't pass in a first name!
+        at /Users/pedro.ramos/Homework/3-UsingAPIs/Week1/homework/ex1-johnWho.js:17:16
+        at Timeout.task [as _onTimeout] (/Users/pedro.ramos/Homework/node_modules/jsdom/lib/jsdom/browser/Window.js:516:19)
+        at listOnTimeout (internal/timers.js:557:17)
+        at processTimers (internal/timers.js:500:7)
+
+      28 | getAnonName('')
+      29 |   .then((data) => console.log(data))
+    > 30 |   .catch((error) => console.error(error));
+         |                             ^
+      31 |
+      32 | // ! Do not change or remove the code below
+      33 | module.exports = getAnonName;
+
+      at 3-UsingAPIs/Week1/homework/ex1-johnWho.js:30:29
+
+
+2021-10-21 01:41:57 info: ---------------------------------------
+2021-10-21 01:41:57 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-10-21 01:41:57 info: ---------------------------------------
+2021-10-21 01:42:01 error: *** Unit Test Error Report ***
+
+  console.log
+    You didn't pass in a first name!
+
+      at 3-UsingAPIs/Week1/homework/ex1-johnWho.js:30:29
+
+
+2021-10-21 01:47:48 info: ---------------------------------------
+2021-10-21 01:47:48 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-10-21 01:47:48 info: ---------------------------------------
+2021-10-21 01:47:53 error: *** Unit Test Error Report ***
+
+  console.log
+    You didn't pass in a first name!
+
+      at 3-UsingAPIs/Week1/homework/ex1-johnWho.js:30:29
+
+
+2021-10-21 01:49:50 info: ---------------------------------------
+2021-10-21 01:49:50 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-10-21 01:49:50 info: ---------------------------------------
+2021-10-21 01:49:54 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-johnWho.test.js --colors
+ FAIL  3-UsingAPIs/Week1/unit-tests/ex1-johnWho.test.js
+  getAnonName
+    ✓ should exist and be executable (2 ms)
+    ✕ should have all TODO comments removed (12 ms)
+    ✓ should call `new Promise()` (1 ms)
+    ✓ should take a single argument
+    ✓ `resolve()` should be called with a one argument
+    ✓ `reject()` should be called with a one argument (1 ms)
+    ✓ should resolve when called with a string argument (1007 ms)
+    ✓ should reject with an Error object when called without an argument (1006 ms)
+
+  ● getAnonName › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+      113 |
+      114 | function checkTodos(source) {
+    > 115 |   expect(source.includes('TODO')).toBeFalsy();
+          |                                   ^
+      116 | }
+      117 |
+      118 | module.exports = {
+
+      at checkTodos (test-runner/unit-test-helpers.js:115:35)
+      at Object.<anonymous> (3-UsingAPIs/Week1/unit-tests/ex1-johnWho.test.js:48:55)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 7 passed, 8 total
+Snapshots:   0 total
+Time:        3.085 s
+Ran all test suites matching /ex1-johnWho.test.js/i.
+
+2021-10-21 01:51:27 info: ---------------------------------------
+2021-10-21 01:51:27 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-10-21 01:51:27 info: ---------------------------------------
+2021-10-21 01:51:32 info: All unit tests passed.
+2021-10-21 01:51:34 info: All steps were completed successfully
+2021-10-21 01:52:55 info: ---------------------------------------
+2021-10-21 01:52:55 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-10-21 01:52:55 info: ---------------------------------------
+2021-10-21 01:53:00 info: All unit tests passed.
+2021-10-21 01:53:02 info: All steps were completed successfully
+2021-10-21 01:53:25 info: ---------------------------------------
+2021-10-21 01:53:25 info: >>> Running Unit Test `ex1-johnWho` <<<
+2021-10-21 01:53:25 info: ---------------------------------------
+2021-10-21 01:53:29 info: All unit tests passed.
+2021-10-21 01:53:32 info: All steps were completed successfully
