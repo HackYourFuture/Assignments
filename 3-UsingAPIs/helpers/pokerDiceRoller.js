@@ -67,7 +67,7 @@ function rollDice(dice = 1) {
       const side = sides[index];
       logStamped(`Dice ${dice} is now: ${side}`);
 
-      // If the dice rolls of the table we reject the promise (but that
+      // If the dice rolls off the table we reject the promise (but that
       // doesn't stop the dice from completing it course).
       if (roll > OFF_TABLE_AFTER) {
         if (!offTable) {
@@ -75,6 +75,7 @@ function rollDice(dice = 1) {
           offTable = true;
         }
         reject(new Error(`Dice ${dice} rolled off the table.\n`));
+        return;
       }
 
       // If the dices settles (i.e. all mandated rolls are completed) we

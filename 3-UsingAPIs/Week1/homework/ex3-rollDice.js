@@ -52,5 +52,25 @@ rollDice()
   .then((message) => console.log(message))
   .catch((error) => console.log(error.message));
 
+/* function wasteTimeBlocking() {
+  for (let count = 1; count <= 10000; count++) {
+    console.log('  count =', count);
+  }
+}
+wasteTimeBlocking();
+ */
+
+function wasteTime() {
+  let count = 0;
+  const timer = setInterval(() => {
+    count += 1;
+    console.log('count =', count);
+    if (count > 100) {
+      clearInterval(timer);
+    }
+  }, 0);
+}
+wasteTime();
+
 // ! Do not change or remove the code below
 module.exports = rollDice;
