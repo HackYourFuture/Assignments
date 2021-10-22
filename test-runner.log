@@ -1189,3 +1189,8 @@ Ran all test suites matching /ex4-pokerDiceAll.test.js/i.
 2021-10-22 01:42:14 info: --------------------------------------------
 2021-10-22 01:42:16 info: All unit tests passed.
 2021-10-22 01:42:19 info: All steps were completed successfully
+2021-10-22 02:11:05 info: ----------------------------------------------
+2021-10-22 02:11:05 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2021-10-22 02:11:05 info: ----------------------------------------------
+2021-10-22 02:11:07 info: All unit tests passed.
+2021-10-22 02:11:10 info: All steps were completed successfully

@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------------------
+ /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-5-throw-dices-sequentially
 
 In the previous exercise we used `Promise.all()` to throw five dices in one go.
@@ -17,11 +17,22 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 function rollTheDices() {
   const results = [];
 
-  // TODO: expand the chain to include five dices
   return rollDice(1)
     .then((value) => {
       results.push(value);
       return rollDice(2);
+    })
+    .then((value) => {
+      results.push(value);
+      return rollDice(3);
+    })
+    .then((value) => {
+      results.push(value);
+      return rollDice(4);
+    })
+    .then((value) => {
+      results.push(value);
+      return rollDice(5);
     })
     .then((value) => {
       results.push(value);
