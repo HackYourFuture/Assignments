@@ -81,3 +81,87 @@ ex6-totalCost.js
 - tellFortune should tell the fortune by randomly selecting array values
   numKids, locations, partnerNames and jobTitles arrays must exist with five elements each
 
+2021-10-23 02:04:57 info: ------------------------------------------------------
+2021-10-23 02:04:57 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-23 02:04:57 info: ------------------------------------------------------
+2021-10-23 02:05:04 info: All unit tests passed.
+2021-10-23 02:05:11 info: All steps were completed successfully
+2021-10-23 02:11:21 info: ------------------------------------------------------
+2021-10-23 02:11:21 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-23 02:11:21 info: ------------------------------------------------------
+2021-10-23 02:11:26 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-doubleEvenNumbers.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex1-doubleEvenNumbers.test.js
+  × doubleEvenNumbers should take the even numbers and double them (12 ms)
+
+  ● doubleEvenNumbers should take the even numbers and double them
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 1
+
+    - Array [
+    -   4,
+    -   8,
+    - ]
+    + Array []
+
+      28 |   const actual = doubleEvenNumbers([1, 2, 3, 4]);
+      29 |   const expected = [4, 8];
+    > 30 |   expect(actual).toEqual(expected);
+         |                  ^
+      31 | });
+      32 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex1-doubleEvenNumbers.test.js:30:18)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        2.195 s
+Ran all test suites matching /ex1-doubleEvenNumbers.test.js/i.
+
+2021-10-23 02:12:46 info: ------------------------------------------------------
+2021-10-23 02:12:46 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-23 02:12:46 info: ------------------------------------------------------
+2021-10-23 02:12:51 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-doubleEvenNumbers.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex1-doubleEvenNumbers.test.js
+  × doubleEvenNumbers should take the even numbers and double them (12 ms)
+
+  ● doubleEvenNumbers should take the even numbers and double them
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 1
+
+    - Array [
+    -   4,
+    -   8,
+    - ]
+    + Array []
+
+      28 |   const actual = doubleEvenNumbers([1, 2, 3, 4]);
+      29 |   const expected = [4, 8];
+    > 30 |   expect(actual).toEqual(expected);
+         |                  ^
+      31 | });
+      32 |
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex1-doubleEvenNumbers.test.js:30:18)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        2.222 s
+Ran all test suites matching /ex1-doubleEvenNumbers.test.js/i.
+
+2021-10-23 02:14:11 info: ------------------------------------------------------
+2021-10-23 02:14:11 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-23 02:14:11 info: ------------------------------------------------------
+2021-10-23 02:14:16 info: All unit tests passed.
+2021-10-23 02:14:22 info: All steps were completed successfully
