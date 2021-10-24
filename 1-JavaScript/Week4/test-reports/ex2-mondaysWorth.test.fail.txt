@@ -3,8 +3,8 @@
 Command failed: npx jest ex2-mondaysWorth.test.js --colors
  FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
   computeEarnings
-    × should take two parameters (6 ms)
-    × should compute the earnings as a formatted Euro amount (5 ms)
+    × should take two parameters (8 ms)
+    √ should compute the earnings as a formatted Euro amount
 
   ● computeEarnings › should take two parameters
 
@@ -24,25 +24,8 @@ Command failed: npx jest ex2-mondaysWorth.test.js --colors
 
       at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:45:29)
 
-  ● computeEarnings › should compute the earnings as a formatted Euro amount
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: "€187.50"
-    Received: "€11250"
-
-      49 |     const result = computeEarnings(mondayTasks, hourlyRate);
-      50 |     const expected = '€187.50';
-    > 51 |     expect(result).toBe(expected);
-         |                    ^
-      52 |   });
-      53 | });
-      54 |
-
-      at Object.<anonymous> (1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js:51:20)
-
 Test Suites: 1 failed, 1 total
-Tests:       2 failed, 2 total
+Tests:       1 failed, 1 passed, 2 total
 Snapshots:   0 total
-Time:        2.253 s
+Time:        2.209 s
 Ran all test suites matching /ex2-mondaysWorth.test.js/i.

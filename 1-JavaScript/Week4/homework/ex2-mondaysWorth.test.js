@@ -33,9 +33,9 @@ const hourlyRate = 25;
 
 function computeEarnings() {
   const durations = mondayTasks.map(mondayTasks => mondayTasks.duration)
-  const salaryEach = durations.map(x => x*hourlyRate)
+  const salaryEach = durations.map(x => x*hourlyRate/60)
   const reducer = (accumulator, curr) => accumulator + curr;
-  return `€${salaryEach.reduce(reducer)}`
+  return `€${salaryEach.reduce(reducer).toFixed(2)}`
 }
 // ! Unit tests (using Jest)
 describe('computeEarnings', () => {
