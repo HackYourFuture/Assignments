@@ -811,3 +811,788 @@ Ran all test suites matching /ex3-lemonAllergy.test.js/i.
 2021-10-25 08:35:40 info: --------------------------------------
 2021-10-25 08:35:47 info: All unit tests passed.
 2021-10-25 08:35:53 info: All steps were completed successfully
+2021-10-26 12:27:22 info: ------------------------------------------
+2021-10-26 12:27:22 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 12:27:22 info: ------------------------------------------
+2021-10-26 12:27:28 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (3 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (5 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.702 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 12:27:31 error: *** ESLint Report ***
+
+ex4-observable/ex4-observable.js
+  17:9   error  'subscribers' is assigned a value but never used  no-unused-vars
+  19:26  error  'subscriber' is defined but never used            no-unused-vars
+  22:23  error  'message' is defined but never used               no-unused-vars
+
+✖ 3 problems (3 errors, 0 warnings)
+
+
+2021-10-26 12:37:46 info: ------------------------------------------
+2021-10-26 12:37:46 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 12:37:46 info: ------------------------------------------
+2021-10-26 12:37:51 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  ● Test suite failed to run
+
+    SyntaxError: C:\Users\Chene\Documents\GitHub\Homework\1-JavaScript\Week4\homework\ex4-observable\ex4-observable.js: Unexpected token, expected "(" (24:20)
+
+      22 |     notify: function (message) {
+      23 |       this.subscribe().forEach(call)
+    > 24 |       function call {
+         |                     ^
+      25 |         return message
+      26 |       }
+      27 |     },
+
+      at Parser._raise (node_modules/@babel/parser/src/parser/error.js:134:45)
+      at Parser.raiseWithData (node_modules/@babel/parser/src/parser/error.js:129:17)
+      at Parser.raise (node_modules/@babel/parser/src/parser/error.js:78:17)
+      at Parser.unexpected (node_modules/@babel/parser/src/parser/util.js:180:16)
+      at Parser.expect (node_modules/@babel/parser/src/parser/util.js:144:28)
+      at Parser.parseFunctionParams (node_modules/@babel/parser/src/parser/statement.js:1212:10)
+      at Parser.parseFunction (node_modules/@babel/parser/src/parser/statement.js:1180:10)
+      at Parser.parseFunctionStatement (node_modules/@babel/parser/src/parser/statement.js:641:17)
+      at Parser.parseStatementContent (node_modules/@babel/parser/src/parser/statement.js:267:21)
+      at Parser.parseStatement (node_modules/@babel/parser/src/parser/statement.js:230:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        2.183 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 12:37:53 error: *** ESLint Report ***
+
+ex4-observable/ex4-observable.js
+  24:21  error  Parsing error: Unexpected token {
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-10-26 12:38:43 info: ------------------------------------------
+2021-10-26 12:38:43 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 12:38:43 info: ------------------------------------------
+2021-10-26 12:38:48 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (4 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (5 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    TypeError: Cannot read properties of undefined (reading 'forEach')
+
+      21 |     },
+      22 |     notify: function (message) {
+    > 23 |       this.subscribe().forEach(call)
+         |       ^
+      24 |       function call() {
+      25 |         return message
+      26 |       }
+
+      at Object.notify (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:23:7)
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:27:16)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.097 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 12:48:18 info: ------------------------------------------
+2021-10-26 12:48:18 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 12:48:18 info: ------------------------------------------
+2021-10-26 12:48:23 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (2 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (2 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    TypeError: Cannot read properties of undefined (reading 'forEach')
+
+      21 |     },
+      22 |     notify: function (message) {
+    > 23 |       this.subscribe().forEach(call)
+         |       ^
+      24 |       function call() {
+      25 |         return message
+      26 |       }
+
+      at Object.notify (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:23:7)
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:27:16)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        1.849 s, estimated 2 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 12:49:10 info: ------------------------------------------
+2021-10-26 12:49:10 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 12:49:10 info: ------------------------------------------
+2021-10-26 12:49:15 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    This usually means that you are trying to import a file which Jest cannot parse, e.g. it's not plain JavaScript.
+
+    By default, if Jest sees a Babel config, it will use that to transform your files, ignoring "node_modules".
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/en/ecmascript-modules for how to enable it.
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/en/configuration.html
+
+    Details:
+
+    SyntaxError: C:\Users\Chene\Documents\GitHub\Homework\1-JavaScript\Week4\homework\ex4-observable\ex4-observable.js: Unexpected token (26:2)
+
+      24 |       }
+      25 |     },
+    > 26 |   };
+         |   ^
+      27 | }
+      28 |
+      29 | // ! Do not change or remove the code below
+
+      at Parser._raise (node_modules/@babel/parser/src/parser/error.js:134:45)
+      at Parser.raiseWithData (node_modules/@babel/parser/src/parser/error.js:129:17)
+      at Parser.raise (node_modules/@babel/parser/src/parser/error.js:78:17)
+      at Parser.unexpected (node_modules/@babel/parser/src/parser/util.js:180:16)
+      at Parser.parseExprAtom (node_modules/@babel/parser/src/parser/expression.js:1282:20)
+      at Parser.parseExprSubscripts (node_modules/@babel/parser/src/parser/expression.js:652:23)
+      at Parser.parseUpdate (node_modules/@babel/parser/src/parser/expression.js:632:21)
+      at Parser.parseMaybeUnary (node_modules/@babel/parser/src/parser/expression.js:604:23)
+      at Parser.parseExprOps (node_modules/@babel/parser/src/parser/expression.js:374:23)
+      at Parser.parseMaybeConditional (node_modules/@babel/parser/src/parser/expression.js:340:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        2.168 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 12:49:17 error: *** ESLint Report ***
+
+ex4-observable/ex4-observable.js
+  26:3  error  Parsing error: Unexpected token }
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-10-26 12:50:04 info: ------------------------------------------
+2021-10-26 12:50:04 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 12:50:04 info: ------------------------------------------
+2021-10-26 12:50:09 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (7 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (6 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.252 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 12:56:49 info: ------------------------------------------
+2021-10-26 12:56:49 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 12:56:49 info: ------------------------------------------
+2021-10-26 12:56:54 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (4 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (2 ms)
+    × should notify all subscribers of any notification (5 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.102 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:04:51 info: ------------------------------------------
+2021-10-26 01:04:51 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:04:51 info: ------------------------------------------
+2021-10-26 01:04:56 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  ● Test suite failed to run
+
+    SyntaxError: C:\Users\Chene\Documents\GitHub\Homework\1-JavaScript\Week4\homework\ex4-observable\ex4-observable.js: Unexpected token, expected "(" (24:20)
+
+      22 |     notify: function (message) {
+      23 |       subscribers.forEach(call)
+    > 24 |       function call {
+         |                     ^
+      25 |         console.log(message)
+      26 |       }
+      27 |       }
+
+      at Parser._raise (node_modules/@babel/parser/src/parser/error.js:134:45)
+      at Parser.raiseWithData (node_modules/@babel/parser/src/parser/error.js:129:17)
+      at Parser.raise (node_modules/@babel/parser/src/parser/error.js:78:17)
+      at Parser.unexpected (node_modules/@babel/parser/src/parser/util.js:180:16)
+      at Parser.expect (node_modules/@babel/parser/src/parser/util.js:144:28)
+      at Parser.parseFunctionParams (node_modules/@babel/parser/src/parser/statement.js:1212:10)
+      at Parser.parseFunction (node_modules/@babel/parser/src/parser/statement.js:1180:10)
+      at Parser.parseFunctionStatement (node_modules/@babel/parser/src/parser/statement.js:641:17)
+      at Parser.parseStatementContent (node_modules/@babel/parser/src/parser/statement.js:267:21)
+      at Parser.parseStatement (node_modules/@babel/parser/src/parser/statement.js:230:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        2.247 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:04:59 error: *** ESLint Report ***
+
+ex4-observable/ex4-observable.js
+  24:21  error  Parsing error: Unexpected token {
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2021-10-26 01:05:26 info: ------------------------------------------
+2021-10-26 01:05:26 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:05:26 info: ------------------------------------------
+2021-10-26 01:05:31 error: *** Unit Test Error Report ***
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:17)
+          at Array.forEach (<anonymous>)
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:17)
+          at Array.forEach (<anonymous>)
+
+
+2021-10-26 01:06:37 info: ------------------------------------------
+2021-10-26 01:06:37 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:06:37 info: ------------------------------------------
+2021-10-26 01:06:42 error: *** Unit Test Error Report ***
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:17)
+          at Array.forEach (<anonymous>)
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:17)
+          at Array.forEach (<anonymous>)
+
+
+2021-10-26 01:07:17 info: ------------------------------------------
+2021-10-26 01:07:17 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:07:17 info: ------------------------------------------
+2021-10-26 01:07:22 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (3 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (4 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.112 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:10:12 info: ------------------------------------------
+2021-10-26 01:10:12 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:10:12 info: ------------------------------------------
+2021-10-26 01:10:17 error: *** Unit Test Error Report ***
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:17)
+          at Array.forEach (<anonymous>)
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:17)
+          at Array.forEach (<anonymous>)
+
+
+2021-10-26 01:12:21 info: ------------------------------------------
+2021-10-26 01:12:21 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:12:21 info: ------------------------------------------
+2021-10-26 01:12:26 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (4 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (4 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.119 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:14:46 info: ------------------------------------------
+2021-10-26 01:14:46 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:14:46 info: ------------------------------------------
+2021-10-26 01:14:51 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (2 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (5 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.141 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:14:57 error: *** Spell Checker Report ***
+
+ex4-observable/ex4-observable.js:25:23 - Unknown word (notif)
+
+2021-10-26 01:24:17 info: ------------------------------------------
+2021-10-26 01:24:17 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:24:17 info: ------------------------------------------
+2021-10-26 01:24:22 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (4 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (5 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    TypeError: undefined is not a function
+        at Array.forEach (<anonymous>)
+
+      21 |     },
+      22 |     notify: function (message) {
+    > 23 |       subscribers.forEach()(message)
+         |                   ^
+      24 |     }
+      25 |   }
+      26 | }
+
+      at Object.notify (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:23:19)
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:27:16)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.103 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:28:50 info: ------------------------------------------
+2021-10-26 01:28:50 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:28:50 info: ------------------------------------------
+2021-10-26 01:28:56 error: *** Unit Test Error Report ***
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:17)
+          at Array.forEach (<anonymous>)
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:17)
+          at Array.forEach (<anonymous>)
+
+
+2021-10-26 01:29:31 info: ------------------------------------------
+2021-10-26 01:29:31 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:29:31 info: ------------------------------------------
+2021-10-26 01:29:36 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (3 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (2 ms)
+    × should notify all subscribers of any notification (6 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.102 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:30:46 info: ------------------------------------------
+2021-10-26 01:30:46 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:30:46 info: ------------------------------------------
+2021-10-26 01:30:51 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (3 ms)
+    √ should return an object with `subscribe` and a `notify` function properties
+    × should notify all subscribers of any notification (5 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.113 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:32:33 info: ------------------------------------------
+2021-10-26 01:32:33 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:32:33 info: ------------------------------------------
+2021-10-26 01:32:38 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (3 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (5 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.1 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:32:55 info: ------------------------------------------
+2021-10-26 01:32:55 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:32:55 info: ------------------------------------------
+2021-10-26 01:33:00 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (2 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (4 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        1.855 s, estimated 2 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:34:31 info: ------------------------------------------
+2021-10-26 01:34:31 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:34:31 info: ------------------------------------------
+2021-10-26 01:34:36 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (3 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (5 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.102 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:37:14 info: ------------------------------------------
+2021-10-26 01:37:14 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:37:14 info: ------------------------------------------
+2021-10-26 01:37:19 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js
+  createObservable
+    √ should exist and be a function (4 ms)
+    √ should return an object with `subscribe` and a `notify` function properties (1 ms)
+    × should notify all subscribers of any notification (6 ms)
+
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.<anonymous> (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.133 s
+Ran all test suites matching /ex4-observable.test.js/i.
+
+2021-10-26 01:37:48 info: ------------------------------------------
+2021-10-26 01:37:48 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-26 01:37:48 info: ------------------------------------------
+2021-10-26 01:37:52 error: *** Unit Test Error Report ***
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:24)
+          at Array.forEach (<anonymous>)
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:24)
+          at Array.forEach (<anonymous>)
+
+

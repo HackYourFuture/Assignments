@@ -1,0 +1,14 @@
+*** Unit Test Error Report ***
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:24)
+          at Array.forEach (<anonymous>)
+
+  console.log
+    Hi!
+
+      at forEach (1-JavaScript/Week4/homework/ex4-observable/ex4-observable.js:25:24)
+          at Array.forEach (<anonymous>)
+
