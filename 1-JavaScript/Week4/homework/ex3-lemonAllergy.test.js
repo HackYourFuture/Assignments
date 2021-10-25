@@ -37,18 +37,16 @@ function sanitizeFruitBasket(fruitInBasket,fruitToStay) {
 describe('sanitizeFruitBasket', () => {
   test('should take two parameters', () => {
     expect(sanitizeFruitBasket).toHaveLength(2);
-    expect(false).toBe(true);
   });
 
   test('should not modify the original `fruitBasket` array', () => {
     // Save the original contents of the fruit basket
     const originalFruitBasketContents = [...fruitBasket];
-    // TODO replace next line with your code
-    expect(false).toBe(true);
+    expect(originalFruitBasketContents).toStrictEqual(fruitBasket);
   });
 
   test('should return a new array that does not include the unwanted `lemon`', () => {
-    // TODO replace next line with your code
-    expect(false).toBe(true);
+    const newArr = sanitizeFruitBasket();
+    expect(newArr.includes('lemon')).toBe(false);
   });
 });
