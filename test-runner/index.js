@@ -4,7 +4,6 @@ const util = require('util');
 const { exec } = require('child_process');
 const chalk = require('chalk');
 const prompts = require('prompts');
-const stripAnsi = require('strip-ansi');
 const {
   makePath,
   compileMenuData,
@@ -154,7 +153,10 @@ async function execJest(exercisePath, homeworkFolder) {
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(verbose ? output : chalk.red(output));
+
+    const { default: stripAnsi } = await import('strip-ansi');
     message = stripAnsi(`${title}\n\n${output}`);
+
     logger.error(message);
     return message;
   }
