@@ -6,22 +6,14 @@ class MyCustomReporter {
       report += testResults
         .filter((testResult) => testResult.status === 'failed')
         .map(({ fullName, failureDetails }) => {
-          const details = failureDetails.map((detail) => {
-            const { error } = detail;
-            if (!error) {
-              return '';
+          const details = failureDetails.map(({ matcherResult }) => {
+            if (!matcherResult) {
+              return;
             }
-
-            if (error.code || !error.matcherResult) {
-              // Promise errors do not use matcherResults
-              if (error.message) {
-                return '\n' + error.message;
-              }
-              // Rethrow in case of unexpected errors.
-              throw error;
+            const { actual, expected, pass } = matcherResult;
+            if (pass) {
+              return;
             }
-
-            const { expected, actual } = error.matcherResult;
 
             // Exception 1: if `expected` is an empty string and `actual` is also
             // a string we add the `actual` string to the report, adding some
