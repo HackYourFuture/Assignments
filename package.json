@@ -37,7 +37,7 @@
     "pokerDiceRoller": "./3-UsingAPIs/Week1/homework"
   },
   "dependencies": {
-    "@types/jest": "^26.0.22",
+    "@types/jest": "^27.0.2",
     "acorn": "^8.1.1",
     "acorn-walk": "^8.0.2",
     "chalk": "^4.1.0",
@@ -51,7 +51,7 @@
     "fast-glob": "^3.2.5",
     "html-validate": "^4.9.0",
     "inquirer": "^8.0.0",
-    "jest": "^26.6.3",
+    "jest": "^27.3.1",
     "jsdom": "^16.5.3",
     "lodash": "^4.17.21",
     "lodash.isequal": "^4.5.0",
