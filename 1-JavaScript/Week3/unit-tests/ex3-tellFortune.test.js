@@ -47,43 +47,49 @@ describe('tellFortune', () => {
   });
 
   test('should exist and be executable', () => {
-    expect(exported).toBeDefined();
+    expect(tellFortune).toBeDefined();
   });
 
   test('should have all TODO comments removed', () => checkTodos(source));
 
   test('should take four parameters', () => {
-    expect(exported).toBeDefined();
     expect(tellFortune).toHaveLength(4);
   });
 
   test('should call function `selectRandomly` for each of its arguments', () => {
-    expect(exported).toBeDefined();
     expect(state.selectRandomlyArgs).toBeDefined();
     expect(state.selectRandomlyArgs).toEqual(
       expect.arrayContaining(state.tellFortuneParams)
     );
   });
 
+  test('`numKids` should be an array initialized with 5 elements', () => {
+    const { numKids } = state;
+    expect(Array.isArray(numKids)).toBe(true);
+    expect(numKids).toHaveLength(5);
+  });
+
+  test('`locations` should be an array initialized with 5 elements', () => {
+    const { locations } = state;
+    expect(Array.isArray(locations)).toBe(true);
+    expect(locations).toHaveLength(5);
+  });
+
+  test('`partnerNames` should be an array initialized with 5 elements', () => {
+    const { partnerNames } = state;
+    expect(Array.isArray(partnerNames)).toBe(true);
+    expect(partnerNames).toHaveLength(5);
+  });
+
+  test('`jobTitles` should be an array initialized with 5 elements', () => {
+    const { jobTitles } = state;
+    expect(Array.isArray(jobTitles)).toBe(true);
+    expect(jobTitles).toHaveLength(5);
+  });
+
   test('should tell the fortune by randomly selecting array values', () => {
-    expect(exported).toBeDefined();
+    expect(tellFortune).toBeDefined();
     const { numKids, partnerNames, locations, jobTitles } = state;
-
-    const arraysOkay =
-      Array.isArray(numKids) &&
-      numKids.length === 5 &&
-      Array.isArray(locations) &&
-      locations.length === 5 &&
-      Array.isArray(partnerNames) &&
-      partnerNames.length === 5 &&
-      Array.isArray(jobTitles) &&
-      jobTitles.length === 5;
-
-    expect(
-      arraysOkay
-        ? ''
-        : 'numKids, locations, partnerNames and jobTitles arrays must exist with five elements each'
-    ).toBe('');
 
     const spy = jest.spyOn(Math, 'random').mockReturnValue(0);
 
@@ -92,12 +98,12 @@ describe('tellFortune', () => {
     expect(
       spy.mock.calls.length === 4
         ? ''
-        : 'fortune-telling is not randomly composed'
+        : 'selectRandomly() is not called the expected number of times'
     ).toBe('');
     spy.mockRestore();
 
     expect(received).toBe(
-      `You will be a ${jobTitles[0]} in ${locations[0]}, married to ${partnerNames[0]} with ${numKids[0]} kids.`
+      `You will be a ${jobTitles?.[0]} in ${locations?.[0]}, married to ${partnerNames?.[0]} with ${numKids?.[0]} kids.`
     );
   });
 });

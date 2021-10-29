@@ -39,7 +39,7 @@ describe('wallet', () => {
     expect(state.answers[3] === 'a').toBe(true);
   });
 
-  test('q5: The owner of the wallet with insufficient funds is:', () => {
+  test('q5: The owner of the wallet with insufficient funds is?', () => {
     expect(state.answers[4] === 'c').toBe(true);
   });
 });
