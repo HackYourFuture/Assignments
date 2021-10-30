@@ -44,10 +44,10 @@ function selectRandomly(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function tellFortune(numC, namP, gLoc, jobT) {
-  const fortune = `You will be a ${selectRandomly(jobT)} in ${selectRandomly(
-    gLoc
-  )}, married to ${selectRandomly(namP)} with ${selectRandomly(numC)} kids.`;
+function tellFortune(numberOfChild, partnerName, location, jobTitle) {
+  const fortune = `You will be a ${selectRandomly(jobTitle)} in ${selectRandomly(
+    location
+  )}, married to ${selectRandomly(partnerName)} with ${selectRandomly(numberOfChild)} kids.`;
 
   return fortune;
 }

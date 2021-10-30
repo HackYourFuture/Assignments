@@ -25,13 +25,13 @@ function giveCompliment(name) {
     "the best",
     "the number one",
     "amazing",
-    "wonderfull",
+    "wonderful",
     "lit",
     "incredible",
     "lovely",
     "a true wonder"
   ]
-  return `You are ${compliments[Math.floor(Math.random() * 10)]}, ${name}!`
+  return `You are ${compliments[Math.floor(Math.random() * compliments.length)]}, ${name}!`
 }
 
 const myName = 'Said';
