@@ -11,9 +11,10 @@ describe('whatsTheTime', () => {
   let rootNode, source;
   const state = {};
   let setIntervalSpy;
+  let window;
 
   beforeAll(async () => {
-    const window = await prepare();
+    window = await prepare();
 
     setIntervalSpy = jest.spyOn(window, 'setInterval');
 
@@ -36,6 +37,10 @@ describe('whatsTheTime', () => {
           }
         },
       });
+  });
+
+  afterAll(() => {
+    window.close();
   });
 
   test('HTML should be syntactically valid', () =>
