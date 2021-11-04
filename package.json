@@ -47,7 +47,7 @@
     "dotenv": "^10.0.0",
     "eslint": "^8.1.0",
     "eslint-plugin-hyf": "git://github.com/remarcmij/eslint-plugin-hyf.git",
-    "eslint-plugin-no-autofix": "^1.1.2",
+    "eslint-plugin-no-autofix": "^1.2.3",
     "fast-glob": "^3.2.7",
     "html-validate": "^6.1.0",
     "inquirer": "^8.2.0",
