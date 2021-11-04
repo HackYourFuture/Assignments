@@ -8,11 +8,12 @@ const {
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('catWalk', () => {
-  let rootNode, source;
+  let window, rootNode, source;
   const state = {};
 
   beforeAll(async () => {
-    const { document } = await prepare();
+    window = await prepare();
+    const { document } = window;
     state.outerHTML = document.documentElement.outerHTML;
     ({ rootNode, source } = beforeAllHelper(__filename, {
       noRequire: true,
@@ -32,6 +33,10 @@ describe('catWalk', () => {
           }
         },
       });
+  });
+
+  afterAll(() => {
+    window.close();
   });
 
   test('HTML should be syntactically valid', () =>
