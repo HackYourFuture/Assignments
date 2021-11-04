@@ -11,3 +11,18 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 ------------------------------------------------------------------------------*/
 
 // TODO add your JavaScript code here.
+const body = document.body;
+body.style.fontFamily = 'Arial, sans-serif';
+const nickName = document.getElementById('nickname');
+const favFood = document.getElementById('fav-food');
+const homeTown = document.getElementById('hometown');
+const myName = document.createTextNode('Ahmed');
+const myBestFood = document.createTextNode('falafel');
+const myHome = document.createTextNode('Amsterdam');
+nickName.appendChild(myName);
+favFood.appendChild(myBestFood);
+homeTown.appendChild(myHome);
+const className = document.querySelectorAll('li');
+className.forEach((li) => {
+  li.classList.add('list-item');
+});

@@ -33,13 +33,50 @@ const myBooks = [
   {
     title: 'The Pragmatic Programmer',
     author: 'Andrew Hunt',
-    isbn: '978-0201616224',
     alreadyRead: true,
+    isbn: '978-0201616224',
   },
 ];
 
 function createBookList(books) {
+  const imgs = [
+    {
+      title: 'The Design of Everyday Things',
+      img: './assets/the_design_of_everyday_things.jpg',
+    },
+    {
+      title: 'The Most Human Human',
+      img: './assets/the_most_human_human.jpg',
+    },
+    {
+      title: 'The Pragmatic Programmer',
+      img: './assets/the_pragmatic_programmer.jpg',
+    },
+  ];
   // TODO your code goes in here, return the ul element
+  const bookList = document.getElementById('bookList');
+  const ul = document.createElement('ul');
+  ul.classList.add('flex-ul');
+  books.forEach((book) => {
+    const li = document.createElement('li');
+    const p = document.createElement('p');
+    const img = document.createElement('img');
+
+    bookList.appendChild(li);
+    p.textContent = `${book.title}-${book.author}`;
+    li.appendChild(p);
+    const imgObject = imgs.filter((item) => item.title === book.title);
+    img.src = imgObject[0].img;
+    img.alt = book.title;
+    li.appendChild(img);
+    book.alreadyRead
+      ? li.classList.add('green-book')
+      : li.classList.add('red-book');
+  });
+  const allLi = document.querySelectorAll('li');
+  const liArray = Array.from(allLi);
+  liArray.forEach((liTag) => ul.appendChild(liTag));
+  return ul;
 }
 
 const ulElement = createBookList(myBooks);
