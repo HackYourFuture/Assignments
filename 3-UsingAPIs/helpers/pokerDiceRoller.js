@@ -18,7 +18,7 @@ const MIN_ROLLS = 3;
 const OFF_TABLE_AFTER = 6;
 
 // The number of milliseconds between rolls
-const ROLL_TIME = 500;
+const ROLL_TIME = process.env.NODE_ENV === 'test' ? 0 : 500;
 
 // The couple of possible roll orders of the side on which the dices can roll.
 // The number represent indexes into the `sides` array. The roll order to use
@@ -33,8 +33,12 @@ const rollOrders = [
 ];
 
 // A logger function that timestamps the console.log output
-const logStamped = (...args) =>
+const logStamped = (...args) => {
+  if (process.env.NODE_ENV === 'test') {
+    return;
+  }
   console.log(moment().format('HH:mm:ss.SSS'), ...args);
+};
 
 // A convenience function to get a random integer: 0 <= n < max
 const getRandomNumber = (max) => Math.floor(Math.random() * max);

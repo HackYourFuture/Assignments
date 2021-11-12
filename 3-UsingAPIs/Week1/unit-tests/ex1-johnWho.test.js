@@ -25,8 +25,10 @@ describe('getAnonName', () => {
             }
           }
         },
-        FunctionDeclaration({ params }) {
-          state.paramCount = params.length;
+        FunctionDeclaration({ id, params }) {
+          if (id.name === 'getAnonName') {
+            state.paramCount = params.length;
+          }
         },
         NewExpression({ callee }) {
           if (callee.type === 'Identifier' && callee.name === 'Promise') {

@@ -57,6 +57,13 @@ describe('checkDoubleDigits', () => {
     ).toBe(true);
   });
 
+  test('(9) should return a rejected promise with an Error object', () => {
+    expect.assertions(2);
+    const promise = checkDoubleDigits(9);
+    expect(promise).toBeInstanceOf(Promise);
+    return expect(promise).rejects.toBeInstanceOf(Error);
+  });
+
   test('(10) should return a promise that resolves to "This is a double digit number!"', () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
@@ -76,16 +83,9 @@ describe('checkDoubleDigits', () => {
     );
   });
 
-  test('(5) should return a rejected promise with an Error object', () => {
+  test('(100) should return a rejected promise with an Error object', () => {
     expect.assertions(2);
-    const promise = checkDoubleDigits(5);
-    expect(promise).toBeInstanceOf(Promise);
-    return expect(promise).rejects.toBeInstanceOf(Error);
-  });
-
-  test('(123) should return a rejected promise with an Error object', () => {
-    expect.assertions(2);
-    const promise = checkDoubleDigits(123);
+    const promise = checkDoubleDigits(100);
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).rejects.toBeInstanceOf(Error);
   });

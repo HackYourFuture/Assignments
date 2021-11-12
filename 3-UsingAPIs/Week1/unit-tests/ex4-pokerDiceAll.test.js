@@ -11,8 +11,6 @@ describe('ex4-pokerDiceAll', () => {
 
   beforeAll(() => {
     ({ exported, rootNode, source } = beforeAllHelper(__filename, {
-      nukeTimers: true,
-      zeroRandom: true,
       parse: true,
     }));
     rollTheDices = exported;

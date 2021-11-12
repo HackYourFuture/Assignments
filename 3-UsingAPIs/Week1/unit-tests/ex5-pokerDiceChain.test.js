@@ -7,8 +7,7 @@ describe('ex5-pokerDiceChain', () => {
   let exported, source, rollTheDices;
 
   beforeAll(() => {
-    ({ exported, source } = beforeAllHelper(__filename)),
-      { nukeTimers: true, zeroRandom: true };
+    ({ exported, source } = beforeAllHelper(__filename));
     rollTheDices = exported;
   });
 

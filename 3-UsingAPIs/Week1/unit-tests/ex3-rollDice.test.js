@@ -11,8 +11,6 @@ describe('rollDice', () => {
 
   beforeAll(() => {
     ({ exported, rootNode, source } = beforeAllHelper(__filename, {
-      nukeTimers: true,
-      zeroRandom: true,
       parse: true,
     }));
     rollDice = exported;

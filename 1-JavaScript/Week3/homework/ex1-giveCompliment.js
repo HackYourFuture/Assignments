@@ -22,18 +22,23 @@ function giveCompliment(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
 
-// TODO substitute your own name for "HackYourFuture"
-const myName = 'HackYourFuture';
+function main() {
+  // TODO substitute your own name for "HackYourFuture"
+  const myName = 'HackYourFuture';
 
-console.log(giveCompliment(myName));
-console.log(giveCompliment(myName));
-console.log(giveCompliment(myName));
+  console.log(giveCompliment(myName));
+  console.log(giveCompliment(myName));
+  console.log(giveCompliment(myName));
 
-const yourName = 'Amsterdam';
+  const yourName = 'Amsterdam';
 
-console.log(giveCompliment(yourName));
-console.log(giveCompliment(yourName));
-console.log(giveCompliment(yourName));
+  console.log(giveCompliment(yourName));
+  console.log(giveCompliment(yourName));
+  console.log(giveCompliment(yourName));
+}
 
 // ! Do not change or remove the code below
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}
 module.exports = giveCompliment;

@@ -29,9 +29,14 @@ function rollTheDices() {
     });
 }
 
-rollTheDices()
-  .then((results) => console.log('Resolved!', results))
-  .catch((error) => console.log('Rejected!', error.message));
+function main() {
+  rollTheDices()
+    .then((results) => console.log('Resolved!', results))
+    .catch((error) => console.log('Rejected!', error.message));
+}
 
 // ! Do not change or remove the code below
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}
 module.exports = rollTheDices;

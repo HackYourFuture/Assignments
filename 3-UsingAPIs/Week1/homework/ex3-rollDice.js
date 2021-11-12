@@ -44,14 +44,19 @@ function rollDice(callback) {
   rollOnce(1);
 }
 
-// TODO Refactor to use promise
-rollDice((error, value) => {
-  if (error !== null) {
-    console.log(error.message);
-  } else {
-    console.log(`Success! Dice settled on ${value}.`);
-  }
-});
+function main() {
+  // TODO Refactor to use promise
+  rollDice((error, value) => {
+    if (error !== null) {
+      console.log(error.message);
+    } else {
+      console.log(`Success! Dice settled on ${value}.`);
+    }
+  });
+}
 
 // ! Do not change or remove the code below
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}
 module.exports = rollDice;
