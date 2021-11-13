@@ -45,11 +45,7 @@ describe('ex4-pokerDiceAll', () => {
     expect.assertions(4);
     expect(exported).toBeDefined();
 
-    const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
-    const setTimeoutSpy = jest
-      .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => cb());
 
     const promise = rollTheDices();
     expect(promise).toBeInstanceOf(Promise);
@@ -58,9 +54,7 @@ describe('ex4-pokerDiceAll', () => {
     expect(result).toHaveLength(5);
 
     promise.finally(() => {
-      setTimeoutSpy.mockRestore();
       randomSpy.mockRestore();
-      logSpy.mockRestore();
     });
   });
 
@@ -68,11 +62,7 @@ describe('ex4-pokerDiceAll', () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
 
-    const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
-    const setTimeoutSpy = jest
-      .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => cb());
 
     try {
       const promise = rollTheDices();
@@ -81,9 +71,7 @@ describe('ex4-pokerDiceAll', () => {
     } catch (err) {
       expect(err).toBeInstanceOf(Error);
     } finally {
-      setTimeoutSpy.mockRestore();
       randomSpy.mockRestore();
-      logSpy.mockRestore();
     }
   });
 });

@@ -66,8 +66,6 @@ describe('ex3-rollAnAce', () => {
 
     expect(exported).toBeDefined();
 
-    const logSpy = jest.spyOn(console, 'log').mockImplementation();
-
     // This sequence is known to settle on an ACE in three throws.
     const randomSpy = jest
       .spyOn(global.Math, 'random')
@@ -83,9 +81,6 @@ describe('ex3-rollAnAce', () => {
       .mockReturnValueOnce(0.2644310391073186)
       .mockReturnValueOnce(0.8856626254905846)
       .mockReturnValueOnce(0.6403424753337192);
-    const setTimeoutSpy = jest
-      .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => cb());
 
     try {
       const promise = rollDiceUntil('ACE');
@@ -93,17 +88,13 @@ describe('ex3-rollAnAce', () => {
       const result = await promise;
       expect(result).toBe('ACE');
     } finally {
-      setTimeoutSpy.mockRestore();
       randomSpy.mockRestore();
-      logSpy.mockRestore();
     }
   });
 
   test('should reject with an Error when a dice rolls off the table', async () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
-
-    const logSpy = jest.spyOn(console, 'log').mockImplementation();
 
     // This sequence is known to cause the dice to roll off the table
     // in two throws.
@@ -117,9 +108,6 @@ describe('ex3-rollAnAce', () => {
       .mockReturnValueOnce(0.4756738537780816)
       .mockReturnValueOnce(0.38174035952881447)
       .mockReturnValueOnce(0.7714732722437749);
-    const setTimeoutSpy = jest
-      .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => cb());
 
     try {
       const promise = rollDiceUntil('ACE');
@@ -128,9 +116,7 @@ describe('ex3-rollAnAce', () => {
     } catch (err) {
       expect(err).toBeInstanceOf(Error);
     } finally {
-      setTimeoutSpy.mockRestore();
       randomSpy.mockRestore();
-      logSpy.mockRestore();
     }
   });
 });
