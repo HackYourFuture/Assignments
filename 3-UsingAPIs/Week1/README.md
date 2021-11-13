@@ -87,14 +87,16 @@ function rollDice(callback) {
   rollOnce(1);
 }
 
-// TODO Refactor to use promise
-rollDice((error, value) => {
-  if (error !== null) {
-    console.log(error.message);
-  } else {
-    console.log(`Success! Dice settled on ${value}.`);
-  }
-});
+function main() {
+  // TODO Refactor to use promise
+  rollDice((error, value) => {
+    if (error !== null) {
+      console.log(error.message);
+    } else {
+      console.log(`Success! Dice settled on ${value}.`);
+    }
+  });
+}
 ```
 
 > A couple of comments about this code:
@@ -191,7 +193,7 @@ function wasteTime() {
   const timer = setInterval(() => {
     count += 1;
     console.log('count =', count);
-    if (count > 100) {
+    if (count > 1000) {
       clearInterval(timer);
     }
   }, 0);
@@ -208,12 +210,11 @@ Dice value is now: 5
 count = 1
 count = 2
 ...
-count = 73
+count = 443
 Dice value is now: 4
-count = 74
-count = 75
+count = 444
 ...
-count = 101
+count = 1001
 Dice value is now: 1
 Dice value is now: 4
 Success! Dice settled on 4.
