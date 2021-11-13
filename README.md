@@ -1,10 +1,12 @@
 # Homework
 
-This repository contains all of the homework exercises that need to be handed in for the HackYourFuture curriculum.
+This repository contains all of the homework exercises that need to be handed in for the JavaScript modules (i.e., JavaScript, Browsers and UsingAPIs) of the HackYourFuture curriculum.
 
 ## Introduction
 
-Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain homework exercises. This repository contains all of these exercises. The class repository will tell you how to hand in the homework, the curriculum will indicate what week you will need to do.
+Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain homework exercises. This repository contains all of these exercises for the JavaScript modules. The module repositories will tell you how to hand in the homework, the curriculum will indicate what week you will need to do.
+
+> Note that a fork of this repository will be created on the HackYourHomework GitHub account specifically for your class. The name of the repository will have the format `Homework-classXX` where `XX` is your class number,
 
 ## Installation
 
@@ -25,12 +27,16 @@ This command:
 You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) while working with this repository. To open it with VSCode you can use the command line:
 
 ```text
-code homework
+code Homework-classXX
 ```
+
+> When working on your homework it is strongly recommended to open `Homework-classXX` folder itself in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
 
 ### Install Recommended VSCode Extensions
 
 **Important**: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
+
+If, for some reason, the prompt to install the extensions does not appear then please install the extensions manually (click on the triangle below for details).
 
 <details>
   <summary>Manual installation</summary>
@@ -62,28 +68,40 @@ As mentioned, each exercise comes with starter code. Inside the starter code you
 
 ```js
 'use strict';
-/* -----------------------------------------------------------------------------
-1. Complete the function named `giveCompliment`as follows:
-...
-------------------------------------------------------------------------------*/
+/* 
+... 
+*/
 function giveCompliment(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
 
-// TODO substitute your own name for "HackYourFuture"
-const myName = 'HackYourFuture';
+function main() {
+  // TODO substitute your own name for "HackYourFuture"
+  const myName = 'HackYourFuture';
 
-console.log(giveCompliment(myName));
-console.log(giveCompliment(myName));
-console.log(giveCompliment(myName));
+  console.log(giveCompliment(myName));
+  console.log(giveCompliment(myName));
+  console.log(giveCompliment(myName));
+
+  const yourName = 'Amsterdam';
+
+  console.log(giveCompliment(yourName));
+  console.log(giveCompliment(yourName));
+  console.log(giveCompliment(yourName));
+}
 
 // ! Do not change or remove the code below
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}
 module.exports = giveCompliment;
 ```
 
 Figure 2. Starter code example: file `ex1-giveCompliment.js`.
 
-In general, you should only change or add code in the places indicated by the `// TODO` comments. You should not delete or rename existing function(s), nor should you change the file names of the starter files. This repository comes with an automated test facility that relies on the presence of these files and functions.
+In general, you should only change or add code in the places indicated by the `// TODO` comments. Once you have implemented what the `// TODO` comment asks you to do, remove the `// TODO` comment itself.
+
+You should not delete or rename existing function(s), nor should you change the file names of the starter files. This repository comes with an automated test facility that relies on the presence of these files and functions.
 
 You _are_ allowed to add additional functions and/or global variables (but avoid global variables if you can).
 
@@ -104,7 +122,7 @@ This indicates that you have unsaved changes. Once you are done, you can use the
 
 This is a recommended VSCode extension that we have included in this repo. **Prettier** is an automatic code formatter to make your code look "pretty". However, it is not just that your code is made pretty, it formats your code into a popular standard that has become well established in the JavaScript community. Other developers, whether students, mentors or, later, your colleagues will thank you for using it.
 
-> Ensure that you do not install any other code formatter extensions, for example, **Beautify**, in addition to Prettier. This will cause formatting conflicts.
+> Ensure that you do not install any other code formatter extensions, for example, **Beautify**, in addition to Prettier. This may cause formatting conflicts.
 
 ### ESLint VSCode Extension
 
@@ -290,7 +308,9 @@ In addition, a log of the test results is written to a log file in the root dire
 
 > **IMPORTANT: You are expected to run all the tests for the current week before submitting a pull request.**
 >
-> You should strive to complete all tests with no errors reported, however it is okay if for some reason you were unable to fix some error. However, you _**are**_ required to run the tests, whether successful or not.
+> You should strive to complete all tests with no errors reported, however it is okay if for some reason you were unable to fix some error. Nevertheless, you _**are**_ required to run the tests, whether successful or not.
+>
+> The test reports should be included in your Pull Request (for the benefit of the homework reviewer).
 
 ## Homework Exercise Instructions
 
