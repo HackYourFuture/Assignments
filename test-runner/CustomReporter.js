@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 class MyCustomReporter {
   onRunComplete(contexts, results) {
     let report = '';
@@ -35,7 +36,9 @@ class MyCustomReporter {
           });
 
           // The full name (i.e. title) of a failing test is always reported.
-          return `- ${fullName}${details}`;
+          return `${chalk.red('✕')} ${chalk.red(fullName)}${chalk.gray(
+            details
+          )}`;
         })
         .join('\n');
     });
