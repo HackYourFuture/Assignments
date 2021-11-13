@@ -9,6 +9,10 @@
   "files.autoSave": "onFocusChange",
   "prettier.trailingComma": "es5",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    // override possible JavaScript specific user setting
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
   "editor.guides.highlightActiveIndentation": true,
