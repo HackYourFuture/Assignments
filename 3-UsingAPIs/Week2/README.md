@@ -81,7 +81,7 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
 
 3. Refactor the function `main()` to use async/await and try/catch.
 
-### Exercise 4: Die Race
+### Exercise 4: Dice Race
 
 #### File `ex4-diceRace.js`
 

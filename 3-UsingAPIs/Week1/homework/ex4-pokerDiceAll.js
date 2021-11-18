@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-4-throw-the-dice-for-a-poker-die-game
+Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-4-throw-the-dice-for-a-poker-dice-game
 
 For this exercise you should do the following:
   - Refactor the `rollTheDice()` function to throw five dice in one go, by 

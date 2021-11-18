@@ -1,6 +1,6 @@
 'use strict';
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/blob/main/3-UsingAPIs/Week2/README.md#exercise-4-die-race
+Full description at: https://github.com/HackYourFuture/Homework/blob/main/3-UsingAPIs/Week2/README.md#exercise-4-dice-race
 
 1. Complete the function `rollTheDice()` by using `.map()` on the `dice` array 
    to create an array of promises for use with `Promise.race()`.
