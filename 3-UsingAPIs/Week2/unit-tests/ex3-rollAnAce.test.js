@@ -8,14 +8,14 @@ const {
 
 describe('ex3-rollAnAce', () => {
   const state = {};
-  let exported, rootNode, rollDiceUntil, source;
+  let exported, rootNode, rollDieUntil, source;
 
   beforeAll(async () => {
     ({ rootNode, exported, source } = beforeAllHelper(__filename, {
       parse: true,
     }));
 
-    rollDiceUntil = exported;
+    rollDieUntil = exported;
 
     rootNode &&
       walk.ancestor(rootNode, {
@@ -33,12 +33,12 @@ describe('ex3-rollAnAce', () => {
           state.await = true;
         },
         CallExpression({ callee }, ancestors) {
-          if (callee.name === 'rollDiceUntil') {
+          if (callee.name === 'rollDieUntil') {
             const functionDeclaration = findAncestor(
               'FunctionDeclaration',
               ancestors
             );
-            if (functionDeclaration?.id?.name === 'rollDiceUntil') {
+            if (functionDeclaration?.id?.name === 'rollDieUntil') {
               state.recursive = true;
             }
           }
@@ -61,7 +61,7 @@ describe('ex3-rollAnAce', () => {
     expect(state.tryCatch).toBeDefined();
   });
 
-  test('should resolve as soon as a dice settles on an ACE', async () => {
+  test('should resolve as soon as a die settles on an ACE', async () => {
     expect.assertions(3);
 
     expect(exported).toBeDefined();
@@ -83,7 +83,7 @@ describe('ex3-rollAnAce', () => {
       .mockReturnValueOnce(0.6403424753337192);
 
     try {
-      const promise = rollDiceUntil('ACE');
+      const promise = rollDieUntil('ACE');
       expect(promise).toBeInstanceOf(Promise);
       const result = await promise;
       expect(result).toBe('ACE');
@@ -92,11 +92,11 @@ describe('ex3-rollAnAce', () => {
     }
   });
 
-  test('should reject with an Error when a dice rolls off the table', async () => {
+  test('should reject with an Error when a die rolls off the table', async () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
 
-    // This sequence is known to cause the dice to roll off the table
+    // This sequence is known to cause the die to roll off the table
     // in two throws.
     const randomSpy = jest
       .spyOn(global.Math, 'random')
@@ -110,7 +110,7 @@ describe('ex3-rollAnAce', () => {
       .mockReturnValueOnce(0.7714732722437749);
 
     try {
-      const promise = rollDiceUntil('ACE');
+      const promise = rollDieUntil('ACE');
       expect(promise).toBeInstanceOf(Promise);
       await promise;
     } catch (err) {

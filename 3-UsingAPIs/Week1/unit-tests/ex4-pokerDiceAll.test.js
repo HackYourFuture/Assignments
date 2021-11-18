@@ -7,21 +7,21 @@ const {
 
 describe('ex4-pokerDiceAll', () => {
   const state = {};
-  let exported, rootNode, source, rollTheDices;
+  let exported, rootNode, source, rollTheDice;
 
   beforeAll(() => {
     ({ exported, rootNode, source } = beforeAllHelper(__filename, {
       parse: true,
     }));
-    rollTheDices = exported;
+    rollTheDice = exported;
 
     rootNode &&
       walk.simple(rootNode, {
         MemberExpression({ object, property }) {
           if (object.name === 'Promise' && property.name === 'all') {
             state.promiseAll = true;
-          } else if (object.name === 'dices' && property.name === 'map') {
-            state.dicesMap = true;
+          } else if (object.name === 'dice' && property.name === 'map') {
+            state.diceMap = true;
           }
         },
       });
@@ -33,21 +33,21 @@ describe('ex4-pokerDiceAll', () => {
 
   test('should have all TODO comments removed', () => checkTodos(source));
 
-  test('should use `dices.map()`', () => {
-    expect(state.dicesMap).toBeDefined();
+  test('should use `dice.map()`', () => {
+    expect(state.diceMap).toBeDefined();
   });
 
   test('should use `Promise.all()`', () => {
     expect(state.promiseAll).toBeDefined();
   });
 
-  test('should resolve when all dices settle successfully', async () => {
+  test('should resolve when all dice settle successfully', async () => {
     expect.assertions(4);
     expect(exported).toBeDefined();
 
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
 
-    const promise = rollTheDices();
+    const promise = rollTheDice();
     expect(promise).toBeInstanceOf(Promise);
     const result = await promise;
     expect(Array.isArray(result)).toBe(true);
@@ -58,14 +58,14 @@ describe('ex4-pokerDiceAll', () => {
     });
   });
 
-  test('should reject with an Error when a dice rolls off the table', async () => {
+  test('should reject with an Error when a die rolls off the table', async () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
 
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
 
     try {
-      const promise = rollTheDices();
+      const promise = rollTheDice();
       expect(promise).toBeInstanceOf(Promise);
       await promise;
     } catch (err) {

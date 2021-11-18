@@ -5,15 +5,15 @@ const {
   checkTodos,
 } = require('../../../test-runner/unit-test-helpers');
 
-describe('rollDice', () => {
+describe('rollDie', () => {
   const state = {};
-  let exported, rootNode, source, rollDice;
+  let exported, rootNode, source, rollDie;
 
   beforeAll(() => {
     ({ exported, rootNode, source } = beforeAllHelper(__filename, {
       parse: true,
     }));
-    rollDice = exported;
+    rollDie = exported;
 
     rootNode &&
       walk.simple(rootNode, {
@@ -48,7 +48,7 @@ describe('rollDice', () => {
     expect(state.reject).toBe(1);
   });
 
-  test('should resolve when the dice settles successfully', () => {
+  test('should resolve when the die settles successfully', () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
 
@@ -58,7 +58,7 @@ describe('rollDice', () => {
       .spyOn(global, 'setTimeout')
       .mockImplementation((cb) => cb());
 
-    const promise = rollDice();
+    const promise = rollDie();
     expect(promise).toBeInstanceOf(Promise);
     const assertionPromise = expect(promise).resolves.toBeDefined();
 
@@ -71,7 +71,7 @@ describe('rollDice', () => {
     return assertionPromise;
   });
 
-  test('should reject with an Error when the dice rolls off the table', async () => {
+  test('should reject with an Error when the die rolls off the table', async () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
 
@@ -82,7 +82,7 @@ describe('rollDice', () => {
       .mockImplementation((cb) => cb());
 
     try {
-      const promise = rollDice();
+      const promise = rollDie();
       expect(promise).toBeInstanceOf(Promise);
       await promise;
     } catch (err) {
