@@ -2,18 +2,19 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('ex4-diceRace', () => {
   const state = {};
-  let exported, rootNode, source, rollTheDice;
+  let exported, rootNode, source, rollDice;
 
   beforeAll(() => {
     ({ exported, rootNode, source } = beforeAllHelper(__filename, {
       parse: true,
     }));
-    rollTheDice = exported;
+    rollDice = exported;
 
     rootNode &&
       walk.simple(rootNode, {
@@ -31,7 +32,9 @@ describe('ex4-diceRace', () => {
     expect(exported).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
+
+  testNoConsoleLog('rollDice', () => rootNode);
 
   test('should use `dice.map()`', () => {
     expect(state.diceMap).toBeDefined();
@@ -47,7 +50,7 @@ describe('ex4-diceRace', () => {
 
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
 
-    const promise = rollTheDice();
+    const promise = rollDice();
     expect(promise).toBeInstanceOf(Promise);
     const result = await promise;
     expect(typeof result).toBe('string');
@@ -64,7 +67,7 @@ describe('ex4-diceRace', () => {
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
 
     try {
-      const promise = rollTheDice();
+      const promise = rollDice();
       expect(promise).toBeInstanceOf(Promise);
       await promise;
     } catch (err) {

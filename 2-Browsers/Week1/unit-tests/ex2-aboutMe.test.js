@@ -1,16 +1,26 @@
+const {
+  beforeAllHelper,
+  testTodosRemoved,
+} = require('../../../test-runner/unit-test-helpers');
 const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 
 describe('Generated HTML', () => {
   const state = {};
-  let window, document;
+  let window, document, source;
 
   beforeAll(async () => {
     window = await prepare();
     document = window.document;
     state.outerHTML = document.documentElement.outerHTML;
+
+    ({ source } = beforeAllHelper(__filename, {
+      noRequire: true,
+    }));
   });
 
   test('should be syntactically valid', () => validateHTML(state.outerHTML));
+
+  testTodosRemoved(() => source);
 
   test('the body font-family should be `Arial, sans-serif`', () => {
     const fontFamily = document.body.style.fontFamily;

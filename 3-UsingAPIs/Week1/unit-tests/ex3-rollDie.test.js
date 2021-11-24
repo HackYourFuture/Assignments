@@ -2,7 +2,7 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('rollDie', () => {
@@ -34,7 +34,7 @@ describe('rollDie', () => {
     expect(exported).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
 
   test('should call `new Promise()`', () => {
     expect(state.newPromise).toBeDefined();

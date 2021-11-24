@@ -238,7 +238,7 @@ In this exercise we have provided a ready-made `rollDie()` function for you that
 
 We have also provided some code that demonstrates how to handle throwing a single die. For this exercise you should do the following:
 
-- Refactor the `rollTheDice()` function to throw five dice in one go, by using `.map()` on the `dice` array to create an array of promises for use with `Promise.all()`.
+- Refactor the `rollDice()` function to throw five dice in one go, by using `.map()` on the `dice` array to create an array of promises for use with `Promise.all()`.
 - A successful (i.e. resolved) throw should output a message similar to:
 
   ```text

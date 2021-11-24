@@ -4,7 +4,7 @@ const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 const {
   beforeAllHelper,
   onloadValidator,
-  checkTodos,
+  testTodosRemoved,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('whatsTheTime', () => {
@@ -46,7 +46,7 @@ describe('whatsTheTime', () => {
   test('HTML should be syntactically valid', () =>
     validateHTML(state.outerHTML));
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
 
   test('should use `setInterval()`', () => {
     expect(state.setInterval).toBeDefined();

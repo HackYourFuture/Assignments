@@ -1,17 +1,20 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+const {
+  beforeAllHelper,
+  testTodosRemoved,
+} = require('../../../test-runner/unit-test-helpers');
 const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 
 describe('Generated HTML', () => {
   const state = {};
-  let document, rootNode;
+  let document, source, rootNode;
 
   beforeAll(async () => {
     ({ document } = await prepare());
     state.outerHTML = document.documentElement.outerHTML;
 
-    ({ rootNode } = beforeAllHelper(__filename, {
+    ({ rootNode, source } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
     }));
@@ -37,6 +40,8 @@ describe('Generated HTML', () => {
 
   test('HTML should be syntactically valid', () =>
     validateHTML(state.outerHTML));
+
+  testTodosRemoved(() => source);
 
   test('should contain a <ul> that is a child of <div id="bookList">', () => {
     const ul = document.querySelector('div[id=bookList] > ul');

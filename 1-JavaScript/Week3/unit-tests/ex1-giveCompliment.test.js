@@ -3,7 +3,8 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('giveCompliment', () => {
@@ -30,7 +31,9 @@ describe('giveCompliment', () => {
     expect(giveCompliment).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
+
+  testNoConsoleLog('giveCompliment', () => rootNode);
 
   test('should take a single parameter', () => {
     expect(giveCompliment).toHaveLength(1);

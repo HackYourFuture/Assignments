@@ -2,7 +2,7 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('hijackLogo', () => {
@@ -25,7 +25,7 @@ describe('hijackLogo', () => {
       });
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
 
   test('should set the `src` property', () => {
     expect(state.src).toBeDefined();

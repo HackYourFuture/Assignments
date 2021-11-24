@@ -1,9 +1,9 @@
 const path = require('path');
 const jsdom = require('jsdom');
 const { HtmlValidate } = require('html-validate');
-const { getFormatter } = require('html-validate/dist/cli/formatter');
+// const { getFormatter } = require('html-validate/dist/cli/formatter');
 const htmlValidateOptions = require('../.htmlvalidate.json');
-const stylish = getFormatter('stylish');
+const stylish = require('@html-validate/stylish');
 
 const { JSDOM } = jsdom;
 
@@ -41,8 +41,8 @@ const htmlValidate = new HtmlValidate(htmlValidateOptions);
 
 async function validateHTML(outerHTML) {
   const htmlText = `<!DOCTYPE html>\n${outerHTML}`;
-  const report = htmlValidate.validateString(htmlText);
-  const validationReport = stylish(report);
+  const { results } = htmlValidate.validateString(htmlText);
+  const validationReport = stylish(results);
   expect(validationReport).toBe('');
 }
 

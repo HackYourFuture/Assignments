@@ -1,14 +1,17 @@
 'use strict';
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('calculateDogAge', () => {
-  let exported, source, calculateDogAge;
+  let exported, source, rootNode, calculateDogAge;
 
   beforeAll(() => {
-    ({ exported, source } = beforeAllHelper(__filename));
+    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
+      parse: true,
+    }));
     calculateDogAge = exported;
   });
 
@@ -16,7 +19,9 @@ describe('calculateDogAge', () => {
     expect(calculateDogAge).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
+
+  testNoConsoleLog('calculateDogAge', () => rootNode);
 
   test('should take a single parameter', () => {
     expect(calculateDogAge).toBeDefined();

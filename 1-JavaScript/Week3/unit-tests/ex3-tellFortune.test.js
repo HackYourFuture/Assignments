@@ -3,7 +3,8 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('tellFortune', () => {
@@ -50,7 +51,9 @@ describe('tellFortune', () => {
     expect(tellFortune).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
+
+  testNoConsoleLog('tellFortune', () => rootNode);
 
   test('should take four parameters', () => {
     expect(tellFortune).toHaveLength(4);

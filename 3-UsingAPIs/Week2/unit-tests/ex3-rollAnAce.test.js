@@ -2,7 +2,8 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
   findAncestor,
 } = require('../../../test-runner/unit-test-helpers');
 
@@ -46,7 +47,9 @@ describe('ex3-rollAnAce', () => {
       });
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
+
+  testNoConsoleLog('rollDieUntil', () => rootNode);
 
   test('should not include a recursive call', () => {
     expect(state.recursive).toBeUndefined();

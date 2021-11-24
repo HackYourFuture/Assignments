@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const acorn = require('acorn');
+const walk = require('acorn-walk');
 
 const defaultOptions = {
   parse: false,
@@ -97,13 +98,50 @@ function onloadValidator(state) {
   };
 }
 
-function checkTodos(source) {
-  expect(source.includes('TODO')).toBeFalsy();
+function testTodosRemoved(getSource) {
+  test('should have all TODO comments removed', () => {
+    expect(getSource().includes('TODO')).toBeFalsy();
+  });
+}
+
+function testNoConsoleLog(functionName, getRootNode) {
+  test(`\`${functionName}\` should not contain unneeded console.log calls`, () => {
+    const rootNode = getRootNode();
+    let callsConsoleLog = false;
+    rootNode &&
+      walk.ancestor(rootNode, {
+        CallExpression({ callee }, ancestors) {
+          if (
+            callee.object?.name === 'console' &&
+            callee.property?.name === 'log'
+          ) {
+            const functionDeclaration = findAncestor(
+              'FunctionDeclaration',
+              ancestors
+            );
+            if (functionDeclaration?.id?.name === functionName) {
+              callsConsoleLog = true;
+              return;
+            }
+            const variableDeclarator = findAncestor(
+              'VariableDeclarator',
+              ancestors
+            );
+            if (variableDeclarator?.id?.name === functionName) {
+              callsConsoleLog = true;
+            }
+          }
+        },
+      });
+
+    expect(callsConsoleLog).toBe(false);
+  });
 }
 
 module.exports = {
   beforeAllHelper,
   findAncestor,
   onloadValidator,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 };

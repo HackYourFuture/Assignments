@@ -87,7 +87,7 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
 
 In this exercise we will again throw five dice in one go, but this time we are only interested in the first die that settles successfully (promise resolved) or rolls off the table (promise rejected). This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
 
-1. Complete the function `rollTheDice()` by using `.map()` on the `dice` array to create an array of promises for use with `Promise.race()`.
+1. Complete the function `rollDice()` by using `.map()` on the `dice` array to create an array of promises for use with `Promise.race()`.
 2. Refactor the function `main()` using async/await and try/catch.
 3. Once you got this working, you may observe that some dice continue rolling for some undetermined time after the promise returned by `Promise.race()` resolves. Do you know why? Add your answer as a comment to the bottom of the file.
 

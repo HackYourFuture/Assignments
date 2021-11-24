@@ -3,7 +3,8 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('checkDoubleDigits', () => {
@@ -36,7 +37,9 @@ describe('checkDoubleDigits', () => {
     expect(exported).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
+
+  testNoConsoleLog('checkDoubleDigits', () => rootNode);
 
   test('should call new Promise()', () => {
     expect(state.newPromise).toBeDefined();

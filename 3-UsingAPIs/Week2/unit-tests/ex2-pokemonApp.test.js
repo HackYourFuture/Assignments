@@ -3,7 +3,7 @@ const walk = require('acorn-walk');
 const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('pokemonApp', () => {
@@ -39,7 +39,7 @@ describe('pokemonApp', () => {
   test('HTML should be syntactically valid', () =>
     validateHTML(state.outerHTML));
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
 
   test('should use `fetch()`', () => {
     expect(state.fetch).toBeDefined();
