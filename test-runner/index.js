@@ -149,7 +149,7 @@ async function execJest(exercisePath, homeworkFolder) {
     console.log(verbose ? stderr : chalk.green(message));
     return '';
   } catch (err) {
-    const output = err.stdout + err.message;
+    const output = `${err.stdout}\n\n${err.message}`.trim();
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(verbose ? output : chalk.red(output));

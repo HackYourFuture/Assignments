@@ -169,8 +169,9 @@ function main() {
   start();
 }
 
-// Start execution when the browser has finished loading the page.
-window.onload = main;
-
 // ! Do not change or remove any code below
-module.exports = createGame;
+try {
+  window.addEventListener('load', main);
+} catch {
+  module.exports = createGame;
+}

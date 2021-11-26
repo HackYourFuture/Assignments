@@ -33,6 +33,8 @@ function beforeAllHelper(testFilePath, options = {}) {
 
   if (!options.noRequire) {
     try {
+      // suppress all console.log output
+      jest.spyOn(console, 'log').mockImplementation();
       result.exported = require(exercisePath);
     } catch (err) {
       console.log('Error attempting to `require`:', err);
@@ -100,7 +102,7 @@ function onloadValidator(state) {
 
 function testTodosRemoved(getSource) {
   test('should have all TODO comments removed', () => {
-    expect(getSource().includes('TODO')).toBeFalsy();
+    expect(/\bTODO\b/.test(getSource())).toBeFalsy();
   });
 }
 
