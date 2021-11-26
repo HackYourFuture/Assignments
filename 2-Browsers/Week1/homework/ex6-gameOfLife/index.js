@@ -173,5 +173,7 @@ function main() {
 try {
   window.addEventListener('load', main);
 } catch {
-  module.exports = createGame;
+  // ignore if running in node with jest
 }
+
+module.exports = createGame;
