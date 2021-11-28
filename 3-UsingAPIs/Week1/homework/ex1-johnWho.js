@@ -22,7 +22,12 @@ const getAnonName = (firstName, callback) => {
   }, 1000);
 };
 
-getAnonName('John', console.log);
+function main() {
+  getAnonName('John', console.log);
+}
 
 // ! Do not change or remove the code below
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}
 module.exports = getAnonName;

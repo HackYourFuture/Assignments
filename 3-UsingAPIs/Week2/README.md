@@ -53,15 +53,15 @@ Function | Purpose
 
 #### File `ex3-rollAnAce.js`
 
-Last week we did an exercise where we threw five dices in one go for a game of Poker Dice. In the current exercise we use a single dice only, but now the objective is to keep rethrowing that dice until we get an ACE, or until a dice rolls off the table.
+Last week we did an exercise where we threw five dice in one go for a game of Poker Die. In the current exercise we use a single die only, but now the objective is to keep rethrowing that die until we get an ACE, or until a die rolls off the table.
 
-The challenge of this exercise is that the outcome of one throw determines whether we need to do a next throw. If the `rollDice()` function resolves to an ACE then we're done. If not, we need another call to `rollDice()` and wait for it to resolve. And we need to repeat this until we get an ACE or until the promise rejects.
+The challenge of this exercise is that the outcome of one throw determines whether we need to do a next throw. If the `rollDie()` function resolves to an ACE then we're done. If not, we need another call to `rollDie()` and wait for it to resolve. And we need to repeat this until we get an ACE or until the promise rejects.
 
 The exercise file `ex3-rollAnAce.js` includes a function that does just that, using a `.then()` method. It uses a technique called _recursion_ (a function that calls itself) and looks like this:
 
 ```js
 function rollDiceUntil(wantedValue) {
-  return rollDice().then((value) => {
+  return rollDie().then((value) => {
     if (value !== wantedValue) {
       return rollDiceUntil(wantedValue);
     }
@@ -74,10 +74,10 @@ Hmm, while this works fine it is probably a bit difficult to wrap your head arou
 
 Luckily, this code can be rewritten to be much simpler, using async/await:
 
-1. Run the unmodified exercise and observe that it works as advertised. Observe that the dice must be thrown an indeterminate number of times until we get an ACE or until it rolls off the table.
+1. Run the unmodified exercise and observe that it works as advertised. Observe that the die must be thrown an indeterminate number of times until we get an ACE or until it rolls off the table.
 2. Now, rewrite the body of the `rollDiceUntil()` function using async/await and without using recursion. Hint: a `while` loop may come handy.
 
-    Note: Your solution should no longer use recursion (i.e. the function should not call itself).
+   Note: Your solution should no longer use recursion (i.e. the function should not call itself).
 
 3. Refactor the function `main()` to use async/await and try/catch.
 
@@ -85,11 +85,11 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
 
 #### File `ex4-diceRace.js`
 
-In this exercise we will again throw five dices in one go, but this time we are only interested in the first dice that settles successfully (promise resolved) or rolls off the table (promise rejected). This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
+In this exercise we will again throw five dice in one go, but this time we are only interested in the first die that settles successfully (promise resolved) or rolls off the table (promise rejected). This is something for which the `Promise.race()` method seems to be ideal. If you have managed to successfully complete exercise 4 from last week this one should be easy:
 
-1. Complete the function `rollTheDices()` by using `.map()` on the `dices` array to create an array of promises for use with `Promise.race()`.
+1. Complete the function `rollDice()` by using `.map()` on the `dice` array to create an array of promises for use with `Promise.race()`.
 2. Refactor the function `main()` using async/await and try/catch.
-3. Once you got this working, you may observe that some dices continue rolling for some undetermined time after the promise returned by `Promise.race()` resolves. Do you know why? Add your answer as a comment to the bottom of the file.
+3. Once you got this working, you may observe that some dice continue rolling for some undetermined time after the promise returned by `Promise.race()` resolves. Do you know why? Add your answer as a comment to the bottom of the file.
 
 ### Exercise 5: Using the VSCode Debugger
 

@@ -30,7 +30,7 @@ const employeeRecords = [
 ];
 
 // ! Function under test
-function filterPrivateData(/* parameter(s) go here */) {
+function filterPrivateData(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
 

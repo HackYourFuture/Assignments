@@ -3,7 +3,8 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('checkDoubleDigits', () => {
@@ -36,7 +37,9 @@ describe('checkDoubleDigits', () => {
     expect(exported).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
+
+  testNoConsoleLog('checkDoubleDigits', () => rootNode);
 
   test('should call new Promise()', () => {
     expect(state.newPromise).toBeDefined();
@@ -55,6 +58,13 @@ describe('checkDoubleDigits', () => {
     expect(
       typeof checkDoubleDigits === 'function' && checkDoubleDigits.length === 1
     ).toBe(true);
+  });
+
+  test('(9) should return a rejected promise with an Error object', () => {
+    expect.assertions(2);
+    const promise = checkDoubleDigits(9);
+    expect(promise).toBeInstanceOf(Promise);
+    return expect(promise).rejects.toBeInstanceOf(Error);
   });
 
   test('(10) should return a promise that resolves to "This is a double digit number!"', () => {
@@ -76,16 +86,9 @@ describe('checkDoubleDigits', () => {
     );
   });
 
-  test('(5) should return a rejected promise with an Error object', () => {
+  test('(100) should return a rejected promise with an Error object', () => {
     expect.assertions(2);
-    const promise = checkDoubleDigits(5);
-    expect(promise).toBeInstanceOf(Promise);
-    return expect(promise).rejects.toBeInstanceOf(Error);
-  });
-
-  test('(123) should return a rejected promise with an Error object', () => {
-    expect.assertions(2);
-    const promise = checkDoubleDigits(123);
+    const promise = checkDoubleDigits(100);
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).rejects.toBeInstanceOf(Error);
   });

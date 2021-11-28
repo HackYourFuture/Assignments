@@ -4,15 +4,16 @@ const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 const {
   beforeAllHelper,
   onloadValidator,
-  checkTodos,
+  testTodosRemoved,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('catWalk', () => {
-  let rootNode, source;
+  let window, rootNode, source;
   const state = {};
 
   beforeAll(async () => {
-    const { document } = await prepare();
+    window = await prepare();
+    const { document } = window;
     state.outerHTML = document.documentElement.outerHTML;
     ({ rootNode, source } = beforeAllHelper(__filename, {
       noRequire: true,
@@ -34,10 +35,14 @@ describe('catWalk', () => {
       });
   });
 
+  afterAll(() => {
+    window.close();
+  });
+
   test('HTML should be syntactically valid', () =>
     validateHTML(state.outerHTML));
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
 
   test('should use `setInterval()` and/or `setTimeout()`', () => {
     expect(state.timer).toBeDefined();

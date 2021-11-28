@@ -3,7 +3,8 @@
 const walk = require('acorn-walk');
 const {
   beforeAllHelper,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('getAnonName', () => {
@@ -25,8 +26,10 @@ describe('getAnonName', () => {
             }
           }
         },
-        FunctionDeclaration({ params }) {
-          state.paramCount = params.length;
+        FunctionDeclaration({ id, params }) {
+          if (id.name === 'getAnonName') {
+            state.paramCount = params.length;
+          }
         },
         NewExpression({ callee }) {
           if (callee.type === 'Identifier' && callee.name === 'Promise') {
@@ -45,7 +48,9 @@ describe('getAnonName', () => {
     expect(exported).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
+  testTodosRemoved(() => source);
+
+  testNoConsoleLog('getAnonName', () => rootNode);
 
   test('should call `new Promise()`', () => {
     expect(state.newPromise).toBeDefined();
@@ -63,18 +68,26 @@ describe('getAnonName', () => {
     expect(state.reject).toBe(1);
   });
 
-  test('should resolve when called with a string argument', () => {
+  test('should resolve when called with a string argument', async () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
+    const timeoutSpy = jest
+      .spyOn(global, 'setTimeout')
+      .mockImplementation((cb) => cb());
     const promise = getAnonName('John');
+    timeoutSpy.mockRestore();
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).resolves.toEqual('John Doe');
   });
 
-  test('should reject with an Error object when called without an argument', () => {
+  test('should reject with an Error object when called without an argument', async () => {
     expect.assertions(3);
     expect(exported).toBeDefined();
+    const timeoutSpy = jest
+      .spyOn(global, 'setTimeout')
+      .mockImplementation((cb) => cb());
     const promise = getAnonName();
+    timeoutSpy.mockRestore();
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).rejects.toBeInstanceOf(Error);
   });

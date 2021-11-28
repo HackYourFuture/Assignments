@@ -7,11 +7,14 @@ The homework for this week can be found in the `homework` folder.
 Starter code for all exercises is located in the `homework` folder. Modify the starter code so that the requirements of the exercise are met. At the bottom of some of the exercise files you will see a code snippet similar to:
 
 ```js
-// Do not change or remove the code below
+// ! Do not change or remove the code below
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}
 module.exports = giveCompliment;
 ```
 
-Do not delete or modify that code. It is required for the automatic testing of the exercise.
+The code calls the `main()` function from the exercise _unless the exercise is being tested with the automated test runner provided with this repo_ (see later in this README). Do not delete or modify this code snippet.
 
 ### Exercise 1: You are amazing
 
@@ -46,7 +49,7 @@ You know how old your dog is in human years, but what about dog years? Let's cal
 
 Why pay a fortune teller when you can just program your fortune yourself?
 
-1. Create four arrays, `numKids`, `partnerNames`, `locations` and `jobTitles`. Give each array five random values that have to do with the name of the variable.
+1. Create four arrays inside the function `main`, `numKids`, `partnerNames`, `locations` and `jobTitles`. Give each array five random values that have to do with the name of the variable.
 
 2. Complete the function `selectRandomly`. This function should take an array as a parameter and return a randomly selected element as its return value.
 

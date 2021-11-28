@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const acorn = require('acorn');
+const walk = require('acorn-walk');
 
 const defaultOptions = {
   parse: false,
@@ -31,24 +32,12 @@ function beforeAllHelper(testFilePath, options = {}) {
   const result = {};
 
   if (!options.noRequire) {
-    let randomSpy, timeoutSpy, intervalSpy, consoleLogSpy;
     try {
-      if (options.zeroRandom) {
-        randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
-      }
-      if (options.nukeTimers) {
-        timeoutSpy = jest.spyOn(global, 'setTimeout').mockImplementation();
-        intervalSpy = jest.spyOn(global, 'setInterval').mockImplementation();
-      }
-      consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
+      // suppress all console.log output
+      jest.spyOn(console, 'log').mockImplementation();
       result.exported = require(exercisePath);
     } catch (err) {
       console.log('Error attempting to `require`:', err);
-    } finally {
-      consoleLogSpy.mockRestore();
-      intervalSpy?.mockRestore();
-      timeoutSpy?.mockRestore();
-      randomSpy?.mockRestore();
     }
   }
 
@@ -111,13 +100,50 @@ function onloadValidator(state) {
   };
 }
 
-function checkTodos(source) {
-  expect(source.includes('TODO')).toBeFalsy();
+function testTodosRemoved(getSource) {
+  test('should have all TODO comments removed', () => {
+    expect(/\bTODO\b/.test(getSource())).toBeFalsy();
+  });
+}
+
+function testNoConsoleLog(functionName, getRootNode) {
+  test(`\`${functionName}\` should not contain unneeded console.log calls`, () => {
+    const rootNode = getRootNode();
+    let callsConsoleLog = false;
+    rootNode &&
+      walk.ancestor(rootNode, {
+        CallExpression({ callee }, ancestors) {
+          if (
+            callee.object?.name === 'console' &&
+            callee.property?.name === 'log'
+          ) {
+            const functionDeclaration = findAncestor(
+              'FunctionDeclaration',
+              ancestors
+            );
+            if (functionDeclaration?.id?.name === functionName) {
+              callsConsoleLog = true;
+              return;
+            }
+            const variableDeclarator = findAncestor(
+              'VariableDeclarator',
+              ancestors
+            );
+            if (variableDeclarator?.id?.name === functionName) {
+              callsConsoleLog = true;
+            }
+          }
+        },
+      });
+
+    expect(callsConsoleLog).toBe(false);
+  });
 }
 
 module.exports = {
   beforeAllHelper,
   findAncestor,
   onloadValidator,
-  checkTodos,
+  testTodosRemoved,
+  testNoConsoleLog,
 };
