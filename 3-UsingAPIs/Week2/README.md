@@ -40,14 +40,19 @@ In this exercise you're going to do several things:
 <!-- prettier-ignore -->
 Function | Purpose
 ---------|--------
-`fetchData` | In the `fetchData` function, make use of `fetch` and its Promise syntax in order to get the data from the public API. Errors (HTTP or network errors) should be logged to the console.
-`fetchAndPopulatePokemons` | Use `fetchData()` to load the pokemon data from the public API and populate the `<select>` element in the DOM.
-`fetchImage` | Use `fetchData()` to fetch the selected image and update the `<img>` element in the DOM.
-`main` | The `main` function orchestrates the other functions. The `main` function should be executed when the window has finished loading.
+`fetchData` | In the `fetchData` function, make use of `fetch` and its Promise syntax in order to get the data from the public API. Make sure that you check for HTTP errors (`response.ok`) and throw an error if needed.
+`fetchAndPopulatePokemons` | Use `fetchData()` to load the pokemon data on demand (i.e. when the button is pressed) from the public API and populate the `<select>` element in the DOM.
+`fetchImage` | Use `fetchData()` to fetch the selected image and update the `<img>` element in the DOM. Use the url that was returned in the pokemon results array.
+`main` | The `main` function should be executed when the window has finished loading and should initialize your app.
+(other) | Feel free to add further helper functions if desired.
 
 - Use async/await and try/catch to handle promises.
 
+- Test your error handling code (the "unhappy path"). For instance, make the url invalid and verify that your code handles the resulting error correctly (no runtime errors / unhandled promise rejection warnings in the console). Check this for fetching the pokemons array as well as for fetching the image.
+
 - Try and avoid using global variables. As much as possible, try and use function parameters and return values to pass data back and forth.
+
+- Use the empty `style.css` files for styling. Use JavaScript to add class name attributes for elements that you wish to style.
 
 ### Exercise 3: Roll an ACE
 
