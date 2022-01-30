@@ -573,7 +573,7 @@ Now, with the breakpoint still set at line 26, reload the page (first click the 
 
 :question: Please answer question **q4** of the quiz object.
 
-With execution paused at (now) line 31, press the **Step into next function call** button. If all is well that should take us into the function `withdraw()`, which is being called from line 31. If you hover your mouse over the variables `cash` and `amount` on line 31 you can peek at their current values, respectively `100` and `50`: that should be sufficient to make the withdrawal successful.
+With execution paused at (now) line 31, press the **Step into next function call** button. If all is well that should take us into the function `withdraw()`, which is being called from line 31. If you hover your mouse over the variables `cash` and `amount` on line 16 you can peek at their current values, respectively `100` and `50`: that should be sufficient to make the withdrawal successful.
 
 Let's add a breakpoint at line 17. That breakpoint will only be hit in the case of insufficient funds. Press the button **Step over next function call**. What is being stepped over here is not a function call but a statement. So maybe this button is better labelled "Step over next statement"... But we will have to make do with what we got.
 

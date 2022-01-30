@@ -1,9 +1,7 @@
 'use strict';
-/*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week4#exercise-5-transfer-into-wallet
 
-Based on an example from: Philipp Beau (@ze_german)
-------------------------------------------------------------------------------*/
+// Based on an example from: Philipp Beau (@ze_german)
+
 const eurosFormatter = new Intl.NumberFormat('nl-NL', {
   style: 'currency',
   currency: 'EUR',
