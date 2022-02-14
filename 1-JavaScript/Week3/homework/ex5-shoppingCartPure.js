@@ -17,8 +17,7 @@ it pure. Do the following:
 ------------------------------------------------------------------------------*/
 // ! Function under test
 function addToShoppingCart(cart, item) {
-  // TODO complete this function
-  let arr = [...cart, item];
+  const arr = [...cart, item];
   if (cart.length > 2) arr.shift();
   return arr;
 }

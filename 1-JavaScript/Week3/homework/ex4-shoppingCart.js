@@ -24,7 +24,6 @@ const shoppingCart = ['bananas', 'milk'];
 
 // ! Function to be tested
 function addToShoppingCart(groceryItem) {
-  // TODO complete this function
   let resultStr = 'You bought ';
 
   groceryItem === undefined ? 1 : shoppingCart.push(groceryItem);

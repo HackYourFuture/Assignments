@@ -34,58 +34,32 @@ body, this code is now written once only in a separated function.
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
 function selectRandomly(arr) {
-  // TODO complete this function
   const randIndex = Math.floor(Math.random() * arr.length);
   return arr[randIndex];
 }
 
 function tellFortune(kids, partners, locations, jobs) {
-  // TODO complete this function
-  return `
-	You will be a ${selectRandomly(jobs)} in ${selectRandomly(locations)}, 
-	married to ${selectRandomly(partners)} with ${selectRandomly(kids)} kids.
-	`;
+  return `You will be a ${selectRandomly(jobs)} in ${selectRandomly(
+    locations
+  )}, married to ${selectRandomly(partners)} with ${selectRandomly(
+    kids
+  )} kids.`;
 }
 
 function main() {
-  const numKids = [
-    // TODO add elements here
-    5, 2, 1, 6, 3,
-  ];
+  const numKids = [5, 2, 1, 6, 3];
 
-  const partnerNames = [
-    'Isabelle',
-    'Mike',
-    'Mo',
-    'Jan',
-    'Oxygen',
-    // TODO add elements here
-  ];
+  const partnerNames = ['Isabelle', 'Mike', 'Mo', 'Jan', 'Oxygen'];
 
-  const locations = [
-    // TODO add elements here
-    'Amsterdam',
-    'Alkmaar',
-    'Utrecht',
-    'Breda',
-    'Tilburg',
-  ];
+  const locations = ['Amsterdam', 'Alkmaar', 'Utrecht', 'Breda', 'Tilburg'];
 
-  const jobTitles = [
-    // TODO add elements here
-    'ICT',
-    'Schoonmaker',
-    'Schoenenmaker',
-    'Arts',
-    'Verpleegkundige',
-  ];
+  const jobTitles = ['ICT', 'Janitor', 'Actor', 'Arts', 'Technician'];
 
   console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
   console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
   console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
 }
 
-// ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }

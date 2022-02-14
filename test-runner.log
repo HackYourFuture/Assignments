@@ -1,0 +1,90 @@
+2022-02-14 03:40:35 info: ----------------------------------------------
+2022-02-14 03:40:35 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-02-14 03:40:35 info: ----------------------------------------------
+2022-02-14 03:40:38 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should have all TODO comments removed
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\Ali\hyf\homework\test-runner\CustomReporter.js"
+2022-02-14 03:40:39 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  23:7  warning  'compliments' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  36:7  warning  'randIndex' is never reassigned. Use 'const' instead    no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2022-02-14 03:43:35 info: Disclaimer turned off
+2022-02-14 03:43:42 info: ----------------------------------------------
+2022-02-14 03:43:42 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-02-14 03:43:42 info: ----------------------------------------------
+2022-02-14 03:43:45 info: All unit tests passed.
+2022-02-14 03:43:48 info: All steps were completed successfully
+2022-02-14 03:44:01 info: ----------------------------------------
+2022-02-14 03:44:01 info: >>> Running Unit Test `ex2-dogYears` <<<
+2022-02-14 03:44:01 info: ----------------------------------------
+2022-02-14 03:44:03 error: *** Unit Test Error Report ***
+
+✕ calculateDogAge should have all TODO comments removed
+
+
+Command failed: npx jest ex2-dogYears.test.js --colors --reporters="C:\Users\Ali\hyf\homework\test-runner\CustomReporter.js"
+2022-02-14 03:44:20 info: ----------------------------------------
+2022-02-14 03:44:20 info: >>> Running Unit Test `ex2-dogYears` <<<
+2022-02-14 03:44:20 info: ----------------------------------------
+2022-02-14 03:44:23 info: All unit tests passed.
+2022-02-14 03:44:26 info: All steps were completed successfully
+2022-02-14 03:45:38 info: -------------------------------------------
+2022-02-14 03:45:38 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-02-14 03:45:38 info: -------------------------------------------
+2022-02-14 03:45:41 error: *** Unit Test Error Report ***
+
+✕ tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a ICT in Amsterdam, married to Isabelle with 5 kids.
+  Received: 
+	You will be a ICT in Amsterdam, 
+	married to Isabelle with 5 kids.
+	
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Ali\hyf\homework\test-runner\CustomReporter.js"
+2022-02-14 03:46:25 info: -------------------------------------------
+2022-02-14 03:46:25 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-02-14 03:46:25 info: -------------------------------------------
+2022-02-14 03:46:27 error: *** Unit Test Error Report ***
+
+✕ tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a ICT in Amsterdam, married to Isabelle with 5 kids.
+  Received: 
+	You will be a ICT in Amsterdam, married to Isabelle with 5 kids.
+	
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Ali\hyf\homework\test-runner\CustomReporter.js"
+2022-02-14 03:46:49 info: -------------------------------------------
+2022-02-14 03:46:49 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-02-14 03:46:49 info: -------------------------------------------
+2022-02-14 03:46:51 info: All unit tests passed.
+2022-02-14 03:46:54 info: All steps were completed successfully
+2022-02-14 03:47:17 info: --------------------------------------------
+2022-02-14 03:47:17 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-02-14 03:47:17 info: --------------------------------------------
+2022-02-14 03:47:17 warn: A unit test file was not provided.
+2022-02-14 03:47:20 info: All steps were completed successfully
+2022-02-14 03:47:43 info: ------------------------------------------------
+2022-02-14 03:47:43 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-02-14 03:47:43 info: ------------------------------------------------
+2022-02-14 03:47:43 warn: A unit test file was not provided.
+2022-02-14 03:47:46 info: All steps were completed successfully
+2022-02-14 03:48:15 info: -----------------------------------------
+2022-02-14 03:48:15 info: >>> Running Unit Test `ex6-totalCost` <<<
+2022-02-14 03:48:15 info: -----------------------------------------
+2022-02-14 03:48:15 warn: A unit test file was not provided.
+2022-02-14 03:48:19 info: All steps were completed successfully
+2022-02-14 03:48:51 info: -------------------------------------------
+2022-02-14 03:48:51 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2022-02-14 03:48:51 info: -------------------------------------------
+2022-02-14 03:48:51 warn: A unit test file was not provided.
+2022-02-14 03:48:54 info: All steps were completed successfully
