@@ -30,8 +30,20 @@ const employeeRecords = [
 ];
 
 // ! Function under test
-function filterPrivateData(/* TODO parameter(s) go here */) {
+function filterPrivateData(arr) {
   // TODO complete this function
+  function myFunction() {
+    let x = [];
+    for (const {name: n, occupation: f, email: e} of arr) {
+      //console.log([{name:n,occupation: f, email: e}]);
+      x = [{name:n,occupation: f, email: e}];
+    }
+    return x;
+  }
+  const newArr = arr.map(myFunction);
+  //console.log(typeof newArr);
+  console.log( typeof newArr);
+  return newArr;
 }
 
 // ! Test functions (plain vanilla JavaScript)
@@ -55,7 +67,11 @@ function test2() {
     },
   ];
   const result = filterPrivateData(employeeRecords);
+  console.log(typeof expected);
+  console.log(typeof result);
   console.assert(JSON.stringify(result) === JSON.stringify(expected));
+  console.log(JSON.stringify(result));
+  console.log(JSON.stringify(expected));
 }
 
 function test() {

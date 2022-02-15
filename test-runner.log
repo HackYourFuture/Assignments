@@ -1,0 +1,56 @@
+2022-02-13 11:57:02 info: ----------------------------------------------
+2022-02-13 11:57:02 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-02-13 11:57:02 info: ----------------------------------------------
+2022-02-13 11:57:11 error: *** Unit Test Error Report ***
+
+✕ giveCompliment `giveCompliment` should not contain unneeded console.log calls
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are awesome, HackYourFuture!
+  Received: undefined
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\lynn\Desktop\js-homework\Homework\test-runner\CustomReporter.js"
+2022-02-14 12:00:12 info: Disclaimer turned off
+2022-02-14 12:04:39 info: ----------------------------------------------
+2022-02-14 12:04:39 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-02-14 12:04:39 info: ----------------------------------------------
+2022-02-14 12:04:47 info: All unit tests passed.
+2022-02-14 12:04:59 info: All steps were completed successfully
+2022-02-14 12:05:33 info: ----------------------------------------
+2022-02-14 12:05:33 info: >>> Running Unit Test `ex2-dogYears` <<<
+2022-02-14 12:05:33 info: ----------------------------------------
+2022-02-14 12:05:42 info: All unit tests passed.
+2022-02-14 12:05:54 info: All steps were completed successfully
+2022-02-14 12:06:23 info: -------------------------------------------
+2022-02-14 12:06:23 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-02-14 12:06:23 info: -------------------------------------------
+2022-02-14 12:06:32 info: All unit tests passed.
+2022-02-14 12:06:37 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  37:48  error  Unnecessary semicolon  no-extra-semi
+
+✖ 1 problem (1 error, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+
+
+2022-02-14 12:07:27 info: -------------------------------------------
+2022-02-14 12:07:27 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-02-14 12:07:27 info: -------------------------------------------
+2022-02-14 12:07:36 info: All unit tests passed.
+2022-02-14 12:07:48 info: All steps were completed successfully
+2022-02-14 03:28:05 info: --------------------------------------------
+2022-02-14 03:28:05 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-02-14 03:28:05 info: --------------------------------------------
+2022-02-14 03:28:05 warn: A unit test file was not provided.
+2022-02-14 03:28:19 info: All steps were completed successfully
+2022-02-14 03:28:32 info: --------------------------------------------
+2022-02-14 03:28:32 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-02-14 03:28:32 info: --------------------------------------------
+2022-02-14 03:28:32 warn: A unit test file was not provided.
+2022-02-14 03:28:45 info: All steps were completed successfully
+2022-02-14 03:30:19 info: ------------------------------------------------
+2022-02-14 03:30:19 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-02-14 03:30:19 info: ------------------------------------------------
+2022-02-14 03:30:19 warn: A unit test file was not provided.
+2022-02-14 03:30:30 info: All steps were completed successfully
