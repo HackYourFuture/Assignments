@@ -18,3 +18,8 @@
 2022-02-19 12:45:03 info: ------------------------------------------
 2022-02-19 12:45:05 info: All unit tests passed.
 2022-02-19 12:45:08 info: All steps were completed successfully
+2022-02-19 12:46:22 info: --------------------------------------
+2022-02-19 12:46:22 info: >>> Running Unit Test `ex5-wallet` <<<
+2022-02-19 12:46:22 info: --------------------------------------
+2022-02-19 12:46:24 info: All unit tests passed.
+2022-02-19 12:46:27 info: All steps were completed successfully
