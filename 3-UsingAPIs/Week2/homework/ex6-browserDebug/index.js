@@ -44,7 +44,7 @@ function renderLaureates(laureates) {
 async function fetchAndRender() {
   try {
     const laureates = getData(
-      'http://api.nobelprize.org/2.0/laureates?birthCountry=Netherlands&format=json&csvLang=en'
+      'https://api.nobelprize.org/2.0/laureates?birthCountry=Netherlands&format=json&csvLang=en'
     );
     renderLaureates(laureates);
   } catch (err) {
