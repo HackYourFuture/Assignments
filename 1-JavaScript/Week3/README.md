@@ -197,7 +197,7 @@ In the current exercise we will rewrite the `addToShoppingCart` function to make
 1. Complete the parameter list of `addToShoppingCart()`. As a first parameter it should accept a shopping cart array and as a second parameter it should accept a grocery item to be added.
 2. The function should return a _new_ shopping cart array, following the same rule as in the previous exercise: it should contain a maximum of three items.
 3. The shopping cart passed as an argument should not be modified.
-4. When constructing the new shopping cart array you should make use of the ES5 _spread_ syntax.<br>See also [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) on MDN Web Docs.
+4. When constructing the new shopping cart array you should make use of the ES6 _spread_ syntax.<br>See also [Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) on MDN Web Docs.
 5. Confirm that you function passes the provided unit tests.
 
 ### Exercise 6: Total cost is
