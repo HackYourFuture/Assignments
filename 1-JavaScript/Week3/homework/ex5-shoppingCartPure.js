@@ -11,7 +11,7 @@ it pure. Do the following:
 2. The function should return a new shopping cart array, following the same rule 
    as in the previous exercise: it should contain a maximum of three items.
 3. The shopping cart passed as an argument should not be mutated.
-4. When constructing the new shopping cart array you should make use of the ES5 
+4. When constructing the new shopping cart array you should make use of the ES6 
    spread syntax.
 5. Confirm that you function passes the provided unit tests.
 ------------------------------------------------------------------------------*/
@@ -37,7 +37,7 @@ function test2() {
 }
 
 function test3() {
-  console.log('Test 4: `chocolate` should be added');
+  console.log('Test 3: `chocolate` should be added');
   const initialCart = ['bananas', 'milk'];
   const result = addToShoppingCart(initialCart, 'chocolate');
   console.assert(result.length === 3);
