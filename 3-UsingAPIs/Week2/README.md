@@ -30,7 +30,7 @@ Let's catch all original 151 Pokemon in our own little web application! Here's a
 In this exercise you're going to do several things:
 
 1. Create and append DOM elements using JavaScript only.
-2. Fetch data from a public API: <https://pokeapi.co/>
+2. Fetch data from a public API: <https://pokeapi.co/api/v2/pokemon?limit=151>
 3. Display the results in the DOM.
 
 #### Instructions
