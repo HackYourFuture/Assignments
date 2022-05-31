@@ -1,0 +1,399 @@
+2022-05-31 04:37:09 info: ----------------------------------------------
+2022-05-31 04:37:09 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-05-31 04:37:09 info: ----------------------------------------------
+2022-05-31 04:37:12 error: *** Unit Test Error Report ***
+
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are undefined, HackYourFuture!
+  Received: You are handsome, HackYourFuture!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 04:37:15 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:40:19 - Unknown word (Abdullah)
+
+2022-05-31 04:39:15 info: ----------------------------------------------
+2022-05-31 04:39:15 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-05-31 04:39:15 info: ----------------------------------------------
+2022-05-31 04:39:17 error: *** Unit Test Error Report ***
+
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are undefined, HackYourFuture!
+  Received: You are "handsome", HackYourFuture!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 04:39:20 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:40:19 - Unknown word (Abdullah)
+
+2022-05-31 04:42:00 info: ----------------------------------------------
+2022-05-31 04:42:00 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-05-31 04:42:00 info: ----------------------------------------------
+2022-05-31 04:42:02 error: *** Unit Test Error Report ***
+
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are undefined, HackYourFuture!
+  Received: You are "handsome", HackYourFuture!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 04:42:05 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:40:19 - Unknown word (Abdullah)
+
+2022-05-31 04:44:50 info: ----------------------------------------------
+2022-05-31 04:44:50 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-05-31 04:44:50 info: ----------------------------------------------
+2022-05-31 04:44:52 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should include a `compliments` array inside its function body
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 04:44:56 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:39:19 - Unknown word (Abdullah)
+
+2022-05-31 04:48:09 info: ----------------------------------------------
+2022-05-31 04:48:09 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-05-31 04:48:09 info: ----------------------------------------------
+2022-05-31 04:48:11 error: *** Unit Test Error Report ***
+
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are undefined, HackYourFuture!
+  Received: You are handsome, HackYourFuture!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 04:48:14 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:39:19 - Unknown word (Abdullah)
+
+2022-05-31 04:50:13 info: ----------------------------------------------
+2022-05-31 04:50:13 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-05-31 04:50:13 info: ----------------------------------------------
+2022-05-31 04:50:16 info: All unit tests passed.
+2022-05-31 04:50:19 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:39:19 - Unknown word (Abdullah)
+
+2022-05-31 04:52:19 info: ----------------------------------------------
+2022-05-31 04:52:19 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-05-31 04:52:19 info: ----------------------------------------------
+2022-05-31 04:52:21 info: All unit tests passed.
+2022-05-31 04:52:24 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:39:19 - Unknown word (Abdullah)
+
+2022-05-31 05:05:12 info: ----------------------------------------
+2022-05-31 05:05:12 info: >>> Running Unit Test `ex2-dogYears` <<<
+2022-05-31 05:05:12 info: ----------------------------------------
+2022-05-31 05:05:14 error: *** Unit Test Error Report ***
+
+✕ calculateDogAge should give 7 dog years for 1 human year
+  Expected: Your doggie is 7 years old in dog years!
+  Received: Your doggie is 7 years old in years!
+✕ calculateDogAge should give 14 dog years for 2 human years
+  Expected: Your doggie is 14 years old in dog years!
+  Received: Your doggie is 14 years old in years!
+✕ calculateDogAge give 21 dog years for 3 human years
+  Expected: Your doggie is 21 years old in dog years!
+  Received: Your doggie is 21 years old in years!
+
+
+Command failed: npx jest ex2-dogYears.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 05:05:38 info: Disclaimer turned off
+2022-05-31 05:05:49 info: ----------------------------------------
+2022-05-31 05:05:49 info: >>> Running Unit Test `ex2-dogYears` <<<
+2022-05-31 05:05:49 info: ----------------------------------------
+2022-05-31 05:05:51 info: All unit tests passed.
+2022-05-31 05:05:54 info: All steps were completed successfully
+2022-05-31 05:22:28 info: -------------------------------------------
+2022-05-31 05:22:28 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:22:28 info: -------------------------------------------
+2022-05-31 05:22:31 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 05:22:34 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:53:26 - Unknown word (Paola)
+ex3-tellFortune.js:53:51 - Unknown word (Alena)
+ex3-tellFortune.js:53:60 - Unknown word (Meara)
+
+2022-05-31 05:23:15 info: -------------------------------------------
+2022-05-31 05:23:15 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:23:15 info: -------------------------------------------
+2022-05-31 05:23:18 error: *** Unit Test Error Report ***
+
+✕ tellFortune should exist and be executable
+✕ tellFortune should take four parameters
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+✕ tellFortune `numKids` should be an array initialized with 5 elements
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+✕ tellFortune should tell the fortune by randomly selecting array values
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 05:23:19 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  53:66  error  Parsing error: Unexpected token n
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-05-31 05:23:21 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:53:26 - Unknown word (Paola)
+ex3-tellFortune.js:53:51 - Unknown word (Alena)
+ex3-tellFortune.js:53:60 - Unknown word (Meara)
+
+2022-05-31 05:26:13 info: -------------------------------------------
+2022-05-31 05:26:13 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:26:13 info: -------------------------------------------
+2022-05-31 05:26:15 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 05:26:19 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:53:26 - Unknown word (Paola)
+ex3-tellFortune.js:53:51 - Unknown word (Alena)
+ex3-tellFortune.js:53:60 - Unknown word (Meara)
+
+2022-05-31 05:27:03 info: -------------------------------------------
+2022-05-31 05:27:03 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:27:03 info: -------------------------------------------
+2022-05-31 05:27:05 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 05:27:08 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:53:26 - Unknown word (Paola)
+ex3-tellFortune.js:53:51 - Unknown word (Alena)
+ex3-tellFortune.js:53:60 - Unknown word (Meara)
+
+2022-05-31 05:30:08 info: -------------------------------------------
+2022-05-31 05:30:08 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:30:08 info: -------------------------------------------
+2022-05-31 05:30:11 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 05:30:14 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:53:51 - Unknown word (Alena)
+ex3-tellFortune.js:53:60 - Unknown word (Meara)
+
+2022-05-31 05:31:06 info: -------------------------------------------
+2022-05-31 05:31:06 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:31:06 info: -------------------------------------------
+2022-05-31 05:31:08 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 05:31:11 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:53:51 - Unknown word (Arya)
+ex3-tellFortune.js:53:59 - Unknown word (Jamila)
+
+2022-05-31 05:31:49 info: -------------------------------------------
+2022-05-31 05:31:49 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:31:49 info: -------------------------------------------
+2022-05-31 05:31:51 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-05-31 05:33:14 info: -------------------------------------------
+2022-05-31 05:33:14 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:33:15 info: -------------------------------------------
+2022-05-31 05:33:17 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+2022-05-31 05:44:13 info: -------------------------------------------
+2022-05-31 05:44:13 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:44:13 info: -------------------------------------------
+2022-05-31 05:44:16 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+2022-05-31 05:47:23 info: -------------------------------------------
+2022-05-31 05:47:23 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:47:23 info: -------------------------------------------
+2022-05-31 05:47:25 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+2022-05-31 05:48:32 info: -------------------------------------------
+2022-05-31 05:48:32 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 05:48:32 info: -------------------------------------------
+2022-05-31 05:48:34 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+2022-05-31 11:37:44 info: -------------------------------------------
+2022-05-31 11:37:44 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 11:37:44 info: -------------------------------------------
+2022-05-31 11:37:46 error: *** Unit Test Error Report ***
+
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Abdullah\OneDrive\Masaüstü\Homework-class38\test-runner\CustomReporter.js"
+2022-05-31 12:54:25 info: -------------------------------------------
+2022-05-31 12:54:25 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-05-31 12:54:25 info: -------------------------------------------
+2022-05-31 12:54:27 info: All unit tests passed.
+2022-05-31 12:54:30 info: All steps were completed successfully
+2022-05-31 02:15:08 info: --------------------------------------------
+2022-05-31 02:15:08 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-05-31 02:15:08 info: --------------------------------------------
+2022-05-31 02:15:08 warn: A unit test file was not provided.
+2022-05-31 02:15:11 info: All steps were completed successfully
+2022-05-31 03:01:54 info: ------------------------------------------------
+2022-05-31 03:01:54 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-05-31 03:01:54 info: ------------------------------------------------
+2022-05-31 03:01:54 warn: A unit test file was not provided.
+2022-05-31 03:01:55 error: *** ESLint Report ***
+
+ex5-shoppingCartPure.js
+  21:24  error  Parsing error: Unexpected token ;
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-05-31 03:02:36 info: ------------------------------------------------
+2022-05-31 03:02:36 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-05-31 03:02:36 info: ------------------------------------------------
+2022-05-31 03:02:36 warn: A unit test file was not provided.
+2022-05-31 03:02:39 info: All steps were completed successfully
+2022-05-31 03:22:26 info: --------------------------------------------
+2022-05-31 03:22:26 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-05-31 03:22:26 info: --------------------------------------------
+2022-05-31 03:22:26 warn: A unit test file was not provided.
+2022-05-31 03:22:29 info: All steps were completed successfully
+2022-05-31 03:22:58 info: ----------------------------------------------
+2022-05-31 03:22:58 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-05-31 03:22:58 info: ----------------------------------------------
+2022-05-31 03:23:01 info: All unit tests passed.
+2022-05-31 03:23:04 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:39:19 - Unknown word (Abdullah)
+
+2022-05-31 03:49:55 info: -----------------------------------------
+2022-05-31 03:49:55 info: >>> Running Unit Test `ex6-totalCost` <<<
+2022-05-31 03:49:55 info: -----------------------------------------
+2022-05-31 03:49:55 warn: A unit test file was not provided.
+2022-05-31 03:49:56 error: *** ESLint Report ***
+
+ex6-totalCost.js
+  23:7   error  'cartForParty' is assigned a value but never used  no-unused-vars
+  27:10  error  'calculateTotalPrice' is defined but never used    no-unused-vars
+
+✖ 2 problems (2 errors, 0 warnings)
+
+
+2022-05-31 03:51:26 info: --------------------------------------------
+2022-05-31 03:51:26 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-05-31 03:51:26 info: --------------------------------------------
+2022-05-31 03:51:26 warn: A unit test file was not provided.
+2022-05-31 03:51:29 info: All steps were completed successfully
+2022-05-31 07:02:14 info: -----------------------------------------
+2022-05-31 07:02:14 info: >>> Running Unit Test `ex6-totalCost` <<<
+2022-05-31 07:02:14 info: -----------------------------------------
+2022-05-31 07:02:14 warn: A unit test file was not provided.
+2022-05-31 07:02:17 info: All steps were completed successfully
