@@ -1,0 +1,48 @@
+{
+  "node": "v18.2.0",
+  "system": {
+    "manufacturer": "ASUSTeK COMPUTER INC.",
+    "model": "ROG Strix G731GV_G731GV"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i7-9750H",
+    "speed": 2.6
+  },
+  "memory": "16 GB",
+  "osInfo": {
+    "platform": "Windows",
+    "distro": "Microsoft Windows 11 Home",
+    "release": "10.0.22000"
+  },
+  "vscodeInfo": {
+    "version": "1.67.2",
+    "extensions": [
+      "aaron-bond.better-comments",
+      "bierner.github-markdown-preview",
+      "bierner.markdown-checkbox",
+      "bierner.markdown-emoji",
+      "bierner.markdown-footnotes",
+      "bierner.markdown-mermaid",
+      "bierner.markdown-preview-github-styles",
+      "bierner.markdown-yaml-preamble",
+      "DavidAnson.vscode-markdownlint",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "ecmel.vscode-html-css",
+      "esbenp.prettier-vscode",
+      "formulahendry.code-runner",
+      "MS-CEINTL.vscode-language-pack-tr",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.jupyter-keymap",
+      "ms-toolsai.jupyter-renderers",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker",
+      "techer.open-in-browser",
+      "WallabyJs.quokka-vscode"
+    ],
+    "userSettings": {}
+  }
+}

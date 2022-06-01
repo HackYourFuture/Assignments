@@ -1,0 +1,39 @@
+2022-06-01 09:49:55 info: ----------------------------------------------
+2022-06-01 09:49:55 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-06-01 09:49:55 info: ----------------------------------------------
+2022-06-01 09:49:58 info: All unit tests passed.
+2022-06-01 09:50:01 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:39:19 - Unknown word (Abdullah)
+
+2022-06-01 09:50:42 info: Disclaimer turned off
+2022-06-01 09:50:50 info: ----------------------------------------
+2022-06-01 09:50:50 info: >>> Running Unit Test `ex2-dogYears` <<<
+2022-06-01 09:50:50 info: ----------------------------------------
+2022-06-01 09:50:52 info: All unit tests passed.
+2022-06-01 09:50:56 info: All steps were completed successfully
+2022-06-01 09:51:54 info: -------------------------------------------
+2022-06-01 09:51:54 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-06-01 09:51:54 info: -------------------------------------------
+2022-06-01 09:51:56 info: All unit tests passed.
+2022-06-01 09:51:59 info: All steps were completed successfully
+2022-06-01 09:52:46 info: --------------------------------------------
+2022-06-01 09:52:46 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-06-01 09:52:46 info: --------------------------------------------
+2022-06-01 09:52:46 warn: A unit test file was not provided.
+2022-06-01 09:52:49 info: All steps were completed successfully
+2022-06-01 09:54:18 info: ------------------------------------------------
+2022-06-01 09:54:18 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-06-01 09:54:18 info: ------------------------------------------------
+2022-06-01 09:54:18 warn: A unit test file was not provided.
+2022-06-01 09:54:21 info: All steps were completed successfully
+2022-06-01 09:56:55 info: -----------------------------------------
+2022-06-01 09:56:55 info: >>> Running Unit Test `ex6-totalCost` <<<
+2022-06-01 09:56:55 info: -----------------------------------------
+2022-06-01 09:56:55 warn: A unit test file was not provided.
+2022-06-01 09:56:58 info: All steps were completed successfully
+2022-06-01 09:57:54 info: -------------------------------------------
+2022-06-01 09:57:54 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2022-06-01 09:57:54 info: -------------------------------------------
+2022-06-01 09:57:54 warn: A unit test file was not provided.
+2022-06-01 09:57:58 info: All steps were completed successfully
