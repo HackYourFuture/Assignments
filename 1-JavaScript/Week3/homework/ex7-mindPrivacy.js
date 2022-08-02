@@ -31,16 +31,15 @@ const employeeRecords = [
 
 // ! Function under test
 function filterPrivateData(employeeRecords) {
+ 
 
-  for (let{name:n, occupation:o, email:e} of employeeRecords){
+  const newArr =employeeRecords.map(({salary,gender, ...rest}) => {
+    return rest;
+  });
+return newArr
+  }
+   
   
-    console.log(`Name: ${n}\nOccupation:${o}\nEmail:${e}`);
-  
-   }
-    return 
-  
-}
-
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
   console.log('Test 1: filterPrivateData should take one parameters');
