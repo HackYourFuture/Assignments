@@ -44,6 +44,8 @@ function test1() {
 function test2() {
   console.log('\nTest 2: return correct output when passed cartForParty');
   // TODO replace this comment with your code
+  const expected ='Total amount is 17.45'
+  console.assert(calculateTotalPrice(cartForParty)===expected)
 }
 
 function test() {

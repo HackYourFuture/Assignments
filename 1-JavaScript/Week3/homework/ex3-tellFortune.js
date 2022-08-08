@@ -39,7 +39,7 @@ function selectRandomly() {
 }
 
 function tellFortune(numKids,partnerNames,locations,jobTitles) {
-  return `You will be a ${jobTitles[selectRandomly()]} in ${locations[selectRandomly()]}, married to ${partnerNames[selectRandomly()]} with ${numKids[selectRandomly()]} kids`
+  return `You will be a ${jobTitles[selectRandomly()]} in ${locations[selectRandomly()]}, married to ${partnerNames[selectRandomly()]} with ${numKids[selectRandomly()]} kids.`
 }
 
 function main() {
