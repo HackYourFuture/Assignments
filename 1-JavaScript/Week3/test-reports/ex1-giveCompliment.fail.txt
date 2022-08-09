@@ -1,0 +1,4 @@
+
+*** Spell Checker Report ***
+
+ex1-giveCompliment.js:20:19 - Unknown word (Asiye)

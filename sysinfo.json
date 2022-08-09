@@ -1,0 +1,41 @@
+{
+  "node": "v16.15.1",
+  "system": {
+    "manufacturer": "LENOVO",
+    "model": "82H8"
+  },
+  "cpu": {
+    "manufacturer": "11th",
+    "brand": "Gen Intel® Core™ i7-1165G7",
+    "speed": 2.8
+  },
+  "memory": "16 GB",
+  "osInfo": {
+    "platform": "Windows",
+    "distro": "Microsoft Windows 11 Home",
+    "release": "10.0.22000"
+  },
+  "vscodeInfo": {
+    "version": "1.69.2",
+    "extensions": [
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "Equinusocio.vsc-community-material-theme",
+      "Equinusocio.vsc-material-theme",
+      "esbenp.prettier-vscode",
+      "formulahendry.auto-rename-tag",
+      "glenn2223.live-sass",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.jupyter-keymap",
+      "ms-toolsai.jupyter-renderers",
+      "PKief.material-icon-theme",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker",
+      "syler.sass-indented",
+      "techer.open-in-browser"
+    ],
+    "userSettings": {}
+  }
+}

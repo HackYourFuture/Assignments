@@ -1,0 +1,525 @@
+2022-07-30 01:51:36 info: ----------------------------------------------
+2022-07-30 01:51:36 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-07-30 01:51:36 info: ----------------------------------------------
+2022-07-30 01:51:38 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should have all TODO comments removed
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are great, HackYourFuture!
+  Received: you are great HackYourFuture
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 01:51:40 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  24:7  warning  'compliments' is never reassigned. Use 'const' instead       no-autofix/prefer-const
+  36:7  warning  'randomComplement' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2022-07-30 01:51:42 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:43:19 - Unknown word (Asiye)
+
+2022-07-30 02:14:05 info: ----------------------------------------------
+2022-07-30 02:14:05 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-07-30 02:14:05 info: ----------------------------------------------
+2022-07-30 02:14:07 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should have all TODO comments removed
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are great, HackYourFuture!
+  Received: you are great, HackYourFuture
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 02:14:46 info: ----------------------------------------------
+2022-07-30 02:14:46 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-07-30 02:14:46 info: ----------------------------------------------
+2022-07-30 02:14:47 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should exist and be executable
+✕ giveCompliment should have all TODO comments removed
+✕ giveCompliment should take a single parameter
+✕ giveCompliment should include a `compliments` array inside its function body
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 02:14:49 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  38:48  error  Parsing error: Unexpected token !
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-07-30 02:18:10 info: ----------------------------------------------
+2022-07-30 02:18:10 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-07-30 02:18:10 info: ----------------------------------------------
+2022-07-30 02:18:12 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should exist and be executable
+✕ giveCompliment should take a single parameter
+✕ giveCompliment should include a `compliments` array inside its function body
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 02:18:13 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  19:48  error  Parsing error: Unexpected token !
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-07-30 02:19:48 info: Disclaimer turned off
+2022-07-30 02:19:59 info: ----------------------------------------------
+2022-07-30 02:19:59 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-07-30 02:19:59 info: ----------------------------------------------
+2022-07-30 02:20:01 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should exist and be executable
+✕ giveCompliment should take a single parameter
+✕ giveCompliment should include a `compliments` array inside its function body
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 02:20:02 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  30:48  error  Parsing error: Unexpected token !
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-07-30 02:21:12 info: ----------------------------------------------
+2022-07-30 02:21:12 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-07-30 02:21:12 info: ----------------------------------------------
+2022-07-30 02:21:14 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 02:21:15 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  14:9   warning  Identifier 'Complements' is not in camelCase      hyf/camelcase
+  14:9   error    'Complements' is assigned a value but never used  no-unused-vars
+  16:21  error    'randomComplement' is not defined                 no-undef
+
+✖ 3 problems (2 errors, 1 warning)
+
+
+2022-07-30 02:22:08 info: ----------------------------------------------
+2022-07-30 02:22:08 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-07-30 02:22:08 info: ----------------------------------------------
+2022-07-30 02:22:09 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should have all TODO comments removed
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are great, HackYourFuture!
+  Received: you are great, HackYourFuture!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 02:38:46 info: ----------------------------------------
+2022-07-30 02:38:46 info: >>> Running Unit Test `ex2-dogYears` <<<
+2022-07-30 02:38:46 info: ----------------------------------------
+2022-07-30 02:38:48 error: *** Unit Test Error Report ***
+
+✕ calculateDogAge should have all TODO comments removed
+
+
+Command failed: npx jest ex2-dogYears.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 05:12:12 info: -------------------------------------------
+2022-07-30 05:12:12 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-07-30 05:12:12 info: -------------------------------------------
+2022-07-30 05:12:14 error: *** Unit Test Error Report ***
+
+✕ tellFortune should have all TODO comments removed
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+✕ tellFortune `numKids` should be an array initialized with 5 elements
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 05:12:16 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  36:10  error  'selectRandomly' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-07-30 05:12:17 error: *** Spell Checker Report ***
+
+ex3-tellFortune.js:67:26 - Unknown word (Jhon)
+ex3-tellFortune.js:69:47 - Unknown word (Tirana)
+
+2022-07-30 05:13:21 info: -------------------------------------------
+2022-07-30 05:13:21 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-07-30 05:13:21 info: -------------------------------------------
+2022-07-30 05:13:23 error: *** Unit Test Error Report ***
+
+✕ tellFortune should have all TODO comments removed
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+✕ tellFortune `numKids` should be an array initialized with 5 elements
+✕ tellFortune `locations` should be an array initialized with 5 elements
+✕ tellFortune `partnerNames` should be an array initialized with 5 elements
+✕ tellFortune `jobTitles` should be an array initialized with 5 elements
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 05:13:24 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  36:10  error  'selectRandomly' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-07-30 05:15:22 info: -------------------------------------------
+2022-07-30 05:15:22 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-07-30 05:15:22 info: -------------------------------------------
+2022-07-30 05:15:24 error: *** Unit Test Error Report ***
+
+✕ tellFortune should have all TODO comments removed
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-07-30 05:15:26 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  36:10  error  'selectRandomly' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-08-09 01:03:26 info: --------------------------------------------
+2022-08-09 01:03:26 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-08-09 01:03:26 info: --------------------------------------------
+2022-08-09 01:03:26 warn: A unit test file was not provided.
+2022-08-09 01:03:27 error: *** ESLint Report ***
+
+ex4-shoppingCart.js
+  26:28  error    'item' is defined but never used                 no-unused-vars
+  29:12  warning  'item' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (1 error, 1 warning)
+
+
+2022-08-09 01:04:26 info: --------------------------------------------
+2022-08-09 01:04:26 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-08-09 01:04:26 info: --------------------------------------------
+2022-08-09 01:04:26 warn: A unit test file was not provided.
+2022-08-09 01:04:27 error: *** ESLint Report ***
+
+ex4-shoppingCart.js
+  26:28  error  'item' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-08-09 01:46:32 info: ------------------------------------------------
+2022-08-09 01:46:32 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-08-09 01:46:32 info: ------------------------------------------------
+2022-08-09 01:46:32 warn: A unit test file was not provided.
+2022-08-09 01:46:34 error: *** ESLint Report ***
+
+ex5-shoppingCartPure.js
+  18:2  error  Parsing error: Unterminated regular expression
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-08-09 01:47:13 info: ------------------------------------------------
+2022-08-09 01:47:13 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-08-09 01:47:13 info: ------------------------------------------------
+2022-08-09 01:47:13 warn: A unit test file was not provided.
+2022-08-09 01:47:16 info: All steps were completed successfully
+2022-08-09 01:52:40 info: --------------------------------------------
+2022-08-09 01:52:40 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-08-09 01:52:40 info: --------------------------------------------
+2022-08-09 01:52:40 warn: A unit test file was not provided.
+2022-08-09 01:52:43 info: All steps were completed successfully
+2022-08-09 02:25:04 info: -----------------------------------------
+2022-08-09 02:25:04 info: >>> Running Unit Test `ex6-totalCost` <<<
+2022-08-09 02:25:04 info: -----------------------------------------
+2022-08-09 02:25:04 warn: A unit test file was not provided.
+2022-08-09 02:25:05 error: *** ESLint Report ***
+
+ex6-totalCost.js
+  31:10  error    'calculateTotalPrice' is defined but never used  no-unused-vars
+  34:12  warning  'x' is never reassigned. Use 'const' instead     no-autofix/prefer-const
+
+✖ 2 problems (1 error, 1 warning)
+
+
+2022-08-09 02:26:30 info: -----------------------------------------
+2022-08-09 02:26:30 info: >>> Running Unit Test `ex6-totalCost` <<<
+2022-08-09 02:26:30 info: -----------------------------------------
+2022-08-09 02:26:30 warn: A unit test file was not provided.
+2022-08-09 02:26:31 error: *** ESLint Report ***
+
+ex6-totalCost.js
+  31:10  error  'calculateTotalPrice' is defined but never used  no-unused-vars
+  42:12  error  'calculateTotalPrice' is defined but never used  no-unused-vars
+  55:12  error  'calculateTotalPrice' is defined but never used  no-unused-vars
+
+✖ 3 problems (3 errors, 0 warnings)
+
+
+2022-08-09 02:27:27 info: -----------------------------------------
+2022-08-09 02:27:27 info: >>> Running Unit Test `ex6-totalCost` <<<
+2022-08-09 02:27:27 info: -----------------------------------------
+2022-08-09 02:27:27 warn: A unit test file was not provided.
+2022-08-09 02:27:30 info: All steps were completed successfully
+2022-08-09 04:28:48 info: ------------------------------------------------
+2022-08-09 04:28:48 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-08-09 04:28:48 info: ------------------------------------------------
+2022-08-09 04:28:48 warn: A unit test file was not provided.
+2022-08-09 04:28:51 info: All steps were completed successfully
+2022-08-09 04:29:29 info: --------------------------------------------
+2022-08-09 04:29:29 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-08-09 04:29:29 info: --------------------------------------------
+2022-08-09 04:29:29 warn: A unit test file was not provided.
+2022-08-09 04:29:31 info: All steps were completed successfully
+2022-08-09 04:53:39 info: -------------------------------------------
+2022-08-09 04:53:39 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-08-09 04:53:39 info: -------------------------------------------
+2022-08-09 04:53:42 error: *** Unit Test Error Report ***
+
+✕ tellFortune should have all TODO comments removed
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-08-09 04:53:43 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  36:10  error  'selectRandomly' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-08-09 06:01:33 info: --------------------------------------------
+2022-08-09 06:01:33 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-08-09 06:01:33 info: --------------------------------------------
+2022-08-09 06:01:33 warn: A unit test file was not provided.
+2022-08-09 06:01:35 info: All steps were completed successfully
+2022-08-09 06:02:37 info: --------------------------------------------
+2022-08-09 06:02:37 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-08-09 06:02:37 info: --------------------------------------------
+2022-08-09 06:02:37 warn: A unit test file was not provided.
+2022-08-09 06:02:38 error: *** ESLint Report ***
+
+ex4-shoppingCart.js
+  35:3  warning  Remove commented-out code  hyf/no-commented-out-code
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2022-08-09 06:03:47 info: --------------------------------------------
+2022-08-09 06:03:47 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2022-08-09 06:03:47 info: --------------------------------------------
+2022-08-09 06:03:47 warn: A unit test file was not provided.
+2022-08-09 06:03:49 info: All steps were completed successfully
+2022-08-09 06:18:05 info: ------------------------------------------------
+2022-08-09 06:18:05 info: >>> Running Unit Test `ex5-shoppingCartPure` <<<
+2022-08-09 06:18:05 info: ------------------------------------------------
+2022-08-09 06:18:05 warn: A unit test file was not provided.
+2022-08-09 06:18:07 info: All steps were completed successfully
+2022-08-09 06:41:11 info: -------------------------------------------
+2022-08-09 06:41:11 info: >>> Running Unit Test `ex7-mindPrivacy` <<<
+2022-08-09 06:41:11 info: -------------------------------------------
+2022-08-09 06:41:11 warn: A unit test file was not provided.
+2022-08-09 06:41:14 info: All steps were completed successfully
+2022-08-09 06:56:12 info: ----------------------------------------
+2022-08-09 06:56:12 info: >>> Running Unit Test `ex2-dogYears` <<<
+2022-08-09 06:56:12 info: ----------------------------------------
+2022-08-09 06:56:14 info: All unit tests passed.
+2022-08-09 06:56:16 info: All steps were completed successfully
+2022-08-09 06:58:48 info: ----------------------------------------------
+2022-08-09 06:58:48 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-08-09 06:58:48 info: ----------------------------------------------
+2022-08-09 06:58:50 info: All unit tests passed.
+2022-08-09 06:58:52 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:20:19 - Unknown word (Asiye)
+
+2022-08-09 06:59:35 info: ----------------------------------------------
+2022-08-09 06:59:35 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-08-09 06:59:35 info: ----------------------------------------------
+2022-08-09 06:59:37 info: All unit tests passed.
+2022-08-09 06:59:39 info: All steps were completed successfully
+2022-08-09 06:59:58 info: ----------------------------------------------
+2022-08-09 06:59:58 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2022-08-09 06:59:58 info: ----------------------------------------------
+2022-08-09 07:00:00 info: All unit tests passed.
+2022-08-09 07:00:03 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:20:19 - Unknown word (Asiye)
+
+2022-08-09 07:00:44 info: -------------------------------------------
+2022-08-09 07:00:44 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-08-09 07:00:44 info: -------------------------------------------
+2022-08-09 07:00:46 error: *** Unit Test Error Report ***
+
+✕ tellFortune should have all TODO comments removed
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-08-09 07:00:47 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  36:10  error  'selectRandomly' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-08-09 07:19:47 info: -------------------------------------------
+2022-08-09 07:19:47 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-08-09 07:19:47 info: -------------------------------------------
+2022-08-09 07:19:49 error: *** Unit Test Error Report ***
+
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-08-09 07:19:50 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+   1:9   error  'p' is assigned a value but never used          no-unused-vars
+   3:10  error  'selectRandomly' is defined but never used      no-unused-vars
+  10:3   error  'jobTitles' is assigned a value but never used  no-unused-vars
+
+✖ 3 problems (3 errors, 0 warnings)
+
+
+2022-08-09 07:27:48 info: -------------------------------------------
+2022-08-09 07:27:48 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-08-09 07:27:48 info: -------------------------------------------
+2022-08-09 07:27:51 error: *** Unit Test Error Report ***
+
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+✕ tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a Doctor in NewYork, married to Tony with 0 kids.
+  Received: You will be a Doctor,Teacher,Engineer,Lawyer,Footballer in NewYork,Hollywood,London,Istanbul,Amsterdam, married to Tony,Adam,Mike,David,Rob with 0,1,2,3,4 kids.
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-08-09 07:40:35 info: -------------------------------------------
+2022-08-09 07:40:35 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-08-09 07:40:35 info: -------------------------------------------
+2022-08-09 07:40:37 error: *** Unit Test Error Report ***
+
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-08-09 07:40:38 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  1:10  error  'selectRandomly' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+2022-08-09 07:48:00 info: -------------------------------------------
+2022-08-09 07:48:00 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2022-08-09 07:48:00 info: -------------------------------------------
+2022-08-09 07:48:02 error: *** Unit Test Error Report ***
+
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\gokal\Desktop\Homework-class39\test-runner\CustomReporter.js"
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+2022-08-09 07:48:03 error: *** ESLint Report ***
+
+ex3-tellFortune.js
+  1:10  error  'selectRandomly' is defined but never used  no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
