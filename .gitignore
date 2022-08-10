@@ -1,4 +1,6 @@
 .idea
+sysinfo.json
+
 # Logs
 logs
 npm-debug.log*
