@@ -37,7 +37,7 @@
     "pokerDiceRoller": "./3-UsingAPIs/Week1/homework"
   },
   "dependencies": {
-    "@html-validate/stylish": "^2.0.1",
+    "@html-validate/stylish": "^3.0.1",
     "@types/jest": "^27.0.2",
     "acorn": "^8.5.0",
     "acorn-walk": "^8.2.0",
@@ -50,13 +50,13 @@
     "eslint-plugin-hyf": "git://github.com/remarcmij/eslint-plugin-hyf.git",
     "eslint-plugin-no-autofix": "^1.2.3",
     "fast-glob": "^3.2.7",
-    "html-validate": "^6.1.1",
+    "html-validate": "^7.2.0",
     "inquirer": "^8.2.0",
-    "jest": "^27.3.1",
+    "jest": "^28.1.3",
     "jsdom": "^18.1.0",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
-    "node-fetch": "^2.6.1",
+    "moment": "^2.29.4",
+    "node-fetch": "^3.2.10",
     "open": "^8.4.0",
     "prettier": "^2.4.1",
     "prompts": "^2.4.2",
@@ -64,6 +64,6 @@
     "serve-handler": "^6.1.3",
     "strip-ansi": "^7.0.1",
     "systeminformation": "^5.9.12",
-    "winston": "^3.3.3"
+    "winston": "^3.8.1"
   }
 }
