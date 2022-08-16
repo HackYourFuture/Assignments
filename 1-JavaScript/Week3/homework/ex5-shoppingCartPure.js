@@ -29,11 +29,14 @@ function test1() {
 function test2() {
   console.log('Test 2: addToShoppingCart should be a pure function');
   // A pure function should return the same result when called with
-  // identical arguments. It should also no side effects (not tested here).
+  // identical arguments. It should also have no side effects (not tested here).
   const initialCart = ['bananas', 'milk'];
   const result1 = addToShoppingCart(initialCart, 'chocolate');
   const result2 = addToShoppingCart(initialCart, 'chocolate');
   console.assert(JSON.stringify(result1) === JSON.stringify(result2));
+  console.assert(
+    JSON.stringify(initialCart) === JSON.stringify(['bananas', 'milk'])
+  );
 }
 
 function test3() {
