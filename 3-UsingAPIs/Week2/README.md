@@ -418,14 +418,14 @@ When we run the code again, first the breakpoint at line 19 will be hit. Press t
 >
 > Figure 11. Conditional breakpoint hit.
 
-We will add an `if` statement to take care of it (we will test for `death` being _thruthy_):
+We will add an `if` statement to take care of it (we will test for `death` being _truthy_):
 
 ```js
 function renderLaureate({ knownName, birth, death }) {
   console.log(`\nName: ${knownName.en}`);
   console.log(`Birth: ${birth.date}, ${birth.place.locationString}`);
   if (death) {
-    console.log(`Death: ${death.date}, ${death.place.locationString.}`);
+    console.log(`Death: ${death.date}, ${death.place.locationString}`);
   }
 }
 ```
