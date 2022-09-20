@@ -23,43 +23,50 @@ you have more than 3 items in your shopping cart the first item gets taken out.
 const shoppingCart = ['bananas', 'milk'];
 
 // ! Function to be tested
-function addToShoppingCart(/* parameters go here */) {
+function addToShoppingCart(groceryItem) {
   // TODO complete this function
+
+  if (groceryItem !== undefined) {
+   shoppingCart.push(groceryItem);
+  }
+  if (shoppingCart.length > 3) {
+    shoppingCart.shift();
+  }  
+    return `You bought ${shoppingCart.join(', ')}`;    
 }
 
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
-  console.log(
-    'Test 1: addShoppingCart() called without an argument should leave the shopping cart unchanged'
-  );
+  console.log(addToShoppingCart());
+
   const expected = 'You bought bananas, milk!';
   const actual = addToShoppingCart();
   console.assert(actual === expected);
 }
 
 function test2() {
-  console.log('Test 2: addShoppingCart() should take one parameter');
+  console.log(shoppingCart.indexOf("milk"));
   const expected = 1;
   const actual = addToShoppingCart.length;
   console.assert(actual === expected);
 }
 
 function test3() {
-  console.log('Test 3: `chocolate` should be added');
+  console.log(addToShoppingCart('chocolate'));
   const expected = 'You bought bananas, milk, chocolate!';
   const actual = addToShoppingCart('chocolate');
   console.assert(actual === expected);
 }
 
 function test4() {
-  console.log('Test 4: `waffles` should be added and `bananas` removed');
+  console.log(addToShoppingCart('waffles'));
   const expected = 'You bought milk, chocolate, waffles!';
   const actual = addToShoppingCart('waffles');
   console.assert(actual === expected);
 }
 
 function test5() {
-  console.log('Test 5: `tea` should be added and `milk` removed');
+  console.log(addToShoppingCart('tea'));
   const expected = 'You bought chocolate, waffles, tea!';
   const actual = addToShoppingCart('tea');
   console.assert(actual === expected);
