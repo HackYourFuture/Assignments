@@ -1,0 +1,8 @@
+
+*** ESLint Report ***
+
+ex4-shoppingCart.js
+  74:10  error  Parsing error: Unexpected token (
+
+✖ 1 problem (1 error, 0 warnings)
+

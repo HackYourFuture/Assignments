@@ -1,0 +1,30 @@
+*** Unit Test Error Report ***
+
+✕ tellFortune should call function `selectRandomly` for each of its arguments
+✕ tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a web developer in tilburg, married to james with 5 kids.
+  Received: you will be web developer in tilburg married to james with 5 kids
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="/Users/hyf/Desktop/hack-your-future/Homework/test-runner/CustomReporter.js"
+● Deprecation Warning:
+
+  Option "extraGlobals" was replaced by "sandboxInjectedGlobals".
+
+  Please update your configuration.
+
+  Configuration Documentation:
+  https://jestjs.io/docs/configuration
+
+● Deprecation Warning:
+
+  Option "extraGlobals" was replaced by "sandboxInjectedGlobals".
+
+  Please update your configuration.
+
+  Configuration Documentation:
+  https://jestjs.io/docs/configuration
+
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
