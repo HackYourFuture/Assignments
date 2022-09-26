@@ -11,6 +11,7 @@ const ONE_GB_1024 = 1024 * 1024 * 1024;
 
 const vscodeUserSettingsLocations = {
   win32: String.raw`${process.env.APPDATA}\Code\User\settings.json`,
+  Windows: String.raw`${process.env.APPDATA}\Code\User\settings.json`,
   darwin: `${process.env.HOME}/Library/Application Support/Code/User/settings.json`,
   linux: `${process.env.HOME}/.config/Code/User/settings.json`,
 };
