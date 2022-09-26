@@ -3,7 +3,7 @@ const jsdom = require('jsdom');
 const { HtmlValidate } = require('html-validate');
 // const { getFormatter } = require('html-validate/dist/cli/formatter');
 const htmlValidateOptions = require('../.htmlvalidate.json');
-const stylish = require('@html-validate/stylish');
+const stylish = require('@html-validate/stylish').default;
 
 const { JSDOM } = jsdom;
 
