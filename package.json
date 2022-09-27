@@ -36,6 +36,7 @@
   "alias": {
     "pokerDiceRoller": "./3-UsingAPIs/Week1/homework"
   },
+  "WARNING": "Do not update major versions of dependencies as they may break the test runner",
   "dependencies": {
     "@html-validate/stylish": "^3.0.1",
     "@types/jest": "^29.0.3",
