@@ -3,5 +3,5 @@
 
 module.exports = {
   maxConcurrency: 1,
-  extraGlobals: ['Math'],
+  sandboxInjectedGlobals: ['Math'],
 };
