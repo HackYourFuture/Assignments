@@ -139,7 +139,7 @@ This is what it should like:
 
 Prep exercises are exercises that are a little more difficult. We will go through these exercises on Sunday, but do expect you to have already gotten a solution by then as a student will be asked to share their solution. You may have to come together as a class for some of them! You should NOT hand in these exercises, so make sure to not add it to the commit for your homework (have a look at the `git add` documentation [here](https://git-scm.com/docs/git-add) for all the options to exclude files in a commit).
 
-## Exercise 6: Conway's Game of Life
+## Prep exercise: Conway's Game of Life
 
 **Folder**: `ex6-gameOfLife`
 
