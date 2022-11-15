@@ -42,7 +42,7 @@ A single unit test is provided. It consist of a call to the global `test()` func
 1. A title string that describes what is being tested.
 2. A callback function that is responsible for performing the actual test.
 
-Inside the callback function we call the function to tested, passing to it the arguments relevant for the test at hand and saving its return value for subsequent inspection. The global Jest `expect()` function is then used to _assert_ that the returned value matches the expected value for this test.
+Inside the callback function we call the function to be tested, passing to it the arguments relevant for the test at hand and saving its return value for subsequent inspection. The global Jest `expect()` function is then used to _assert_ that the returned value matches the expected value for this test.
 
 #### Exercise instructions
 
