@@ -45,7 +45,7 @@ console.log(giveCompliment('Mehran'));
 
 function main() {
   // TODO substitute your own name for "HackYourFuture"
-  const myName = 'HackYourFuture';
+  const myName = 'Mehran';
 
   console.log(giveCompliment(myName));
   console.log(giveCompliment(myName));
