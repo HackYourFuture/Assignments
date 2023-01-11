@@ -33,29 +33,80 @@ body, this code is now written once only in a separated function.
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-function selectRandomly(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+
+// Generate a random number with maximum value max
+function randomInteger(max) {
+  return Math.floor(Math.random() * max);
 }
 
-function tellFortune(/* TODO add parameter(s) here */) {
+// This function should take an array as its parameter and return
+// a randomly selected element as its return value.
+function selectRandomly(arr /* TODO parameter(s) go here */) {
   // TODO complete this function
+  const index = randomInteger(arr.length);
+  return arr[index];
+}
+
+function tellFortune(
+  numKids,
+  partnerNames,
+  locations,
+  jobTitles /* TODO add parameter(s) here */
+) {
+  // TODO complete this function
+  const kids = selectRandomly(numKids);
+  const partner = selectRandomly(partnerNames);
+  const location = selectRandomly(locations);
+  const jobTitle = selectRandomly(jobTitles);
+  return (
+    'You will be a ' +
+    jobTitle +
+    ' in ' +
+    location +
+    ', married to ' +
+    partner +
+    ' with ' +
+    kids +
+    ' kids.'
+  );
 }
 
 function main() {
   const numKids = [
     // TODO add elements here
+    0, 1, 2, 3, 4, 5,
   ];
 
   const partnerNames = [
     // TODO add elements here
+    'John Depp',
+    'Sylvester',
+    'Felipe',
+    'Rambo',
+    'Travolta',
+    'Peter',
   ];
 
   const locations = [
     // TODO add elements here
+    'Ukraine',
+    'Mexico',
+    'Germany',
+    'Belgium',
+    'Spain',
+    'Japan',
+    'Africa',
+    'Australia',
   ];
 
   const jobTitles = [
     // TODO add elements here
+    'SW developer',
+    'Cook',
+    'Engineer',
+    'Businessman',
+    'Economist',
+    'Accountant',
   ];
 
   console.log(tellFortune(numKids, partnerNames, locations, jobTitles));

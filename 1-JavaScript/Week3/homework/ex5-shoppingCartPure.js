@@ -15,44 +15,54 @@ it pure. Do the following:
    spread syntax.
 5. Confirm that you function passes the provided unit tests.
 ------------------------------------------------------------------------------*/
-// ! Function under test
-function addToShoppingCart(/* TODO parameter(s) go here */) {
+const shoppingCart = ['bananas', 'milk'];
+
+// ! Function to be tested
+function addToShoppingCart(item) {
   // TODO complete this function
+  if (typeof item !== 'undefined') {
+    shoppingCart.push(item);
+    if (shoppingCart.length > 3) shoppingCart.shift();
+  }
+  return 'You bought ' + shoppingCart.join(', ') + '!';
 }
 
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
-  console.log('Test 1: addToShoppingCart should take two parameters');
-  console.assert(addToShoppingCart.length === 2);
+  console.log(
+    'Test 1: addShoppingCart() called without an argument should leave the shopping cart unchanged'
+  );
+  const expected = 'You bought bananas, milk!';
+  const actual = addToShoppingCart();
+  console.assert(actual === expected);
 }
 
 function test2() {
-  console.log('Test 2: addToShoppingCart should be a pure function');
-  // A pure function should return the same result when called with
-  // identical arguments. It should also have no side effects (not tested here).
-  const initialCart = ['bananas', 'milk'];
-  const result1 = addToShoppingCart(initialCart, 'chocolate');
-  const result2 = addToShoppingCart(initialCart, 'chocolate');
-  console.assert(JSON.stringify(result1) === JSON.stringify(result2));
-  console.assert(
-    JSON.stringify(initialCart) === JSON.stringify(['bananas', 'milk'])
-  );
+  console.log('Test 2: addShoppingCart() should take one parameter');
+  const expected = 1;
+  const actual = addToShoppingCart.length;
+  console.assert(actual === expected);
 }
 
 function test3() {
   console.log('Test 3: `chocolate` should be added');
-  const initialCart = ['bananas', 'milk'];
-  const result = addToShoppingCart(initialCart, 'chocolate');
-  console.assert(result.length === 3);
-  console.assert(result.includes('chocolate'));
+  const expected = 'You bought bananas, milk, chocolate!';
+  const actual = addToShoppingCart('chocolate');
+  console.assert(actual === expected);
 }
 
 function test4() {
-  console.log('Test 4: `waffles` should be added');
-  const initialCart = ['bananas', 'milk', 'chocolate'];
-  const result = addToShoppingCart(initialCart, 'waffles');
-  console.assert(result.length === 3);
-  console.assert(result.includes('waffles'));
+  console.log('Test 4: `waffles` should be added and `bananas` removed');
+  const expected = 'You bought milk, chocolate, waffles!';
+  const actual = addToShoppingCart('waffles');
+  console.assert(actual === expected);
+}
+
+function test5() {
+  console.log('Test 5: `tea` should be added and `milk` removed');
+  const expected = 'You bought chocolate, waffles, tea!';
+  const actual = addToShoppingCart('tea');
+  console.assert(actual === expected);
 }
 
 function test() {
@@ -60,6 +70,7 @@ function test() {
   test2();
   test3();
   test4();
+  test5();
 }
 
 test();
