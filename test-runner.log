@@ -1,0 +1,27 @@
+2023-01-03 10:06:34 info: ----------------------------------------------
+2023-01-03 10:06:34 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2023-01-03 10:06:34 info: ----------------------------------------------
+2023-01-03 10:06:37 error: *** Unit Test Error Report ***
+
+✕ giveCompliment should have all TODO comments removed
+✕ giveCompliment should include a `compliments` array inside its function body
+✕ giveCompliment the `compliments` array should be initialized with 10 strings
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="/Users/mehranbanbersta/Desktop/Homework-class42/test-runner/CustomReporter.js"
+2023-01-03 10:06:39 error: *** ESLint Report ***
+
+ex1-giveCompliment.js
+  24:7  warning  'compliment' is never reassigned. Use 'const' instead           no-autofix/prefer-const
+  38:7  warning  'getRandomCompliment' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+2023-01-03 10:06:41 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:42:29 - Unknown word (Mehran)
+ex1-giveCompliment.js:43:29 - Unknown word (Mehran)
+ex1-giveCompliment.js:44:29 - Unknown word (Mehran)
+

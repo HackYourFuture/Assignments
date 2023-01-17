@@ -33,30 +33,23 @@ body, this code is now written once only in a separated function.
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-function selectRandomly(numKids, partnerNames, locations, jobTitles) {
-  // TODO complete this function
-  let getRandomNumKids = Math.floor(Math.random() * 5) + 1;
-  let getRandomPartnerNames = Math.floor(Math.random() * 5) + 1;
-  let getRandomLocations = Math.floor(Math.random() * 5) + 1;
-  let getRandomJobTitles = Math.floor(Math.random() * 5) + 1;
-  return `You will be a ${jobTitles[getRandomJobTitles]} in ${locations[getRandomLocations]}, 
-     married to ${partnerNames[getRandomPartnerNames]} with ${numKids[getRandomNumKids]} kids.`;
+function selectRandomly(array) {
+  const getRandomArray = Math.floor(Math.random() * array.length);
+  return array[getRandomArray];
 }
 
 function tellFortune(numKids, partnerNames, locations, jobTitles) {
-  selectRandomly(numKids, partnerNames, locations, jobTitles);
+  return `You will be a ${selectRandomly(jobTitles)} in ${selectRandomly(
+    locations
+  )},married to ${selectRandomly(partnerNames)} with ${selectRandomly(
+    numKids
+  )} kids.`;
 }
 
 function main() {
   const numKids = [1, 2, 3, 4, 5];
 
-  const partnerNames = [
-    'Frank and Ria',
-    'Lucas and Amelia',
-    'Henary and Luna',
-    'Alexander and Ella',
-    'James and Eleanor',
-  ];
+  const partnerNames = ['Ria', 'Lucas', 'Luna', 'Alexander', 'Eleanor'];
 
   const locations = ['Amsterdam', 'Breda', 'Utrecht', 'Amersfoort', 'Tilburg'];
 

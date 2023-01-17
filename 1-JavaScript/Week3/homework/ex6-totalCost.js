@@ -21,13 +21,23 @@ instead!
 3. Complete the unit test functions and verify that all is working as expected.
 -----------------------------------------------------------------------------*/
 const cartForParty = {
-  // TODO complete this object
+  beer: 1.75,
+  cola: 2,
+  water: 1.02,
+  chips: 2.2,
+  vodka: 15,
 };
 
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
+function calculateTotalPrice(item) {
+  let total = 0;
   // TODO replace this comment with your code
+  for (const cart of Object.values(item)) {
+    total += cart;
+  }
+  return `Total: €${total}`;
 }
 
+console.log(calculateTotalPrice(cartForParty));
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
   console.log('\nTest 1: calculateTotalPrice should take one parameter');
