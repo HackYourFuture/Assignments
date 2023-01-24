@@ -2,6 +2,8 @@
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Browsers/Week1#exercise-6-conways-game-of-life
 
+THIS IS A PREP EXERCISE FOR THE Q&A SESSION, IT SHOULD NOT BE PART OF THE HOMEWORK
+
 Adapted from: https://spicyyoghurt.com/tutorials/javascript/conways-game-of-life-canvas
 Refactored from ES6 Class syntax to regular functions
 ------------------------------------------------------------------------------*/
