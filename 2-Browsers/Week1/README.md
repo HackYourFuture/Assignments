@@ -43,8 +43,7 @@ const myBooks = [
 4. Add an `<img>` to each book that links to a URL of the book cover.
 5. Change the style of the book depending on whether you have read it (green) or not (red).
 
-The end result should look something like this:
-<https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/>
+The end result should look something like [this](https://hackyourfuture.github.io/example-pages/Browsers/Week1/1-booklist/)
 
 ## Exercise 2: About me
 
