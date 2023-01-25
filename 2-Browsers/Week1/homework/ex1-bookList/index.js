@@ -12,7 +12,7 @@ element with the book title and author.
 5. Change the style of the book depending on whether you have read it(green) or not(red).
 
 The end result should look something like this:
-https: //hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
+https://hackyourfuture.github.io/example-pages/Browsers/Week1/1-booklist/
 
 -----------------------------------------------------------------------------*/
 //cspell: enable
