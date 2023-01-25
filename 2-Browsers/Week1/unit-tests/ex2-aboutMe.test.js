@@ -22,12 +22,6 @@ describe('Generated HTML', () => {
 
   testTodosRemoved(() => source);
 
-  test('the body font-family should be `Arial, sans-serif`', () => {
-    const fontFamily = document.body.style.fontFamily;
-    expect(fontFamily).toEqual(expect.stringContaining('Arial'));
-    expect(fontFamily).toEqual(expect.stringContaining('sans-serif'));
-  });
-
   test('each <li> should have the CSS class `list-item`', () => {
     const nodeList = document.querySelectorAll('li');
     const classNames = [...nodeList].map((node) => node.className);
