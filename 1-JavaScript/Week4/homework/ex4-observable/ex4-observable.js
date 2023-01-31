@@ -20,7 +20,6 @@ function createObservable() {
       subscribers.push(subscriber);
     },
     notify: function (message) {
-      // TODO complete this function
       subscribers.forEach((subscribe) => subscribe(message));
     },
   };
