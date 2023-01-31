@@ -1,0 +1,8 @@
+
+*** ESLint Report ***
+
+ex2-mondaysWorth.test.js
+  35:7  warning  'result' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+

@@ -25,3 +25,27 @@ ex1-giveCompliment.js:42:29 - Unknown word (Mehran)
 ex1-giveCompliment.js:43:29 - Unknown word (Mehran)
 ex1-giveCompliment.js:44:29 - Unknown word (Mehran)
 
+2023-01-25 12:11:29 info: -------------------------------------------------
+2023-01-25 12:11:29 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2023-01-25 12:11:29 info: -------------------------------------------------
+2023-01-25 12:11:32 info: All unit tests passed.
+2023-01-25 12:11:34 error: *** ESLint Report ***
+
+ex2-mondaysWorth.test.js
+  35:7  warning  'result' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+2023-01-31 11:02:30 info: -------------------------------------------------
+2023-01-31 11:02:30 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2023-01-31 11:02:30 info: -------------------------------------------------
+2023-01-31 11:02:33 info: All unit tests passed.
+2023-01-31 11:02:35 error: *** ESLint Report ***
+
+ex2-mondaysWorth.test.js
+  35:7  warning  'result' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+
+✖ 1 problem (0 errors, 1 warning)
+
+
