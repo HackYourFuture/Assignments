@@ -1,0 +1,11 @@
+*** Unit Test Error Report ***
+
+✕ giveCompliment should give a random compliment: You are `compliment`, `name`!
+  Expected: You are awesome, HackYourFuture!
+  Received: You are awesome , HackYourFuture !
+
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors --reporters="/Users/marwan/Desktop/Homework-class43/test-runner/CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating

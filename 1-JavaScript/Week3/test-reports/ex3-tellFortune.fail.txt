@@ -1,0 +1,12 @@
+*** Unit Test Error Report ***
+
+✕ tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a Developer in Amsterdam, married to Julia with 1 kids.
+  Received: You will be a Developer in Amsterdam, 
+    married to Julia with 1 kids."
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="/Users/marwan/Desktop/Homework-class43/test-runner/CustomReporter.js"
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating

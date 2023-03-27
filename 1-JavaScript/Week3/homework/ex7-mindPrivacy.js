@@ -1,4 +1,5 @@
 'use strict';
+
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-7-mind-the-privacy
 
@@ -30,8 +31,14 @@ const employeeRecords = [
 ];
 
 // ! Function under test
-function filterPrivateData(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+
+function filterPrivateData(employeeRecords) {
+  const filteredRecords = [];
+  for (const { name, occupation, email } of employeeRecords) {
+    const filteredRecord = { name, occupation, email };
+    filteredRecords.push(filteredRecord);
+  }
+  return filteredRecords;
 }
 
 // ! Test functions (plain vanilla JavaScript)

@@ -21,12 +21,23 @@ instead!
 3. Complete the unit test functions and verify that all is working as expected.
 -----------------------------------------------------------------------------*/
 const cartForParty = {
-  // TODO complete this object
+  tea: 2,
+  juice: 2.5,
+  sandwich: 3.5,
+  cola: 1,
+  water: 2,
 };
 
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
-  // TODO replace this comment with your code
+function calculateTotalPrice() {
+  let sum = 0;
+  for (const prop of Object.keys(cartForParty)) {
+    if (typeof cartForParty[prop] === 'number') {
+      sum += cartForParty[prop];
+    }
+  }
+  return ` Total: € ${sum} `;
 }
+console.log(calculateTotalPrice());
 
 // ! Test functions (plain vanilla JavaScript)
 function test1() {

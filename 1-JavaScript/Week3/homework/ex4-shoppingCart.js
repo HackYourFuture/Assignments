@@ -1,4 +1,5 @@
 'use strict';
+
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-4-shopping-at-the-supermarket
 
@@ -23,43 +24,46 @@ you have more than 3 items in your shopping cart the first item gets taken out.
 const shoppingCart = ['bananas', 'milk'];
 
 // ! Function to be tested
-function addToShoppingCart(/* parameters go here */) {
-  // TODO complete this function
+function addToShoppingCart(ele) {
+  shoppingCart.push(ele);
+  if (shoppingCart.length > 3) {
+    shoppingCart.shift();
+  }
+  const result = shoppingCart.join(', ');
+  return `You bought ${result}!`;
 }
 
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
-  console.log(
-    'Test 1: addShoppingCart() called without an argument should leave the shopping cart unchanged'
-  );
+  console.log(addToShoppingCart());
   const expected = 'You bought bananas, milk!';
   const actual = addToShoppingCart();
   console.assert(actual === expected);
 }
 
 function test2() {
-  console.log('Test 2: addShoppingCart() should take one parameter');
+  console.log(addToShoppingCart(1));
   const expected = 1;
   const actual = addToShoppingCart.length;
   console.assert(actual === expected);
 }
 
 function test3() {
-  console.log('Test 3: `chocolate` should be added');
+  console.log(addToShoppingCart('chocolate'));
   const expected = 'You bought bananas, milk, chocolate!';
   const actual = addToShoppingCart('chocolate');
   console.assert(actual === expected);
 }
 
 function test4() {
-  console.log('Test 4: `waffles` should be added and `bananas` removed');
+  console.log(addToShoppingCart('waffles'));
   const expected = 'You bought milk, chocolate, waffles!';
   const actual = addToShoppingCart('waffles');
   console.assert(actual === expected);
 }
 
 function test5() {
-  console.log('Test 5: `tea` should be added and `milk` removed');
+  console.log(addToShoppingCart('tea'));
   const expected = 'You bought chocolate, waffles, tea!';
   const actual = addToShoppingCart('tea');
   console.assert(actual === expected);
