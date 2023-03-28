@@ -29,7 +29,7 @@ let compliments = [
     "Focused",
     "Creative",
     "Lovely",
-    "Smart",
+    "Strong",
     "Great",
   ];
   let random = compliments[Math.floor(Math.random() * compliments.length)];
