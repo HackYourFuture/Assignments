@@ -29,7 +29,7 @@ let compliments = [
     "Focused",
     "Creative",
     "Lovely",
-    "Smart",
+    "Strong",
     "Great",
   ];
   let random = compliments[Math.floor(Math.random() * compliments.length)];
@@ -56,3 +56,4 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 module.exports = giveCompliment;
+
