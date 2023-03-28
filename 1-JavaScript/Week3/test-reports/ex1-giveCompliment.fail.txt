@@ -1,0 +1,5 @@
+
+*** Spell Checker Report ***
+
+ex1-giveCompliment.js:40:19 - Unknown word (Alevtina)
+ex1-giveCompliment.js:46:21 - Unknown word (Evelina)

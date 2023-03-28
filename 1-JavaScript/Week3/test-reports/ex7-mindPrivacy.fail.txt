@@ -1,0 +1,16 @@
+
+*** ESLint Report ***
+
+ex7-mindPrivacy.js
+  35:14  warning  'name' is never reassigned. Use 'const' instead        no-autofix/prefer-const
+  35:20  warning  'occupation' is never reassigned. Use 'const' instead  no-autofix/prefer-const
+  35:32  warning  'email' is never reassigned. Use 'const' instead       no-autofix/prefer-const
+  36:9   warning  'newArray' is never reassigned. Use 'const' instead    no-autofix/prefer-const
+
+✖ 4 problems (0 errors, 4 warnings)
+
+
+*** Spell Checker Report ***
+
+ex7-mindPrivacy.js:33:44 - Unknown word (Recods)
+ex7-mindPrivacy.js:35:59 - Unknown word (Recods)

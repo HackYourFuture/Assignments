@@ -1,0 +1,8 @@
+*** Unit Test Error Report ***
+
+✕ tellFortune should tell the fortune by randomly selecting array values
+  Expected: You will be a developer in Lapland, married to Hulk with 1 kids.
+  Received: You will be a developer in Lapland, married to Hulk with 1 kid.
+
+
+Command failed: npx jest ex3-tellFortune.test.js --colors --reporters="C:\Users\Alya\Desktop\HOMEWORK\test-runner\CustomReporter.js"
