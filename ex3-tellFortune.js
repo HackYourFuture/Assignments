@@ -33,11 +33,13 @@ body, this code is now written once only in a separated function.
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-function selectRandomly(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+function selectRandomly(arr) {
+ let random = arr[Math.floor(Math.random() * arr.length)];
+
+  return random;
 }
 
-function tellFortune(/* TODO add parameter(s) here */) {
+function tellFortune(kids,names,location,jobs) {
   // TODO complete this function
 }
 
