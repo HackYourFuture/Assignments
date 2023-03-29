@@ -1,0 +1,88 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "4. unit test browser",
+  "steps": [
+    {
+      "file": "2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js",
+      "description": "For browser-based exercises we make use of `jsdom` through the helper function `prepare()`.",
+      "line": 11,
+      "title": "beforeAll prepare"
+    },
+    {
+      "file": "test-runner/jsdom-helpers.js",
+      "description": "We use the JSDOM convenience function `JSDOM.fromFile()` to load `index.html` into jsdom. We add some sleep time to allow JavaScript file used in `<script>` tags to manipulate the DOM before returning the JSDOM window object.",
+      "line": 33,
+      "selection": {
+        "start": {
+          "line": 24,
+          "character": 1
+        },
+        "end": {
+          "line": 33,
+          "character": 17
+        }
+      },
+      "title": "load into JSDOM"
+    },
+    {
+      "file": "2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js",
+      "description": "All browser-based unit tests get the document's `outerHTML` for HTML validation purposes.",
+      "line": 12,
+      "title": "fetch outerHTML"
+    },
+    {
+      "file": "2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js",
+      "description": "In addition to JSDOM, this unit test file also uses static code analysis. Because the JavaScript file has no exports, nor has anything that we want to test by calling functions inside of it, we specify that we do not want to `require` the file.",
+      "line": 16,
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 1
+        },
+        "end": {
+          "line": 17,
+          "character": 1
+        }
+      },
+      "title": "parse AST"
+    },
+    {
+      "file": "2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js",
+      "description": "Here, we want inspect whether the JavaScript code was executed through either a `window.onload` or a `window.addEventListener('load', ...)`.",
+      "line": 36,
+      "selection": {
+        "start": {
+          "line": 18,
+          "character": 1
+        },
+        "end": {
+          "line": 37,
+          "character": 1
+        }
+      },
+      "title": "static code analysis"
+    },
+    {
+      "file": "2-Browsers/Week1/unit-tests/ex4-whatsTheTime.test.js",
+      "description": "We use the `html-validate` package to off-line validate the generated HTML.",
+      "line": 39,
+      "title": "validate html"
+    },
+    {
+      "file": "test-runner/jsdom-helpers.js",
+      "description": "Any HTML validation errors are reported through a string assertion, picked up by the custom reporter.",
+      "line": 43,
+      "selection": {
+        "start": {
+          "line": 38,
+          "character": 1
+        },
+        "end": {
+          "line": 44,
+          "character": 1
+        }
+      },
+      "title": "html validation helper"
+    }
+  ]
+}

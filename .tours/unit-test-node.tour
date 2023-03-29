@@ -1,0 +1,108 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "3. unit test node",
+  "steps": [
+    {
+      "file": "1-JavaScript/Week4/unit-tests/ex1-doubleEvenNumbers.test.js",
+      "description": "Each unit test for includes a call to `beforeAll()` to prepare the test setup before any of the unit tests executes. The helper function `beforeAllHelper()` dynamically requires the exercise and optionally parses the exercise source code for static code analysis. It returns any exports (`module.exporsts`) from the exercise and (optionally) an AST tree.",
+      "line": 18,
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 1
+        },
+        "end": {
+          "line": 18,
+          "character": 34
+        }
+      },
+      "title": "beforeAll"
+    },
+    {
+      "file": "test-runner/unit-test-helpers.js",
+      "description": "We dynamically `require` require the exercise file while using a dummy mock for `console.log`. The unit tests do not inspect what is being logged by the exercise and we don't want any console.log's to be intermixed with unit test output. Note that the `require` may fail in the exercise contains JavaScript errors.",
+      "line": 41,
+      "selection": {
+        "start": {
+          "line": 33,
+          "character": 1
+        },
+        "end": {
+          "line": 42,
+          "character": 1
+        }
+      },
+      "title": "require exercise"
+    },
+    {
+      "file": "test-runner/unit-test-helpers.js",
+      "description": "We also read the source code directly into a string and make if available in the `result` object, although at present the source code is not used by any unit tests.\n\nOptionally, the source code is parsed into an AST tree for static code analysis inside the unit tests.",
+      "line": 51,
+      "selection": {
+        "start": {
+          "line": 43,
+          "character": 1
+        },
+        "end": {
+          "line": 52,
+          "character": 1
+        }
+      },
+      "title": "acorn parse"
+    },
+    {
+      "file": "1-JavaScript/Week4/unit-tests/ex1-doubleEvenNumbers.test.js",
+      "description": "Here is an example of static code analysis. We expect the `map` and `filter` methods to be used inside a function declaration. For that purpose we walk the AST, looking for a `MemberExpression` with property names `map` and `filter` and add corresponding properties to the `state` object if found. To inspect the expected shape of the AST we use the online **AST Explorer**, as explained in the `README` of the `text-runner` folder.",
+      "line": 32,
+      "selection": {
+        "start": {
+          "line": 22,
+          "character": 1
+        },
+        "end": {
+          "line": 33,
+          "character": 1
+        }
+      },
+      "title": "walk AST"
+    },
+    {
+      "file": "1-JavaScript/Week4/unit-tests/ex1-doubleEvenNumbers.test.js",
+      "description": "We should always take into account that we may not have an export, e.g. if the exercise could not be required due to syntax errors.",
+      "line": 37,
+      "selection": {
+        "start": {
+          "line": 35,
+          "character": 1
+        },
+        "end": {
+          "line": 38,
+          "character": 1
+        }
+      },
+      "title": "exports must exist"
+    },
+    {
+      "file": "1-JavaScript/Week4/unit-tests/ex1-doubleEvenNumbers.test.js",
+      "description": "This is an example of run time unit test where the `require`-ed exercise function is called and its result asserted.\n\nNote that each unit test that calls an export must be guarded against non-existing exports:\n\n```javascript\nif (!exported) return;\n```",
+      "line": 41,
+      "selection": {
+        "start": {
+          "line": 40,
+          "character": 1
+        },
+        "end": {
+          "line": 42,
+          "character": 1
+        }
+      },
+      "title": "test export"
+    },
+    {
+      "file": "1-JavaScript/Week4/unit-tests/ex1-doubleEvenNumbers.test.js",
+      "description": "Here is an example of the result of static code analysis, using the prepared `state` object.",
+      "line": 46,
+      "title": "test results from code analysis"
+    }
+  ]
+}
