@@ -1,4 +1,4 @@
-# Homework Javascript Week 4
+# Homework Javascript Week 3
 
 ## Exercises
 
