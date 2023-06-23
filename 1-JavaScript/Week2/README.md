@@ -1,4 +1,4 @@
-# Homework Javascript Week 3
+# Homework Javascript Week 2
 
 The homework for this week can be found in the `homework` folder.
 
