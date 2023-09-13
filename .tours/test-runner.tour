@@ -16,7 +16,7 @@
     },
     {
       "file": "test-runner/test-runner-helpers.js",
-      "description": "Exercise files and folders must reside in a folder named **homework** and match a pattern that starts with the letters **ex** followed by a number and a dash. Each **homework** folder is a subfolder of a **Week𝑛** folder, which itself is a subfolder of a module specific top-level folder. For instance:\n\n```console\n1-JavaScript/\n  Week3/\n    homework/\n      ex1-giveCompliment.js\n      ...\n```\n\nNote that Windows paths contain back slashes that must be replaced with forward slashes as required by `fast-glob`.",
+      "description": "Exercise files and folders must reside in a folder named **assignments** and match a pattern that starts with the letters **ex** followed by a number and a dash. Each **assignments** folder is a subfolder of a **Week𝑛** folder, which itself is a subfolder of a module specific top-level folder. For instance:\n\n```console\n1-JavaScript/\n  Week3/\n    assignments/\n      ex1-giveCompliment.js\n      ...\n```\n\nNote that Windows paths contain back slashes that must be replaced with forward slashes as required by `fast-glob`.",
       "line": 26,
       "selection": {
         "start": {
@@ -80,7 +80,7 @@
     },
     {
       "file": "test-runner/index.js",
-      "description": "The students' exercises are in subfolders of the **homework** folder. For testing the \"happy path\" of the unit tests completed exercises can be placed in an alternate folder, the name of whhich can be defined through the `HOMEWORK_FOLDER` environment variable. The recommended folder for this purpose is **@homework** (git-ignored). The npm script **npm run testalt** sets the `HOMEWORK_FOLDER` environment variable to **@homework** before running the test.",
+      "description": "The students' exercises are in subfolders of the **assignments** folder. For testing the \"happy path\" of the unit tests completed exercises can be placed in an alternate folder, the name of whhich can be defined through the `ASSIGNMENTS_FOLDER` environment variable. The recommended folder for this purpose is **@assignments** (git-ignored). The npm script **npm run testalt** sets the `ASSIGNMENTS_FOLDER` environment variable to **@assignments** before running the test.",
       "line": 198
     },
     {

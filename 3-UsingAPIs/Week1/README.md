@@ -1,8 +1,8 @@
-# Homework Using APIs Week 1
+# Assignments Using APIs Week 1
 
 ## Exercises
 
-The homework for this week can be found in the `homework` folder.
+The assignments for this week can be found in the `assignments` folder.
 
 ### Exercise 1: John who?
 

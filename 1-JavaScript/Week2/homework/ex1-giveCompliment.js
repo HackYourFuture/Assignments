@@ -1,6 +1,6 @@
 'use strict';
 /* -----------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-1-you-are-amazing
+Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-JavaScript/Week3#exercise-1-you-are-amazing
 
 1. Complete the function named `giveCompliment`as follows:
 

@@ -1,13 +1,13 @@
 {
-  "name": "homework",
+  "name": "assignments",
   "version": "1.0.0",
   "description": "> If you are following the HackYourFuture curriculum we recommend you to start with module 1: [HTML/CSS/GIT](https://github.com/HackYourFuture/HTML-CSS). To get a complete overview of the HackYourFuture curriculum first, click [here](https://github.com/HackYourFuture/curriculum).",
   "main": "index.js",
   "scripts": {
     "test": "node ./test-runner",
-    "testalt": "node ./test-runner @homework",
+    "testalt": "node ./test-runner @assignments",
     "it": "node ./test-runner/run-it",
-    "alt": "node ./test-runner/run-it @homework",
+    "alt": "node ./test-runner/run-it @assignments",
     "reset-reports": "node ./test-runner/reset-reports",
     "sysinfo": "node ./test-runner/sysinfo",
     "postinstall": "npm run sysinfo",
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HackYourFuture/Homework.git"
+    "url": "git+https://github.com/HackYourFuture/Assignments.git"
   },
   "keywords": [
-    "homework",
+    "assignments",
     "HackYourFuture"
   ],
   "author": "Jim Cramer for HackYourFuture",
@@ -30,11 +30,11 @@
   },
   "license": "CC-BY-4.0",
   "bugs": {
-    "url": "https://github.com/HackYourFuture/Homework/issues"
+    "url": "https://github.com/HackYourFuture/Assignments/issues"
   },
-  "homepage": "https://github.com/HackYourFuture/Homework#readme",
+  "homepage": "https://github.com/HackYourFuture/Assignments#readme",
   "alias": {
-    "pokerDiceRoller": "./3-UsingAPIs/Week1/homework"
+    "pokerDiceRoller": "./3-UsingAPIs/Week1/assignments"
   },
   "WARNING": "Do not update major versions of dependencies as they may break the test runner",
   "dependencies": {

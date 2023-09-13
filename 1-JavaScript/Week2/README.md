@@ -1,10 +1,10 @@
-# Homework Javascript Week 3
+# Assignments Javascript Week 3
 
-The homework for this week can be found in the `homework` folder.
+The assignments for this week can be found in the `assignments` folder.
 
 ## Exercises
 
-Starter code for all exercises is located in the `homework` folder. Modify the starter code so that the requirements of the exercise are met. At the bottom of some of the exercise files you will see a code snippet similar to:
+Starter code for all exercises is located in the `assignments` folder. Modify the starter code so that the requirements of the exercise are met. At the bottom of some of the exercise files you will see a code snippet similar to:
 
 ```js
 // ! Do not change or remove the code below

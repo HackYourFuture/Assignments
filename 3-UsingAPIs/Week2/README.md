@@ -1,8 +1,8 @@
-# Homework Using APIs Week 2
+# Assignments Using APIs Week 2
 
 ## Exercises
 
-The homework for this week can be found in the `homework` folder.
+The assignments for this week can be found in the `assignments` folder.
 
 ### Exercise 1: Programmer Fun
 
@@ -191,8 +191,8 @@ This will give us some information where the error occurred:
 ```console
 Something went wrong: laureates.forEach is not a function
 TypeError: laureates.forEach is not a function
-    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:19:13)
-    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:27:5)
+    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:19:13)
+    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:27:5)
     at processTicksAndRejections (internal/process/task_queues.js:93:5)
 ```
 
@@ -227,16 +227,16 @@ When we run the code we now get:
 laureates: Promise { <pending> }
 Something went wrong: laureates.forEach is not a function
 TypeError: laureates.forEach is not a function
-    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:20:13)
-    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:28:5)
-    at Object.<anonymous> (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:35:1)
+    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:20:13)
+    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:28:5)
+    at Object.<anonymous> (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:35:1)
     at Module._compile (internal/modules/cjs/loader.js:1063:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
     at Module.load (internal/modules/cjs/loader.js:928:32)
     at Function.Module._load (internal/modules/cjs/loader.js:769:14)
     at Module.require (internal/modules/cjs/loader.js:952:19)
     at require (internal/modules/cjs/helpers.js:88:18)
-    at runExercise (C:\Users\jimcr\dev\hackyourfuture\homework\test-runner\run-it.js:54:7)
+    at runExercise (C:\Users\jimcr\dev\hackyourfuture\assignments\test-runner\run-it.js:54:7)
 ```
 
 <!-- cspell:enable -->
@@ -297,8 +297,8 @@ Let's now run the code again:
 }
 Something went wrong: laureates.forEach is not a function
 TypeError: laureates.forEach is not a function
-    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:20:13)
-    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:28:5)
+    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:20:13)
+    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:28:5)
     at processTicksAndRejections (internal/process/task_queues.js:93:5)
 ```
 
@@ -395,10 +395,10 @@ Name: Bernard L. Feringa
 Birth: 1951-05-18, [object Object]
 Something went wrong: Cannot read property 'date' of undefined
 TypeError: Cannot read property 'date' of undefined
-    at renderLaureate (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:15:31)
+    at renderLaureate (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:15:31)
     at Array.forEach (<anonymous>)
-    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:19:13)
-    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\homework\3-UsingAPIs\Week2\homework\ex5-vscDebug.js:27:5)
+    at renderLaureates (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:19:13)
+    at fetchAndRender (C:\Users\jimcr\dev\hackyourfuture\assignments\3-UsingAPIs\Week2\assignments\ex5-vscDebug.js:27:5)
     at processTicksAndRejections (internal/process/task_queues.js:93:5)
 Waiting for the debugger to disconnect...
 Waiting for the debugger to disconnect...

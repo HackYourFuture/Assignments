@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week4#exercise-1-the-odd-ones-out
+Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-JavaScript/Week4#exercise-1-the-odd-ones-out
 
 The `doubleEvenNumbers` function returns only the even numbers in the array 
 passed as the `numbers` parameter and doubles them.

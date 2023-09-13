@@ -14,11 +14,11 @@ function sleep(ms) {
 }
 
 async function prepare() {
-  const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
+  const assignmentsFolder = process.env.ASSIGNMENTS_FOLDER || 'assignments';
 
   const { testPath } = expect.getState();
   const exercisePath = testPath
-    .replace('unit-tests', homeworkFolder)
+    .replace('unit-tests', assignmentsFolder)
     .replace(/\.test\.js$/, '');
 
   const virtualConsole = new jsdom.VirtualConsole();

@@ -87,7 +87,7 @@ async function runExercise(exercisePath) {
 
 async function main() {
   try {
-    const homeworkFolder = process.argv[2] ?? 'homework';
+    const assignmentsFolder = process.argv[2] ?? 'assignments';
 
     const menuData = compileMenuData();
     let module, week, exercise;
@@ -106,7 +106,7 @@ async function main() {
       saveMostRecentSelection(module, week, exercise);
     }
 
-    const exercisePath = makePath(module, week, homeworkFolder, exercise);
+    const exercisePath = makePath(module, week, assignmentsFolder, exercise);
     const hash = await computeHash(exercisePath);
 
     const untouched = hash === hashes[exercise];

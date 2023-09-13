@@ -61,7 +61,7 @@ async function writeReport(module, week, exercise, report) {
   await fs.promises.writeFile(passFilePath, message, 'utf8');
 }
 
-function getUnitTestPath(exercisePath, homeworkFolder) {
+function getUnitTestPath(exercisePath, assignmentsFolder) {
   // If the exercise path ends with `.test` it is expected to represent a
   // single JavaScript file that contains both a function-under-test and
   // a unit test or suite of tests.
@@ -95,7 +95,7 @@ function getUnitTestPath(exercisePath, homeworkFolder) {
   // If the exercise directory does not contain a unit test file then it may
   // exist in the `unit-tests` directory.
   const regexp = new RegExp(
-    `(Week\\d+)\\${path.sep}${homeworkFolder}\\${path.sep}`
+    `(Week\\d+)\\${path.sep}${assignmentsFolder}\\${path.sep}`
   );
   const unitTestPath =
     exercisePath.replace(regexp, `$1${path.sep}unit-tests${path.sep}`) +
@@ -111,10 +111,10 @@ function getUnitTestPath(exercisePath, homeworkFolder) {
   return null;
 }
 
-async function execJest(exercisePath, homeworkFolder) {
+async function execJest(exercisePath, assignmentsFolder) {
   let message;
 
-  const result = getUnitTestPath(exercisePath, homeworkFolder);
+  const result = getUnitTestPath(exercisePath, assignmentsFolder);
   if (!result) {
     message = 'A unit test file was not provided.';
     console.log(chalk.yellow(message));
@@ -139,7 +139,7 @@ async function execJest(exercisePath, homeworkFolder) {
       stdio: 'pipe',
       env: {
         ...process.env,
-        HOMEWORK_FOLDER: homeworkFolder,
+        ASSIGNMENTS_FOLDER: assignmentsFolder,
       },
     });
 
@@ -178,7 +178,7 @@ async function execESLint(exercisePath) {
     output = err.stdout;
   }
   if (output) {
-    output = output.replace(/\\/g, '/').replace(/^.*\/\.?homework\//gm, '');
+    output = output.replace(/\\/g, '/').replace(/^.*\/\.?assignments\//gm, '');
     const title = '*** ESLint Report ***';
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(output));
@@ -206,7 +206,7 @@ async function execSpellChecker(exercisePath) {
     // remove full path
     const output = err.stdout
       .replace(/\\/g, '/')
-      .replace(/^.*\/\.?@?homework\//gm, '');
+      .replace(/^.*\/\.?@?assignments\//gm, '');
 
     const title = '*** Spell Checker Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
@@ -250,7 +250,7 @@ async function main() {
   }
 
   try {
-    const homeworkFolder = process.argv[2] || 'homework';
+    const assignmentsFolder = process.argv[2] || 'assignments';
 
     const menuData = compileMenuData();
     let module, week, exercise;
@@ -275,7 +275,7 @@ async function main() {
     logger.info(title);
     logger.info(separator);
 
-    const exercisePath = makePath(module, week, homeworkFolder, exercise);
+    const exercisePath = makePath(module, week, assignmentsFolder, exercise);
     const hash = await computeHash(exercisePath);
 
     const untouched = hash === hashes[exercise];
@@ -286,7 +286,7 @@ async function main() {
 
     console.log('Running test, please wait...');
     let report = '';
-    report += await execJest(exercisePath, homeworkFolder);
+    report += await execJest(exercisePath, assignmentsFolder);
     report += await execESLint(exercisePath);
     report += await execSpellChecker(exercisePath);
 

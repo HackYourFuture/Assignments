@@ -9,7 +9,7 @@ const Cryptr = require('cryptr');
 
 const { makePath } = require('./test-runner-helpers');
 
-const solutionsFolderName = '@homework';
+const solutionsFolderName = '@assignments';
 
 async function decryptExerciseSolution(filePath, secret) {
   const cryptr = new Cryptr(secret);

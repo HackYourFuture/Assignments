@@ -1,6 +1,6 @@
 //cspell: disable
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Browsers/Week1#exercise-1-the-book-list
+Full description at: https://github.com/HackYourFuture/Assignments/tree/main/2-Browsers/Week1#exercise-1-the-book-list
 
 I'd like to display my three favorite books inside a nice webpage!
 

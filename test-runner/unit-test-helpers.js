@@ -17,12 +17,12 @@ function beforeAllHelper(testFilePath, options = {}) {
     throw new Error(`Unexpected test path: ${testFilePath}`);
   }
 
-  const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
+  const assignmentsFolder = process.env.ASSIGNMENTS_FOLDER || 'assignments';
 
   const [, module, week, exercise] = matches;
   let exercisePath = path.join(
     __dirname,
-    `../${module}/${week}/${homeworkFolder}/${exercise}`
+    `../${module}/${week}/${assignmentsFolder}/${exercise}`
   );
 
   exercisePath = fs.existsSync(exercisePath)

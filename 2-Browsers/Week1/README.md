@@ -1,12 +1,12 @@
-# Homework Browsers Week 1
+# Assignments Browsers Week 1
 
 ## Deliverable Exercises
 
-The homework for this week can be found in the `homework` folder.
+The assignments for this week can be found in the `assignments` folder.
 
 > :collision: **Important**
 >
-> In this homework you are not allowed to use `.innerHTML`. To create HTML elements, use `document.createElement()`. To set the text content of an element, use `.textContent`. The homework tests currently do not support `.innerText`.
+> In this assignment you are not allowed to use `.innerHTML`. To create HTML elements, use `document.createElement()`. To set the text content of an element, use `.textContent`. The assignment tests currently do not support `.innerText`.
 
 ## Exercise 1: The book list
 
@@ -136,7 +136,7 @@ This is what it should like:
 
 ## Prep exercises
 
-Prep exercises are exercises that are a little more difficult. We will go through these exercises on Sunday, but do expect you to have already gotten a solution by then as a student will be asked to share their solution. You may have to come together as a class for some of them! You should NOT hand in these exercises, so make sure to not add it to the commit for your homework (have a look at the `git add` documentation [here](https://git-scm.com/docs/git-add) for all the options to exclude files in a commit).
+Prep exercises are exercises that are a little more difficult. We will go through these exercises on Sunday, but do expect you to have already gotten a solution by then as a student will be asked to share their solution. You may have to come together as a class for some of them! You should NOT hand in these exercises, so make sure to not add it to the commit for your assignment (have a look at the `git add` documentation [here](https://git-scm.com/docs/git-add) for all the options to exclude files in a commit).
 
 ## Prep exercise: Conway's Game of Life
 

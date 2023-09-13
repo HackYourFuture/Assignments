@@ -19,7 +19,7 @@ function makePath(module, week, folder, exercise) {
 function compileMenuData() {
   const menuData = {};
   const fileSpec = path
-    .join(__dirname, '..', '**/homework/ex+([0-9])-*')
+    .join(__dirname, '..', '**/assignments/ex+([0-9])-*')
     .replace(/\\/g, '/');
   const filePaths = fg.sync([fileSpec, '!**/node_modules'], {
     onlyFiles: false,
@@ -27,7 +27,7 @@ function compileMenuData() {
 
   filePaths.forEach((filePath) => {
     const matches = filePath.match(
-      /^.*\/(.+)\/(Week\d)\/homework\/(.+?)(?:\.js)?$/i
+      /^.*\/(.+)\/(Week\d)\/assignments\/(.+?)(?:\.js)?$/i
     );
     if (matches) {
       const [, module, week, exercise] = matches;

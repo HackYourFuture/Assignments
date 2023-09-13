@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository includes infrastructure for the automatic checking (unit testing, linting and spell-checking) of homework exercises, for use by both students and homework reviewers. This document describes this infrastructure.
+This repository includes infrastructure for the automatic checking (unit testing, linting and spell-checking) of assignments, for use by both students and assignment reviewers. This document describes this infrastructure.
 
 ## Running the tests
 
@@ -61,7 +61,7 @@ For example:
 
 These files are mutually exclusive; after running a test any previous report file for that test is erased before a new one is created. However, if a student runs a test against a still untouched exercise the default `.todo.txt` file remains in place.
 
-The report files are tracked by Git and are expected to be included in the pull requests submitted by students. Students are expected to run the relevant tests prior to submitting their PR for the current week. Running a test gives them early feedback on the correctness of the expected results and on conformance to the mandated coding style (as per ESLint). This provides them an early opportunity for corrective action. Once submitted as part of a PR, the report files give pull request reviewers some key indicators into the correctness of the homework while doing a more elaborate visual inspection of the actual code.
+The report files are tracked by Git and are expected to be included in the pull requests submitted by students. Students are expected to run the relevant tests prior to submitting their PR for the current week. Running a test gives them early feedback on the correctness of the expected results and on conformance to the mandated coding style (as per ESLint). This provides them an early opportunity for corrective action. Once submitted as part of a PR, the report files give pull request reviewers some key indicators into the correctness of the assignments while doing a more elaborate visual inspection of the actual code.
 
 ### Test log file
 
@@ -74,10 +74,10 @@ The test runner relies on strict adherence to a predefined naming convention and
 <!-- prettier-ignore -->
 Folder | Description |
 ------ | ----------- |
-`<module>/Week𝑛/homework` | Example: `1-JavaScript/Week3/homework`<br><br>The JavaScript file representing the exercise must named `<exercise-name>.js` and placed in this folder. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then these files must be placed in a _folder_ named `<exercise-name>`. In this case, the main JavaScript file must be called `index.js`.<br><br>There can be multiple exercises per _Week𝑛_ folder.
+`<module>/Week𝑛/assignments` | Example: `1-JavaScript/Week3/assignments`<br><br>The JavaScript file representing the exercise must named `<exercise-name>.js` and placed in this folder. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then these files must be placed in a _folder_ named `<exercise-name>`. In this case, the main JavaScript file must be called `index.js`.<br><br>There can be multiple exercises per _Week𝑛_ folder.
 `<module>/Week𝑛/unit-tests` | This folder contains the unit test JavaScript files. The JavaScript file containing the unit test(s) for ab exercise must named `<exercise-name>.test.js`. Unit test files are optional. If not provided, the unit test step of the test runner is skipped.
 `<module>/Week𝑛/test-reports` | This folder will hold the test reports.
-`<module>/Week𝑛/@homework` | This folder (notice the leading `@`-sign in the name) is only used during development and maintenance of this repo. Working solutions to exercises can be placed in this folder to test the "happy" path of the unit tests. A `@homework` folder is used in place of a regular `homework` folder when a unit test is run with the command: `npm run testalt`.
+`<module>/Week𝑛/@assignments` | This folder (notice the leading `@`-sign in the name) is only used during development and maintenance of this repo. Working solutions to exercises can be placed in this folder to test the "happy" path of the unit tests. A `@assignments` folder is used in place of a regular `assignments` folder when a unit test is run with the command: `npm run testalt`.
 
 ## Linting
 
@@ -98,7 +98,7 @@ After running the `setup` script the resulting structure for a module looks simi
 ```text
 1-JavaScript/
   Week3/
-    homework/
+    assignments/
       ex1-giveCompliment.js
       ...
     test-reports/

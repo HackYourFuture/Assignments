@@ -42,7 +42,7 @@ async function encryptExerciseSolution(secret, fileSpec, exerciseJSON) {
 
 function encryptExerciseSolutions(secret, module, week, exercises) {
   exercises.forEach((exercise) => {
-    const filePath = makePath(module, week, '@homework', exercise);
+    const filePath = makePath(module, week, '@assignments', exercise);
     let fileSpec, isFolder;
 
     if (existsSync(filePath)) {

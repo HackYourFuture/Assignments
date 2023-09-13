@@ -1,12 +1,12 @@
-# Homework
+# Assignments
 
-This repository contains all of the homework exercises that need to be handed in for the JavaScript modules (i.e., JavaScript, Browsers and UsingAPIs) of the HackYourFuture curriculum.
+This repository contains all of the assignments that need to be handed in for the JavaScript modules (i.e., JavaScript, Browsers and UsingAPIs) of the HackYourFuture curriculum.
 
 ## Introduction
 
-Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain homework exercises. This repository contains all of these exercises for the JavaScript modules. The module repositories will tell you how to hand in the homework, the curriculum will indicate what week you will need to do.
+Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain assignments. This repository contains all of these exercises for the JavaScript modules. The module repositories will tell you how to hand in the assignments, the curriculum will indicate what week you will need to do.
 
-> Note that a fork of this repository will be created on the HackYourHomework GitHub account specifically for your class. The name of the repository will have the format `Homework-classXX` where `XX` is your class number,
+> Note that a fork of this repository will be created on the HackYourAssignments GitHub account specifically for your class. The name of the repository will have the format `Assignments-classXX` where `XX` is your class number,
 
 ## Installation
 
@@ -27,10 +27,10 @@ This command:
 You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) while working with this repository. To open it with VSCode you can use the command line:
 
 ```text
-code Homework-classXX
+code Assignments-classXX
 ```
 
-> When working on your homework it is strongly recommended to open `Homework-classXX` folder itself in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
+> When working on your assignments it is strongly recommended to open the `Assignments-classXX` folder itself in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
 
 ### Install Recommended VSCode Extensions
 
@@ -49,14 +49,14 @@ If, for some reason, the prompt to install the extensions does not appear then p
 
 ### Overview of the Directory Structure
 
-The directory structure containing the homework for a specific curriculum module (in Figure 1 below, the **JavaScript** module), looks like this:
+The directory structure containing the assignments for a specific curriculum module (in Figure 1 below, the **JavaScript** module), looks like this:
 
 ![directory structure](./assets/directory-structure.png)
 <br>Figure 1. Directory Structure for the `1-JavaScript` folder.
 
 > A similar directory structure exists for the **Browser** module (`2-Browsers`) and the **UsingAPIs** module (`3-UsingAPIs`).
 
-Each `homework` folder contains sub-folders and files that make up the exercises. The exercises consist of starter files that you need to complete. Some exercises consist of a single JavaScript (for example, `ex1-giveCompliment.js`). Exercises that are browser-based are mostly contained in sub-folders (for example, `ex1-bookList` in the `1-Browsers/homework` folder).
+Each `assignments` folder contains sub-folders and files that make up the exercises. The exercises consist of starter files that you need to complete. Some exercises consist of a single JavaScript (for example, `ex1-giveCompliment.js`). Exercises that are browser-based are mostly contained in sub-folders (for example, `ex1-bookList` in the `1-Browsers/assignments` folder).
 
 > You should not change anything in the `test-reports` and `unit-tests` sub-folders. The purpose of these folders will be explained later.
 
@@ -180,7 +180,7 @@ This will open a terminal window at the bottom of the screen, as show in Figure 
 ![Terminal Window](./assets/terminal-window.png)
 <br>Figure 7. Terminal Window
 
-Because we used the context menu in the VSCode File Explorer, the current directory in the terminal window is already the `homework` folder containing the exercise. We can execute our program (in this example `ex1-giveCompliment.js`) by typing `node`, followed by a space and then enough characters to uniquely identify the file. Then press the **Tab** key to _expand_ the file name. Because the names of all exercises start with `ex𝑛`, where 𝑛 is a number, it is enough to type just that and press the **Tab** key:
+Because we used the context menu in the VSCode File Explorer, the current directory in the terminal window is already the `assignments` folder containing the exercise. We can execute our program (in this example `ex1-giveCompliment.js`) by typing `node`, followed by a space and then enough characters to uniquely identify the file. Then press the **Tab** key to _expand_ the file name. Because the names of all exercises start with `ex𝑛`, where 𝑛 is a number, it is enough to type just that and press the **Tab** key:
 
 ```text
 node ex1- (press TAB)
@@ -212,11 +212,11 @@ Once you are satisfied with the results it is time to use the **test runner**, a
 
 The repository includes an automated test facility. It serves two purposes.
 
-1. It allows you to test yourself whether your finished exercise meets some important requirements of the assignment. Consider this a form of _early feedback_. Your homework will also be reviewed by a mentor for more thorough feedback later but that make take a while to complete.
+1. It allows you to test yourself whether your finished exercise meets some important requirements of the assignment. Consider this a form of _early feedback_. Your assignments will also be reviewed by a mentor for more thorough feedback later but that make take a while to complete.
 
 2. It allows mentors to gain a quick insight on some key quality benchmarks, giving them a head start in the review process.
 
-> The tests that we have provided here cannot possibly test conformance to every detail of the exercise assignments. Therefore running a successful test is just a first indication of success. Ultimately, it will be the mentor reviewing your homework to give the final verdict.
+> The tests that we have provided here cannot possibly test conformance to every detail of the exercise assignments. Therefore running a successful test is just a first indication of success. Ultimately, it will be the mentor reviewing your assignments to give the final verdict.
 
 ### Running a test
 
@@ -302,7 +302,7 @@ For example:
 - `ex1-giveCompliment.pass.txt` _or_
 - `ex1-giveCompliment.fail.txt`
 
-The report files are considered part of the pull request that you will make to submit your homework. They enable reviewers to get a quick overview of your progress.
+The report files are considered part of the pull request that you will make to submit your assignments. They enable reviewers to get a quick overview of your progress.
 
 In addition, a log of the test results is written to a log file in the root directory of the repository. The name of that file is **\<email>.log**, where \<email> is your email address (or **test-runner.log** if the test runner could not determine your email address).
 
@@ -310,9 +310,9 @@ In addition, a log of the test results is written to a log file in the root dire
 >
 > You should strive to complete all tests with no errors reported, however it is okay if for some reason you were unable to fix some error. Nevertheless, you _**are**_ required to run the tests, whether successful or not.
 >
-> The test reports should be included in your Pull Request (for the benefit of the homework reviewer).
+> The test reports should be included in your Pull Request (for the benefit of the assignment reviewer).
 
-## Homework Exercise Instructions
+## Assignment Exercise Instructions
 
 ### JavaScript Module
 
