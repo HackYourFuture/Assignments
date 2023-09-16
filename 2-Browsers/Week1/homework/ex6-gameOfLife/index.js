@@ -15,10 +15,12 @@ const NUM_ROWS = 40;
 // life or death
 function createCell(x, y) {
   const alive = Math.random() > 0.5;
+  const lifetime = (alive==1) ? 1:(alive==0)?0:undefined
   return {
     x,
     y,
     alive,
+    lifetime
   };
 }
 
@@ -58,7 +60,10 @@ function createGame(context, numRows, numColumns) {
 
     if (cell.alive) {
       // Draw living cell inside background
-      context.fillStyle = `rgb(24, 215, 236)`;
+      // context.fillStyle = `rgb(24, 215, 236)`;
+      const opacity = (lifetime==1) ? 0.25 : (lifetime==2) ? 0.5 : (lifetime == 3) ? 0.75 : (lifetime >= 4) ? 1:undefined
+      console.log("opacity is " ,opacity)
+      context.fillStyle = `rgba(24, 215, 236, ${opacity})`;
       context.fillRect(
         cell.x * CELL_SIZE + 1,
         cell.y * CELL_SIZE + 1,
@@ -150,7 +155,7 @@ function createGame(context, numRows, numColumns) {
     // Kick-start the gameLoop
     window.requestAnimationFrame(gameLoop);
   }
-
+  
   return { grid, updateGrid, start };
 }
 
@@ -166,6 +171,7 @@ function main() {
 
   // Create the game "engine"
   const { start } = createGame(context, NUM_ROWS, NUM_COLUMNS);
+
 
   // Start the game
   start();
