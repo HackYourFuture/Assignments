@@ -51,6 +51,7 @@ function createGame(context, numRows, numColumns) {
   function drawCell(cell) {
     // Draw cell background
     context.fillStyle = '#303030';
+    const lifetime = cell.lifetime
     context.fillRect(
       cell.x * CELL_SIZE,
       cell.y * CELL_SIZE,

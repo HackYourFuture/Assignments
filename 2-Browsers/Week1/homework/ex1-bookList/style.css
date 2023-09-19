@@ -1,1 +1,31 @@
 /* Write your style here */
+*{
+    padding: 0;
+    margin:0
+}
+.list{
+
+    /* flex-basis: 31%; */
+    border-radius: 10px;
+    margin-bottom: 5%;
+    box-sizing: border-box;
+    background: #18110381;
+    padding: 20px 12px;
+    justify-content: space-between;
+
+}
+.booklist {
+    margin-top: 5%;
+    justify-content: space-between;
+    display: flex;
+  }
+  .statusteller{
+    height: 10px;
+    width: 20px;
+    background-color: red;
+  }
+  .greenstatusteller{
+    height: 10px;
+    width: 20px;
+    background-color: green;
+  }

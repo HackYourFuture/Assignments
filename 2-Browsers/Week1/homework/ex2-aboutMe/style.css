@@ -1,1 +1,6 @@
 /* 3. Add a css rule for .list-item to make the color red. */
+
+.list-item{
+background-color: red;
+margin-bottom: 1%;
+}

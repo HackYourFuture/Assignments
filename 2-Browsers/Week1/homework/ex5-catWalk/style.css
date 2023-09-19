@@ -1,0 +1,9 @@
+.cat-image{
+    /* left: 100px; */
+    background-color: rgb(0, 255, 102);
+    border: 2px solid red;
+    position: absolute;
+    left: 0;
+    transition: left 1s ease;
+
+}
