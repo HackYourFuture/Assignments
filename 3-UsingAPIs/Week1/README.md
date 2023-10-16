@@ -177,9 +177,9 @@ Die value is now: 6
 Success! Die settled on 6.
 ```
 
-> :bulb: If you have a large amount of console output to inspect, you can maximize the VSCode terminal panel by pressing the up-arrow button in the top-right of the panel, as shown in Figure 1 below:
->
-> ![Maximize Terminal Panel](../../assets/maximize-terminal.png)
+:bulb: If you have a large amount of console output to inspect, you can maximize the VSCode terminal panel by pressing the up-arrow button in the top-right of the panel, as shown in Figure 1 below:
+
+![Maximize Terminal Panel](../../assets/maximize-terminal.png)
 
 Figure 1. Maximize the Terminal Panel
 
