@@ -23,7 +23,7 @@ Who knew programmers could be funny?
 
 Let's catch all original 151 Pokemon in our own little web application! Here's an example of what you'll be building for this exercise:
 
-> ![Pokemon App](../../assets/pokemon-app.gif)
+> ![Pokemon App](./assets/pokemon-app.gif)
 >
 > Figure 1. Pokemon App example
 
