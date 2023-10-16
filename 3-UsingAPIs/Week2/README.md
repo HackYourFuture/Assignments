@@ -23,7 +23,7 @@ Who knew programmers could be funny?
 
 Let's catch all original 151 Pokemon in our own little web application! Here's an example of what you'll be building for this exercise:
 
-![Pokemon App](./assets/pokemon-app.gif)
+![Pokemon App](../../assets/pokemon-app.gif)
 
 Figure 1. Pokemon App example
 
@@ -330,39 +330,39 @@ From the resulting screen, select **JavaScript Debug Terminal** (Figure 3):
 
 This will open a VSCode Integrated Terminal at the bottom of the screen. You can see that this is a Debug Terminal and not a regular terminal by inspecting the drop-down in the upper-right corner of the terminal panel (Figure 4):
 
-> ![Terminal drop-down](../../assets/terminal-dropdown.png)
->
-> Figure 4. Integrated Terminal drop-down.
+![Terminal drop-down](../../assets/terminal-dropdown.png)
+
+Figure 4. Integrated Terminal drop-down.
 
 You can have multiple terminal windows open in VSCode and switch between them using this drop-down. For now, we will stick to the Debug Terminal.
 
 We can now place a **breakpoint** on line 19 by clicking in to the left of the number 19 in the left margin of the editor pane until a red dot appears, as shown in Figure 5 (to remove it, click the dot again):
 
-> ![Breakpoint set at line 21](../../assets/breakpoint-19.png)
->
-> Figure 5. Breakpoint set at line 19.
+![Breakpoint set at line 21](../../assets/breakpoint-19.png)
+
+Figure 5. Breakpoint set at line 19.
 
 A **breakpoint** is a location in our code where we would like the JavaScript engine to pause execution when we run the program with the debugger attached. Let's give that a try and see what it looks like. We'll use the convenient command `npm run it` again (Figure 6 - notice the line where it says _Debugger attached._):
 
-> ![Debugger attached](../../assets/debugger-attached.png)
->
-> Figure 6. Debugger Attached.
+![Debugger attached](../../assets/debugger-attached.png)
+
+Figure 6. Debugger Attached.
 
 We can inspect the call stack and any breakpoints that were placed in the lower left portion of the screen, as shown in Figure 6.
 
 When executing code with the debugger, execution pauses as soon as a breakpoint is "_hit_". In Figure 7 we can see that execution is paused at our breakpoint in line 19. This is indicated by the yellow marker enclosing the red dot of the breakpoint.
 
-> ![Breakpoint ght at line 19](../../assets/breakpoint-hit-19.png)
->
-> Figure 7. Breakpoint hit at line 19.
+![Breakpoint ght at line 19](../../assets/breakpoint-hit-19.png)
+
+Figure 7. Breakpoint hit at line 19.
 
 There are several things we can inspect while the execution is paused. For instance, as shown in Figure 7, we can hover the mouse pointer over the `laureates` parameter of the `renderLaureates()` function to inspect its value at this point in the execution. Array and object values can be expanded by pressing the triangular right-arrow.
 
 We can also inspect variables and the scopes in which they exist. In Figure 8 we have expanded the `laureates` variable. It appears that this variable is not an array, as we had assumed, but a JavaScript object with a `laureates` property containing an array.
 
-> ![Debug variables](../../assets/debug-variables.png)
->
-> Figure 8. Variables and scopes
+![Debug variables](../../assets/debug-variables.png)
+
+Figure 8. Variables and scopes
 
 With that knowledge we can fix the problem under inspection, using modern JS **object destructuring**: we can simply enclose the variable `laureates` in curly braces to indicate that we want to assign to it the value of the `laureates` property rather than the data object itself. But first we need to let the debugger finish the current execution. Press the blue triangle button in the top left part of the screen (see Figure 8) to resume execution.
 
@@ -382,9 +382,9 @@ async function fetchAndRender() {
 
 When we run the code again in the debugger we can see (Figure 9) that the `laureates` variable is now the array we expected.
 
-> ![Object destructuring](../../assets/object-destructuring.png)
->
-> Figure 9. Variable `laureates` after object-destructuring.
+![Object destructuring](../../assets/object-destructuring.png)
+
+Figure 9. Variable `laureates` after object-destructuring.
 
 Next, click on the blue triangle button to resume execution. Hmm, this output still doesn't look right:
 
@@ -408,15 +408,15 @@ Waiting for the debugger to disconnect...
 
 Apparently, where we expected an object with a `date` property, we actually got an undefined value in line 15 of the function `renderLaureate()`. By inspecting line 15 we can infer that the object in question is the `death` object. Let's place another breakpoint on line 15, but this time we will make it a _conditional_ breakpoint. Right-click to the left of the number 15 in the margin of the editor window and select **Add conditional breakpoint...** from the context menu. Enter the condition that we want to break on: `death === undefined`, as illustrated in Figure 10.
 
-> ![Set conditional breakpoint](../../assets/set-conditional-breakpoint.png)
->
-> Figure 10. Setting a conditional breakpoint.
+![Set conditional breakpoint](../../assets/set-conditional-breakpoint.png)
+
+Figure 10. Setting a conditional breakpoint.
 
 When we run the code again, first the breakpoint at line 19 will be hit. Press the blue triangle button again to resume execution. Next the breakpoint at line 15 will be hit when the condition is satisfied. Inspecting the `Variables` panel reveals the laureate in question is still alive because his death is `undefined`. We humbly acknowledge that this is a perfectly reasonable possibility that our code must be able to deal with.
 
-> ![Conditional breakpoint hit](../../assets/conditional-breakpoint-hit.png)
->
-> Figure 11. Conditional breakpoint hit.
+![Conditional breakpoint hit](../../assets/conditional-breakpoint-hit.png)
+
+Figure 11. Conditional breakpoint hit.
 
 We will add an `if` statement to take care of it (we will test for `death` being _truthy_):
 
