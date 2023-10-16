@@ -132,7 +132,7 @@ Start with this webpage, which has a single img tag of an animated GIF of a cat 
 
 This is what it should like:
 
-> ![catwalk](../../assets/catwalk.gif)
+![catwalk](../../assets/catwalk.gif)
 
 ## Prep exercises
 
@@ -156,7 +156,7 @@ As illustrated in the picture below, the game is a two-dimensional grid where ce
 
 In the exercise code a new generation of cells replaces the previous one every 200ms. For each cell of the new generation life or death is determined by applying the above rules on the state of that same cell in the current generation.
 
-> ![Game of Life changing](../../assets/game-of-life-1.gif)
+![Game of Life changing](../../assets/game-of-life-1.gif)
 
 ### Code walk-through
 
