@@ -23,9 +23,9 @@ Who knew programmers could be funny?
 
 Let's catch all original 151 Pokemon in our own little web application! Here's an example of what you'll be building for this exercise:
 
-> ![Pokemon App](./assets/pokemon-app.gif)
->
-> Figure 1. Pokemon App example
+![Pokemon App](./assets/pokemon-app.gif)
+
+Figure 1. Pokemon App example
 
 In this exercise you're going to do several things:
 
@@ -318,14 +318,14 @@ Woww, that is a lot of output, but still not right. But at least we are getting 
 
 Now, from the VSCode side bar, click on the Debug button (indicated by the red arrow in Figure 2).
 
-> ![Debug button](../../assets/debug-button.png)
->
+![Debug button](../../assets/debug-button.png)
+
 > Figure 2. Debug button.
 
 From the resulting screen, select **JavaScript Debug Terminal** (Figure 3):
 
-> ![Debug Terminal button](../../assets/debug-terminal-button.png)
->
+![Debug Terminal button](../../assets/debug-terminal-button.png)
+
 > Figure 3. Debug options.
 
 This will open a VSCode Integrated Terminal at the bottom of the screen. You can see that this is a Debug Terminal and not a regular terminal by inspecting the drop-down in the upper-right corner of the terminal panel (Figure 4):
