@@ -214,7 +214,7 @@ In the supplied JavaScript code the color of all living cells is a single shade 
 
 Here is a visual check that you can use to verify that the life time enhancement is correctly implemented. Most of the time, if you wait long enough, the game will "stabilize" to "still life" and "oscillator" patterns, as shown in the GIF below (see the Wikipedia article for more information about the Game Of Life patterns).
 
-> ![Game of Life stable](../../assets/game-of-life-2.gif)
+![Game of Life stable](../../assets/game-of-life-2.gif)
 
 - Cells in a still life pattern remain living indefinitely and should therefore stabilize at the highest opacity.
 

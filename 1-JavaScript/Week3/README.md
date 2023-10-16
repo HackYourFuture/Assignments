@@ -521,23 +521,23 @@ We seem to have a bug because we get `undefined` where we expect a name.
 
 Open the **Sources** panel from Developer Tools. Select `index.js` from the explorer panel and make sure that the console output is visible in the bottom panel, as shown in Figure 1.
 
-> ![Dev Tools Debugger](../../assets/dev-tools-debugger.png)
->
-> Figure 1. The Chrome Developer Tools Debugger.
+![Dev Tools Debugger](../../assets/dev-tools-debugger.png)
+
+Figure 1. The Chrome Developer Tools Debugger.
 
 First let's examine what causes the `undefined` value in the message. The `console.log` that outputs that message starts on line 26. We would like to inspect the state of the program when the execution reaches that point. For that purpose we will place a **breakpoint** at line 26. A breakpoint is a location in our code where we would like the JavaScript engine to pause execution when we run the program with the debugger.
 
 To place a breakpoint at line 26, click to the left of the number 26 in the left margin of the editor window. A blue marker will appear to indicate the presence of a breakpoint (Figure 2):
 
-> ![Breakpoint at line 26](../../assets/wallet-breakpoint-26.png)
->
-> Figure 2. Breakpoint placed at line 26.
+![Breakpoint at line 26](../../assets/wallet-breakpoint-26.png)
+
+Figure 2. Breakpoint placed at line 26.
 
 With this breakpoint set, reload the page to rerun the JavaScript code. The execution will be paused at line 26, as indicated by the blue highlighting of that line:
 
-> ![Breakpoint hit](../../assets/wallet-hit-26.png)
->
-> Figure 3. Breakpoint at line 26 is hit.
+![Breakpoint hit](../../assets/wallet-hit-26.png)
+
+Figure 3. Breakpoint at line 26 is hit.
 
 To the right of the code panel you can inspect, amongst others, **Breakpoints**, **Scope** and the **Call Stack**.
 
@@ -553,9 +553,9 @@ When we expand the variable `wallet` in the local scope of the Scope panel, we c
 
 There is no `name` property there. That must be the reason why we get `undefined` when we try to access `wallet.name`. Let's examine this by instructing the debugger to step over (i.e. execute) the `console.log` function call. Figure 4 below shows the debug buttons located near the upper right corner of the Developer Tools.
 
-> ![Debug buttons](../../assets/dev-tools-debug-buttons.png)
->
-> Figure 4. Developer Tools debug buttons
+![Debug buttons](../../assets/dev-tools-debug-buttons.png)
+
+Figure 4. Developer Tools debug buttons
 
 Hover the mouse over each of these buttons in the browser and take note of the tooltips that appear.
 
