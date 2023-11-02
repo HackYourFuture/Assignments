@@ -21,7 +21,7 @@ async function prepareHashes(menuData) {
     for (const week of weeks) {
       const exercises = menuData[moduleName][week];
       for (const exercise of exercises) {
-        const exercisePath = makePath(moduleName, week, 'homework', exercise);
+        const exercisePath = makePath(moduleName, week, 'assignment', exercise);
         hashes[exercise] = await computeHash(exercisePath);
       }
     }

@@ -1,8 +1,8 @@
-# Homework Javascript Week 3
+# Assignment Javascript Week 3
 
 ## Exercises
 
-The homework for this week can be found in the `homework` folder.
+The assignment for this week can be found in the `assignment` folder.
 
 > In this week we will be using a test library called [Jest](https://jestjs.io/) rather than using plain vanilla JavaScript as we did last week.
 >
@@ -57,7 +57,7 @@ Your task in this assignment is to rewrite the function body so that it uses the
 Expected output from a successful unit test:
 
 ```console
- PASS  1-JavaScript/Week4/homework/ex1-doubleEvenNumbers.test.js
+ PASS  1-JavaScript/Week4/assignment/ex1-doubleEvenNumbers.test.js
   ✓ doubleEvenNumbers should take the even numbers and double them (2 ms)
 
 Test Suites: 1 passed, 1 total
@@ -125,7 +125,7 @@ describe('computeEarnings', () => {
 1. Use the `npm test` command on the unmodified exercise and observe that both unit tests fail. (A green check mark indicates a _passed_ test, a red cross indicates a _failed_ test.)
 
    ```console
-   FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+   FAIL  1-JavaScript/Week4/assignment/ex2-mondaysWorth.test.js
      computeEarnings
        ✕ should take two parameters (3 ms)
        ✕ should compute the earnings as a formatted Euro amount (1 ms)
@@ -160,7 +160,7 @@ describe('computeEarnings', () => {
 3. Run `npm test` again and observe that the first test now passes while the second one still fails.
 
    ```console
-   FAIL  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+   FAIL  1-JavaScript/Week4/assignment/ex2-mondaysWorth.test.js
      computeEarnings
        ✓ should take two parameters (2 ms)
        ✕ should compute the earnings as a formatted Euro amount (1 ms)
@@ -185,7 +185,7 @@ describe('computeEarnings', () => {
 5. Run `npm test` again and check whether the second unit test now passes. If not, fix the problem and try again.
 
    ```console
-   PASS  1-JavaScript/Week4/homework/ex2-mondaysWorth.test.js
+   PASS  1-JavaScript/Week4/assignment/ex2-mondaysWorth.test.js
      computeEarnings
        ✓ should take two parameters (1 ms)
        ✓ should compute the earnings as a formatted Euro amount (1 ms)
@@ -491,7 +491,7 @@ Let's run the exercise using our convenience command `npm run it`:
 ```console
 ❯ npm run it
 
-> javascript@1.0.0 it C:\Users\jimcr\dev\hackyourfuture\homework
+> javascript@1.0.0 it C:\Users\jimcr\dev\hackyourfuture\assignments
 > node ./test-runner/run-it
 
 ? Rerun last test (1-Javascript, Week4, ex5-wallet)? No

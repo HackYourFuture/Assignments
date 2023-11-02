@@ -1,10 +1,10 @@
-# Homework Javascript Week 2
+# Assignment Javascript Week 2
 
-The homework for this week can be found in the `homework` folder.
+The assignment for this week can be found in the `assignment` folder.
 
 ## Exercises
 
-Starter code for all exercises is located in the `homework` folder. Modify the starter code so that the requirements of the exercise are met. At the bottom of some of the exercise files you will see a code snippet similar to:
+Starter code for all exercises is located in the `assignment` folder. Modify the starter code so that the requirements of the exercise are met. At the bottom of some of the exercise files you will see a code snippet similar to:
 
 ```js
 // ! Do not change or remove the code below

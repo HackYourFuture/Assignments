@@ -1,8 +1,8 @@
-# Homework Using APIs Week 1
+# Assignment Using APIs Week 1
 
 ## Exercises
 
-The homework for this week can be found in the `homework` folder.
+The assignment for this week can be found in the `assignment` folder.
 
 ### Exercise 1: John who?
 
@@ -145,7 +145,7 @@ Since we want to practice with promises anyway, let's see what happens when we r
 
 #### Bonus: Event Loop Experiments
 
-> The event loop in JavaScript is not that easy to comprehend. But having a good grasp of how it works is vital for you to better understand how asynchronous code works. We will examine the event loop in the experiment below. If you are still left puzzled, we invite you to discuss it with your class mates on Slack and see if you can work it out together.
+> The event loop in JavaScript is not that easy to comprehend. But having a good grasp of how it works is vital for you to better understand how asynchronous code works. We will examine the event loop in the experiment below. If you are still left puzzled, we invite you to discuss it with your cohort mates on Slack and see if you can work it out together.
 
 So what do you think the JavaScript engine is doing while it is waiting for a `setTimeout()` to fire? Well, since it has nothing else waiting for it to do on its call stack, it is just sitting idle.
 

@@ -87,7 +87,7 @@ async function runExercise(exercisePath) {
 
 async function main() {
   try {
-    const homeworkFolder = process.argv[2] ?? 'homework';
+    const homeworkFolder = process.argv[2] ?? 'assignment';
 
     const menuData = compileMenuData();
     let module, week, exercise;
