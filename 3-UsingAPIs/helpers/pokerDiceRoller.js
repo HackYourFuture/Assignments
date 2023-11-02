@@ -26,7 +26,7 @@ const ROLL_TIME = underTest ? 0 : 500;
 // The number represent indexes into the `sides` array. The roll order to use
 // is randomly selected.
 // For a visual illustration see:
-// https://github.com/HackYourFuture/Homework/blob/main/assets/flattened-die.png
+// https://github.com/HackYourFuture/Assignments/blob/main/assets/flattened-die.png
 const rollOrders = [
   [1, 5, 4, 0],
   [3, 5, 2, 0],

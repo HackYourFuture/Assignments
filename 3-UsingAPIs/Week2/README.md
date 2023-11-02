@@ -1,8 +1,8 @@
-# Homework Using APIs Week 2
+# Assignment Using APIs Week 2
 
 ## Exercises
 
-The homework for this week can be found in the `homework` folder.
+The assignment for this week can be found in the `assignment` folder.
 
 ### Exercise 1: Programmer Fun
 

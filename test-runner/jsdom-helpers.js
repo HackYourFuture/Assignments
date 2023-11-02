@@ -14,7 +14,7 @@ function sleep(ms) {
 }
 
 async function prepare() {
-  const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
+  const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
 
   const { testPath } = expect.getState();
   const exercisePath = testPath

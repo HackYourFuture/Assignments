@@ -139,7 +139,7 @@ async function execJest(exercisePath, homeworkFolder) {
       stdio: 'pipe',
       env: {
         ...process.env,
-        HOMEWORK_FOLDER: homeworkFolder,
+        ASSIGNMENT_FOLDER: homeworkFolder,
       },
     });
 
@@ -178,7 +178,7 @@ async function execESLint(exercisePath) {
     output = err.stdout;
   }
   if (output) {
-    output = output.replace(/\\/g, '/').replace(/^.*\/\.?homework\//gm, '');
+    output = output.replace(/\\/g, '/').replace(/^.*\/\.?assignment\//gm, '');
     const title = '*** ESLint Report ***';
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(output));
@@ -250,7 +250,7 @@ async function main() {
   }
 
   try {
-    const homeworkFolder = process.argv[2] || 'homework';
+    const homeworkFolder = process.argv[2] || 'assignment';
 
     const menuData = compileMenuData();
     let module, week, exercise;

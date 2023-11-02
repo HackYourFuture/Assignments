@@ -17,7 +17,7 @@ function beforeAllHelper(testFilePath, options = {}) {
     throw new Error(`Unexpected test path: ${testFilePath}`);
   }
 
-  const homeworkFolder = process.env.HOMEWORK_FOLDER || 'homework';
+  const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
 
   const [, module, week, exercise] = matches;
   let exercisePath = path.join(
