@@ -29,7 +29,7 @@ const employeeRecords = [
   },
 ];
 
-// ! Function under test
+// ! Function under test.
 function filterPrivateData(employeeRecords) {
   return employeeRecords.map(({ gender, salary, ...rest }) => rest);
 };

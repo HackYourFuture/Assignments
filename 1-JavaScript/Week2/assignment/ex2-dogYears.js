@@ -17,7 +17,7 @@ calculate it!
 -----------------------------------------------------------------------------*/
 
 function calculateDogAge(x = 1) {
-  // TODO complete this function
+  // TODO complete this function,
 const dogYears = x * 7;
 return `Your doggie is ${dogYears} years old in dog years!`;
 

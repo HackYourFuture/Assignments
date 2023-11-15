@@ -32,7 +32,7 @@ function addToShoppingCart(shoppingCart, groceryItem) {
   return newShoppingCart;
 }
 
-// ! Test functions (plain vanilla JavaScript)
+// !  Test functions (plain vanilla JavaScript)
 function test1() {
   console.log('Test 1: addToShoppingCart should take two parameters');
   console.assert(addToShoppingCart.length === 2);
