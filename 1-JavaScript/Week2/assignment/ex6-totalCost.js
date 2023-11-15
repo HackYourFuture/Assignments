@@ -22,6 +22,7 @@ instead!
 -----------------------------------------------------------------------------*/
 const cartForParty = {
   // TODO complete this object
+  // TODO complete this object
 };
 
 function calculateTotalPrice(/* TODO parameter(s) go here */) {

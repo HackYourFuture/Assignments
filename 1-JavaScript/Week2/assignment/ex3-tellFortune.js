@@ -33,36 +33,46 @@ body, this code is now written once only in a separated function.
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-function selectRandomly(/* TODO parameter(s) go here */) {
-  // TODO complete this function
-}
+ function selectRandomly(arrays) {
+        let randomIndex = Math.floor(Math.random() * arrays.length);
+        return arrays[randomIndex];
+      }
 
-function tellFortune(/* TODO add parameter(s) here */) {
-  // TODO complete this function
-}
+      function tellFortune(numKids, partnerNames, locations, jobTitles) {
+        const numKidsRt = selectRandomly(numKids); // Rt(result)
+        const partnerNameRt = selectRandomly(partnerNames);
+        const locationRt = selectRandomly(locations);
+        const jobTitleRt = selectRandomly(jobTitles);
+        return `You will be a ${jobTitleRt} in ${locationRt}, married to ${partnerNameRt} with ${numKidsRt} kids.`;
+      }
 
-function main() {
-  const numKids = [
-    // TODO add elements here
-  ];
+      function main() {
+        const numKids = ["one", "two", "three", "four", "five", "six"];
 
-  const partnerNames = [
-    // TODO add elements here
-  ];
+        const partnerNames = ["bilal", "ali", "adam", "ale", "mai"];
 
-  const locations = [
-    // TODO add elements here
-  ];
+        const locations = [
+          "newyork",
+          "canada",
+          "amsterdam",
+          "den haag",
+          "paris",
+        ];
 
-  const jobTitles = [
-    // TODO add elements here
-  ];
+        const jobTitles = [
+          "manager",
+          "developer",
+          "teacher",
+          "driver",
+          "engineer",
+        ];
 
-  console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
-  console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
-  console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
-}
+        console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
+        console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
+        console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
+      }
 
+      main();
 // ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
