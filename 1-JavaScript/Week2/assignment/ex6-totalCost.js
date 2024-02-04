@@ -21,11 +21,26 @@ instead!
 3. Complete the unit test functions and verify that all is working as expected.
 -----------------------------------------------------------------------------*/
 const cartForParty = {
-  // TODO complete this object
+  beers: 1.75,
+  cola: 0.99,
+  apples: 2.5,
+  bread: 1.2,
+  cake: 12.99,
 };
 
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
-  // TODO replace this comment with your code
+function calculateTotalPrice(cart) {
+
+  // Initialize a variable to store the total price
+  let totalPrice = 0;
+
+  // Loop through the properties of the cart object
+  for (const item in cart) {
+    // Check if the property is not inherited from the prototype chain
+    if (cart.hasOwnProperty(item)) {
+      // Add the value of the current property to the total price
+      totalPrice += cart[item];
+    }
+}
 }
 
 // ! Test functions (plain vanilla JavaScript)
