@@ -1,0 +1,105 @@
+*** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment.test.js --colors
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+ FAIL  1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js
+  giveCompliment
+    √ should exist and be executable (2 ms)
+    × should have all TODO comments removed (1 ms)
+    √ `giveCompliment` should not contain unneeded console.log calls (1 ms)
+    × should take a single parameter
+    × should include a `compliments` array inside its function body (1 ms)
+    × the `compliments` array should be initialized with 10 strings
+    × should give a random compliment: You are `compliment`, `name`!
+
+  ● giveCompliment › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+      103 | function testTodosRemoved(getSource) {
+      104 |   test('should have all TODO comments removed', () => {
+    > 105 |     expect(/\bTODO\b/.test(getSource())).toBeFalsy();
+          |                                          ^
+      106 |   });
+      107 | }
+      108 |
+
+      at Object.toBeFalsy (test-runner/unit-test-helpers.js:105:42)
+
+  ● giveCompliment › should take a single parameter
+
+    expect(received).toHaveLength(expected)
+
+    Expected length:   1
+    Received length:   0
+    Received function: [Function giveCompliment]
+
+      37 |
+      38 |   test('should take a single parameter', () => {
+    > 39 |     expect(giveCompliment).toHaveLength(1);
+         |                            ^
+      40 |   });
+      41 |
+      42 |   test('should include a `compliments` array inside its function body', () => {
+
+      at Object.toHaveLength (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js:39:28)
+
+  ● giveCompliment › should include a `compliments` array inside its function body
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      41 |
+      42 |   test('should include a `compliments` array inside its function body', () => {
+    > 43 |     expect(state.compliments).toBeDefined();
+         |                               ^
+      44 |   });
+      45 |
+      46 |   test('the `compliments` array should be initialized with 10 strings', () => {
+
+      at Object.toBeDefined (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js:43:31)
+
+  ● giveCompliment › the `compliments` array should be initialized with 10 strings
+
+    expect(received).toHaveLength(expected)
+
+    Matcher error: received value must have a length property whose value must be a number
+
+    Received has value: undefined
+
+      45 |
+      46 |   test('the `compliments` array should be initialized with 10 strings', () => {
+    > 47 |     expect(state.compliments).toHaveLength(10);
+         |                               ^
+      48 |     expect(
+      49 |       state.compliments.every((compliment) => typeof compliment === 'string')
+      50 |     ).toBe(true);
+
+      at Object.toHaveLength (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js:47:31)
+
+  ● giveCompliment › should give a random compliment: You are `compliment`, `name`!
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      53 |   test('should give a random compliment: You are `compliment`, `name`!', () => {
+      54 |     expect(giveCompliment).toBeDefined();
+    > 55 |     expect(state.compliments).toBeDefined();
+         |                               ^
+      56 |
+      57 |     const name = 'HackYourFuture';
+      58 |
+
+      at Object.toBeDefined (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js:55:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 2 passed, 7 total
+Snapshots:   0 total
+Time:        0.575 s, estimated 1 s
+Ran all test suites matching /ex1-giveCompliment.test.js/i.
