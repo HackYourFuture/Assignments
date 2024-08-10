@@ -1,34 +1,32 @@
-// @ts-check
-import acorn from 'acorn';
-import walk from 'acorn-walk';
+import { CallExpression, MemberExpression, Node, parse } from 'acorn';
+import { ancestor } from 'acorn-walk';
 import fs from 'fs';
 import path from 'path';
 
-/**
- * @typedef {Object} HelperOptions
- * @property {boolean} [parse]
- * @property {boolean} [noRequire]
- */
+type HelperOptions = {
+  parse?: boolean;
+  noRequire?: boolean;
+};
 
-/** @type {HelperOptions} */
-const defaultOptions = {
+const defaultOptions: HelperOptions = {
   parse: false,
   noRequire: false,
 };
 
-/** @typedef {{module?: any, source: string, rootNode?: acorn.Node}} ExerciseData */
+type ExerciseData = {
+  module?: any;
+  source: string;
+  rootNode?: Node;
+};
 
-/**
- *
- * @param {string} testFilePath
- * @param {HelperOptions} options
- * @returns {Promise<ExerciseData>}
- */
-export async function beforeAllHelper(testFilePath, options = {}) {
+export async function beforeAllHelper(
+  testFilePath: string,
+  options: HelperOptions = {}
+): Promise<ExerciseData> {
   const helperOptions = Object.assign(defaultOptions, options);
   const matches = testFilePath
     .replace(/\\/g, '/')
-    .match(/^.*\/(.+)\/(Week\d)\/.+\/(.+)\.test\.js$/i);
+    .match(/^.*\/(.+)\/(Week\d)\/.+\/(.+)\.test\.ts$/i);
 
   if (!matches) {
     throw new Error(`Unexpected test path: ${testFilePath}`);
@@ -46,8 +44,7 @@ export async function beforeAllHelper(testFilePath, options = {}) {
     ? path.join(exercisePath, 'index.js')
     : exercisePath + '.js';
 
-  /** @type {ExerciseData} */
-  const result = {};
+  const result: ExerciseData = { source: '' };
 
   if (!helperOptions.noRequire) {
     try {
@@ -63,7 +60,7 @@ export async function beforeAllHelper(testFilePath, options = {}) {
 
   if (helperOptions.parse) {
     try {
-      result.rootNode = acorn.parse(result.source, {
+      result.rootNode = parse(result.source, {
         ecmaVersion: 2022,
         sourceType: 'module',
       });
@@ -75,13 +72,7 @@ export async function beforeAllHelper(testFilePath, options = {}) {
   return result;
 }
 
-/**
- *
- * @param {string} type
- * @param {any} ancestors
- * @returns
- */
-export function findAncestor(type, ancestors) {
+export function findAncestor(type: string, ancestors: any) {
   let index = ancestors.length - 1;
   while (index >= 0) {
     if (ancestors[index].type === type) {
@@ -92,19 +83,19 @@ export function findAncestor(type, ancestors) {
   return null;
 }
 
-/**
- * @typedef {{onload: boolean, callError: boolean}} OnLoadState
- *
- */
+type OnLoadState = {
+  onload: boolean;
+  callError: boolean;
+};
 
-/**
- *
- * @param {OnLoadState} state
- * @returns
- */
-export function onloadValidator(state) {
-  return ({ object, property }, ancestors) => {
-    if (object.name === 'window' && property.type === 'Identifier') {
+export function onloadValidator(state: OnLoadState) {
+  return (node: Node, ancestors: any) => {
+    const { object, property } = node as MemberExpression;
+    if (
+      object.type === 'Identifier' &&
+      object.name === 'window' &&
+      property.type === 'Identifier'
+    ) {
       if (property.name === 'addEventListener') {
         const callExpression = findAncestor('CallExpression', ancestors);
         if (callExpression) {
@@ -137,28 +128,22 @@ export function onloadValidator(state) {
   };
 }
 
-/**
- *
- * @param {() => string} getSource
- */
-export function testTodosRemoved(getSource) {
+export function testTodosRemoved(getSource: () => string) {
   test('should have all TODO comments removed', () => {
     expect(/\bTODO\b/.test(getSource())).toBeFalsy();
   });
 }
 
-/**
- *
- * @param {string} functionName
- * @param {() => acorn.Node} getRootNode
- */
-export function testNoConsoleLog(functionName, getRootNode) {
+export function testNoConsoleLog(
+  functionName: string,
+  getRootNode: () => Node
+) {
   test(`\`${functionName}\` should not contain unneeded console.log calls`, () => {
     const rootNode = getRootNode();
     let callsConsoleLog = false;
     rootNode &&
-      walk.ancestor(rootNode, {
-        CallExpression({ callee }, ancestors) {
+      ancestor(rootNode, {
+        CallExpression({ callee }: CallExpression, ancestors: any) {
           if (
             callee.type === 'MemberExpression' &&
             callee.object.type === 'Identifier' &&

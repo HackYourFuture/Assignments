@@ -35,12 +35,7 @@ See the results here as suggestions, not the truth!
 
 const MINIMUM_NODE_VERSION = 20;
 
-/**
- *
- * @param {string} filePath
- * @returns {Promise<void>}
- */
-async function unlink(filePath) {
+async function unlink(filePath: string): Promise<void> {
   try {
     await fs.promises.unlink(filePath);
   } catch (_) {
@@ -56,7 +51,12 @@ async function unlink(filePath) {
  * @param {string} report
  * @returns {Promise<string | null>}
  */
-async function writeReport(module, week, exercise, report) {
+async function writeReport(
+  module: string,
+  week: string,
+  exercise: string,
+  report: string
+): Promise<string | null> {
   const reportDir = makePath(module, week, 'test-reports');
 
   const todoFilePath = path.join(reportDir, `${exercise}.todo.txt`);
@@ -84,12 +84,15 @@ async function writeReport(module, week, exercise, report) {
  * @param {string} homeworkFolder
  * @returns {Promise<{unitTestPath: string, verbose: boolean} | null>}
  */
-async function getUnitTestPath(exercisePath, homeworkFolder) {
+async function getUnitTestPath(
+  exercisePath: string,
+  homeworkFolder: string
+): Promise<{ unitTestPath: string; verbose: boolean } | null> {
   // If the exercise path ends with `.test` it is expected to represent a
   // single JavaScript file that contains both a function-under-test and
   // a unit test or suite of tests.
   if (/\.test$/.test(exercisePath)) {
-    const unitTestPath = exercisePath + '.js';
+    const unitTestPath = exercisePath + '.ts';
     if (!fs.existsSync(unitTestPath)) {
       throw new Error(`Unit test file not found: ${unitTestPath}`);
     }
@@ -109,7 +112,7 @@ async function getUnitTestPath(exercisePath, homeworkFolder) {
     // A unit test file may be present in the exercise directory, in which case
     // the unit test itself is considered part of the exercise. This unit test
     // file must then be named `<exercise-name>.test.js`.
-    const unitTestPath = path.join(exercisePath, exerciseName + '.test.js');
+    const unitTestPath = path.join(exercisePath, exerciseName + '.test.ts');
     if (fs.existsSync(unitTestPath)) {
       return { unitTestPath, verbose: true };
     }
@@ -123,7 +126,7 @@ async function getUnitTestPath(exercisePath, homeworkFolder) {
 
   const unitTestPath =
     exercisePath.replace(regexp, `$1${path.sep}unit-tests${path.sep}`) +
-    '.test.js';
+    '.test.ts';
 
   if (fs.existsSync(unitTestPath)) {
     // Use verbose mode if the unit-tests folder contains a `.verbose` file.
@@ -142,9 +145,12 @@ async function getUnitTestPath(exercisePath, homeworkFolder) {
  * @param {string} homeworkFolder
  * @returns {Promise<string>}
  */
-async function execJest(exercisePath, homeworkFolder) {
+async function execJest(
+  exercisePath: string,
+  homeworkFolder: string
+): Promise<string> {
   /** @type string */
-  let message;
+  let message: string;
 
   const result = await getUnitTestPath(exercisePath, homeworkFolder);
   if (!result) {
@@ -174,7 +180,7 @@ async function execJest(exercisePath, homeworkFolder) {
 
     console.log(verbose ? stderr : chalk.green(message));
     return '';
-  } catch (err) {
+  } catch (err: any) {
     const output = `${err.stdout}\n\n${err.message}`.trim();
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
@@ -193,7 +199,7 @@ async function execJest(exercisePath, homeworkFolder) {
  * @param {string} exercisePath
  * @returns {Promise<string>}
  */
-async function execESLint(exercisePath) {
+async function execESLint(exercisePath: string): Promise<string> {
   const lintSpec = fs.existsSync(exercisePath)
     ? exercisePath
     : `${exercisePath}.js`;
@@ -201,14 +207,14 @@ async function execESLint(exercisePath) {
   // Note: ESLint warnings do not throw an error
 
   /** @type {string} */
-  let output;
+  let output: string;
 
   try {
     const { stdout } = await execAsync(`npx eslint ${lintSpec}`, {
       encoding: 'utf8',
     });
     output = stdout;
-  } catch (err) {
+  } catch (err: any) {
     output = err.stdout;
   }
 
@@ -231,7 +237,7 @@ async function execESLint(exercisePath) {
  * @param {string} exercisePath
  * @returns {Promise<string>}
  */
-async function execSpellChecker(exercisePath) {
+async function execSpellChecker(exercisePath: string): Promise<string> {
   try {
     const cspellSpec = fs.existsSync(exercisePath)
       ? path.normalize(`${exercisePath}/*.js`)
@@ -239,7 +245,7 @@ async function execSpellChecker(exercisePath) {
     await execAsync(`npx cspell ${cspellSpec}`, { encoding: 'utf8' });
     console.log(chalk.green('No spelling errors detected.'));
     return '';
-  } catch (err) {
+  } catch (err: any) {
     // remove full path
     const output = err.stdout
       .replace(/\\/g, '/')
@@ -257,7 +263,7 @@ async function execSpellChecker(exercisePath) {
 /**
  * @returns {Promise<void>}
  */
-async function showDisclaimer() {
+async function showDisclaimer(): Promise<void> {
   const disclaimerPath = path.join(__dirname, '../.disclaimer');
   const suppressDisclaimer = fs.existsSync(disclaimerPath);
   if (!suppressDisclaimer) {
@@ -269,10 +275,12 @@ async function showDisclaimer() {
 /**
  * @returns {Promise<void>}
  */
-async function main() {
+async function main(): Promise<void> {
   const [majorVersion] = process.versions.node.split('.');
   if (+majorVersion < MINIMUM_NODE_VERSION) {
-    console.log(chalk.red(`Required Node version: 14 or higher.`));
+    console.log(
+      chalk.red(`Required Node version: ${MINIMUM_NODE_VERSION} or higher.`)
+    );
     console.log(
       chalk.red(
         `Your version: ${majorVersion}. Please upgrade your version of Node.`
@@ -287,11 +295,11 @@ async function main() {
     const menuData = compileMenuData();
 
     /** @type {string | undefined} */
-    let module;
+    let module: string | undefined;
     /** @type {string | undefined} */
-    let week;
+    let week: string | undefined;
     /** @type {string | undefined} */
-    let exercise;
+    let exercise: string | undefined;
 
     let useRecent = false;
 
@@ -338,7 +346,7 @@ async function main() {
     } else {
       logger.info('All steps were completed successfully');
     }
-  } catch (err) {
+  } catch (err: any) {
     const message = `Something went wrong: ${err.message}`;
     logger.error(message);
     console.error(chalk.red(message));

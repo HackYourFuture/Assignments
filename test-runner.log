@@ -1743,3 +1743,573 @@ Waiting for the debugger to disconnect...
 2024-08-10 11:32:00 info: ----------------------------------------------
 2024-08-10 11:32:05 info: All unit tests passed.
 2024-08-10 11:32:11 info: All steps were completed successfully
+2024-08-10 11:35:27 info: ----------------------------------------------
+2024-08-10 11:35:27 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:35:27 info: ----------------------------------------------
+2024-08-10 11:35:32 info: All unit tests passed.
+2024-08-10 11:35:39 info: All steps were completed successfully
+2024-08-10 11:42:11 info: ----------------------------------------------
+2024-08-10 11:42:11 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:42:11 info: ----------------------------------------------
+2024-08-10 11:42:11 warn: A unit test file was not provided.
+2024-08-10 11:42:17 info: All steps were completed successfully
+2024-08-10 11:46:29 info: ----------------------------------------------
+2024-08-10 11:46:29 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:46:29 info: ----------------------------------------------
+2024-08-10 11:46:29 warn: A unit test file was not provided.
+2024-08-10 11:46:35 info: All steps were completed successfully
+2024-08-10 11:46:55 info: ----------------------------------------------
+2024-08-10 11:46:55 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:46:55 info: ----------------------------------------------
+2024-08-10 11:46:55 warn: A unit test file was not provided.
+2024-08-10 11:47:04 info: All steps were completed successfully
+2024-08-10 11:47:21 info: ----------------------------------------------
+2024-08-10 11:47:21 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:47:21 info: ----------------------------------------------
+2024-08-10 11:48:12 warn: A unit test file was not provided.
+2024-08-10 11:48:21 info: All steps were completed successfully
+2024-08-10 11:49:29 info: ----------------------------------------------
+2024-08-10 11:49:29 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:49:29 info: ----------------------------------------------
+2024-08-10 11:50:27 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts
+  giveCompliment
+    × should exist and be executable (1 ms)
+    × should have all TODO comments removed (1 ms)
+    × `giveCompliment` should not contain unneeded console.log calls
+    × should take a single parameter
+    × should include a `compliments` array inside its function body
+    × the `compliments` array should be initialized with 10 strings
+    × should give a random compliment: You are `compliment`, `name`!
+
+  ● giveCompliment › should exist and be executable
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should have all TODO comments removed
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › `giveCompliment` should not contain unneeded console.log calls
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should take a single parameter
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should include a `compliments` array inside its function body
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › the `compliments` array should be initialized with 10 strings
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should give a random compliment: You are `compliment`, `name`!
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        1.922 s
+Ran all test suites matching /ex1-giveCompliment.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-10 11:51:15 info: ----------------------------------------------
+2024-08-10 11:51:15 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:51:15 info: ----------------------------------------------
+2024-08-10 11:51:40 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts (16.106 s)
+  giveCompliment
+    × should exist and be executable (1 ms)
+    × should have all TODO comments removed
+    × `giveCompliment` should not contain unneeded console.log calls
+    × should take a single parameter (1 ms)
+    × should include a `compliments` array inside its function body
+    × the `compliments` array should be initialized with 10 strings
+    × should give a random compliment: You are `compliment`, `name`!
+
+  ● giveCompliment › should exist and be executable
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should have all TODO comments removed
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › `giveCompliment` should not contain unneeded console.log calls
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should take a single parameter
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should include a `compliments` array inside its function body
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › the `compliments` array should be initialized with 10 strings
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should give a random compliment: You are `compliment`, `name`!
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        16.664 s
+Ran all test suites matching /ex1-giveCompliment.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-10 11:52:34 info: ----------------------------------------------
+2024-08-10 11:52:34 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:52:34 info: ----------------------------------------------
+2024-08-10 11:52:53 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts (5.978 s)
+  giveCompliment
+    × should exist and be executable (1 ms)
+    × should have all TODO comments removed
+    × `giveCompliment` should not contain unneeded console.log calls (1 ms)
+    × should take a single parameter
+    × should include a `compliments` array inside its function body
+    × the `compliments` array should be initialized with 10 strings
+    × should give a random compliment: You are `compliment`, `name`! (1 ms)
+
+  ● giveCompliment › should exist and be executable
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should have all TODO comments removed
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › `giveCompliment` should not contain unneeded console.log calls
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should take a single parameter
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should include a `compliments` array inside its function body
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › the `compliments` array should be initialized with 10 strings
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should give a random compliment: You are `compliment`, `name`!
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        6.932 s, estimated 17 s
+Ran all test suites matching /ex1-giveCompliment.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-10 11:53:19 info: ----------------------------------------------
+2024-08-10 11:53:19 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:53:19 info: ----------------------------------------------
+2024-08-10 11:54:53 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex1-giveCompliment.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts (87.9 s)
+  giveCompliment
+    × should exist and be executable
+    × should have all TODO comments removed
+    × `giveCompliment` should not contain unneeded console.log calls
+    × should take a single parameter
+    × should include a `compliments` array inside its function body
+    × the `compliments` array should be initialized with 10 strings (1 ms)
+    × should give a random compliment: You are `compliment`, `name`!
+
+  ● giveCompliment › should exist and be executable
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should have all TODO comments removed
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › `giveCompliment` should not contain unneeded console.log calls
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should take a single parameter
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should include a `compliments` array inside its function body
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › the `compliments` array should be initialized with 10 strings
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+  ● giveCompliment › should give a random compliment: You are `compliment`, `name`!
+
+    Unexpected test path: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week2\unit-tests\ex1-giveCompliment.test.ts
+
+      32 |
+      33 |   if (!matches) {
+    > 34 |     throw new Error(`Unexpected test path: ${testFilePath}`);
+         |           ^
+      35 |   }
+      36 |
+      37 |   const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+
+      at beforeAllHelper (src/unit-test-helpers.js:34:11)
+      at Object.<anonymous> (1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.ts:19:58)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        88.462 s
+Ran all test suites matching /ex1-giveCompliment.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-10 11:55:14 info: ----------------------------------------------
+2024-08-10 11:55:14 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 11:55:14 info: ----------------------------------------------
+2024-08-10 11:56:08 info: All unit tests passed.
+2024-08-10 11:56:17 info: All steps were completed successfully
+2024-08-10 12:00:19 info: ----------------------------------------------
+2024-08-10 12:00:19 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 12:00:19 info: ----------------------------------------------
+2024-08-10 12:00:39 info: All unit tests passed.
+2024-08-10 12:00:47 info: All steps were completed successfully
+2024-08-10 12:33:21 info: ----------------------------------------------
+2024-08-10 12:33:21 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 12:33:21 info: ----------------------------------------------
+2024-08-10 12:33:29 info: All unit tests passed.
+2024-08-10 12:33:37 info: All steps were completed successfully
+2024-08-10 12:38:08 info: ----------------------------------------------
+2024-08-10 12:38:08 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 12:38:08 info: ----------------------------------------------
+2024-08-10 12:38:13 info: All unit tests passed.
+2024-08-10 12:38:19 info: All steps were completed successfully
+2024-08-10 12:40:15 info: ----------------------------------------------
+2024-08-10 12:40:15 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2024-08-10 12:40:15 info: ----------------------------------------------
+2024-08-10 12:40:20 info: All unit tests passed.
+2024-08-10 12:40:26 info: All steps were completed successfully

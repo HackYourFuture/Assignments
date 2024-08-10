@@ -1,4 +1,3 @@
-// @ts-check
 import { confirm, select } from '@inquirer/prompts';
 import fg from 'fast-glob';
 import fs from 'fs';
@@ -8,15 +7,12 @@ import { fileURLToPath } from 'url';
 
 export const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-/**
- *
- * @param {string} module
- * @param {string} week
- * @param {string} folder
- * @param {string} [exercise]
- * @returns {string}
- */
-export function makePath(module, week, folder, exercise) {
+export function makePath(
+  module: string,
+  week: string,
+  folder: string,
+  exercise?: string
+) {
   let relPath = `../${module}/${week}/${folder}`;
   if (exercise) {
     relPath += `/${exercise}`;
@@ -24,17 +20,10 @@ export function makePath(module, week, folder, exercise) {
   return path.join(__dirname, relPath);
 }
 
-/**
- *
- * @typedef {{[module: string]: {[week: string]: string[]}}} MenuData
- */
+type MenuData = { [module: string]: { [week: string]: string[] } };
 
-/**
- * @returns {MenuData}
- */
-export function compileMenuData() {
-  /** @type MenuData */
-  const menuData = {};
+export function compileMenuData(): MenuData {
+  const menuData: MenuData = {};
 
   // Look for file and folder names that match the expected structure
   const fileSpec = path
@@ -64,11 +53,7 @@ export function compileMenuData() {
   return menuData;
 }
 
-/**
- *
- * @param {MenuData} menuData
- */
-export async function prepareReportFolders(menuData) {
+export async function prepareReportFolders(menuData: MenuData) {
   for (const moduleName of Object.keys(menuData)) {
     const weeks = Object.keys(menuData[moduleName]);
 
@@ -92,27 +77,21 @@ export async function prepareReportFolders(menuData) {
   }
 }
 
-/**
- *
- * @param {string} module
- * @param {string} week
- * @param {string} exercise
- * @returns {Promise<boolean>}
- */
-export function promptUseRecent(module, week, exercise) {
+export function promptUseRecent(
+  module: string,
+  week: string,
+  exercise?: string
+): Promise<boolean> {
   return confirm({
     message: `Rerun last test (${module}, ${week}, ${exercise})?`,
     default: true,
   });
 }
 
-/**
- *
- * @param {string[]} choices
- * @param {string} [module]
- * @returns {Promise<string>}
- */
-export async function selectModule(choices, module) {
+export async function selectModule(
+  choices: string[],
+  module?: string
+): Promise<string> {
   return select({
     message: 'Which module?',
     choices: choices.map((choice) => ({ value: choice })),
@@ -120,13 +99,10 @@ export async function selectModule(choices, module) {
   });
 }
 
-/**
- *
- * @param {string[]} choices
- * @param {string} [week]
- * @returns {Promise<string>}
- */
-export async function selectWeek(choices, week) {
+export async function selectWeek(
+  choices: string[],
+  week?: string
+): Promise<string> {
   return select({
     message: 'Which week?',
     choices: choices.map((choice) => ({ value: choice })),
@@ -134,12 +110,10 @@ export async function selectWeek(choices, week) {
   });
 }
 
-/**
- *
- * @param {string[]} choices
- * @param {string} [exercise]
- * @returns {Promise<string>}
- */ export async function selectExercise(choices, exercise) {
+export async function selectExercise(
+  choices: string[],
+  exercise?: string
+): Promise<string> {
   return select({
     message: 'Which exercise?',
     choices: choices.map((choice) => ({ value: choice })),
@@ -147,13 +121,9 @@ export async function selectWeek(choices, week) {
   });
 }
 
-/** @typedef {{module: string, week: string, exercise: string}} RecentSelection */
+type RecentSelection = { module: string; week: string; exercise: string };
 
-/**
- *
- * @returns {Promise<RecentSelection | null>}
- */
-export async function loadMostRecentSelection() {
+export async function loadMostRecentSelection(): Promise<RecentSelection | null> {
   try {
     const json = await fs.promises.readFile(
       path.join(__dirname, '../.recent.json'),
@@ -166,14 +136,11 @@ export async function loadMostRecentSelection() {
   }
 }
 
-/**
- *
- * @param {string} module
- * @param {string} week
- * @param {string} exercise
- * @returns {Promise<void>}
- */
-export function saveMostRecentSelection(module, week, exercise) {
+export function saveMostRecentSelection(
+  module: string,
+  week: string,
+  exercise: string
+): Promise<void> {
   const recentSelection = { module, week, exercise };
   const json = JSON.stringify(recentSelection, null, 2);
   return fs.promises.writeFile(

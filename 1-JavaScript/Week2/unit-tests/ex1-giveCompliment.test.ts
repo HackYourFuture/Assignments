@@ -1,17 +1,19 @@
-/* eslint-disable hyf/camelcase */
-// @ts-check
+import type { Node } from 'acorn';
 import { simple } from 'acorn-walk';
 import {
   beforeAllHelper,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../src/unit-test-helpers';
+} from '../../../.dist/unit-test-helpers.js';
 
 describe('giveCompliment', () => {
   /** @type {{ compliments: string[] }} */
-  const state = { compliments: [] };
+  const state: { compliments: string[] } = { compliments: [] };
 
-  let module, rootNode, source, giveCompliment;
+  let module: any;
+  let rootNode: Node | undefined;
+  let source: string;
+  let giveCompliment: (name: string) => string;
 
   beforeAll(async () => {
     ({ module, rootNode, source } = await beforeAllHelper(__filename, {
@@ -49,7 +51,7 @@ describe('giveCompliment', () => {
 
   testTodosRemoved(() => source);
 
-  testNoConsoleLog('giveCompliment', () => rootNode);
+  testNoConsoleLog('giveCompliment', () => rootNode!);
 
   test('should take a single parameter', () => {
     expect(giveCompliment).toHaveLength(1);

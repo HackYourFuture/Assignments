@@ -122,3 +122,4 @@ dist
 .recent.json
 .disclaimer
 @assignment*
+.dist/

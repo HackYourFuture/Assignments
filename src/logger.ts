@@ -1,4 +1,3 @@
-// @ts-check
 import moment from 'moment';
 import winston from 'winston';
 

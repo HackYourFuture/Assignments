@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "testrunnertest": "glob -c \"node --test\" \"./src/__tests__/**/*.test.js\"",
-    "test": "node ./src/test-runner.js",
-    "testalt": "node ./test-runner @assignment",
+    "test": "node ./.dist/test-runner.js",
+    "testalt": "node ./.dist/test-runner @assignment",
     "it": "node ./test-runner/run-it",
     "alt": "node ./test-runner/run-it @assignment",
     "reset-reports": "node ./test-runner/reset-reports",
@@ -72,8 +72,11 @@
     "winston": "^3.14.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.8.0",
-    "eslint": "^9.8.0",
-    "globals": "^15.9.0"
+    "@babel/plugin-transform-typescript": "^7.25.2",
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "globals": "^15.9.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.1"
   }
 }
