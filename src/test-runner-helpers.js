@@ -1,4 +1,5 @@
-import { select, confirm } from '@inquirer/prompts';
+// @ts-check
+import { confirm, select } from '@inquirer/prompts';
 import fg from 'fast-glob';
 import fs from 'fs';
 import path from 'path';
@@ -7,14 +8,15 @@ import { fileURLToPath } from 'url';
 
 export const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-type MenuData = Record<string, Record<string, string[]>>;
-
-export function makePath(
-  module: string,
-  week: string,
-  folder: string,
-  exercise?: string
-) {
+/**
+ *
+ * @param {string} module
+ * @param {string} week
+ * @param {string} folder
+ * @param {string} [exercise]
+ * @returns {string}
+ */
+export function makePath(module, week, folder, exercise) {
   let relPath = `../${module}/${week}/${folder}`;
   if (exercise) {
     relPath += `/${exercise}`;
@@ -22,8 +24,17 @@ export function makePath(
   return path.join(__dirname, relPath);
 }
 
+/**
+ *
+ * @typedef {{[module: string]: {[week: string]: string[]}}} MenuData
+ */
+
+/**
+ * @returns {MenuData}
+ */
 export function compileMenuData() {
-  const menuData: MenuData = {};
+  /** @type MenuData */
+  const menuData = {};
 
   // Look for file and folder names that match the expected structure
   const fileSpec = path
@@ -53,7 +64,11 @@ export function compileMenuData() {
   return menuData;
 }
 
-export async function prepareReportFolders(menuData: MenuData) {
+/**
+ *
+ * @param {MenuData} menuData
+ */
+export async function prepareReportFolders(menuData) {
   for (const moduleName of Object.keys(menuData)) {
     const weeks = Object.keys(menuData[moduleName]);
 
@@ -77,18 +92,27 @@ export async function prepareReportFolders(menuData: MenuData) {
   }
 }
 
-export function promptUseRecent(
-  module: string,
-  week: string,
-  exercise: string
-) {
+/**
+ *
+ * @param {string} module
+ * @param {string} week
+ * @param {string} exercise
+ * @returns {Promise<boolean>}
+ */
+export function promptUseRecent(module, week, exercise) {
   return confirm({
     message: `Rerun last test (${module}, ${week}, ${exercise})?`,
     default: true,
   });
 }
 
-export async function selectModule(choices: string[], module?: string) {
+/**
+ *
+ * @param {string[]} choices
+ * @param {string} [module]
+ * @returns {Promise<string>}
+ */
+export async function selectModule(choices, module) {
   return select({
     message: 'Which module?',
     choices: choices.map((choice) => ({ value: choice })),
@@ -96,7 +120,13 @@ export async function selectModule(choices: string[], module?: string) {
   });
 }
 
-export async function selectWeek(choices: string[], week?: string) {
+/**
+ *
+ * @param {string[]} choices
+ * @param {string} [week]
+ * @returns {Promise<string>}
+ */
+export async function selectWeek(choices, week) {
   return select({
     message: 'Which week?',
     choices: choices.map((choice) => ({ value: choice })),
@@ -104,7 +134,12 @@ export async function selectWeek(choices: string[], week?: string) {
   });
 }
 
-export async function selectExercise(choices: string[], exercise?: string) {
+/**
+ *
+ * @param {string[]} choices
+ * @param {string} [exercise]
+ * @returns {Promise<string>}
+ */ export async function selectExercise(choices, exercise) {
   return select({
     message: 'Which exercise?',
     choices: choices.map((choice) => ({ value: choice })),
@@ -112,31 +147,34 @@ export async function selectExercise(choices: string[], exercise?: string) {
   });
 }
 
-type RecentSelection = {
-  module: string;
-  week: string;
-  exercise: string;
-};
+/** @typedef {{module: string, week: string, exercise: string}} RecentSelection */
 
+/**
+ *
+ * @returns {Promise<RecentSelection | null>}
+ */
 export async function loadMostRecentSelection() {
   try {
     const json = await fs.promises.readFile(
       path.join(__dirname, '../.recent.json'),
       'utf8'
     );
-    const recentSelection = JSON.parse(json) as RecentSelection;
+    const recentSelection = JSON.parse(json);
     return recentSelection;
   } catch (_) {
     return null;
   }
 }
 
-export function saveMostRecentSelection(
-  module: string,
-  week: string,
-  exercise: string
-) {
-  const recentSelection: RecentSelection = { module, week, exercise };
+/**
+ *
+ * @param {string} module
+ * @param {string} week
+ * @param {string} exercise
+ * @returns {Promise<void>}
+ */
+export function saveMostRecentSelection(module, week, exercise) {
+  const recentSelection = { module, week, exercise };
   const json = JSON.stringify(recentSelection, null, 2);
   return fs.promises.writeFile(
     path.join(__dirname, '../.recent.json'),

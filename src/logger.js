@@ -1,5 +1,6 @@
-import winston from 'winston';
+// @ts-check
 import moment from 'moment';
+import winston from 'winston';
 
 const tsFormat = () => moment().format('YYYY-MM-DD hh:mm:ss').trim();
 

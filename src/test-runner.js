@@ -1,3 +1,4 @@
+// @ts-check
 import chalk from 'chalk';
 import assert from 'node:assert/strict';
 import { exec } from 'node:child_process';
@@ -34,7 +35,12 @@ See the results here as suggestions, not the truth!
 
 const MINIMUM_NODE_VERSION = 20;
 
-async function unlink(filePath: string) {
+/**
+ *
+ * @param {string} filePath
+ * @returns {Promise<void>}
+ */
+async function unlink(filePath) {
   try {
     await fs.promises.unlink(filePath);
   } catch (_) {
@@ -42,12 +48,15 @@ async function unlink(filePath: string) {
   }
 }
 
-async function writeReport(
-  module: string,
-  week: string,
-  exercise: string,
-  report: string
-) {
+/**
+ *
+ * @param {string} module
+ * @param {string} week
+ * @param {string} exercise
+ * @param {string} report
+ * @returns {Promise<string | null>}
+ */
+async function writeReport(module, week, exercise, report) {
   const reportDir = makePath(module, week, 'test-reports');
 
   const todoFilePath = path.join(reportDir, `${exercise}.todo.txt`);
@@ -66,9 +75,16 @@ async function writeReport(
 
   const message = 'All tests passed';
   await fs.promises.writeFile(passFilePath, message, 'utf8');
+  return null;
 }
 
-async function getUnitTestPath(exercisePath: string, homeworkFolder: string) {
+/**
+ *
+ * @param {string} exercisePath
+ * @param {string} homeworkFolder
+ * @returns {Promise<{unitTestPath: string, verbose: boolean} | null>}
+ */
+async function getUnitTestPath(exercisePath, homeworkFolder) {
   // If the exercise path ends with `.test` it is expected to represent a
   // single JavaScript file that contains both a function-under-test and
   // a unit test or suite of tests.
@@ -120,7 +136,14 @@ async function getUnitTestPath(exercisePath: string, homeworkFolder: string) {
   return null;
 }
 
-async function execJest(exercisePath: string, homeworkFolder: string) {
+/**
+ *
+ * @param {string} exercisePath
+ * @param {string} homeworkFolder
+ * @returns {Promise<string>}
+ */
+async function execJest(exercisePath, homeworkFolder) {
+  /** @type string */
   let message;
 
   const result = await getUnitTestPath(exercisePath, homeworkFolder);
@@ -137,11 +160,6 @@ async function execJest(exercisePath: string, homeworkFolder: string) {
 
   let cmdLine = `npx jest ${exerciseName} --colors`;
 
-  // if (!verbose) {
-  //   const customReporterPath = path.join(__dirname, 'CustomReporter.js');
-  //   cmdLine += ` --reporters="${customReporterPath}"`;
-  // }
-
   try {
     const { stderr } = await execAsync(cmdLine, {
       encoding: 'utf8',
@@ -156,7 +174,7 @@ async function execJest(exercisePath: string, homeworkFolder: string) {
 
     console.log(verbose ? stderr : chalk.green(message));
     return '';
-  } catch (err: any) {
+  } catch (err) {
     const output = `${err.stdout}\n\n${err.message}`.trim();
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
@@ -170,20 +188,30 @@ async function execJest(exercisePath: string, homeworkFolder: string) {
   }
 }
 
-async function execESLint(exercisePath: string) {
+/**
+ *
+ * @param {string} exercisePath
+ * @returns {Promise<string>}
+ */
+async function execESLint(exercisePath) {
   const lintSpec = fs.existsSync(exercisePath)
     ? exercisePath
     : `${exercisePath}.js`;
+
   // Note: ESLint warnings do not throw an error
+
+  /** @type {string} */
   let output;
+
   try {
     const { stdout } = await execAsync(`npx eslint ${lintSpec}`, {
       encoding: 'utf8',
     });
     output = stdout;
-  } catch (err: any) {
+  } catch (err) {
     output = err.stdout;
   }
+
   if (output) {
     output = output.replace(/\\/g, '/').replace(/^.*\/\.?assignment\//gm, '');
     const title = '*** ESLint Report ***';
@@ -198,7 +226,12 @@ async function execESLint(exercisePath: string) {
   return '';
 }
 
-async function execSpellChecker(exercisePath: string) {
+/**
+ *
+ * @param {string} exercisePath
+ * @returns {Promise<string>}
+ */
+async function execSpellChecker(exercisePath) {
   try {
     const cspellSpec = fs.existsSync(exercisePath)
       ? path.normalize(`${exercisePath}/*.js`)
@@ -206,7 +239,7 @@ async function execSpellChecker(exercisePath: string) {
     await execAsync(`npx cspell ${cspellSpec}`, { encoding: 'utf8' });
     console.log(chalk.green('No spelling errors detected.'));
     return '';
-  } catch (err: any) {
+  } catch (err) {
     // remove full path
     const output = err.stdout
       .replace(/\\/g, '/')
@@ -221,6 +254,9 @@ async function execSpellChecker(exercisePath: string) {
   }
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 async function showDisclaimer() {
   const disclaimerPath = path.join(__dirname, '../.disclaimer');
   const suppressDisclaimer = fs.existsSync(disclaimerPath);
@@ -230,6 +266,9 @@ async function showDisclaimer() {
   }
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 async function main() {
   const [majorVersion] = process.versions.node.split('.');
   if (+majorVersion < MINIMUM_NODE_VERSION) {
@@ -246,9 +285,14 @@ async function main() {
     const homeworkFolder = process.argv[2] || 'assignment';
 
     const menuData = compileMenuData();
-    let module: string | undefined;
-    let week: string | undefined;
-    let exercise: string | undefined;
+
+    /** @type {string | undefined} */
+    let module;
+    /** @type {string | undefined} */
+    let week;
+    /** @type {string | undefined} */
+    let exercise;
+
     let useRecent = false;
 
     const recentSelection = await loadMostRecentSelection();
@@ -294,7 +338,7 @@ async function main() {
     } else {
       logger.info('All steps were completed successfully');
     }
-  } catch (err: any) {
+  } catch (err) {
     const message = `Something went wrong: ${err.message}`;
     logger.error(message);
     console.error(chalk.red(message));

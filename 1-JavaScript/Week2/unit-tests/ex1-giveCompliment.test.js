@@ -1,27 +1,43 @@
 /* eslint-disable hyf/camelcase */
-'use strict';
-const walk = require('acorn-walk');
-const {
+// @ts-check
+import { simple } from 'acorn-walk';
+import {
   beforeAllHelper,
-  testTodosRemoved,
   testNoConsoleLog,
-} = require('../../../test-runner/unit-test-helpers');
+  testTodosRemoved,
+} from '../../../src/unit-test-helpers';
 
 describe('giveCompliment', () => {
-  const state = {};
-  let exported, rootNode, source, giveCompliment;
+  /** @type {{ compliments: string[] }} */
+  const state = { compliments: [] };
 
-  beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
+  let module, rootNode, source, giveCompliment;
+
+  beforeAll(async () => {
+    ({ module, rootNode, source } = await beforeAllHelper(__filename, {
       parse: true,
     }));
-    giveCompliment = exported;
+
+    // Get exported function
+    giveCompliment = module.giveCompliment;
 
     rootNode &&
-      walk.simple(rootNode, {
+      simple(rootNode, {
         VariableDeclarator({ id, init }) {
-          if (id?.name === 'compliments' && init?.type === 'ArrayExpression') {
-            state.compliments = init.elements.map((elem) => elem.value);
+          if (
+            id.type === 'Identifier' &&
+            id.name === 'compliments' &&
+            init?.type === 'ArrayExpression'
+          ) {
+            for (const elem of init.elements) {
+              if (
+                elem &&
+                elem.type === 'Literal' &&
+                typeof elem.value === 'string'
+              ) {
+                state.compliments.push(elem.value);
+              }
+            }
           }
         },
       });

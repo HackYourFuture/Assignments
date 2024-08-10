@@ -23,7 +23,7 @@ describe('test-runner-helpers', () => {
         let exerciseExists =
           fs.existsSync(exercisePath) || // Folder containing the exercise
           fs.existsSync(exercisePath + '.js') || // Exercise file
-          fs.existsSync(exercisePath + '.test.js'); // Excercise file with embedded tests
+          fs.existsSync(exercisePath + '.test.js'); // Exercise file with embedded tests
         assert.ok(exerciseExists, `Exercise not found: ${exercisePath}`);
       }
     });
