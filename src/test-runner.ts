@@ -43,14 +43,6 @@ async function unlink(filePath: string): Promise<void> {
   }
 }
 
-/**
- *
- * @param {string} module
- * @param {string} week
- * @param {string} exercise
- * @param {string} report
- * @returns {Promise<string | null>}
- */
 async function writeReport(
   module: string,
   week: string,
@@ -78,12 +70,6 @@ async function writeReport(
   return null;
 }
 
-/**
- *
- * @param {string} exercisePath
- * @param {string} homeworkFolder
- * @returns {Promise<{unitTestPath: string, verbose: boolean} | null>}
- */
 async function getUnitTestPath(
   exercisePath: string,
   homeworkFolder: string
@@ -139,17 +125,10 @@ async function getUnitTestPath(
   return null;
 }
 
-/**
- *
- * @param {string} exercisePath
- * @param {string} homeworkFolder
- * @returns {Promise<string>}
- */
 async function execJest(
   exercisePath: string,
   homeworkFolder: string
 ): Promise<string> {
-  /** @type string */
   let message: string;
 
   const result = await getUnitTestPath(exercisePath, homeworkFolder);
@@ -194,11 +173,6 @@ async function execJest(
   }
 }
 
-/**
- *
- * @param {string} exercisePath
- * @returns {Promise<string>}
- */
 async function execESLint(exercisePath: string): Promise<string> {
   const lintSpec = fs.existsSync(exercisePath)
     ? exercisePath
@@ -206,7 +180,6 @@ async function execESLint(exercisePath: string): Promise<string> {
 
   // Note: ESLint warnings do not throw an error
 
-  /** @type {string} */
   let output: string;
 
   try {
@@ -232,11 +205,6 @@ async function execESLint(exercisePath: string): Promise<string> {
   return '';
 }
 
-/**
- *
- * @param {string} exercisePath
- * @returns {Promise<string>}
- */
 async function execSpellChecker(exercisePath: string): Promise<string> {
   try {
     const cspellSpec = fs.existsSync(exercisePath)
@@ -260,9 +228,6 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
   }
 }
 
-/**
- * @returns {Promise<void>}
- */
 async function showDisclaimer(): Promise<void> {
   const disclaimerPath = path.join(__dirname, '../.disclaimer');
   const suppressDisclaimer = fs.existsSync(disclaimerPath);
@@ -272,9 +237,6 @@ async function showDisclaimer(): Promise<void> {
   }
 }
 
-/**
- * @returns {Promise<void>}
- */
 async function main(): Promise<void> {
   const [majorVersion] = process.versions.node.split('.');
   if (+majorVersion < MINIMUM_NODE_VERSION) {
@@ -294,13 +256,9 @@ async function main(): Promise<void> {
 
     const menuData = compileMenuData();
 
-    /** @type {string | undefined} */
     let module: string | undefined;
-    /** @type {string | undefined} */
     let week: string | undefined;
-    /** @type {string | undefined} */
     let exercise: string | undefined;
-
     let useRecent = false;
 
     const recentSelection = await loadMostRecentSelection();
@@ -325,13 +283,6 @@ async function main(): Promise<void> {
     assert(module && week && exercise, 'Invalid selection');
 
     const exercisePath = makePath(module, week, homeworkFolder, exercise);
-    // const hash = await computeHash(exercisePath);
-
-    // const untouched = hash === hashes[exercise];
-    // if (untouched) {
-    //   logger.info('Exercise has not yet been modified');
-    //   console.log(chalk.blue('You have not yet worked on this exercise.'));
-    // }
 
     console.log('Running test, please wait...');
     let report = '';

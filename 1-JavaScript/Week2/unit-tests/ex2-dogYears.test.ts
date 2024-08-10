@@ -1,18 +1,22 @@
 'use strict';
-const {
+import type { Node } from 'acorn';
+import {
   beforeAllHelper,
-  testTodosRemoved,
   testNoConsoleLog,
-} = require('../../../test-runner/unit-test-helpers');
+  testTodosRemoved,
+} from '../../../.dist/unit-test-helpers.js';
 
 describe('calculateDogAge', () => {
-  let exported, source, rootNode, calculateDogAge;
+  let module: any;
+  let rootNode: Node | undefined;
+  let source: string;
+  let calculateDogAge: (age: number) => string;
 
-  beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
+  beforeAll(async () => {
+    ({ module, rootNode, source } = await beforeAllHelper(__filename, {
       parse: true,
     }));
-    calculateDogAge = exported;
+    calculateDogAge = module.calculateDogAge;
   });
 
   test('should exist and be executable', () => {

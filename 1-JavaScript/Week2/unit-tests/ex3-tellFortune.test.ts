@@ -1,35 +1,55 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
-const walk = require('acorn-walk');
-const {
+import type { Node } from 'acorn';
+import { simple } from 'acorn-walk';
+import {
   beforeAllHelper,
-  testTodosRemoved,
   testNoConsoleLog,
-} = require('../../../test-runner/unit-test-helpers');
+  testTodosRemoved,
+} from '../../../.dist/unit-test-helpers';
 
 describe('tellFortune', () => {
-  let exported, rootNode, source, tellFortune;
-  const state = {};
+  let module: any;
+  let rootNode: Node | undefined;
+  let source: string;
 
-  beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
+  let tellFortune: (...args: any) => any;
+
+  type State = {
+    selectRandomlyParams: string[];
+    tellFortuneParams: string[];
+    numKids?: string[];
+    partnerNames?: string[];
+    locations?: string[];
+    jobTitles?: string[];
+  };
+
+  const state: State = {
+    selectRandomlyParams: [],
+    tellFortuneParams: [],
+  };
+
+  beforeAll(async () => {
+    ({ module, rootNode, source } = await beforeAllHelper(__filename, {
       parse: true,
     }));
 
-    tellFortune = exported;
+    tellFortune = module.tellFortune;
 
     rootNode &&
-      walk.simple(rootNode, {
+      simple(rootNode, {
         VariableDeclarator({ id, init }) {
-          if (id && init?.type === 'ArrayExpression') {
+          if (id.type === 'Identifier' && init?.type === 'ArrayExpression') {
             state[id.name] = init.elements
-              .filter((elem) => elem.type === 'Literal')
+              .filter((elem) => elem?.type === 'Literal')
               .map((elem) => elem.value);
           }
         },
         FunctionDeclaration(node) {
-          if (node.id.name === 'tellFortune') {
-            state.tellFortuneParams = node.params.map((param) => param.name);
+          if (node?.id?.name === 'tellFortune') {
+            state.tellFortuneParams = node.params
+              .filter((param) => param.type === 'Identifier')
+              .map((param) => param.name);
           }
         },
         CallExpression(node) {
@@ -38,10 +58,8 @@ describe('tellFortune', () => {
             node.callee.name === 'selectRandomly' &&
             node.arguments.length > 0
           ) {
-            if (!state.selectRandomlyArgs) {
-              state.selectRandomlyArgs = [];
-            }
-            state.selectRandomlyArgs.push(node.arguments[0].name);
+            if (node.arguments[0].type === 'Identifier')
+              state.selectRandomlyParams.push(node.arguments[0].name);
           }
         },
       });
@@ -60,8 +78,8 @@ describe('tellFortune', () => {
   });
 
   test('should call function `selectRandomly` for each of its arguments', () => {
-    expect(state.selectRandomlyArgs).toBeDefined();
-    expect(state.selectRandomlyArgs).toEqual(
+    expect(state.selectRandomlyParams).toBeDefined();
+    expect(state.selectRandomlyParams).toEqual(
       expect.arrayContaining(state.tellFortuneParams)
     );
   });
@@ -96,7 +114,12 @@ describe('tellFortune', () => {
 
     const spy = jest.spyOn(Math, 'random').mockReturnValue(0);
 
-    const received = tellFortune(numKids, partnerNames, locations, jobTitles);
+    const received = tellFortune(
+      numKids!,
+      partnerNames!,
+      locations!,
+      jobTitles!
+    );
 
     expect(
       spy.mock.calls.length === 4
