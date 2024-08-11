@@ -1,7 +1,7 @@
 import moment from 'moment';
 import winston from 'winston';
 
-const tsFormat = () => moment().format('YYYY-MM-DD hh:mm:ss').trim();
+const tsFormat = () => moment().format('YYYY-MM-DD HH:mm:ss').trim();
 
 const customFormat = winston.format.printf((info) => {
   return `${tsFormat()} ${info.level}: ${info.message}`;

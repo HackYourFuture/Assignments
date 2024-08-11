@@ -1,0 +1,291 @@
+2024-08-10 06:35:23 info: -------------------------------------------
+2024-08-10 06:35:23 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:35:23 info: -------------------------------------------
+2024-08-10 06:35:31 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-tellFortune.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.ts
+  tellFortune
+    × should exist and be executable (3 ms)
+    × should have all TODO comments removed (1 ms)
+    √ `tellFortune` should not contain unneeded console.log calls (1 ms)
+    × should take four parameters
+    √ should call function `selectRandomly` for each of its arguments (1 ms)
+    × `numKids` should be an array initialized with 5 elements (1 ms)
+    × `locations` should be an array initialized with 5 elements (1 ms)
+    × `partnerNames` should be an array initialized with 5 elements (1 ms)
+    × `jobTitles` should be an array initialized with 5 elements (1 ms)
+    × should tell the fortune by randomly selecting array values (1 ms)
+
+  ● tellFortune › should exist and be executable
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      67 |
+      68 |   test('should exist and be executable', () => {
+    > 69 |     expect(tellFortune).toBeDefined();
+         |                         ^
+      70 |   });
+      71 |
+      72 |   testTodosRemoved(() => source);
+
+      at Object.toBeDefined (1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.ts:69:25)
+
+  ● tellFortune › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+      89 | export function testTodosRemoved(getSource) {
+      90 |     test('should have all TODO comments removed', () => {
+    > 91 |         expect(/\bTODO\b/.test(getSource())).toBeFalsy();
+         |                                              ^
+      92 |     });
+      93 | }
+      94 | export function testNoConsoleLog(functionName, getRootNode) {
+
+      at Object.toBeFalsy (.dist/unit-test-helpers.js:91:46)
+
+  ● tellFortune › should take four parameters
+
+    expect(received).toHaveLength(expected)
+
+    Matcher error: received value must have a length property whose value must be a number
+
+    Received has value: undefined
+
+      75 |
+      76 |   test('should take four parameters', () => {
+    > 77 |     expect(tellFortune).toHaveLength(4);
+         |                         ^
+      78 |   });
+      79 |
+      80 |   test('should call function `selectRandomly` for each of its arguments', () => {
+
+      at Object.toHaveLength (1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.ts:77:25)
+
+  ● tellFortune › `numKids` should be an array initialized with 5 elements
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 5
+    Received length: 0
+    Received array:  []
+
+      88 |     const { numKids } = state;
+      89 |     expect(Array.isArray(numKids)).toBe(true);
+    > 90 |     expect(numKids).toHaveLength(5);
+         |                     ^
+      91 |   });
+      92 |
+      93 |   test('`locations` should be an array initialized with 5 elements', () => {
+
+      at Object.toHaveLength (1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.ts:90:21)
+
+  ● tellFortune › `locations` should be an array initialized with 5 elements
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 5
+    Received length: 0
+    Received array:  []
+
+      94 |     const { locations } = state;
+      95 |     expect(Array.isArray(locations)).toBe(true);
+    > 96 |     expect(locations).toHaveLength(5);
+         |                       ^
+      97 |   });
+      98 |
+      99 |   test('`partnerNames` should be an array initialized with 5 elements', () => {
+
+      at Object.toHaveLength (1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.ts:96:23)
+
+  ● tellFortune › `partnerNames` should be an array initialized with 5 elements
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 5
+    Received length: 0
+    Received array:  []
+
+      100 |     const { partnerNames } = state;
+      101 |     expect(Array.isArray(partnerNames)).toBe(true);
+    > 102 |     expect(partnerNames).toHaveLength(5);
+          |                          ^
+      103 |   });
+      104 |
+      105 |   test('`jobTitles` should be an array initialized with 5 elements', () => {
+
+      at Object.toHaveLength (1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.ts:102:26)
+
+  ● tellFortune › `jobTitles` should be an array initialized with 5 elements
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 5
+    Received length: 0
+    Received array:  []
+
+      106 |     const { jobTitles } = state;
+      107 |     expect(Array.isArray(jobTitles)).toBe(true);
+    > 108 |     expect(jobTitles).toHaveLength(5);
+          |                       ^
+      109 |   });
+      110 |
+      111 |   test('should tell the fortune by randomly selecting array values', () => {
+
+      at Object.toHaveLength (1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.ts:108:23)
+
+  ● tellFortune › should tell the fortune by randomly selecting array values
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      110 |
+      111 |   test('should tell the fortune by randomly selecting array values', () => {
+    > 112 |     expect(tellFortune).toBeDefined();
+          |                         ^
+      113 |     const { numKids, partnerNames, locations, jobTitles } = state;
+      114 |
+      115 |     const spy = jest.spyOn(Math, 'random').mockReturnValue(0);
+
+      at Object.toBeDefined (1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.ts:112:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       8 failed, 2 passed, 10 total
+Snapshots:   0 total
+Time:        1.632 s
+Ran all test suites matching /ex3-tellFortune.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-10 06:36:11 info: -------------------------------------------
+2024-08-10 06:36:11 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:36:11 info: -------------------------------------------
+2024-08-10 06:36:17 info: All unit tests passed.
+2024-08-10 06:36:26 info: All steps were completed successfully
+2024-08-10 06:37:00 info: -------------------------------------------
+2024-08-10 06:37:00 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:37:00 info: -------------------------------------------
+2024-08-10 06:37:07 info: All unit tests passed.
+2024-08-10 06:37:16 info: All steps were completed successfully
+2024-08-10 06:38:56 info: -------------------------------------------
+2024-08-10 06:38:56 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:38:56 info: -------------------------------------------
+2024-08-10 06:39:04 info: All unit tests passed.
+2024-08-10 06:39:13 info: All steps were completed successfully
+2024-08-10 06:41:20 info: -------------------------------------------
+2024-08-10 06:41:20 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:41:20 info: -------------------------------------------
+2024-08-10 06:41:27 info: All unit tests passed.
+2024-08-10 06:41:37 info: All steps were completed successfully
+2024-08-10 06:42:17 info: -------------------------------------------
+2024-08-10 06:42:17 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:42:17 info: -------------------------------------------
+2024-08-10 06:44:28 info: All unit tests passed.
+2024-08-10 06:44:38 info: All steps were completed successfully
+2024-08-10 06:44:45 info: -------------------------------------------
+2024-08-10 06:44:45 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:44:45 info: -------------------------------------------
+2024-08-10 06:45:39 info: All unit tests passed.
+2024-08-10 06:45:48 info: All steps were completed successfully
+2024-08-10 06:45:55 info: -------------------------------------------
+2024-08-10 06:45:55 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:45:55 info: -------------------------------------------
+2024-08-10 06:48:50 info: All unit tests passed.
+2024-08-10 06:49:00 info: All steps were completed successfully
+2024-08-10 06:51:07 info: -------------------------------------------
+2024-08-10 06:51:07 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:51:07 info: -------------------------------------------
+2024-08-10 06:57:34 info: All unit tests passed.
+2024-08-10 06:57:43 info: All steps were completed successfully
+2024-08-10 06:57:54 info: -------------------------------------------
+2024-08-10 06:57:54 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 06:57:54 info: -------------------------------------------
+2024-08-10 06:59:10 info: All unit tests passed.
+2024-08-10 06:59:10 info: All steps were completed successfully
+2024-08-10 07:01:34 info: -------------------------------------------
+2024-08-10 07:01:34 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 07:01:34 info: -------------------------------------------
+2024-08-10 07:02:58 info: All unit tests passed.
+2024-08-10 07:02:58 info: All steps were completed successfully
+2024-08-10 07:03:11 info: -------------------------------------------
+2024-08-10 07:03:11 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 07:03:11 info: -------------------------------------------
+2024-08-10 07:03:48 info: All unit tests passed.
+2024-08-10 07:03:48 info: All steps were completed successfully
+2024-08-10 07:03:56 info: -------------------------------------------
+2024-08-10 07:03:56 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 07:03:56 info: -------------------------------------------
+2024-08-10 07:04:40 info: All unit tests passed.
+2024-08-10 07:04:40 info: All steps were completed successfully
+2024-08-10 07:04:56 info: -------------------------------------------
+2024-08-10 07:04:56 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 07:04:56 info: -------------------------------------------
+2024-08-10 07:05:37 info: All unit tests passed.
+2024-08-10 07:05:37 info: All steps were completed successfully
+2024-08-10 07:07:10 info: -------------------------------------------
+2024-08-10 07:07:10 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 07:07:10 info: -------------------------------------------
+2024-08-10 07:15:59 info: All unit tests passed.
+2024-08-10 07:15:59 info: All steps were completed successfully
+2024-08-10 07:36:02 info: -------------------------------------------
+2024-08-10 07:36:02 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 07:36:02 info: -------------------------------------------
+2024-08-10 07:36:18 info: All unit tests passed.
+2024-08-10 07:36:18 info: All steps were completed successfully
+2024-08-10 07:37:01 info: -------------------------------------------
+2024-08-10 07:37:01 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 07:37:01 info: -------------------------------------------
+2024-08-10 07:37:54 info: All unit tests passed.
+2024-08-10 07:37:54 info: All steps were completed successfully
+2024-08-10 07:39:32 info: -------------------------------------------
+2024-08-10 07:39:32 info: >>> Running Unit Test `ex3-tellFortune` <<<
+2024-08-10 07:39:32 info: -------------------------------------------
+2024-08-10 07:40:04 info: All unit tests passed.
+2024-08-10 07:40:04 info: All steps were completed successfully
+2024-08-10 07:43:51 info: --------------------------------------------
+2024-08-10 07:43:51 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2024-08-10 07:43:51 info: --------------------------------------------
+2024-08-10 07:43:51 warn: A unit test file was not provided.
+2024-08-10 07:43:51 info: All steps were completed successfully
+2024-08-10 07:44:44 info: --------------------------------------------
+2024-08-10 07:44:44 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2024-08-10 07:44:44 info: --------------------------------------------
+2024-08-10 07:44:44 warn: A unit test file was not provided.
+2024-08-10 07:44:50 info: All steps were completed successfully
+2024-08-10 07:47:03 info: --------------------------------------------
+2024-08-10 07:47:03 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2024-08-10 07:47:03 info: --------------------------------------------
+2024-08-10 07:47:03 warn: A unit test file was not provided for this exercise.
+2024-08-10 07:47:10 info: All steps were completed successfully
+2024-08-10 07:48:52 info: --------------------------------------------
+2024-08-10 07:48:52 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2024-08-10 07:48:52 info: --------------------------------------------
+2024-08-10 07:48:52 warn: This exercise does not use a unit test file.
+2024-08-10 07:48:58 info: All steps were completed successfully
+2024-08-10 07:50:37 info: --------------------------------------------
+2024-08-10 07:50:37 info: >>> Running Unit Test `ex4-shoppingCart` <<<
+2024-08-10 07:50:37 info: --------------------------------------------
+2024-08-10 07:50:37 warn: This exercise comes without a supplied unit test file.
+2024-08-10 07:50:44 info: All steps were completed successfully
+2024-08-11 11:25:40 info: ------------------------------------------------------
+2024-08-11 12:04:08 info: ------------------------------------------------------
+2024-08-11 12:04:08 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2024-08-11 12:04:08 info: ------------------------------------------------------
+2024-08-11 12:04:14 info: All unit tests passed.
+2024-08-11 12:04:22 info: All steps were completed successfully
+2024-08-11 12:55:17 info: ------------------------------------------------------
+2024-08-11 12:55:17 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2024-08-11 12:55:17 info: ------------------------------------------------------
+2024-08-11 12:55:21 info: All unit tests passed.
+2024-08-11 12:55:28 info: All steps were completed successfully
+2024-08-11 01:05:18 info: All unit tests passed.
+2024-08-11 01:05:25 info: All steps were completed successfully
+2024-08-11 13:06:50 info: All unit tests passed.
+2024-08-11 13:06:56 info: All steps were completed successfully

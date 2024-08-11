@@ -1,26 +1,17 @@
 // @ts-check
 import chalk from 'chalk';
-import assert from 'node:assert/strict';
+import fg from 'fast-glob';
 import { exec } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'url';
 
-export const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
 import logger from './logger.js';
-import {
-  compileMenuData,
-  loadMostRecentSelection,
-  makePath,
-  promptUseRecent,
-  saveMostRecentSelection,
-  selectExercise,
-  selectModule,
-  selectWeek,
-} from './test-runner-helpers.js';
 
+import ExerciseMenu from './ExerciseMenu.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
 
 const disclaimer = `
@@ -49,7 +40,7 @@ async function writeReport(
   exercise: string,
   report: string
 ): Promise<string | null> {
-  const reportDir = makePath(module, week, 'test-reports');
+  const reportDir = path.join(__dirname, `../${module}/${week}/test-reports`);
 
   const todoFilePath = path.join(reportDir, `${exercise}.todo.txt`);
   await unlink(todoFilePath);
@@ -70,19 +61,22 @@ async function writeReport(
   return null;
 }
 
-async function getUnitTestPath(
+function getUnitTestPath(
   exercisePath: string,
   homeworkFolder: string
-): Promise<{ unitTestPath: string; verbose: boolean } | null> {
+): string | null {
   // If the exercise path ends with `.test` it is expected to represent a
   // single JavaScript file that contains both a function-under-test and
   // a unit test or suite of tests.
   if (/\.test$/.test(exercisePath)) {
-    const unitTestPath = exercisePath + '.ts';
-    if (!fs.existsSync(unitTestPath)) {
-      throw new Error(`Unit test file not found: ${unitTestPath}`);
+    const entries = fg.sync(exercisePath.replace(/\\/g, '/') + '.[jt]s', {
+      deep: 0,
+    });
+    if (entries.length === 0) {
+      throw new Error(`Unit test file not found for exercise: ${exercisePath}`);
     }
-    return { unitTestPath, verbose: true };
+
+    return path.normalize(entries[0]);
   }
 
   const exerciseName = path.basename(exercisePath);
@@ -98,9 +92,11 @@ async function getUnitTestPath(
     // A unit test file may be present in the exercise directory, in which case
     // the unit test itself is considered part of the exercise. This unit test
     // file must then be named `<exercise-name>.test.js`.
-    const unitTestPath = path.join(exercisePath, exerciseName + '.test.ts');
-    if (fs.existsSync(unitTestPath)) {
-      return { unitTestPath, verbose: true };
+
+    const unitTestPath = path.join(exercisePath, exerciseName + '.test.[jt]s');
+    const entries = fg.sync(unitTestPath.replace(/\\/g, '/'), { deep: 0 });
+    if (entries.length > 0) {
+      return path.normalize(entries[0]);
     }
   }
 
@@ -112,16 +108,13 @@ async function getUnitTestPath(
 
   const unitTestPath =
     exercisePath.replace(regexp, `$1${path.sep}unit-tests${path.sep}`) +
-    '.test.ts';
+    '.test.[jt]s';
 
-  if (fs.existsSync(unitTestPath)) {
-    // Use verbose mode if the unit-tests folder contains a `.verbose` file.
-    const verboseFilePath = path.join(path.dirname(unitTestPath), '.verbose');
-    const verbose = fs.existsSync(verboseFilePath);
-    return { unitTestPath, verbose };
+  const entries = fg.sync(unitTestPath.replace(/\\/g, '/'), { deep: 0 });
+  if (entries.length > 0) {
+    return path.normalize(entries[0]);
   }
 
-  // No unit test file was found for the current exercise.
   return null;
 }
 
@@ -131,15 +124,13 @@ async function execJest(
 ): Promise<string> {
   let message: string;
 
-  const result = await getUnitTestPath(exercisePath, homeworkFolder);
-  if (!result) {
-    message = 'A unit test file was not provided.';
+  const unitTestPath = getUnitTestPath(exercisePath, homeworkFolder);
+  if (!unitTestPath) {
+    message = 'A unit test file was not provided for this exercise.';
     console.log(chalk.yellow(message));
     logger.warn(message);
     return '';
   }
-
-  const { unitTestPath, verbose } = result;
 
   const exerciseName = path.basename(unitTestPath);
 
@@ -157,13 +148,13 @@ async function execJest(
     message = 'All unit tests passed.';
     logger.info(message);
 
-    console.log(verbose ? stderr : chalk.green(message));
+    console.log(stderr);
     return '';
   } catch (err: any) {
     const output = `${err.stdout}\n\n${err.message}`.trim();
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
-    console.log(verbose ? output : chalk.red(output));
+    console.log(output);
 
     const { default: stripAnsi } = await import('strip-ansi');
     message = stripAnsi(`${title}\n\n${output}`);
@@ -254,35 +245,8 @@ async function main(): Promise<void> {
   try {
     const homeworkFolder = process.argv[2] || 'assignment';
 
-    const menuData = compileMenuData();
-
-    let module: string | undefined;
-    let week: string | undefined;
-    let exercise: string | undefined;
-    let useRecent = false;
-
-    const recentSelection = await loadMostRecentSelection();
-    if (recentSelection) {
-      ({ module, week, exercise } = recentSelection);
-      useRecent = await promptUseRecent(module, week, exercise);
-    }
-
-    if (!useRecent) {
-      module = await selectModule(Object.keys(menuData), module);
-      week = await selectWeek(Object.keys(menuData[module]), week);
-      exercise = await selectExercise(menuData[module][week], exercise);
-      saveMostRecentSelection(module, week, exercise);
-    }
-
-    const title = `>>> Running Unit Test \`${exercise}\` <<<`;
-    const separator = '-'.repeat(title.length);
-    logger.info(separator);
-    logger.info(title);
-    logger.info(separator);
-
-    assert(module && week && exercise, 'Invalid selection');
-
-    const exercisePath = makePath(module, week, homeworkFolder, exercise);
+    const menu = new ExerciseMenu(homeworkFolder);
+    const exercisePath = await menu.getExercisePath();
 
     console.log('Running test, please wait...');
     let report = '';
@@ -290,7 +254,7 @@ async function main(): Promise<void> {
     report += await execESLint(exercisePath);
     report += await execSpellChecker(exercisePath);
 
-    await writeReport(module, week, exercise, report);
+    await writeReport(menu.module, menu.week, menu.exercise, report);
 
     if (report) {
       await showDisclaimer();
