@@ -8,7 +8,6 @@ import { promisify } from 'node:util';
 import { fileURLToPath } from 'url';
 
 import logger from './logger.js';
-
 import ExerciseMenu from './ExerciseMenu.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
