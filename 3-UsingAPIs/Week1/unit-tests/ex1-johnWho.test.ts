@@ -1,33 +1,45 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
-const walk = require('acorn-walk');
-const {
+import { simple } from 'acorn-walk';
+import {
   beforeAllHelper,
-  testTodosRemoved,
   testNoConsoleLog,
-} = require('../../../test-runner/unit-test-helpers');
+  testTodosRemoved,
+} from '../../../.dist/unit-test-helpers';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+
+type State = {
+  paramCount: number;
+  newPromise?: boolean;
+  resolve?: number;
+  reject?: number;
+};
 
 describe('getAnonName', () => {
-  const state = { paramCount: 0 };
-  let exported, rootNode, source, getAnonName;
+  const state: State = { paramCount: 0 };
 
-  beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
+  let getAnonName: (name: string) => Promise<string>;
+
+  let exInfo: ExerciseInfo;
+
+  beforeAll(async () => {
+    exInfo = await beforeAllHelper(__filename, {
       parse: true,
-    }));
-    getAnonName = exported;
+    });
 
-    rootNode &&
-      walk.simple(rootNode, {
+    getAnonName = exInfo.module?.getAnonName;
+
+    exInfo.rootNode &&
+      simple(exInfo.rootNode, {
         VariableDeclarator({ id, init }) {
           if (id.type === 'Identifier' && id.name === 'getAnonName') {
-            if (init.type === 'ArrowFunctionExpression') {
+            if (init?.type === 'ArrowFunctionExpression') {
               state.paramCount = init.params.length;
             }
           }
         },
         FunctionDeclaration({ id, params }) {
-          if (id.name === 'getAnonName') {
+          if (id?.type === 'Identifier' && id?.name === 'getAnonName') {
             state.paramCount = params.length;
           }
         },
@@ -37,7 +49,10 @@ describe('getAnonName', () => {
           }
         },
         CallExpression({ callee, arguments: args }) {
-          if (['resolve', 'reject'].includes(callee.name)) {
+          if (
+            callee.type === 'Identifier' &&
+            ['resolve', 'reject'].includes(callee.name)
+          ) {
             state[callee.name] = args.length;
           }
         },
@@ -45,12 +60,12 @@ describe('getAnonName', () => {
   });
 
   test('should exist and be executable', () => {
-    expect(exported).toBeDefined();
+    expect(getAnonName).toBeDefined();
   });
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('getAnonName', () => rootNode);
+  testNoConsoleLog('getAnonName', () => exInfo.rootNode);
 
   test('should call `new Promise()`', () => {
     expect(state.newPromise).toBeDefined();
@@ -70,10 +85,13 @@ describe('getAnonName', () => {
 
   test('should resolve when called with a string argument', async () => {
     expect.assertions(3);
-    expect(exported).toBeDefined();
+    expect(getAnonName).toBeDefined();
     const timeoutSpy = jest
       .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => cb());
+      .mockImplementation((cb) => {
+        cb();
+        return 1 as unknown as NodeJS.Timeout;
+      });
     const promise = getAnonName('John');
     timeoutSpy.mockRestore();
     expect(promise).toBeInstanceOf(Promise);
@@ -82,10 +100,14 @@ describe('getAnonName', () => {
 
   test('should reject with an Error object when called without an argument', async () => {
     expect.assertions(3);
-    expect(exported).toBeDefined();
+    expect(getAnonName).toBeDefined();
     const timeoutSpy = jest
       .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => cb());
+      .mockImplementation((cb) => {
+        cb();
+        return 1 as unknown as NodeJS.Timeout;
+      });
+    // @ts-ignore
     const promise = getAnonName();
     timeoutSpy.mockRestore();
     expect(promise).toBeInstanceOf(Promise);
