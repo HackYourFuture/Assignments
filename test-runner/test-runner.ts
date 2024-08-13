@@ -62,7 +62,7 @@ async function writeReport(
 }
 
 function getFirstPathMatch(partialPath: string): string | null {
-  const entries = fg.sync(partialPath, { deep: 0 });
+  const entries = fg.sync(partialPath.replace(/\\/g, '/'), { deep: 0 });
   if (entries.length === 0) {
     return null;
   }
@@ -110,13 +110,10 @@ function getUnitTestPath(
 
   // If the exercise directory does not contain a unit test file then it may
   // exist in the `unit-tests` directory.
-  const regexp = new RegExp(
-    `(Week\\d+)\\${path.sep}${homeworkFolder}\\${path.sep}`
-  );
+  const regexp = new RegExp(String.raw`(Week\d+)/${homeworkFolder}/`);
 
   const unitTestPath =
-    exercisePath.replace(regexp, `$1${path.sep}unit-tests${path.sep}`) +
-    '.test.[jt]s';
+    exercisePath.replace(regexp, `$1/unit-tests/`) + '.test.[jt]s';
 
   return getFirstPathMatch(unitTestPath);
 }

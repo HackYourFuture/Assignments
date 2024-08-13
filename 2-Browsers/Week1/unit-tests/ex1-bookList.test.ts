@@ -1,10 +1,10 @@
 /* eslint-disable hyf/camelcase */
-const walk = require('acorn-walk');
-const {
+import walk from 'acorn-walk';
+import { prepare, validateHTML } from '../../../test-runner/jsdom-helpers';
+import {
   beforeAllHelper,
   testTodosRemoved,
-} = require('../../../test-runner/unit-test-helpers');
-const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
+} from '../../../test-runner/unit-test-helpers';
 
 describe('Generated HTML', () => {
   const state = {};
@@ -15,7 +15,7 @@ describe('Generated HTML', () => {
     state.outerHTML = document.documentElement.outerHTML;
 
     ({ rootNode, source } = beforeAllHelper(__filename, {
-      noRequire: true,
+      noImport: true,
       parse: true,
     }));
 

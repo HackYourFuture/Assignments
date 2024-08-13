@@ -16,7 +16,7 @@ describe('catWalk', () => {
     const { document } = window;
     state.outerHTML = document.documentElement.outerHTML;
     ({ rootNode, source } = beforeAllHelper(__filename, {
-      noRequire: true,
+      noImport: true,
       parse: true,
     }));
 

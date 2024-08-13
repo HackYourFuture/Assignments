@@ -1,15 +1,15 @@
 import type { Node } from 'acorn';
 import { simple } from 'acorn-walk';
+
 import {
   beforeAllHelper,
   testNoConsoleLog,
   testTodosRemoved,
 } from '../../../.dist/unit-test-helpers';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
 describe('tellFortune', () => {
-  let module: any;
-  let rootNode: Node | undefined;
-  let source: string;
+  let exInfo: ExerciseInfo;
 
   let tellFortune: (...args: any) => any;
 
@@ -28,14 +28,14 @@ describe('tellFortune', () => {
   };
 
   beforeAll(async () => {
-    ({ module, rootNode, source } = await beforeAllHelper(__filename, {
+    exInfo = await beforeAllHelper(__filename, {
       parse: true,
-    }));
+    });
 
-    tellFortune = module.tellFortune;
+    tellFortune = exInfo.module.tellFortune;
 
-    rootNode &&
-      simple(rootNode, {
+    exInfo.rootNode &&
+      simple(exInfo.rootNode, {
         VariableDeclarator({ id, init }) {
           if (id.type === 'Identifier' && init?.type === 'ArrayExpression') {
             state[id.name] = init.elements
@@ -67,9 +67,9 @@ describe('tellFortune', () => {
     expect(tellFortune).toBeDefined();
   });
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('tellFortune', () => rootNode);
+  testNoConsoleLog('tellFortune', () => exInfo.rootNode);
 
   test('should take four parameters', () => {
     expect(tellFortune).toHaveLength(4);

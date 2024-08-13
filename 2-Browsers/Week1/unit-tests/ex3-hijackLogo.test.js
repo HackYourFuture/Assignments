@@ -11,7 +11,7 @@ describe('hijackLogo', () => {
 
   beforeAll(() => {
     ({ rootNode, source } = beforeAllHelper(__filename, {
-      noRequire: true,
+      noImport: true,
       parse: true,
     }));
 

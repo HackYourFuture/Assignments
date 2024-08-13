@@ -1,22 +1,27 @@
-/* eslint-disable hyf/camelcase */
-'use strict';
-const walk = require('acorn-walk');
-const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
+import { simple } from 'acorn-walk';
+import { beforeAllHelper } from '../../../.dist/unit-test-helpers.js';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
 describe('wallet', () => {
-  let rootNode;
-  const state = { answers: [] };
+  const state: { answers: string[] } = { answers: [] };
 
-  beforeAll(() => {
-    ({ rootNode } = beforeAllHelper(__filename, {
+  let exInfo: ExerciseInfo;
+
+  beforeAll(async () => {
+    exInfo = await beforeAllHelper(__filename, {
       parse: true,
-      noRequire: true,
-    }));
+      noImport: true,
+    });
 
-    rootNode &&
-      walk.simple(rootNode, {
+    exInfo.rootNode &&
+      simple(exInfo.rootNode, {
         Property({ key, value }) {
-          if (key.name === 'answer') {
+          if (
+            key.type === 'Identifier' &&
+            key.name === 'answer' &&
+            value.type === 'Literal' &&
+            typeof value.value === 'string'
+          ) {
             state.answers.push(value.value);
           }
         },

@@ -1,30 +1,30 @@
-import type { Node } from 'acorn';
 import { simple } from 'acorn-walk';
+
 import {
   beforeAllHelper,
   testNoConsoleLog,
   testTodosRemoved,
 } from '../../../.dist/unit-test-helpers.js';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
 describe('giveCompliment', () => {
-  /** @type {{ compliments: string[] }} */
   const state: { compliments: string[] } = { compliments: [] };
 
-  let module: any;
-  let rootNode: Node | undefined;
-  let source: string;
+  let exInfo: ExerciseInfo;
+
   let giveCompliment: (name: string) => string;
 
   beforeAll(async () => {
-    ({ module, rootNode, source } = await beforeAllHelper(__filename, {
+    exInfo = await beforeAllHelper(__filename, {
       parse: true,
-    }));
+    });
 
     // Get exported function
-    giveCompliment = module.giveCompliment;
+    giveCompliment = exInfo.module?.giveCompliment;
 
-    rootNode &&
-      simple(rootNode, {
+    exInfo.rootNode &&
+      simple(exInfo.rootNode, {
+        // Look for `const compliments = [...]` and extract its values
         VariableDeclarator({ id, init }) {
           if (
             id.type === 'Identifier' &&
@@ -49,9 +49,9 @@ describe('giveCompliment', () => {
     expect(giveCompliment).toBeDefined();
   });
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('giveCompliment', () => rootNode!);
+  testNoConsoleLog('giveCompliment', () => exInfo.rootNode);
 
   test('should take a single parameter', () => {
     expect(giveCompliment).toHaveLength(1);

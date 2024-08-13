@@ -1,5 +1,4 @@
-'use strict';
-import type { Node } from 'acorn';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 import {
   beforeAllHelper,
   testNoConsoleLog,
@@ -7,25 +6,24 @@ import {
 } from '../../../.dist/unit-test-helpers.js';
 
 describe('calculateDogAge', () => {
-  let module: any;
-  let rootNode: Node | undefined;
-  let source: string;
+  let exInfo: ExerciseInfo;
+
   let calculateDogAge: (age: number) => string;
 
   beforeAll(async () => {
-    ({ module, rootNode, source } = await beforeAllHelper(__filename, {
+    exInfo = await beforeAllHelper(__filename, {
       parse: true,
-    }));
-    calculateDogAge = module.calculateDogAge;
+    });
+    calculateDogAge = exInfo.module.calculateDogAge;
   });
 
   test('should exist and be executable', () => {
     expect(calculateDogAge).toBeDefined();
   });
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('calculateDogAge', () => rootNode);
+  testNoConsoleLog('calculateDogAge', () => exInfo.rootNode);
 
   test('should take a single parameter', () => {
     expect(calculateDogAge).toBeDefined();

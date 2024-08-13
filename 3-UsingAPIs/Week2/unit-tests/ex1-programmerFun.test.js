@@ -14,7 +14,7 @@ describe('programmerFun', () => {
     const { document } = await prepare();
     state.outerHTML = document.documentElement.outerHTML;
     ({ rootNode, source } = beforeAllHelper(__filename, {
-      noRequire: true,
+      noImport: true,
       parse: true,
     }));
 

@@ -18,16 +18,17 @@ async function initializeReportFolders() {
       const dirPath = path.join(__dirname, `../${module}/${week}/test-reports`);
       if (!fs.existsSync(dirPath)) {
         fs.mkdirSync(dirPath);
-        console.log(`Created \`test-reports\` folder for ${module}/${week}`);
+        console.log(`Created 'test-reports' folder for ${module}/${week}`);
       } else {
-        rimrafSync(path.join(dirPath, '*'), { glob: true });
+        const globPath = path.join(dirPath, '/**/*').replace(/\\/g, '/');
+        rimrafSync(globPath, { glob: true });
       }
       const exercises = menuData[module][week];
       for (const exercise of exercises) {
         const reportPath = path.join(dirPath, `${exercise}.todo.txt`);
         fs.writeFileSync(reportPath, 'This test has not been run.', 'utf8');
       }
-      console.log(`Initialized test reports for ${module}/${week}`);
+      console.log(`Created 'todo' test reports for ${module}/${week}`);
     }
   }
 }

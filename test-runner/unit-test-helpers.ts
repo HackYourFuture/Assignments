@@ -5,24 +5,24 @@ import path from 'path';
 
 type HelperOptions = {
   parse?: boolean;
-  noRequire?: boolean;
+  noImport?: boolean;
 };
 
 const defaultOptions: HelperOptions = {
   parse: false,
-  noRequire: false,
+  noImport: false,
 };
 
-type ExerciseData = {
-  module?: any;
+export type ExerciseInfo = {
   source: string;
+  module?: any;
   rootNode?: Node;
 };
 
 export async function beforeAllHelper(
   testFilePath: string,
   options: HelperOptions = {}
-): Promise<ExerciseData> {
+): Promise<ExerciseInfo> {
   const helperOptions = Object.assign(defaultOptions, options);
   const matches = testFilePath
     .replace(/\\/g, '/')
@@ -44,9 +44,9 @@ export async function beforeAllHelper(
     ? path.join(exercisePath, 'index.js')
     : exercisePath + '.js';
 
-  const result: ExerciseData = { source: '' };
+  const result: ExerciseInfo = { source: '' };
 
-  if (!helperOptions.noRequire) {
+  if (!helperOptions.noImport) {
     try {
       // suppress all console.log output
       jest.spyOn(console, 'log').mockImplementation();

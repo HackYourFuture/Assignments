@@ -14,7 +14,7 @@ describe('Generated HTML', () => {
     state.outerHTML = document.documentElement.outerHTML;
 
     ({ source } = beforeAllHelper(__filename, {
-      noRequire: true,
+      noImport: true,
     }));
   });
 
