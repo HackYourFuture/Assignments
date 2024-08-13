@@ -289,3 +289,917 @@ Waiting for the debugger to disconnect...
 2024-08-11 01:05:25 info: All steps were completed successfully
 2024-08-11 13:06:50 info: All unit tests passed.
 2024-08-11 13:06:56 info: All steps were completed successfully
+2024-08-12 10:22:58 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.ts --colors
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts
+  ex3-rollAnAce
+    × should have all TODO comments removed (1 ms)
+    × `rollDieUntil` should not contain unneeded console.log calls
+    × should not include a recursive call
+    × should use async/wait
+    × should use try/catch
+    × should resolve as soon as a die settles on an ACE
+    × should reject with an Error when a die rolls off the table
+
+  ● ex3-rollAnAce › should have all TODO comments removed
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › `rollDieUntil` should not contain unneeded console.log calls
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should not include a recursive call
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should use async/wait
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should use try/catch
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should resolve as soon as a die settles on an ACE
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should reject with an Error when a die rolls off the table
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        1.086 s
+Ran all test suites matching /ex3-rollAnAce.test.ts/i.
+2024-08-12 10:28:04 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts (58.691 s)
+  ex3-rollAnAce
+    × should have all TODO comments removed (2 ms)
+    × `rollDieUntil` should not contain unneeded console.log calls (1 ms)
+    × should not include a recursive call
+    × should use async/wait
+    × should use try/catch
+    × should resolve as soon as a die settles on an ACE (1 ms)
+    × should reject with an Error when a die rolls off the table (1 ms)
+
+  ● ex3-rollAnAce › should have all TODO comments removed
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › `rollDieUntil` should not contain unneeded console.log calls
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should not include a recursive call
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should use async/wait
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should use try/catch
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should resolve as soon as a die settles on an ACE
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should reject with an Error when a die rolls off the table
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        59.368 s
+Ran all test suites matching /ex3-rollAnAce.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 10:28:52 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts (10.414 s)
+  ex3-rollAnAce
+    × should have all TODO comments removed (3 ms)
+    × `rollDieUntil` should not contain unneeded console.log calls
+    × should not include a recursive call (1 ms)
+    × should use async/wait (1 ms)
+    × should use try/catch (1 ms)
+    × should resolve as soon as a die settles on an ACE (1 ms)
+    × should reject with an Error when a die rolls off the table (1 ms)
+
+  ● ex3-rollAnAce › should have all TODO comments removed
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › `rollDieUntil` should not contain unneeded console.log calls
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should not include a recursive call
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should use async/wait
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should use try/catch
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should resolve as soon as a die settles on an ACE
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should reject with an Error when a die rolls off the table
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        11.427 s, estimated 59 s
+Ran all test suites matching /ex3-rollAnAce.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 10:32:01 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts (118.237 s)
+  ex3-rollAnAce
+    × should have all TODO comments removed (1 ms)
+    × `rollDieUntil` should not contain unneeded console.log calls
+    × should not include a recursive call
+    × should use async/wait (1 ms)
+    × should use try/catch
+    × should resolve as soon as a die settles on an ACE
+    × should reject with an Error when a die rolls off the table (1 ms)
+
+  ● ex3-rollAnAce › should have all TODO comments removed
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › `rollDieUntil` should not contain unneeded console.log calls
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should not include a recursive call
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should use async/wait
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should use try/catch
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should resolve as soon as a die settles on an ACE
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+  ● ex3-rollAnAce › should reject with an Error when a die rolls off the table
+
+    TypeError: Cannot read properties of undefined (reading 'rollDieUntil')
+
+      30 |     }));
+      31 |
+    > 32 |     rollDieUntil = module.rollDieUntil;
+         |                           ^
+      33 |
+      34 |     rootNode &&
+      35 |       ancestor(rootNode, {
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:32:27)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        118.897 s
+Ran all test suites matching /ex3-rollAnAce.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 10:44:03 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex3-rollAnAce.test.ts --colors
+Debugger attached.
+Debugger attached.
+ FAIL  3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts (130.033 s)
+  ex3-rollAnAce
+    √ should have all TODO comments removed (4 ms)
+    √ `rollDieUntil` should not contain unneeded console.log calls (2 ms)
+    √ should not include a recursive call (2 ms)
+    √ should use async/wait (1 ms)
+    √ should use try/catch (1 ms)
+    × should resolve as soon as a die settles on an ACE (1 ms)
+    × should reject with an Error when a die rolls off the table (2 ms)
+
+  ● ex3-rollAnAce › should resolve as soon as a die settles on an ACE
+
+    TypeError: rollDieUntil is not a function
+
+      100 |
+      101 |     try {
+    > 102 |       const promise = rollDieUntil('ACE');
+          |                       ^
+      103 |       expect(promise).toBeInstanceOf(Promise);
+      104 |       const result = await promise;
+      105 |       expect(result).toBe('ACE');
+
+      at Object.rollDieUntil (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:102:23)
+
+  ● ex3-rollAnAce › should resolve as soon as a die settles on an ACE
+
+    expect.assertions(3)
+
+    Expected three assertions to be called but received one assertion call.
+
+      79 |
+      80 |   test('should resolve as soon as a die settles on an ACE', async () => {
+    > 81 |     expect.assertions(3);
+         |            ^
+      82 |
+      83 |     expect(module).toBeDefined();
+      84 |
+
+      at Object.assertions (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:81:12)
+
+  ● ex3-rollAnAce › should reject with an Error when a die rolls off the table
+
+    expect.assertions(3)
+
+    Expected three assertions to be called but received two assertion calls.
+
+      110 |
+      111 |   test('should reject with an Error when a die rolls off the table', async () => {
+    > 112 |     expect.assertions(3);
+          |            ^
+      113 |     expect(module).toBeDefined();
+      114 |
+      115 |     // This sequence is known to cause the die to roll off the table
+
+      at Object.assertions (3-UsingAPIs/Week2/unit-tests/ex3-rollAnAce.test.ts:112:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 5 passed, 7 total
+Snapshots:   0 total
+Time:        131.094 s
+Ran all test suites matching /ex3-rollAnAce.test.ts/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 10:44:49 info: All unit tests passed.
+2024-08-12 10:44:59 info: All steps were completed successfully
+2024-08-12 13:56:31 info: All unit tests passed.
+2024-08-12 13:56:37 info: All steps were completed successfully
+2024-08-12 14:46:44 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ PASS  1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.test.js
+ FAIL  1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.toHaveBeenCalledWith (1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js:30:23)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        2.533 s
+Ran all test suites matching /ex4-observable.test.js/i.
+2024-08-12 14:50:53 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.toHaveBeenCalledWith (1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js:30:23)
+
+ PASS  1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.test.js
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        1.257 s
+Ran all test suites matching /ex4-observable.test.js/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 14:53:21 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.toHaveBeenCalledWith (1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js:30:23)
+
+ PASS  1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.test.js (39.774 s)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        41.044 s
+Ran all test suites matching /ex4-observable.test.js/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 14:55:41 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.toHaveBeenCalledWith (1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js:30:23)
+
+ PASS  1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.test.js (13.372 s)
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        17.667 s, estimated 40 s
+Ran all test suites matching /ex4-observable.test.js/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 14:57:46 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.toHaveBeenCalledWith (1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js:30:23)
+
+ PASS  1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.test.js (30.042 s)
+  ● Console
+
+    console.log
+      [Function: mockConstructor] {
+        _isMockFunction: true,
+        getMockImplementation: [Function (anonymous)],
+        mock: [Getter/Setter],
+        mockClear: [Function (anonymous)],
+        mockReset: [Function (anonymous)],
+        mockRestore: [Function (anonymous)],
+        mockReturnValueOnce: [Function (anonymous)],
+        mockResolvedValueOnce: [Function (anonymous)],
+        mockRejectedValueOnce: [Function (anonymous)],
+        mockReturnValue: [Function (anonymous)],
+        mockResolvedValue: [Function (anonymous)],
+        mockRejectedValue: [Function (anonymous)],
+        mockImplementationOnce: [Function (anonymous)],
+        withImplementation: [Function: bound withImplementation],
+        mockImplementation: [Function (anonymous)],
+        mockReturnThis: [Function (anonymous)],
+        mockName: [Function (anonymous)],
+        getMockName: [Function (anonymous)]
+      } Hi!
+
+      at log (1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.js:24:17)
+          at Array.forEach (<anonymous>)
+
+    console.log
+      [Function: mockConstructor] {
+        _isMockFunction: true,
+        getMockImplementation: [Function (anonymous)],
+        mock: [Getter/Setter],
+        mockClear: [Function (anonymous)],
+        mockReset: [Function (anonymous)],
+        mockRestore: [Function (anonymous)],
+        mockReturnValueOnce: [Function (anonymous)],
+        mockResolvedValueOnce: [Function (anonymous)],
+        mockRejectedValueOnce: [Function (anonymous)],
+        mockReturnValue: [Function (anonymous)],
+        mockResolvedValue: [Function (anonymous)],
+        mockRejectedValue: [Function (anonymous)],
+        mockImplementationOnce: [Function (anonymous)],
+        withImplementation: [Function: bound withImplementation],
+        mockImplementation: [Function (anonymous)],
+        mockReturnThis: [Function (anonymous)],
+        mockName: [Function (anonymous)],
+        getMockName: [Function (anonymous)]
+      } Hi!
+
+      at log (1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.js:24:17)
+          at Array.forEach (<anonymous>)
+
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        36.218 s
+Ran all test suites matching /ex4-observable.test.js/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 15:00:10 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+ FAIL  1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.toHaveBeenCalledWith (1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js:30:23)
+
+ PASS  1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.test.js
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        2.44 s, estimated 31 s
+Ran all test suites matching /ex4-observable.test.js/i.
+2024-08-12 15:01:09 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex4-observable.test.js --colors
+Debugger attached.
+Debugger attached.
+ FAIL  1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js
+  ● createObservable › should notify all subscribers of any notification
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Hi!"
+
+    Number of calls: 0
+
+      28 |
+      29 |     // Assert that both listeners have been called with the Hi! message
+    > 30 |     expect(listener1).toHaveBeenCalledWith('Hi!');
+         |                       ^
+      31 |     expect(listener2).toHaveBeenCalledWith('Hi!');
+      32 |   });
+      33 | });
+
+      at Object.toHaveBeenCalledWith (1-JavaScript/Week3/assignment/ex4-observable/ex4-observable.test.js:30:23)
+
+ PASS  1-JavaScript/Week3/@assignment/ex4-observable/ex4-observable.test.js (14.59 s)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        16.319 s
+Ran all test suites matching /ex4-observable.test.js/i.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 15:05:05 info: All unit tests passed.
+2024-08-12 15:05:11 info: All steps were completed successfully
+2024-08-12 15:12:56 error: Something went wrong: User force closed the prompt with 0 null
+2024-08-12 15:15:16 error: Something went wrong: User force closed the prompt with 0 null
+2024-08-12 15:16:30 error: Something went wrong: [select prompt] No selectable choices. All choices are disabled.
+2024-08-12 15:16:41 error: Something went wrong: [select prompt] No selectable choices. All choices are disabled.
+2024-08-12 15:20:30 error: Something went wrong: User force closed the prompt with 0 null
+2024-08-12 15:26:43 info: All unit tests passed.
+2024-08-12 15:26:53 info: All steps were completed successfully
+2024-08-12 18:11:56 info: All unit tests passed.
+2024-08-12 18:12:06 info: All steps were completed successfully
+2024-08-12 18:12:39 error: *** Unit Test Error Report ***
+
+No tests found, exiting with code 1
+Run with `--passWithNoTests` to exit with code 0
+In H:\dev\hackyourfuture\Assignments
+  113 files checked.
+  testMatch: **/__tests__/**/*.[jt]s?(x), **/?(*.)+(spec|test).[tj]s?(x) - 27 matches
+  testPathIgnorePatterns: \\node_modules\\ - 113 matches
+  testRegex:  - 0 matches
+Pattern: H:\dev\hackyourfuture\Assignments\1-JavaScript\Week3\@assignment\ex1-doubleEvenNumbers.test.js - 0 matches
+
+
+Command failed: npx jest H:\dev\hackyourfuture\Assignments\1-JavaScript\Week3\@assignment\ex1-doubleEvenNumbers.test.js --colors
+Debugger attached.
+Debugger attached.
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...
+2024-08-12 18:13:53 info: All unit tests passed.
+2024-08-12 18:14:02 info: All steps were completed successfully
+2024-08-12 18:16:44 info: All unit tests passed.
+2024-08-12 18:16:50 info: All steps were completed successfully
+2024-08-12 18:17:25 info: All unit tests passed.
+2024-08-12 18:17:32 info: All steps were completed successfully
+2024-08-12 18:21:59 info: All unit tests passed.
+2024-08-12 18:22:05 info: All steps were completed successfully
+2024-08-12 18:22:58 info: All unit tests passed.
+2024-08-12 18:23:05 info: All steps were completed successfully
+2024-08-12 18:23:33 info: All unit tests passed.
+2024-08-12 18:23:40 info: All steps were completed successfully
+2024-08-13 09:56:56 error: Something went wrong: User force closed the prompt with 0 null
+2024-08-13 10:00:06 error: Something went wrong: User force closed the prompt with 0 null
+2024-08-13 10:12:23 info: All unit tests passed.
+2024-08-13 10:12:29 info: All steps were completed successfully
+2024-08-13 10:12:44 info: All unit tests passed.
+2024-08-13 10:12:51 info: All steps were completed successfully
+2024-08-13 10:57:43 info: All unit tests passed.
+2024-08-13 10:57:49 info: All steps were completed successfully

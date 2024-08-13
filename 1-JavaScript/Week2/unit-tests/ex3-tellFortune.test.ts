@@ -1,5 +1,3 @@
-/* eslint-disable hyf/camelcase */
-'use strict';
 import type { Node } from 'acorn';
 import { simple } from 'acorn-walk';
 import {

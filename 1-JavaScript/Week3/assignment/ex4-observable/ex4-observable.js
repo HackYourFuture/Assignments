@@ -13,17 +13,14 @@ Complete the `createObservable()` function as follows:
   subscriber.
 ------------------------------------------------------------------------------*/
 
-function createObservable() {
+export function createObservable() {
   const subscribers = [];
   return {
-    subscribe: function (subscriber) {
+    subscribe(subscriber) {
       // TODO complete this function
     },
-    notify: function (message) {
+    notify(message) {
       // TODO complete this function
     },
   };
 }
-
-// ! Do not change or remove the code below
-module.exports = createObservable;

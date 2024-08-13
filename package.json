@@ -5,11 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "testrunnertest": "glob -c \"node --test\" \"./src/__tests__/**/*.test.js\"",
+    "test:runner": "glob -c \"node --test\" \"./test-runner/__tests__/**/*.test.js\"",
     "test": "node ./.dist/test-runner.js",
-    "testalt": "node ./.dist/test-runner @assignment",
+    "test:alt": "node ./.dist/test-runner @assignment",
     "start": "node ./.dist/ex-runner",
-    "startalt": "node ./.dist/ex-runner @assignment",
+    "start:alt": "node ./.dist/ex-runner @assignment",
     "postinstall": "tsc"
   },
   "repository": {

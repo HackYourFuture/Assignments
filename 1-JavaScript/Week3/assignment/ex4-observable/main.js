@@ -1,4 +1,4 @@
-const createObservable = require('./ex4-observable');
+import { createObservable } from './ex4-observable.js';
 
 // A candidate subscriber function
 function consoleUpperCase(message) {

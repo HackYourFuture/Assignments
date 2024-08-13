@@ -7,8 +7,8 @@ import path from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'url';
 
-import logger from './logger.js';
 import ExerciseMenu from './ExerciseMenu.js';
+import logger from './logger.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
@@ -60,6 +60,17 @@ async function writeReport(
   return null;
 }
 
+function getFirstPathMatch(partialPath: string): string | null {
+  const entries = fg.sync(partialPath, { deep: 0 });
+  if (entries.length === 0) {
+    return null;
+  }
+  if (entries.length > 1) {
+    throw new Error(`Multiple files found: ${entries.join(', ')}`);
+  }
+  return path.normalize(entries[0]).replace(/\\/g, '/');
+}
+
 function getUnitTestPath(
   exercisePath: string,
   homeworkFolder: string
@@ -68,14 +79,11 @@ function getUnitTestPath(
   // single JavaScript file that contains both a function-under-test and
   // a unit test or suite of tests.
   if (/\.test$/.test(exercisePath)) {
-    const entries = fg.sync(exercisePath.replace(/\\/g, '/') + '.[jt]s', {
-      deep: 0,
-    });
-    if (entries.length === 0) {
+    const match = getFirstPathMatch(exercisePath + '.[jt]s');
+    if (!match) {
       throw new Error(`Unit test file not found for exercise: ${exercisePath}`);
     }
-
-    return path.normalize(entries[0]);
+    return match;
   }
 
   const exerciseName = path.basename(exercisePath);
@@ -93,9 +101,9 @@ function getUnitTestPath(
     // file must then be named `<exercise-name>.test.js`.
 
     const unitTestPath = path.join(exercisePath, exerciseName + '.test.[jt]s');
-    const entries = fg.sync(unitTestPath.replace(/\\/g, '/'), { deep: 0 });
-    if (entries.length > 0) {
-      return path.normalize(entries[0]);
+    const match = getFirstPathMatch(unitTestPath);
+    if (match) {
+      return match;
     }
   }
 
@@ -109,12 +117,7 @@ function getUnitTestPath(
     exercisePath.replace(regexp, `$1${path.sep}unit-tests${path.sep}`) +
     '.test.[jt]s';
 
-  const entries = fg.sync(unitTestPath.replace(/\\/g, '/'), { deep: 0 });
-  if (entries.length > 0) {
-    return path.normalize(entries[0]);
-  }
-
-  return null;
+  return getFirstPathMatch(unitTestPath);
 }
 
 async function execJest(
@@ -131,9 +134,7 @@ async function execJest(
     return '';
   }
 
-  const exerciseName = path.basename(unitTestPath);
-
-  let cmdLine = `npx jest ${exerciseName} --colors`;
+  let cmdLine = `npx jest ${unitTestPath} --colors`;
 
   try {
     const { stderr } = await execAsync(cmdLine, {
@@ -264,7 +265,6 @@ async function main(): Promise<void> {
     const message = `Something went wrong: ${err.message}`;
     logger.error(message);
     console.error(chalk.red(message));
-    throw err;
   }
 }
 

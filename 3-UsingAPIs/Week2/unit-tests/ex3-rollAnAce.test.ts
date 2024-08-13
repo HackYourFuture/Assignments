@@ -1,27 +1,40 @@
 /* eslint-disable hyf/camelcase */
-const walk = require('acorn-walk');
-const {
+import type { Node } from 'acorn';
+import { ancestor } from 'acorn-walk';
+import {
   beforeAllHelper,
-  testTodosRemoved,
-  testNoConsoleLog,
   findAncestor,
-} = require('../../../test-runner/unit-test-helpers');
+  testNoConsoleLog,
+  testTodosRemoved,
+} from '../../../.dist/unit-test-helpers.js';
+
+type State = {
+  async?: boolean;
+  await?: boolean;
+  tryCatch?: boolean;
+  recursive?: boolean;
+};
 
 describe('ex3-rollAnAce', () => {
-  const state = {};
-  let exported, rootNode, rollDieUntil, source;
+  const state: State = {};
+
+  let module: any;
+  let rootNode: Node | undefined;
+  let source: string;
+
+  let rollDieUntil: (...args: any) => any;
 
   beforeAll(async () => {
-    ({ rootNode, exported, source } = beforeAllHelper(__filename, {
+    ({ rootNode, module, source } = await beforeAllHelper(__filename, {
       parse: true,
     }));
 
-    rollDieUntil = exported;
+    rollDieUntil = module.rollDieUntil;
 
     rootNode &&
-      walk.ancestor(rootNode, {
+      ancestor(rootNode, {
         TryStatement({ handler }) {
-          if (handler.type === 'CatchClause') {
+          if (handler?.type === 'CatchClause') {
             state.tryCatch = true;
           }
         },
@@ -34,7 +47,7 @@ describe('ex3-rollAnAce', () => {
           state.await = true;
         },
         CallExpression({ callee }, ancestors) {
-          if (callee.name === 'rollDieUntil') {
+          if (callee.type === 'Identifier' && callee.name === 'rollDieUntil') {
             const functionDeclaration = findAncestor(
               'FunctionDeclaration',
               ancestors
@@ -67,7 +80,7 @@ describe('ex3-rollAnAce', () => {
   test('should resolve as soon as a die settles on an ACE', async () => {
     expect.assertions(3);
 
-    expect(exported).toBeDefined();
+    expect(module).toBeDefined();
 
     // This sequence is known to settle on an ACE in three throws.
     const randomSpy = jest
@@ -97,7 +110,7 @@ describe('ex3-rollAnAce', () => {
 
   test('should reject with an Error when a die rolls off the table', async () => {
     expect.assertions(3);
-    expect(exported).toBeDefined();
+    expect(module).toBeDefined();
 
     // This sequence is known to cause the die to roll off the table
     // in two throws.

@@ -10,10 +10,10 @@ export const __dirname = path.dirname(fileURLToPath(import.meta.url));
 type MenuData = { [module: string]: { [week: string]: string[] } };
 
 export default class ExerciseMenu {
-  #module: any;
+  #assignmentFolder: string;
+  #module = '';
   #week = '';
   #exercise = '';
-  #assignmentFolder: string;
   #menuData: MenuData = {};
 
   get module() {
@@ -28,27 +28,33 @@ export default class ExerciseMenu {
     return this.#exercise;
   }
 
-  constructor(assignmentFolder: string) {
+  get menuData() {
+    return this.#menuData;
+  }
+
+  constructor(assignmentFolder = 'assignment') {
     this.#assignmentFolder = assignmentFolder;
     this.compileMenuData();
     this.getMostRecentSelection();
   }
 
   private compileMenuData() {
-    // Look for file and folder names that match the expected structure
-    const fileSpec = path.join(__dirname, '../**/assignment/ex+([0-9])-*');
+    // Look for file and folder names that match the expected structure.
+    // Windows paths are converted to POSIX paths to ensure compatibility.
+    const posixFileSpec = path
+      .join(__dirname, `../**/${this.#assignmentFolder}/ex+([0-9])-*`)
+      .replace(/\\/g, '/');
 
-    const filePaths = fg.sync(
-      [fileSpec.replace(/\\/g, '/'), '!**/node_modules'],
-      {
-        onlyFiles: false,
-      }
-    );
+    const filePaths = fg.sync([posixFileSpec, '!**/node_modules'], {
+      onlyFiles: false,
+    });
 
     filePaths.forEach((filePath) => {
-      const matches = filePath.match(
-        /^.*\/(.+)\/(Week\d)\/assignment\/(.+?)(?:\.js)?$/i
+      const regexp = RegExp(
+        String.raw`^.*/(.+)/(Week\d)/${this.#assignmentFolder}/(.+?)(?:\.js)?$`,
+        'i'
       );
+      const matches = filePath.match(regexp);
       if (matches) {
         const [, module, week, exercise] = matches;
         if (!this.#menuData[module]) {
@@ -79,7 +85,7 @@ export default class ExerciseMenu {
     }
 
     let relPath = `../${this.#module}/${this.#week}/${this.#assignmentFolder}/${this.#exercise}`;
-    return path.join(__dirname, relPath);
+    return path.join(__dirname, relPath).replace(/\\/g, '/');
   }
 
   private async selectModule(): Promise<string> {
@@ -147,18 +153,5 @@ export default class ExerciseMenu {
     } catch (err: any) {
       console.error(err);
     }
-  }
-
-  static makePath(
-    module: string,
-    week: string,
-    folder: string,
-    exercise?: string
-  ) {
-    let relPath = `../${module}/${week}/${folder}`;
-    if (exercise) {
-      relPath += `/${exercise}`;
-    }
-    return path.join(__dirname, relPath);
   }
 }
