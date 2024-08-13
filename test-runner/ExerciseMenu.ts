@@ -5,9 +5,9 @@ import assert from 'node:assert/strict';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-export const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-type MenuData = { [module: string]: { [week: string]: string[] } };
+export type MenuData = { [module: string]: { [week: string]: string[] } };
 
 export default class ExerciseMenu {
   #assignmentFolder: string;
