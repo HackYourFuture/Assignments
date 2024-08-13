@@ -42,7 +42,7 @@ export default class ExerciseMenu {
     // Look for file and folder names that match the expected structure.
     // Windows paths are converted to POSIX paths to ensure compatibility.
     const posixFileSpec = path
-      .join(__dirname, `../**/${this.#assignmentFolder}/ex+([0-9])-*`)
+      .join(__dirname, `../**/${this.#assignmentFolder}/ex([0-9])-*`)
       .replace(/\\/g, '/');
 
     const filePaths = fg.sync([posixFileSpec, '!**/node_modules'], {

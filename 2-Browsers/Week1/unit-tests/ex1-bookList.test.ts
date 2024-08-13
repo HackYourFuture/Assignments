@@ -1,47 +1,69 @@
-/* eslint-disable hyf/camelcase */
-import walk from 'acorn-walk';
-import { prepare, validateHTML } from '../../../test-runner/jsdom-helpers';
+import { simple } from 'acorn-walk';
+
 import {
   beforeAllHelper,
   testTodosRemoved,
-} from '../../../test-runner/unit-test-helpers';
+} from '../../../.dist/unit-test-helpers.js';
+import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+import { DOMWindow } from 'jsdom';
+
+type State = {
+  outerHTML: string;
+  titlesAndAuthors: string[];
+};
 
 describe('Generated HTML', () => {
-  const state = {};
-  let document, source, rootNode;
+  const state: State = {
+    outerHTML: '',
+    titlesAndAuthors: [],
+  };
+
+  let exInfo: ExerciseInfo;
+  let document: DOMWindow['document'];
 
   beforeAll(async () => {
     ({ document } = await prepare());
     state.outerHTML = document.documentElement.outerHTML;
 
-    ({ rootNode, source } = beforeAllHelper(__filename, {
+    exInfo = await beforeAllHelper(__filename, {
       noImport: true,
       parse: true,
-    }));
+    });
 
-    rootNode &&
-      walk.simple(rootNode, {
+    exInfo.rootNode &&
+      simple(exInfo.rootNode, {
         VariableDeclarator({ id, init }) {
-          if (id.name === 'myBooks' && init.type === 'ArrayExpression') {
+          if (
+            id.type === 'Identifier' &&
+            id.name === 'myBooks' &&
+            init?.type === 'ArrayExpression'
+          ) {
             state.titlesAndAuthors = init.elements.reduce((acc, element) => {
-              if (element.type === 'ObjectExpression') {
+              if (element?.type === 'ObjectExpression') {
                 element.properties.forEach((prop) => {
-                  if (['title', 'author'].includes(prop.key.name)) {
+                  if (
+                    prop.type === 'Property' &&
+                    prop.key.type === 'Identifier' &&
+                    prop.value.type === 'Literal' &&
+                    typeof prop.value.value === 'string' &&
+                    ['title', 'author'].includes(prop.key.name)
+                  ) {
                     acc.push(prop.value.value);
                   }
                 });
               }
               return acc;
-            }, []);
+            }, [] as string[]);
           }
         },
       });
   });
 
   test('HTML should be syntactically valid', () =>
-    validateHTML(state.outerHTML));
+    validateHTML(state.outerHTML!));
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
   test('should contain a <ul> that is a child of <div id="bookList">', () => {
     const ul = document.querySelector('div[id=bookList] > ul');

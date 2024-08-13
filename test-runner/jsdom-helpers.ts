@@ -22,7 +22,7 @@ export async function prepare() {
 
   const exercisePath = testPath
     .replace('unit-tests', assignmentFolder)
-    .replace(/\.test\.js$/, '');
+    .replace(/\.test\.[jt]s$/, '');
 
   const virtualConsole = new jsdom.VirtualConsole();
 
@@ -35,13 +35,15 @@ export async function prepare() {
     }
   );
 
-  window.fetch = require('node-fetch');
   await sleep(1000);
   return window;
 }
 
 export async function validateHTML(outerHTML: string) {
-  const json = await fs.promises.readFile('../.htmlvalidate.json', 'utf8');
+  const json = await fs.promises.readFile(
+    path.join(__dirname, '../.htmlvalidate.json'),
+    'utf8'
+  );
   const htmlValidate = new HtmlValidate(JSON.parse(json));
 
   const htmlText = `<!DOCTYPE html>\n${outerHTML}`;

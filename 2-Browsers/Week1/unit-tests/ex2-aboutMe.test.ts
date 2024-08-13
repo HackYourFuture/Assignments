@@ -1,26 +1,37 @@
-const {
+import { DOMWindow } from 'jsdom';
+import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
+import {
   beforeAllHelper,
   testTodosRemoved,
-} = require('../../../test-runner/unit-test-helpers');
-const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
+} from '../../../.dist/unit-test-helpers.js';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+
+type State = {
+  outerHTML?: string;
+};
 
 describe('Generated HTML', () => {
-  const state = {};
-  let window, document, source;
+  const state: State = {};
+
+  let exInfo: ExerciseInfo;
+  let window: DOMWindow;
+  let document: DOMWindow['document'];
 
   beforeAll(async () => {
     window = await prepare();
     document = window.document;
+
     state.outerHTML = document.documentElement.outerHTML;
 
-    ({ source } = beforeAllHelper(__filename, {
+    exInfo = await beforeAllHelper(__filename, {
       noImport: true,
-    }));
+      parse: true,
+    });
   });
 
   test('should be syntactically valid', () => validateHTML(state.outerHTML));
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
   test('each <li> should have the CSS class `list-item`', () => {
     const nodeList = document.querySelectorAll('li');
@@ -28,11 +39,11 @@ describe('Generated HTML', () => {
     expect(classNames.every((name) => name === 'list-item')).toBeTruthy();
   });
 
-  test('each <li> should rendered red', () => {
+  test('each <li> should rendered red (= rgb(255, 0, 0))', () => {
     const nodeList = document.querySelectorAll('li');
     const colors = [...nodeList].map(
       (node) => window.getComputedStyle(node).color
     );
-    expect(colors.every((color) => color === 'red')).toBeTruthy();
+    expect(colors.every((color) => color === 'rgb(255, 0, 0)')).toBeTruthy();
   });
 });
