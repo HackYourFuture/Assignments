@@ -3,8 +3,10 @@ import fs from 'node:fs';
 import { describe, it } from 'node:test';
 import ExerciseMenu from '../ExerciseMenu.js';
 
+// Note: these test use the Node test runner, which is not the same as Jest.
+
 describe('ExerciseMenu', () => {
-  it('should compile data that matches the expected structure', async () => {
+  it('should compile data that matches the existing folder structure', async () => {
     const menu = new ExerciseMenu('assignment');
 
     console.log('menu', menu);

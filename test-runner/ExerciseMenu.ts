@@ -137,7 +137,7 @@ export default class ExerciseMenu {
       this.#week = week;
       this.#exercise = exercise;
     } catch (err: any) {
-      console.error(err);
+      // Ignore errors
     }
   }
 

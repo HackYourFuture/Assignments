@@ -5,6 +5,7 @@ import { exec } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { promisify } from 'node:util';
+import stripAnsi from 'strip-ansi';
 import { fileURLToPath } from 'url';
 
 import ExerciseMenu from './ExerciseMenu.js';
@@ -156,7 +157,6 @@ async function execJest(
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(output);
 
-    const { default: stripAnsi } = await import('strip-ansi');
     message = stripAnsi(`${title}\n\n${output}`);
 
     logger.error(message);
