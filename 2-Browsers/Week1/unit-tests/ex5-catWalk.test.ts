@@ -1,33 +1,49 @@
 /* eslint-disable hyf/camelcase */
-const walk = require('acorn-walk');
-const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
-const {
+import { ancestor } from 'acorn-walk';
+
+import { DOMWindow } from 'jsdom';
+import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
+import {
   beforeAllHelper,
   onloadValidator,
   testTodosRemoved,
-} = require('../../../test-runner/unit-test-helpers');
+} from '../../../.dist/unit-test-helpers.js';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+
+type State = {
+  outerHTML?: string;
+  timer?: boolean;
+  onload?: boolean;
+  callError?: boolean;
+};
 
 describe('catWalk', () => {
-  let window, rootNode, source;
-  const state = {};
+  let window: DOMWindow;
+
+  let exInfo: ExerciseInfo;
+  const state: State = {};
 
   beforeAll(async () => {
     window = await prepare();
     const { document } = window;
     state.outerHTML = document.documentElement.outerHTML;
-    ({ rootNode, source } = beforeAllHelper(__filename, {
+    exInfo = await beforeAllHelper(__filename, {
       noImport: true,
       parse: true,
-    }));
+    });
 
-    rootNode &&
-      walk.ancestor(rootNode, {
+    exInfo.rootNode &&
+      ancestor(exInfo.rootNode, {
         MemberExpression: onloadValidator(state),
         CallExpression({ callee }) {
           if (
-            ['setInterval', 'setTimeout'].includes(callee.name) ||
-            (callee.object?.name === 'window' &&
-              ['setInterval', 'setTimeout'].includes(callee.property?.name))
+            (callee.type === 'Identifier' &&
+              ['setInterval', 'setTimeout'].includes(callee.name)) ||
+            (callee.type === 'MemberExpression' &&
+              callee.object.type === 'Identifier' &&
+              callee.object.name === 'window' &&
+              callee.property.type === 'Identifier' &&
+              ['setInterval', 'setTimeout'].includes(callee.property.name))
           ) {
             state.timer = true;
           }
@@ -42,7 +58,7 @@ describe('catWalk', () => {
   test('HTML should be syntactically valid', () =>
     validateHTML(state.outerHTML));
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
   test('should use `setInterval()` and/or `setTimeout()`', () => {
     expect(state.timer).toBeDefined();
