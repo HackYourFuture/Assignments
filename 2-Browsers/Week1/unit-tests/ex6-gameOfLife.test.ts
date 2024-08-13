@@ -10,7 +10,7 @@ type GridCell = {
   lifeTime: number;
 };
 
-type GridWord = GridCell[][];
+type GridRow = GridCell[];
 
 type GameOfLife = {
   grid: GridRow[];
