@@ -1,29 +1,39 @@
-/* eslint-disable hyf/camelcase */
-const walk = require('acorn-walk');
-const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
-const {
+import { simple } from 'acorn-walk';
+import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
+import {
   beforeAllHelper,
   testTodosRemoved,
-} = require('../../../test-runner/unit-test-helpers');
+} from '../../../.dist/unit-test-helpers';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+
+type State = {
+  outerHTML?: string;
+  fetch?: boolean;
+  tryCatch?: boolean;
+  async?: boolean;
+  await?: boolean;
+};
 
 describe('programmerFun', () => {
-  const state = {};
-  let rootNode, source;
+  const state: State = {};
+
+  let exInfo: ExerciseInfo;
 
   beforeAll(async () => {
     const { document } = await prepare();
     state.outerHTML = document.documentElement.outerHTML;
-    ({ rootNode, source } = beforeAllHelper(__filename, { noImport: true }));
 
-    rootNode &&
-      walk.simple(rootNode, {
+    exInfo = await beforeAllHelper(__filename, { noImport: true });
+
+    exInfo.rootNode &&
+      simple(exInfo.rootNode, {
         CallExpression({ callee }) {
-          if (callee.name === 'fetch') {
+          if (callee.type === 'Identifier' && callee.name === 'fetch') {
             state.fetch = true;
           }
         },
         TryStatement({ handler }) {
-          if (handler.type === 'CatchClause') {
+          if (handler?.type === 'CatchClause') {
             state.tryCatch = true;
           }
         },
@@ -41,7 +51,7 @@ describe('programmerFun', () => {
   test('HTML should be syntactically valid', () =>
     validateHTML(state.outerHTML));
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
   test('should use `fetch()`', () => {
     expect(state.fetch).toBeDefined();

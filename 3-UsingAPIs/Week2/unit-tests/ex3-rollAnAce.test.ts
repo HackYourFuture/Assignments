@@ -1,5 +1,4 @@
 /* eslint-disable hyf/camelcase */
-import type { Node } from 'acorn';
 import { ancestor } from 'acorn-walk';
 import {
   beforeAllHelper,
@@ -7,6 +6,7 @@ import {
   testNoConsoleLog,
   testTodosRemoved,
 } from '../../../.dist/unit-test-helpers.js';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   async?: boolean;
@@ -18,19 +18,17 @@ type State = {
 describe('ex3-rollAnAce', () => {
   const state: State = {};
 
-  let module: any;
-  let rootNode: Node | undefined;
-  let source: string;
+  let exInfo: ExerciseInfo;
 
-  let rollDieUntil: (...args: any) => any;
+  let rollDieUntil: (face: string) => Promise<string>;
 
   beforeAll(async () => {
-    ({ rootNode, module, source } = await beforeAllHelper(__filename));
+    exInfo = await beforeAllHelper(__filename);
 
-    rollDieUntil = module.rollDieUntil;
+    rollDieUntil = exInfo.module.rollDieUntil;
 
-    rootNode &&
-      ancestor(rootNode, {
+    exInfo.rootNode &&
+      ancestor(exInfo.rootNode, {
         TryStatement({ handler }) {
           if (handler?.type === 'CatchClause') {
             state.tryCatch = true;
@@ -58,9 +56,9 @@ describe('ex3-rollAnAce', () => {
       });
   });
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('rollDieUntil', () => rootNode);
+  testNoConsoleLog('rollDieUntil', () => exInfo.rootNode);
 
   test('should not include a recursive call', () => {
     expect(state.recursive).toBeUndefined();
