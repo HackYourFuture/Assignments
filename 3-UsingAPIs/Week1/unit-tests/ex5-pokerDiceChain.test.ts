@@ -1,28 +1,31 @@
-const {
+import {
   beforeAllHelper,
-  testTodosRemoved,
   testNoConsoleLog,
-} = require('../../../test-runner/unit-test-helpers');
+  testTodosRemoved,
+} from '../../../.dist/unit-test-helpers.js';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
 describe('ex5-pokerDiceChain', () => {
-  let exported, source, rootNode, rollDice;
+  let exInfo: ExerciseInfo;
 
-  beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename));
-    rollDice = exported;
+  let rollDice: () => Promise<number[]>;
+
+  beforeAll(async () => {
+    exInfo = await beforeAllHelper(__filename);
+    rollDice = exInfo.module?.rollDice;
   });
 
   test('should exist and be executable', () => {
-    expect(exported).toBeDefined();
+    expect(rollDice).toBeDefined();
   });
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('rollDice', () => rootNode);
+  testNoConsoleLog('rollDice', () => exInfo.rootNode);
 
   test('should resolve when all dice settle successfully', async () => {
     expect.assertions(4);
-    expect(exported).toBeDefined();
+    expect(rollDice).toBeDefined();
 
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
 
@@ -39,7 +42,7 @@ describe('ex5-pokerDiceChain', () => {
 
   test('should reject with an Error when a die rolls off the table', async () => {
     expect.assertions(3);
-    expect(exported).toBeDefined();
+    expect(rollDice).toBeDefined();
 
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
 

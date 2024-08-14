@@ -186,3 +186,10 @@ export function testNoConsoleLog(
     expect(callsConsoleLog).toBe(false);
   });
 }
+
+export function createTimeoutSpy() {
+  return jest.spyOn(global, 'setTimeout').mockImplementation((cb) => {
+    cb();
+    return 1 as unknown as NodeJS.Timeout;
+  });
+}

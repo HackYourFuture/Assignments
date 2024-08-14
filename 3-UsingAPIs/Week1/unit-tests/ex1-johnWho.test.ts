@@ -1,9 +1,10 @@
 import { simple } from 'acorn-walk';
 import {
   beforeAllHelper,
+  createTimeoutSpy,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers';
+} from '../../../.dist/unit-test-helpers.js';
 import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
@@ -82,12 +83,7 @@ describe('getAnonName', () => {
   test('should resolve when called with a string argument', async () => {
     expect.assertions(3);
     expect(getAnonName).toBeDefined();
-    const timeoutSpy = jest
-      .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => {
-        cb();
-        return 1 as unknown as NodeJS.Timeout;
-      });
+    const timeoutSpy = createTimeoutSpy();
     const promise = getAnonName('John');
     timeoutSpy.mockRestore();
     expect(promise).toBeInstanceOf(Promise);
@@ -97,12 +93,7 @@ describe('getAnonName', () => {
   test('should reject with an Error object when called without an argument', async () => {
     expect.assertions(3);
     expect(getAnonName).toBeDefined();
-    const timeoutSpy = jest
-      .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => {
-        cb();
-        return 1 as unknown as NodeJS.Timeout;
-      });
+    const timeoutSpy = createTimeoutSpy();
     // @ts-ignore
     const promise = getAnonName();
     timeoutSpy.mockRestore();

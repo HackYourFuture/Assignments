@@ -3,7 +3,7 @@ import {
   beforeAllHelper,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers';
+} from '../../../.dist/unit-test-helpers.js';
 import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
 type State = {

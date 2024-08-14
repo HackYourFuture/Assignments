@@ -1,27 +1,42 @@
-/* eslint-disable hyf/camelcase */
-const walk = require('acorn-walk');
-const {
+import { simple } from 'acorn-walk';
+import {
   beforeAllHelper,
+  createTimeoutSpy,
   testTodosRemoved,
-} = require('../../../test-runner/unit-test-helpers');
+} from '../../../.dist/unit-test-helpers.js';
+import {
+  ExerciseInfo,
+} from '../../../test-runner/unit-test-helpers.js';
+
+type State = {
+  newPromise?: boolean;
+  resolve?: number;
+  reject?: number;
+};
 
 describe('rollDie', () => {
-  const state = {};
-  let exported, rootNode, source, rollDie;
+  const state: State = {};
 
-  beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename));
-    rollDie = exported;
+  let rollDie: () => Promise<number>;
 
-    rootNode &&
-      walk.simple(rootNode, {
+  let exInfo: ExerciseInfo;
+
+  beforeAll(async () => {
+    exInfo = await beforeAllHelper(__filename);
+    rollDie = exInfo.module?.rollDie;
+
+    exInfo.rootNode &&
+      simple(exInfo.rootNode, {
         NewExpression({ callee }) {
           if (callee.type === 'Identifier' && callee.name === 'Promise') {
             state.newPromise = true;
           }
         },
         CallExpression({ callee, arguments: args }) {
-          if (['resolve', 'reject'].includes(callee.name)) {
+          if (
+            callee.type === 'Identifier' &&
+            ['resolve', 'reject'].includes(callee.name)
+          ) {
             state[callee.name] = args.length;
           }
         },
@@ -29,10 +44,10 @@ describe('rollDie', () => {
   });
 
   test('should exist and be executable', () => {
-    expect(exported).toBeDefined();
+    expect(rollDie).toBeDefined();
   });
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
   test('should call `new Promise()`', () => {
     expect(state.newPromise).toBeDefined();
@@ -48,13 +63,11 @@ describe('rollDie', () => {
 
   test('should resolve when the die settles successfully', () => {
     expect.assertions(3);
-    expect(exported).toBeDefined();
+    expect(rollDie).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
-    const setTimeoutSpy = jest
-      .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => cb());
+    const setTimeoutSpy = createTimeoutSpy();
 
     const promise = rollDie();
     expect(promise).toBeInstanceOf(Promise);
@@ -71,13 +84,11 @@ describe('rollDie', () => {
 
   test('should reject with an Error when the die rolls off the table', async () => {
     expect.assertions(3);
-    expect(exported).toBeDefined();
+    expect(rollDie).toBeDefined();
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
-    const setTimeoutSpy = jest
-      .spyOn(global, 'setTimeout')
-      .mockImplementation((cb) => cb());
+    const setTimeoutSpy = createTimeoutSpy();
 
     try {
       const promise = rollDie();
