@@ -1,5 +1,3 @@
-'use strict';
-
 // Based on an example from: Philipp Beau (@ze_german)
 
 const eurosFormatter = new Intl.NumberFormat('nl-NL', {

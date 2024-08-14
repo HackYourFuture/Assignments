@@ -1,4 +1,3 @@
-'use strict';
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignments/tree/main/3-UsingAPIs/Week1#exercise-3-roll-a-die
 
@@ -12,7 +11,7 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/3-U
 ------------------------------------------------------------------------------*/
 
 // TODO Remove callback and return a promise
-function rollDie(callback) {
+export function rollDie(callback) {
   // Compute a random number of rolls (3-10) that the die MUST complete
   const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
   console.log(`Die scheduled for ${randomRollsToDo} rolls...`);
@@ -59,4 +58,3 @@ function main() {
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = rollDie;

@@ -26,7 +26,7 @@ exercise file.
 // Do not change or remove it.
 const rollDie = require('../../helpers/pokerDiceRoller');
 
-function rollDice() {
+export function rollDice() {
   // TODO Refactor this function
   const dice = [1, 2, 3, 4, 5];
   return rollDie(1);
@@ -42,4 +42,3 @@ function main() {
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = rollDice;
