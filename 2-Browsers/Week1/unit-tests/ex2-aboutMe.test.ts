@@ -23,10 +23,7 @@ describe('Generated HTML', () => {
 
     state.outerHTML = document.documentElement.outerHTML;
 
-    exInfo = await beforeAllHelper(__filename, {
-      noImport: true,
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename, { noImport: true });
   });
 
   test('should be syntactically valid', () => validateHTML(state.outerHTML));

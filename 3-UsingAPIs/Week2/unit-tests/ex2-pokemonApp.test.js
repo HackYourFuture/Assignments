@@ -13,10 +13,7 @@ describe('pokemonApp', () => {
   beforeAll(async () => {
     const { document } = await prepare();
     state.outerHTML = document.documentElement.outerHTML;
-    ({ rootNode, source } = beforeAllHelper(__filename, {
-      noImport: true,
-      parse: true,
-    }));
+    ({ rootNode, source } = beforeAllHelper(__filename, { noImport: true }));
 
     rootNode &&
       walk.simple(rootNode, {

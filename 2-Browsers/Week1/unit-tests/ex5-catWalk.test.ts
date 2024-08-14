@@ -27,10 +27,7 @@ describe('catWalk', () => {
     window = await prepare();
     const { document } = window;
     state.outerHTML = document.documentElement.outerHTML;
-    exInfo = await beforeAllHelper(__filename, {
-      noImport: true,
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename, { noImport: true });
 
     exInfo.rootNode &&
       ancestor(exInfo.rootNode, {

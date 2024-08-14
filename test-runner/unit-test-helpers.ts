@@ -4,12 +4,12 @@ import fs from 'fs';
 import path from 'path';
 
 type HelperOptions = {
-  parse?: boolean;
+  noParse?: boolean;
   noImport?: boolean;
 };
 
 const defaultOptions: HelperOptions = {
-  parse: false,
+  noParse: false,
   noImport: false,
 };
 
@@ -58,7 +58,7 @@ export async function beforeAllHelper(
 
   result.source = fs.readFileSync(exercisePath, 'utf8');
 
-  if (helperOptions.parse) {
+  if (!helperOptions.noParse) {
     try {
       result.rootNode = parse(result.source, {
         ecmaVersion: 2022,

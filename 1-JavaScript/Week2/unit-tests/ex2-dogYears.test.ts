@@ -11,9 +11,7 @@ describe('calculateDogAge', () => {
   let calculateDogAge: (age: number) => string;
 
   beforeAll(async () => {
-    exInfo = await beforeAllHelper(__filename, {
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename);
     calculateDogAge = exInfo.module.calculateDogAge;
   });
 

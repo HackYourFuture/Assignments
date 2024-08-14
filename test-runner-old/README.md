@@ -132,9 +132,7 @@ describe('doubleEvenNumbers', () => {
   const state = {};
 
   beforeAll(() => {
-    const { exports, rootNode } = beforeAllHelper(__filename, {
-      parse: true,
-    });
+    const { exports, rootNode } = beforeAllHelper(__filename);
     doubleEvenNumbers = exports;
 
     // ...

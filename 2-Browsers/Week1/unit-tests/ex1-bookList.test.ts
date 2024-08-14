@@ -1,12 +1,12 @@
 import { simple } from 'acorn-walk';
 
+import { DOMWindow } from 'jsdom';
+import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
 import {
   beforeAllHelper,
   testTodosRemoved,
 } from '../../../.dist/unit-test-helpers.js';
-import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
 import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
-import { DOMWindow } from 'jsdom';
 
 type State = {
   outerHTML: string;
@@ -26,10 +26,7 @@ describe('Generated HTML', () => {
     ({ document } = await prepare());
     state.outerHTML = document.documentElement.outerHTML;
 
-    exInfo = await beforeAllHelper(__filename, {
-      noImport: true,
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename, { noImport: true });
 
     exInfo.rootNode &&
       simple(exInfo.rootNode, {

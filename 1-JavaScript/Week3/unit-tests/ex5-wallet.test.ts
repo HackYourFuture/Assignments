@@ -8,10 +8,7 @@ describe('wallet', () => {
   let exInfo: ExerciseInfo;
 
   beforeAll(async () => {
-    exInfo = await beforeAllHelper(__filename, {
-      parse: true,
-      noImport: true,
-    });
+    exInfo = await beforeAllHelper(__filename, { noImport: true });
 
     exInfo.rootNode &&
       simple(exInfo.rootNode, {

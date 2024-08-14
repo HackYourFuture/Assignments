@@ -11,9 +11,7 @@ describe('ex4-diceRace', () => {
   let exported, rootNode, source, rollDice;
 
   beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
-      parse: true,
-    }));
+    ({ exported, rootNode, source } = beforeAllHelper(__filename));
     rollDice = exported;
 
     rootNode &&

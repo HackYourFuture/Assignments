@@ -10,9 +10,7 @@ describe('rollDie', () => {
   let exported, rootNode, source, rollDie;
 
   beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
-      parse: true,
-    }));
+    ({ exported, rootNode, source } = beforeAllHelper(__filename));
     rollDie = exported;
 
     rootNode &&

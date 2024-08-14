@@ -25,9 +25,7 @@ describe('ex3-rollAnAce', () => {
   let rollDieUntil: (...args: any) => any;
 
   beforeAll(async () => {
-    ({ rootNode, module, source } = await beforeAllHelper(__filename, {
-      parse: true,
-    }));
+    ({ rootNode, module, source } = await beforeAllHelper(__filename));
 
     rollDieUntil = module.rollDieUntil;
 

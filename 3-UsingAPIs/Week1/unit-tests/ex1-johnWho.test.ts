@@ -1,5 +1,3 @@
-/* eslint-disable hyf/camelcase */
-'use strict';
 import { simple } from 'acorn-walk';
 import {
   beforeAllHelper,
@@ -23,9 +21,7 @@ describe('getAnonName', () => {
   let exInfo: ExerciseInfo;
 
   beforeAll(async () => {
-    exInfo = await beforeAllHelper(__filename, {
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename);
 
     getAnonName = exInfo.module?.getAnonName;
 

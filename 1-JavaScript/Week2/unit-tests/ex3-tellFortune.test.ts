@@ -28,9 +28,7 @@ describe('tellFortune', () => {
   };
 
   beforeAll(async () => {
-    exInfo = await beforeAllHelper(__filename, {
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename);
 
     tellFortune = exInfo.module.tellFortune;
 

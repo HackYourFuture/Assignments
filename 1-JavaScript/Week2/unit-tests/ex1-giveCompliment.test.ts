@@ -15,9 +15,7 @@ describe('giveCompliment', () => {
   let giveCompliment: (name: string) => string;
 
   beforeAll(async () => {
-    exInfo = await beforeAllHelper(__filename, {
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename);
 
     // Get exported function
     giveCompliment = exInfo.module?.giveCompliment;

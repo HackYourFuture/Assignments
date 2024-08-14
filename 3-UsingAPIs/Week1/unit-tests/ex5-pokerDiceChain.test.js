@@ -8,9 +8,7 @@ describe('ex5-pokerDiceChain', () => {
   let exported, source, rootNode, rollDice;
 
   beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
-      parse: true,
-    }));
+    ({ exported, rootNode, source } = beforeAllHelper(__filename));
     rollDice = exported;
   });
 

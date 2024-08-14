@@ -1,32 +1,41 @@
-/* eslint-disable hyf/camelcase */
-'use strict';
-const walk = require('acorn-walk');
-const {
+import { simple } from 'acorn-walk';
+import {
   beforeAllHelper,
-  testTodosRemoved,
   testNoConsoleLog,
-} = require('../../../test-runner/unit-test-helpers');
+  testTodosRemoved,
+} from '../../../.dist/unit-test-helpers';
+import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+
+type State = {
+  newPromise?: boolean;
+  resolve?: number;
+  reject?: number;
+};
 
 describe('checkDoubleDigits', () => {
-  const state = {};
-  let exported, rootNode, source, checkDoubleDigits;
+  const state: State = {};
 
-  beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
-      parse: true,
-    }));
+  let exInfo: ExerciseInfo;
 
-    checkDoubleDigits = exported;
+  let checkDoubleDigits: (num: number) => Promise<string>;
 
-    rootNode &&
-      walk.simple(rootNode, {
+  beforeAll(async () => {
+    exInfo = await beforeAllHelper(__filename);
+
+    checkDoubleDigits = exInfo.module?.checkDoubleDigits;
+
+    exInfo.rootNode &&
+      simple(exInfo.rootNode, {
         NewExpression({ callee }) {
           if (callee.type === 'Identifier' && callee.name === 'Promise') {
             state.newPromise = true;
           }
         },
         CallExpression({ callee, arguments: args }) {
-          if (['resolve', 'reject'].includes(callee.name)) {
+          if (
+            callee.type === 'Identifier' &&
+            ['resolve', 'reject'].includes(callee.name)
+          ) {
             state[callee.name] = args.length;
           }
         },
@@ -34,12 +43,12 @@ describe('checkDoubleDigits', () => {
   });
 
   test('should exist and be executable', () => {
-    expect(exported).toBeDefined();
+    expect(checkDoubleDigits).toBeDefined();
   });
 
-  testTodosRemoved(() => source);
+  testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('checkDoubleDigits', () => rootNode);
+  testNoConsoleLog('checkDoubleDigits', () => exInfo.rootNode);
 
   test('should call new Promise()', () => {
     expect(state.newPromise).toBeDefined();
@@ -54,7 +63,7 @@ describe('checkDoubleDigits', () => {
   });
 
   test('should be a function that takes a single argument', () => {
-    expect(exported).toBeDefined();
+    expect(exInfo).toBeDefined();
     expect(
       typeof checkDoubleDigits === 'function' && checkDoubleDigits.length === 1
     ).toBe(true);
@@ -69,7 +78,7 @@ describe('checkDoubleDigits', () => {
 
   test('(10) should return a promise that resolves to "This is a double digit number!"', () => {
     expect.assertions(3);
-    expect(exported).toBeDefined();
+    expect(exInfo).toBeDefined();
     const promise = checkDoubleDigits(10);
     expect(promise).toBeInstanceOf(Promise);
     return expect(promise).resolves.toEqual(

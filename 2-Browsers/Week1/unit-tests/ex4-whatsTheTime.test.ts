@@ -29,10 +29,7 @@ describe('whatsTheTime', () => {
     setIntervalSpy = jest.spyOn(window, 'setInterval');
 
     state.outerHTML = window.document.documentElement.outerHTML;
-    exInfo = await beforeAllHelper(__filename, {
-      noImport: true,
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename, { noImport: true });
 
     exInfo.rootNode &&
       ancestor(exInfo.rootNode, {

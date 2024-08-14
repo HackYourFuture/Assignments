@@ -4,10 +4,7 @@ import {
   beforeAllHelper,
   testTodosRemoved,
 } from '../../../.dist/unit-test-helpers.js';
-import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
 import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
-import { DOMWindow } from 'jsdom';
-import { parse } from 'acorn';
 
 type State = {
   src?: boolean;
@@ -20,10 +17,7 @@ describe('hijackLogo', () => {
   let exInfo: ExerciseInfo;
 
   beforeAll(async () => {
-    exInfo = await beforeAllHelper(__filename, {
-      noImport: true,
-      parse: true,
-    });
+    exInfo = await beforeAllHelper(__filename, { noImport: true });
 
     exInfo.rootNode &&
       simple(exInfo.rootNode, {
