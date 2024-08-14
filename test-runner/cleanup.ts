@@ -15,7 +15,10 @@ async function initializeReportFolders() {
     const weeks = Object.keys(menuData[module]);
 
     for (const week of weeks) {
-      const dirPath = path.join(__dirname, `../${module}/${week}/test-reports`);
+      const dirPath = path.join(
+        __dirname,
+        `../../${module}/${week}/test-reports`
+      );
       if (!fs.existsSync(dirPath)) {
         fs.mkdirSync(dirPath);
         console.log(`Created 'test-reports' folder for ${module}/${week}`);
@@ -38,7 +41,7 @@ try {
   await initializeReportFolders();
 
   console.log('Cleaning up test-runner.log file...');
-  rimrafSync(path.join(__dirname, '../test-runner.log'));
+  rimrafSync(path.join(__dirname, '../../test-runner.log'));
 } catch (err: any) {
   console.error(chalk.red(`Something went wrong: ${err.message}`));
   throw err;

@@ -1,12 +1,11 @@
-import type { Node } from 'acorn';
 import { simple } from 'acorn-walk';
 
 import {
   beforeAllHelper,
+  ExerciseInfo,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 describe('tellFortune', () => {
   let exInfo: ExerciseInfo;
@@ -20,6 +19,7 @@ describe('tellFortune', () => {
     partnerNames?: string[];
     locations?: string[];
     jobTitles?: string[];
+    [key: string]: any;
   };
 
   const state: State = {
@@ -67,7 +67,7 @@ describe('tellFortune', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('tellFortune', () => exInfo.rootNode);
+  testNoConsoleLog('tellFortune', () => exInfo.rootNode!);
 
   test('should take four parameters', () => {
     expect(tellFortune).toHaveLength(4);

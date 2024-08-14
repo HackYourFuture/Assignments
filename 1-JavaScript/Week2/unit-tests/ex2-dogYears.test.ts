@@ -1,9 +1,9 @@
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 import {
   beforeAllHelper,
+  ExerciseInfo,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 describe('calculateDogAge', () => {
   let exInfo: ExerciseInfo;
@@ -21,7 +21,7 @@ describe('calculateDogAge', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('calculateDogAge', () => exInfo.rootNode);
+  testNoConsoleLog('calculateDogAge', () => exInfo.rootNode!);
 
   test('should take a single parameter', () => {
     expect(calculateDogAge).toBeDefined();

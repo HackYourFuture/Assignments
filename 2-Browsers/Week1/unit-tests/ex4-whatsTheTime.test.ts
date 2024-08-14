@@ -1,13 +1,14 @@
 import { ancestor } from 'acorn-walk';
 
 import { DOMWindow } from 'jsdom';
-import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
+import { prepare, validateHTML } from '../../../test-runner/jsdom-helpers.js';
 import {
   beforeAllHelper,
+  ExerciseInfo,
+  OnLoadState,
   onloadValidator,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   outerHTML?: string;
@@ -33,7 +34,7 @@ describe('whatsTheTime', () => {
 
     exInfo.rootNode &&
       ancestor(exInfo.rootNode, {
-        MemberExpression: onloadValidator(state),
+        MemberExpression: onloadValidator(state as OnLoadState),
         CallExpression({ callee }) {
           if (
             (callee.type === 'Identifier' && callee.name === 'setInterval') ||
@@ -54,7 +55,7 @@ describe('whatsTheTime', () => {
   });
 
   test('HTML should be syntactically valid', () =>
-    validateHTML(state.outerHTML));
+    validateHTML(state.outerHTML!));
 
   testTodosRemoved(() => exInfo.source);
 

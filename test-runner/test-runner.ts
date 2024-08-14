@@ -40,7 +40,10 @@ async function writeReport(
   exercise: string,
   report: string
 ): Promise<string | null> {
-  const reportDir = path.join(__dirname, `../${module}/${week}/test-reports`);
+  const reportDir = path.join(
+    __dirname,
+    `../../${module}/${week}/test-reports`
+  );
 
   const todoFilePath = path.join(reportDir, `${exercise}.todo.txt`);
   await unlink(todoFilePath);
@@ -77,10 +80,10 @@ function getUnitTestPath(
   homeworkFolder: string
 ): string | null {
   // If the exercise path ends with `.test` it is expected to represent a
-  // single JavaScript file that contains both a function-under-test and
+  // single JavaScript (not TypeScript) file that contains both a function-under-test and
   // a unit test or suite of tests.
   if (/\.test$/.test(exercisePath)) {
-    const match = getFirstPathMatch(exercisePath + '.[jt]s');
+    const match = getFirstPathMatch(exercisePath + '.js');
     if (!match) {
       throw new Error(`Unit test file not found for exercise: ${exercisePath}`);
     }
@@ -101,7 +104,7 @@ function getUnitTestPath(
     // the unit test itself is considered part of the exercise. This unit test
     // file must then be named `<exercise-name>.test.js`.
 
-    const unitTestPath = path.join(exercisePath, exerciseName + '.test.[jt]s');
+    const unitTestPath = path.join(exercisePath, exerciseName + '.test.js');
     const match = getFirstPathMatch(unitTestPath);
     if (match) {
       return match;
@@ -109,11 +112,13 @@ function getUnitTestPath(
   }
 
   // If the exercise directory does not contain a unit test file then it may
-  // exist in the `unit-tests` directory.
-  const regexp = new RegExp(String.raw`(Week\d+)/${homeworkFolder}/`);
+  // exist as a transpiled TypeScript file in the `.dist` folder.
+  const regexp = new RegExp(
+    String.raw`/(\d-\w+?)/(Week\d+)/${homeworkFolder}/`
+  );
 
   const unitTestPath =
-    exercisePath.replace(regexp, `$1/unit-tests/`) + '.test.[jt]s';
+    exercisePath.replace(regexp, `/.dist/$1/$2/unit-tests/`) + '.test.js';
 
   return getFirstPathMatch(unitTestPath);
 }

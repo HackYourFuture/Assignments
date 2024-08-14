@@ -1,7 +1,6 @@
 export default {
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
-    '^.+\\.tsx?$': 'babel-jest',
   },
   modulePathIgnorePatterns: ['__testUtils__'],
   transformIgnorePatterns: [],

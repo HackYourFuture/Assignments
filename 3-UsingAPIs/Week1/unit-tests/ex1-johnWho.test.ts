@@ -2,16 +2,17 @@ import { simple } from 'acorn-walk';
 import {
   beforeAllHelper,
   createTimeoutSpy,
+  ExerciseInfo,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   paramCount: number;
   newPromise?: boolean;
   resolve?: number;
   reject?: number;
+  [key: string]: any;
 };
 
 describe('getAnonName', () => {
@@ -62,7 +63,7 @@ describe('getAnonName', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('getAnonName', () => exInfo.rootNode);
+  testNoConsoleLog('getAnonName', () => exInfo.rootNode!);
 
   test('should call `new Promise()`', () => {
     expect(state.newPromise).toBeDefined();

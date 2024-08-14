@@ -2,11 +2,11 @@
 import { ancestor } from 'acorn-walk';
 import {
   beforeAllHelper,
+  ExerciseInfo,
   findAncestor,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   async?: boolean;
@@ -58,7 +58,7 @@ describe('ex3-rollAnAce', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('rollDieUntil', () => exInfo.rootNode);
+  testNoConsoleLog('rollDieUntil', () => exInfo.rootNode!);
 
   test('should not include a recursive call', () => {
     expect(state.recursive).toBeUndefined();

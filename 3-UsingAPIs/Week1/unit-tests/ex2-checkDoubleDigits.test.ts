@@ -1,15 +1,16 @@
 import { simple } from 'acorn-walk';
 import {
   beforeAllHelper,
+  ExerciseInfo,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   newPromise?: boolean;
   resolve?: number;
   reject?: number;
+  [key: string]: any;
 };
 
 describe('checkDoubleDigits', () => {
@@ -48,7 +49,7 @@ describe('checkDoubleDigits', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('checkDoubleDigits', () => exInfo.rootNode);
+  testNoConsoleLog('checkDoubleDigits', () => exInfo.rootNode!);
 
   test('should call new Promise()', () => {
     expect(state.newPromise).toBeDefined();

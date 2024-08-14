@@ -2,13 +2,14 @@ import { simple } from 'acorn-walk';
 
 import {
   beforeAllHelper,
+  ExerciseInfo,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   src?: boolean;
   srcset?: boolean;
+  [key: string]: any;
 };
 
 describe('hijackLogo', () => {

@@ -4,7 +4,7 @@ import {
   beforeAllHelper,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
 describe('giveCompliment', () => {
@@ -49,7 +49,7 @@ describe('giveCompliment', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('giveCompliment', () => exInfo.rootNode);
+  testNoConsoleLog('giveCompliment', () => exInfo.rootNode!);
 
   test('should take a single parameter', () => {
     expect(giveCompliment).toHaveLength(1);

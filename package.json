@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "test:runner": "glob -c \"node --test\" \"./.dist/__tests__/**/*.test.js\"",
-    "test": "node ./.dist/test-runner.js",
-    "test:alt": "node ./.dist/test-runner @assignment",
-    "start": "node ./.dist/exercise-runner",
-    "start:alt": "node ./.dist/ex-runner @assignment",
-    "cleanup": "node ./.dist/cleanup",
+    "test": "node ./.dist/test-runner/test-runner.js",
+    "test:alt": "node ./.dist/test-runner/test-runner @assignment",
+    "start": "node ./.dist/test-runner/exercise-runner",
+    "start:alt": "node ./.dist/test-runner/exercise-runner @assignment",
+    "cleanup": "node ./.dist/test-runner/cleanup",
     "postinstall": "tsc"
   },
   "repository": {
@@ -35,7 +35,6 @@
   },
   "WARNING": "Do not update major versions of dependencies as they may break the test runner",
   "devDependencies": {
-    "@babel/plugin-transform-typescript": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@eslint/js": "^9.9.0",
     "@html-validate/stylish": "^4.2.0",

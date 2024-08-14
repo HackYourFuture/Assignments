@@ -1,6 +1,8 @@
 import { simple } from 'acorn-walk';
-import { beforeAllHelper } from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+import {
+  beforeAllHelper,
+  ExerciseInfo,
+} from '../../../test-runner/unit-test-helpers.js';
 
 describe('wallet', () => {
   const state: { answers: string[] } = { answers: [] };

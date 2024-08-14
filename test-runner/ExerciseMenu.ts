@@ -42,7 +42,7 @@ export default class ExerciseMenu {
     // Look for file and folder names that match the expected structure.
     // Windows paths are converted to POSIX paths to ensure compatibility.
     const posixFileSpec = path
-      .join(__dirname, `../**/${this.#assignmentFolder}/ex([0-9])-*`)
+      .join(__dirname, `../../**/${this.#assignmentFolder}/ex([0-9])-*`)
       .replace(/\\/g, '/');
 
     const filePaths = fg.sync([posixFileSpec, '!**/node_modules'], {
@@ -57,22 +57,22 @@ export default class ExerciseMenu {
       const matches = filePath.match(regexp);
       if (matches) {
         const [, module, week, exercise] = matches;
-        if (!this.#menuData[module]) {
-          this.#menuData[module] = {};
+        if (!this.menuData[module]) {
+          this.menuData[module] = {};
         }
-        if (!this.#menuData[module][week]) {
-          this.#menuData[module][week] = [];
+        if (!this.menuData[module][week]) {
+          this.menuData[module][week] = [];
         }
-        this.#menuData[module][week].push(exercise);
+        this.menuData[module][week].push(exercise);
       }
     });
   }
 
   async getExercisePath() {
     let useRecent = false;
-    if (this.#module && this.#week && this.#exercise) {
+    if (this.module && this.week && this.exercise) {
       useRecent = await confirm({
-        message: `Rerun last test (${this.#module}, ${this.#week}, ${this.#exercise})?`,
+        message: `Rerun last test (${this.module}, ${this.week}, ${this.exercise})?`,
         default: true,
       });
     }
@@ -84,45 +84,45 @@ export default class ExerciseMenu {
       this.putMostRecentSelection();
     }
 
-    let relPath = `../${this.#module}/${this.#week}/${this.#assignmentFolder}/${this.#exercise}`;
+    let relPath = `../../${this.module}/${this.week}/${this.#assignmentFolder}/${this.exercise}`;
     return path.join(__dirname, relPath).replace(/\\/g, '/');
   }
 
   private async selectModule(): Promise<string> {
     this.#module = await select({
       message: 'Which module?',
-      choices: Object.keys(this.#menuData).map((choice) => ({ value: choice })),
-      default: this.#module,
+      choices: Object.keys(this.menuData).map((choice) => ({ value: choice })),
+      default: this.module,
     });
-    return this.#module;
+    return this.module;
   }
 
   private async selectWeek(): Promise<string> {
-    assert(this.#module, 'Module must be selected first');
+    assert(this.module, 'Module must be selected first');
 
     this.#week = await select({
       message: 'Which week?',
-      choices: Object.keys(this.#menuData[this.#module]).map((choice) => ({
+      choices: Object.keys(this.menuData[this.module]).map((choice) => ({
         value: choice,
       })),
-      default: this.#week,
+      default: this.week,
     });
-    return this.#week;
+    return this.week;
   }
 
   private async selectExercise(): Promise<string> {
-    assert(this.#module, 'Module must be selected first');
-    assert(this.#week, 'Week must be selected first');
+    assert(this.module, 'Module must be selected first');
+    assert(this.week, 'Week must be selected first');
 
     this.#exercise = await select({
       message: 'Which exercise?',
-      choices: this.#menuData[this.#module][this.#week].map((choice) => ({
+      choices: this.menuData[this.module][this.week].map((choice) => ({
         value: choice,
       })),
-      default: this.#exercise,
+      default: this.exercise,
     });
 
-    return this.#exercise;
+    return this.exercise;
   }
 
   private getMostRecentSelection(): void {
@@ -144,9 +144,9 @@ export default class ExerciseMenu {
   private putMostRecentSelection(): void {
     try {
       const recentSelection = {
-        module: this.#module,
-        week: this.#week,
-        exercise: this.#exercise,
+        module: this.module,
+        week: this.week,
+        exercise: this.exercise,
       };
       const json = JSON.stringify(recentSelection, null, 2);
       fs.writeFileSync(path.join(__dirname, '../.recent.json'), json, 'utf8');

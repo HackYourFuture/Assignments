@@ -1,10 +1,10 @@
 import { simple } from 'acorn-walk';
 import {
   beforeAllHelper,
+  ExerciseInfo,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   promiseAll?: boolean;
@@ -43,7 +43,7 @@ describe('ex4-pokerDiceAll', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('rollDice', () => exInfo.rootNode);
+  testNoConsoleLog('rollDice', () => exInfo.rootNode!);
 
   test('should use `dice.map()`', () => {
     expect(state.diceMap).toBeDefined();

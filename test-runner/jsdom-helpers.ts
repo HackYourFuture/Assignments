@@ -21,6 +21,8 @@ export async function prepare() {
   }
 
   const exercisePath = testPath
+    .replace(/\\/g, '/')
+    .replace('/.dist/', '/')
     .replace('unit-tests', assignmentFolder)
     .replace(/\.test\.[jt]s$/, '');
 
@@ -41,7 +43,7 @@ export async function prepare() {
 
 export async function validateHTML(outerHTML: string) {
   const json = await fs.promises.readFile(
-    path.join(__dirname, '../.htmlvalidate.json'),
+    path.join(__dirname, '../../.htmlvalidate.json'),
     'utf8'
   );
   const htmlValidate = new HtmlValidate(JSON.parse(json));

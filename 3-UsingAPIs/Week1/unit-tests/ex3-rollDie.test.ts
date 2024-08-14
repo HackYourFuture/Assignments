@@ -2,16 +2,15 @@ import { simple } from 'acorn-walk';
 import {
   beforeAllHelper,
   createTimeoutSpy,
-  testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import {
   ExerciseInfo,
+  testTodosRemoved,
 } from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   newPromise?: boolean;
   resolve?: number;
   reject?: number;
+  [key: string]: any;
 };
 
 describe('rollDie', () => {

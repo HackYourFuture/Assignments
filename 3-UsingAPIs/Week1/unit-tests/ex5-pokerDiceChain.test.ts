@@ -1,9 +1,9 @@
 import {
   beforeAllHelper,
+  ExerciseInfo,
   testNoConsoleLog,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 describe('ex5-pokerDiceChain', () => {
   let exInfo: ExerciseInfo;
@@ -21,7 +21,7 @@ describe('ex5-pokerDiceChain', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  testNoConsoleLog('rollDice', () => exInfo.rootNode);
+  testNoConsoleLog('rollDice', () => exInfo.rootNode!);
 
   test('should resolve when all dice settle successfully', async () => {
     expect.assertions(4);

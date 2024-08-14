@@ -26,7 +26,7 @@ export async function beforeAllHelper(
   const helperOptions = Object.assign(defaultOptions, options);
   const matches = testFilePath
     .replace(/\\/g, '/')
-    .match(/^.*\/(.+)\/(Week\d)\/.+\/(.+)\.test\.ts$/i);
+    .match(/^.*\/(.+)\/(Week\d)\/.+\/(.+)\.test\.js$/i);
 
   if (!matches) {
     throw new Error(`Unexpected test path: ${testFilePath}`);
@@ -37,7 +37,7 @@ export async function beforeAllHelper(
   const [, module, week, exercise] = matches;
   let exercisePath = path.join(
     __dirname,
-    `../${module}/${week}/${homeworkFolder}/${exercise}`
+    `../../${module}/${week}/${homeworkFolder}/${exercise}`
   );
 
   exercisePath = fs.existsSync(exercisePath)
@@ -52,7 +52,7 @@ export async function beforeAllHelper(
       jest.spyOn(console, 'log').mockImplementation();
       result.module = await import(exercisePath);
     } catch (err) {
-      console.log('Error attempting to `require`:', err);
+      console.log("Error attempting to 'import':", err);
     }
   }
 
@@ -83,7 +83,7 @@ export function findAncestor(type: string, ancestors: any) {
   return null;
 }
 
-type OnLoadState = {
+export type OnLoadState = {
   onload: boolean;
   callError: boolean;
 };

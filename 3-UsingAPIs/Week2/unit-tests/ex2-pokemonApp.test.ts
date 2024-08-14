@@ -1,11 +1,11 @@
 import { simple } from 'acorn-walk';
 
-import { prepare, validateHTML } from '../../../.dist/jsdom-helpers.js';
+import { prepare, validateHTML } from '../../../test-runner/jsdom-helpers.js';
 import {
   beforeAllHelper,
+  ExerciseInfo,
   testTodosRemoved,
-} from '../../../.dist/unit-test-helpers.js';
-import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
+} from '../../../test-runner/unit-test-helpers.js';
 
 type State = {
   outerHTML?: string;
@@ -44,7 +44,7 @@ describe('pokemonApp', () => {
   });
 
   test('HTML should be syntactically valid', () =>
-    validateHTML(state.outerHTML));
+    validateHTML(state.outerHTML!));
 
   testTodosRemoved(() => exInfo.source);
 

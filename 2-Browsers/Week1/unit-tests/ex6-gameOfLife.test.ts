@@ -1,7 +1,7 @@
 import {
   beforeAllHelper,
   ExerciseInfo,
-} from '../../../test-runner/unit-test-helpers';
+} from '../../../test-runner/unit-test-helpers.js';
 
 type GridCell = {
   x: number;
