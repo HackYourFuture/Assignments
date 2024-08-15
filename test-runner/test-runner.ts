@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 
 import ExerciseMenu from './ExerciseMenu.js';
 import logger from './logger.js';
+import { checkExerciseHashes } from './compliance-helpers.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
@@ -248,6 +249,11 @@ async function main(): Promise<void> {
     const homeworkFolder = process.argv[2] || 'assignment';
 
     const menu = new ExerciseMenu(homeworkFolder);
+
+    if (!checkExerciseHashes(menu.menuData)) {
+      return;
+    }
+
     const exercisePath = await menu.getExercisePath();
 
     console.log('Running test, please wait...');

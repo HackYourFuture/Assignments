@@ -6,6 +6,7 @@ import path from 'path';
 import handler from 'serve-handler';
 
 import ExerciseMenu from './ExerciseMenu.js';
+import { checkExerciseHashes } from './compliance-helpers.js';
 
 const PORT = 3030;
 
@@ -81,6 +82,11 @@ async function main() {
     const homeworkFolder = process.argv[2] ?? 'assignment';
 
     const menu = new ExerciseMenu(homeworkFolder);
+
+    if (!checkExerciseHashes(menu.menuData)) {
+      return;
+    }
+
     const exercisePath = await menu.getExercisePath();
 
     console.log('Running exercise, please wait...');

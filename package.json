@@ -10,8 +10,10 @@
     "test:alt": "node ./.dist/test-runner/test-runner @assignment",
     "start": "node ./.dist/test-runner/exercise-runner",
     "start:alt": "node ./.dist/test-runner/exercise-runner @assignment",
-    "cleanup": "node ./.dist/test-runner/cleanup",
-    "postinstall": "tsc"
+    "cleanup": "node ./.dist/test-runner/cleanup.js",
+    "dump-hashes": "node ./.dist/test-runner/dump-hashes.js",
+    "test:weekly": "node ./.dist/test-runner/test-weekly",
+    "postinstall": "tsc && npm run dump-hashes"
   },
   "repository": {
     "type": "git",
