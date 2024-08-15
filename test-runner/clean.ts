@@ -3,14 +3,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { rimrafSync } from 'rimraf';
 import { fileURLToPath } from 'url';
-
-import ExerciseMenu from './ExerciseMenu.js';
+import { dumpExerciseHashes } from './compliance-helpers.js';
+import ExerciseMenu, { MenuData } from './ExerciseMenu.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-async function initializeReportFolders() {
-  const { menuData } = new ExerciseMenu();
-
+async function initializeReportFolders(menuData: MenuData) {
   for (const module of Object.keys(menuData)) {
     const weeks = Object.keys(menuData[module]);
 
@@ -37,8 +35,13 @@ async function initializeReportFolders() {
 }
 
 try {
+  const { menuData } = new ExerciseMenu();
+
+  console.log('Computing and saving exercise hashes...');
+  dumpExerciseHashes(menuData);
+
   console.log('Initializing report folders...');
-  await initializeReportFolders();
+  await initializeReportFolders(menuData);
 
   console.log('Cleaning up test-runner.log file...');
   rimrafSync(path.join(__dirname, '../../test-runner.log'));

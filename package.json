@@ -13,7 +13,7 @@
     "clean": "node ./.dist/test-runner/clean",
     "dump-hashes": "node ./.dist/test-runner/dump-hashes.js",
     "test:weekly": "node ./.dist/test-runner/test-weekly",
-    "postinstall": "tsc && npm run dump-hashes"
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",

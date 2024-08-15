@@ -1,0 +1,47 @@
+{
+  "1-JavaScript": {
+    "Week2": {
+      "ex1-giveCompliment": "c2c8b6253ad706989b9120f00d80e8453b5be70f34c35fcd7567dcf5550ba897",
+      "ex2-dogYears": "83cde87e41e27739a745da5038550cdb2470ce917b8b6f3b5b5d92d9576c6b8e",
+      "ex3-tellFortune": "8b2f61a4b1fc2603bac8d09a497fce6febcc94103f4a8eef05562f31410c04e0",
+      "ex4-shoppingCart": "faa80df26c206721a4126e3e11f2d8601e7a74b5f480b5c2b895cd21573389db",
+      "ex5-shoppingCartPure": "3476061983b7ffbd6550e5e57fd7499bd2808d31ee2d4bc61cb97404d9f38d44",
+      "ex6-totalCost": "5b1d0494344f16ac5b707ba868879c799b503b60595afa6684698ea4bf7aa351",
+      "ex7-mindPrivacy": "f809108686ee3c05c2b7dc39de4ec6259ae48b7940f4cf56f34293302e256380"
+    },
+    "Week3": {
+      "ex1-doubleEvenNumbers.test": "daa518dd5ef9ee5cfb03ec72e0b483a6cba88ee833eeae081501eebbd713621d",
+      "ex2-mondaysWorth.test": "c173a5f8595eed2455d4ba6d0aae44906745af23799c0c168f678c78b6d1d3e4",
+      "ex3-lemonAllergy.test": "63f219fe35ac495423a71ce2abbb60b91c471e8048eb373e7315acc93e3c756c",
+      "ex4-observable": "602774f40748dd12de3d943a0b8e0a49215c6a05775fcf302a1afa8af880a645",
+      "ex5-wallet": "2c8d09de71b9044b8107b2e86d7b66a3b82eebea17c17d7153bfc68fdf20da5e"
+    }
+  },
+  "2-Browsers": {
+    "Week1": {
+      "ex1-bookList": "8ac2dee143392160c9d60b181eb3f43b7b1318ea2addfe490c9c1cff048d5d9b",
+      "ex2-aboutMe": "3fc6e8adc0af28648d048c388dd087a8bbc1d22d8b2aebe7b3329c8423d26810",
+      "ex3-hijackLogo": "9d5ad72401c231c92e03df70946d9ba40759c780b7c39756d8b17cd15945d241",
+      "ex4-whatsTheTime": "80ebbed95a4c838d067d9a4eab32bc002101ab60847a2e0bc4ff463e97c354fd",
+      "ex5-catWalk": "4d75417fd3a7792b084fa234753d4cdd652d40d3990bad13aa7eec11a5db648a",
+      "ex6-gameOfLife": "10ccd24d0b46559e7c3b778ef9d1659995064f36fb329b7aba2261b65e9f0355"
+    }
+  },
+  "3-UsingAPIs": {
+    "Week1": {
+      "ex1-johnWho": "3a45143e7c62f304fd5bd5eb706cea077912373fa521c80934adac49ec9436ef",
+      "ex2-checkDoubleDigits": "05d6893c90f828e26c4471b69054252a7c094a8a1ea02e28fb72716230cfbbc8",
+      "ex3-rollDie": "a3001b96605ee20f187421d3323635c1556cc77c06346ff25d79302a2b798c55",
+      "ex4-pokerDiceAll": "c03cf0564e4702c69bc4224ceba797efbf69420ed87979cb823c920567866923",
+      "ex5-pokerDiceChain": "e0b3668e27909a717506dd028b67b7c3b53f8ba1e5b643c39dfb2a40c44d89f4"
+    },
+    "Week2": {
+      "ex1-programmerFun": "e6cbf8715cf9b840b26fc8d8553dd235ed52b456fa6b37d639f6d54625e58797",
+      "ex2-pokemonApp": "b9ec9888524d269f507943086df9ccba3ae32c76b1d39ac6565f6f8371c04631",
+      "ex3-rollAnAce": "ad568c0fbfe75a42a5b41ccc33cf76143cef99049e017bb478d31b218beb3d49",
+      "ex4-diceRace": "d21ce44070d9ff596b941d138ca1a701fbfc1292afdd412cc8b8951ef512d413",
+      "ex5-vscDebug": "6242bc8861bdb0abea48d00fa6f2cd9bf3a6f93fdd9b708ad130c8b64c6c75eb",
+      "ex6-browserDebug": "1787583932555b23bcb625030cfcad2094bc222824dcba2d79db4bc01e6b9142"
+    }
+  }
+}

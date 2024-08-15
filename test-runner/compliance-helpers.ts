@@ -9,7 +9,7 @@ import { MenuData } from './ExerciseMenu.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const COMPUTED_HASHES_JSON_PATH = path.join(__dirname, '.././.hashes.json');
+const COMPUTED_HASHES_JSON_PATH = path.join(__dirname, '../../.hashes.json');
 
 function computeHash(exercisePath: string): string {
   const md5sum = crypto.createHash('sha256');
@@ -30,11 +30,6 @@ type Hashes = {
 };
 
 export function dumpExerciseHashes(menuData: MenuData): void {
-  // We only want to compute the hashes once, at the first npm install
-  if (fs.existsSync(COMPUTED_HASHES_JSON_PATH)) {
-    return;
-  }
-
   const hashes: Hashes = {};
   for (const module in menuData) {
     for (const week in menuData[module]) {
