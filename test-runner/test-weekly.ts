@@ -1,32 +1,22 @@
-import { getChangedWeeks } from './compliance-helpers.js';
-import { exec } from 'node:child_process';
-
+import { diffExerciseHashes } from './compliance-helpers.js';
 import ExerciseMenu from './ExerciseMenu.js';
+import { runTest } from './test-runner.js';
 
-function main() {
+async function main() {
   const { menuData } = new ExerciseMenu();
-  const paths = getChangedWeeks(menuData);
-  if (paths.length === 0) {
-    console.log('No exercises have changed');
+  const changes = diffExerciseHashes(menuData);
+  if (Object.keys(changes).length === 0) {
+    console.log('No exercises have been changed');
     return;
   }
 
-  if (paths.length > 1) {
-    console.error('More than one week has been changed:');
-    for (const path of paths) {
-      console.error(path);
+  for (const module in changes) {
+    for (const week in changes[module]) {
+      for (const exercise in changes[module][week]) {
+        await runTest(module, week, exercise);
+      }
     }
-    return;
   }
-
-  exec(`npx jest ${paths[0]}`, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`exec error: ${error}`);
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-    console.error(`stderr: ${stderr}`);
-  });
 }
 
 main();

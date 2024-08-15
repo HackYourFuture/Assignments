@@ -8,24 +8,11 @@ import { promisify } from 'node:util';
 import stripAnsi from 'strip-ansi';
 import { fileURLToPath } from 'url';
 
-import ExerciseMenu from './ExerciseMenu.js';
+import { buildExercisePath } from './ExerciseMenu.js';
 import logger from './logger.js';
-import { checkExerciseHashes } from './compliance-helpers.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
-
-const disclaimer = `
-*** Disclaimer **
-
-The test checker is an automated runner that follows 
-a very strict set of rules defined by us, which means
-it is possible that it gives you incorrect feedback 
-if you solved the problem in a way we did not foresee.
-See the results here as suggestions, not the truth!
-`;
-
-const MINIMUM_NODE_VERSION = 20;
 
 async function unlink(filePath: string): Promise<void> {
   try {
@@ -222,58 +209,25 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
   }
 }
 
-async function showDisclaimer(): Promise<void> {
-  const disclaimerPath = path.join(__dirname, '../.disclaimer');
-  const suppressDisclaimer = fs.existsSync(disclaimerPath);
-  if (!suppressDisclaimer) {
-    console.log(chalk.magenta(disclaimer));
-    await fs.promises.writeFile(disclaimerPath, 'off', 'utf8');
-  }
+export async function runTest(
+  module: string,
+  week: string,
+  exercise: string,
+  assignmentFolder = 'assignment'
+): Promise<string> {
+  let report = '';
+  const exercisePath = buildExercisePath(
+    module,
+    week,
+    exercise,
+    assignmentFolder
+  );
+
+  report += await execJest(exercisePath, assignmentFolder);
+  report += await execESLint(exercisePath);
+  report += await execSpellChecker(exercisePath);
+
+  await writeReport(module, week, exercise, report);
+
+  return report;
 }
-
-async function main(): Promise<void> {
-  const [majorVersion] = process.versions.node.split('.');
-  if (+majorVersion < MINIMUM_NODE_VERSION) {
-    console.log(
-      chalk.red(`Required Node version: ${MINIMUM_NODE_VERSION} or higher.`)
-    );
-    console.log(
-      chalk.red(
-        `Your version: ${majorVersion}. Please upgrade your version of Node.`
-      )
-    );
-    process.exit(1);
-  }
-
-  try {
-    const homeworkFolder = process.argv[2] || 'assignment';
-
-    const menu = new ExerciseMenu(homeworkFolder);
-
-    if (!checkExerciseHashes(menu.menuData)) {
-      return;
-    }
-
-    const exercisePath = await menu.getExercisePath();
-
-    console.log('Running test, please wait...');
-    let report = '';
-    report += await execJest(exercisePath, homeworkFolder);
-    report += await execESLint(exercisePath);
-    report += await execSpellChecker(exercisePath);
-
-    await writeReport(menu.module, menu.week, menu.exercise, report);
-
-    if (report) {
-      await showDisclaimer();
-    } else {
-      logger.info('All steps were completed successfully');
-    }
-  } catch (err: any) {
-    const message = `Something went wrong: ${err.message}`;
-    logger.error(message);
-    console.error(chalk.red(message));
-  }
-}
-
-main();

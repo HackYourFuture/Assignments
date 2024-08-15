@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "test:runner": "glob -c \"node --test\" \"./.dist/__tests__/**/*.test.js\"",
-    "test": "node ./.dist/test-runner/test-runner.js",
-    "test:alt": "node ./.dist/test-runner/test-runner @assignment",
+    "test": "node ./.dist/test-runner/test-runner-cli",
+    "test:alt": "node ./.dist/test-runner/test-runner-cli @assignment",
     "start": "node ./.dist/test-runner/exercise-runner",
     "start:alt": "node ./.dist/test-runner/exercise-runner @assignment",
-    "cleanup": "node ./.dist/test-runner/cleanup.js",
+    "clean": "node ./.dist/test-runner/clean",
     "dump-hashes": "node ./.dist/test-runner/dump-hashes.js",
     "test:weekly": "node ./.dist/test-runner/test-weekly",
     "postinstall": "tsc && npm run dump-hashes"
@@ -25,7 +25,7 @@
   ],
   "author": "Jim Cramer for HackYourFuture",
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "license": "CC-BY-4.0",
   "bugs": {

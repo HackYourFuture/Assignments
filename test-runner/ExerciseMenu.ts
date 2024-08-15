@@ -9,6 +9,17 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export type MenuData = { [module: string]: { [week: string]: string[] } };
 
+export function buildExercisePath(
+  module: string,
+  week: string,
+  exercise: string,
+  assignmentFolder = 'assignment'
+) {
+  return path
+    .join(__dirname, `../../${module}/${week}/${assignmentFolder}/${exercise}`)
+    .replace(/\\/g, '/');
+}
+
 export default class ExerciseMenu {
   #assignmentFolder: string;
   #module = '';
@@ -84,8 +95,12 @@ export default class ExerciseMenu {
       this.putMostRecentSelection();
     }
 
-    let relPath = `../../${this.module}/${this.week}/${this.#assignmentFolder}/${this.exercise}`;
-    return path.join(__dirname, relPath).replace(/\\/g, '/');
+    return buildExercisePath(
+      this.module,
+      this.week,
+      this.exercise,
+      this.#assignmentFolder
+    );
   }
 
   private async selectModule(): Promise<string> {
