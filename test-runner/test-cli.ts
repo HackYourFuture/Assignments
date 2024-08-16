@@ -1,11 +1,14 @@
 import chalk from 'chalk';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { checkExerciseHashes } from './compliance-helpers.js';
 import ExerciseMenu from './ExerciseMenu.js';
 import logger from './logger.js';
 import { runTest } from './test-runner.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const MINIMUM_NODE_VERSION = 20;
 

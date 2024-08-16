@@ -4,9 +4,9 @@ import fg from 'fast-glob';
 import { exec } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import stripAnsi from 'strip-ansi';
-import { fileURLToPath } from 'url';
 
 import { buildExercisePath } from './ExerciseMenu.js';
 import logger from './logger.js';
@@ -125,7 +125,7 @@ async function execJest(
     return '';
   }
 
-  let cmdLine = `npx jest ${unitTestPath} --colors`;
+  let cmdLine = `npx jest ${unitTestPath} --colors --noStackTrace`;
 
   try {
     const { stderr } = await execAsync(cmdLine, {

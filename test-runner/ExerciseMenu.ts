@@ -104,25 +104,36 @@ export default class ExerciseMenu {
   }
 
   private async selectModule(): Promise<string> {
-    this.#module = await select({
+    const module = await select({
       message: 'Which module?',
       choices: Object.keys(this.menuData).map((choice) => ({ value: choice })),
       default: this.module,
     });
-    return this.module;
+
+    if (module !== this.module) {
+      this.#module = module;
+      this.#week = '';
+      this.#exercise = '';
+    }
+    return module;
   }
 
   private async selectWeek(): Promise<string> {
     assert(this.module, 'Module must be selected first');
 
-    this.#week = await select({
+    const week = await select({
       message: 'Which week?',
       choices: Object.keys(this.menuData[this.module]).map((choice) => ({
         value: choice,
       })),
       default: this.week,
     });
-    return this.week;
+
+    if (week !== this.week) {
+      this.#week = week;
+      this.#exercise = '';
+    }
+    return week;
   }
 
   private async selectExercise(): Promise<string> {
