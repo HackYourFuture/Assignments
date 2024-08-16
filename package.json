@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test:runner": "glob -c \"node --test\" \"./.dist/__tests__/**/*.test.js\"",
-    "test": "node ./.dist/test-runner/test-runner-cli",
-    "test:alt": "node ./.dist/test-runner/test-runner-cli @assignment",
+    "test": "node ./.dist/test-runner/test-cli",
+    "test:alt": "node ./.dist/test-runner/test-cli @assignment",
     "start": "node ./.dist/test-runner/exercise-runner",
     "start:alt": "node ./.dist/test-runner/exercise-runner @assignment",
     "clean": "node ./.dist/test-runner/clean",

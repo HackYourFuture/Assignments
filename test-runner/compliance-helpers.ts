@@ -76,6 +76,7 @@ export function diffExerciseHashes(menuData: MenuData): Hashes {
 
   return diff;
 }
+
 type CheckOptions = { silent: boolean };
 
 export function checkExerciseHashes(
