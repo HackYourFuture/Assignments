@@ -12,7 +12,7 @@ type State = {
   [key: string]: any;
 };
 
-describe('ex3-hijackLogo', () => {
+describe('br-wk1-ex3-hijackLogo', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

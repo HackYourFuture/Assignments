@@ -15,7 +15,7 @@ type State = {
   recursive?: boolean;
 };
 
-describe('ex3-rollAnAce', () => {
+describe('api-wk2-ex3-rollAnAce', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

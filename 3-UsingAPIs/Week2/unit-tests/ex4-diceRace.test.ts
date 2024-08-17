@@ -11,7 +11,7 @@ type State = {
   diceMap?: boolean;
 };
 
-describe('ex4-diceRace', () => {
+describe('api-wk2-ex4-diceRace', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

@@ -13,7 +13,7 @@ type State = {
   titlesAndAuthors: string[];
 };
 
-describe('ex1-booklist', () => {
+describe('br-wk1-ex1-bookList', () => {
   const state: State = {
     outerHTML: '',
     titlesAndAuthors: [],

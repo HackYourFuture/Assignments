@@ -7,7 +7,7 @@ import {
 } from '../../../test-runner/unit-test-helpers.js';
 import { ExerciseInfo } from '../../../test-runner/unit-test-helpers.js';
 
-describe('ex-1giveCompliment', () => {
+describe('js-wk2-ex1-giveCompliment', () => {
   const state: { compliments: string[] } = { compliments: [] };
 
   let exInfo: ExerciseInfo;

@@ -13,7 +13,7 @@ type State = {
   [key: string]: any;
 };
 
-describe('ex3-rollDie', () => {
+describe('api-wk1-ex3-rollDie', () => {
   const state: State = {};
 
   let rollDie: () => Promise<number>;

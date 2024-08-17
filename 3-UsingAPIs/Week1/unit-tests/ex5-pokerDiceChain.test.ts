@@ -5,7 +5,7 @@ import {
   testTodosRemoved,
 } from '../../../test-runner/unit-test-helpers.js';
 
-describe('ex5-pokerDiceChain', () => {
+describe('api-wk1-ex5-pokerDiceChain', () => {
   let exInfo: ExerciseInfo;
 
   let rollDice: () => Promise<number[]>;

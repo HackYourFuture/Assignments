@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import chalk from 'chalk';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -46,7 +48,8 @@ async function main(): Promise<void> {
   }
 
   try {
-    const assignmentFolder = process.argv[2] || 'assignment';
+    const assignmentFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
+    console.log('assignmentFolder', assignmentFolder);
 
     const menu = new ExerciseMenu(assignmentFolder);
 

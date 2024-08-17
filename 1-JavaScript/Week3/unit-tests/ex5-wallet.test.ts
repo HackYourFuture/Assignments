@@ -4,7 +4,7 @@ import {
   ExerciseInfo,
 } from '../../../test-runner/unit-test-helpers.js';
 
-describe('ex5-wallet', () => {
+describe('js-wk3-ex5-wallet', () => {
   const state: { answers: string[] } = { answers: [] };
 
   let exInfo: ExerciseInfo;

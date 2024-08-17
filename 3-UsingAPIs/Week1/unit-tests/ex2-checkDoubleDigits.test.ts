@@ -13,7 +13,7 @@ type State = {
   [key: string]: any;
 };
 
-describe('ex2-checkDoubleDigits', () => {
+describe('api-wk1-ex2-checkDoubleDigits', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

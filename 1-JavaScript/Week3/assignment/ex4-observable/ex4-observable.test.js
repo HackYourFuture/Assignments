@@ -1,18 +1,18 @@
 import { createObservable } from './ex4-observable.js';
 
-describe('createObservable', () => {
-  test('should exist and be a function', () => {
+describe('js-wk3-ex4-observable', () => {
+  test('createObservable should exist and be a function', () => {
     expect(typeof createObservable).toBe('function');
   });
 
-  test('should return an object with `subscribe` and a `notify` function properties', () => {
+  test('createObservable should return an object with `subscribe` and a `notify` function properties', () => {
     const observable = createObservable();
     expect(typeof observable).toBe('object');
     expect(typeof observable.subscribe).toBe('function');
     expect(typeof observable.notify).toBe('function');
   });
 
-  test('should notify all subscribers of any notification', () => {
+  test('observable should notify all subscribers of any notification', () => {
     const observable = createObservable();
 
     // Create two mocked listener functions

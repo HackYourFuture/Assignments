@@ -14,7 +14,7 @@ type State = {
   awaitFetch?: boolean;
 };
 
-describe('ex2-pokemonApp', () => {
+describe('api-wk2-ex2-pokemonApp', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

@@ -14,7 +14,7 @@ type State = {
   await?: boolean;
 };
 
-describe('ex1-programmerFun', () => {
+describe('api-wk2-ex1-programmerFun', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

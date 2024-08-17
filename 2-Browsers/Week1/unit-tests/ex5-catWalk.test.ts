@@ -18,7 +18,7 @@ type State = {
   callError?: boolean;
 };
 
-describe('ex5-catWalk', () => {
+describe('br-wk1-ex5-catWalk', () => {
   let window: DOMWindow;
 
   let exInfo: ExerciseInfo;

@@ -42,7 +42,7 @@ const createFakeContext = () =>
     fillRect: jest.fn(),
   }) as never as CanvasRenderingContext2D;
 
-describe('ex6-gameOfLife', () => {
+describe('br-wk1-ex6-gameOfLife', () => {
   let exInfo: ExerciseInfo;
 
   let createGame: (
