@@ -52,7 +52,8 @@ async function main(): Promise<void> {
 
     const menu = new ExerciseMenu(assignmentFolder);
 
-    if (checkExerciseHashes(menu.menuData) === 'multiple') {
+    const moduleWeek = checkExerciseHashes(menu.menuData);
+    if (moduleWeek === 'none' || moduleWeek === 'multiple') {
       return;
     }
 

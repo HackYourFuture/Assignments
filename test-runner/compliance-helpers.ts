@@ -101,6 +101,9 @@ export function checkExerciseHashes(
   const keys = Object.keys(changes);
 
   if (keys.length === 0) {
+    if (!options.silent) {
+      console.log('Your current branch does not contain modified exercises.');
+    }
     return 'none';
   }
 
@@ -113,7 +116,7 @@ export function checkExerciseHashes(
   }
 
   console.log(
-    'Your current Git branch contains modifications for more than one week:\n'
+    'Your current branch contains modifications for more than one week:\n'
   );
 
   for (const key in changes) {

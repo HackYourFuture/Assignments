@@ -83,7 +83,8 @@ async function main() {
 
     const menu = new ExerciseMenu(homeworkFolder);
 
-    if (!checkExerciseHashes(menu.menuData)) {
+    const moduleWeek = checkExerciseHashes(menu.menuData);
+    if (moduleWeek === 'none' || moduleWeek === 'multiple') {
       return;
     }
 
