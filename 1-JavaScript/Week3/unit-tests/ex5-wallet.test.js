@@ -1,17 +1,11 @@
 import { simple } from 'acorn-walk';
-import {
-  beforeAllHelper,
-  ExerciseInfo,
-} from '../../../test-runner/unit-test-helpers.js';
+import { beforeAllHelper } from '../../../.dist/test-runner/unit-test-helpers.js';
 
 describe('js-wk3-ex5-wallet', () => {
-  const state: { answers: string[] } = { answers: [] };
-
-  let exInfo: ExerciseInfo;
-
+  const state = { answers: [] };
+  let exInfo;
   beforeAll(async () => {
     exInfo = await beforeAllHelper(__filename, { noImport: true });
-
     exInfo.rootNode &&
       simple(exInfo.rootNode, {
         Property({ key, value }) {

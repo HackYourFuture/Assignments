@@ -45,6 +45,9 @@ try {
 
   console.log('Cleaning up test-runner.log file...');
   rimrafSync(path.join(__dirname, '../../test-runner.log'));
+
+  console.log('Cleaning up junit.xml...');
+  rimrafSync(path.join(__dirname, '../../junit.xml'));
 } catch (err: any) {
   console.error(chalk.red(`Something went wrong: ${err.message}`));
   throw err;

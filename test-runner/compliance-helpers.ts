@@ -82,7 +82,7 @@ type CheckOptions = { silent: boolean };
 export function checkExerciseHashes(
   menuData: MenuData,
   options: CheckOptions = { silent: false }
-): boolean {
+): string {
   const diff = diffExerciseHashes(menuData);
   const changes: Record<string, string[]> = {};
 
@@ -98,12 +98,18 @@ export function checkExerciseHashes(
     }
   }
 
-  if (Object.keys(changes).length <= 1) {
-    return true;
+  const keys = Object.keys(changes);
+
+  if (keys.length === 0) {
+    return 'none';
+  }
+
+  if (keys.length === 1) {
+    return keys[0];
   }
 
   if (options.silent) {
-    return false;
+    return 'multiple';
   }
 
   console.log(
@@ -126,7 +132,7 @@ https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide
 
   console.log(message);
 
-  return false;
+  return 'multiple';
 }
 
 export function getChangedWeeks(menuData: MenuData): string[] {

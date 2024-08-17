@@ -49,11 +49,10 @@ async function main(): Promise<void> {
 
   try {
     const assignmentFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
-    console.log('assignmentFolder', assignmentFolder);
 
     const menu = new ExerciseMenu(assignmentFolder);
 
-    if (!checkExerciseHashes(menu.menuData)) {
+    if (checkExerciseHashes(menu.menuData) === 'multiple') {
       return;
     }
 
