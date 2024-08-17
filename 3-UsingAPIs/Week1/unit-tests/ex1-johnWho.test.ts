@@ -15,7 +15,7 @@ type State = {
   [key: string]: any;
 };
 
-describe('getAnonName', () => {
+describe('ex1-johnWho', () => {
   const state: State = { paramCount: 0 };
 
   let getAnonName: (name: string) => Promise<string>;

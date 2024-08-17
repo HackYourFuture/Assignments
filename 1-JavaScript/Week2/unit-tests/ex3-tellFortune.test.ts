@@ -7,7 +7,7 @@ import {
   testTodosRemoved,
 } from '../../../test-runner/unit-test-helpers.js';
 
-describe('tellFortune', () => {
+describe('ex3-tellFortune', () => {
   let exInfo: ExerciseInfo;
 
   let tellFortune: (...args: any) => any;

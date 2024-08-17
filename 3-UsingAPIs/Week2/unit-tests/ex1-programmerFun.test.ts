@@ -14,7 +14,7 @@ type State = {
   await?: boolean;
 };
 
-describe('programmerFun', () => {
+describe('ex1-programmerFun', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

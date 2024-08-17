@@ -13,7 +13,7 @@ type State = {
   [key: string]: any;
 };
 
-describe('checkDoubleDigits', () => {
+describe('ex2-checkDoubleDigits', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

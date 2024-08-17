@@ -5,7 +5,7 @@ import {
   testTodosRemoved,
 } from '../../../test-runner/unit-test-helpers.js';
 
-describe('calculateDogAge', () => {
+describe('ex2-dogYears', () => {
   let exInfo: ExerciseInfo;
 
   let calculateDogAge: (age: number) => string;

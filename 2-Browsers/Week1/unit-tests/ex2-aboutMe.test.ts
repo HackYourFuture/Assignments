@@ -10,7 +10,7 @@ type State = {
   outerHTML?: string;
 };
 
-describe('Generated HTML', () => {
+describe('ex2-aboutMe', () => {
   const state: State = {};
 
   let exInfo: ExerciseInfo;

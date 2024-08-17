@@ -13,7 +13,7 @@ type State = {
   titlesAndAuthors: string[];
 };
 
-describe('Generated HTML', () => {
+describe('ex1-booklist', () => {
   const state: State = {
     outerHTML: '',
     titlesAndAuthors: [],

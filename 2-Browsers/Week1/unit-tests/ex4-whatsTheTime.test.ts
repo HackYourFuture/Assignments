@@ -17,7 +17,7 @@ type State = {
   callError?: boolean;
 };
 
-describe('whatsTheTime', () => {
+describe('ex4-whatsTheTime', () => {
   const state: State = {};
   let setIntervalSpy: ReturnType<typeof jest.spyOn>;
   let window: DOMWindow;
