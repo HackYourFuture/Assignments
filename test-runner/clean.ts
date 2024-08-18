@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { rimrafSync } from 'rimraf';
 import { fileURLToPath } from 'url';
-import { dumpExerciseHashes } from './compliance-helpers.js';
+import { createExerciseHashes } from './compliance-helpers.js';
 import ExerciseMenu, { MenuData } from './ExerciseMenu.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -38,7 +38,7 @@ try {
   const { menuData } = new ExerciseMenu();
 
   console.log('Computing and saving exercise hashes...');
-  dumpExerciseHashes(menuData);
+  createExerciseHashes(menuData);
 
   console.log('Initializing report folders...');
   await initializeReportFolders(menuData);

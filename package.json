@@ -7,15 +7,15 @@
   "scripts": {
     "test:runner": "glob -c \"node --test\" \"./.dist/__tests__/**/*.test.js\"",
     "test": "node ./.dist/test-runner/test-cli",
-    "test:javascript:week2": "jest ./.dist/1-JavaScript/Week2 --ci --reporters=jest-junit",
-    "test:javascript:week3": "jest ./.dist/1-JavaScript/Week3 --ci --reporters=jest-junit",
-    "test:browsers:week1": "jest ./.dist/2-Browser/Week1 --ci --reporters=jest-junit",
-    "test:using-apis:week1": "jest ./.dist/3-UsingAPIs/Week1 --ci --reporters=jest-junit",
-    "test:using-apis:week2": "jest ./.dist/3-UsingAPIs/Week2 --ci --reporters=jest-junit",
+    "jest-js-wk2": "jest ./.dist/1-JavaScript/Week2",
+    "jest-js-wk3": "jest ./1-JavaScript/Week3",
+    "jest-br-wk1": "jest ./.dist/2-Browser/Week1",
+    "jest-api-wk1": "jest ./.dist/3-UsingAPIs/Week1",
+    "jest-api-wk2": "jest ./.dist/3-UsingAPIs/Week2",
     "start": "node ./.dist/test-runner/exercise-runner",
     "clean": "node ./.dist/test-runner/clean",
-    "hashes": "node ./.dist/test-runner/dump-hashes.js",
-    "test:weekly": "node ./.dist/test-runner/test-weekly",
+    "create-hashes": "node ./.dist/test-runner/create-hashes.js",
+    "test-changed": "node ./.dist/test-runner/test-changed",
     "postinstall": "tsc"
   },
   "repository": {

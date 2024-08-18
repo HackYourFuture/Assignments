@@ -29,7 +29,7 @@ type Hashes = {
   [module: string]: { [week: string]: { [exercise: string]: string } };
 };
 
-export function dumpExerciseHashes(menuData: MenuData): void {
+export function createExerciseHashes(menuData: MenuData): void {
   const hashes: Hashes = {};
   for (const module in menuData) {
     for (const week in menuData[module]) {
