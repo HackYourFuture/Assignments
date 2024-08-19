@@ -24,7 +24,7 @@ async function removeReportFolders(menuData: MenuData) {
 }
 
 try {
-  if (process.env.CLEANUP !== 'true') {
+  if (process.env.ENABLE_CLEANUP !== 'true') {
     process.exit(1);
   }
 
