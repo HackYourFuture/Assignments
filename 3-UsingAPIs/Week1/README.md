@@ -11,7 +11,7 @@ The assignment for this week can be found in the `assignment` folder.
 Take a look at the following function (and try it out in your console):
 
 ```js
-const getAnonName = (firstName, callback) => {
+export const getAnonName = (firstName, callback) => {
   setTimeout(() => {
     if (!firstName) {
       callback(new Error("You didn't pass in a first name!"));
@@ -24,7 +24,9 @@ const getAnonName = (firstName, callback) => {
   }, 1000);
 };
 
-getAnonName('John', console.log);
+function main() {
+  getAnonName('John', console.log);
+}
 ```
 
 Rewrite this function, but replace the callback syntax with the Promise syntax:
@@ -55,7 +57,7 @@ This exercise is about throwing a die. A die in this exercise may roll up to 10 
 The existing `rollDie()` function in the exercise file uses a callback to notify the caller of success or failure. Here is the code:
 
 ```js
-function rollDie(callback) {
+export function rollDie(callback) {
   // Compute a random number of rolls (3-10) that the die MUST complete
   const randomRollsToDo = Math.floor(Math.random() * 8) + 3;
   console.log(`Die scheduled for ${randomRollsToDo} rolls...`);
