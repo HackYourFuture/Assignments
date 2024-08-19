@@ -1,5 +1,6 @@
+import 'dotenv/config.js';
+
 import chalk from 'chalk';
-import fs from 'node:fs';
 import path from 'node:path';
 import { rimrafSync } from 'rimraf';
 import { fileURLToPath } from 'url';
@@ -8,7 +9,7 @@ import ExerciseMenu, { MenuData } from './ExerciseMenu.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-async function initializeReportFolders(menuData: MenuData) {
+async function removeReportFolders(menuData: MenuData) {
   for (const module of Object.keys(menuData)) {
     const weeks = Object.keys(menuData[module]);
 
@@ -17,31 +18,23 @@ async function initializeReportFolders(menuData: MenuData) {
         __dirname,
         `../../${module}/${week}/test-reports`
       );
-      if (!fs.existsSync(dirPath)) {
-        fs.mkdirSync(dirPath);
-        console.log(`Created 'test-reports' folder for ${module}/${week}`);
-      } else {
-        const globPath = path.join(dirPath, '/**/*').replace(/\\/g, '/');
-        rimrafSync(globPath, { glob: true });
-      }
-      const exercises = menuData[module][week];
-      for (const exercise of exercises) {
-        const reportPath = path.join(dirPath, `${exercise}.todo.txt`);
-        fs.writeFileSync(reportPath, 'This test has not been run.', 'utf8');
-      }
-      console.log(`Created 'todo' test reports for ${module}/${week}`);
+      rimrafSync(dirPath);
     }
   }
 }
 
 try {
+  if (process.env.CLEANUP !== 'true') {
+    process.exit(1);
+  }
+
   const { menuData } = new ExerciseMenu();
 
   console.log('Computing and saving exercise hashes...');
   createExerciseHashes(menuData);
 
-  console.log('Initializing report folders...');
-  await initializeReportFolders(menuData);
+  console.log('Clearing out report folders...');
+  await removeReportFolders(menuData);
 
   console.log('Cleaning up test-runner.log file...');
   rimrafSync(path.join(__dirname, '../../test-runner.log'));

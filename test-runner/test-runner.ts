@@ -33,6 +33,10 @@ async function writeReport(
     `../../${module}/${week}/test-reports`
   );
 
+  if (!fs.existsSync(reportDir)) {
+    fs.mkdirSync(reportDir);
+  }
+
   const todoFilePath = path.join(reportDir, `${exercise}.todo.txt`);
   await unlink(todoFilePath);
 

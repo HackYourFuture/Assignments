@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository includes infrastructure for the automatic checking (unit testing, linting and spell-checking) of homework exercises, for use by both students and homework reviewers. This document describes this infrastructure.
+This repository includes infrastructure for the automatic checking (unit testing, linting and spell-checking) of homework assignments, for use by both trainees and homework reviewers. This document describes this infrastructure.
 
 ## Running the tests
 
@@ -15,18 +15,25 @@ npm test
 A test is selected by going through a series of prompts, for instance:
 
 ```text
-? Which module? 1-Javascript
-? Which week? Week3
+? Which module? 1-JavaScript
+? Which week? Week2
 ? Which exercise? ex1-giveCompliment
-You have not yet worked on this exercise.
 Running test, please wait...
+ PASS  .dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js
+  js-wk2-ex1-giveCompliment
+    √ should exist and be executable (2 ms)
+    √ should have all TODO comments removed
+    √ `giveCompliment` should not contain unneeded console.log calls
+    √ should take a single parameter (1 ms)
+    √ should include a `compliments` array inside its function body
+    √ the `compliments` array should be initialized with 10 strings (1 ms)
+    √ should give a random compliment: You are `compliment`, `name`! (4 ms)
 
-*** Unit Test Error Report ***
-
-- giveCompliment should take a single parameter
-- giveCompliment should include a `compliments` array initialized with 10 strings
-  No such array found
-- giveCompliment should give a random compliment: You are `compliment`, `name`!
+Test Suites: 1 passed, 1 total
+Tests:       7 passed, 7 total
+Snapshots:   0 total
+Time:        0.882 s, estimated 1 s
+Ran all test suites matching /H:\\dev\\hackyourfuture\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
 
 No linting errors detected.
 No spelling errors detected.
@@ -34,9 +41,7 @@ No spelling errors detected.
 
 Analysis:
 
-- The starter code of the exercise has not yet been modified by the student as indicated by the message _You have not yet worked on this exercise_.
-
-- There were three failing unit tests.
+- All unit tests passed.
 
 - No linting warnings or errors were detected.
 
@@ -49,13 +54,11 @@ A report file containing these same messages is written to the corresponding `We
 <!-- prettier-ignore -->
 | Name | Status |
 | ---- | ------ |
-| `<exercise>.todo.txt` | The test for this exercise have not yet been executed or has been executed on an exercise that the student has not yet modified. |
 | `<exercise>.pass.txt` | All unit tests passed and no linting or spelling errors were detected. |
-| `<exercise>.fail.txt` | Unit test errors or ESLint or spelling errors were detected. |
+| `<exercise>.fail.txt` | Unit test errors and/or ESLint and/or spelling errors were detected. |
 
 For example:
 
-- `ex1-giveCompliment.todo.txt` _or_
 - `ex1-giveCompliment.pass.txt` _or_
 - `ex1-giveCompliment.fail.txt`
 
