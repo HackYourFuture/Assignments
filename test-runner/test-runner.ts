@@ -37,9 +37,6 @@ async function writeReport(
     fs.mkdirSync(reportDir);
   }
 
-  const todoFilePath = path.join(reportDir, `${exercise}.todo.txt`);
-  await unlink(todoFilePath);
-
   const passFilePath = path.join(reportDir, `${exercise}.pass.txt`);
   await unlink(passFilePath);
 
