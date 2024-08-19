@@ -102,17 +102,17 @@ const hourlyRate = 25;
 For this exercise you need to complete the provided `computeEarnings()` function. The provided unit tests give clues on what this function should do:
 
 1. It should take two parameters (the `tasks` object and the hourly `rate`).
-2. It should compute the earnings: a formatted Euro amount. The tests also gives away the expected answer: `'€187.50'`
+2. It should compute the earnings: a formatted Euro amount. The tests also gives away the expected answer (a string): `'€187.50'`.
 
 ```js
-describe('computeEarnings', () => {
-  test('should take two parameters', () => {
+describe('js-wk3-mondaysWorth', () => {
+  test('computeEarnings should take two parameters', () => {
     // The `.length` property indicates the number of parameters expected by
     // the function.
     expect(computeEarnings).toHaveLength(2);
   });
 
-  test('should compute the earnings as a formatted Euro amount', () => {
+  test('computeEarnings should compute the earnings as a formatted Euro amount', () => {
     const result = computeEarnings(mondayTasks, hourlyRate);
     const expected = '€187.50';
     expect(result).toBe(expected);
@@ -125,12 +125,12 @@ describe('computeEarnings', () => {
 1. Use the `npm test` command on the unmodified exercise and observe that both unit tests fail. (A green check mark indicates a _passed_ test, a red cross indicates a _failed_ test.)
 
    ```console
-   FAIL  1-JavaScript/Week4/assignment/ex2-mondaysWorth.test.js
-     computeEarnings
-       ✕ should take two parameters (3 ms)
-       ✕ should compute the earnings as a formatted Euro amount (1 ms)
+     FAIL  1-JavaScript/Week3/assignment/ex2-mondaysWorth.test.js
+     js-wk3-mondaysWorth
+       × computeEarnings should take two parameters (5 ms)
+       × computeEarnings should compute the earnings as a formatted Euro amount (1 ms)
 
-     ● computeEarnings › should take two parameters
+     ● js-wk3-mondaysWorth › computeEarnings should take two parameters
 
        expect(received).toHaveLength(expected)
 
@@ -138,21 +138,17 @@ describe('computeEarnings', () => {
        Received length:   0
        Received function: [Function computeEarnings]
 
-         (stack trace omitted for brevity)
-
-     ● computeEarnings › should compute the earnings as a formatted Euro amount
+     ● js-wk3-mondaysWorth › computeEarnings should compute the earnings as a formatted Euro amount
 
        expect(received).toBe(expected) // Object.is equality
 
        Expected: "€187.50"
        Received: undefined
 
-      // stack trace omitted for brevity
+     Test Suites: 1 failed, 1 total
+     Tests: 2 failed, 2 total
+     Snapshots: 0 total
 
-   Test Suites: 1 failed, 1 total
-   Tests:       2 failed, 2 total
-   Snapshots:   0 total
-   Time:        0.767 s, estimated 1 s
    ```
 
 2. Add the expected parameters to the function parameter list. Leave the function body unchanged for now.
@@ -160,24 +156,22 @@ describe('computeEarnings', () => {
 3. Run `npm test` again and observe that the first test now passes while the second one still fails.
 
    ```console
-   FAIL  1-JavaScript/Week4/assignment/ex2-mondaysWorth.test.js
-     computeEarnings
-       ✓ should take two parameters (2 ms)
-       ✕ should compute the earnings as a formatted Euro amount (1 ms)
+   FAIL  1-JavaScript/Week3/assignment/ex2-mondaysWorth.test.js
+     js-wk3-mondaysWorth
+       √ computeEarnings should take two parameters (3 ms)
+       × computeEarnings should compute the earnings as a formatted Euro amount (3 ms)
 
-     ● computeEarnings › should compute the earnings as a formatted Euro amount
+     ● js-wk3-mondaysWorth › computeEarnings should compute the earnings as a formatted Euro amount
 
        expect(received).toBe(expected) // Object.is equality
 
        Expected: "€187.50"
        Received: undefined
 
-       // stack trace omitted for brevity
-
    Test Suites: 1 failed, 1 total
    Tests:       1 failed, 1 passed, 2 total
    Snapshots:   0 total
-   Time:        0.79 s, estimated 1 s
+   Time:        1.003 s
    ```
 
 4. Complete the function body to return the computed earnings as a formatted Euro amount.
@@ -185,15 +179,15 @@ describe('computeEarnings', () => {
 5. Run `npm test` again and check whether the second unit test now passes. If not, fix the problem and try again.
 
    ```console
-   PASS  1-JavaScript/Week4/assignment/ex2-mondaysWorth.test.js
-     computeEarnings
-       ✓ should take two parameters (1 ms)
-       ✓ should compute the earnings as a formatted Euro amount (1 ms)
+    PASS  1-JavaScript/Week3/@assignment/ex2-mondaysWorth.test.js
+      computeEarnings
+        √ should take two parameters (2 ms)
+        √ should compute the earnings as a formatted Euro amount
 
-   Test Suites: 1 passed, 1 total
-   Tests:       2 passed, 2 total
-   Snapshots:   0 total
-   Time:        0.768 s, estimated 1 s
+    Test Suites: 1 passed, 1 total
+    Tests:       2 passed, 2 total
+    Snapshots:   0 total
+    Time:        0.829 s
    ```
 
 > The practice of first writing unit tests and then writing the code that must pass the tests is called [Test Driven Development](https://www.freecodecamp.org/news/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2/):
@@ -280,13 +274,13 @@ A software pattern that you may encounter in the future is a construct called th
 Consider the code below (from `ex4-observable.js`):
 
 ```js
-function createObservable() {
+export function createObservable() {
   const subscribers = [];
   return {
-    subscribe: function (subscriber) {
+    subscribe(subscriber) {
       // TODO complete this function
     },
-    notify: function (message) {
+    notify(message) {
       // TODO complete this function
     },
   };
@@ -298,7 +292,7 @@ The `createObservable()` function returns an object with two function properties
 The file `main.js`, listed below, demonstrates a minimal example use case of the `createObservable()` function.
 
 ```js
-const createObservable = require('./ex4-observable');
+import { createObservable } from './ex4-observable.js';
 
 // A candidate subscriber function
 function consoleUpperCase(message) {
@@ -322,7 +316,7 @@ observable.subscribe(consoleLowerCase);
 observable.notify("Let's see what happens here!");
 ```
 
-Because the `createObservable()` function resides in another file we first need to obtain a reference to it by calling the Node.js `require()` function and saving the reference to a `const` variable. (You will learn more about Node.js in the Node curriculum module. Note that the `ex4-observable.js` file "exports" the `createObserver` function.)
+Because the `createObservable()` function resides in another file we first need to obtain a reference to it by importing it from `.ex4-observable.js`.
 
 In `main.js`, we first create two example functions that log their argument to the console after modifying it (upper case, lower case).
 
@@ -330,12 +324,12 @@ Next, we call `createObservable()` to create an `observable` object.
 
 We then subscribe three functions to the `observable` object by passing these functions as arguments to the object's `.subscribe()` method. Note that one of these functions is the standard `console.log` which outputs its argument unmodified.
 
-Finally, we call the `.notify()` method on the `observable` object, passing a message (in this case a string) that we expect to be sent to all subscriber functions. Each of our example subscriber functions logs the message to the console in it own fashion (unmodified, in upper case, in lower case). In the _finished_ exercise the output should look like this (using `npm run it`).
+Finally, we call the `.notify()` method on the `observable` object, passing a message (in this case a string) that we expect to be sent to all subscriber functions. Each of our example subscriber functions logs the message to the console in it own fashion (unmodified, in upper case, in lower case). In the _finished_ exercise the output should look like this (using `npm start`).
 
-```console
-Let's see what happens here! (console.log subscriber)
-LET'S SEE WHAT HAPPENS HERE! (consoleUpperCase subscriber)
-let's see what happens here! (consoleLowerCase subscriber)
+```text
+Let's see what happens here!
+LET'S SEE WHAT HAPPENS HERE!
+let's see what happens here!
 ```
 
 > The main purpose of this exercise is to demonstrate an application of closures and higher order functions. But let's look a bit deeper at the Observer Pattern itself. The Observer Pattern allows "listeners" to dynamically (i.e., at runtime) subscribe to notifications of "publishers". It is said that the "listeners" are "loosely coupled" to the "publisher". This is different from hard-coding calls to specific listener functions inside the code of the "publisher"; this would be called "tightly coupled".
@@ -349,14 +343,14 @@ This time we have provided the unit tests in a separate file called `ex4-observa
 The first two unit tests in the file will pass already on the unmodified exercise (lucky you!).
 
 ```js
-const createObservable = require('./ex4-observable');
+import { createObservable } from './ex4-observable.js';
 
-describe('createObservable', () => {
-  test('should exist and be a function', () => {
+describe('js-wk3-ex4-observable', () => {
+  test('createObservable should exist and be a function', () => {
     expect(typeof createObservable).toBe('function');
   });
 
-  test('should return an object with `subscribe` and a `notify` function properties', () => {
+  test('createObservable should return an object with `subscribe` and a `notify` function properties', () => {
     const observable = createObservable();
     expect(typeof observable).toBe('object');
     expect(typeof observable.subscribe).toBe('function');
@@ -401,11 +395,11 @@ The `listener1` and `listener2` variables are each assigned a Jest "mock" functi
 
 Complete the `createObservable()` function as follows:
 
-- The `subscribe` function should take the function passed to it as an argument and push it onto the `subscribers` array. (Yes, you can store functions in an array. Functions are treated in JavaScript like any other value.)
+- The `subscribe` method should take the function passed to it as an argument and push it onto the `subscribers` array. (Yes, you can store functions in an array. Functions are treated in JavaScript like any other value.)
 
-- The `notify` function should iterate through, and call, all subscribers from the `subscribers` array, passing on the notification message to each subscriber.
+- The `notify` method should iterate through, and call, all subscribers from the `subscribers` array, passing on the notification message to each subscriber.
 
-To see your implementation in action, use `npm run it` to run exercise (the `main.js` file will be executed).
+To see your implementation in action, use `npm start` to run exercise (the `main.js` file will be executed).
 
 To test your implementation with the Jest unit tests, run `npm test`. This will run the tests in `ex4-observable.test.js`.
 
@@ -488,8 +482,8 @@ Since this is a browser-based exercise, the file `index.js` will be loaded via a
 
 Let's run the exercise using our convenience command `npm run it`:
 
-```console
-❯ npm run it
+```text
+❯ npm start
 
 > javascript@1.0.0 it C:\Users\jimcr\dev\hackyourfuture\assignments
 > node ./test-runner/run-it
@@ -507,7 +501,7 @@ This will run the exercise in the default browser (if your default browser is no
 
 Next, open the Developer Tools by pressing function key <kbd>F12</kbd> and examine the console output. It will look like this:
 
-```console
+```text
 Transferring € 50,00 from Jack to undefined
 Transferring € 25,00 from Jane to undefined
 Insufficient funds!
