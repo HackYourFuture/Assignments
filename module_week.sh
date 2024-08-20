@@ -14,8 +14,11 @@ fi
 
 echo "Running tests for $module_week..."
 
+# Unit tests for 1-JavaScript/Week3 are written by students in JavaScript.
+# In contrast, the remaining unit tests are written in TypeScript and transpiled 
+# to the .dist folder.
 if [ "$module_week" == "1-JavaScript/Week3" ]; then
-  npx jest "./1-JavaScript/Week3" --ci --reporters=jest-junit
+  npx jest "./$module_week" --ci --reporters=jest-junit
 else
   npx jest "./.dist/$module_week" --ci --reporters=jest-junit
 fi
