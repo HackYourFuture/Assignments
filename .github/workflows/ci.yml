@@ -9,8 +9,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        # Note that this version should stay the same as the version on Heroku!
 
     steps:
       - uses: actions/checkout@v4
