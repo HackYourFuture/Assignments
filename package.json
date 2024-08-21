@@ -40,6 +40,7 @@
   },
   "WARNING": "Do not update major versions of dependencies as they may break the test runner",
   "devDependencies": {
+    "@actions/core": "^1.10.1",
     "@babel/preset-env": "^7.25.3",
     "@eslint/js": "^9.9.0",
     "@html-validate/stylish": "^4.2.0",
