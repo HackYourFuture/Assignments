@@ -1,0 +1,15 @@
+name: 'CI'
+on:
+  pull_request:
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # checkout the repo
+      - run: npm ci # install packages
+      - run: ./module_week.sh # run tests (configured to use jest-junit reporter)
+      - uses: actions/upload-artifact@v4 # upload test results
+        if: success() || failure() # run this step even if previous step failed
+        with:
+          name: test-results
+          path: junit.xml
