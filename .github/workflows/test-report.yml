@@ -17,6 +17,7 @@ jobs:
         node-version: [20.x]
 
     steps:
+      - uses: haya14busa/action-workflow_run-status@v1
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
