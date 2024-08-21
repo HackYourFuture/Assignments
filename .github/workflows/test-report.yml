@@ -18,14 +18,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm ci
+      - uses: actions/download-artifact@v4
       - name: Display structure of downloaded files
-        run: ls -l
+        run: |
+          echo $GITHUB_WORKSPACE
+          ls -l $GITHUB_WORKSPACE
       - name: Create test summary
         run: node ./.dist/test-runner/action-summary.js
