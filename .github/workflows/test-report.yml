@@ -25,6 +25,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm ci # install packages
+      - run: npm install
       - name: Create test summary
         run: node ./.dist/test-runner/action-summary.js
