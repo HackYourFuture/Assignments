@@ -28,6 +28,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - name: Display structure of downloaded files
-        run: ls -R
+        run: ls -l
       - name: Create test summary
         run: node ./.dist/test-runner/action-summary.js
