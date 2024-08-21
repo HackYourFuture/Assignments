@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function main() {
-  const reportJsonFile = path.join(__dirname, '../../test-report.json');
+  const reportJsonFile = path.join(__dirname, '../../../test-report.json');
   const reportJson = fs.readFileSync(reportJsonFile, 'utf8');
   const data = JSON.parse(reportJson);
 
