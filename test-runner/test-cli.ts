@@ -7,7 +7,6 @@ import { fileURLToPath } from 'node:url';
 
 import { checkExerciseHashes } from './compliance-helpers.js';
 import ExerciseMenu from './ExerciseMenu.js';
-import logger from './logger.js';
 import { runTest } from './test-runner.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -70,12 +69,9 @@ async function main(): Promise<void> {
 
     if (report) {
       await showDisclaimer();
-    } else {
-      logger.info('All steps were completed successfully');
     }
   } catch (err: any) {
     const message = `Something went wrong: ${err.message}`;
-    logger.error(message);
     console.error(chalk.red(message));
   }
 }

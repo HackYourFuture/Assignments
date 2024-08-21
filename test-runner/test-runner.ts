@@ -9,7 +9,6 @@ import { promisify } from 'node:util';
 import stripAnsi from 'strip-ansi';
 
 import { buildExercisePath } from './ExerciseMenu.js';
-import logger from './logger.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
@@ -20,6 +19,62 @@ async function unlink(filePath: string): Promise<void> {
   } catch (_) {
     // ignore
   }
+}
+
+function writeTestResult(
+  module: string,
+  week: string,
+  exercise: string,
+  report: string
+) {
+  const reportFile = path.join(__dirname, `../../TEST_REPORT.md`);
+
+  let content = '';
+
+  if (fs.existsSync(reportFile)) {
+    content = fs.readFileSync(reportFile, 'utf8');
+  }
+
+  const sections: Map<string, string[]> = new Map();
+
+  let sectionHeader = '';
+
+  for (const line of content.split('\n')) {
+    if (line.startsWith('## ')) {
+      sectionHeader = line.slice(3).trim();
+      sections.set(sectionHeader, []);
+      continue;
+    }
+
+    if (sectionHeader) {
+      sections.get(sectionHeader)?.push(line);
+    }
+  }
+
+  // Add/replace section for current test result
+
+  sectionHeader = `${module} - ${week} - ${exercise}`;
+  sections.delete(sectionHeader);
+  let sectionContent =
+    '\n### Test date: ' + new Date().toLocaleDateString() + '\n';
+  sectionContent += '\n```text\n';
+  sectionContent += report || '√ All tests passed';
+  if (!report.endsWith('\n')) {
+    sectionContent += '\n';
+  }
+  sectionContent += '```\n';
+  sections.set(sectionHeader, sectionContent.split('\n'));
+
+  const sectionHeaders = Array.from(sections.keys()).sort();
+
+  let newContent = '';
+  for (const sectionHeader of sectionHeaders) {
+    newContent += `## ${sectionHeader}\n`;
+    newContent += sections.get(sectionHeader)?.join('\n');
+    newContent += '\n';
+  }
+
+  fs.writeFileSync(reportFile, newContent.trim() + '\n');
 }
 
 async function writeReport(
@@ -122,7 +177,6 @@ async function execJest(
   if (!unitTestPath) {
     message = 'A unit test file was not provided for this exercise.';
     console.log(chalk.yellow(message));
-    logger.warn(message);
     return '';
   }
 
@@ -137,9 +191,6 @@ async function execJest(
       },
     });
 
-    message = 'All unit tests passed.';
-    logger.info(message);
-
     console.log(stderr);
     return '';
   } catch (err: any) {
@@ -150,7 +201,6 @@ async function execJest(
 
     message = stripAnsi(`${title}\n\n${output}`);
 
-    logger.error(message);
     return message;
   }
 }
@@ -178,9 +228,8 @@ async function execESLint(exercisePath: string): Promise<string> {
     const title = '*** ESLint Report ***';
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(output));
-    const message = `${title}\n${output}`;
-    logger.error(message);
-    return '\n' + message;
+    const message = `\n${title}\n${output}`;
+    return message;
   }
 
   console.log(chalk.green('No linting errors detected.'));
@@ -204,9 +253,8 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
     const title = '*** Spell Checker Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
-    const message = `${title}\n\n${output}`;
-    logger.error(message);
-    return '\n' + message;
+    const message = `\n${title}\n\n${output}`;
+    return message;
   }
 }
 
@@ -228,7 +276,9 @@ export async function runTest(
   report += await execESLint(exercisePath);
   report += await execSpellChecker(exercisePath);
 
-  await writeReport(module, week, exercise, report);
+  // await writeReport(module, week, exercise, report);
+
+  writeTestResult(module, week, exercise, report);
 
   return report;
 }

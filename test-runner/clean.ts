@@ -33,14 +33,17 @@ try {
   console.log('Computing and saving exercise hashes...');
   createExerciseHashes(menuData);
 
-  console.log('Clearing out report folders...');
-  await removeReportFolders(menuData);
+  // console.log('Clearing out report folders...');
+  // await removeReportFolders(menuData);
 
-  console.log('Cleaning up test-runner.log file...');
-  rimrafSync(path.join(__dirname, '../../test-runner.log'));
+  // console.log('Cleaning up test-runner.log file...');
+  // rimrafSync(path.join(__dirname, '../../test-runner.log'));
 
-  console.log('Cleaning up junit.xml...');
-  rimrafSync(path.join(__dirname, '../../junit.xml'));
+  // console.log('Cleaning up junit.xml...');
+  // rimrafSync(path.join(__dirname, '../../junit.xml'));
+
+  console.log('Cleaning up TEST_REPORT.md...');
+  rimrafSync(path.join(__dirname, '../../TEST_REPORT.md'));
 } catch (err: any) {
   console.error(chalk.red(`Something went wrong: ${err.message}`));
   throw err;
