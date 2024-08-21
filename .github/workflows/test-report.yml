@@ -20,11 +20,12 @@ jobs:
       - uses: actions/download-artifact@v4
         # with:
         #   name: test-report
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm install
+      - run: npm ci
       - name: Create test summary
         run: node ./.dist/test-runner/action-summary.js
