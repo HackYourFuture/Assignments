@@ -20,4 +20,5 @@ jobs:
       - run: npm ci # install packages
       - run: ./test-action.sh # run tests (configured to use jest-junit reporter)
       - name: Adding markdown
+        if: success() || failure()
         run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
