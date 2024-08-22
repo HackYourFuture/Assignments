@@ -58,7 +58,6 @@
     "cspell": "^8.13.2",
     "dotenv": "^16.4.5",
     "eslint": "^9.9.0",
-    "eslint-plugin-hyf": "git://github.com/remarcmij/eslint-plugin-hyf.git",
     "eslint-plugin-no-autofix": "^2.0.0",
     "fast-glob": "^3.3.2",
     "glob": "^11.0.0",

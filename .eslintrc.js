@@ -6,13 +6,10 @@ module.exports = {
     node: true,
     jest: true,
   },
-  plugins: ['hyf', 'no-autofix'],
+  plugins: ['no-autofix'],
   extends: ['eslint:recommended'],
   parserOptions: {
     ecmaVersion: 2020,
-  },
-  globals: {
-    axios: 'readonly',
   },
   rules: {
     'no-console': 'off',
@@ -44,8 +41,8 @@ module.exports = {
         message: 'Avoid `for in` loops. Prefer `Object.keys()` instead.',
       },
     ],
-    'hyf/use-map-result': 'error',
-    'hyf/camelcase': 'warn',
-    'hyf/no-commented-out-code': 'warn',
+    // 'hyf/use-map-result': 'error',
+    // 'hyf/camelcase': 'warn',
+    // 'hyf/no-commented-out-code': 'warn',
   },
 };
