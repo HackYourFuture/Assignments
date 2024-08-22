@@ -313,34 +313,17 @@ No linting errors detected.
 No spelling errors detected.
 ```
 
-### Test Report Files
+### Test Report
 
-When you run a test the results are reported to the console, but also written to a report file in the `test-reports` folder. The name of the report indicates whether the test was successful or not, as shown in Table 1 below.
+When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.md`, in the root folder.
 
-<!-- prettier-ignore -->
-| Name | Status |
-| ---- | ------ |
-| `<exercise>.pass.txt` | All unit tests passed and no linting or spelling errors were detected. |
-| `<exercise>.fail.txt` | Unit test errors or ESLint or spelling errors were detected. |
-
-Table 1. Test report types
-
-For example:
-
-- `ex1-giveCompliment.pass.txt` _or_
-- `ex1-giveCompliment.fail.txt`
-
-You should onclude the report files in the pull request that you will make to submit your assignments. They enable reviewers to get a quick overview of your progress.
-
-In addition, a log of the test results is written to a log file in the root directory of the repository. The name of that file is **test-runner.log**.
+You should include the test report file in the pull request that you will make to submit your assignments. This will enable reviewers to get a quick overview of your progress, without the need to run the tests again themselves.
 
 > **IMPORTANT: You are expected to run all the tests for the current week before submitting a pull request.**
 >
 > You should strive to complete all tests with no errors reported, however it is okay if for some reason you were unable to fix some error and need your mentor to help during review. Nevertheless, you _**are**_ required to run the tests, whether successful or not.
->
-> The test reports should be included in your Pull Request (for the benefit of the assignment reviewer).
 
-## assignment Exercise Instructions
+## Assignment Exercise Instructions
 
 ### JavaScript Module
 
@@ -357,6 +340,10 @@ In addition, a log of the test results is written to a log file in the root dire
 - [Week 2](/3-UsingAPIs/Week2/README.md)
 
 ## Information for mentors
+
+More information about the review process:
+
+- [Review Guide](https://github.com/HackYourFuture/mentors/blob/main/assignment-support/review-guide.md)
 
 Here you will find some documentation how to write exercises and unit tests.
 

@@ -39,28 +39,13 @@ No linting errors detected.
 No spelling errors detected.
 ```
 
-### Report files
+### Report file
 
-A report file containing these same messages is written to the corresponding `Week` folder that contains the exercise, in this example that would be the `1-JavaScript/Week3/test-reports` folder. The name of the report file starts with the name of the exercise followed by a suffix that indicates the status of the test:
+When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.md`, in the root folder.
 
-<!-- prettier-ignore -->
-| Name | Status |
-| ---- | ------ |
-| `<exercise>.pass.txt` | All unit tests passed and no linting or spelling errors were detected. |
-| `<exercise>.fail.txt` | Unit test, ESLint and/or spelling errors were detected. |
+A report file named `TEST_REPORT.md` is generated to which test result are written for each test run. Trainees are expected to include this file in their pull request for the benefit of the assignment reviewer.
 
-For example:
-
-- `ex1-giveCompliment.pass.txt` _or_
-- `ex1-giveCompliment.fail.txt`
-
-These files are mutually exclusive. After running a test an existing previous report file for that test is erased before a new one is created.
-
-Trainees are expected to run the relevant tests and include the generated test reports in the pull request for the current week. Running a test gives them early feedback on the correctness of the expected results and on conformance to the mandated coding style (as per ESLint). This provides them an early opportunity for corrective action. Once submitted as part of a PR, the report files give pull request reviewers some key indicators into the correctness of the homework while doing a more elaborate visual inspection of the actual code.
-
-### Test log file
-
-Test results along with other events are also logged (i.e. appended) in a `test-runner.log` file in the root of the project folder. This log file is tracked in Git and can be used by students and mentors to review the testing history.
+Trainees are expected to run the relevant tests. Running a test gives them early feedback on the correctness of the expected results and on conformance to the mandated coding style (as per ESLint). This provides them an early opportunity for corrective action. Once submitted as part of a PR, the report files give pull request reviewers some key indicators into the correctness of the homework while doing a more elaborate visual inspection of the actual code.
 
 ## Directory Structure
 
@@ -69,9 +54,8 @@ The test runner relies on strict adherence to a predefined naming convention and
 <!-- prettier-ignore -->
 | Folder | Description |
 | ------ | ----------- |
-| `<module>/Week𝑛/assisgment` | Example: `1-JavaScript/Week3/assignment`<br><br>The JavaScript file representing the exercise must named `<exercise-name>.js` and placed in this folder. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then these files must be placed in a _folder_ named `<exercise-name>`. In this case, the main JavaScript file must be called `index.js`.<br><br>There can be multiple exercises per _Week𝑛_ folder. |
+| `<module>/Week𝑛/assignment` | Example: `1-JavaScript/Week3/assignment`<br><br>The JavaScript file representing the exercise must named `<exercise-name>.js` and placed in this folder. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then these files must be placed in a _folder_ named `<exercise-name>`. In this case, the main JavaScript file must be called `index.js`.<br><br>There can be multiple exercises per _Week𝑛_ folder. |
 | `<module>/Week𝑛/unit-tests` | This folder contains the unit test (JavaScript or TypeScript) files. The JavaScript/TypeScript file containing the unit test(s) for an exercise must named `<exercise-name>.test.[jt]s`. Unit test files are optional. If not provided, the unit test step of the test runner is skipped.<br><br>Note that TypeScript unit tests are transpiled to JavaScript to a `.dist` folder in the project root, using an `npm postinstall` script. |
-| `<module>/Week𝑛/test-reports` | This folder will hold the test reports. It is dynamically created on first need. |
 | `<module>/Week𝑛/@assignment` | This folder (notice the leading `@`-sign in the name) is only used during development and maintenance of this repo. Working solutions to exercises can be placed in this folder to test the "happy" path of the unit tests. An `@assignment` folder is used in place of a regular `assignment` folder when a unit test is run with the command: `npm run testalt`.<br><br>Notes:<br><br>1. `@assignment` folders should not be committed and are therefore included in `.gitignore`.<br>2. To test the exercises from the `@assignment` folder, set the `ASSIGNMENT_FOLDER` environment variable to `@assignment`. (See `.env-example`.) |
 
 ## Linting
