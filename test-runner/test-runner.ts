@@ -203,7 +203,11 @@ async function execJest(
     console.log(stderr);
     return '';
   } catch (err: any) {
-    const output = `${err.stdout}\n\n${err.message}`.trim();
+    const output = `${err.stdout}\n\n${err.message}`
+      .trim()
+      .replaceAll('√', '✅')
+      .replaceAll('×', '❌');
+
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(output);
