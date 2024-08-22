@@ -70,7 +70,11 @@ function writeTestResult(
   let newContent = '';
   for (const sectionHeader of sectionHeaders) {
     newContent += `## ${sectionHeader}\n`;
-    newContent += sections.get(sectionHeader)?.join('\n');
+    newContent += sections
+      .get(sectionHeader)
+      ?.join('\n')
+      .replaceAll('√', '✅')
+      .replaceAll('×', '❌');
     newContent += '\n';
   }
 
