@@ -13,6 +13,9 @@ import { buildExercisePath } from './ExerciseMenu.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
 
+const REVIEW_GUIDE_URL =
+  'https://github.com/HackYourFuture/mentors/blob/main/assignment-support/review-guide.md';
+
 async function unlink(filePath: string): Promise<void> {
   try {
     await fs.promises.unlink(filePath);
@@ -68,6 +71,8 @@ function writeTestResult(
   const sectionHeaders = Array.from(sections.keys()).sort();
 
   let newContent = '# Test Report\n\n';
+  newContent += `Mentors: This report is generated automatically by the test runner. For more information on how to review the test results, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
+
   for (const sectionHeader of sectionHeaders) {
     newContent += `## ${sectionHeader}\n`;
     newContent += sections
