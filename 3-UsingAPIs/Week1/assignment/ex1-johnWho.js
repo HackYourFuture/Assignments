@@ -7,7 +7,7 @@ Rewrite this function, but replace the callback syntax with the Promise syntax:
 - If the Promise `rejects`, pass an error as the argument to reject with: "You 
   didn't pass in a first name!"
 ------------------------------------------------------------------------------*/
-// TODO see abovex
+// TODO see above
 export const getAnonName = (firstName, callback) => {
   setTimeout(() => {
     if (!firstName) {
