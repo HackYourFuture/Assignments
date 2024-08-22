@@ -67,7 +67,7 @@ function writeTestResult(
 
   const sectionHeaders = Array.from(sections.keys()).sort();
 
-  let newContent = '';
+  let newContent = '# Test Report\n\n';
   for (const sectionHeader of sectionHeaders) {
     newContent += `## ${sectionHeader}\n`;
     newContent += sections
