@@ -19,8 +19,5 @@ jobs:
           cache: 'npm'
       - run: npm ci # install packages
       - run: ./test-action.sh # run tests (configured to use jest-junit reporter)
-      - uses: actions/upload-artifact@v4 # upload test results
-        if: success() || failure() # run this step even if previous step failed
-        with:
-          name: test-report
-          path: test-report.json
+      - name: Adding markdown
+        run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
