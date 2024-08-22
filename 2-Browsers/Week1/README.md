@@ -52,7 +52,7 @@ The end result should look something like [this](https://hackyourfuture.github.i
 Given this HTML:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -104,7 +104,7 @@ Why wear a watch when you can check the time, live in your webpage?
 Start with this webpage, which has a single img tag of an animated GIF of a cat walking.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
