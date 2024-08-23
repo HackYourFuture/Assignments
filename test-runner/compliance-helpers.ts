@@ -96,9 +96,9 @@ https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide
 
 Examples:
 
-- JohnDoe-w1-JavaScript
-- JaneDoe-w2-Browsers
-- JohnSmith-w3-UsingAPIs
+- JohnDoe-w2-JavaScript
+- JaneDoe-w1-Browsers
+- JohnSmith-w1-UsingAPIs
 `;
 
 const BRANCH_NAME_PATTERN = /-[wW]\d-(?:JavaScript|Browsers|UsingAPIs)$/;
