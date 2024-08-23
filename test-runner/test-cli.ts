@@ -5,7 +5,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { checkExerciseHashes } from './compliance-helpers.js';
+import {
+  checkExerciseHashes,
+  isValidBranchName,
+} from './compliance-helpers.js';
 import ExerciseMenu from './ExerciseMenu.js';
 import { runTest } from './test-runner.js';
 
@@ -43,6 +46,10 @@ async function main(): Promise<void> {
         `Your version: ${majorVersion}. Please upgrade your version of Node.`
       )
     );
+    process.exit(1);
+  }
+
+  if (!(await isValidBranchName())) {
     process.exit(1);
   }
 

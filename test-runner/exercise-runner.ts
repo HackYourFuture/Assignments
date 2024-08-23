@@ -6,7 +6,10 @@ import path from 'path';
 import handler from 'serve-handler';
 
 import ExerciseMenu from './ExerciseMenu.js';
-import { checkExerciseHashes } from './compliance-helpers.js';
+import {
+  checkExerciseHashes,
+  isValidBranchName,
+} from './compliance-helpers.js';
 
 const PORT = 3030;
 
@@ -80,6 +83,10 @@ async function runExercise(exercisePath: string) {
 async function main() {
   try {
     const homeworkFolder = process.argv[2] ?? 'assignment';
+
+    if (!(await isValidBranchName())) {
+      process.exit(1);
+    }
 
     const menu = new ExerciseMenu(homeworkFolder);
 

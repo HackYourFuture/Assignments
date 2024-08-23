@@ -1,11 +1,15 @@
 import chalk from 'chalk';
 import fg from 'fast-glob';
+import { exec } from 'node:child_process';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { promisify } from 'node:util';
 
 import { MenuData } from './ExerciseMenu.js';
+
+const execAsync = promisify(exec);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -75,6 +79,45 @@ export function diffExerciseHashes(menuData: MenuData): Hashes {
   }
 
   return diff;
+}
+
+const MAIN_BRANCH_MESSAGE = `
+You are currently on the *main* branch. Please create a new branch for each week as instructed
+in the link below:
+
+https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md
+`;
+
+const BRANCH_NAME_MESSAGE = `
+Your branch name does not match the expected pattern. Please rename your branch to match the
+pattern as described in the link below:
+
+https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md
+
+Examples:
+
+- JohnDoe-w1-JavaScript
+- JaneDoe-w2-Browsers
+- JohnSmith-w3-UsingAPIs
+`;
+
+const BRANCH_NAME_PATTERN = /-w[1-3]-{JavaScript|Browsers|UsingAPIs}$/;
+
+export async function isValidBranchName(): Promise<boolean> {
+  const { stdout } = await execAsync('git branch --show-current');
+  const branchName = stdout.trim();
+
+  if (branchName === 'main') {
+    console.log(chalk.red(MAIN_BRANCH_MESSAGE));
+    return false;
+  }
+
+  if (!BRANCH_NAME_PATTERN.test(branchName)) {
+    console.log(chalk.red(BRANCH_NAME_MESSAGE));
+    return false;
+  }
+
+  return true;
 }
 
 type CheckOptions = { silent: boolean };
