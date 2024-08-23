@@ -1,6 +1,6 @@
 {
   "name": "assignments",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "> If you are following the HackYourFuture curriculum we recommend you to start with module 1: [HTML/CSS/GIT](https://github.com/HackYourFuture/HTML-CSS). To get a complete overview of the HackYourFuture curriculum first, click [here](https://github.com/HackYourFuture/curriculum).",
   "main": "index.js",
   "type": "module",
