@@ -71,7 +71,7 @@ function writeTestResult(
   const sectionHeaders = Array.from(sections.keys()).sort();
 
   let newContent = '# Test Report\n\n';
-  newContent += `Mentors: This report is generated automatically by the test runner. For more information on how to review the test results, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
+  newContent += `Mentors: This report is generated automatically by the test runner. For more information on how to review homework assignments, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
 
   for (const sectionHeader of sectionHeaders) {
     newContent += `## ${sectionHeader}\n`;
