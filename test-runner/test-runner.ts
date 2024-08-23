@@ -78,8 +78,8 @@ function writeTestResult(
     newContent += sections
       .get(sectionHeader)
       ?.join('\n')
-      .replaceAll('√', '✅')
-      .replaceAll('×', '❌');
+      .replaceAll(/[√✓]/g, '✅')
+      .replaceAll(/[×✕]/g, '❌');
     newContent += '\n';
   }
 
@@ -205,8 +205,8 @@ async function execJest(
   } catch (err: any) {
     const output = `${err.stdout}\n\n${err.message}`
       .trim()
-      .replaceAll('√', '✅')
-      .replaceAll('×', '❌');
+      .replaceAll(/[√✓]/g, '✅')
+      .replaceAll(/[×✕]/g, '❌');
 
     const title = '*** Unit Test Error Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
