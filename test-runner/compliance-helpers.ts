@@ -101,7 +101,7 @@ Examples:
 - JohnSmith-w1-UsingAPIs
 `;
 
-const BRANCH_NAME_PATTERN = /-[wW]\d-(?:JavaScript|Browsers|UsingAPIs)$/;
+const BRANCH_NAME_PATTERN = /-[w]\d-(?:JavaScript|Browsers|UsingAPIs)$/i;
 
 export async function isValidBranchName(): Promise<boolean> {
   const { stdout } = await execAsync('git branch --show-current');
