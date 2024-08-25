@@ -16,7 +16,8 @@
     "clean": "node ./.dist/test-runner/clean",
     "create-hashes": "node ./.dist/test-runner/create-hashes.js",
     "test-changed": "node ./.dist/test-runner/test-changed",
-    "postinstall": "tsc --build"
+    "postinstall": "tsc --build",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -60,6 +61,7 @@
     "glob": "^11.0.0",
     "globals": "^15.9.0",
     "html-validate": "^8.21.0",
+    "husky": "^9.1.5",
     "jest": "^29.7.0",
     "jest-junit": "^16.0.0",
     "jsdom": "^24.1.1",

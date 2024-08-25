@@ -49,14 +49,14 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  if (!(await isValidBranchName())) {
-    process.exit(1);
-  }
-
   try {
     const assignmentFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
 
     const menu = new ExerciseMenu(assignmentFolder);
+
+    if (!(await isValidBranchName(menu))) {
+      process.exit(1);
+    }
 
     const moduleWeek = checkExerciseHashes(menu.menuData);
     if (moduleWeek === 'multiple') {
@@ -78,8 +78,12 @@ async function main(): Promise<void> {
       await showDisclaimer();
     }
   } catch (err: any) {
-    const message = `Something went wrong: ${err.message}`;
-    console.error(chalk.red(message));
+    if (err.message.startsWith('User force closed')) {
+      console.log(chalk.red('Test run aborted.'));
+    } else {
+      const message = `Something went wrong: ${err.message}`;
+      console.error(chalk.red(message));
+    }
   }
 }
 

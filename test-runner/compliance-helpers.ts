@@ -1,3 +1,5 @@
+import 'dotenv/config.js';
+
 import chalk from 'chalk';
 import fg from 'fast-glob';
 import { exec } from 'node:child_process';
@@ -7,7 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
-import { MenuData } from './ExerciseMenu.js';
+import ExerciseMenu, { MenuData } from './ExerciseMenu.js';
 
 const execAsync = promisify(exec);
 
@@ -82,15 +84,18 @@ export function diffExerciseHashes(menuData: MenuData): Hashes {
 }
 
 const MAIN_BRANCH_MESSAGE = `
-You are currently on the *main* branch. Please create a new branch for each week as instructed
+You are currently on the *main* branch. You should not be working directly on the main branch.
+
+Please create a new branch for each week as instructed
 in the link below:
 
 https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md
 `;
 
 const BRANCH_NAME_MESSAGE = `
-Your branch name does not match the expected pattern. Please rename your branch to match the
-pattern as described in the link below:
+Your branch name does conform to the expected pattern <your-name>-w<week>-<module>, e.g. JohnDoe-w2-JavaScript.
+
+Please rename your branch to match the pattern as described in the link below:
 
 https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md
 
@@ -101,9 +106,19 @@ Examples:
 - JohnSmith-w1-UsingAPIs
 `;
 
-const BRANCH_NAME_PATTERN = /-[w]\d-(?:JavaScript|Browsers|UsingAPIs)$/i;
+export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
+  if (process.env.BRANCH_NAME_CHECK !== 'true') {
+    return true;
+  }
 
-export async function isValidBranchName(): Promise<boolean> {
+  const modulesNames = Object.keys(menu.menuData).map((name) =>
+    name.replace(/\d-/, '')
+  );
+  const branchNamePattern = new RegExp(
+    String.raw`-w\d-(?:${modulesNames.join('|')})$`,
+    'i'
+  );
+
   const { stdout } = await execAsync('git branch --show-current');
   const branchName = stdout.trim();
 
@@ -112,7 +127,7 @@ export async function isValidBranchName(): Promise<boolean> {
     return false;
   }
 
-  if (!BRANCH_NAME_PATTERN.test(branchName)) {
+  if (!branchNamePattern.test(branchName)) {
     console.log(chalk.red(BRANCH_NAME_MESSAGE));
     return false;
   }

@@ -84,11 +84,11 @@ async function main() {
   try {
     const homeworkFolder = process.argv[2] ?? 'assignment';
 
-    if (!(await isValidBranchName())) {
+    const menu = new ExerciseMenu(homeworkFolder);
+
+    if (!(await isValidBranchName(menu))) {
       process.exit(1);
     }
-
-    const menu = new ExerciseMenu(homeworkFolder);
 
     const moduleWeek = checkExerciseHashes(menu.menuData);
     if (moduleWeek === 'none' || moduleWeek === 'multiple') {

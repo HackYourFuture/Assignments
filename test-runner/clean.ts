@@ -24,7 +24,7 @@ async function removeReportFolders(menuData: MenuData) {
 }
 
 try {
-  if (process.env.ENABLE_CLEAN !== 'true') {
+  if (process.env.ENABLE_CLEAN === 'true') {
     console.log(
       chalk.yellow(
         'This script is meant to be run in a development environment. If you are sure you want to run it locally, set ENABLE_CLEAN=true in your .env file.'
