@@ -100,7 +100,7 @@ https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide
 `;
 
 export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
-  if (process.env.BRANCH_NAME_CHECK !== 'true') {
+  if (process.env.BRANCH_CHECKS === '0') {
     return true;
   }
 
