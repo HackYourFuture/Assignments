@@ -16,7 +16,7 @@
     "clean": "node ./.dist/test-runner/clean",
     "create-hashes": "node ./.dist/test-runner/create-hashes.js",
     "test-changed": "node ./.dist/test-runner/test-changed",
-    "prepare": "tsc --build"
+    "postinstall": "tsc --build"
   },
   "repository": {
     "type": "git",
