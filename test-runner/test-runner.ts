@@ -200,7 +200,7 @@ async function execJest(
       },
     });
 
-    console.log(stderr);
+    console.log(stderr.replaceAll(/[√✓]/g, '✅'));
     return '';
   } catch (err: any) {
     const output = `${err.stdout}\n\n${err.message}`
