@@ -18,7 +18,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const COMPUTED_HASHES_JSON_PATH = path.join(__dirname, '../../.hashes.json');
 
 function computeHash(exercisePath: string): string {
-  const md5sum = crypto.createHash('sha256');
+  const sha256sum = crypto.createHash('sha256');
   const fileSpec = fs.existsSync(exercisePath) ? '/**/*.js' : '.js';
   const globSpec = path
     .join(__dirname, `../../${exercisePath}${fileSpec}`)
@@ -26,9 +26,9 @@ function computeHash(exercisePath: string): string {
   const filePaths = fg.sync(globSpec);
   for (const filePath of filePaths) {
     const content = fs.readFileSync(filePath, 'utf8');
-    md5sum.update(content);
+    sha256sum.update(content);
   }
-  return md5sum.digest('hex');
+  return sha256sum.digest('hex');
 }
 
 type Hashes = {
