@@ -84,26 +84,19 @@ export function diffExerciseHashes(menuData: MenuData): Hashes {
 }
 
 const MAIN_BRANCH_MESSAGE = `
-You are currently on the *main* branch. You should not be working directly on the main branch.
+You are currently on the *main* branch. In this Assignments repository you should not be working directly on the main branch.
 
-Please create a new branch for each week as instructed
-in the link below:
+Please create a new branch for each week (e.g. JohnDoe-w2-JavaScript) as instructed in the link below:
 
 https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md
 `;
 
 const BRANCH_NAME_MESSAGE = `
-Your branch name does conform to the expected pattern <your-name>-w<week>-<module>, e.g. JohnDoe-w2-JavaScript.
+Your branch name does conform to the mandated pattern <your-name>-w<week>-<module>, e.g. JohnDoe-w2-JavaScript.
 
 Please rename your branch to match the pattern as described in the link below:
 
 https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md
-
-Examples:
-
-- JohnDoe-w2-JavaScript
-- JaneDoe-w1-Browsers
-- JohnSmith-w1-UsingAPIs
 `;
 
 export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
