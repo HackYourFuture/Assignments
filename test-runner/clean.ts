@@ -27,11 +27,11 @@ try {
   console.log('Cleaning up junit.xml...');
   rimrafSync(path.join(__dirname, '../../junit.xml'));
 
-  console.log('Cleaning up test reports..');
-  rimrafSync(path.join(__dirname, '../../TEST_REPORT.md'));
-  rimrafSync(path.join(__dirname, '../../test-report.{md,json}'), {
-    glob: true,
-  });
+  console.log('Cleaning up test results...');
+  rimrafSync(path.join(__dirname, '../../0-test-results'));
+  // , {
+  //   glob: true,
+  // });
 } catch (err: any) {
   console.error(chalk.red(`Something went wrong: ${err.message}`));
   throw err;

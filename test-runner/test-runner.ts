@@ -30,7 +30,12 @@ function writeTestResult(
   exercise: string,
   report: string
 ) {
-  const reportFile = path.join(__dirname, `../../TEST_REPORT.md`);
+  const reportFolder = path.join(__dirname, '../../0-test-results');
+  if (!fs.existsSync(reportFolder)) {
+    fs.mkdirSync(reportFolder);
+  }
+
+  const reportFile = path.join(reportFolder, 'TEST_REPORT.md');
 
   let content = '';
 
@@ -71,7 +76,7 @@ function writeTestResult(
   const sectionHeaders = Array.from(sections.keys()).sort();
 
   let newContent = '# Test Report\n\n';
-  newContent += `Mentors: This report is generated automatically by the test runner. For more information on how to review homework assignments, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
+  newContent += `**Mentors**: This report is generated automatically by the test runner. For more information on how to review homework assignments, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
 
   for (const sectionHeader of sectionHeaders) {
     newContent += `## ${sectionHeader}\n`;

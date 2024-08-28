@@ -328,7 +328,7 @@ No spelling errors detected.
 
 ### Test Report
 
-When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.md`, in the root folder.
+When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.md`, in the `0-test-results` folder.
 
 You should include the test report file in the pull request that you will make to submit your assignments. This will enable reviewers to get a quick overview of your progress, without the need to run the tests again themselves.
 
