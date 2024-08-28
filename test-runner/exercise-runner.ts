@@ -100,8 +100,12 @@ async function main() {
     console.log('Running exercise, please wait...');
     await runExercise(exercisePath);
   } catch (err: any) {
-    const message = `Something went wrong: ${err.message}`;
-    console.error(chalk.red(message));
+    if (err.name === 'ExitPromptError') {
+      console.log(chalk.red('Exercise run aborted.'));
+    } else {
+      const message = `Something went wrong: ${err.message}`;
+      console.error(chalk.red(message));
+    }
   }
 }
 

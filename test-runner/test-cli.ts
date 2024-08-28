@@ -78,7 +78,7 @@ async function main(): Promise<void> {
       await showDisclaimer();
     }
   } catch (err: any) {
-    if (err.message.startsWith('User force closed')) {
+    if (err.name === 'ExitPromptError') {
       console.log(chalk.red('Test run aborted.'));
     } else {
       const message = `Something went wrong: ${err.message}`;
