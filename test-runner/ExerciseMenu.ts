@@ -4,10 +4,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getUntestedExercises } from './compliance.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export type MenuData = { [module: string]: { [week: string]: string[] } };
+type ExercisePathOptions = { isTest: boolean };
 
 export function buildExercisePath(
   module: string,
@@ -79,16 +81,40 @@ export default class ExerciseMenu {
     });
   }
 
-  async getExercisePath() {
-    let useRecent = false;
-    if (this.module && this.week && this.exercise) {
-      useRecent = await confirm({
-        message: `Rerun last test (${this.module}, ${this.week}, ${this.exercise})?`,
+  async getExercisePath(
+    options: ExercisePathOptions = { isTest: true }
+  ): Promise<string> {
+    let haveSelection = false;
+
+    const untestedExercises = getUntestedExercises(this.menuData);
+
+    // If there is exactly one untested exercise, ask the user if they want to use it.
+    if (untestedExercises.length === 1) {
+      const [module, week, exercise] = untestedExercises[0].split('/');
+      const prompt = options.isTest
+        ? 'Test modified exercise'
+        : 'Run modified exercise';
+      haveSelection = await confirm({
+        message: `${prompt} (${module}, ${week}, ${exercise})?`,
+        default: true,
+      });
+      if (haveSelection) {
+        this.#module = module;
+        this.#week = week;
+        this.#exercise = exercise;
+      }
+    }
+
+    // If there is no untested exercise, ask the user if they want to rerun the last test.
+    if (!haveSelection && this.module && this.week && this.exercise) {
+      const prompt = options.isTest ? 'Rerun last test' : 'Rerun last exercise';
+      haveSelection = await confirm({
+        message: `${prompt} (${this.module}, ${this.week}, ${this.exercise})?`,
         default: true,
       });
     }
 
-    if (!useRecent) {
+    if (!haveSelection) {
       await this.selectModule();
       await this.selectWeek();
       await this.selectExercise();

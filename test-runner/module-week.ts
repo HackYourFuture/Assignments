@@ -1,4 +1,4 @@
-import { checkExerciseHashes } from './compliance-helpers.js';
+import { checkExerciseHashes } from './compliance.js';
 import ExerciseMenu from './ExerciseMenu.js';
 
 const assignmentFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';

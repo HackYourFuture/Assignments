@@ -6,10 +6,7 @@ import path from 'path';
 import handler from 'serve-handler';
 
 import ExerciseMenu from './ExerciseMenu.js';
-import {
-  checkExerciseHashes,
-  isValidBranchName,
-} from './compliance-helpers.js';
+import { checkExerciseHashes, isValidBranchName } from './compliance.js';
 
 const PORT = 3030;
 

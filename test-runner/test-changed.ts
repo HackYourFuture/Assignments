@@ -1,4 +1,4 @@
-import { diffExerciseHashes } from './compliance-helpers.js';
+import { diffExerciseHashes } from './compliance.js';
 import ExerciseMenu from './ExerciseMenu.js';
 import { runTest } from './test-runner.js';
 

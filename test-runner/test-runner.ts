@@ -178,11 +178,11 @@ function getUnitTestPath(
 
 async function execJest(
   exercisePath: string,
-  homeworkFolder: string
+  assignmentFolder: string
 ): Promise<string> {
   let message: string;
 
-  const unitTestPath = getUnitTestPath(exercisePath, homeworkFolder);
+  const unitTestPath = getUnitTestPath(exercisePath, assignmentFolder);
   if (!unitTestPath) {
     message = 'A unit test file was not provided for this exercise.';
     console.log(chalk.yellow(message));
@@ -196,7 +196,7 @@ async function execJest(
       encoding: 'utf8',
       env: {
         ...process.env,
-        ASSIGNMENT_FOLDER: homeworkFolder,
+        ASSIGNMENT_FOLDER: assignmentFolder,
       },
     });
 

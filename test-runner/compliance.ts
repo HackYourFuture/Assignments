@@ -189,6 +189,67 @@ https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide
   return 'multiple';
 }
 
+export function updateTestHash(
+  module: string,
+  week: string,
+  exercise: string
+): void {
+  let hashes: Hashes = {};
+
+  const testHashPath = path.join(__dirname, `../.test-hashes.json`);
+
+  if (fs.existsSync(testHashPath)) {
+    const hashesJson = fs.readFileSync(testHashPath, 'utf8');
+    hashes = JSON.parse(hashesJson);
+  }
+
+  if (!hashes[module]) {
+    hashes[module] = {};
+  }
+  if (!hashes[module][week]) {
+    hashes[module][week] = {};
+  }
+  const exercisePath = `${module}/${week}/assignment/${exercise}`;
+
+  hashes[module][week][exercise] = computeHash(exercisePath);
+
+  const hashesJson = JSON.stringify(hashes, null, 2);
+  fs.writeFileSync(testHashPath, hashesJson);
+}
+export function getUntestedExercises(menuData: MenuData): string[] {
+  // Get info about the exercises that have been modified in the current branch
+  const diff = diffExerciseHashes(menuData);
+
+  // Get info about the exercises that have been tested
+  const testHashPath = path.join(__dirname, `../.test-hashes.json`);
+  let testHashes: Hashes = {};
+  if (fs.existsSync(testHashPath)) {
+    const testHashesJson = fs.readFileSync(testHashPath, 'utf8');
+    testHashes = JSON.parse(testHashesJson);
+  }
+
+  const untestedExercises: string[] = [];
+
+  for (const module in diff) {
+    for (const week in diff[module]) {
+      for (const exercise in diff[module][week]) {
+        const testHash = testHashes[module]?.[week]?.[exercise];
+        if (testHash) {
+          const exercisePath = `${module}/${week}/assignment/${exercise}`;
+          const hash = computeHash(exercisePath);
+          if (hash !== testHash) {
+            untestedExercises.push(`${module}/${week}/${exercise}`);
+          }
+        } else {
+          untestedExercises.push(`${module}/${week}/${exercise}`);
+        }
+      }
+    }
+  }
+
+  return untestedExercises;
+}
+
 export function getChangedWeeks(menuData: MenuData): string[] {
   const diff = diffExerciseHashes(menuData);
   const changedWeeks: string[] = [];

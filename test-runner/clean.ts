@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import path from 'node:path';
 import { rimrafSync } from 'rimraf';
 import { fileURLToPath } from 'url';
-import { createExerciseHashes } from './compliance-helpers.js';
+import { createExerciseHashes } from './compliance.js';
 import ExerciseMenu from './ExerciseMenu.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
