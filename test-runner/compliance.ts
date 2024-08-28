@@ -250,6 +250,28 @@ export function getUntestedExercises(menuData: MenuData): string[] {
   return untestedExercises;
 }
 
+export function checkForUntestedExercises(menu: ExerciseMenu): void {
+  const untestedExercises = getUntestedExercises(menu.menuData);
+  if (untestedExercises.length > 0) {
+    if (untestedExercises.length === 1) {
+      console.log(
+        chalk.yellow(`There is still one exercise that needs (re)testing:\n`)
+      );
+    } else {
+      console.log(
+        chalk.yellow(
+          `There are still ${untestedExercises.length} exercises that need (re)testing:\n`
+        )
+      );
+    }
+    for (const exercise of untestedExercises) {
+      console.log(chalk.yellow(`• ${exercise}`));
+    }
+
+    console.log();
+  }
+}
+
 export function getChangedWeeks(menuData: MenuData): string[] {
   const diff = diffExerciseHashes(menuData);
   const changedWeeks: string[] = [];

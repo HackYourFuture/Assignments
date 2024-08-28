@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   checkExerciseHashes,
-  getUntestedExercises,
+  checkForUntestedExercises,
   isValidBranchName,
   updateTestHash,
 } from './compliance.js';
@@ -82,25 +82,7 @@ async function main(): Promise<void> {
 
     updateTestHash(menu.module, menu.week, menu.exercise);
 
-    const untestedExercises = getUntestedExercises(menu.menuData);
-    if (untestedExercises.length > 0) {
-      if (untestedExercises.length === 1) {
-        console.log(
-          chalk.yellow(`There is one untested exercise remaining:\n`)
-        );
-      } else {
-        console.log(
-          chalk.yellow(
-            `There are ${untestedExercises.length} untested exercises remaining:\n`
-          )
-        );
-      }
-      for (const exercise of untestedExercises) {
-        console.log(chalk.yellow(`• ${exercise}`));
-      }
-
-      console.log();
-    }
+    checkForUntestedExercises(menu);
   } catch (err: any) {
     if (err.name === 'ExitPromptError') {
       console.log(chalk.red('Test run aborted.'));
