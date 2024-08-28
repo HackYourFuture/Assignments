@@ -88,8 +88,8 @@ export default class ExerciseMenu {
 
     const untestedExercises = getUntestedExercises(this.menuData);
 
-    // If there is exactly one untested exercise, ask the user if they want to use it.
-    if (untestedExercises.length === 1) {
+    // If there is at least one untested exercise, ask the user whether to use it.
+    if (untestedExercises.length > 0) {
       const [module, week, exercise] = untestedExercises[0].split('/');
       const prompt = options.isTest
         ? 'Test modified exercise'
