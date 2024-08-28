@@ -218,12 +218,23 @@ To run a test, type the following command from the command line:
 npm test
 ```
 
-This guides you through a series of prompts to select an exercise to test, as illustrated in Figure 8 below:
+The test runner examines the exercise files in your repo and if it finds exactly one modified exercise it will prompt you whether you want to test that one. For example:
+
+```text
+? Test modified exercise (1-JavaScript, Week2, ex1-giveCompliment)? (Y/n)
+```
+
+If that is what you want, accept the default by just pressing <kbd>Enter</kbd> to run the test. Otherwise enter `n` and press <kbd>Enter</kbd> to let the test runner present you a menu from which to select an exercise to test.
 
 ```text
 ? Which module? 1-JavaScript
 ? Which week? Week2
 ? Which exercise? ex1-giveCompliment
+```
+
+Once an exercise has been selected the test runner will execute the test, as illustrated in the example of Figure 8 below:
+
+```text
 Running test, please wait...
 
 *** Unit Test Error Report ***
