@@ -212,6 +212,8 @@ The repository includes an automated test facility. It serves two purposes.
 
 ### Running a test
 
+Each time you have made changes to an exercise you need to test your changes.
+
 To run a test, type the following command from the command line:
 
 ```text
