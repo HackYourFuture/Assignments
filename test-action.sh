@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 module_week="$(node ./.dist/test-runner/module-week.js)"
 
