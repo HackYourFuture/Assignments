@@ -58,6 +58,10 @@ Function | Purpose
 
 #### File `ex3-rollAnAce.js`
 
+> This exercise introduces specially formatted comments, known as _JSDoc type annotations_. We are not expecting nor recommending that you use JSDoc annotations during the HackYourFuture curriculum. It is included here as an introduction to the concept of _static type checking_. Later, perhaps during an internship, you are bound to come across _TypeScript_, which implements static type checking in a more fundamental way.
+>
+> To complete this assignment you can ignore the JSDoc annotations for now. Just make the code work so that it passes the tests successfully. Once that is done, read up about the benefits of static type checking in the section on [static type checking](#static-type-checking) below.
+
 Last week we did an exercise where we threw five dice in one go for a game of Poker Die. In the current exercise we use a single die only, but now the objective is to keep rethrowing that die until we get an ACE, or until a die rolls off the table.
 
 The challenge of this exercise is that the outcome of one throw determines whether we need to do a next throw. If the `rollDie()` function resolves to an ACE then we're done. If not, we need another call to `rollDie()` and wait for it to resolve. And we need to repeat this until we get an ACE or until the promise rejects.
@@ -85,6 +89,15 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
    Note: Your solution should no longer use recursion (i.e. the function should not call itself).
 
 3. Refactor the function `main()` to use async/await and try/catch.
+
+### Static Type Checking
+
+#### JSDoc Type Annotations
+
+In VSCode you may have noticed VSCode 
+
+#### TypeScript
+
 
 ### Exercise 4: Dice Race
 
