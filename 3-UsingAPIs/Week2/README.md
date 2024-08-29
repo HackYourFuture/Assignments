@@ -107,7 +107,7 @@ In VSCode, you may have noticed a pop-up window when you hover your mouse over a
 
 ![hover-function-any](../../assets/hover-function-any.png)
 
-The parameter `url` has been _inferred_ by VSCode to be of type `any`. The parameter name and its _type_ are separated by a colon. The `any` indicates that the `url` parameter can be any type, e.g. `string`, `number`, `object`, `function` etc. There is no way for VSCode to be more precise. We, as a programmer, can surmise that we should pass a `string` to the `requestData()` function, notably a string that specifies the `url` from which to request the data. If we pass a `number` or an `object` or anything other than a `string` we would anticipate the function to fail.
+The parameter `url` has been _inferred_ by VSCode to be of type `any`. The parameter name and its _type_ are separated by a colon. The `any` type annotation indicates that the `url` parameter can be any type, e.g. `string`, `number`, `object`, `function` etc. There is no way for VSCode to be more precise. We, as a programmer, can surmise that we should pass a `string` to the `requestData()` function, notably a string that specifies the `url` from which to request the data. If we pass a `number` or an `object` or anything other than a `string` we would anticipate the function to fail.
 
 Note also that VSCode has no clue about the type of data (if any) the `requestData()` function is supposed to return. That is indicated by the `: void` notation following the closing parenthesis of the parameter list. Here, the `void` type is to be understood that it is not expected that the return value of the function will be used by the calling function. Of course, the `TODO` comment in the code tells us otherwise.
 
@@ -169,7 +169,7 @@ Because JavaScript itself does not understand the type annotations added in a Ty
 
 As an example we have provided a version of the [`ex3-rollAnAce`](./typescript/ex3-rollAnAce.ts) exercise, including the function that it imports from [`pokerDiceRoller.ts`](./typescript/pokerDiceRoller.ts) written in TypeScript in the [typescript](./typescript/) folder.
 
-The transpiled (JavaScript) versions of these files can be found in the [`.dist`](../../.dist/3-UsingAPIs/Week2/typescript/] folder. The transpilation was done when you installed this repository with the `npm install` command. If you inspect the transpiled code you will find that all type annotations are gone. This code is directly executable by the JavaScript engine.
+The transpiled (JavaScript) versions of these files can be found in the [`.dist`](../../.dist/3-UsingAPIs/Week2/typescript/) folder. The transpilation was done when you installed this repository with the `npm install` command. If you inspect the transpiled code you will find that all type annotations are gone. This code is directly executable by the JavaScript engine.
 
 As for JSDoc, we do not expect you to use TypeScript during the HackYourFuture curriculum (although we may change our mind over time :smiley:). If you are still interested to learn more, one of the mentors in (and former graduate of) HackYourFuture posted a [message](https://hackyourfuture.slack.com/archives/C0EJTP8BY/p1719770993186319) in Slack about his own journey learning TypeScript and a link to a free book about TypeScript.
 
