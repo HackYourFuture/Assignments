@@ -2,5 +2,6 @@
   "default": true,
   "line-length": false,
   "no-inline-html": false,
-  "no-duplicate-header": false
+  "no-duplicate-header": false,
+  "table-pipe-style": false
 }
