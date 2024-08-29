@@ -9,10 +9,9 @@ const underTest = process.env.NODE_ENV === 'test';
 import moment from 'moment';
 
 // These are the six faces on a poker die.
-/** @typedef {'NINE' | 'TEN' | 'JACK'  | 'QUEEN' | 'KING' | 'ACE'} DieFace */
+export type DieFace = 'NINE' | 'TEN' | 'JACK' | 'QUEEN' | 'KING' | 'ACE';
 
-/** @type {DieFace[]} */
-const faces = ['NINE', 'TEN', 'JACK', 'QUEEN', 'KING', 'ACE'];
+const faces: DieFace[] = ['NINE', 'TEN', 'JACK', 'QUEEN', 'KING', 'ACE'];
 
 // The maximum number of rolls the die should make.
 const MAX_ROLLS = 8;
@@ -40,10 +39,8 @@ const rollOrders = [
 
 /**
  * A logger function that timestamps the console.log output
- * @param  {...any} args
- * @returns {void}
  */
-const logStamped = (...args) => {
+const logStamped = (...args: any): void => {
   if (underTest) {
     return;
   }
@@ -52,17 +49,14 @@ const logStamped = (...args) => {
 
 /**
  * A convenience function to get a random integer: 0 <= n < max
- * @param {number} max
- * @returns {number}
  */
-const getRandomNumber = (max) => Math.floor(Math.random() * max);
+const getRandomNumber = (max: number): number =>
+  Math.floor(Math.random() * max);
 
 /**
  * Roll a die and return the side it lands on.
- * @param {number} die
- * @returns {Promise<DieFace>}
  */
-export function rollDie(die = 1) {
+export function rollDie(die: number = 1): Promise<DieFace> {
   return new Promise((resolve, reject) => {
     // Introduce a slightly random variation in roll time.
     const rollTime = ROLL_TIME - 5 + getRandomNumber(10);
@@ -87,7 +81,7 @@ export function rollDie(die = 1) {
      *
      * @param {number} roll
      */
-    const rollOnce = (roll) => {
+    const rollOnce = (roll: number) => {
       // Compute the index of the side in the roll (round-robin fashion)
       const index = rollOrder[(roll + offset) % 4];
       const side = faces[index];
