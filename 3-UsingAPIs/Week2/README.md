@@ -125,7 +125,7 @@ The `DieFace` type is a `string`, further restricted to the listed string consta
 
 In the pop-up window you can also see that the `rollDieUntil()` function is expected to return a `Promise` that resolves to a value of the type `DieFace`.
 
-In the `main()` function that calls the `rollDieUntil()` function you can still pass something that is not of type `DieFace`. For instance, if you pass the string `'TWO'`, which would be a valid value for a playing card but not for a die there is no chance that the die will ever settle on a `TWO`.
+In the `main()` function that calls the `rollDieUntil()` function you can still pass something that is not of type `DieFace`. For instance, if you pass the string `'TWO'`, which would be a valid value for a playing card in the game of poker but not for a poker die, there would be no chance that the die could ever settle on a `TWO` because it has no such face.
 
 Having to hover over code to examine the correct types to use in your code is rather cumbersome. VSCode can flag type violations as errors by adding a special comment to the top of your file:
 
@@ -155,7 +155,7 @@ This informs VSCode that the `DieFace` type is defined in the `pokerDiceRoller.j
 /** @typedef {'NINE' | 'TEN' | 'JACK'  | 'QUEEN' | 'KING' | 'ACE'} DieFace */
 ```
 
-As mentioned before, we do not expect you to add JSDoc type annotations to you own code. At some point (not currently during the HackYourFuture curriculum) you will encounter TypeScript, which implements static type checking in a far more fundamental and also more convenient way. It is introduced in the next section.
+As mentioned before, we do not expect you to add JSDoc type annotations to your own code. At some point (not currently during the HackYourFuture curriculum) you will encounter TypeScript, which implements static type checking in a far more fundamental and also more convenient way. It is introduced in the next section.
 
 #### TypeScript
 
