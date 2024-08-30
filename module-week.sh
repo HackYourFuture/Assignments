@@ -7,12 +7,12 @@
 
 module_week="$(node ./.dist/test-runner/module-week.js)"
 
-if [ "${module_week}" == none ]; then
+if [[ "${module_week}" == none ]]; then
   echo "No exercises were modified this week."
   exit 1
 fi
 
-if [ "${module_week}" == multiple ]; then
+if [[ "${module_week}" == multiple ]]; then
   echo "This branch contains changes for multiple weeks."
   exit 1
 fi
@@ -22,7 +22,7 @@ echo "Running tests for ${module_week}..."
 # Unit tests for 1-JavaScript/Week3 are written by students in JavaScript.
 # In contrast, the remaining unit tests are written in TypeScript and transpiled 
 # to the .dist folder.
-if [ "${module_week}" == 1-JavaScript/Week3 ]; then
+if [[ "${module_week}" == 1-JavaScript/Week3 ]]; then
   npx jest "./${module_week}" --ci --reporters=jest-junit
 else
   npx jest "./.dist/${module_week}" --ci --reporters=jest-junit
