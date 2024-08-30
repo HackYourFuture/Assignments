@@ -153,7 +153,11 @@ export function checkExerciseHashes(
 
   if (keys.length === 0) {
     if (!options.silent) {
-      console.log('Your current branch does not contain modified exercises.');
+      console.log(
+        chalk.yellow(
+          'Your current branch does not contain modified exercises.\n'
+        )
+      );
     }
     return 'none';
   }
@@ -167,7 +171,9 @@ export function checkExerciseHashes(
   }
 
   console.log(
-    'Your current branch contains modifications for more than one week:\n'
+    chalk.yellow(
+      'Your current branch contains modifications for more than one week:\n'
+    )
   );
 
   for (const key in changes) {
