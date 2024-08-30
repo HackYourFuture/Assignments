@@ -31,7 +31,7 @@ fi
 jest_exit_code=$?
 
 echo
-if [ ${jest_exit_code} -eq 0 ]; then
+if [[ ${jest_exit_code} -eq 0 ]]; then
   echo "Tests passed successfully."
 else
   echo "One or more tests failed."
