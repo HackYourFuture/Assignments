@@ -1,12 +1,6 @@
 import 'dotenv/config.js';
 
-import chalk from 'chalk';
-
-import {
-  getUntestedExercises,
-  isValidBranchName,
-  checkForUntestedExercises,
-} from './compliance.js';
+import { checkForUntestedExercises, isValidBranchName } from './compliance.js';
 import ExerciseMenu from './ExerciseMenu.js';
 
 if (process.env.HUSKY === '0') {
