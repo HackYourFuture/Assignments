@@ -222,6 +222,7 @@ export function updateTestHash(
   const hashesJson = JSON.stringify(hashes, null, 2);
   fs.writeFileSync(testHashPath, hashesJson);
 }
+
 export function getUntestedExercises(menuData: MenuData): string[] {
   // Get info about the exercises that have been modified in the current branch
   const diff = diffExerciseHashes(menuData);
