@@ -15,13 +15,13 @@ if (!(await isValidBranchName(menu))) {
 
 const untested = getUntestedExercises(menu.menuData);
 if (untested.length > 0) {
-  console.log(
+  console.error(
     `There are ${untested.length} exercise(s) that need (re)testing before you can push.`
   );
 
-  console.log('\nExercises that still need (re)testing:');
-  untested.forEach((exercise) => {
-    console.log(`- ${exercise}`);
+  console.error('\nExercises that still need (re)testing:');
+  untested.forEach((exercise: string) => {
+    console.error(`- ${exercise}`);
   });
   process.exit(1);
 }
