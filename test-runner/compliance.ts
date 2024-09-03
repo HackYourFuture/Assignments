@@ -108,7 +108,7 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
     name.replace(/\d-/, '')
   );
   const branchNamePattern = new RegExp(
-    String.raw`-w\d-(?:${modulesNames.join('|')})$`,
+    String.raw`-(?:w|wk|week)\d-(?:${modulesNames.join('|')})$`,
     'i'
   );
 
