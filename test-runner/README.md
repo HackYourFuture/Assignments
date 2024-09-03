@@ -41,9 +41,9 @@ No spelling errors detected.
 
 ### Report file
 
-When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.md`, in the root folder.
+When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.log`, in the root folder.
 
-A report file named `TEST_REPORT.md` is generated to which test result are written for each test run. Trainees are expected to include this file in their pull request for the benefit of the assignment reviewer.
+A report file named `TEST_REPORT.log` is generated to which test result are written for each test run. Trainees are expected to include this file in their pull request for the benefit of the assignment reviewer.
 
 Trainees are expected to run the relevant tests. Running a test gives them early feedback on the correctness of the expected results and on conformance to the mandated coding style (as per ESLint). This provides them an early opportunity for corrective action. Once submitted as part of a PR, the report files give pull request reviewers some key indicators into the correctness of the homework while doing a more elaborate visual inspection of the actual code.
 
