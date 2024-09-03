@@ -84,7 +84,7 @@ export function diffExerciseHashes(menuData: MenuData): Hashes {
 }
 
 const MAIN_BRANCH_MESSAGE = `
-You are currently on the *main* branch. In this Assignments repository you should not be working directly on the main branch.
+You are currently on the *main* branch. In the Assignments repository you should not be working directly on the main branch.
 
 Please create a new branch for each week (e.g. JohnDoe-w2-JavaScript) as instructed in the link below:
 
@@ -92,7 +92,7 @@ https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide
 `;
 
 const BRANCH_NAME_MESSAGE = `
-Your branch name does conform to the mandated pattern <your-name>-w<week>-<module>, e.g. JohnDoe-w2-JavaScript.
+Your branch name does conform to the mandated pattern <YOUR_NAME>-w<WEEK_NUM>-<MODULE>, e.g. JohnDoe-w2-JavaScript.
 
 Please rename your branch to match the pattern as described in the link below:
 
@@ -116,12 +116,12 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
   const branchName = stdout.trim();
 
   if (branchName === 'main') {
-    console.log(chalk.red(MAIN_BRANCH_MESSAGE));
+    console.error(chalk.red(MAIN_BRANCH_MESSAGE));
     return false;
   }
 
   if (!branchNamePattern.test(branchName)) {
-    console.log(chalk.red(BRANCH_NAME_MESSAGE));
+    console.error(chalk.red(BRANCH_NAME_MESSAGE));
     return false;
   }
 
@@ -261,21 +261,21 @@ export function checkForUntestedExercises(menu: ExerciseMenu): void {
   const untestedExercises = getUntestedExercises(menu.menuData);
   if (untestedExercises.length > 0) {
     if (untestedExercises.length === 1) {
-      console.log(
+      console.error(
         chalk.yellow(`There is still one exercise that needs (re)testing:\n`)
       );
     } else {
-      console.log(
+      console.error(
         chalk.yellow(
           `There are still ${untestedExercises.length} exercises that need (re)testing:\n`
         )
       );
     }
     for (const exercise of untestedExercises) {
-      console.log(chalk.yellow(`• ${exercise}`));
+      console.error(chalk.yellow(`• ${exercise}`));
     }
 
-    console.log();
+    console.error();
   }
 }
 
