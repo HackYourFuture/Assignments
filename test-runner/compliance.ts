@@ -74,7 +74,7 @@ export function diffExerciseHashes(menuData: MenuData): Hashes {
           if (!diff[module][week]) {
             diff[module][week] = {};
           }
-          diff[module][week][exercise] = computeHash(exercisePath);
+          diff[module][week][exercise] = actualHash;
         }
       }
     }

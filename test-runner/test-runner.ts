@@ -35,7 +35,7 @@ function writeTestResult(
     fs.mkdirSync(reportFolder);
   }
 
-  const reportFile = path.join(reportFolder, 'TEST_REPORT.md');
+  const reportFile = path.join(reportFolder, 'TEST_REPORT.log');
 
   let content = '';
 
@@ -48,7 +48,7 @@ function writeTestResult(
   let sectionHeader = '';
 
   for (const line of content.split('\n')) {
-    if (line.startsWith('## ')) {
+    if (line.startsWith('>> ')) {
       sectionHeader = line.slice(3).trim();
       sections.set(sectionHeader, []);
       continue;
@@ -64,22 +64,20 @@ function writeTestResult(
   sectionHeader = `${module} - ${week} - ${exercise}`;
   sections.delete(sectionHeader);
   let sectionContent =
-    '\n### Test date: ' + new Date().toLocaleDateString() + '\n';
-  sectionContent += '\n```text\n';
+    '\nTest date: ' + new Date().toLocaleDateString() + '\n\n';
   sectionContent += report || '√ All tests passed';
   if (!report.endsWith('\n')) {
     sectionContent += '\n';
   }
-  sectionContent += '```\n';
   sections.set(sectionHeader, sectionContent.split('\n'));
 
   const sectionHeaders = Array.from(sections.keys()).sort();
 
-  let newContent = '# Test Report\n\n';
-  newContent += `**Mentors**: This report is generated automatically by the test runner. For more information on how to review homework assignments, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
+  let newContent = 'Test Report\n\n';
+  newContent += `Mentors: This report is generated automatically by the test runner. For more information on how to review homework assignments, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
 
   for (const sectionHeader of sectionHeaders) {
-    newContent += `## ${sectionHeader}\n`;
+    newContent += `>> ${sectionHeader} <<\n`;
     newContent += sections
       .get(sectionHeader)
       ?.join('\n')
@@ -263,10 +261,14 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
     console.log(chalk.green('No spelling errors detected.'));
     return '';
   } catch (err: any) {
+    let output = err.stdout.trim();
+    if (!output) {
+      console.log(chalk.green('No spelling errors detected.'));
+      return '';
+    }
+
     // remove full path
-    const output = err.stdout
-      .replace(/\\/g, '/')
-      .replace(/^.*\/\.?@?homework\//gm, '');
+    output = output.replace(/\\/g, '/').replace(/^.*\/\.?@?homework\//gm, '');
 
     const title = '*** Spell Checker Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
