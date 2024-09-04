@@ -1,1 +1,3 @@
-node .dist/test-runner/pre-commit
+#!/bin/bash
+echo "Branch name: $(git rev-parse --abbrev-ref HEAD)"
+npm run pre-commit
