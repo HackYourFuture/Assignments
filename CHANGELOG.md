@@ -13,3 +13,5 @@ First used by class32.
 - Added a Git pre-push hook that disallows pushing changed exercises that have not been tested or that need retesting after modification.
 - Replaced the per-exercise test reports by a single test report that appears as the first changed file in a PR, for easy reference by homework reviewers.
 - Added GitHub actions that run Jest unit tests on the exercises in the PR and that creates a test report in the GitHub PR details.
+
+Note: Exercises are unchanged.
