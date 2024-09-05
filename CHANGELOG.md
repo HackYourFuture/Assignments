@@ -8,7 +8,7 @@ First used by class32.
 
 - Test runner rewritten in TypeScript.
 - Unit tests rewritten in TypeScript (except the unit tests that are part of an exercise to be coded by trainees, those remain in JavaScript).
-- - Where applicable, exercises now use `import`/`export` instead of `require()`, but are otherwise unchanged.
+- Where applicable, exercises now use `import`/`export` instead of `require()`, but are otherwise unchanged.
 - The test runner keeps track of which exercises have been modified and which exercises have been tested after modification. This is done by computing and comparing hashes based on exercise file content.
 - Added a Git pre-commit hook to disallow changes to the `main` branch and to enforce the format of the week-branch name. Example: JohnDoe-w1-JavaScript. As a new branch should be created for each week the pre-commit hook also disallows committing changes that are for more than one week.
 - Added a Git pre-push hook that disallows pushing changed exercises that have not been tested or need retesting after modification.
