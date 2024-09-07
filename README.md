@@ -2,15 +2,17 @@
 
 This repository contains all of the assignments exercises that need to be handed in for the JavaScript modules (i.e., JavaScript, Browsers and UsingAPIs) of the HackYourFuture curriculum.
 
+Please read this README carefully before starting work on the assignment exercises.
+
 ## Introduction
 
-Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain exercises. This repository contains all of these exercises for the JavaScript modules. The module repositories will tell you how to hand in the assignment, the curriculum will indicate what week you will need to do.
+Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain exercises. This repository contains all of these exercises for the JavaScript modules (JavaScript, Browsers, UsingAPIs). The module repositories will tell you how to hand in the assignment, the curriculum will indicate what week you will need to do.
 
 > Note that a fork of this repository will be created on the [HackYourAssignment](https://github.com/HackYourAssignment) GitHub account specifically for your cohort. The name of the repository will have the format `Assignments-cohortXX` where `XX` is your cohort number,
 
 ## Installation
 
-After forking and/or cloning this repository execute the following command from the command line to complete the installation:
+After forking and subsequently cloning your forked repository execute the following command from the command line to complete the installation:
 
 ```text
 npm install
@@ -326,11 +328,11 @@ No linting errors detected.
 No spelling errors detected.
 ```
 
-### Test Report
+### Test Reports
 
-When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.log`, in the `0-test-results` folder.
+When you run a test the results are reported to the console, but also written to a report file in the `test-reports` folder for the assignments of current week and a test summary in the `.test-results` folder.
 
-You should include the test report file in the pull request that you will make to submit your assignments. This will enable reviewers to get a quick overview of your progress, without the need to run the tests again themselves.
+You should include the test report files in the pull request that you will make to submit your assignments. This will enable reviewers to get a quick overview of your progress, without the need to run the tests again themselves.
 
 > **IMPORTANT: You are expected to run all the tests for the current week before submitting a pull request.**
 >

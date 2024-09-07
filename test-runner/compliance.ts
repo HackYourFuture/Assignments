@@ -195,32 +195,48 @@ https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide
   return 'multiple';
 }
 
+export type TestStats = {
+  hash?: string;
+  numPassedTests: number;
+  numFailedTests: number;
+  hasESLintErrors: boolean;
+};
+
+export type ModuleTestStats = {
+  [module: string]: { [week: string]: { [exercise: string]: TestStats } };
+};
+
 export function updateTestHash(
   module: string,
   week: string,
-  exercise: string
-): void {
-  let hashes: Hashes = {};
+  exercise: string,
+  testStats: TestStats
+): ModuleTestStats {
+  let moduleStats: ModuleTestStats = {};
 
-  const testHashPath = path.join(__dirname, `../.test-hashes.json`);
+  const testStatsPath = path.join(__dirname, `../.test-stats.json`);
 
-  if (fs.existsSync(testHashPath)) {
-    const hashesJson = fs.readFileSync(testHashPath, 'utf8');
-    hashes = JSON.parse(hashesJson);
+  if (fs.existsSync(testStatsPath)) {
+    const jsonData = fs.readFileSync(testStatsPath, 'utf8');
+    moduleStats = JSON.parse(jsonData);
   }
 
-  if (!hashes[module]) {
-    hashes[module] = {};
+  if (!moduleStats[module]) {
+    moduleStats[module] = {};
   }
-  if (!hashes[module][week]) {
-    hashes[module][week] = {};
+  if (!moduleStats[module][week]) {
+    moduleStats[module][week] = {};
   }
   const exercisePath = `${module}/${week}/assignment/${exercise}`;
 
-  hashes[module][week][exercise] = computeHash(exercisePath);
+  testStats.hash = computeHash(exercisePath);
 
-  const hashesJson = JSON.stringify(hashes, null, 2);
-  fs.writeFileSync(testHashPath, hashesJson);
+  moduleStats[module][week][exercise] = testStats;
+
+  const jsonData = JSON.stringify(moduleStats, null, 2);
+  fs.writeFileSync(testStatsPath, jsonData);
+
+  return moduleStats;
 }
 
 export function getUntestedExercises(menuData: MenuData): string[] {
@@ -228,11 +244,11 @@ export function getUntestedExercises(menuData: MenuData): string[] {
   const diff = diffExerciseHashes(menuData);
 
   // Get info about the exercises that have been tested
-  const testHashPath = path.join(__dirname, `../.test-hashes.json`);
-  let testHashes: Hashes = {};
+  const testHashPath = path.join(__dirname, `../.test-stats.json`);
+  let moduleStats: ModuleTestStats = {};
   if (fs.existsSync(testHashPath)) {
-    const testHashesJson = fs.readFileSync(testHashPath, 'utf8');
-    testHashes = JSON.parse(testHashesJson);
+    const jsonData = fs.readFileSync(testHashPath, 'utf8');
+    moduleStats = JSON.parse(jsonData);
   }
 
   const untestedExercises: string[] = [];
@@ -240,11 +256,11 @@ export function getUntestedExercises(menuData: MenuData): string[] {
   for (const module in diff) {
     for (const week in diff[module]) {
       for (const exercise in diff[module][week]) {
-        const testHash = testHashes[module]?.[week]?.[exercise];
+        const { hash: testHash } = moduleStats[module]?.[week]?.[exercise];
         if (testHash) {
           const exercisePath = `${module}/${week}/assignment/${exercise}`;
-          const hash = computeHash(exercisePath);
-          if (hash !== testHash) {
+          const computedHash = computeHash(exercisePath);
+          if (computedHash !== testHash) {
             untestedExercises.push(`${module}/${week}/${exercise}`);
           }
         } else {

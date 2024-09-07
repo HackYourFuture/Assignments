@@ -9,7 +9,6 @@ import {
   checkExerciseHashes,
   checkForUntestedExercises,
   isValidBranchName,
-  updateTestHash,
 } from './compliance.js';
 import ExerciseMenu from './ExerciseMenu.js';
 import { runTest } from './test-runner.js';
@@ -69,18 +68,9 @@ async function main(): Promise<void> {
 
     console.log('Running test, please wait...');
 
-    const report = await runTest(
-      menu.module,
-      menu.week,
-      menu.exercise,
-      assignmentFolder
-    );
+    await runTest(menu.module, menu.week, menu.exercise, assignmentFolder);
 
-    if (report) {
-      await showDisclaimer();
-    }
-
-    updateTestHash(menu.module, menu.week, menu.exercise);
+    await showDisclaimer();
 
     checkForUntestedExercises(menu);
   } catch (err: any) {
@@ -89,6 +79,7 @@ async function main(): Promise<void> {
     } else {
       const message = `Something went wrong: ${err.message}`;
       console.error(chalk.red(message));
+      throw err;
     }
   }
 }

@@ -28,10 +28,10 @@ try {
   rimrafSync(path.join(__dirname, '../../junit.xml'));
 
   console.log('Cleaning up test results...');
-  rimrafSync(path.join(__dirname, '../../0-test-results'));
-  // , {
-  //   glob: true,
-  // });
+  rimrafSync(path.join(__dirname, '../../.test-summary'));
+  rimrafSync(path.join(__dirname, '../../**/test-reports'), {
+    glob: true,
+  });
 } catch (err: any) {
   console.error(chalk.red(`Something went wrong: ${err.message}`));
   throw err;

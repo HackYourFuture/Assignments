@@ -1,4 +1,5 @@
 // @ts-check
+import { AlignmentEnum, AsciiTable3 } from 'ascii-table3';
 import chalk from 'chalk';
 import fg from 'fast-glob';
 import { exec } from 'node:child_process';
@@ -9,6 +10,7 @@ import { promisify } from 'node:util';
 import stripAnsi from 'strip-ansi';
 
 import { buildExercisePath } from './ExerciseMenu.js';
+import { ModuleTestStats, updateTestHash } from './compliance.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
@@ -24,77 +26,53 @@ async function unlink(filePath: string): Promise<void> {
   }
 }
 
-function writeTestResult(
+function writeTestSummary(
   module: string,
   week: string,
-  exercise: string,
-  report: string
+  moduleStats: ModuleTestStats
 ) {
-  const reportFolder = path.join(__dirname, '../../0-test-results');
+  const reportFolder = path.join(__dirname, '../../.test-summary');
   if (!fs.existsSync(reportFolder)) {
     fs.mkdirSync(reportFolder);
   }
 
-  const reportFile = path.join(reportFolder, 'TEST_REPORT.log');
+  const reportFile = path.join(reportFolder, 'TEST_SUMMARY.md');
 
-  let content = '';
+  let content = '## Test Summary\n\n';
+  content += `**Mentors**: For more information on how to review homework assignments, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
 
-  if (fs.existsSync(reportFile)) {
-    content = fs.readFileSync(reportFile, 'utf8');
+  content += `### ${module} - ${week}\n\n`;
+
+  const table = new AsciiTable3()
+    .setStyle('github-markdown')
+    .setHeading('Exercise', 'Passed', 'Failed', 'ESLint')
+    .setAlign(2, AlignmentEnum.CENTER)
+    .setAlign(3, AlignmentEnum.CENTER)
+    .setAlign(4, AlignmentEnum.CENTER);
+
+  const weekStats = moduleStats[module][week];
+  for (const exercise in weekStats) {
+    const { numPassedTests, numFailedTests, hasESLintErrors } =
+      weekStats[exercise];
+    const passed = numPassedTests !== 0 ? numPassedTests : '-';
+    const failed = numFailedTests !== 0 ? numFailedTests : '-';
+    const eslintErrors = hasESLintErrors ? '✕' : '✓';
+    table.addRow(exercise, passed, failed, eslintErrors);
   }
 
-  const sections: Map<string, string[]> = new Map();
+  table.sort((a: string[], b: string[]) => a[0].localeCompare(b[0]));
 
-  let sectionHeader = '';
+  content += table.toString();
 
-  for (const line of content.split('\n')) {
-    if (line.startsWith('>> ')) {
-      sectionHeader = line.slice(3).trim();
-      sections.set(sectionHeader, []);
-      continue;
-    }
-
-    if (sectionHeader) {
-      sections.get(sectionHeader)?.push(line);
-    }
-  }
-
-  // Add/replace section for current test result
-
-  sectionHeader = `${module} - ${week} - ${exercise}`;
-  sections.delete(sectionHeader);
-  let sectionContent =
-    '\nTest date: ' + new Date().toLocaleDateString() + '\n\n';
-  sectionContent += report || '√ All tests passed';
-  if (!report.endsWith('\n')) {
-    sectionContent += '\n';
-  }
-  sections.set(sectionHeader, sectionContent.split('\n'));
-
-  const sectionHeaders = Array.from(sections.keys()).sort();
-
-  let newContent = 'Test Report\n\n';
-  newContent += `Mentors: This report is generated automatically by the test runner. For more information on how to review homework assignments, please refer to the [Review Guide](${REVIEW_GUIDE_URL}).\n\n`;
-
-  for (const sectionHeader of sectionHeaders) {
-    newContent += `>> ${sectionHeader} <<\n`;
-    newContent += sections
-      .get(sectionHeader)
-      ?.join('\n')
-      .replaceAll(/[√✓]/g, '✅')
-      .replaceAll(/[×✕]/g, '❌');
-    newContent += '\n';
-  }
-
-  fs.writeFileSync(reportFile, newContent.trim() + '\n');
+  fs.writeFileSync(reportFile, content.trim() + '\n');
 }
 
-async function writeReport(
+async function writeTestReport(
   module: string,
   week: string,
   exercise: string,
   report: string
-): Promise<string | null> {
+): Promise<void> {
   const reportDir = path.join(
     __dirname,
     `../../${module}/${week}/test-reports`
@@ -104,20 +82,9 @@ async function writeReport(
     fs.mkdirSync(reportDir);
   }
 
-  const passFilePath = path.join(reportDir, `${exercise}.pass.txt`);
-  await unlink(passFilePath);
+  const filePath = path.join(reportDir, `${exercise}.report.txt`);
 
-  const failFilePath = path.join(reportDir, `${exercise}.fail.txt`);
-  await unlink(failFilePath);
-
-  if (report) {
-    await fs.promises.writeFile(failFilePath, report, 'utf8');
-    return report;
-  }
-
-  const message = 'All tests passed';
-  await fs.promises.writeFile(passFilePath, message, 'utf8');
-  return null;
+  await fs.promises.writeFile(filePath, report, 'utf8');
 }
 
 function getFirstPathMatch(partialPath: string): string | null {
@@ -179,46 +146,60 @@ function getUnitTestPath(
   return getFirstPathMatch(unitTestPath);
 }
 
+type JestResult = {
+  numFailedTests: number;
+  numPassedTests: number;
+  message: string;
+};
+
 async function execJest(
   exercisePath: string,
   assignmentFolder: string
-): Promise<string> {
+): Promise<JestResult | null> {
   let message: string;
+  let output: string;
+  let numPassedTests = 0;
+  let numFailedTests = 0;
 
   const unitTestPath = getUnitTestPath(exercisePath, assignmentFolder);
   if (!unitTestPath) {
     message = 'A unit test file was not provided for this exercise.';
     console.log(chalk.yellow(message));
-    return '';
+    return null;
   }
 
-  let cmdLine = `npx jest ${unitTestPath} --colors --noStackTrace`;
+  let cmdLine = `npx jest ${unitTestPath} --colors --noStackTrace --json`;
 
   try {
-    const { stderr } = await execAsync(cmdLine, {
+    const { stdout, stderr } = await execAsync(cmdLine, {
       encoding: 'utf8',
       env: {
         ...process.env,
         ASSIGNMENT_FOLDER: assignmentFolder,
       },
     });
-
-    console.log(stderr.replaceAll(/[√✓]/g, '✅'));
-    return '';
+    ({ numFailedTests, numPassedTests } = JSON.parse(stdout));
+    output = stderr;
   } catch (err: any) {
-    const output = `${err.stdout}\n\n${err.message}`
-      .trim()
-      .replaceAll(/[√✓]/g, '✅')
-      .replaceAll(/[×✕]/g, '❌');
-
-    const title = '*** Unit Test Error Report ***';
-    console.log(chalk.yellow(`\n${title}\n`));
-    console.log(output);
-
-    message = stripAnsi(`${title}\n\n${output}`);
-
-    return message;
+    ({ numFailedTests, numPassedTests } = JSON.parse(err.stdout));
+    output = err.message;
   }
+
+  // console.log('err.stdout', err.stdout);
+  // console.log('err.message', err.message);
+
+  output = `${output}`
+    .trim()
+    .replaceAll(/[√✓]/g, '✅')
+    .replaceAll(/[×✕]/g, '❌');
+
+  const title = '*** Unit Test Error Report ***';
+  console.log(chalk.yellow(`\n${title}\n`));
+  console.log(output);
+
+  message = stripAnsi(`${title}\n\n${output}`);
+
+  return { message, numFailedTests, numPassedTests };
 }
 
 async function execESLint(exercisePath: string): Promise<string> {
@@ -273,7 +254,7 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
     const title = '*** Spell Checker Report ***';
     console.log(chalk.yellow(`\n${title}\n`));
     console.log(chalk.red(output));
-    const message = `\n${title}\n\n${output}`;
+    const message = `\n\n${title}\n\n${output}`;
     return message;
   }
 }
@@ -283,7 +264,7 @@ export async function runTest(
   week: string,
   exercise: string,
   assignmentFolder = 'assignment'
-): Promise<string> {
+): Promise<void> {
   let report = '';
   const exercisePath = buildExercisePath(
     module,
@@ -292,13 +273,23 @@ export async function runTest(
     assignmentFolder
   );
 
-  report += await execJest(exercisePath, assignmentFolder);
-  report += await execESLint(exercisePath);
+  const jestResult = await execJest(exercisePath, assignmentFolder);
+  if (jestResult) {
+    report += jestResult.message;
+  }
+
+  const eslintReport = await execESLint(exercisePath);
+
+  report += eslintReport;
   report += await execSpellChecker(exercisePath);
 
-  // await writeReport(module, week, exercise, report);
+  const moduleStats = updateTestHash(module, week, exercise, {
+    numPassedTests: jestResult?.numPassedTests || 0,
+    numFailedTests: jestResult?.numFailedTests || 0,
+    hasESLintErrors: !!eslintReport,
+  });
 
-  writeTestResult(module, week, exercise, report);
+  await writeTestReport(module, week, exercise, report);
 
-  return report;
+  writeTestSummary(module, week, moduleStats);
 }
