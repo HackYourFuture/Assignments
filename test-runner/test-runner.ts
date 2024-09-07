@@ -83,8 +83,11 @@ async function writeTestReport(
   }
 
   const filePath = path.join(reportDir, `${exercise}.report.txt`);
+  await unlink(filePath);
 
-  await fs.promises.writeFile(filePath, report, 'utf8');
+  if (report) {
+    await fs.promises.writeFile(filePath, report, 'utf8');
+  }
 }
 
 function getFirstPathMatch(partialPath: string): string | null {
