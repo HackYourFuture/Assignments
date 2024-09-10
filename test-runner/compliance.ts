@@ -86,7 +86,7 @@ export function diffExerciseHashes(menuData: MenuData): Hashes {
 const MAIN_BRANCH_MESSAGE = `
 You are currently on the *main* branch. In the Assignments repository you should not be working directly on the main branch.
 
-Please create a new branch for each week (e.g. JohnDoe-w2-JavaScript) as instructed in the link below:
+Please create a new branch for each week (e.g. YourName-w2-JavaScript) as instructed in the link below:
 
 https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md#12-every-week
 `;
