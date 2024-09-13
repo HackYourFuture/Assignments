@@ -13,4 +13,4 @@ First used by class32.
 - Added a Git pre-commit hook to disallow changes to the `main` branch and to enforce the format of the week-branch name. Example: YourName-w1-JavaScript. As a new branch should be created for each week the pre-commit hook also disallows committing changes that are for more than one week.
 - Added a Git pre-push hook that disallows pushing changed exercises that have not been tested or need retesting after modification.
 - Replaced the per-exercise test reports with a single test report that appears as the first changed file in a PR, for easy reference by homework reviewers.
-- Added GitHub actions that run Jest unit tests on the exercises in the PR and that creates a test report in the GitHub PR details.
+- ~~Added GitHub actions that run Jest unit tests on the exercises in the PR and that creates a test report in the GitHub PR details.~~ To be reviewed at a later date.
