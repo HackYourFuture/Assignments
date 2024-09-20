@@ -4,7 +4,7 @@
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "files.autoSave": "onFocusChange",
   "prettier.trailingComma": "es5",

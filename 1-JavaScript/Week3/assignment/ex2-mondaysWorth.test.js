@@ -1,4 +1,3 @@
-'use strict';
 /*------------------------------------------------------------------------------
 Full description atL https://github.com/HackYourFuture/Assignments/tree/main/1-JavaScript/Week4#exercise-2-whats-your-monday-worth
 
@@ -36,14 +35,14 @@ function computeEarnings(/* TODO parameter(s) go here */) {
 }
 
 // ! Unit tests (using Jest)
-describe('computeEarnings', () => {
-  test('should take two parameters', () => {
+describe('js-wk3-mondaysWorth', () => {
+  test('computeEarnings should take two parameters', () => {
     // The `.length` property indicates the number of parameters expected by
     // the function.
     expect(computeEarnings).toHaveLength(2);
   });
 
-  test('should compute the earnings as a formatted Euro amount', () => {
+  test('computeEarnings should compute the earnings as a formatted Euro amount', () => {
     const result = computeEarnings(mondayTasks, hourlyRate);
     const expected = '€187.50';
     expect(result).toBe(expected);

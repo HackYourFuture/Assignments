@@ -1,7 +1,9 @@
-// For a detailed explanation regarding each configuration property, visit:
-// https://jestjs.io/docs/en/configuration.html
-
-module.exports = {
-  maxConcurrency: 1,
+export default {
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
+  testMatch: ['**/?(*.)+(test).js'],
+  modulePathIgnorePatterns: ['__testUtils__'],
+  transformIgnorePatterns: [],
   sandboxInjectedGlobals: ['Math'],
 };

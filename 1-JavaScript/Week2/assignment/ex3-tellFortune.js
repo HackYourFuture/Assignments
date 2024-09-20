@@ -1,4 +1,3 @@
-'use strict';
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-JavaScript/Week3#exercise-3-be-your-own-fortune-teller
 
@@ -37,7 +36,7 @@ function selectRandomly(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
 
-function tellFortune(/* TODO add parameter(s) here */) {
+export function tellFortune(/* TODO add parameter(s) here */) {
   // TODO complete this function
 }
 
@@ -67,4 +66,3 @@ function main() {
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = tellFortune;

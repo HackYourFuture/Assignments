@@ -1,11 +1,8 @@
-'use strict';
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignments/blob/main/3-UsingAPIs/Week2/README.md#exercise-5-using-the-vscode-debugger
 
 Use the VSCode Debugger to fix the bugs
 --------------------------------------------------------------- --------------*/
-const fetch = require('node-fetch');
-
 async function getData(url) {
   const response = await fetch(url);
   return response.json();

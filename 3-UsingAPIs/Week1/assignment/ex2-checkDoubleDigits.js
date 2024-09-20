@@ -1,4 +1,3 @@
-'use strict';
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignments/tree/main/3-UsingAPIs/Week1#exercise-2-is-it-a-double-digit-number
 
@@ -12,7 +11,7 @@ Complete the function called `checkDoubleDigits` such that:
   "Expected a double digit number but got `number`", where `number` is the 
   number that was passed as an argument.
 ------------------------------------------------------------------------------*/
-function checkDoubleDigits(/* TODO add parameter(s) here */) {
+export function checkDoubleDigits(/* TODO add parameter(s) here */) {
   // TODO complete this function
 }
 
@@ -38,4 +37,3 @@ function main() {
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = checkDoubleDigits;

@@ -2,8 +2,6 @@
 Full description at:https://github.com/HackYourFuture/Assignments/blob/main/3-UsingAPIs/Week2/README.md#exercise-6-using-the-browser-debugger
 */
 
-'use strict';
-
 async function getData(url) {
   const response = await fetch(url);
   return response.json();

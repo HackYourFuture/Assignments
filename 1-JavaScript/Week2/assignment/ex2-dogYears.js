@@ -1,4 +1,3 @@
-'use strict';
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignment/tree/main/1-JavaScript/Week3#exercise-2-dog-years
 
@@ -16,7 +15,7 @@ calculate it!
    ages.
 -----------------------------------------------------------------------------*/
 
-function calculateDogAge(/* TODO parameter(s) go here */) {
+export function calculateDogAge(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
 
@@ -30,4 +29,3 @@ function main() {
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = calculateDogAge;

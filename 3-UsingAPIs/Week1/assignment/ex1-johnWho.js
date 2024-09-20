@@ -1,4 +1,3 @@
-'use strict';
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignments/tree/main/3-UsingAPIs/Week1#exercise-1-john-who
 
@@ -9,7 +8,7 @@ Rewrite this function, but replace the callback syntax with the Promise syntax:
   didn't pass in a first name!"
 ------------------------------------------------------------------------------*/
 // TODO see above
-const getAnonName = (firstName, callback) => {
+export const getAnonName = (firstName, callback) => {
   setTimeout(() => {
     if (!firstName) {
       callback(new Error("You didn't pass in a first name!"));
@@ -30,4 +29,3 @@ function main() {
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = getAnonName;

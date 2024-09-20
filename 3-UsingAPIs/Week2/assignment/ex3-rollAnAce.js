@@ -1,4 +1,3 @@
-'use strict';
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignments/blob/main/3-UsingAPIs/Week2/README.md#exercise-3-roll-an-ace
 
@@ -10,13 +9,19 @@ Full description at: https://github.com/HackYourFuture/Assignments/blob/main/3-U
 3. Refactor the function `main()` to use async/await and try/catch.
 ------------------------------------------------------------------------------*/
 // ! Do not change or remove the next two lines
-const rollDie = require('../../helpers/pokerDiceRoller');
+import { rollDie } from '../../helpers/pokerDiceRoller.js';
+/** @import {DieFace} from "../../helpers/pokerDiceRoller.js" */
 
-function rollDieUntil(wantedValue) {
-  // TODO: rewrite this function using async/await
+/**
+ * Rolls a die until the desired value is rolled.
+ * @param {DieFace} desiredValue
+ * @returns {Promise<DieFace>}
+ */
+export function rollDieUntil(desiredValue) {
+  // TODO rewrite this function using async/await
   return rollDie().then((value) => {
-    if (value !== wantedValue) {
-      return rollDieUntil(wantedValue);
+    if (value !== desiredValue) {
+      return rollDieUntil(desiredValue);
     }
     return value;
   });
@@ -33,4 +38,3 @@ function main() {
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = rollDieUntil;

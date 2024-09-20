@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Branch name: $(git rev-parse --abbrev-ref HEAD)"
+npm run pre-push

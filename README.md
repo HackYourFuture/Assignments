@@ -2,15 +2,17 @@
 
 This repository contains all of the assignments exercises that need to be handed in for the JavaScript modules (i.e., JavaScript, Browsers and UsingAPIs) of the HackYourFuture curriculum.
 
+Please read this README carefully before starting work on the assignment exercises.
+
 ## Introduction
 
-Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain exercises. This repository contains all of these exercises for the JavaScript modules. The module repositories will tell you how to hand in the assignment, the curriculum will indicate what week you will need to do.
+Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain exercises. This repository contains all of these exercises for the JavaScript modules (JavaScript, Browsers, UsingAPIs). The module repositories will tell you how to hand in the assignment, the curriculum will indicate what week you will need to do.
 
 > Note that a fork of this repository will be created on the [HackYourAssignment](https://github.com/HackYourAssignment) GitHub account specifically for your cohort. The name of the repository will have the format `Assignments-cohortXX` where `XX` is your cohort number,
 
 ## Installation
 
-After forking and/or cloning this repository execute the following command from the command line to complete the installation:
+After forking and subsequently cloning your forked repository execute the following command from the command line to complete the installation:
 
 ```text
 npm install
@@ -20,7 +22,6 @@ This command:
 
 - Installs required software dependencies from the Internet.
 - Sets up folders and files used to track your progress.
-- Compiles system information and writes the result to `sysinfo.json`. This information can help to track problems with your computer setup when asking others (mentors or students) for (online) help.
 
 ## VSCode
 
@@ -56,9 +57,9 @@ The directory structure containing the assignment for a specific curriculum modu
 
 > A similar directory structure exists for the **Browser** module (`2-Browsers`) and the **UsingAPIs** module (`3-UsingAPIs`).
 
-Each `assignment` folder contains sub-folders and files that make up the exercises. The exercises consist of starter files that you need to complete. Some exercises consist of a single JavaScript (for example, `ex1-giveCompliment.js`). Exercises that are browser-based are mostly contained in sub-folders (for example, `ex1-bookList` in the `1-Browsers/assignment` folder).
+Each `assignment` folder contains files and (sometimes) sub-folders that make up the exercises. The exercises consist of starter files that you need to complete. Some exercises consist of a single JavaScript (for example, `ex1-giveCompliment.js`). Exercises that are browser-based are mostly contained in sub-folders (for example, `ex1-bookList` in the `1-Browsers/assignment` folder).
 
-> You should not change anything in the `test-reports` and `unit-tests` sub-folders. The purpose of these folders will be explained later.
+> You should not change anything in the `unit-tests` sub-folder. The purpose of this folder will be explained later.
 
 As mentioned, each exercise comes with starter code. Inside the starter code you will find comments that indicate the places where there is something for you to do. For example, in the code of the JavaScript file `ex1-giveCompliment.js` as shown in Figure 2 this is:
 
@@ -67,11 +68,7 @@ As mentioned, each exercise comes with starter code. Inside the starter code you
 3. The **value** of the variable `myName`.
 
 ```js
-'use strict';
-/* 
-... 
-*/
-function giveCompliment(/* TODO parameter(s) go here */) {
+export function giveCompliment(/* TODO parameter(s) go here */) {
   // TODO complete this function
 }
 
@@ -94,7 +91,6 @@ function main() {
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = giveCompliment;
 ```
 
 Figure 2. Starter code example: file `ex1-giveCompliment.js`.
@@ -104,8 +100,6 @@ In general, you should only change or add code in the places indicated by the `/
 You should not delete or rename existing function(s), nor should you change the file names of the starter files. This repository comes with an automated test facility that relies on the presence of these files and functions.
 
 You _are_ allowed to add additional functions and/or global variables (but avoid global variables if you can).
-
-> Note: All JavaScript exercise starter files include a `"use strict"` directive at the top. This will enforce that all variables are declared (with `const` or `'let`, but avoid `var`) before they are used. This is generally considered to be "_best practice_".
 
 When you are in the process of making changes to a file you will notice a dot or bullet appearing after the file name in the tab of the editor window, as shown in Figure 4 below:
 
@@ -120,7 +114,7 @@ This indicates that you have unsaved changes. Once you are done, you can use the
 
 ### Prettier VSCode Extension
 
-This is a recommended VSCode extension that we have included in this repo. **Prettier** is an automatic code formatter to make your code look "pretty". However, it is not just that your code is made pretty, it formats your code into a popular standard that has become well established in the JavaScript community. Other developers, whether students, mentors or, later, your colleagues will thank you for using it.
+This is a recommended VSCode extension that we have included in this repo. **Prettier** is an automatic code formatter to make your code look "pretty". However, it is not just that your code is made pretty, it formats your code into a popular standard that has become well established in the JavaScript community. Other developers, whether trainees, mentors or, later, your colleagues will thank you for using it.
 
 > Ensure that you do not install any other code formatter extensions, for example, **Beautify**, in addition to Prettier. This may cause formatting conflicts.
 
@@ -144,7 +138,7 @@ A further extension that we have included is a spell checker that understands co
 
 ## Running the exercises
 
-While working on the exercises you can test-run your code in the usual way, either using the command line (for node-based programs) or by running it in the browser (for browser-based applications). As mentioned earlier, in the **JavaScript** module you will be working with node-based programs.
+While working on the exercises you can test-run your code in the usual way, either using the command line (for node-based programs) or by running it in the browser (for browser-based applications). As mentioned earlier, in the **JavaScript** module you will be working with Node-based programs.
 
 To run the exercise while in VSCode, first open a VSCode **Integrated Terminal**. You can do so from the VSCode menu, by selecting the **Terminal**, **New Terminal** menu commands, or by using the keyboard shortcut as listed in that menu.
 
@@ -153,7 +147,7 @@ To run the exercise while in VSCode, first open a VSCode **Integrated Terminal**
 The most convenient way to run an exercise from the command line is to use the **exercise runner** included in this repo. Type the following command to run an exercise this way:
 
 ```text
-npm run it
+npm start
 ```
 
 This will lead you through a series of prompts, similar to as shown below, to select the exercise to run:
@@ -168,9 +162,9 @@ You are marvelous, HackYourFuture!
 You are awesome, HackYourFuture!
 ```
 
-For node-based programs the console output will be shown in the terminal window. For browser-based application an HTTP server will be started and your web page will opened in the default web browser.
+For Node-based programs the console output will be shown in the terminal window. For browser-based application an HTTP server will be started and your web page will opened in the default web browser.
 
-Alternatively you may choose to run the exercise manually. The easiest way for a node-based program is to open a new terminal window directly in the folder that contains your exercise, to right-click its name in the File Explorer pane and select the **Open in Integrated Terminal** option from the context menu, as shown in Figure 6 below.
+Alternatively you may choose to run the exercise manually. The easiest way for a Node-based program is to open a new terminal window directly in the folder that contains your exercise, to right-click its name in the File Explorer pane and select the **Open in Integrated Terminal** option from the context menu, as shown in Figure 6 below.
 
 ![Open in Integrated Terminal](./assets/open-in-terminal.png)
 <br>Figure 6. Open in Integrated Terminal
@@ -220,41 +214,92 @@ The repository includes an automated test facility. It serves two purposes.
 
 ### Running a test
 
+Each time you have made changes to an exercise you need to test your changes.
+
 To run a test, type the following command from the command line:
 
 ```text
 npm test
 ```
 
-This guides you through a series of prompts to select an exercise to test, as illustrated in Figure 8 below:
+The test runner examines the exercise files in your repo and if it finds exactly one modified exercise it will prompt you whether you want to test that one. For example:
 
 ```text
-? Which module? 1-Javascript
-? Which week? Week3
+? Test modified exercise (1-JavaScript, Week2, ex1-giveCompliment)? (Y/n)
+```
+
+If that is what you want, accept the default by just pressing <kbd>Enter</kbd> to run the test. Otherwise enter `n` and press <kbd>Enter</kbd> to let the test runner present you a menu from which to select an exercise to test.
+
+```text
+? Which module? 1-JavaScript
+? Which week? Week2
 ? Which exercise? ex1-giveCompliment
-You have not yet worked on this exercise.
+```
+
+Once an exercise has been selected the test runner will execute the test, as illustrated in the example of Figure 8 below:
+
+```text
 Running test, please wait...
 
 *** Unit Test Error Report ***
 
-- giveCompliment should take a single parameter
-- giveCompliment should include a `compliments` array initialized with 10 strings
-  No such array found
-- giveCompliment should give a random compliment: You are `compliment`, `name`!
+Command failed: npx jest H:/dev/hackyourfuture/temp/Assignments/.dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js --colors --noStackTrace
+ FAIL  .dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js
+  js-wk2-ex1-giveCompliment
+    √ should exist and be executable (2 ms)
+    × should have all TODO comments removed (1 ms)
+    √ `giveCompliment` should not contain unneeded console.log calls (1 ms)
+    × should take a single parameter (1 ms)
+    √ should include a `compliments` array inside its function body (1 ms)
+    × the `compliments` array should be initialized with 10 strings
+    × should give a random compliment: You are `compliment`, `name`! (1 ms)
 
+  ● js-wk2-ex1-giveCompliment › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+  ● js-wk2-ex1-giveCompliment › should take a single parameter
+
+    expect(received).toHaveLength(expected)
+
+    Expected length:   1
+    Received length:   0
+    Received function: [Function giveCompliment]
+
+  ● js-wk2-ex1-giveCompliment › the `compliments` array should be initialized with 10 strings
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 10
+    Received length: 0
+    Received array:  []
+
+  ● js-wk2-ex1-giveCompliment › should give a random compliment: You are `compliment`, `name`!
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: ""
+    Received: "compliment is not randomly selected"
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 3 passed, 7 total
+Snapshots:   0 total
+Time:        1.71 s
+Ran all test suites matching /H:\\dev\\hackyourfuture\\temp\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
 No linting errors detected.
 No spelling errors detected.
+
 ```
 
 Figure 8. Running a test.
-
-The message _You have not yet worked on this exercise_ indicates that this exercise is still unmodified from its original.
 
 #### Unit Test Error Report
 
 Unit tests are software tests that determine whether a particular part of your code produces an expected result. If is it does, it is said to _pass_ the test. If it doesn't, the failing test will be reported in the console.
 
-In the example of Figure 8 there are three such failing unit tests. The messages are hopefully sufficiently informative for you to correct the error(s).
+In Figure 8 the test results are shown for the still unmodified version of `ex1-giveCompliment`. There are 4 such failing unit tests (marked with `x`). The messages are hopefully sufficiently informative for you to correct the error(s).
 
 Once you have corrected the error(s), rerun the test to try again.
 
@@ -267,7 +312,7 @@ ex3-tellFortune.js
   46:10  error  'selectRandomly' is defined but never used  no-unused-vars
 ```
 
-In this example the error message indicates that a style error was detect in line 46, column 10 of the file `ex3-tellFortune.js`. The variable (or function) `selectRandomly` was defined but never used. Despite this, your code may still run fine.
+In this example the error message indicates that a style error was detect in line 46, column 10 of the file `ex3-tellFortune.js`. The variable (or function) `selectRandomly` was defined but never used.
 
 Style errors do not prevent your code from running correctly. However, leaving them in is simply a bad practice and is a recipe for trouble in the future when other developers attempt to understand and maintain your code.
 
@@ -283,36 +328,17 @@ No linting errors detected.
 No spelling errors detected.
 ```
 
-### Test Report Files
+### Test Reports
 
-When you run a test the results are reported to the console, but also written to a report file in the `test-reports` folder. The name of the report indicates whether the test was successful or not, as shown in Table 1 below.
+When you run a test the results are reported to the console, but also written to a report file in the `test-reports` folder for the assignments of current week and a test summary in the `.test-results` folder.
 
-<!-- prettier-ignore -->
-| Name | Status |
-| ---- | ------ |
-| `<exercise>.todo.txt` | The test for this exercise have not yet been executed or has been executed on unmodified code. |
-| `<exercise>.pass.txt` | All unit tests passed and no linting or spelling errors were detected. |
-| `<exercise>.fail.txt` | Unit test errors or ESLint or spelling errors were detected. |
-
-Table 1. Test report types
-
-For example:
-
-- `ex1-giveCompliment.todo.txt` _or_
-- `ex1-giveCompliment.pass.txt` _or_
-- `ex1-giveCompliment.fail.txt`
-
-The report files are considered part of the pull request that you will make to submit your assignments. They enable reviewers to get a quick overview of your progress.
-
-In addition, a log of the test results is written to a log file in the root directory of the repository. The name of that file is **\<email>.log**, where \<email> is your email address (or **test-runner.log** if the test runner could not determine your email address).
+You should include the test report files in the pull request that you will make to submit your assignments. This will enable reviewers to get a quick overview of your progress, without the need to run the tests again themselves.
 
 > **IMPORTANT: You are expected to run all the tests for the current week before submitting a pull request.**
 >
-> You should strive to complete all tests with no errors reported, however it is okay if for some reason you were unable to fix some error. Nevertheless, you _**are**_ required to run the tests, whether successful or not.
->
-> The test reports should be included in your Pull Request (for the benefit of the assignment reviewer).
+> You should strive to complete all tests with no errors reported, however it is okay if for some reason you were unable to fix some error and need your mentor to help during review. Nevertheless, you _**are**_ required to run the tests, whether successful or not.
 
-## assignment Exercise Instructions
+## Assignment Exercise Instructions
 
 ### JavaScript Module
 
@@ -329,6 +355,10 @@ In addition, a log of the test results is written to a log file in the root dire
 - [Week 2](/3-UsingAPIs/Week2/README.md)
 
 ## Information for mentors
+
+More information about the review process:
+
+- [Review Guide](https://github.com/HackYourFuture/mentors/blob/main/assignment-support/review-guide.md)
 
 Here you will find some documentation how to write exercises and unit tests.
 

@@ -11,7 +11,6 @@ Starter code for all exercises is located in the `assignment` folder. Modify the
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
-module.exports = giveCompliment;
 ```
 
 The code calls the `main()` function from the exercise _unless the exercise is being tested with the automated test runner provided with this repo_ (see later in this README). Do not delete or modify this code snippet.

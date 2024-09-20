@@ -58,6 +58,10 @@ Function | Purpose
 
 #### File `ex3-rollAnAce.js`
 
+> This exercise introduces specially formatted comments, known as _JSDoc type annotations_. We do not expect nor recommend that you use JSDoc annotations during the HackYourFuture curriculum. It is included here as an introduction to the concept of _static type checking_. Later, perhaps during an internship, you are bound to come across _TypeScript_, which implements static type checking in a more fundamental way.
+>
+> To complete the current assignment you can ignore the JSDoc annotations for now. Just make the code work so that it passes the tests successfully. Once that is done, read up about the benefits of static type checking in the section [Static Type Checking](#static-type-checking) further down below.
+
 Last week we did an exercise where we threw five dice in one go for a game of Poker Die. In the current exercise we use a single die only, but now the objective is to keep rethrowing that die until we get an ACE, or until a die rolls off the table.
 
 The challenge of this exercise is that the outcome of one throw determines whether we need to do a next throw. If the `rollDie()` function resolves to an ACE then we're done. If not, we need another call to `rollDie()` and wait for it to resolve. And we need to repeat this until we get an ACE or until the promise rejects.
@@ -85,6 +89,89 @@ Luckily, this code can be rewritten to be much simpler, using async/await:
    Note: Your solution should no longer use recursion (i.e. the function should not call itself).
 
 3. Refactor the function `main()` to use async/await and try/catch.
+
+### Static Type Checking
+
+WikiPedia defines [_static type checking_](https://en.wikipedia.org/wiki/Type_system#Type_checking) as follows:
+
+> Static type checking is the process of verifying the type safety of a program
+> based on analysis of a program's text (source code). If a program passes a
+> static type checker, then the program is guaranteed to satisfy some set of
+> type safety properties for all possible inputs.
+
+Bottom line is that static type checking helps to write more robust, and more maintainable, code.
+
+#### JSDoc Type Annotations
+
+In VSCode, you may have noticed a pop-up window when you hover your mouse over a function or variable. In the picture below this is demonstrated for the unmodified version of the `requestData()` function of the `ex1-programmerFun` exercise.
+
+![hover-function-any](../../assets/hover-function-any.png)
+
+The parameter `url` has been _inferred_ by VSCode to be of type `any`. The parameter name and its _type_ are separated by a colon. The `any` type annotation indicates that the `url` parameter can be any type, e.g. `string`, `number`, `object`, `function` etc. There is no way for VSCode to be more precise. We, as a programmer, can surmise that we should pass a `string` to the `requestData()` function, notably a string that specifies the `url` from which to request the data. If we pass a `number` or an `object` or anything other than a `string` we would anticipate the function to fail.
+
+Note also that VSCode has no clue about the type of data (if any) the `requestData()` function is supposed to return. That is indicated by the `: void` notation following the closing parenthesis of the parameter list. Here, the `void` type is to be understood that it is not expected that the return value of the function will be used by the calling function. Of course, the `TODO` comment in the code tells us otherwise.
+
+Static type checking helps us to ensure that we use the types that our code expects. Because JavaScript itself does not understand type annotations we can not directly include them in the same manner as shown in the pop-up window shown above (but wait until you read about TypeScript in a later section).
+
+In exercises `ex3-rollAnAce.js` and `ex4-diceRace.js` we have use JSDoc comments to indicate to VSCode which types our code expects. In the picture below we have placed the mouse cursor on the `rollDieUntil()` function. VSCode now knows that this function expects a `DieFace` type for its `desiredValue` parameter.
+
+![hover-function-jsdoc](../../assets/hover-function-jsdoc.png)
+
+But what constitutes the `DieFace` type? If you hover your mouse pointer over the `@param {DieFace}` line in the JSDoc comment preceding the function VSCode will again show a pop-up window, this time showing the definition of the `DieFace` type.
+
+![hover-die-face](../../assets/hover-die-face.png)
+
+The `DieFace` type is a `string`, further restricted to the listed string constants `"NINE"` ... `"ACE"` (the vertical bar `|` means 'or' here). So, if we would pass anything other than one of the expected string constants then all bets are off on how our code will function.
+
+In the pop-up window you can also see that the `rollDieUntil()` function is expected to return a `Promise` that resolves to a value of the type `DieFace`.
+
+In the `main()` function that calls the `rollDieUntil()` function you can still pass something that is not of type `DieFace`. For instance, if you pass the string `'TWO'`, which would be a valid value for a playing card in the game of poker but not for a poker die, there would be no chance that the die could ever settle on a `TWO` because it has no such face.
+
+Having to hover over code to examine the correct types to use in your code is rather cumbersome. VSCode can flag type violations as errors by adding a special comment to the top of your file:
+
+```js
+//@ts-check
+```
+
+After adding this comment, a value of an invalid type is now flagged as an error in VSCode, with the usual red squiggly underline:
+
+![hover-invalid-type](../../assets/hover-type-error.png)
+
+You can also see the error message in the PROBLEMS pane of VSCode:
+
+![problems-pane](../../assets/problem-pane.png)
+
+Note that VSCode nor JavaScript itself prevents you from running the code while errors have been flagged. It remains your responsibility to correct flagged errors.
+
+At this point you might wonder how VSCode knows about the type definition of `DieFace`. This is done through another comment in the file, just after the `import` statement.
+
+```js
+/** @import {DieFace} from "../../helpers/pokerDiceRoller.js" */
+```
+
+This informs VSCode that the `DieFace` type is defined in the `pokerDiceRoller.js` file in the `helpers` folder. This file contains many JSDoc annotations. The `DieFace` type is defined in line 12:
+
+```js
+/** @typedef {'NINE' | 'TEN' | 'JACK'  | 'QUEEN' | 'KING' | 'ACE'} DieFace */
+```
+
+As mentioned before, we do not expect you to add JSDoc type annotations to your own code. At some point (not currently during the HackYourFuture curriculum) you will encounter TypeScript, which implements static type checking in a far more fundamental and also more convenient way. It is introduced in the next section.
+
+#### TypeScript
+
+Microsoft, the creators of [TypeScript](https://www.typescriptlang.org/), introduce the language as follow:
+
+> TypeScript is **JavaScript with syntax for types**.
+>
+> TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+
+Because JavaScript itself does not understand the type annotations added in a TypeScript file (denoted with a `.ts` instead of a `.js` file extension) must be converted to plain JavaScript (with the type annotations removed) through a process called "transpilation". During this process, if TypeScript detects type errors in your code it will report those errors to the console. VSCode (but also other [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) that support TypeScript) will also flag type errors, in a way similar to what we have seen with JSDoc before.
+
+As an example we have provided a version of the [`ex3-rollAnAce`](./typescript/ex3-rollAnAce.ts) exercise, including the function that it imports from [`pokerDiceRoller.ts`](./typescript/pokerDiceRoller.ts) written in TypeScript in the [typescript](./typescript/) folder.
+
+The transpiled (JavaScript) versions of these files can be found in the [`.dist`](../../.dist/3-UsingAPIs/Week2/typescript/) folder. The transpilation was done when you installed this repository with the `npm install` command. If you inspect the transpiled code you will find that all type annotations are gone. This code is directly executable by the JavaScript engine.
+
+As for JSDoc, we do not expect you to use TypeScript during the HackYourFuture curriculum (although we may change our mind over time :smiley:). If you are still interested to learn more, one of the mentors in (and former graduate of) HackYourFuture posted a [message](https://hackyourfuture.slack.com/archives/C0EJTP8BY/p1719770993186319) in Slack about his own journey learning TypeScript and a link to a free book about TypeScript.
 
 ### Exercise 4: Dice Race
 

@@ -1,3 +1,4 @@
+// @ts-check
 //-----------------------------------
 // ! This file should not be changed!
 //-----------------------------------
@@ -5,10 +6,13 @@
 const underTest = process.env.NODE_ENV === 'test';
 
 // JavaScript library to work with time: https://momentjs.com/docs/
-const moment = require('moment');
+import moment from 'moment';
 
-// These are the six side on a poker die.
-const sides = ['NINE', 'TEN', 'JACK', 'QUEEN', 'KING', 'ACE'];
+// These are the six faces on a poker die.
+/** @typedef {'NINE' | 'TEN' | 'JACK'  | 'QUEEN' | 'KING' | 'ACE'} DieFace */
+
+/** @type {DieFace[]} */
+const faces = ['NINE', 'TEN', 'JACK', 'QUEEN', 'KING', 'ACE'];
 
 // The maximum number of rolls the die should make.
 const MAX_ROLLS = 8;
@@ -34,7 +38,11 @@ const rollOrders = [
   [0, 2, 5, 3],
 ];
 
-// A logger function that timestamps the console.log output
+/**
+ * A logger function that timestamps the console.log output
+ * @param  {...any} args
+ * @returns {void}
+ */
 const logStamped = (...args) => {
   if (underTest) {
     return;
@@ -42,10 +50,19 @@ const logStamped = (...args) => {
   console.log(moment().format('HH:mm:ss.SSS'), ...args);
 };
 
-// A convenience function to get a random integer: 0 <= n < max
+/**
+ * A convenience function to get a random integer: 0 <= n < max
+ * @param {number} max
+ * @returns {number}
+ */
 const getRandomNumber = (max) => Math.floor(Math.random() * max);
 
-function rollDie(die = 1) {
+/**
+ * Roll a die and return the side it lands on.
+ * @param {number} die
+ * @returns {Promise<DieFace>}
+ */
+export function rollDie(die = 1) {
   return new Promise((resolve, reject) => {
     // Introduce a slightly random variation in roll time.
     const rollTime = ROLL_TIME - 5 + getRandomNumber(10);
@@ -65,12 +82,15 @@ function rollDie(die = 1) {
 
     let offTable = false;
 
-    // Function that executes a roll, called recursively until the mandated
-    // number of rolls (`randomRollsToDo`) has been done.
+    /**
+     * Function that executes a roll, called recursively until the mandated
+     *
+     * @param {number} roll
+     */
     const rollOnce = (roll) => {
       // Compute the index of the side in the roll (round-robin fashion)
       const index = rollOrder[(roll + offset) % 4];
-      const side = sides[index];
+      const side = faces[index];
       logStamped(`Die ${die} is now: ${side}`);
 
       // If the die rolls of the table we reject the promise (but that
@@ -101,5 +121,3 @@ function rollDie(die = 1) {
     rollOnce(1);
   });
 }
-
-module.exports = rollDie;
