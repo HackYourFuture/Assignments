@@ -256,7 +256,7 @@ export function getUntestedExercises(menuData: MenuData): string[] {
   for (const module in diff) {
     for (const week in diff[module]) {
       for (const exercise in diff[module][week]) {
-        const { hash: testHash } = moduleStats[module]?.[week]?.[exercise];
+        const testHash = moduleStats[module]?.[week]?.[exercise]?.hash;
         if (testHash) {
           const exercisePath = `${module}/${week}/assignment/${exercise}`;
           const computedHash = computeHash(exercisePath);
