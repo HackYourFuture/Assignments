@@ -4,6 +4,23 @@ This repository contains all of the assignments exercises that need to be handed
 
 Please read this README carefully before starting work on the assignment exercises.
 
+## TL;DR
+
+We highly recommend that you go through this README in detail before starting to work on the assignments. Having said that, the essentials can be summarized as follows:
+
+1. Fork the `HackYourAssignment/Assignments-CohortXX` repo to your own GitHub account.
+2. Clone the fork to your local computer.
+3. Open the root folder of the repo in VSCode.
+4. When invited to do so, please install the recommended VSCode extensions.
+5. Run the command `npm install` from the root folder of the repo.
+6. Create a new branch and name it (e.g., for week 2 of JavaScript) `YOUR_NAME-w2-JavaScript`. Replace `YOUR_NAME` with your name. Note that you should not work on / modify the `main` branch.
+7. Start your work on the assignments for week 2.
+8. After finishing an assignment, use the command `npm test` to test your solution.
+9. Fix any reported issues and rerun the test. Repeat until all issues are fixed.
+10. When all assignments are done, commit all changed files. This includes the modified exercises, the generated test summary (`TEST_SUMMARY.md`) and test reports (`EXERCISE_NAME.report.txt`).
+11. Push the changes to your fork.
+12. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repo. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
+
 ## Introduction
 
 Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain exercises. This repository contains all of these exercises for the JavaScript modules (JavaScript, Browsers, UsingAPIs). The module repositories will tell you how to hand in the assignment, the curriculum will indicate what week you will need to do.
