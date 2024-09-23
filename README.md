@@ -2,8 +2,6 @@
 
 This repository contains all of the assignments exercises that need to be handed in for the JavaScript modules (i.e., JavaScript, Browsers and UsingAPIs) of the HackYourFuture curriculum.
 
-Please read this README carefully before starting work on the assignment exercises.
-
 ## TL;DR
 
 We highly recommend that you go through this README in detail before starting to work on the assignments. Having said that, the essentials can be summarized as follows:
