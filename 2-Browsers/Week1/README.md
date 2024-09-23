@@ -85,7 +85,7 @@ No homepage is safe from the logo bandit! Every time he sees a Google Logo he re
 In this exercise you're expected to write a JavaScript function that can be executed in the console of the [Google website](https://www.google.com).
 
 1. Find out how to select the element that contains the Google logo, and store it in a variable.
-2. Modify the `src` and `srcset` of the logo so that it's replaced by the HackYourFuture logo instead.
+2. Modify the `.src` and `.srcset` properties of the logo so that it's replaced by the HackYourFuture logo instead.
 
 ## Exercise 4: What's the time?
 
