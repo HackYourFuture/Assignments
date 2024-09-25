@@ -3,18 +3,18 @@
  PASS  .dist/1-JavaScript/Week2/unit-tests/ex3-tellFortune.test.js
   js-wk2-ex3-tellFortune
     ✅ should exist and be executable (2 ms)
-    ✅ should have all TODO comments removed
+    ✅ should have all TODO comments removed (1 ms)
     ✅ `tellFortune` should not contain unneeded console.log calls (1 ms)
-    ✅ should take four parameters
+    ✅ should take four parameters (1 ms)
     ✅ should call function `selectRandomly` for each of its arguments (1 ms)
     ✅ `numKids` should be an array initialized with 5 elements
     ✅ `locations` should be an array initialized with 5 elements
-    ✅ `partnerNames` should be an array initialized with 5 elements
-    ✅ `jobTitles` should be an array initialized with 5 elements
+    ✅ `partnerNames` should be an array initialized with 5 elements (1 ms)
+    ✅ `jobTitles` should be an array initialized with 5 elements (1 ms)
     ✅ should tell the fortune by randomly selecting array values (1 ms)
 
 Test Suites: 1 passed, 1 total
 Tests:       10 passed, 10 total
 Snapshots:   0 total
-Time:        0.917 s
+Time:        1.217 s
 Ran all test suites matching /C:\\Users\\abdww\\Desktop\\assignment\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex3-tellFortune.test.js/i.
