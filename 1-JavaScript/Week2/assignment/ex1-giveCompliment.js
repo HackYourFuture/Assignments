@@ -18,7 +18,7 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-J
    `giveCompliment` function to the console.
 -----------------------------------------------------------------------------*/
 export function giveCompliment(name) {
-  const compliment = [
+  const compliments = [
     'Great',
     'Awesome',
     'Brilliant',
@@ -28,10 +28,10 @@ export function giveCompliment(name) {
     'Talented',
     'Remarkable',
     'Genuine',
-    'Magnificent'
+    'Magnificent',
   ];
-  let randomIndex = Math.floor(Math.random() * compliment.length);
-  return `You are ${compliment[randomIndex]}, ${name}!`;
+  let randomIndex = Math.floor(Math.random() * compliments.length);
+  return `You are ${compliments[randomIndex]}, ${name}!`;
 }
 
 function main() {

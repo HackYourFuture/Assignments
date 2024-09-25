@@ -6,7 +6,7 @@
 
 |       Exercise       | Passed | Failed | ESLint |
 |----------------------|--------|--------|--------|
-| ex1-giveCompliment   |   5    |   2    |   ✓    |
+| ex1-giveCompliment   |   7    |   -    |   ✓    |
 | ex2-dogYears         |   7    |   -    |   ✓    |
 | ex3-tellFortune      |   10   |   -    |   ✓    |
 | ex4-shoppingCart     |   -    |   -    |   ✓    |

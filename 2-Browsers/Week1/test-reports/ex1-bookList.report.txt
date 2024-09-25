@@ -1,9 +1,9 @@
 *** Unit Test Error Report ***
 
 Command failed: npx jest C:/Users/abdww/Desktop/assignment/Assignments/.dist/2-Browsers/Week1/unit-tests/ex1-bookList.test.js --colors --noStackTrace --json
- FAIL  .dist/2-Browsers/Week1/unit-tests/ex1-bookList.test.js
+ FAIL  .dist/2-Browsers/Week1/unit-tests/ex1-bookList.test.js (6.981 s)
   br-wk1-ex1-bookList
-    ✅ HTML should be syntactically valid (172 ms)
+    ✅ HTML should be syntactically valid (251 ms)
     ❌ should have all TODO comments removed (2 ms)
     ❌ should contain a <ul> that is a child of <div id="bookList"> (1 ms)
     ❌ should contain a <ul> with 3 <li> elements (2 ms)
@@ -46,5 +46,5 @@ Command failed: npx jest C:/Users/abdww/Desktop/assignment/Assignments/.dist/2-B
 Test Suites: 1 failed, 1 total
 Tests:       5 failed, 1 passed, 6 total
 Snapshots:   0 total
-Time:        5.21 s, estimated 23 s
+Time:        7.478 s
 Ran all test suites matching /C:\\Users\\abdww\\Desktop\\assignment\\Assignments\\.dist\\2-Browsers\\Week1\\unit-tests\\ex1-bookList.test.js/i.
