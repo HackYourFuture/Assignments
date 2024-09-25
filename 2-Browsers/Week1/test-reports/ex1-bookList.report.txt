@@ -1,0 +1,50 @@
+*** Unit Test Error Report ***
+
+Command failed: npx jest C:/Users/abdww/Desktop/assignment/Assignments/.dist/2-Browsers/Week1/unit-tests/ex1-bookList.test.js --colors --noStackTrace --json
+ FAIL  .dist/2-Browsers/Week1/unit-tests/ex1-bookList.test.js
+  br-wk1-ex1-bookList
+    ✅ HTML should be syntactically valid (172 ms)
+    ❌ should have all TODO comments removed (2 ms)
+    ❌ should contain a <ul> that is a child of <div id="bookList"> (1 ms)
+    ❌ should contain a <ul> with 3 <li> elements (2 ms)
+    ❌ should contain an <li> with title and author for each book of the `myBooks` array (1 ms)
+    ❌ should contain an <img> element for each book (1 ms)
+
+  ● br-wk1-ex1-bookList › should have all TODO comments removed
+
+    expect(received).toBeFalsy()
+
+    Received: true
+
+  ● br-wk1-ex1-bookList › should contain a <ul> that is a child of <div id="bookList">
+
+    expect(received).toBeTruthy()
+
+    Received: null
+
+  ● br-wk1-ex1-bookList › should contain a <ul> with 3 <li> elements
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 3
+    Received: 0
+
+  ● br-wk1-ex1-bookList › should contain an <li> with title and author for each book of the `myBooks` array
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: StringContaining "The Design of Everyday Things"
+    Received: ""
+
+  ● br-wk1-ex1-bookList › should contain an <img> element for each book
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 3
+    Received: 0
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 1 passed, 6 total
+Snapshots:   0 total
+Time:        5.21 s, estimated 23 s
+Ran all test suites matching /C:\\Users\\abdww\\Desktop\\assignment\\Assignments\\.dist\\2-Browsers\\Week1\\unit-tests\\ex1-bookList.test.js/i.
