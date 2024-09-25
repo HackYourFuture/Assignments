@@ -18,34 +18,36 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-J
    `giveCompliment` function to the console.
 -----------------------------------------------------------------------------*/
 export function giveCompliment(name) {
-
-  const compliment = ["Great", "Awesome","Brilliant", "Radiant", "Inspiring", "Kindhearted", "Talented", "Remarkable", "Genuine","Magnificent"];
-  let randomIndex = Math.floor(Math.random()*compliment.length-1)+1;
+  const compliment = [
+    'Great',
+    'Awesome',
+    'Brilliant',
+    'Radiant',
+    'Inspiring',
+    'Kindhearted',
+    'Talented',
+    'Remarkable',
+    'Genuine',
+    'Magnificent',
+  ];
+  let randomIndex = Math.floor(Math.random() * compliment.length);
   let result = `You are ${compliment[randomIndex]}, ${name}!`;
-  return (result)
-  
+  return result;
+}
+
+function main() {
+  const myName = 'Abdul Kader';
+  const yourName = 'Amsterdam';
+
+  for (let j = 0; j < 3; j++) {
+    console.log(giveCompliment(myName));
   }
-  
-  
-  function main() {
-    const myName = 'Abdul Kader';
-    const yourName = 'Amsterdam';
-  
-    for(let j=0; j<3; j++){
-      console.log(giveCompliment(myName));
-    }
-  for(let i=0; i<3; i++){
-     console.log(giveCompliment(yourName));
-  }  
-   
-  
-  
-  
-   
+  for (let i = 0; i < 3; i++) {
+    console.log(giveCompliment(yourName));
   }
-  
-  // ! Do not change or remove the code below
-  if (process.env.NODE_ENV !== 'test') {
-    main();
-  }
-  
+}
+
+// ! Do not change or remove the code below
+if (process.env.NODE_ENV !== 'test') {
+  main();
+}

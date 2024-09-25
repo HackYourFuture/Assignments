@@ -72,9 +72,11 @@
     "open": "^10.1.0",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
-    "serve-handler": "^6.1.5",
     "strip-ansi": "^7.1.0",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.0.1"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
   }
 }
