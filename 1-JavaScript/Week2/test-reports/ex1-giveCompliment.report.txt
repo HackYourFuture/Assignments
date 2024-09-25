@@ -4,12 +4,12 @@ Command failed: npx jest C:/Users/abdww/Desktop/assignment/Assignments/.dist/1-J
  FAIL  .dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js
   js-wk2-ex1-giveCompliment
     ✅ should exist and be executable (2 ms)
-    ✅ should have all TODO comments removed
+    ✅ should have all TODO comments removed (1 ms)
     ✅ `giveCompliment` should not contain unneeded console.log calls (1 ms)
-    ✅ should take a single parameter (1 ms)
+    ✅ should take a single parameter
     ✅ should include a `compliments` array inside its function body
-    ❌ the `compliments` array should be initialized with 10 strings (2 ms)
-    ❌ should give a random compliment: You are `compliment`, `name`! (3 ms)
+    ❌ the `compliments` array should be initialized with 10 strings (3 ms)
+    ❌ should give a random compliment: You are `compliment`, `name`! (4 ms)
 
   ● js-wk2-ex1-giveCompliment › the `compliments` array should be initialized with 10 strings
 
@@ -29,9 +29,9 @@ Command failed: npx jest C:/Users/abdww/Desktop/assignment/Assignments/.dist/1-J
 Test Suites: 1 failed, 1 total
 Tests:       2 failed, 5 passed, 7 total
 Snapshots:   0 total
-Time:        1.147 s, estimated 3 s
+Time:        1.714 s
 Ran all test suites matching /C:\\Users\\abdww\\Desktop\\assignment\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
 
 *** Spell Checker Report ***
 
-1-JavaScript/Week2/assignment/ex1-giveCompliment.js:39:25 - Unknown word (Kader)
+1-JavaScript/Week2/assignment/ex1-giveCompliment.js:38:25 - Unknown word (Kader)

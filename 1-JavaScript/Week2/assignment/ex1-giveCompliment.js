@@ -28,11 +28,10 @@ export function giveCompliment(name) {
     'Talented',
     'Remarkable',
     'Genuine',
-    'Magnificent',
+    'Magnificent'
   ];
   let randomIndex = Math.floor(Math.random() * compliment.length);
-  let result = `You are ${compliment[randomIndex]}, ${name}!`;
-  return result;
+  return `You are ${compliment[randomIndex]}, ${name}!`;
 }
 
 function main() {
