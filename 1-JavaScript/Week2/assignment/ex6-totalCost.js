@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-JavaScript/Week3#exercise-6-total-cost-is
 
 You want to buy a couple of things from the supermarket to prepare for a party.
@@ -21,35 +21,35 @@ instead!
 -----------------------------------------------------------------------------*/
 const cartForParty = {
   chess: 10.99,
-    chips: 3.49,
-    soda: 4.99,
-    pizza: 8.99,
-    cookies: 2.75};
-    function calculateTotalPrice(cartForParty) {
-      let total = 0;
+  chips: 3.49,
+  soda: 4.99,
+  pizza: 8.99,
+  cookies: 2.75,
+};
+function calculateTotalPrice(cartForParty) {
+  let total = 0;
   for (let price in cartForParty) {
-   total = total + cartForParty[price];
+    total = total + cartForParty[price];
   }
   return `Total: €${total} `;
-  
-    // TODO replace this comment with your code
-  }
-  
-  // ! Test functions (plain vanilla JavaScript)
-  function test1() {
-    console.log(`\n ${calculateTotalPrice(cartForParty)}`);
-    // TODO replace this comment with your code
-  }
-  
-  function test2() {
-    console.log(`\n ${calculateTotalPrice(cartForParty)}`);
-    // TODO replace this comment with your code
-  }
-  
-  function test() {
-    test1();
-    test2();
-  }
-  
-  test();
-  
+
+  // TODO replace this comment with your code
+}
+
+// ! Test functions (plain vanilla JavaScript)
+function test1() {
+  console.log(`\n ${calculateTotalPrice(cartForParty)}`);
+  // TODO replace this comment with your code
+}
+
+function test2() {
+  console.log(`\n ${calculateTotalPrice(cartForParty)}`);
+  // TODO replace this comment with your code
+}
+
+function test() {
+  test1();
+  test2();
+}
+
+test();

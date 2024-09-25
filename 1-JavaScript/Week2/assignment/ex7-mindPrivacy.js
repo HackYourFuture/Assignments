@@ -30,11 +30,11 @@ const employeeRecords = [
 
 // ! Function under test
 function filterPrivateData(employeeRecords) {
-  const nonPrivateEmployeeRecords =  employeeRecords.map(({name, occupation, email})=>({name, occupation, email}));
+  const nonPrivateEmployeeRecords = employeeRecords.map(
+    ({ name, occupation, email }) => ({ name, occupation, email })
+  );
 
- return nonPrivateEmployeeRecords;
- 
-  // TODO complete this function
+  return nonPrivateEmployeeRecords;
 }
 
 // ! Test functions (plain vanilla JavaScript)
@@ -60,7 +60,6 @@ function test2() {
   console.assert(JSON.stringify(result) === JSON.stringify(expected));
 
   console.log(result);
-
 }
 
 function test() {
