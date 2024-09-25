@@ -17,20 +17,15 @@ calculate it!
 
 export function calculateDogAge(numberOfHumanYears) {
   const dogYear = numberOfHumanYears * 7;
-  return dogYear;
-
-  // TODO complete this function
-
+  return `Your doggie is ${dogYear} years old in dog years!`;
 }
 
 function main() {
-  for(let i=1; i<=3; i++){
-    console.log(`Your doggie is ${calculateDogAge(i)} years old in dog years!`);
+  for (let i = 1; i <= 3; i++) {
+    console.log(calculateDogAge(i));
   }
-  
 }
 
-// ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }
