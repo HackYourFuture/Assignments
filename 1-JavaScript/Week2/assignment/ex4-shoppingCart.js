@@ -5,16 +5,19 @@ Let's do some grocery shopping! We're going to get some things to cook dinner
 with. However, you like to spend money and always buy too many things. So when 
 you have more than 3 items in your shopping cart the first item gets taken out.
 
-1. Complete the function named `addToShoppingCart` as follows:
+1. Create an array called `shoppingCart` that holds the following strings: 
+   "bananas" and "milk".
+
+2. Complete the function named `addToShoppingCart` as follows:
 
    - It should take one argument: a grocery item (string)
-   - It should add the grocery item to the `shoppingCart` array. If the number of items is
+   - It should add the grocery item to `shoppingCart`. If the number of items is
      more than three remove the first one in the array.
    - It should return a string "You bought <list-of-items>!", where 
      <list-of-items>is a comma-separated list of items from the shopping cart 
      array.
 
-2. Confirm that your code passes the unit tests.
+3. Confirm that your code passes the unit tests.
 -----------------------------------------------------------------------------*/
 const shoppingCart = ['bananas', 'milk'];
 
