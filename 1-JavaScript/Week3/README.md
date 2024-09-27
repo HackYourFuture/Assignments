@@ -6,6 +6,8 @@ The assignment for this week can be found in the `assignment` folder.
 
 > In this week we will be using a test library called [Jest](https://jestjs.io/) rather than using plain vanilla JavaScript as we did last week.
 >
+> Note: Because Jest currently does not support the newer `import` and `export` keywords of modern JavaScript (it instead expects the older `module.exports` syntax), we use Jest in HYF in combination with a tool called [Babel](https://babeljs.io/). Babel transforms the newer syntax on-the-fly to the older syntax before Jest "sees" it.
+>
 > For an introduction of Unit Testing with Jest we recommend the [Jest Crash Course - Unit Testing in JavaScript](https://youtu.be/7r4xVDI2vho) YouTube video from Traversy Media. For this week, please watch it up to the 0:21:24 time marker.
 
 ### Exercise 1: The odd ones out
