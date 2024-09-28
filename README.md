@@ -19,6 +19,8 @@ We highly recommend that you go through this README in detail before starting to
 11. Push the changes to your fork.
 12. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repo. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
 
+For more information how to hand in your weekly assignments please refer to the [Hand-in Assignments Guide](https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md#12-every-week).
+
 ## Introduction
 
 Throughout your [HYF journey](https://github.com/HackYourFuture/curriculum) you will be asked to do certain exercises. This repository contains all of these exercises for the JavaScript modules (JavaScript, Browsers, UsingAPIs). The module repositories will tell you how to hand in the assignment, the curriculum will indicate what week you will need to do.
