@@ -42,17 +42,23 @@ This command:
 
 ## VSCode
 
-You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) while working with this repository. To open it with VSCode you can use the command line:
+You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) while working with this repository. If you are new to VSCode please check out the [VSCode Tips](https://github.com/HackYourFuture/fundamentals/blob/master/VSCodeTips/README.md) before continuing.
+
+From the command line, while inside the `Assignments-cohortXX` folder, you can use this command to open VSCode (the `.` stands for the current directory):
 
 ```text
-code Assignments-cohortXX
+code .
 ```
 
-> When working on your assignment it is strongly recommended to open `Assignments-cohortXX` folder itself in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
+> When working on your assignments it is strongly recommended to always open the `Assignments-cohortXX` folder in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
+>
+> Note that the name of the folder opened in VSCode can always be found in the `EXPLORER` panel ( `ASSIGNMENTS_COHORT49` in the picture below):
+>
+> ![folder-name](./assets/folder-name.png)
 
 ### Install Recommended VSCode Extensions
 
-**Important**: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
+**Important**: When you open the repository for the first time you may see a dialog box that invites you to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
 
 If, for some reason, the prompt to install the extensions does not appear then please install the extensions manually (click on the triangle below for details).
 
