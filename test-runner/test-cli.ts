@@ -68,7 +68,13 @@ async function main(): Promise<void> {
 
     console.log('Running test, please wait...');
 
-    await runTest(menu.module, menu.week, menu.exercise, assignmentFolder);
+    await runTest(
+      menu.module,
+      menu.week,
+      menu.exercise,
+      moduleWeek,
+      assignmentFolder
+    );
 
     await showDisclaimer();
 

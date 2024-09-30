@@ -266,6 +266,7 @@ export async function runTest(
   module: string,
   week: string,
   exercise: string,
+  moduleWeek: string,
   assignmentFolder = 'assignment'
 ): Promise<void> {
   let report = '';
@@ -285,6 +286,10 @@ export async function runTest(
 
   report += eslintReport;
   report += await execSpellChecker(exercisePath);
+
+  if (week !== moduleWeek) {
+    return;
+  }
 
   const moduleStats = updateTestHash(module, week, exercise, {
     numPassedTests: jestResult?.numPassedTests || 0,

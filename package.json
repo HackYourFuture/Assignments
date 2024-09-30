@@ -14,7 +14,6 @@
     "jest:api1": "jest ./.dist/3-UsingAPIs/Week1",
     "jest:api2": "jest ./.dist/3-UsingAPIs/Week2",
     "clean": "node ./.dist/test-runner/clean",
-    "create-hashes": "node ./.dist/test-runner/create-hashes.js",
     "test-changed": "node ./.dist/test-runner/test-changed",
     "postinstall": "tsc --build",
     "prepare": "husky",

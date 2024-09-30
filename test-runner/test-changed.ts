@@ -13,7 +13,7 @@ async function main() {
   for (const module in changes) {
     for (const week in changes[module]) {
       for (const exercise in changes[module][week]) {
-        await runTest(module, week, exercise);
+        await runTest(module, week, exercise, week);
       }
     }
   }
