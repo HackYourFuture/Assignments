@@ -266,7 +266,7 @@ export async function runTest(
   module: string,
   week: string,
   exercise: string,
-  moduleWeek: string,
+  isUntested: boolean,
   assignmentFolder = 'assignment'
 ): Promise<void> {
   let report = '';
@@ -287,7 +287,7 @@ export async function runTest(
   report += eslintReport;
   report += await execSpellChecker(exercisePath);
 
-  if (week !== moduleWeek) {
+  if (!isUntested) {
     return;
   }
 
