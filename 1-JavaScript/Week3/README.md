@@ -482,22 +482,7 @@ walletJane.reportBalance();
 
 Since this is a browser-based exercise, the file `index.js` will be loaded via a `<script>` tag in `index.html`. The `index.html` file itself requires no further consideration here.
 
-Let's run the exercise using our convenience command `npm run it`:
-
-```text
-❯ npm start
-
-> javascript@1.0.0 it C:\Users\jimcr\dev\hackyourfuture\assignments
-> node ./test-runner/run-it
-
-? Rerun last test (1-Javascript, Week4, ex5-wallet)? No
-? Which module? 1-Javascript
-? Which week? Week4
-? Which exercise? ex5-wallet
-Running exercise, please wait...
-HTTP server running at http://localhost:3030
-Press Ctrl-C to exit.
-```
+Let's run the exercise using our convenience command `npm start`. Select the `ex5-wallet` exercise from this week.
 
 This will run the exercise in the default browser (if your default browser is not Chrome then open this URL manually in Chrome: `http://locahost:3030`).
 
