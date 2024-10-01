@@ -21,7 +21,7 @@ describe('js-wk3-ex5-wallet', () => {
       });
   });
 
-  test('q1: At line 26, which variables are in the scope marked Closure?', () => {
+  test('q1: At line 24, which variables are in the scope marked Closure?', () => {
     expect(state.answers[0] === 'b').toBe(true);
   });
 
