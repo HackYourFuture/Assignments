@@ -88,7 +88,7 @@ async function main() {
     }
 
     const moduleWeek = checkExerciseHashes(menu.menuData);
-    if (moduleWeek === 'none' || moduleWeek === 'multiple') {
+    if (moduleWeek === 'multiple') {
       return;
     }
 
