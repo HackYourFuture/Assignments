@@ -11,7 +11,7 @@ import chalk from 'chalk';
 import fg from 'fast-glob';
 
 import ExerciseMenu from './ExerciseMenu.js';
-import { ExerciseHashes, getExerciseMap } from './exercises.js';
+import { ExerciseHashes } from './exercises.js';
 
 const execAsync = promisify(exec);
 
@@ -36,12 +36,10 @@ export function diffExerciseHashes(
 ): ExerciseHashes {
   const diff: ExerciseHashes = {};
 
-  const exerciseMap = getExerciseMap();
-
-  for (const module in exerciseMap) {
-    for (const week in exerciseMap[module]) {
+  for (const module in exerciseHashes) {
+    for (const week in exerciseHashes[module]) {
       for (const exercise in exerciseHashes[module][week]) {
-        const computedHash = exerciseMap[module][week][exercise];
+        const computedHash = exerciseHashes[module][week][exercise];
         const exercisePath = `${module}/${week}/assignment/${exercise}`;
         const actualHash = computeHash(exercisePath);
         if (computedHash !== actualHash) {
@@ -108,10 +106,10 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
 type CheckOptions = { silent: boolean };
 
 export function checkExerciseHashes(
-  exerciseMap: ExerciseHashes,
+  exerciseHashes: ExerciseHashes,
   options: CheckOptions = { silent: false }
 ): string {
-  const diff = diffExerciseHashes(exerciseMap);
+  const diff = diffExerciseHashes(exerciseHashes);
   const changes: Record<string, string[]> = {};
 
   for (const module in diff) {

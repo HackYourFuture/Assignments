@@ -16,7 +16,7 @@ export type ExerciseHashes = {
 };
 
 export function sealExercises() {
-  const exerciseMap: ExerciseHashes = {};
+  const exerciseHashes: ExerciseHashes = {};
 
   // Look for file and folder names that match the expected structure.
   // Windows paths are converted to POSIX paths to ensure compatibility.
@@ -36,18 +36,18 @@ export function sealExercises() {
     const matches = filePath.match(regexp);
     if (matches) {
       const [, module, week, exercise] = matches;
-      if (!exerciseMap[module]) {
-        exerciseMap[module] = {};
+      if (!exerciseHashes[module]) {
+        exerciseHashes[module] = {};
       }
-      if (!exerciseMap[module][week]) {
-        exerciseMap[module][week] = {};
+      if (!exerciseHashes[module][week]) {
+        exerciseHashes[module][week] = {};
       }
       const exercisePath = `${module}/${week}/assignment/${exercise}`;
-      exerciseMap[module][week][exercise] = computeHash(exercisePath);
+      exerciseHashes[module][week][exercise] = computeHash(exercisePath);
     }
   });
 
-  const hashesJson = JSON.stringify(exerciseMap, null, 2);
+  const hashesJson = JSON.stringify(exerciseHashes, null, 2);
   fs.writeFileSync(EXERCISE_MAP_PATH, hashesJson);
 }
 
