@@ -17,7 +17,7 @@ if (!(await isValidBranchName(menu))) {
   process.exit(1);
 }
 
-const moduleWeek = checkExerciseHashes(menu.menuData);
+const moduleWeek = checkExerciseHashes(menu.exerciseHashes);
 if (moduleWeek === 'multiple') {
   process.exit(1);
 }

@@ -3,8 +3,8 @@ import ExerciseMenu from './ExerciseMenu.js';
 import { runTest } from './test-runner.js';
 
 async function main() {
-  const { menuData } = new ExerciseMenu();
-  const changes = diffExerciseHashes(menuData);
+  const { exerciseHashes } = new ExerciseMenu();
+  const changes = diffExerciseHashes(exerciseHashes);
   if (Object.keys(changes).length === 0) {
     console.log('No exercises have been changed');
     return;

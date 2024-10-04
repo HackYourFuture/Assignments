@@ -60,14 +60,14 @@ async function main(): Promise<void> {
       process.exit(1);
     }
 
-    const moduleWeek = checkExerciseHashes(menu.menuData);
+    const moduleWeek = checkExerciseHashes(menu.exerciseHashes);
     if (moduleWeek === 'multiple') {
       return;
     }
 
     await menu.getExercisePath();
 
-    const untestedExercises = getUntestedExercises(menu.menuData);
+    const untestedExercises = getUntestedExercises(menu.exerciseHashes);
     const isUntested = untestedExercises.includes(
       `${menu.module}/${menu.week}/${menu.exercise}`
     );

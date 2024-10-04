@@ -70,7 +70,7 @@ An npm `postinstall` script is automatically executed as part of the `npm instal
 
 This script cleans out the `test-report` folders and `unit-test.log` file.
 
-Furthermore, a file `.hashes.json` is created in the root folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of and exercise has been modified since initial installation.
+Furthermore, a file `.exercises.json` is created in the root folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of and exercise has been modified since initial installation.
 
 To prevent trainees from accidentally running this script the `ENABLE_CLEANUP` environment variable must be set to "true" (see `.env-example`).
 

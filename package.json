@@ -7,12 +7,7 @@
   "scripts": {
     "start": "node ./.dist/test-runner/exercise-runner",
     "test": "node ./.dist/test-runner/test-cli",
-    "test:runner": "glob -c \"node --test\" \"./.dist/__tests__/**/*.test.js\"",
-    "jest:js2": "jest ./.dist/1-JavaScript/Week2",
-    "jest:js3": "jest ./1-JavaScript/Week3",
-    "jest:br1": "jest ./.dist/2-Browser/Week1",
-    "jest:api1": "jest ./.dist/3-UsingAPIs/Week1",
-    "jest:api2": "jest ./.dist/3-UsingAPIs/Week2",
+    "seal": "node ./.dist/test-runner/seal",
     "clean": "node ./.dist/test-runner/clean",
     "test-changed": "node ./.dist/test-runner/test-changed",
     "postinstall": "tsc --build",

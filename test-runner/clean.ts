@@ -1,11 +1,10 @@
 import 'dotenv/config.js';
 
-import chalk from 'chalk';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import chalk from 'chalk';
 import { rimrafSync } from 'rimraf';
-import { fileURLToPath } from 'url';
-import { createExerciseHashes } from './compliance.js';
-import ExerciseMenu from './ExerciseMenu.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -18,11 +17,6 @@ try {
     );
     process.exit(1);
   }
-
-  const { menuData } = new ExerciseMenu();
-
-  console.log('Computing and saving exercise hashes...');
-  createExerciseHashes(menuData);
 
   console.log('Cleaning up junit.xml...');
   rimrafSync(path.join(__dirname, '../../junit.xml'));

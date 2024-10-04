@@ -1,7 +1,5 @@
 import 'dotenv/config.js';
 
-import chalk from 'chalk';
-import fg from 'fast-glob';
 import { exec } from 'node:child_process';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -9,15 +7,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
-import ExerciseMenu, { MenuData } from './ExerciseMenu.js';
+import chalk from 'chalk';
+import fg from 'fast-glob';
+
+import ExerciseMenu from './ExerciseMenu.js';
+import { ExerciseHashes, getExerciseMap } from './exercises.js';
 
 const execAsync = promisify(exec);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const COMPUTED_HASHES_JSON_PATH = path.join(__dirname, '../../.hashes.json');
-
-function computeHash(exercisePath: string): string {
+export function computeHash(exercisePath: string): string {
   const sha256sum = crypto.createHash('sha256');
   const fileSpec = fs.existsSync(exercisePath) ? '/**/*.js' : '.js';
   const globSpec = path
@@ -31,40 +31,17 @@ function computeHash(exercisePath: string): string {
   return sha256sum.digest('hex');
 }
 
-type Hashes = {
-  [module: string]: { [week: string]: { [exercise: string]: string } };
-};
+export function diffExerciseHashes(
+  exerciseHashes: ExerciseHashes
+): ExerciseHashes {
+  const diff: ExerciseHashes = {};
 
-export function createExerciseHashes(menuData: MenuData): void {
-  const hashes: Hashes = {};
-  for (const module in menuData) {
-    for (const week in menuData[module]) {
-      for (const exercise of menuData[module][week]) {
-        const exercisePath = `${module}/${week}/assignment/${exercise}`;
-        if (!hashes[module]) {
-          hashes[module] = {};
-        }
-        if (!hashes[module][week]) {
-          hashes[module][week] = {};
-        }
-        hashes[module][week][exercise] = computeHash(exercisePath);
-      }
-    }
-  }
+  const exerciseMap = getExerciseMap();
 
-  const hashesJson = JSON.stringify(hashes, null, 2);
-  fs.writeFileSync(COMPUTED_HASHES_JSON_PATH, hashesJson);
-}
-
-export function diffExerciseHashes(menuData: MenuData): Hashes {
-  const diff: Hashes = {};
-  const computedHashes = JSON.parse(
-    fs.readFileSync(COMPUTED_HASHES_JSON_PATH, 'utf8')
-  );
-  for (const module in menuData) {
-    for (const week in menuData[module]) {
-      for (const exercise of menuData[module][week]) {
-        const computedHash = computedHashes[module][week][exercise];
+  for (const module in exerciseMap) {
+    for (const week in exerciseMap[module]) {
+      for (const exercise in exerciseHashes[module][week]) {
+        const computedHash = exerciseMap[module][week][exercise];
         const exercisePath = `${module}/${week}/assignment/${exercise}`;
         const actualHash = computeHash(exercisePath);
         if (computedHash !== actualHash) {
@@ -104,7 +81,7 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
     return true;
   }
 
-  const modulesNames = Object.keys(menu.menuData).map((name) =>
+  const modulesNames = Object.keys(menu.exerciseHashes).map((name) =>
     name.replace(/\d-/, '')
   );
   const branchNamePattern = new RegExp(
@@ -131,10 +108,10 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
 type CheckOptions = { silent: boolean };
 
 export function checkExerciseHashes(
-  menuData: MenuData,
+  exerciseMap: ExerciseHashes,
   options: CheckOptions = { silent: false }
 ): string {
-  const diff = diffExerciseHashes(menuData);
+  const diff = diffExerciseHashes(exerciseMap);
   const changes: Record<string, string[]> = {};
 
   for (const module in diff) {
@@ -239,9 +216,9 @@ export function updateTestHash(
   return moduleStats;
 }
 
-export function getUntestedExercises(menuData: MenuData): string[] {
+export function getUntestedExercises(exerciseHashes: ExerciseHashes): string[] {
   // Get info about the exercises that have been modified in the current branch
-  const diff = diffExerciseHashes(menuData);
+  const diff = diffExerciseHashes(exerciseHashes);
 
   // Get info about the exercises that have been tested
   const testHashPath = path.join(__dirname, `../.test-stats.json`);
@@ -274,7 +251,7 @@ export function getUntestedExercises(menuData: MenuData): string[] {
 }
 
 export function checkForUntestedExercises(menu: ExerciseMenu): void {
-  const untestedExercises = getUntestedExercises(menu.menuData);
+  const untestedExercises = getUntestedExercises(menu.exerciseHashes);
   if (untestedExercises.length > 0) {
     if (untestedExercises.length === 1) {
       console.error(
@@ -295,8 +272,8 @@ export function checkForUntestedExercises(menu: ExerciseMenu): void {
   }
 }
 
-export function getChangedWeeks(menuData: MenuData): string[] {
-  const diff = diffExerciseHashes(menuData);
+export function getChangedWeeks(exerciseHashes: ExerciseHashes): string[] {
+  const diff = diffExerciseHashes(exerciseHashes);
   const changedWeeks: string[] = [];
   for (const module in diff) {
     for (const week in diff[module]) {

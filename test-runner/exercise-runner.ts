@@ -87,7 +87,7 @@ async function main() {
       process.exit(1);
     }
 
-    const moduleWeek = checkExerciseHashes(menu.menuData);
+    const moduleWeek = checkExerciseHashes(menu.exerciseHashes);
     if (moduleWeek === 'multiple') {
       return;
     }
