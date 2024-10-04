@@ -7,7 +7,7 @@ import fg from 'fast-glob';
 import { computeHash } from './compliance.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-export const EXERCISE_MAP_PATH = path
+export const EXERCISE_HASHES_PATH = path
   .join(__dirname, '../../exercises.json')
   .replaceAll(/\\/g, '/');
 
@@ -48,10 +48,10 @@ export function sealExercises() {
   });
 
   const hashesJson = JSON.stringify(exerciseHashes, null, 2);
-  fs.writeFileSync(EXERCISE_MAP_PATH, hashesJson);
+  fs.writeFileSync(EXERCISE_HASHES_PATH, hashesJson);
 }
 
 export function getExerciseMap(): ExerciseHashes {
-  const data = fs.readFileSync(EXERCISE_MAP_PATH, 'utf8');
+  const data = fs.readFileSync(EXERCISE_HASHES_PATH, 'utf8');
   return JSON.parse(data);
 }
