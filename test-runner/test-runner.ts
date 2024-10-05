@@ -101,10 +101,7 @@ function getFirstPathMatch(partialPath: string): string | null {
   return path.normalize(entries[0]).replace(/\\/g, '/');
 }
 
-function getUnitTestPath(
-  exercisePath: string,
-  homeworkFolder: string
-): string | null {
+function getUnitTestPath(exercisePath: string): string | null {
   // If the exercise path ends with `.test` it is expected to represent a
   // single JavaScript (not TypeScript) file that contains both a function-under-test and
   // a unit test or suite of tests.
@@ -139,9 +136,7 @@ function getUnitTestPath(
 
   // If the exercise directory does not contain a unit test file then it may
   // exist as a transpiled TypeScript file in the `.dist` folder.
-  const regexp = new RegExp(
-    String.raw`/(\d-\w+?)/(Week\d+)/${homeworkFolder}/`
-  );
+  const regexp = new RegExp(String.raw`/(\d-\w+?)/(Week\d+)/assignment/`);
 
   const unitTestPath =
     exercisePath.replace(regexp, `/.dist/$1/$2/unit-tests/`) + '.test.js';
@@ -155,16 +150,13 @@ type JestResult = {
   message: string;
 };
 
-async function execJest(
-  exercisePath: string,
-  assignmentFolder: string
-): Promise<JestResult | null> {
+async function execJest(exercisePath: string): Promise<JestResult | null> {
   let message: string;
   let output: string;
   let numPassedTests = 0;
   let numFailedTests = 0;
 
-  const unitTestPath = getUnitTestPath(exercisePath, assignmentFolder);
+  const unitTestPath = getUnitTestPath(exercisePath);
   if (!unitTestPath) {
     message = 'A unit test file was not provided for this exercise.';
     console.log(chalk.yellow(message));
@@ -176,10 +168,7 @@ async function execJest(
   try {
     const { stdout, stderr } = await execAsync(cmdLine, {
       encoding: 'utf8',
-      env: {
-        ...process.env,
-        ASSIGNMENT_FOLDER: assignmentFolder,
-      },
+      env: { ...process.env },
     });
     ({ numFailedTests, numPassedTests } = JSON.parse(stdout));
     output = stderr;
@@ -266,18 +255,12 @@ export async function runTest(
   module: string,
   week: string,
   exercise: string,
-  isUntested: boolean,
-  assignmentFolder = 'assignment'
+  isUntested: boolean
 ): Promise<void> {
   let report = '';
-  const exercisePath = buildExercisePath(
-    module,
-    week,
-    exercise,
-    assignmentFolder
-  );
+  const exercisePath = buildExercisePath(module, week, exercise);
 
-  const jestResult = await execJest(exercisePath, assignmentFolder);
+  const jestResult = await execJest(exercisePath);
   if (jestResult) {
     report += jestResult.message;
   }

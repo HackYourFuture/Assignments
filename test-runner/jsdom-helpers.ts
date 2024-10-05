@@ -13,8 +13,6 @@ function sleep(ms: number) {
 }
 
 export async function prepare() {
-  const assignmentFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
-
   const { testPath } = expect.getState();
   if (!testPath) {
     throw new Error('testPath not found in expect.getState()');
@@ -23,7 +21,7 @@ export async function prepare() {
   const exercisePath = testPath
     .replace(/\\/g, '/')
     .replace('/.dist/', '/')
-    .replace('unit-tests', assignmentFolder)
+    .replace('unit-tests', 'assignment')
     .replace(/\.test\.[jt]s$/, '');
 
   const virtualConsole = new jsdom.VirtualConsole();

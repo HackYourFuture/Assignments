@@ -52,9 +52,7 @@ async function main(): Promise<void> {
   }
 
   try {
-    const assignmentFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
-
-    const menu = new ExerciseMenu(assignmentFolder);
+    const menu = new ExerciseMenu();
 
     if (!(await isValidBranchName(menu))) {
       process.exit(1);
@@ -74,13 +72,7 @@ async function main(): Promise<void> {
 
     console.log('Running test, please wait...');
 
-    await runTest(
-      menu.module,
-      menu.week,
-      menu.exercise,
-      isUntested,
-      assignmentFolder
-    );
+    await runTest(menu.module, menu.week, menu.exercise, isUntested);
 
     await showDisclaimer();
 

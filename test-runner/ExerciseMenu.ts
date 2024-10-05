@@ -14,16 +14,14 @@ type ExercisePathOptions = { isTest: boolean };
 export function buildExercisePath(
   module: string,
   week: string,
-  exercise: string,
-  assignmentFolder = 'assignment'
+  exercise: string
 ) {
   return path
-    .join(__dirname, `../../${module}/${week}/${assignmentFolder}/${exercise}`)
+    .join(__dirname, `../../${module}/${week}/assignment/${exercise}`)
     .replace(/\\/g, '/');
 }
 
 export default class ExerciseMenu {
-  #assignmentFolder: string;
   #module = '';
   #week = '';
   #exercise = '';
@@ -45,8 +43,7 @@ export default class ExerciseMenu {
     return this.#exerciseHashes;
   }
 
-  constructor(assignmentFolder = 'assignment') {
-    this.#assignmentFolder = assignmentFolder;
+  constructor() {
     this.#exerciseHashes = getExerciseMap();
     this.getMostRecentSelection();
   }
@@ -91,12 +88,7 @@ export default class ExerciseMenu {
       this.putMostRecentSelection();
     }
 
-    return buildExercisePath(
-      this.module,
-      this.week,
-      this.exercise,
-      this.#assignmentFolder
-    );
+    return buildExercisePath(this.module, this.week, this.exercise);
   }
 
   private async selectModule(): Promise<string> {
