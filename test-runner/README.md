@@ -19,31 +19,32 @@ A test is selected by going through a series of prompts, for instance:
 ? Which week? Week2
 ? Which exercise? ex1-giveCompliment
 Running test, please wait...
+*** Unit Test Error Report ***
+
  PASS  .dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js
   js-wk2-ex1-giveCompliment
-    √ should exist and be executable (2 ms)
-    √ should have all TODO comments removed
-    √ `giveCompliment` should not contain unneeded console.log calls
-    √ should take a single parameter (1 ms)
-    √ should include a `compliments` array inside its function body
-    √ the `compliments` array should be initialized with 10 strings (1 ms)
-    √ should give a random compliment: You are `compliment`, `name`! (4 ms)
+    ✅ should exist and be executable (1 ms)
+    ✅ should have all TODO comments removed
+    ✅ `giveCompliment` should not contain unneeded console.log calls
+    ✅ should take a single parameter
+    ✅ should include a `compliments` array inside its function body
+    ✅ the `compliments` array should be initialized with 10 strings (1 ms)
+    ✅ should give a random compliment: You are `compliment`, `name`!
 
 Test Suites: 1 passed, 1 total
 Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        0.882 s, estimated 1 s
-Ran all test suites matching /H:\\dev\\hackyourfuture\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
-
+Time:        0.29 s, estimated 1 s
+Ran all test suites matching /\/home\/jim\/dev\/hackyourfuture\/Assignments\/.dist\/1-JavaScript\/Week2\/unit-tests\/ex1-giveCompliment.test.js/i.
 No linting errors detected.
 No spelling errors detected.
 ```
 
 ### Report file
 
-When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.log`, in the root folder.
+When you run a test the results are reported to the console, but also written to a report file named `<exercise-name>.report.txt`, in a `test-reports` folder for each week.
 
-A report file named `TEST_REPORT.log` is generated to which test result are written for each test run. Trainees are expected to include this file in their pull request for the benefit of the assignment reviewer.
+Trainees are expected to include the test reports in their pull request for the benefit of the assignment reviewer.
 
 Trainees are expected to run the relevant tests. Running a test gives them early feedback on the correctness of the expected results and on conformance to the mandated coding style (as per ESLint). This provides them an early opportunity for corrective action. Once submitted as part of a PR, the report files give pull request reviewers some key indicators into the correctness of the homework while doing a more elaborate visual inspection of the actual code.
 
