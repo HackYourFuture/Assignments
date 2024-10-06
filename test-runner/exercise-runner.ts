@@ -79,9 +79,7 @@ async function runExercise(exercisePath: string) {
 
 async function main() {
   try {
-    const homeworkFolder = process.argv[2] ?? 'assignment';
-
-    const menu = new ExerciseMenu(homeworkFolder);
+    const menu = new ExerciseMenu();
 
     if (!(await isValidBranchName(menu))) {
       process.exit(1);

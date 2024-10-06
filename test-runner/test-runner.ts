@@ -145,12 +145,12 @@ function getUnitTestPath(exercisePath: string): string | null {
 }
 
 type JestResult = {
-  numFailedTests: number;
-  numPassedTests: number;
+  numFailedTests?: number;
+  numPassedTests?: number;
   message: string;
 };
 
-async function execJest(exercisePath: string): Promise<JestResult | null> {
+async function execJest(exercisePath: string): Promise<JestResult> {
   let message: string;
   let output: string;
   let numPassedTests = 0;
@@ -160,7 +160,7 @@ async function execJest(exercisePath: string): Promise<JestResult | null> {
   if (!unitTestPath) {
     message = 'A unit test file was not provided for this exercise.';
     console.log(chalk.yellow(message));
-    return null;
+    return { message };
   }
 
   let cmdLine = `npx jest ${unitTestPath} --colors --noStackTrace --json`;
@@ -176,9 +176,6 @@ async function execJest(exercisePath: string): Promise<JestResult | null> {
     ({ numFailedTests, numPassedTests } = JSON.parse(err.stdout));
     output = err.message;
   }
-
-  // console.log('err.stdout', err.stdout);
-  // console.log('err.message', err.message);
 
   output = `${output}`
     .trim()
@@ -221,8 +218,9 @@ async function execESLint(exercisePath: string): Promise<string> {
     return message;
   }
 
-  console.log(chalk.green('No linting errors detected.'));
-  return '';
+  const message = 'No linting errors detected.';
+  console.log(chalk.green(message));
+  return message;
 }
 
 async function execSpellChecker(exercisePath: string): Promise<string> {
@@ -231,8 +229,9 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
       ? path.normalize(`${exercisePath}/*.js`)
       : `${exercisePath}.js`;
     await execAsync(`npx cspell ${cspellSpec}`, { encoding: 'utf8' });
-    console.log(chalk.green('No spelling errors detected.'));
-    return '';
+    const message = 'No spelling errors detected.';
+    console.log(chalk.green(message));
+    return message;
   } catch (err: any) {
     let output = err.stdout.trim();
     if (!output) {
@@ -254,29 +253,23 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
 export async function runTest(
   module: string,
   week: string,
-  exercise: string,
-  isUntested: boolean
+  exercise: string
 ): Promise<void> {
   let report = '';
   const exercisePath = buildExercisePath(module, week, exercise);
 
-  const jestResult = await execJest(exercisePath);
-  if (jestResult) {
-    report += jestResult.message;
-  }
+  const result = await execJest(exercisePath);
+  report += `${result.message}\n`;
 
   const eslintReport = await execESLint(exercisePath);
+  report += `${eslintReport}\n`;
 
-  report += eslintReport;
-  report += await execSpellChecker(exercisePath);
-
-  if (!isUntested) {
-    return;
-  }
+  const spellCheckerReport = await execSpellChecker(exercisePath);
+  report += `${spellCheckerReport}\n`;
 
   const moduleStats = updateTestHash(module, week, exercise, {
-    numPassedTests: jestResult?.numPassedTests || 0,
-    numFailedTests: jestResult?.numFailedTests || 0,
+    numPassedTests: result?.numPassedTests || 0,
+    numFailedTests: result?.numFailedTests || 0,
     hasESLintErrors: !!eslintReport,
   });
 

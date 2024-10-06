@@ -65,14 +65,9 @@ async function main(): Promise<void> {
 
     await menu.getExercisePath();
 
-    const untestedExercises = getUntestedExercises(menu.exerciseHashes);
-    const isUntested = untestedExercises.includes(
-      `${menu.module}/${menu.week}/${menu.exercise}`
-    );
-
     console.log('Running test, please wait...');
 
-    await runTest(menu.module, menu.week, menu.exercise, isUntested);
+    await runTest(menu.module, menu.week, menu.exercise);
 
     await showDisclaimer();
 
