@@ -9,7 +9,6 @@
     "test": "node ./.dist/test-runner/test-cli",
     "seal": "node ./.dist/test-runner/seal",
     "clean": "node ./.dist/test-runner/clean",
-    "test-changed": "node ./.dist/test-runner/test-changed",
     "postinstall": "tsc --build",
     "prepare": "husky",
     "pre-commit": "node .dist/test-runner/pre-commit",
