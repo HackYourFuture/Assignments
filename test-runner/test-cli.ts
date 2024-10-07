@@ -8,7 +8,6 @@ import { fileURLToPath } from 'node:url';
 import {
   checkExerciseHashes,
   checkForUntestedExercises,
-  getUntestedExercises,
   isValidBranchName,
 } from './compliance.js';
 import ExerciseMenu from './ExerciseMenu.js';
@@ -67,7 +66,7 @@ async function main(): Promise<void> {
 
     console.log('Running test, please wait...');
 
-    await runTest(menu.module, menu.week, menu.exercise);
+    await runTest(menu);
 
     await showDisclaimer();
 

@@ -31,6 +31,14 @@ export function computeHash(exercisePath: string): string {
   return sha256sum.digest('hex');
 }
 
+export function isModifiedExercise(menu: ExerciseMenu): boolean {
+  const { module, week, exercise, exerciseHashes } = menu;
+  const exercisePath = `${module}/${week}/assignment/${exercise}`;
+  const computedHash = computeHash(exercisePath);
+  const cleanHash = exerciseHashes[module][week][exercise];
+  return computedHash !== cleanHash;
+}
+
 export function diffExerciseHashes(
   exerciseHashes: ExerciseHashes
 ): ExerciseHashes {

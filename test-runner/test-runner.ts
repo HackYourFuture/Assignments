@@ -9,8 +9,12 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import stripAnsi from 'strip-ansi';
 
-import { buildExercisePath } from './ExerciseMenu.js';
-import { ModuleTestStats, updateTestHash } from './compliance.js';
+import ExerciseMenu, { buildExercisePath } from './ExerciseMenu.js';
+import {
+  isModifiedExercise,
+  ModuleTestStats,
+  updateTestHash,
+} from './compliance.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
@@ -250,11 +254,9 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
   }
 }
 
-export async function runTest(
-  module: string,
-  week: string,
-  exercise: string
-): Promise<void> {
+export async function runTest(menu: ExerciseMenu): Promise<void> {
+  const { module, week, exercise } = menu;
+
   let report = '';
   const exercisePath = buildExercisePath(module, week, exercise);
 
@@ -267,13 +269,15 @@ export async function runTest(
   const spellCheckerReport = await execSpellChecker(exercisePath);
   report += `${spellCheckerReport}\n`;
 
-  const moduleStats = updateTestHash(module, week, exercise, {
-    numPassedTests: result?.numPassedTests || 0,
-    numFailedTests: result?.numFailedTests || 0,
-    hasESLintErrors: !!eslintReport,
-  });
+  if (isModifiedExercise(menu)) {
+    const moduleStats = updateTestHash(module, week, exercise, {
+      numPassedTests: result?.numPassedTests || 0,
+      numFailedTests: result?.numFailedTests || 0,
+      hasESLintErrors: !!eslintReport,
+    });
 
-  await writeTestReport(module, week, exercise, report);
+    await writeTestReport(module, week, exercise, report);
 
-  writeTestSummary(module, week, moduleStats);
+    writeTestSummary(module, week, moduleStats);
+  }
 }
