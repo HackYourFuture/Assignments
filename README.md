@@ -2,7 +2,24 @@
 
 This repository contains all of the assignments exercises that need to be handed in for the JavaScript modules (i.e., JavaScript, Browsers and UsingAPIs) of the HackYourFuture curriculum.
 
-Please read this README carefully before starting work on the assignment exercises.
+## TL;DR
+
+We highly recommend that you go through this README in detail before starting to work on the assignments. Having said that, the essentials can be summarized as follows:
+
+1. Fork the `HackYourAssignment/Assignments-CohortXX` repo to your own GitHub account.
+2. Clone the fork to your local computer.
+3. Open the root folder of the repo in VSCode.
+4. When invited to do so, please install the recommended VSCode extensions.
+5. Run the command `npm install` from the root folder of the repo.
+6. Create a new branch and name it (e.g., for week 2 of JavaScript) `YOUR_NAME-w2-JavaScript`. Replace `YOUR_NAME` with your name. Note that you should not work on / modify the `main` branch.
+7. Start your work on the assignments for week 2.
+8. After finishing an assignment, use the command `npm test` to test your solution.
+9. Fix any reported issues and rerun the test. Repeat until all issues are fixed.
+10. When all assignments are done, commit all changed files. This includes the modified exercises, the generated test summary (`TEST_SUMMARY.md`) and test reports (`EXERCISE_NAME.report.txt`).
+11. Push the changes to your fork.
+12. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repo. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
+
+For more information how to hand in your weekly assignments please refer to the [Hand-in Assignments Guide](https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md#12-every-week).
 
 ## Introduction
 
@@ -25,17 +42,23 @@ This command:
 
 ## VSCode
 
-You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) while working with this repository. To open it with VSCode you can use the command line:
+You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) while working with this repository. If you are new to VSCode please check out the [VSCode Tips](https://github.com/HackYourFuture/fundamentals/blob/master/VSCodeTips/README.md) before continuing.
+
+From the command line, while inside the `Assignments-cohortXX` folder, you can use this command to open VSCode (the `.` stands for the current directory):
 
 ```text
-code Assignments-cohortXX
+code .
 ```
 
-> When working on your assignment it is strongly recommended to open `Assignments-cohortXX` folder itself in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
+> When working on your assignments it is strongly recommended to always open the `Assignments-cohortXX` folder in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
+>
+> Note that the name of the folder opened in VSCode can always be found in the `EXPLORER` panel ( `ASSIGNMENTS_COHORT49` in the picture below):
+>
+> ![folder-name](./assets/folder-name.png)
 
 ### Install Recommended VSCode Extensions
 
-**Important**: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
+**Important**: When you open the repository for the first time you may see a dialog box that invites you to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
 
 If, for some reason, the prompt to install the extensions does not appear then please install the extensions manually (click on the triangle below for details).
 

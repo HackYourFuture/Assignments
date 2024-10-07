@@ -1,8 +1,8 @@
 import { simple } from 'acorn-walk';
-import { beforeAllHelper } from '../../../.dist/test-runner/unit-test-helpers.js';
+import { beforeAllHelper } from '../../../test-runner/unit-test-helpers.js';
 
 describe('js-wk3-ex5-wallet', () => {
-  const state = { answers: [] };
+  const state = { answers: [] as string[] };
   let exInfo;
   beforeAll(async () => {
     exInfo = await beforeAllHelper(__filename, { noImport: true });
@@ -21,7 +21,7 @@ describe('js-wk3-ex5-wallet', () => {
       });
   });
 
-  test('q1: At line 26, which variables are in the scope marked Closure?', () => {
+  test('q1: At line 24, which variables are in the scope marked Closure?', () => {
     expect(state.answers[0] === 'b').toBe(true);
   });
 

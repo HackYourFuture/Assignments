@@ -9,8 +9,12 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import stripAnsi from 'strip-ansi';
 
-import { buildExercisePath } from './ExerciseMenu.js';
-import { ModuleTestStats, updateTestHash } from './compliance.js';
+import ExerciseMenu, { buildExercisePath } from './ExerciseMenu.js';
+import {
+  isModifiedExercise,
+  ModuleTestStats,
+  updateTestHash,
+} from './compliance.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
@@ -101,10 +105,7 @@ function getFirstPathMatch(partialPath: string): string | null {
   return path.normalize(entries[0]).replace(/\\/g, '/');
 }
 
-function getUnitTestPath(
-  exercisePath: string,
-  homeworkFolder: string
-): string | null {
+function getUnitTestPath(exercisePath: string): string | null {
   // If the exercise path ends with `.test` it is expected to represent a
   // single JavaScript (not TypeScript) file that contains both a function-under-test and
   // a unit test or suite of tests.
@@ -139,9 +140,7 @@ function getUnitTestPath(
 
   // If the exercise directory does not contain a unit test file then it may
   // exist as a transpiled TypeScript file in the `.dist` folder.
-  const regexp = new RegExp(
-    String.raw`/(\d-\w+?)/(Week\d+)/${homeworkFolder}/`
-  );
+  const regexp = new RegExp(String.raw`/(\d-\w+?)/(Week\d+)/assignment/`);
 
   const unitTestPath =
     exercisePath.replace(regexp, `/.dist/$1/$2/unit-tests/`) + '.test.js';
@@ -150,25 +149,22 @@ function getUnitTestPath(
 }
 
 type JestResult = {
-  numFailedTests: number;
-  numPassedTests: number;
+  numFailedTests?: number;
+  numPassedTests?: number;
   message: string;
 };
 
-async function execJest(
-  exercisePath: string,
-  assignmentFolder: string
-): Promise<JestResult | null> {
+async function execJest(exercisePath: string): Promise<JestResult> {
   let message: string;
   let output: string;
   let numPassedTests = 0;
   let numFailedTests = 0;
 
-  const unitTestPath = getUnitTestPath(exercisePath, assignmentFolder);
+  const unitTestPath = getUnitTestPath(exercisePath);
   if (!unitTestPath) {
     message = 'A unit test file was not provided for this exercise.';
     console.log(chalk.yellow(message));
-    return null;
+    return { message };
   }
 
   let cmdLine = `npx jest ${unitTestPath} --colors --noStackTrace --json`;
@@ -176,10 +172,7 @@ async function execJest(
   try {
     const { stdout, stderr } = await execAsync(cmdLine, {
       encoding: 'utf8',
-      env: {
-        ...process.env,
-        ASSIGNMENT_FOLDER: assignmentFolder,
-      },
+      env: { ...process.env },
     });
     ({ numFailedTests, numPassedTests } = JSON.parse(stdout));
     output = stderr;
@@ -187,9 +180,6 @@ async function execJest(
     ({ numFailedTests, numPassedTests } = JSON.parse(err.stdout));
     output = err.message;
   }
-
-  // console.log('err.stdout', err.stdout);
-  // console.log('err.message', err.message);
 
   output = `${output}`
     .trim()
@@ -232,8 +222,9 @@ async function execESLint(exercisePath: string): Promise<string> {
     return message;
   }
 
-  console.log(chalk.green('No linting errors detected.'));
-  return '';
+  const message = 'No linting errors detected.';
+  console.log(chalk.green(message));
+  return message;
 }
 
 async function execSpellChecker(exercisePath: string): Promise<string> {
@@ -242,8 +233,9 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
       ? path.normalize(`${exercisePath}/*.js`)
       : `${exercisePath}.js`;
     await execAsync(`npx cspell ${cspellSpec}`, { encoding: 'utf8' });
-    console.log(chalk.green('No spelling errors detected.'));
-    return '';
+    const message = 'No spelling errors detected.';
+    console.log(chalk.green(message));
+    return message;
   } catch (err: any) {
     let output = err.stdout.trim();
     if (!output) {
@@ -262,37 +254,30 @@ async function execSpellChecker(exercisePath: string): Promise<string> {
   }
 }
 
-export async function runTest(
-  module: string,
-  week: string,
-  exercise: string,
-  assignmentFolder = 'assignment'
-): Promise<void> {
-  let report = '';
-  const exercisePath = buildExercisePath(
-    module,
-    week,
-    exercise,
-    assignmentFolder
-  );
+export async function runTest(menu: ExerciseMenu): Promise<void> {
+  const { module, week, exercise } = menu;
 
-  const jestResult = await execJest(exercisePath, assignmentFolder);
-  if (jestResult) {
-    report += jestResult.message;
-  }
+  let report = '';
+  const exercisePath = buildExercisePath(module, week, exercise);
+
+  const result = await execJest(exercisePath);
+  report += `${result.message}\n`;
 
   const eslintReport = await execESLint(exercisePath);
+  report += `${eslintReport}\n`;
 
-  report += eslintReport;
-  report += await execSpellChecker(exercisePath);
+  const spellCheckerReport = await execSpellChecker(exercisePath);
+  report += `${spellCheckerReport}\n`;
 
-  const moduleStats = updateTestHash(module, week, exercise, {
-    numPassedTests: jestResult?.numPassedTests || 0,
-    numFailedTests: jestResult?.numFailedTests || 0,
-    hasESLintErrors: !!eslintReport,
-  });
+  if (isModifiedExercise(menu)) {
+    const moduleStats = updateTestHash(module, week, exercise, {
+      numPassedTests: result?.numPassedTests || 0,
+      numFailedTests: result?.numFailedTests || 0,
+      hasESLintErrors: !!eslintReport,
+    });
 
-  await writeTestReport(module, week, exercise, report);
+    await writeTestReport(module, week, exercise, report);
 
-  writeTestSummary(module, week, moduleStats);
+    writeTestSummary(module, week, moduleStats);
+  }
 }

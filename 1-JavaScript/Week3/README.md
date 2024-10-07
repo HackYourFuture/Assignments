@@ -6,6 +6,8 @@ The assignment for this week can be found in the `assignment` folder.
 
 > In this week we will be using a test library called [Jest](https://jestjs.io/) rather than using plain vanilla JavaScript as we did last week.
 >
+> Note: Because Jest currently does not support the newer `import` and `export` keywords of modern JavaScript (it instead expects the older `module.exports` syntax), we use Jest in HYF in combination with a tool called [Babel](https://babeljs.io/). Babel transforms the newer syntax on-the-fly to the older syntax before Jest "sees" it.
+>
 > For an introduction of Unit Testing with Jest we recommend the [Jest Crash Course - Unit Testing in JavaScript](https://youtu.be/7r4xVDI2vho) YouTube video from Traversy Media. For this week, please watch it up to the 0:21:24 time marker.
 
 ### Exercise 1: The odd ones out
@@ -480,22 +482,7 @@ walletJane.reportBalance();
 
 Since this is a browser-based exercise, the file `index.js` will be loaded via a `<script>` tag in `index.html`. The `index.html` file itself requires no further consideration here.
 
-Let's run the exercise using our convenience command `npm run it`:
-
-```text
-❯ npm start
-
-> javascript@1.0.0 it C:\Users\jimcr\dev\hackyourfuture\assignments
-> node ./test-runner/run-it
-
-? Rerun last test (1-Javascript, Week4, ex5-wallet)? No
-? Which module? 1-Javascript
-? Which week? Week4
-? Which exercise? ex5-wallet
-Running exercise, please wait...
-HTTP server running at http://localhost:3030
-Press Ctrl-C to exit.
-```
+Let's run the exercise using our convenience command `npm start`. Select the `ex5-wallet` exercise from this week.
 
 This will run the exercise in the default browser (if your default browser is not Chrome then open this URL manually in Chrome: `http://locahost:3030`).
 
@@ -516,22 +503,19 @@ We seem to have a bug because we get `undefined` where we expect a name.
 Open the **Sources** panel from Developer Tools. Select `index.js` from the explorer panel and make sure that the console output is visible in the bottom panel, as shown in Figure 1.
 
 ![Dev Tools Debugger](../../assets/dev-tools-debugger.png)
+<br>Figure 1. The Chrome Developer Tools Debugger.
 
-Figure 1. The Chrome Developer Tools Debugger.
+First let's examine what causes the `undefined` value in the message. The `console.log` that outputs that message starts on line 24. We would like to inspect the state of the program when the execution reaches that point. For that purpose we will place a **breakpoint** at line 24. A breakpoint is a location in our code where we would like the JavaScript engine to pause execution when we run the program with the debugger.
 
-First let's examine what causes the `undefined` value in the message. The `console.log` that outputs that message starts on line 26. We would like to inspect the state of the program when the execution reaches that point. For that purpose we will place a **breakpoint** at line 26. A breakpoint is a location in our code where we would like the JavaScript engine to pause execution when we run the program with the debugger.
+To place a breakpoint at line 24, click to the left of the number 24 in the left margin of the editor window. A blue marker will appear to indicate the presence of a breakpoint (Figure 2):
 
-To place a breakpoint at line 26, click to the left of the number 26 in the left margin of the editor window. A blue marker will appear to indicate the presence of a breakpoint (Figure 2):
+![Set breakpoint](../../assets/wallet-set-breakpoint.png)
+<br>Figure 2. Breakpoint placed at line 24.
 
-![Breakpoint at line 26](../../assets/wallet-breakpoint-26.png)
+With this breakpoint set, reload the page to rerun the JavaScript code. The execution will be paused at line 24, as indicated by the blue highlighting of that line:
 
-Figure 2. Breakpoint placed at line 26.
-
-With this breakpoint set, reload the page to rerun the JavaScript code. The execution will be paused at line 26, as indicated by the blue highlighting of that line:
-
-![Breakpoint hit](../../assets/wallet-hit-26.png)
-
-Figure 3. Breakpoint at line 26 is hit.
+![Breakpoint hit](../../assets/wallet-breakpoint-hit.png)
+<br>Figure 3. Breakpoint at line 24 is hit.
 
 To the right of the code panel you can inspect, amongst others, **Breakpoints**, **Scope** and the **Call Stack**.
 
@@ -548,8 +532,7 @@ When we expand the variable `wallet` in the local scope of the Scope panel, we c
 There is no `name` property there. That must be the reason why we get `undefined` when we try to access `wallet.name`. Let's examine this by instructing the debugger to step over (i.e. execute) the `console.log` function call. Figure 4 below shows the debug buttons located near the upper right corner of the Developer Tools.
 
 ![Debug buttons](../../assets/dev-tools-debug-buttons.png)
-
-Figure 4. Developer Tools debug buttons
+<br>Figure 4. Developer Tools debug buttons
 
 Hover the mouse over each of these buttons in the browser and take note of the tooltips that appear.
 
@@ -563,19 +546,19 @@ However, we _do_ want to give some form of **read-only** access to the informati
 
 Let's try and make that change in the VSCode editor window. Prettier will probably now cause the `console.log` call to span five lines.
 
-Now, with the breakpoint still set at line 26, reload the page (first click the large X to cancel loading the current page and then the reload button to reload the page). Then, step over the `console.log` and inspect the console.
+Now, with the breakpoint still set at line 24, reload the page (first click the large X to cancel loading the current page and then the reload button to reload the page). Then, step over the `console.log` and inspect the console.
 
 :question: Please answer question **q4** of the quiz object.
 
 With execution paused at (now) line 31, press the **Step into next function call** button. If all is well that should take us into the function `withdraw()`, which is being called from line 31. If you hover your mouse over the variables `cash` and `amount` on line 16 you can peek at their current values, respectively `100` and `50`: that should be sufficient to make the withdrawal successful.
 
-Let's add a breakpoint at line 17. That breakpoint will only be hit in the case of insufficient funds. Press the button **Step over next function call**. What is being stepped over here is not a function call but a statement. So maybe this button is better labelled "Step over next statement"... But we will have to make do with what we got.
+Let's add a breakpoint at line 15. That breakpoint will only be hit in the case of insufficient funds. Press the button **Step over next function call**. What is being stepped over here is not a function call but a statement. So maybe this button is better labelled "Step over next statement"... But we will have to make do with what we got.
 
-In any case, the `console.log` of line 17 was not executed, as we expected.
+In any case, the `console.log` of line 15 was not executed, as we expected.
 
-With the `undefined` problem solved, we would now like to examine the instances where we get the message `Insufficient funds!`. The breakpoint at line 17 is perfect for that. But we no longer need the breakpoint at line 26. Click on that breakpoint in the left margin of the editor window to remove it again.
+With the `undefined` problem solved, we would now like to examine the instances where we get the message `Insufficient funds!`. The breakpoint at line 15 is perfect for that. But we no longer need the breakpoint at line 24. Click on that breakpoint in the left margin of the editor window to remove it again.
 
-Now, let's resume execution of the code by pressing the button **Resume script execution**. Our breakpoint at line 17 will be hit. Inspect the Scope panel to determine the name of the owner of the wallet that has insufficient funds.
+Now, let's resume execution of the code by pressing the button **Resume script execution**. Our breakpoint at line 15 will be hit. Inspect the Scope panel to determine the name of the owner of the wallet that has insufficient funds.
 
 :question: Please answer question **q5** of the `quiz` object.
 
@@ -592,19 +575,15 @@ and select to rerun the previous exercise. Note that the test will not use the b
 If you have provided all the correct answers you will see:
 
 ```console
-All unit tests passed.
+ PASS  .dist/1-JavaScript/Week3/unit-tests/ex5-wallet.test.js
+  js-wk3-ex5-wallet
+    ✅ q1: At line 24, which variables are in the scope marked Closure? (2 ms)
+    ✅ q2: What is in the Call Stack, from top to bottom?
+    ✅ q3: What tooltip appears when hovering over the third debug button?
+    ✅ q4: What is displayed in the console?
+    ✅ q5: The owner of the wallet with insufficient funds is?
 ```
 
-Otherwise you will get a message in red for each incorrect answer:
-
-```console
-*** Unit Test Error Report ***
-
-- wallet q1: At line 26, which variables are in the scope marked Closure?
-- wallet q2: What is in the Call Stack, from top to bottom?
-- wallet q3: What tooltip appears when hovering over the third debug button?
-- wallet q4: What is displayed in the console?
-- wallet q5: The owner of the wallet with insufficient funds is:
-```
+Otherwise you will each in incorrect answer will be marked with a red cross.
 
 This concludes the exercise.

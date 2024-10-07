@@ -35,11 +35,11 @@ describe('br-wk1-ex3-hijackLogo', () => {
 
   testTodosRemoved(() => exInfo.source);
 
-  test('should set the `src` property', () => {
+  test('should set the `.src` property', () => {
     expect(state.src).toBeDefined();
   });
 
-  test('should set the `srcset` property', () => {
+  test('should set the `.srcset` property', () => {
     expect(state.srcset).toBeDefined();
   });
 });
