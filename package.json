@@ -12,7 +12,8 @@
     "postinstall": "tsc --build",
     "prepare": "husky",
     "pre-commit": "node .dist/test-runner/pre-commit",
-    "pre-push": "node .dist/test-runner/pre-push"
+    "pre-push": "node .dist/test-runner/pre-push",
+    "test-reports-check": "node .dist/test-runner/test-reports-check"
   },
   "repository": {
     "type": "git",
