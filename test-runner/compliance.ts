@@ -87,14 +87,6 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
     return true;
   }
 
-  const modulesNames = Object.keys(menu.exerciseHashes).map((name) =>
-    name.replace(/\d-/, '')
-  );
-  const branchNamePattern = new RegExp(
-    String.raw`-w\d-(?:${modulesNames.join('|')})$`,
-    'i'
-  );
-
   const { stdout } = await execAsync('git branch --show-current');
   const branchName = stdout.trim();
 
@@ -103,7 +95,26 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
     return false;
   }
 
-  if (!branchNamePattern.test(branchName)) {
+  const validBranchPatterns: RegExp[] = [];
+  for (const module in menu.exerciseHashes) {
+    const match = module.match(/^\d-(.*)$/);
+    if (!match) {
+      throw new Error(`Invalid module name: ${module}`);
+    }
+    const moduleName = match[1];
+    for (const week in menu.exerciseHashes[module]) {
+      const match = week.match(/\d+$/);
+      if (!match) {
+        throw new Error(`Invalid week number: ${week}`);
+      }
+      const weekNumber = match[0];
+      validBranchPatterns.push(
+        new RegExp(`-w${weekNumber}-${moduleName}$`, 'i')
+      );
+    }
+  }
+
+  if (!validBranchPatterns.some((pattern) => pattern.test(branchName))) {
     console.error(chalk.red(BRANCH_NAME_MESSAGE));
     return false;
   }
