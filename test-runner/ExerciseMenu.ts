@@ -22,29 +22,20 @@ export function buildExercisePath(
 }
 
 export default class ExerciseMenu {
-  #module: string | undefined;
-  #week: string | undefined;
-  #exercise: string | undefined;
+  #module = '';
+  #week = '';
+  #exercise = '';
   #exerciseHashes: ExerciseHashes = {};
 
   get module() {
-    if (!this.#module) {
-      throw new Error('Module not selected');
-    }
     return this.#module;
   }
 
   get week() {
-    if (!this.#week) {
-      throw new Error('Week not selected');
-    }
     return this.#week;
   }
 
   get exercise() {
-    if (this.#exercise === undefined) {
-      throw new Error('Exercise not selected');
-    }
     return this.#exercise;
   }
 
