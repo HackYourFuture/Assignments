@@ -1,51 +1,20 @@
-import { exec } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { promisify } from 'node:util';
 
+import { diffExerciseHashes } from './compliance.js';
 import { getExerciseMap } from './exercises.js';
-
-const execAsync = promisify(exec);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export async function testReportsCheck() {
   try {
-    const { stdout } = await execAsync('git branch --show-current');
-    const branchName = stdout.trim();
-
-    // Mandated branch name format: TRAINEE_NAME-wW-MODULE_NAME
-    const match = branchName.match(/-w(\d+)-(.*)/);
-    if (!match) {
-      throw new Error(`Non-compliant branch name: ${branchName}`);
-    }
-
-    const weekNum = match[1];
-    const moduleName = match[2];
-    const modulePattern = new RegExp(String.raw`^\d+-${moduleName}$`, 'i');
-
     const exerciseHashes = getExerciseMap();
+    const diff = diffExerciseHashes(exerciseHashes);
 
-    const module = Object.keys(exerciseHashes).find((key) =>
-      modulePattern.test(key)
-    );
-
-    if (!module) {
-      throw new Error(`Invalid module name: ${moduleName}`);
+    if (Object.keys(diff).length === 0) {
+      process.exit(0);
     }
-
-    const week = Object.keys(exerciseHashes[module]).find((key) =>
-      key.endsWith(weekNum)
-    );
-
-    if (!week) {
-      throw new Error(`Invalid week number: ${weekNum}`);
-    }
-
-    const exercises = Object.keys(exerciseHashes[module][week]);
-
-    const testReportFolder = `../../${module}/${week}/test-reports`;
 
     const missingFiles: string[] = [];
 
@@ -56,21 +25,25 @@ export async function testReportsCheck() {
       missingFiles.push('TEST_SUMMARY.md');
     }
 
-    for (const exercise of exercises) {
-      const testReportFileName = `${exercise}.report.txt`;
-      const testReportFile = path
-        .join(__dirname, testReportFolder, testReportFileName)
-        .replaceAll(/\\/g, '/');
-      const testReportExists = fs.existsSync(testReportFile);
-      if (!testReportExists) {
-        missingFiles.push(testReportFileName);
+    for (const module in diff) {
+      for (const week in diff[module]) {
+        const testReportFolder = `../../${module}/${week}/test-reports`;
+        for (const exercise in diff[module][week]) {
+          const testReportFileName = `${exercise}.report.txt`;
+          const testReportFile = path
+            .join(__dirname, testReportFolder, testReportFileName)
+            .replaceAll(/\\/g, '/');
+          const testReportExists = fs.existsSync(testReportFile);
+          if (!testReportExists) {
+            missingFiles.push(testReportFileName);
+          }
+        }
       }
     }
 
     if (missingFiles.length > 0) {
-      throw new Error(`Missing test report files: ${missingFiles.join(', ')}`);
+      throw new Error(`Missing test report files:\n${missingFiles.join('\n')}`);
     }
-
     process.exit(0);
   } catch (err: any) {
     console.error(err.message);
