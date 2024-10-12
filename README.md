@@ -11,13 +11,16 @@ We highly recommend that you go through this README in detail before starting to
 3. Open the root folder of the repo in VSCode.
 4. When invited to do so, please install the recommended VSCode extensions.
 5. Run the command `npm install` from the root folder of the repo.
-6. Create a new branch and name it (e.g., for week 2 of JavaScript) `YOUR_NAME-w2-JavaScript`. Replace `YOUR_NAME` with your name. Note that you should not work on / modify the `main` branch.
-7. Start your work on the assignments for week 2.
-8. After finishing an assignment, use the command `npm test` to test your solution.
-9. Fix any reported issues and rerun the test. Repeat until all issues are fixed.
-10. When all assignments are done, commit all changed files. This includes the modified exercises, the generated test summary (`TEST_SUMMARY.md`) and test reports (`EXERCISE_NAME.report.txt`).
-11. Push the changes to your fork.
-12. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repo. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
+6. Make sure that you are on the `main` branch (if not, check it out first).
+7. Create a new branch and name it (e.g., for week 2 of JavaScript) `YOUR_NAME-w2-JavaScript`. Replace `YOUR_NAME` with your name. Note that you should not work on / modify the `main` branch.
+8. Start your work on the assignments for week 2.
+9. After finishing an assignment, use the command `npm test` to test your solution.
+10. Fix any reported issues and rerun the test. Repeat until all issues are fixed.
+11. When all assignments are done, commit all changed files. This includes the modified exercises, the generated test summary (`TEST_SUMMARY.md`) and test reports (`EXERCISE_NAME.report.txt`).
+12. Push the changes to your fork.
+13. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repo. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
+
+Repeat steps 6-13 for each week.
 
 For more information how to hand in your weekly assignments please refer to the [Hand-in Assignments Guide](https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md#12-every-week).
 
