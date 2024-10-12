@@ -18,7 +18,7 @@ export async function testReportsCheck() {
     // Mandated branch name format: TRAINEE_NAME-wW-MODULE_NAME
     const match = branchName.match(/-w(\d+)-(.*)/);
     if (!match) {
-      throw new Error('Non-compliant branch name');
+      throw new Error(`Non-compliant branch name: ${branchName}`);
     }
 
     const weekNum = match[1];
