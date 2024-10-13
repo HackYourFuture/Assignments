@@ -6,11 +6,11 @@ This repository contains all of the assignments exercises that need to be handed
 
 We highly recommend that you go through this README in detail before starting to work on the assignments. Having said that, the essentials can be summarized as follows:
 
-1. Fork the `HackYourAssignment/Assignments-CohortXX` repo to your own GitHub account.
+1. Fork the `HackYourAssignment/Assignments-CohortXX` repository to your own GitHub account.
 2. Clone the fork to your local computer.
-3. Open the root folder of the repo in VSCode.
+3. Open the root folder of the repository in VSCode.
 4. When invited to do so, please install the recommended VSCode extensions.
-5. Run the command `npm install` from the root folder of the repo.
+5. Run the command `npm install` from the root folder of the repository.
 6. Make sure that you are on the `main` branch (if not, check it out first).
 7. Create a new branch and name it (e.g., for week 2 of JavaScript) `YOUR_NAME-w2-JavaScript`. Replace `YOUR_NAME` with your name. Note that you should not work on / modify the `main` branch.
 8. Start your work on the assignments for week 2.
@@ -18,7 +18,7 @@ We highly recommend that you go through this README in detail before starting to
 10. Fix any reported issues and rerun the test. Repeat until all issues are fixed.
 11. When all assignments are done, commit all changed files. This includes the modified exercises, the generated test summary (`TEST_SUMMARY.md`) and test reports (`EXERCISE_NAME.report.txt`).
 12. Push the changes to your fork.
-13. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repo. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
+13. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repository. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
 
 Repeat steps 6-13 for each week.
 
@@ -53,7 +53,7 @@ From the command line, while inside the `Assignments-cohortXX` folder, you can u
 code .
 ```
 
-> When working on your assignments it is strongly recommended to always open the `Assignments-cohortXX` folder in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
+> When working on your assignments it is strongly recommended to always open the `Assignments-cohortXX` folder in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repository for the best overall developer experience.
 >
 > Note that the name of the folder opened in VSCode can always be found in the `EXPLORER` panel ( `ASSIGNMENTS_COHORT49` in the picture below):
 >
@@ -134,13 +134,13 @@ When you are in the process of making changes to a file you will notice a dot or
 
 This indicates that you have unsaved changes. Once you are done, you can use the **File**, **Save** menu commands (or a keyboard shortcut) to save the changes. However, in this repository we have included a setting that automatically saves changes for you whenever you click away from the editor window.
 
-> If you are curious about the VSCode settings that we included in this repo, check the file `settings.json` in the `.vscode` folder. The setting we mentioned in the previous paragraph is: **"files.autoSave": "onFocusChange"**.
+> If you are curious about the VSCode settings that we included in this repository, check the file `settings.json` in the `.vscode` folder. The setting we mentioned in the previous paragraph is: **"files.autoSave": "onFocusChange"**.
 >
 > You can learn more about VSCode settings here: [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings).
 
 ### Prettier VSCode Extension
 
-This is a recommended VSCode extension that we have included in this repo. **Prettier** is an automatic code formatter to make your code look "pretty". However, it is not just that your code is made pretty, it formats your code into a popular standard that has become well established in the JavaScript community. Other developers, whether trainees, mentors or, later, your colleagues will thank you for using it.
+This is a recommended VSCode extension that we have included in this repository. **Prettier** is an automatic code formatter to make your code look "pretty". However, it is not just that your code is made pretty, it formats your code into a popular standard that has become well established in the JavaScript community. Other developers, whether trainees, mentors or, later, your colleagues will thank you for using it.
 
 > Ensure that you do not install any other code formatter extensions, for example, **Beautify**, in addition to Prettier. This may cause formatting conflicts.
 
@@ -170,7 +170,7 @@ To run the exercise while in VSCode, first open a VSCode **Integrated Terminal**
 
 > Tip: for an overview of the keyboard shortcuts available in VSCode, select the **Help**, **Keyboard Shortcut Reference** menu commands. This will open a PDF file in the standard browser, listing all available shortcuts.
 
-The most convenient way to run an exercise from the command line is to use the **exercise runner** included in this repo. Type the following command to run an exercise this way:
+The most convenient way to run an exercise from the command line is to use the **exercise runner** included in this repository. Type the following command to run an exercise this way:
 
 ```text
 npm start
@@ -248,7 +248,7 @@ To run a test, type the following command from the command line:
 npm test
 ```
 
-The test runner examines the exercise files in your repo and if it finds exactly one modified exercise it will prompt you whether you want to test that one. For example:
+The test runner examines the exercise files in your repository and if it finds one or more modified exercises it will prompt you whether you want to test the first one. For example:
 
 ```text
 ? Test modified exercise (1-JavaScript, Week2, ex1-giveCompliment)? (Y/n)
@@ -269,16 +269,16 @@ Running test, please wait...
 
 *** Unit Test Error Report ***
 
-Command failed: npx jest H:/dev/hackyourfuture/temp/Assignments/.dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js --colors --noStackTrace
+Command failed: npx jest H:/dev/hackyourfuture/Assignments/.dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js --colors --noStackTrace --json
  FAIL  .dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js
   js-wk2-ex1-giveCompliment
-    √ should exist and be executable (2 ms)
-    × should have all TODO comments removed (1 ms)
-    √ `giveCompliment` should not contain unneeded console.log calls (1 ms)
-    × should take a single parameter (1 ms)
-    √ should include a `compliments` array inside its function body (1 ms)
-    × the `compliments` array should be initialized with 10 strings
-    × should give a random compliment: You are `compliment`, `name`! (1 ms)
+    ✅ should exist and be executable (2 ms)
+    ❌ should have all TODO comments removed (1 ms)
+    ✅ `giveCompliment` should not contain unneeded console.log calls
+    ❌ should take a single parameter (1 ms)
+    ✅ should include a `compliments` array inside its function body
+    ❌ the `compliments` array should be initialized with 10 strings (1 ms)
+    ❌ should give a random compliment: You are `compliment`, `name`! (2 ms)
 
   ● js-wk2-ex1-giveCompliment › should have all TODO comments removed
 
@@ -312,11 +312,10 @@ Command failed: npx jest H:/dev/hackyourfuture/temp/Assignments/.dist/1-JavaScri
 Test Suites: 1 failed, 1 total
 Tests:       4 failed, 3 passed, 7 total
 Snapshots:   0 total
-Time:        1.71 s
-Ran all test suites matching /H:\\dev\\hackyourfuture\\temp\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
+Time:        1.582 s
+Ran all test suites matching /H:\\dev\\hackyourfuture\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
 No linting errors detected.
 No spelling errors detected.
-
 ```
 
 Figure 8. Running a test.
