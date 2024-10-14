@@ -20,7 +20,12 @@ We highly recommend that you go through this README in detail before starting to
 12. Push the changes to your fork.
 13. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repository. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
 
-Repeat steps 6-13 for each week.
+Repeat steps 6-13 for each week. For subsequent weeks the mandated branch names are:
+
+- `YOUR_NAME-w3-JavaScript`
+- `YOUR_NAME-w1-Browsers`
+- `YOUR_NAME-w1-UsingAPIs`
+- `YOUR_NAME-w2-UsingAPIs`
 
 For more information how to hand in your weekly assignments please refer to the [Hand-in Assignments Guide](https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md#12-every-week).
 
