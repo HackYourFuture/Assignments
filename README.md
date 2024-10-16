@@ -66,7 +66,9 @@ code .
 
 ### Install Recommended VSCode Extensions
 
-**Important**: When you open the repository for the first time you may see a dialog box that invites you to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
+**Important**: When you open the repository for the first time you may see the dialog box shown below that invites you to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
+
+![recommended-extensions](./assets/recommended-extensions.png)
 
 If, for some reason, the prompt to install the extensions does not appear then please install the extensions manually (click on the triangle below for details).
 
