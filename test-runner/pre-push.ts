@@ -13,7 +13,7 @@ if (!(await isValidBranchName(menu))) {
   process.exit(1);
 }
 
-const untested = getUntestedExercises(menu.menuData);
+const untested = getUntestedExercises(menu.exerciseHashes);
 if (untested.length > 0) {
   console.error(
     `There are ${untested.length} exercise(s) that need (re)testing before you can push.`

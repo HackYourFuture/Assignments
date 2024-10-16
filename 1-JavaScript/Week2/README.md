@@ -74,15 +74,13 @@ Let's do some grocery shopping! We're going to get some things to cook dinner wi
 
 #### Exercise instructions
 
-1. Create an array called `shoppingCart` that holds the following strings: `"bananas"` and `"milk"`.
-
-2. Complete the function named `addToShoppingCart` as follows:
+1. Complete the function named `addToShoppingCart` as follows:
 
    - It should take one parameter: a grocery item (string)
-   - It should add the grocery item to `shoppingCart`. If the number of items is more than three remove the first one in the array.
+   - It should add the grocery item to the `shoppingCart` array. If the number of items is more than three remove the first one in the array.
    - It should return a string "You bought _\<list-of-items>_!", where _\<list-of-items>_ is a comma-separated list of items from the shopping cart array.
 
-3. Confirm that your code passes the unit tests (see below).
+2. Confirm that your code passes the unit tests (see below).
 
 #### Unit tests
 
