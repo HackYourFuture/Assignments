@@ -6,6 +6,12 @@ This repository contains all of the assignments exercises that need to be handed
 
 We highly recommend that you go through this README in detail before starting to work on the assignments. Having said that, the essentials can be summarized as follows:
 
+> Important: If you are using a Windows-based computer, please type this command from a Windows Terminal window before you proceed:
+>
+> `git config --global core.autocrlf false`
+>
+> This will ensure that the line endings for text files are compatible with those used on MacOS and Linux-based computers. It is also a prerequisite for the correct functioning of this repository.
+
 1. Fork the `HackYourAssignment/Assignments-CohortXX` repository to your own GitHub account.
 2. Clone the fork to your local computer.
 3. Open the root folder of the repository in VSCode.
