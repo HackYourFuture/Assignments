@@ -24,7 +24,7 @@ exercise file.
 
 // The line below makes the rollDie() function available to this file.
 // Do not change or remove it.
-const rollDie = require('../../helpers/pokerDiceRoller');
+import { rollDie } from '../../helpers/pokerDiceRoller.js';
 
 export function rollDice() {
   // TODO Refactor this function
