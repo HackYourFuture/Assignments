@@ -25,7 +25,9 @@ export function computeHash(exercisePath: string): string {
     .replace(/\\/g, '/');
   const filePaths = fg.sync(globSpec);
   for (const filePath of filePaths) {
-    const content = fs.readFileSync(filePath, 'utf8');
+    // Note: convert potential Windows \r\n line endings to \n
+    // to avoid hash mismatches
+    const content = fs.readFileSync(filePath, 'utf8').replaceAll('\r\n', '\n');
     sha256sum.update(content);
   }
   return sha256sum.digest('hex');
