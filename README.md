@@ -10,7 +10,7 @@ We highly recommend that you go through this README in detail before starting to
 >
 > `git config --global core.autocrlf false`
 >
-> This will ensure that the line endings for text files are compatible with those used on MacOS and Linux-based computers. It is also a prerequisite for the correct functioning of this repository.
+> This will ensure that the line endings for text files are compatible with those used on MacOS and Linux-based computers.
 
 1. Fork the `HackYourAssignment/Assignments-CohortXX` repository to your own GitHub account.
 2. Clone the fork to your local computer.
