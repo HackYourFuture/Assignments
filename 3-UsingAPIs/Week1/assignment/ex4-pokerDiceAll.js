@@ -43,5 +43,4 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 
-// Replace this comment by your explanation that was asked for in the assignment
-// description.
+// TODO Replace this comment by your explanation that was asked for in the assignment description.

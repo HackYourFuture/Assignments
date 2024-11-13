@@ -31,15 +31,15 @@
     "Week1": {
       "ex1-johnWho": "3a45143e7c62f304fd5bd5eb706cea077912373fa521c80934adac49ec9436ef",
       "ex2-checkDoubleDigits": "05d6893c90f828e26c4471b69054252a7c094a8a1ea02e28fb72716230cfbbc8",
-      "ex3-rollDie": "3bb6980ba69f7b176449c4e49f414e48892ec411744c658cc646f00b283e197e",
-      "ex4-pokerDiceAll": "f3eaceb34fa21e3fa5bfc1320cb6db7c06699ab77e09ff5075ce7bd0967df8cf",
+      "ex3-rollDie": "90c12c5033853dbc7cbf199ea4b9e45ab4f21ad5253ccd3026e7f9318e4706ac",
+      "ex4-pokerDiceAll": "07011841855d76b4084f6872c66ff11631ab6c641d842271fe0fba6e88d45f4b",
       "ex5-pokerDiceChain": "56e08a6fe9aa5455bb87e9510c42981fc5221e3e0ca392335d65a8de187b0e32"
     },
     "Week2": {
       "ex1-programmerFun": "e6cbf8715cf9b840b26fc8d8553dd235ed52b456fa6b37d639f6d54625e58797",
       "ex2-pokemonApp": "b9ec9888524d269f507943086df9ccba3ae32c76b1d39ac6565f6f8371c04631",
       "ex3-rollAnAce": "8c840efffc0734a9b226588289a44df893955da251120e21ef1a1afa10a5e181",
-      "ex4-diceRace": "fe9ff5329b7a306c8abe79927c9812d744ec0b25309f74dcc9648fbfb2e5663b",
+      "ex4-diceRace": "6191e46ed7f0f5724caed20584730a8d079c5b057f6897dc1bea8079cfdb47ce",
       "ex5-vscDebug": "6242bc8861bdb0abea48d00fa6f2cd9bf3a6f93fdd9b708ad130c8b64c6c75eb",
       "ex6-browserDebug": "1787583932555b23bcb625030cfcad2094bc222824dcba2d79db4bc01e6b9142"
     }
