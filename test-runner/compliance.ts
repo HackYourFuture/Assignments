@@ -73,13 +73,14 @@ You are currently on the *main* branch. In the Assignments repository you should
 not be working directly on the main branch.
 
 Please create a new branch for each week. Valid branch names should 
-start with your name, followed by one of these suffixes:
+start with your name, followed by the week number and the module name in this
+format:
 
--w2-JavaScript
--w3-JavaScript
--w1-Browsers
--w1-UsingAPIs
--w2-UsingAPIs
+YOUR_NAME-w2-JavaScript
+YOUR_NAME-w3-JavaScript
+YOUR_NAME-w1-Browsers
+YOUR_NAME-w1-UsingAPIs
+YOUR_NAME-w2-UsingAPIs
 
 For more information please refer to the link below:
 
@@ -88,13 +89,14 @@ https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide
 
 const BRANCH_NAME_MESSAGE = `
 Your branch name does conform to the mandated pattern. Valid branch names should 
-start with your name, followed by one of these suffixes:
+start with your name, followed by the week number and the module name in this
+format:
 
--w2-JavaScript
--w3-JavaScript
--w1-Browsers
--w1-UsingAPIs
--w2-UsingAPIs
+YOUR_NAME-w2-JavaScript
+YOUR_NAME-w3-JavaScript
+YOUR_NAME-w1-Browsers
+YOUR_NAME-w1-UsingAPIs
+YOUR_NAME-w2-UsingAPIs
 
 For more information please refer to the link below:
 
