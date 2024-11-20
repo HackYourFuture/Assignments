@@ -51,15 +51,13 @@ async function main(): Promise<void> {
   }
 
   try {
-    const assignmentFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
-
-    const menu = new ExerciseMenu(assignmentFolder);
+    const menu = new ExerciseMenu();
 
     if (!(await isValidBranchName(menu))) {
       process.exit(1);
     }
 
-    const moduleWeek = checkExerciseHashes(menu.menuData);
+    const moduleWeek = checkExerciseHashes(menu.exerciseHashes);
     if (moduleWeek === 'multiple') {
       return;
     }
@@ -68,7 +66,7 @@ async function main(): Promise<void> {
 
     console.log('Running test, please wait...');
 
-    await runTest(menu.module, menu.week, menu.exercise, assignmentFolder);
+    await runTest(menu);
 
     await showDisclaimer();
 

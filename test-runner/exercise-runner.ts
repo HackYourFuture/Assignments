@@ -79,16 +79,14 @@ async function runExercise(exercisePath: string) {
 
 async function main() {
   try {
-    const homeworkFolder = process.argv[2] ?? 'assignment';
-
-    const menu = new ExerciseMenu(homeworkFolder);
+    const menu = new ExerciseMenu();
 
     if (!(await isValidBranchName(menu))) {
       process.exit(1);
     }
 
-    const moduleWeek = checkExerciseHashes(menu.menuData);
-    if (moduleWeek === 'none' || moduleWeek === 'multiple') {
+    const moduleWeek = checkExerciseHashes(menu.exerciseHashes);
+    if (moduleWeek === 'multiple') {
       return;
     }
 

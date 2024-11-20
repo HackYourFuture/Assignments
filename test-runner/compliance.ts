@@ -1,7 +1,5 @@
 import 'dotenv/config.js';
 
-import chalk from 'chalk';
-import fg from 'fast-glob';
 import { exec } from 'node:child_process';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -9,15 +7,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
-import ExerciseMenu, { MenuData } from './ExerciseMenu.js';
+import chalk from 'chalk';
+import fg from 'fast-glob';
+
+import ExerciseMenu from './ExerciseMenu.js';
+import { ExerciseHashes } from './exercises.js';
 
 const execAsync = promisify(exec);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const COMPUTED_HASHES_JSON_PATH = path.join(__dirname, '../../.hashes.json');
-
-function computeHash(exercisePath: string): string {
+export function computeHash(exercisePath: string): string {
   const sha256sum = crypto.createHash('sha256');
   const fileSpec = fs.existsSync(exercisePath) ? '/**/*.js' : '.js';
   const globSpec = path
@@ -25,46 +25,31 @@ function computeHash(exercisePath: string): string {
     .replace(/\\/g, '/');
   const filePaths = fg.sync(globSpec);
   for (const filePath of filePaths) {
-    const content = fs.readFileSync(filePath, 'utf8');
+    // Note: convert potential Windows \r\n line endings to \n
+    // to avoid hash mismatches
+    const content = fs.readFileSync(filePath, 'utf8').replaceAll('\r\n', '\n');
     sha256sum.update(content);
   }
   return sha256sum.digest('hex');
 }
 
-type Hashes = {
-  [module: string]: { [week: string]: { [exercise: string]: string } };
-};
-
-export function createExerciseHashes(menuData: MenuData): void {
-  const hashes: Hashes = {};
-  for (const module in menuData) {
-    for (const week in menuData[module]) {
-      for (const exercise of menuData[module][week]) {
-        const exercisePath = `${module}/${week}/assignment/${exercise}`;
-        if (!hashes[module]) {
-          hashes[module] = {};
-        }
-        if (!hashes[module][week]) {
-          hashes[module][week] = {};
-        }
-        hashes[module][week][exercise] = computeHash(exercisePath);
-      }
-    }
-  }
-
-  const hashesJson = JSON.stringify(hashes, null, 2);
-  fs.writeFileSync(COMPUTED_HASHES_JSON_PATH, hashesJson);
+export function isModifiedExercise(menu: ExerciseMenu): boolean {
+  const { module, week, exercise, exerciseHashes } = menu;
+  const exercisePath = `${module}/${week}/assignment/${exercise}`;
+  const computedHash = computeHash(exercisePath);
+  const cleanHash = exerciseHashes[module][week][exercise];
+  return computedHash !== cleanHash;
 }
 
-export function diffExerciseHashes(menuData: MenuData): Hashes {
-  const diff: Hashes = {};
-  const computedHashes = JSON.parse(
-    fs.readFileSync(COMPUTED_HASHES_JSON_PATH, 'utf8')
-  );
-  for (const module in menuData) {
-    for (const week in menuData[module]) {
-      for (const exercise of menuData[module][week]) {
-        const computedHash = computedHashes[module][week][exercise];
+export function diffExerciseHashes(
+  exerciseHashes: ExerciseHashes
+): ExerciseHashes {
+  const diff: ExerciseHashes = {};
+
+  for (const module in exerciseHashes) {
+    for (const week in exerciseHashes[module]) {
+      for (const exercise in exerciseHashes[module][week]) {
+        const computedHash = exerciseHashes[module][week][exercise];
         const exercisePath = `${module}/${week}/assignment/${exercise}`;
         const actualHash = computeHash(exercisePath);
         if (computedHash !== actualHash) {
@@ -84,17 +69,36 @@ export function diffExerciseHashes(menuData: MenuData): Hashes {
 }
 
 const MAIN_BRANCH_MESSAGE = `
-You are currently on the *main* branch. In the Assignments repository you should not be working directly on the main branch.
+You are currently on the *main* branch. In the Assignments repository you should 
+not be working directly on the main branch.
 
-Please create a new branch for each week (e.g. YOUR_NAME-w2-JavaScript) as instructed in the link below:
+Please create a new branch for each week. Valid branch names should 
+start with your name, followed by the week number and the module name in this
+format:
+
+YOUR_NAME-w2-JavaScript
+YOUR_NAME-w3-JavaScript
+YOUR_NAME-w1-Browsers
+YOUR_NAME-w1-UsingAPIs
+YOUR_NAME-w2-UsingAPIs
+
+For more information please refer to the link below:
 
 https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md#12-every-week
 `;
 
 const BRANCH_NAME_MESSAGE = `
-Your branch name does conform to the mandated pattern, e.g. YOUR_NAME-w2-JavaScript.
+Your branch name does conform to the mandated pattern. Valid branch names should 
+start with your name, followed by the week number and the module name in this
+format:
 
-Please rename your branch to match the pattern as described in the link below:
+YOUR_NAME-w2-JavaScript
+YOUR_NAME-w3-JavaScript
+YOUR_NAME-w1-Browsers
+YOUR_NAME-w1-UsingAPIs
+YOUR_NAME-w2-UsingAPIs
+
+For more information please refer to the link below:
 
 https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md#12-every-week
 `;
@@ -104,14 +108,6 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
     return true;
   }
 
-  const modulesNames = Object.keys(menu.menuData).map((name) =>
-    name.replace(/\d-/, '')
-  );
-  const branchNamePattern = new RegExp(
-    String.raw`-(?:w|wk|week)\d-(?:${modulesNames.join('|')})$`,
-    'i'
-  );
-
   const { stdout } = await execAsync('git branch --show-current');
   const branchName = stdout.trim();
 
@@ -120,7 +116,26 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
     return false;
   }
 
-  if (!branchNamePattern.test(branchName)) {
+  const validBranchPatterns: RegExp[] = [];
+  for (const module in menu.exerciseHashes) {
+    const match = module.match(/^\d-(.*)$/);
+    if (!match) {
+      throw new Error(`Invalid module name: ${module}`);
+    }
+    const moduleName = match[1];
+    for (const week in menu.exerciseHashes[module]) {
+      const match = week.match(/\d+$/);
+      if (!match) {
+        throw new Error(`Invalid week number: ${week}`);
+      }
+      const weekNumber = match[0];
+      validBranchPatterns.push(
+        new RegExp(`-w${weekNumber}-${moduleName}$`, 'i')
+      );
+    }
+  }
+
+  if (!validBranchPatterns.some((pattern) => pattern.test(branchName))) {
     console.error(chalk.red(BRANCH_NAME_MESSAGE));
     return false;
   }
@@ -131,10 +146,10 @@ export async function isValidBranchName(menu: ExerciseMenu): Promise<boolean> {
 type CheckOptions = { silent: boolean };
 
 export function checkExerciseHashes(
-  menuData: MenuData,
+  exerciseHashes: ExerciseHashes,
   options: CheckOptions = { silent: false }
 ): string {
-  const diff = diffExerciseHashes(menuData);
+  const diff = diffExerciseHashes(exerciseHashes);
   const changes: Record<string, string[]> = {};
 
   for (const module in diff) {
@@ -239,9 +254,9 @@ export function updateTestHash(
   return moduleStats;
 }
 
-export function getUntestedExercises(menuData: MenuData): string[] {
+export function getUntestedExercises(exerciseHashes: ExerciseHashes): string[] {
   // Get info about the exercises that have been modified in the current branch
-  const diff = diffExerciseHashes(menuData);
+  const diff = diffExerciseHashes(exerciseHashes);
 
   // Get info about the exercises that have been tested
   const testHashPath = path.join(__dirname, `../.test-stats.json`);
@@ -274,7 +289,7 @@ export function getUntestedExercises(menuData: MenuData): string[] {
 }
 
 export function checkForUntestedExercises(menu: ExerciseMenu): void {
-  const untestedExercises = getUntestedExercises(menu.menuData);
+  const untestedExercises = getUntestedExercises(menu.exerciseHashes);
   if (untestedExercises.length > 0) {
     if (untestedExercises.length === 1) {
       console.error(
@@ -295,8 +310,8 @@ export function checkForUntestedExercises(menu: ExerciseMenu): void {
   }
 }
 
-export function getChangedWeeks(menuData: MenuData): string[] {
-  const diff = diffExerciseHashes(menuData);
+export function getChangedWeeks(exerciseHashes: ExerciseHashes): string[] {
+  const diff = diffExerciseHashes(exerciseHashes);
   const changedWeeks: string[] = [];
   for (const module in diff) {
     for (const week in diff[module]) {

@@ -32,12 +32,10 @@ export async function beforeAllHelper(
     throw new Error(`Unexpected test path: ${testFilePath}`);
   }
 
-  const homeworkFolder = process.env.ASSIGNMENT_FOLDER || 'assignment';
-
   const [, module, week, exercise] = matches;
   let exercisePath = path.join(
     __dirname,
-    `../../${module}/${week}/${homeworkFolder}/${exercise}`
+    `../../${module}/${week}/assignment/${exercise}`
   );
 
   exercisePath = fs.existsSync(exercisePath)

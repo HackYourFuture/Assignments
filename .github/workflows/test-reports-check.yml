@@ -1,6 +1,8 @@
 name: 'CI'
 on:
   pull_request:
+    branches:
+      - main
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -16,9 +18,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci # install packages
-      - run: ./module-week.sh # run tests (configured to use jest-junit reporter)
-      - uses: actions/upload-artifact@v4 # upload test results
-        if: success() || failure() # run this step even if previous step failed
-        with:
-          name: test-results
-          path: junit.xml
+      - run: npm run test-reports-check

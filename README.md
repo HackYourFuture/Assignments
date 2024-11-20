@@ -2,7 +2,38 @@
 
 This repository contains all of the assignments exercises that need to be handed in for the JavaScript modules (i.e., JavaScript, Browsers and UsingAPIs) of the HackYourFuture curriculum.
 
-Please read this README carefully before starting work on the assignment exercises.
+## TL;DR
+
+We highly recommend that you go through this README in detail before starting to work on the assignments. Having said that, the essentials can be summarized as follows:
+
+> Important: If you are using a Windows-based computer, please type this command from a Windows Terminal window before you proceed:
+>
+> `git config --global core.autocrlf false`
+>
+> This will ensure that the line endings for text files are compatible with those used on MacOS and Linux-based computers.
+
+1. Fork the `HackYourAssignment/Assignments-CohortXX` repository to your own GitHub account.
+2. Clone the fork to your local computer.
+3. Open the root folder of the repository in VSCode.
+4. When invited to do so, please install the recommended VSCode extensions.
+5. Run the command `npm install` from the root folder of the repository.
+6. Make sure that you are on the `main` branch (if not, check it out first).
+7. Create a new branch and name it (e.g., for week 2 of JavaScript) `YOUR_NAME-w2-JavaScript`. Replace `YOUR_NAME` with your name. Note that you should not work on / modify the `main` branch.
+8. Start your work on the assignments for week 2.
+9. After finishing an assignment, use the command `npm test` to test your solution.
+10. Fix any reported issues and rerun the test. Repeat until all issues are fixed.
+11. When all assignments are done, commit all changed files. This includes the modified exercises, the generated test summary (`TEST_SUMMARY.md`) and test reports (`EXERCISE_NAME.report.txt`).
+12. Push the changes to your fork.
+13. Create a pull request against the `main` branch of the `HackYourAssignment/Assignments-CohortXX` repository. For the title of your pull request use the same format as the branch name, e.g.: `YOUR_NAME-w2-JavaScript`.
+
+Repeat steps 6-13 for each week. For subsequent weeks the mandated branch names are:
+
+- `YOUR_NAME-w3-JavaScript`
+- `YOUR_NAME-w1-Browsers`
+- `YOUR_NAME-w1-UsingAPIs`
+- `YOUR_NAME-w2-UsingAPIs`
+
+For more information how to hand in your weekly assignments please refer to the [Hand-in Assignments Guide](https://github.com/HackYourFuture/JavaScript/blob/main/hand-in-assignments-guide.md#12-every-week).
 
 ## Introduction
 
@@ -25,17 +56,25 @@ This command:
 
 ## VSCode
 
-You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) while working with this repository. To open it with VSCode you can use the command line:
+You will be spending a lot of time in [VSCode](https://code.visualstudio.com/) while working with this repository. If you are new to VSCode please check out the [VSCode Tips](https://github.com/HackYourFuture/fundamentals/blob/master/VSCodeTips/README.md) before continuing.
+
+From the command line, while inside the `Assignments-cohortXX` folder, you can use this command to open VSCode (the `.` stands for the current directory):
 
 ```text
-code Assignments-cohortXX
+code .
 ```
 
-> When working on your assignment it is strongly recommended to open `Assignments-cohortXX` folder itself in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repo for the best overall developer experience.
+> When working on your assignments it is strongly recommended to always open the `Assignments-cohortXX` folder in VSCode rather than one of its sub-folders. This gives VSCode and all its extensions the full view on the repository for the best overall developer experience.
+>
+> Note that the name of the folder opened in VSCode can always be found in the `EXPLORER` panel ( `ASSIGNMENTS_COHORT49` in the picture below):
+>
+> ![folder-name](./assets/folder-name.png)
 
 ### Install Recommended VSCode Extensions
 
-**Important**: When you open the repository for the first time you may be invited to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
+**Important**: When you open the repository for the first time you may see the dialog box shown below that invites you to install a set of **recommended VSCode extensions**. These extensions will provide useful help and guidance when you are creating and editing files in VSCode. **Please install these extensions when invited to do so.**
+
+![recommended-extensions](./assets/recommended-extensions.png)
 
 If, for some reason, the prompt to install the extensions does not appear then please install the extensions manually (click on the triangle below for details).
 
@@ -108,13 +147,13 @@ When you are in the process of making changes to a file you will notice a dot or
 
 This indicates that you have unsaved changes. Once you are done, you can use the **File**, **Save** menu commands (or a keyboard shortcut) to save the changes. However, in this repository we have included a setting that automatically saves changes for you whenever you click away from the editor window.
 
-> If you are curious about the VSCode settings that we included in this repo, check the file `settings.json` in the `.vscode` folder. The setting we mentioned in the previous paragraph is: **"files.autoSave": "onFocusChange"**.
+> If you are curious about the VSCode settings that we included in this repository, check the file `settings.json` in the `.vscode` folder. The setting we mentioned in the previous paragraph is: **"files.autoSave": "onFocusChange"**.
 >
 > You can learn more about VSCode settings here: [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings).
 
 ### Prettier VSCode Extension
 
-This is a recommended VSCode extension that we have included in this repo. **Prettier** is an automatic code formatter to make your code look "pretty". However, it is not just that your code is made pretty, it formats your code into a popular standard that has become well established in the JavaScript community. Other developers, whether trainees, mentors or, later, your colleagues will thank you for using it.
+This is a recommended VSCode extension that we have included in this repository. **Prettier** is an automatic code formatter to make your code look "pretty". However, it is not just that your code is made pretty, it formats your code into a popular standard that has become well established in the JavaScript community. Other developers, whether trainees, mentors or, later, your colleagues will thank you for using it.
 
 > Ensure that you do not install any other code formatter extensions, for example, **Beautify**, in addition to Prettier. This may cause formatting conflicts.
 
@@ -144,7 +183,7 @@ To run the exercise while in VSCode, first open a VSCode **Integrated Terminal**
 
 > Tip: for an overview of the keyboard shortcuts available in VSCode, select the **Help**, **Keyboard Shortcut Reference** menu commands. This will open a PDF file in the standard browser, listing all available shortcuts.
 
-The most convenient way to run an exercise from the command line is to use the **exercise runner** included in this repo. Type the following command to run an exercise this way:
+The most convenient way to run an exercise from the command line is to use the **exercise runner** included in this repository. Type the following command to run an exercise this way:
 
 ```text
 npm start
@@ -222,7 +261,7 @@ To run a test, type the following command from the command line:
 npm test
 ```
 
-The test runner examines the exercise files in your repo and if it finds exactly one modified exercise it will prompt you whether you want to test that one. For example:
+The test runner examines the exercise files in your repository and if it finds one or more modified exercises it will prompt you whether you want to test the first one. For example:
 
 ```text
 ? Test modified exercise (1-JavaScript, Week2, ex1-giveCompliment)? (Y/n)
@@ -243,16 +282,16 @@ Running test, please wait...
 
 *** Unit Test Error Report ***
 
-Command failed: npx jest H:/dev/hackyourfuture/temp/Assignments/.dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js --colors --noStackTrace
+Command failed: npx jest H:/dev/hackyourfuture/Assignments/.dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js --colors --noStackTrace --json
  FAIL  .dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js
   js-wk2-ex1-giveCompliment
-    √ should exist and be executable (2 ms)
-    × should have all TODO comments removed (1 ms)
-    √ `giveCompliment` should not contain unneeded console.log calls (1 ms)
-    × should take a single parameter (1 ms)
-    √ should include a `compliments` array inside its function body (1 ms)
-    × the `compliments` array should be initialized with 10 strings
-    × should give a random compliment: You are `compliment`, `name`! (1 ms)
+    ✅ should exist and be executable (2 ms)
+    ❌ should have all TODO comments removed (1 ms)
+    ✅ `giveCompliment` should not contain unneeded console.log calls
+    ❌ should take a single parameter (1 ms)
+    ✅ should include a `compliments` array inside its function body
+    ❌ the `compliments` array should be initialized with 10 strings (1 ms)
+    ❌ should give a random compliment: You are `compliment`, `name`! (2 ms)
 
   ● js-wk2-ex1-giveCompliment › should have all TODO comments removed
 
@@ -286,11 +325,10 @@ Command failed: npx jest H:/dev/hackyourfuture/temp/Assignments/.dist/1-JavaScri
 Test Suites: 1 failed, 1 total
 Tests:       4 failed, 3 passed, 7 total
 Snapshots:   0 total
-Time:        1.71 s
-Ran all test suites matching /H:\\dev\\hackyourfuture\\temp\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
+Time:        1.582 s
+Ran all test suites matching /H:\\dev\\hackyourfuture\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
 No linting errors detected.
 No spelling errors detected.
-
 ```
 
 Figure 8. Running a test.

@@ -19,31 +19,32 @@ A test is selected by going through a series of prompts, for instance:
 ? Which week? Week2
 ? Which exercise? ex1-giveCompliment
 Running test, please wait...
+*** Unit Test Error Report ***
+
  PASS  .dist/1-JavaScript/Week2/unit-tests/ex1-giveCompliment.test.js
   js-wk2-ex1-giveCompliment
-    √ should exist and be executable (2 ms)
-    √ should have all TODO comments removed
-    √ `giveCompliment` should not contain unneeded console.log calls
-    √ should take a single parameter (1 ms)
-    √ should include a `compliments` array inside its function body
-    √ the `compliments` array should be initialized with 10 strings (1 ms)
-    √ should give a random compliment: You are `compliment`, `name`! (4 ms)
+    ✅ should exist and be executable (1 ms)
+    ✅ should have all TODO comments removed
+    ✅ `giveCompliment` should not contain unneeded console.log calls
+    ✅ should take a single parameter
+    ✅ should include a `compliments` array inside its function body
+    ✅ the `compliments` array should be initialized with 10 strings (1 ms)
+    ✅ should give a random compliment: You are `compliment`, `name`!
 
 Test Suites: 1 passed, 1 total
 Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        0.882 s, estimated 1 s
-Ran all test suites matching /H:\\dev\\hackyourfuture\\Assignments\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex1-giveCompliment.test.js/i.
-
+Time:        0.29 s, estimated 1 s
+Ran all test suites matching /\/home\/jim\/dev\/hackyourfuture\/Assignments\/.dist\/1-JavaScript\/Week2\/unit-tests\/ex1-giveCompliment.test.js/i.
 No linting errors detected.
 No spelling errors detected.
 ```
 
 ### Report file
 
-When you run a test the results are reported to the console, but also written to a report file named `TEST_REPORT.log`, in the root folder.
+When you run a test the results are reported to the console, but also written to a report file named `<exercise-name>.report.txt`, in a `test-reports` folder for each week.
 
-A report file named `TEST_REPORT.log` is generated to which test result are written for each test run. Trainees are expected to include this file in their pull request for the benefit of the assignment reviewer.
+Trainees are expected to include the test reports in their pull request for the benefit of the assignment reviewer.
 
 Trainees are expected to run the relevant tests. Running a test gives them early feedback on the correctness of the expected results and on conformance to the mandated coding style (as per ESLint). This provides them an early opportunity for corrective action. Once submitted as part of a PR, the report files give pull request reviewers some key indicators into the correctness of the homework while doing a more elaborate visual inspection of the actual code.
 
@@ -56,7 +57,6 @@ The test runner relies on strict adherence to a predefined naming convention and
 | ------ | ----------- |
 | `<module>/Week𝑛/assignment` | Example: `1-JavaScript/Week3/assignment`<br><br>The JavaScript file representing the exercise must named `<exercise-name>.js` and placed in this folder. However, if the exercise consists of multiple files (e.g. a browser-based exercise) then these files must be placed in a _folder_ named `<exercise-name>`. In this case, the main JavaScript file must be called `index.js`.<br><br>There can be multiple exercises per _Week𝑛_ folder. |
 | `<module>/Week𝑛/unit-tests` | This folder contains the unit test (JavaScript or TypeScript) files. The JavaScript/TypeScript file containing the unit test(s) for an exercise must named `<exercise-name>.test.[jt]s`. Unit test files are optional. If not provided, the unit test step of the test runner is skipped.<br><br>Note that TypeScript unit tests are transpiled to JavaScript to a `.dist` folder in the project root, using an `npm postinstall` script. |
-| `<module>/Week𝑛/@assignment` | This folder (notice the leading `@`-sign in the name) is only used during development and maintenance of this repo. Working solutions to exercises can be placed in this folder to test the "happy" path of the unit tests. An `@assignment` folder is used in place of a regular `assignment` folder when a unit test is run with the command: `npm run testalt`.<br><br>Notes:<br><br>1. `@assignment` folders should not be committed and are therefore included in `.gitignore`.<br>2. To test the exercises from the `@assignment` folder, set the `ASSIGNMENT_FOLDER` environment variable to `@assignment`. (See `.env-example`.) |
 
 ## Linting
 
@@ -66,11 +66,15 @@ ESLint rules are configured as usual in the file `.eslintrc.js`. Should this be 
 
 An npm `postinstall` script is automatically executed as part of the `npm install` process. This script simply transpiles all TypeScript files to the `.dist` folder.
 
-## npm `clean` script
+## `npm run seal`
 
-This script cleans out the `test-report` folders and `unit-test.log` file.
+This script scans the directory structure of the repository for `assignment` folders and globs into them to collect file and folder names of exercises they contain. For each exercise it computes a hash over its file(s). The results are recorded in the file `exercises.json`. The test runner uses this file to drive its prompt menu and to establish whether exercises have been modified from their "sealed" (pristine) state, i.e. if a newly computed hash over the exercises file(s) differ from the stored hash.
 
-Furthermore, a file `.hashes.json` is created in the root folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of and exercise has been modified since initial installation.
+## `npm run clean`
+
+This script cleans out the `test-report` folders and removes the `TEST_SUMMARY.md` file.
+
+Furthermore, a file `.exercises.json` is created in the root folder that contains a JSON object with hashes computed over of the `.js` file(s) of the exercises, one hash per exercise. This information is used to detect whether the starter code of and exercise has been modified since initial installation.
 
 To prevent trainees from accidentally running this script the `ENABLE_CLEANUP` environment variable must be set to "true" (see `.env-example`).
 
