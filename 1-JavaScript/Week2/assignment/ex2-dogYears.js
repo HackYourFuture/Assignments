@@ -15,10 +15,13 @@ calculate it!
    ages.
 -----------------------------------------------------------------------------*/
 
-export function calculateDogAge(/* TODO parameter(s) go here */) {
-  // TODO complete this function
-}
+export function calculateDogAge(humanYears) {
+  // Convert human years to dog years using the rate 1 human year = 7 dog years
+  const dogYears = humanYears * 7;
 
+  // Return the result as a string
+  return `Your doggie is ${dogYears} years old in dog years!`;
+}
 function main() {
   console.log(calculateDogAge(1)); // -> "Your doggie is 7 years old in dog years!"
   console.log(calculateDogAge(2)); // -> "Your doggie is 14 years old in dog years!"
