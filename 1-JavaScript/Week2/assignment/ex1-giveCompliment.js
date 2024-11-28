@@ -51,6 +51,7 @@ function main() {
   const yourName = 'Kelisa';
 
   // Call the function three times with yourName
+
   console.log(giveCompliment(yourName));
   console.log(giveCompliment(yourName));
   console.log(giveCompliment(yourName));
