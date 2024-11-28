@@ -19,20 +19,20 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-J
 -----------------------------------------------------------------------------*/
 export function giveCompliment(name) {
   //Array of compliments names
- const compliments = [
-  'amazing',
-  'awesome',
-  'brilliant',
-  'clever',
-  'wonderful',
-  'excelent',
-  'fantastic',
-  'funny',
-  'smart',
- ];
+  const compliments = [
+    'amazing',
+    'awesome',
+    'brilliant',
+    'clever',
+    'wonderful',
+    'excellent',
+    'fantastic',
+    'funny',
+    'smart',
+  ];
   // Randomly select a compliment
   const randomIndex = Math.floor(Math.random() * compliments.length);
- const compliment = compliments[randomIndex];
+  const compliment = compliments[randomIndex];
 
   // Return the compliment string
   return `You are ${compliment}, ${name}!`;
@@ -41,16 +41,15 @@ export function giveCompliment(name) {
 function main() {
   const myName = 'Hossein';
 
-   // Call the function three times with myName
+  // Call the function three times with myName
   console.log(giveCompliment(myName));
   console.log(giveCompliment(myName));
   console.log(giveCompliment(myName));
-
 
   // Another example with a different name
   const yourName = 'Kelisa';
 
-// Call the function three times with yourName
+  // Call the function three times with yourName
   console.log(giveCompliment(yourName));
   console.log(giveCompliment(yourName));
   console.log(giveCompliment(yourName));
