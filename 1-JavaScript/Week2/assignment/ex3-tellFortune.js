@@ -29,34 +29,35 @@ Note: The DRY principle is put into practice here: instead of repeating the code
 randomly select array elements four times inside the `tellFortune` function 
 body, this code is now written once only in a separated function.
 -----------------------------------------------------------------------------*/
+// This function takes an array as its parameter and returns
+// a randomly selected element from the array.
+function selectRandomly(array) {
+  // Generate a random index between 0 and the length of the array
+  const randomIndex = Math.floor(Math.random() * array.length);
 
-// This function should take an array as its parameter and return
-// a randomly selected element as its return value.
-function selectRandomly(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+  // Return the element at the random index
+  return array[randomIndex];
 }
 
-export function tellFortune(/* TODO add parameter(s) here */) {
-  // TODO complete this function
+export function tellFortune(numKids, partnerNames, locations, jobTitles) {
+  // Use `selectRandomly` to select a random value from each array
+  const numOfKids = selectRandomly(numKids);
+  const partnerName = selectRandomly(partnerNames);
+  const location = selectRandomly(locations);
+  const jobTitle = selectRandomly(jobTitles);
+
+  // Return the formatted string
+  return `You will be a ${jobTitle} in ${location}, married to ${partnerName} with ${numOfKids} kids.`;
 }
 
 function main() {
-  const numKids = [
-    // TODO add elements here
-  ];
+  // Arrays with random values
+  const numKids = [1, 2, 3, 4, 5];
+  const partnerNames = ['Alex', 'Jordan', 'Taylor', 'Chris', 'Jamie'];
+  const locations = ['New York', 'Paris', 'Tokyo', 'Sydney', 'Amsterdam'];
+  const jobTitles = ['developer', 'teacher', 'designer', 'artist', 'engineer'];
 
-  const partnerNames = [
-    // TODO add elements here
-  ];
-
-  const locations = [
-    // TODO add elements here
-  ];
-
-  const jobTitles = [
-    // TODO add elements here
-  ];
-
+  // Call `tellFortune` three times with the arrays as arguments
   console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
   console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
   console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
