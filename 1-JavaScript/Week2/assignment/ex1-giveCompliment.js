@@ -18,46 +18,38 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/1-J
    giveCompliment function to the console.
 -----------------------------------------------------------------------------*/
 export function giveCompliment(name) {
-  //Array of compliments names
   const compliments = [
-    'amazing',
+    'great',
     'awesome',
-    'brilliant',
-    'clever',
-    'wonderful',
     'excellent',
     'fantastic',
-    'funny',
-    'smart',
-    'good',
+    'wonderful',
+    'lovely',
+    'amazing',
+    'impressive',
+    'remarkable',
+    'Good',
   ];
-  // Randomly select a compliment
   const randomIndex = Math.floor(Math.random() * compliments.length);
-  const compliment = compliments[randomIndex];
+  const randomCompliment = compliments[randomIndex];
 
-  // Return the compliment string
-  return `You are ${compliment}, ${name}!`;
+  return `You are ${randomCompliment}, ${name}!`;
 }
 
 function main() {
-  const myName = 'John';
+  const myName = 'name';
 
-  // Call the function three times with myName
   console.log(giveCompliment(myName));
   console.log(giveCompliment(myName));
   console.log(giveCompliment(myName));
 
-  // Another example with a different name
-  const yourName = 'Doe';
-
-  // Call the function three times with yourName
+  const yourName = 'Amsterdam';
 
   console.log(giveCompliment(yourName));
   console.log(giveCompliment(yourName));
   console.log(giveCompliment(yourName));
 }
 
-// ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }

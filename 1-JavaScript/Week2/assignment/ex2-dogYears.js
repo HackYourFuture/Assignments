@@ -18,11 +18,6 @@ export function calculateDogAge(humanYears) {
   // Convert human years to dog years using the rate 1 human year = 7 dog years
   const dogYears = humanYears * 7;
 
-
-export function calculateDogAge(humanYears) {
-  // Convert human years to dog years using the rate 1 human year = 7 dog years
-  const dogYears = humanYears * 7;
-
   // Return the result as a string
   return `Your doggie is ${dogYears} years old in dog years!`;
 }
