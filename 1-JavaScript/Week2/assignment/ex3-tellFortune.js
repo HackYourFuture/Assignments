@@ -35,6 +35,12 @@ function selectRandomly(array) {
   // Generate a random index between 0 and the length of the array
   const randomIndex = Math.floor(Math.random() * array.length);
 
+// This function takes an array as its parameter and returns
+// a randomly selected element from the array.
+function selectRandomly(array) {
+  // Generate a random index between 0 and the length of the array
+  const randomIndex = Math.floor(Math.random() * array.length);
+
   // Return the element at the random index
   return array[randomIndex];
 }
