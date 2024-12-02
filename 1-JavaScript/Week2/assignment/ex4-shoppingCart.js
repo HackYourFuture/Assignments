@@ -18,11 +18,15 @@ you have more than 3 items in your shopping cart the first item gets taken out.
 -----------------------------------------------------------------------------*/
 const shoppingCart = ['bananas', 'milk'];
 
+// Helper function to convert the shopping cart to a string
+function cartToString(cart) {
+  return cart.join(', ');
+}
 // ! Function to be tested
 function addToShoppingCart(item) {
   // Test 1: If no argument is provided, return the cart unchanged
   if (arguments.length === 0) {
-    return `You bought ${shoppingCart.join(', ')}!`;
+    return `You bought ${cartToString(shoppingCart)}!`;
   }
 
   // Test 2: Ensure only one argument is passed
@@ -38,7 +42,7 @@ function addToShoppingCart(item) {
     shoppingCart.shift();
   }
 
-  return `You bought ${shoppingCart.join(', ')}!`;
+  return `You bought ${cartToString(shoppingCart)}!`;
 }
 
 // ! Test functions (plain vanilla JavaScript)
