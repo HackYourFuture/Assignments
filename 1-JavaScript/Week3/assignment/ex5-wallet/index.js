@@ -69,7 +69,7 @@ walletJane.reportBalance();
 // eslint-disable-next-line no-unused-vars
 const quiz = {
   q1: {
-    question: 'At line 26, which variables are in the scope marked Closure?',
+    question: 'At line 24, which variables are in the scope marked Closure?',
     choices: { 
       a: 'There is no scope marked Closure', 
       b: 'cash, name', 
