@@ -1,0 +1,19 @@
+*** Unit Test Error Report ***
+
+(node:37257) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  .dist/2-Browsers/Week1/unit-tests/ex5-catWalk.test.js
+  br-wk1-ex5-catWalk
+    ✅ HTML should be syntactically valid (121 ms)
+    ✅ should have all TODO comments removed
+    ✅ should use `setInterval()` and/or `setTimeout()` (1 ms)
+    ✅ should use `window.onload` or `window.addEventListener()` for the `load` or `DOMContentLoaded` event
+    ✅ `window.onload` or `window.addEventListener` should not call its event handler function
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        2.496 s, estimated 3 s
+Ran all test suites matching /\/Users\/g\/Desktop\/wd\/hyf\/assignments\/JS_Module\/Assignments-cohort51\/.dist\/2-Browsers\/Week1\/unit-tests\/ex5-catWalk.test.js/i.
+No linting errors detected.
+No spelling errors detected.

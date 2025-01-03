@@ -1,0 +1,52 @@
+*** Unit Test Error Report ***
+
+Command failed: npx jest /Users/g/Desktop/wd/hyf/assignments/JS_Module/Assignments-cohort51/.dist/2-Browsers/Week1/unit-tests/ex6-gameOfLife.test.js --colors --noStackTrace --json
+ FAIL  .dist/2-Browsers/Week1/unit-tests/ex6-gameOfLife.test.js
+  br-wk1-ex6-gameOfLife
+    ✅ should exist and be executable (2 ms)
+    ✅ a living cell with zero living neighbors should die and have its life time reset to zero (1 ms)
+    ✅ a living cell with one living neighbor should die and have its life time reset to zero
+    ✅ a living cell with two living neighbors should survive and have its life time incremented by one (1 ms)
+    ✅ a living cell with three living neighbors should survive and have its life time incremented by one (1 ms)
+    ✅ a living cell with four living neighbors should die and have its life time reset to zero
+    ❌ a dead cell with zero living neighbors should remain dead and have a life time of zero (2 ms)
+    ❌ a dead cell with one living neighbor should remain dead and have a life time of zero
+    ❌ a dead cell with two living neighbors should remain dead and have a life time of zero (1 ms)
+    ✅ a dead cell with three living neighbors should come alive and have its lifeTime reset to one
+    ❌ a dead cell with four living neighbors should remain dead and have a life time of zero (1 ms)
+
+  ● br-wk1-ex6-gameOfLife › a dead cell with zero living neighbors should remain dead and have a life time of zero
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+  ● br-wk1-ex6-gameOfLife › a dead cell with one living neighbor should remain dead and have a life time of zero
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+  ● br-wk1-ex6-gameOfLife › a dead cell with two living neighbors should remain dead and have a life time of zero
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+  ● br-wk1-ex6-gameOfLife › a dead cell with four living neighbors should remain dead and have a life time of zero
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 7 passed, 11 total
+Snapshots:   0 total
+Time:        0.511 s
+Ran all test suites matching /\/Users\/g\/Desktop\/wd\/hyf\/assignments\/JS_Module\/Assignments-cohort51\/.dist\/2-Browsers\/Week1\/unit-tests\/ex6-gameOfLife.test.js/i.
+No linting errors detected.
+No spelling errors detected.

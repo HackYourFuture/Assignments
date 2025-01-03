@@ -1,1 +1,4 @@
 /* 3. Add a css rule for .list-item to make the color red. */
+.list-item {
+  color: red;
+}

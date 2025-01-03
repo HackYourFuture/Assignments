@@ -1,24 +1,45 @@
-//cspell: disable
-/*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Assignments/tree/main/2-Browsers/Week1#exercise-1-the-book-list
-
-I'd like to display my three favorite books inside a nice webpage!
-
-1. Iterate through the array of books.
-2. For each book, create a `<p>`
-element with the book title and author.
-3. Use a `<ul>`  and `<li>` to display the books.
-4. Add an `<img>` to each book that links to a URL of the book cover.
-5. Change the style of the book depending on whether you have read it(green) or not(red).
-
-The end result should look something like this:
-https://hackyourfuture.github.io/example-pages/Browsers/Week1/1-booklist/
-
------------------------------------------------------------------------------*/
-//cspell: enable
-
 function createBookList(books) {
-  // TODO your code goes in here, return the ul element
+  const bookListEl = document.createElement('ul');
+
+  books.forEach((book) => {
+    const bookItemEl = document.createElement('li');
+    bookItemEl.classList.add('book-item');
+
+    const bookInfoEl = document.createElement('div');
+    bookInfoEl.classList.add('book-info');
+
+    const bookTitleEl = document.createElement('p');
+    bookTitleEl.textContent = book.title;
+    bookTitleEl.classList.add('book-title');
+
+    const bookAuthorEl = document.createElement('p');
+    bookAuthorEl.textContent = book.author;
+    bookAuthorEl.classList.add('book-author');
+
+    bookInfoEl.appendChild(bookTitleEl);
+    bookInfoEl.appendChild(bookAuthorEl);
+
+    const bookCoverEl = document.createElement('img');
+    bookCoverEl.src = getCoverImagePath(book.title);
+    bookCoverEl.alt = `Book cover for ${book.title}`;
+    bookCoverEl.classList.add('book-cover');
+
+    bookItemEl.style.backgroundColor = book.alreadyRead
+      ? 'var(--finished-book-color)'
+      : 'var(--unfinished-book-color)';
+
+    bookItemEl.appendChild(bookInfoEl);
+    bookItemEl.appendChild(bookCoverEl);
+
+    bookListEl.appendChild(bookItemEl);
+  });
+
+  return bookListEl;
+}
+
+function getCoverImagePath(bookTitle) {
+  const words = bookTitle.toLowerCase().split(' ');
+  return `./assets/${words.join('_')}.jpg`;
 }
 
 function main() {
