@@ -80,7 +80,7 @@ Given this HTML:
 
 **File**: `ex3-hijackLogo.js`
 
-No homepage is safe from the logo bandit! Every time he sees a Google Logo he replaces it with a logo from HackYourFuture instead: <https://www.hackyourfuture.dk/static/logo-dark.svg>.
+No homepage is safe from the logo bandit! Every time he sees a Google Logo he replaces it with a logo from HackYourFuture instead: <https://github.com/HackYourFuture/Assignments/tree/main/assets/hyf-logo-black-bg-small.png>.
 
 In this exercise you're expected to write a JavaScript function that can be executed in the console of the [Google website](https://www.google.com).
 
