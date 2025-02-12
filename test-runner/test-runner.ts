@@ -195,7 +195,9 @@ async function execJest(exercisePath: string): Promise<JestResult> {
   return { message, numFailedTests, numPassedTests };
 }
 
-async function execESLint(exercisePath: string): Promise<string> {
+async function execESLint(
+  exercisePath: string
+): Promise<{ hasErrors: boolean; message: string }> {
   const lintSpec = fs.existsSync(exercisePath)
     ? exercisePath
     : `${exercisePath}.js`;
@@ -219,12 +221,12 @@ async function execESLint(exercisePath: string): Promise<string> {
     console.log(chalk.yellow(`\n${title}`));
     console.log(chalk.red(output));
     const message = `\n${title}\n${output}`;
-    return message;
+    return { hasErrors: true, message };
   }
 
   const message = 'No linting errors detected.';
   console.log(chalk.green(message));
-  return message;
+  return { hasErrors: false, message };
 }
 
 async function execSpellChecker(exercisePath: string): Promise<string> {
@@ -260,20 +262,20 @@ export async function runTest(menu: ExerciseMenu): Promise<void> {
   let report = '';
   const exercisePath = buildExercisePath(module, week, exercise);
 
-  const result = await execJest(exercisePath);
-  report += `${result.message}\n`;
+  const jestResult = await execJest(exercisePath);
+  report += `${jestResult.message}\n`;
 
-  const eslintReport = await execESLint(exercisePath);
-  report += `${eslintReport}\n`;
+  const eslintResult = await execESLint(exercisePath);
+  report += `${eslintResult.message}\n`;
 
   const spellCheckerReport = await execSpellChecker(exercisePath);
   report += `${spellCheckerReport}\n`;
 
   if (isModifiedExercise(menu)) {
     const moduleStats = updateTestHash(module, week, exercise, {
-      numPassedTests: result?.numPassedTests || 0,
-      numFailedTests: result?.numFailedTests || 0,
-      hasESLintErrors: !!eslintReport,
+      numPassedTests: jestResult?.numPassedTests || 0,
+      numFailedTests: jestResult?.numFailedTests || 0,
+      hasESLintErrors: eslintResult.hasErrors,
     });
 
     await writeTestReport(module, week, exercise, report);

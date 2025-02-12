@@ -411,7 +411,7 @@ To test your implementation with the Jest unit tests, run `npm test`. This will 
 
 In this exercise we will practice using the Chrome debugger. Other browsers, such as FireFox, Edge and Safari have similar tools but the exact look and feel may be different.
 
-At the end of the `index.js` file of the exercise you will find a `quiz` object with multiple-choice questions that we would like you to complete as you follow along with the instructions below.
+At the end of the `index.js` file of the exercise you will find a `quiz` object with multiple-choice questions that we would like you to complete as you follow along with the instructions below. For each question, change the `?` in the `answer` property with the lowercase letter of the correct choice.
 
 > Read more about debuggers in general in the Study Guide: [Debuggers](https://hackyourfuture.github.io/study/#/tools/debuggers)
 >
